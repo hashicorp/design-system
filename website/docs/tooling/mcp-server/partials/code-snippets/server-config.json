@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "helios-design-system": {
+      "command": "node",
+      "args": ["/absolute/path/to/design-system/packages/mcp/dist/index.js"]
+    }
+  }
+}

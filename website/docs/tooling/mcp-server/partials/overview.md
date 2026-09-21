@@ -1,4 +1,4 @@
-The Helios Design System (HDS) MCP server gives AI assistants structured access to our component APIs, documentation, design tokens, and Flight icons. It helps an assistant find current HDS resources and apply our guidance while you design, build, or review an application.
+The Helios Design System (HDS) MCP server gives AI assistants structured access to our component APIs, documentation, design tokens, and Flight icons. It helps an assistant find HDS resources and apply our guidance while you design, build, or review an application.
 
 The server implements the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/), an open standard for connecting AI applications to external tools and data sources.
 
@@ -35,14 +35,17 @@ You need:
 
 Clone the HDS repository, install its dependencies, and build the MCP package.
 
-```bash
-git clone https://github.com/hashicorp/design-system.git
-cd design-system
-pnpm install
-pnpm -F @hashicorp/design-system-mcp build
-```
+[[code-snippets/build-server]]
 
 ### Connect an MCP client
+
+!!! Information
+
+**Check your client's configuration format**
+
+MCP clients use different configuration files and may use a different property name for local servers. Check your client's documentation for where to add the configuration and whether you need to adapt the format below.
+
+!!!
 
 Add the following server definition to your MCP client configuration. Replace `/absolute/path/to/design-system` with the absolute path to your local checkout.
 
@@ -51,15 +54,11 @@ Add the following server definition to your MCP client configuration. Replace `/
   "mcpServers": {
     "helios-design-system": {
       "command": "node",
-      "args": [
-        "/absolute/path/to/design-system/packages/mcp/dist/index.js"
-      ]
+      "args": ["/absolute/path/to/design-system/packages/mcp/dist/index.js"]
     }
   }
 }
 ```
-
-MCP clients use different configuration files and may use a different property name for local servers. Refer to your client's documentation if it doesn't accept this configuration format.
 
 Restart or reload your MCP client after updating its configuration.
 
@@ -69,22 +68,28 @@ Ask your client a question that requires HDS information, for example:
 
 > Find the HDS component for an advanced data table and show me its exact invocation name.
 
-Your client should call `search_hds_components` and return one or more matching components. If your client displays connected servers or tools, confirm that `helios-design-system-mcp` and its three tools are available.
+Your client should call `search_hds_components` and return one or more matching components. If your client displays connected servers or tools, look for the server you configured as `helios-design-system` and the tools listed below.
 
-## How the server retrieves HDS guidance
+## Available tools
 
-The server separates discovery from detailed documentation so your assistant can retrieve only the context needed for a task. Depending on your request, it can:
+Your assistant uses these tools to find HDS information in response to your requests. All tools are read-only and use local catalogs or bundled documentation.
 
-1. Search for a component with `search_hds_components` to confirm that it exists and get its exact invocation name.
-2. Pass the component's `docsPath` to `search_hds_docs` to find relevant guidance.
-3. Pass a search result's `id` to `read_hds_docs` to read the complete passage, including code examples.
-4. Read token or icon resources when the task requires exact asset metadata.
+| Tool | Purpose |
+|------|---------|
+| `search_hds_components` | Finds components and confirms their exact names. |
+| `get_hds_component` | Retrieves a component's API, including arguments, accepted values, blocks, and yielded components. |
+| `search_hds_docs` | Finds usage, accessibility, and other guidance in the bundled HDS documentation. |
+| `read_hds_docs` | Reads a complete documentation passage, including guidance and code examples. |
+| `search_hds_icons` | Finds Flight icons and their available sizes by name or keyword. |
+| `search_hds_tokens` | Finds design tokens, their values, and CSS variable names. |
 
-For example, you can ask:
+## Prompt guidance and examples
 
-> Find the HDS button component, then read the documentation for making it full width.
+Tell your assistant what you want to accomplish and include relevant context, such as the component name, framework, documentation area, or code you want reviewed. Specific requests help your assistant find relevant HDS guidance.
 
-Your client can complete this as a sequence of component search, documentation search, and documentation read operations.
+For more specific results, you can ask your assistant to find a component and consult its documentation before suggesting an implementation. For example:
+
+> Find the HDS Button component, search its documentation for full-width usage, then read the guidance and code examples before showing me how to add it to my Ember template.
 
 ### Example prompts
 
@@ -94,35 +99,6 @@ Your client can complete this as a sequence of component search, documentation s
 - "Find the design token for the primary interactive color."
 - "Find the Flight icon for copying content and list its available sizes."
 - "What changed in the latest version of the HDS Modal?"
-
-Include relevant context in your request, such as the component name, task, framework, or documentation area. Specific requests help the server return more relevant passages.
-
-## Available tools
-
-Tools let an MCP client search and read HDS information. All tools are read-only and operate on local catalogs.
-
-| Tool | Purpose | Inputs |
-|------|---------|--------|
-| `search_hds_components` | Finds components by invocation name, class name, module path, or documentation path. Use it to confirm names and spelling before writing a template. | `query`; optional `limit` |
-| `search_hds_docs` | Searches a bundled snapshot of the HDS documentation and returns ranked passages, snippets, and canonical URLs. | `query`; optional `limit`, `section`, `tab`, and `docsPath` filters |
-| `read_hds_docs` | Reads the complete Markdown for a passage returned by `search_hds_docs`, including usage examples and code snippets. | `id`; optional `includeChildren` and `maxBytes` |
-
-## Available resources
-
-Resources expose structured catalogs to clients that support MCP resources.
-
-| Resource | Purpose |
-|----------|---------|
-| `hds://components` | Lists the component catalog and summary metadata. |
-| `hds://components/{componentName}` | Returns the detailed record for a component. |
-| `hds://icons` | Lists Flight icons, categories, and available assets. |
-| `hds://icons/{iconName}` | Returns the detailed record for a Flight icon. |
-| `hds://tokens` | Lists design tokens and their resolved values. |
-| `hds://tokens/{tokenKey}` | Returns the detailed record for a design token. |
-
-The component, icon, and token detail resources support name completion. Resource support varies by MCP client. You can still search components and documentation when your client doesn't expose resources.
-
-The server doesn't currently provide MCP prompts.
 
 ## Data and privacy
 
@@ -153,8 +129,6 @@ Run `pnpm install` from the repository root, then rebuild the server. The server
 
 Run the MCP Inspector from the repository root to view the registered tools and resources and call them interactively.
 
-```bash
-pnpm -F @hashicorp/design-system-mcp start:dev
-```
+[[code-snippets/inspect-server]]
 
-For implementation details, visit the [HDS repository](/https://github.com/hashicorp/design-system/tree/main/packages/mcp). For support and to report an issue visit the [support](/about/support) page.
+For implementation details, visit the [HDS repository](https://github.com/hashicorp/design-system/tree/main/packages/mcp). To get support or report an issue, visit the [support](/about/support) page.
