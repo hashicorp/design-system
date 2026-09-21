@@ -22,10 +22,10 @@ Use a [Checkmark List Item](/components/dropdown#selection-listitems) with a lea
 
 | Option          | Leading icon | Notes                                                            |
 | --------------- | ------------ | ---------------------------------------------------------------- |
-| HashiCorp theme | `hashicorp`  | Sets the theme to the HashiCorp Helios theme                     |
-| System theme    | `monitor`    | Reflects the operating system's current light or dark preference |
-| Light theme     | `sun`        | Sets light mode regardless of OS setting                         |
-| Dark theme      | `moon`       | Sets dark mode regardless of OS setting                          |
+| HashiCorp theme | <Doc::Layout @direction="horizontal" @vAlign="center" @spacing="0.5rem">`hashicorp` <Hds::Icon @name="hashicorp" /></Doc::Layout>  | Sets the theme to the HashiCorp Helios theme |
+| System theme | <Doc::Layout @direction="horizontal" @vAlign="center" @spacing="0.5rem">`monitor` <Hds::Icon @name="monitor" /></Doc::Layout> | Reflects the operating system's current light or dark preference |
+| Light theme     | <Doc::Layout @direction="horizontal" @vAlign="center" @spacing="0.5rem">`sun` <Hds::Icon @name="sun" /></Doc::Layout> | Sets light mode regardless of OS setting |
+| Dark theme      | <Doc::Layout @direction="horizontal" @vAlign="center" @spacing="0.5rem">`moon` <Hds::Icon @name="moon" /></Doc::Layout> | Sets dark mode regardless of OS |
 
 ## System theme detection
 
