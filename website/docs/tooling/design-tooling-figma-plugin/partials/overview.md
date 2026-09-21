@@ -1,1 +1,0 @@
-Here is an overview of the HDS Design Tooling Figma Plugin.
