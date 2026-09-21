@@ -5,7 +5,7 @@ caption: Guidelines for allowing users to select an application's visual theme.
 related: ['components/app-header', 'components/dropdown']
 previewImage: assets/illustrations/patterns/theme-selection.jpg
 navigation:
-  keywords: ['theme', 'dark mode', 'light mode', 'system preference']
+keywords: ['themes', 'modes', 'light', 'dark', 'system', 'preferences']
 ---
 
 <section data-tab="Guidelines">
