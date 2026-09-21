@@ -82,10 +82,10 @@ $doc-code-group-footer-height: 48px; // 32px button height + 16px bottom padding
 }
 
 .doc-code-group__theme-picker-container {
-display:flex;
-flex-direction: row;
-padding: 6px;
-border-right: 1px solid var(--doc-color-gray-400);
+  display:flex;
+  flex-direction: row;
+  padding: 6px;
+  border-right: 1px solid var(--doc-color-gray-400);
 }
 
 .doc-code-group__theme-picker-label {
@@ -117,7 +117,7 @@ border-right: 1px solid var(--doc-color-gray-400);
 
   &:focus-within {
     outline: none;
-    box-shadow:0 0 0 2px #2264D6;
+    box-shadow: 0 0 0 2px #2264D6;
   }
 }
 
