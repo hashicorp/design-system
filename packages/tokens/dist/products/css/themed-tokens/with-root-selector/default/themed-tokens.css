@@ -484,6 +484,7 @@
   --hds-form-indicator-optional-typography-line-height: var(--hds-typography-body-100-line-height);
   --hds-form-label-foreground-color: #0c0c0e;
   --hds-form-label-inline-typography-font-size: var(--hds-typography-body-200-font-size);
+  --hds-form-label-inline-typography-line-height: var(--hds-typography-body-200-line-height);
   --hds-form-label-typography-font-size: var(--hds-typography-body-200-font-size);
   --hds-form-label-typography-font-weight: var(--hds-typography-font-weight-semibold);
   --hds-form-label-typography-line-height: var(--hds-typography-body-200-line-height);

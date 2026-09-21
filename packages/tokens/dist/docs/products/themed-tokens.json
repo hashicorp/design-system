@@ -20602,6 +20602,41 @@
         "font-size"
       ]
     },
+    "hds-form-label-inline-typography-line-height": {
+      "key": "{form.label.inline.typography.line-height}",
+      "$type": "number",
+      "$value": 1.4286,
+      "$modes": {
+        "default": 1.4286,
+        "cds-g0": 1.28572,
+        "cds-g10": 1.28572,
+        "cds-g90": 1.28572,
+        "cds-g100": 1.28572
+      },
+      "original": {
+        "$type": "number",
+        "$value": "{typography.body-200.line-height}",
+        "$modes": {
+          "default": "{typography.body-200.line-height}",
+          "cds-g0": "{carbon.typography.bodyCompact01.line-height}",
+          "cds-g10": "{carbon.typography.bodyCompact01.line-height}",
+          "cds-g90": "{carbon.typography.bodyCompact01.line-height}",
+          "cds-g100": "{carbon.typography.bodyCompact01.line-height}"
+        },
+        "key": "{form.label.inline.typography.line-height}"
+      },
+      "name": "hds-form-label-inline-typography-line-height",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "label",
+        "inline",
+        "typography",
+        "line-height"
+      ]
+    },
     "hds-form-legend-color": {
       "key": "{form.legend.color}",
       "$type": "color",
@@ -54769,6 +54804,41 @@
         "inline",
         "typography",
         "font-size"
+      ]
+    },
+    "hds-form-label-inline-typography-line-height": {
+      "key": "{form.label.inline.typography.line-height}",
+      "$type": "number",
+      "$value": 1.28572,
+      "$modes": {
+        "default": 1.42857,
+        "cds-g0": 1.28572,
+        "cds-g10": 1.28572,
+        "cds-g90": 1.28572,
+        "cds-g100": 1.28572
+      },
+      "original": {
+        "$type": "number",
+        "$value": "{carbon.typography.bodyCompact01.line-height}",
+        "$modes": {
+          "default": "{typography.body-200.line-height}",
+          "cds-g0": "{carbon.typography.bodyCompact01.line-height}",
+          "cds-g10": "{carbon.typography.bodyCompact01.line-height}",
+          "cds-g90": "{carbon.typography.bodyCompact01.line-height}",
+          "cds-g100": "{carbon.typography.bodyCompact01.line-height}"
+        },
+        "key": "{form.label.inline.typography.line-height}"
+      },
+      "name": "hds-form-label-inline-typography-line-height",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "label",
+        "inline",
+        "typography",
+        "line-height"
       ]
     },
     "hds-form-legend-color": {
@@ -88956,6 +89026,41 @@
         "font-size"
       ]
     },
+    "hds-form-label-inline-typography-line-height": {
+      "key": "{form.label.inline.typography.line-height}",
+      "$type": "number",
+      "$value": 1.28572,
+      "$modes": {
+        "default": 1.42857,
+        "cds-g0": 1.28572,
+        "cds-g10": 1.28572,
+        "cds-g90": 1.28572,
+        "cds-g100": 1.28572
+      },
+      "original": {
+        "$type": "number",
+        "$value": "{carbon.typography.bodyCompact01.line-height}",
+        "$modes": {
+          "default": "{typography.body-200.line-height}",
+          "cds-g0": "{carbon.typography.bodyCompact01.line-height}",
+          "cds-g10": "{carbon.typography.bodyCompact01.line-height}",
+          "cds-g90": "{carbon.typography.bodyCompact01.line-height}",
+          "cds-g100": "{carbon.typography.bodyCompact01.line-height}"
+        },
+        "key": "{form.label.inline.typography.line-height}"
+      },
+      "name": "hds-form-label-inline-typography-line-height",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "label",
+        "inline",
+        "typography",
+        "line-height"
+      ]
+    },
     "hds-form-legend-color": {
       "key": "{form.legend.color}",
       "$type": "color",
@@ -123141,6 +123246,41 @@
         "font-size"
       ]
     },
+    "hds-form-label-inline-typography-line-height": {
+      "key": "{form.label.inline.typography.line-height}",
+      "$type": "number",
+      "$value": 1.28572,
+      "$modes": {
+        "default": 1.42857,
+        "cds-g0": 1.28572,
+        "cds-g10": 1.28572,
+        "cds-g90": 1.28572,
+        "cds-g100": 1.28572
+      },
+      "original": {
+        "$type": "number",
+        "$value": "{carbon.typography.bodyCompact01.line-height}",
+        "$modes": {
+          "default": "{typography.body-200.line-height}",
+          "cds-g0": "{carbon.typography.bodyCompact01.line-height}",
+          "cds-g10": "{carbon.typography.bodyCompact01.line-height}",
+          "cds-g90": "{carbon.typography.bodyCompact01.line-height}",
+          "cds-g100": "{carbon.typography.bodyCompact01.line-height}"
+        },
+        "key": "{form.label.inline.typography.line-height}"
+      },
+      "name": "hds-form-label-inline-typography-line-height",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "label",
+        "inline",
+        "typography",
+        "line-height"
+      ]
+    },
     "hds-form-legend-color": {
       "key": "{form.legend.color}",
       "$type": "color",
@@ -157324,6 +157464,41 @@
         "inline",
         "typography",
         "font-size"
+      ]
+    },
+    "hds-form-label-inline-typography-line-height": {
+      "key": "{form.label.inline.typography.line-height}",
+      "$type": "number",
+      "$value": 1.28572,
+      "$modes": {
+        "default": 1.42857,
+        "cds-g0": 1.28572,
+        "cds-g10": 1.28572,
+        "cds-g90": 1.28572,
+        "cds-g100": 1.28572
+      },
+      "original": {
+        "$type": "number",
+        "$value": "{carbon.typography.bodyCompact01.line-height}",
+        "$modes": {
+          "default": "{typography.body-200.line-height}",
+          "cds-g0": "{carbon.typography.bodyCompact01.line-height}",
+          "cds-g10": "{carbon.typography.bodyCompact01.line-height}",
+          "cds-g90": "{carbon.typography.bodyCompact01.line-height}",
+          "cds-g100": "{carbon.typography.bodyCompact01.line-height}"
+        },
+        "key": "{form.label.inline.typography.line-height}"
+      },
+      "name": "hds-form-label-inline-typography-line-height",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "label",
+        "inline",
+        "typography",
+        "line-height"
       ]
     },
     "hds-form-legend-color": {

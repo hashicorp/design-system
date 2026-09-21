@@ -648,6 +648,7 @@
   --hds-form-label-typography-font-weight: 600;
   --hds-form-label-typography-line-height: 1.4286;
   --hds-form-label-inline-typography-font-size: 0.875rem;
+  --hds-form-label-inline-typography-line-height: 1.4286;
   --hds-form-legend-color: #0c0c0e; /** deprecated: use `hds-form-legend-foreground-color` instead */
   --hds-form-legend-foreground-color: #0c0c0e;
   --hds-form-legend-typography-font-size: 0.875rem;
@@ -7685,6 +7686,7 @@ button.hds-button[href]::after {
 
 .hds-form-field--checkbox .hds-form-field__label {
   font-size: var(--hds-form-label-inline-typography-font-size);
+  line-height: var(--hds-form-label-inline-typography-line-height);
 }
 
 /**
@@ -7799,6 +7801,7 @@ button.hds-button[href]::after {
 
 .hds-form-field--radio .hds-form-field__label {
   font-size: var(--hds-form-label-inline-typography-font-size);
+  line-height: var(--hds-form-label-inline-typography-line-height);
 }
 
 /**
