@@ -128,7 +128,9 @@ The server doesn't currently provide MCP prompts.
 
 The server is read-only. It doesn't modify your application, HDS packages, or documentation.
 
-Component, token, and icon data are read from local HDS packages. Documentation search uses a snapshot bundled with the server. Tool and resource requests don't make network requests or send your project data to an HDS service.
+- Component, token, and icon data are read from local HDS packages.
+- Documentation search uses a snapshot bundled with the server.
+- Tool and resource requests don't make network requests or send your project data to an HDS service.
 
 Documentation results include canonical `helios.hashicorp.design` URLs. An MCP client may choose to open or fetch those URLs independently, subject to the client's configuration and permissions.
 
@@ -155,4 +157,4 @@ Run the MCP Inspector from the repository root to view the registered tools and 
 pnpm -F @hashicorp/design-system-mcp start:dev
 ```
 
-For implementation details or to report an issue, visit the [HDS repository](https://github.com/hashicorp/design-system/tree/main/packages/mcp).
+For implementation details, visit the [HDS repository](/https://github.com/hashicorp/design-system/tree/main/packages/mcp). For support and to report an issue visit the [support](/about/support) page.

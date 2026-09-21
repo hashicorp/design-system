@@ -1,6 +1,6 @@
 # Try the Helios MCP server
 
-We’re testing an MCP server that gives clients access to Helios component APIs, documentation, design tokens, and Flight icons. We plan to release it as an installable dependency, but for now you can start testing it locally from a checkout of the design system repo:
+We’re testing an MCP server that gives clients access to Helios component APIs, documentation, design tokens, and Flight icons. We plan to release it as an installable dependency, but for now you can start testing it locally from a checkout of the design system repo.
 
 You’ll need Node.js 24.x and pnpm 10.11.0.
 
