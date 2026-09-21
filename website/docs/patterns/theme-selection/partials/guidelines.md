@@ -27,12 +27,18 @@ Use a [Checkmark List Item](/components/dropdown#selection-listitems) with a lea
 | Light theme     | <Doc::Layout @direction="horizontal" @vAlign="center" @spacing="0.5rem">`sun` <Hds::Icon @name="sun" /></Doc::Layout> | Sets light mode regardless of OS setting |
 | Dark theme      | <Doc::Layout @direction="horizontal" @vAlign="center" @spacing="0.5rem">`moon` <Hds::Icon @name="moon" /></Doc::Layout> | Sets dark mode regardless of OS |
 
+## Default theme
+
+During the transition period from HashiCorp visual language to IBM Carbon, set the application theme to `light` by default to make this transition less jarring. Otherwise, set the defaul theme to `system` to match the users operating system.
+
 ## System theme detection
 
-When a user selects the System theme option, the application should automatically match the user's operating system light or dark preference. This means the theme will update without any additional interaction from the user — if they switch their OS appearance from light to dark while the application is open, the theme should reflect that change immediately.
+The System theme should automatically match the user's operating system (OS) light or dark preference, therefore, if a user switches their OS preference from light to dark while the application is open, it should reflect the change immediately.
 
 The [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS media query is the standard mechanism for reading this preference and is what is used under the hood by the theme service provided by the design system.
 
 ## Persistence
 
-When a user selects a theme, persisting that choice ensures they don't have to re-select it the next time they open the application. Storing the preference in `localStorage` or a user profile is the most common way to achieve this. Without persistence, the application will fall back to its default theme on every page load, which creates an inconsistent and potentially disruptive experience, particularly for users who rely on dark mode for accessibility or comfort reasons.
+Persisting the user's choice ensures their preferred theme is displayed by default whenever they visit the application, reducing friction for future visits.
+
+When the user's preference isn't stored in `localStorage` or as a user setting, the application will display the default theme. This creates an inconsistent and disruptive experience, particularly for users who rely on dark mode for accessibility reasons.
