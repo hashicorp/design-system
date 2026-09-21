@@ -147,3 +147,16 @@ The default invocation includes a set of contextual components, one or more fiel
 The layout of the content inside the "control" container is the responsibility of the product team.
 
 [[code-snippets/form-primitives-fieldset]]
+
+### Form::VisibilityToggle
+
+!!! Callout
+
+It’s unlikely that you’ll need to use this component directly, but if you do [contact the Design Systems Team](/about/support) so we can provide support.
+!!!
+
+The default invocation renders an icon-only button used to show or hide masked content. Pass an `@isVisible` argument to control the icon displayed by the button. Set `@isVisible={{true}}` when the associated content is hidden to display the `eye` icon. Set `@isVisible={{false}}` when the associated content is visible to display the `eye-off` icon. Provide an `@ariaLabel` argument to describe the button action and an `@ariaMessageText` argument to announce the current visibility state when the button is pressed.
+
+Because this component only renders the toggle button, it is the responsibility of the product team to manage the visibility state of the associated form control, provide the click behavior, and handle the semantic relationship with the associated form control using the `aria-controls` attribute. 
+
+[[code-snippets/form-primitives-visibility-toggle]]
