@@ -227,3 +227,16 @@ Control, label, helper text, and error content are passed to the field as yielde
     </Doc::ComponentApi>
   </C.Property>
 </Doc::ComponentApi>
+
+### Form::VisibilityToggle
+<Doc::ComponentApi as |C|>
+  <C.Property @name="isVisible" @type="boolean" @default="false">
+    Controls which icon is displayed to indicate the visibility state. `eye` for hidden content. `eye-off` for visible content. 
+  </C.Property>
+  <C.Property @name="ariaLabel" @type="string">
+    Accepts a string. Sets an accessible name for the button's action.
+  </C.Property>
+  <C.Property @name="ariaMessageText" @type="string">
+    Accepts a string. Sets a message announced via the component's aria-live region after the button is toggled.
+  </C.Property>
+</Doc::ComponentApi>
