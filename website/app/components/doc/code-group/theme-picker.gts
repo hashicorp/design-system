@@ -16,7 +16,7 @@ interface DocCodeGroupThemePickerSignature {
     onThemeChange: (event: Event) => void;
     eventName: string;
   };
-  Element: HTMLFieldSetElement;
+  Element: HTMLDivElement;
 }
 
 export default class DocCodeGroupThemePicker extends Component<DocCodeGroupThemePickerSignature> {
