@@ -150,13 +150,6 @@
         }
       },
       "base": {
-        "foreground": {
-          "color": {
-            "$type": "color",
-            "$value": "{foreground.color.strong}",
-            "group": "components"
-          }
-        },
         "surface": {
           "color": {
             "hover": {
