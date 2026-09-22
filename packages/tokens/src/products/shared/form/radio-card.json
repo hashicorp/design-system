@@ -40,10 +40,6 @@
           "$value": "1",
           "unit": "px"
         },
-        "radius": {
-          "$type": "dimension",
-          "$value": "{border.radius.medium}"
-        },
         "color": {
           "default": {
             "$type": "color",
