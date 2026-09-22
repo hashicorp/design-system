@@ -29,7 +29,7 @@ Use a [Checkmark List Item](/components/dropdown#selection-listitems) with a lea
 
 ## Default theme
 
-During the transition period from HashiCorp visual language to IBM Carbon, set the application theme to `light` by default to make this transition less jarring. Otherwise, set the defaul theme to `system` to match the users operating system.
+During the transition period from HashiCorp visual language to IBM Carbon, set the application theme to `light` by default to make this transition less jarring. Otherwise, set the default theme to `system` to match the users operating system.
 
 ## System theme detection
 
