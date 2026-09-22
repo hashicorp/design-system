@@ -2,4 +2,8 @@
 "@hashicorp/design-system-components": minor
 ---
 
-`Tabs` - Added `@iconColor` argument to customize the icon color on a `Tab`
+<!-- START components/tabs -->
+`Tabs` - Added arguments to support customizing the icon on a `Tab`, including:
+- `@iconColor` argument to set an icon color
+- `@iconTitle` argument to add accessible text to an icon
+<!-- END -->

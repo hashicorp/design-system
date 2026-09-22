@@ -25,6 +25,7 @@ export interface HdsTabsTabSignature {
     selectedTabIndex?: number;
     icon?: HdsIconSignature['Args']['name'];
     iconColor?: HdsIconSignature['Args']['color'];
+    iconTitle?: HdsIconSignature['Args']['title'];
     count?: string;
     isSelected?: boolean;
     didInsertNode?: (element: HTMLButtonElement, isSelected?: boolean) => void;
@@ -137,6 +138,7 @@ export default class HdsTabsTab extends Component<HdsTabsTabSignature> {
           <HdsIcon
             @name={{@icon}}
             @color={{@iconColor}}
+            @title={{@iconTitle}}
             class="hds-tabs__tab-icon"
             role="presentation"
           />

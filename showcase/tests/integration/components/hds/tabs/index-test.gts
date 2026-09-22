@@ -69,6 +69,7 @@ const assertCssVarsCloseTo = (
 const createTabs = async (options: {
   iconTab1?: HdsIconSignature['Args']['name'];
   iconColorTab1?: HdsIconSignature['Args']['color'];
+  iconTitleTab1?: HdsIconSignature['Args']['title'];
   countTab1?: string;
   isSelectedTab1?: boolean;
   isSelectedTab2?: boolean;
@@ -90,6 +91,7 @@ const createTabs = async (options: {
           @isSelected={{options.isSelectedTab1}}
           @icon={{options.iconTab1}}
           @iconColor={{options.iconColorTab1}}
+          @iconTitle={{options.iconTitleTab1}}
           @count={{options.countTab1}}
         >One</T.Tab>
         <T.Tab
@@ -478,6 +480,18 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .dom('.hds-tabs__tab-icon')
       .hasAttribute('data-test-icon', 'waypoint')
       .hasAttribute('fill', 'var(--token-color-waypoint-brand)');
+  });
+
+  test('`Tab` should render an icon with accessible text if @iconTitle is defined', async function (assert) {
+    await createTabs({
+      iconTab1: 'x-square-fill',
+      iconTitleTab1: 'critical error',
+    });
+    assert.dom('.hds-tabs__tab-icon').exists();
+    assert
+      .dom('.hds-tabs__tab-icon')
+      .hasAttribute('data-test-icon', 'x-square-fill');
+    assert.dom('.hds-tabs__tab-icon title').containsText('critical error');
   });
 
   // ===============================================================
