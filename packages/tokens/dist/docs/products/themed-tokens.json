@@ -21384,6 +21384,44 @@
         "width"
       ]
     },
+    "hds-form-checkbox-surface-color-checked-default": {
+      "key": "{form.checkbox.surface.color.checked.default}",
+      "$type": "color",
+      "$value": "#1060ff",
+      "group": "components",
+      "$modes": {
+        "default": "#1060ff",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.blue-200}",
+        "group": "components",
+        "$modes": {
+          "default": "{core.color.blue-200}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{form.checkbox.surface.color.checked.default}"
+      },
+      "name": "hds-form-checkbox-surface-color-checked-default",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "checkbox",
+        "surface",
+        "color",
+        "checked",
+        "default"
+      ]
+    },
     "hds-form-checkbox-background-image-size": {
       "key": "{form.checkbox.background-image.size}",
       "$type": "dimension",
@@ -22045,44 +22083,6 @@
         "hover"
       ]
     },
-    "hds-form-control-surface-color-checked-default": {
-      "key": "{form.control.surface.color.checked.default}",
-      "$type": "color",
-      "$value": "#1060ff",
-      "group": "components",
-      "$modes": {
-        "default": "#1060ff",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{core.color.blue-200}",
-        "group": "components",
-        "$modes": {
-          "default": "{core.color.blue-200}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{form.control.surface.color.checked.default}"
-      },
-      "name": "hds-form-control-surface-color-checked-default",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "surface",
-        "color",
-        "checked",
-        "default"
-      ]
-    },
     "hds-form-control-surface-color-checked-disabled": {
       "key": "{form.control.surface.color.checked.disabled}",
       "$type": "color",
@@ -22571,8 +22571,8 @@
         "color"
       ]
     },
-    "hds-form-control-disabled-border-color": {
-      "key": "{form.control.disabled.border.color}",
+    "hds-form-control-disabled-border-color-disabled": {
+      "key": "{form.control.disabled.border.color.disabled}",
       "$type": "color",
       "$value": "#656a7633",
       "group": "components",
@@ -22594,9 +22594,9 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{form.control.disabled.border.color}"
+        "key": "{form.control.disabled.border.color.disabled}"
       },
-      "name": "hds-form-control-disabled-border-color",
+      "name": "hds-form-control-disabled-border-color-disabled",
       "attributes": {
         "category": "form"
       },
@@ -22605,7 +22605,8 @@
         "control",
         "disabled",
         "border",
-        "color"
+        "color",
+        "disabled"
       ]
     },
     "hds-form-control-padding-vertical": {
@@ -55506,6 +55507,44 @@
         "width"
       ]
     },
+    "hds-form-checkbox-surface-color-checked-default": {
+      "key": "{form.checkbox.surface.color.checked.default}",
+      "$type": "color",
+      "$value": "#161616",
+      "group": "components",
+      "$modes": {
+        "default": "#0f62fe",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.iconPrimary}",
+        "group": "components",
+        "$modes": {
+          "default": "{core.color.blue-200}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{form.checkbox.surface.color.checked.default}"
+      },
+      "name": "hds-form-checkbox-surface-color-checked-default",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "checkbox",
+        "surface",
+        "color",
+        "checked",
+        "default"
+      ]
+    },
     "hds-form-checkbox-background-image-size": {
       "key": "{form.checkbox.background-image.size}",
       "$type": "dimension",
@@ -56167,44 +56206,6 @@
         "hover"
       ]
     },
-    "hds-form-control-surface-color-checked-default": {
-      "key": "{form.control.surface.color.checked.default}",
-      "$type": "color",
-      "$value": "#161616",
-      "group": "components",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.white.iconPrimary}",
-        "group": "components",
-        "$modes": {
-          "default": "{core.color.blue-200}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{form.control.surface.color.checked.default}"
-      },
-      "name": "hds-form-control-surface-color-checked-default",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "surface",
-        "color",
-        "checked",
-        "default"
-      ]
-    },
     "hds-form-control-surface-color-checked-disabled": {
       "key": "{form.control.surface.color.checked.disabled}",
       "$type": "color",
@@ -56695,8 +56696,8 @@
         "color"
       ]
     },
-    "hds-form-control-disabled-border-color": {
-      "key": "{form.control.disabled.border.color}",
+    "hds-form-control-disabled-border-color-disabled": {
+      "key": "{form.control.disabled.border.color.disabled}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "group": "components",
@@ -56718,9 +56719,9 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{form.control.disabled.border.color}"
+        "key": "{form.control.disabled.border.color.disabled}"
       },
-      "name": "hds-form-control-disabled-border-color",
+      "name": "hds-form-control-disabled-border-color-disabled",
       "attributes": {
         "category": "form"
       },
@@ -56729,7 +56730,8 @@
         "control",
         "disabled",
         "border",
-        "color"
+        "color",
+        "disabled"
       ]
     },
     "hds-form-control-padding-vertical": {
@@ -89642,6 +89644,44 @@
         "width"
       ]
     },
+    "hds-form-checkbox-surface-color-checked-default": {
+      "key": "{form.checkbox.surface.color.checked.default}",
+      "$type": "color",
+      "$value": "#161616",
+      "group": "components",
+      "$modes": {
+        "default": "#0f62fe",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.iconPrimary}",
+        "group": "components",
+        "$modes": {
+          "default": "{core.color.blue-200}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{form.checkbox.surface.color.checked.default}"
+      },
+      "name": "hds-form-checkbox-surface-color-checked-default",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "checkbox",
+        "surface",
+        "color",
+        "checked",
+        "default"
+      ]
+    },
     "hds-form-checkbox-background-image-size": {
       "key": "{form.checkbox.background-image.size}",
       "$type": "dimension",
@@ -90303,44 +90343,6 @@
         "hover"
       ]
     },
-    "hds-form-control-surface-color-checked-default": {
-      "key": "{form.control.surface.color.checked.default}",
-      "$type": "color",
-      "$value": "#161616",
-      "group": "components",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g10.iconPrimary}",
-        "group": "components",
-        "$modes": {
-          "default": "{core.color.blue-200}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{form.control.surface.color.checked.default}"
-      },
-      "name": "hds-form-control-surface-color-checked-default",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "surface",
-        "color",
-        "checked",
-        "default"
-      ]
-    },
     "hds-form-control-surface-color-checked-disabled": {
       "key": "{form.control.surface.color.checked.disabled}",
       "$type": "color",
@@ -90831,8 +90833,8 @@
         "color"
       ]
     },
-    "hds-form-control-disabled-border-color": {
-      "key": "{form.control.disabled.border.color}",
+    "hds-form-control-disabled-border-color-disabled": {
+      "key": "{form.control.disabled.border.color.disabled}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "group": "components",
@@ -90854,9 +90856,9 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{form.control.disabled.border.color}"
+        "key": "{form.control.disabled.border.color.disabled}"
       },
-      "name": "hds-form-control-disabled-border-color",
+      "name": "hds-form-control-disabled-border-color-disabled",
       "attributes": {
         "category": "form"
       },
@@ -90865,7 +90867,8 @@
         "control",
         "disabled",
         "border",
-        "color"
+        "color",
+        "disabled"
       ]
     },
     "hds-form-control-padding-vertical": {
@@ -123778,6 +123781,44 @@
         "width"
       ]
     },
+    "hds-form-checkbox-surface-color-checked-default": {
+      "key": "{form.checkbox.surface.color.checked.default}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "group": "components",
+      "$modes": {
+        "default": "#0f62fe",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.iconPrimary}",
+        "group": "components",
+        "$modes": {
+          "default": "{core.color.blue-200}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{form.checkbox.surface.color.checked.default}"
+      },
+      "name": "hds-form-checkbox-surface-color-checked-default",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "checkbox",
+        "surface",
+        "color",
+        "checked",
+        "default"
+      ]
+    },
     "hds-form-checkbox-background-image-size": {
       "key": "{form.checkbox.background-image.size}",
       "$type": "dimension",
@@ -124439,44 +124480,6 @@
         "hover"
       ]
     },
-    "hds-form-control-surface-color-checked-default": {
-      "key": "{form.control.surface.color.checked.default}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "group": "components",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g90.iconPrimary}",
-        "group": "components",
-        "$modes": {
-          "default": "{core.color.blue-200}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{form.control.surface.color.checked.default}"
-      },
-      "name": "hds-form-control-surface-color-checked-default",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "surface",
-        "color",
-        "checked",
-        "default"
-      ]
-    },
     "hds-form-control-surface-color-checked-disabled": {
       "key": "{form.control.surface.color.checked.disabled}",
       "$type": "color",
@@ -124967,8 +124970,8 @@
         "color"
       ]
     },
-    "hds-form-control-disabled-border-color": {
-      "key": "{form.control.disabled.border.color}",
+    "hds-form-control-disabled-border-color-disabled": {
+      "key": "{form.control.disabled.border.color.disabled}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "group": "components",
@@ -124990,9 +124993,9 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{form.control.disabled.border.color}"
+        "key": "{form.control.disabled.border.color.disabled}"
       },
-      "name": "hds-form-control-disabled-border-color",
+      "name": "hds-form-control-disabled-border-color-disabled",
       "attributes": {
         "category": "form"
       },
@@ -125001,7 +125004,8 @@
         "control",
         "disabled",
         "border",
-        "color"
+        "color",
+        "disabled"
       ]
     },
     "hds-form-control-padding-vertical": {
@@ -157914,6 +157918,44 @@
         "width"
       ]
     },
+    "hds-form-checkbox-surface-color-checked-default": {
+      "key": "{form.checkbox.surface.color.checked.default}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "group": "components",
+      "$modes": {
+        "default": "#0f62fe",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.iconPrimary}",
+        "group": "components",
+        "$modes": {
+          "default": "{core.color.blue-200}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{form.checkbox.surface.color.checked.default}"
+      },
+      "name": "hds-form-checkbox-surface-color-checked-default",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "checkbox",
+        "surface",
+        "color",
+        "checked",
+        "default"
+      ]
+    },
     "hds-form-checkbox-background-image-size": {
       "key": "{form.checkbox.background-image.size}",
       "$type": "dimension",
@@ -158575,44 +158617,6 @@
         "hover"
       ]
     },
-    "hds-form-control-surface-color-checked-default": {
-      "key": "{form.control.surface.color.checked.default}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "group": "components",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g100.iconPrimary}",
-        "group": "components",
-        "$modes": {
-          "default": "{core.color.blue-200}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{form.control.surface.color.checked.default}"
-      },
-      "name": "hds-form-control-surface-color-checked-default",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "surface",
-        "color",
-        "checked",
-        "default"
-      ]
-    },
     "hds-form-control-surface-color-checked-disabled": {
       "key": "{form.control.surface.color.checked.disabled}",
       "$type": "color",
@@ -159103,8 +159107,8 @@
         "color"
       ]
     },
-    "hds-form-control-disabled-border-color": {
-      "key": "{form.control.disabled.border.color}",
+    "hds-form-control-disabled-border-color-disabled": {
+      "key": "{form.control.disabled.border.color.disabled}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "group": "components",
@@ -159126,9 +159130,9 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{form.control.disabled.border.color}"
+        "key": "{form.control.disabled.border.color.disabled}"
       },
-      "name": "hds-form-control-disabled-border-color",
+      "name": "hds-form-control-disabled-border-color-disabled",
       "attributes": {
         "category": "form"
       },
@@ -159137,7 +159141,8 @@
         "control",
         "disabled",
         "border",
-        "color"
+        "color",
+        "disabled"
       ]
     },
     "hds-form-control-padding-vertical": {

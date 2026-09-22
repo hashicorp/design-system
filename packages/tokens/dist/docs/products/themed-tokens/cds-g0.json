@@ -21404,6 +21404,44 @@
     ]
   },
   {
+    "key": "{form.checkbox.surface.color.checked.default}",
+    "$type": "color",
+    "$value": "#161616",
+    "group": "components",
+    "$modes": {
+      "default": "#0f62fe",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.white.iconPrimary}",
+      "group": "components",
+      "$modes": {
+        "default": "{core.color.blue-200}",
+        "cds-g0": "{carbon.themes.white.iconPrimary}",
+        "cds-g10": "{carbon.themes.g10.iconPrimary}",
+        "cds-g90": "{carbon.themes.g90.iconPrimary}",
+        "cds-g100": "{carbon.themes.g100.iconPrimary}"
+      },
+      "key": "{form.checkbox.surface.color.checked.default}"
+    },
+    "name": "hds-form-checkbox-surface-color-checked-default",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "checkbox",
+      "surface",
+      "color",
+      "checked",
+      "default"
+    ]
+  },
+  {
     "key": "{form.checkbox.background-image.size}",
     "$type": "dimension",
     "$value": "8px",
@@ -22065,44 +22103,6 @@
     ]
   },
   {
-    "key": "{form.control.surface.color.checked.default}",
-    "$type": "color",
-    "$value": "#161616",
-    "group": "components",
-    "$modes": {
-      "default": "#0f62fe",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.white.iconPrimary}",
-      "group": "components",
-      "$modes": {
-        "default": "{core.color.blue-200}",
-        "cds-g0": "{carbon.themes.white.iconPrimary}",
-        "cds-g10": "{carbon.themes.g10.iconPrimary}",
-        "cds-g90": "{carbon.themes.g90.iconPrimary}",
-        "cds-g100": "{carbon.themes.g100.iconPrimary}"
-      },
-      "key": "{form.control.surface.color.checked.default}"
-    },
-    "name": "hds-form-control-surface-color-checked-default",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "surface",
-      "color",
-      "checked",
-      "default"
-    ]
-  },
-  {
     "key": "{form.control.surface.color.checked.disabled}",
     "$type": "color",
     "$value": "rgba(22, 22, 22, 0.25)",
@@ -22593,7 +22593,7 @@
     ]
   },
   {
-    "key": "{form.control.disabled.border.color}",
+    "key": "{form.control.disabled.border.color.disabled}",
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "group": "components",
@@ -22615,9 +22615,9 @@
         "cds-g90": "transparent",
         "cds-g100": "transparent"
       },
-      "key": "{form.control.disabled.border.color}"
+      "key": "{form.control.disabled.border.color.disabled}"
     },
-    "name": "hds-form-control-disabled-border-color",
+    "name": "hds-form-control-disabled-border-color-disabled",
     "attributes": {
       "category": "form"
     },
@@ -22626,7 +22626,8 @@
       "control",
       "disabled",
       "border",
-      "color"
+      "color",
+      "disabled"
     ]
   },
   {

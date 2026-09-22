@@ -769,6 +769,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-border-color-primary
   );
   --hds-form-checkbox-border-radius: var(--hds-border-radius-x-small);
+  --hds-form-checkbox-surface-color-checked-default: var(
+    --hds-core-color-blue-200
+  );
   --hds-form-control-base-border-color-default: var(
     --hds-core-color-neutral-400
   );
@@ -795,7 +798,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-control-border-color-unchecked-hover: var(
     --hds-core-color-neutral-500
   );
-  --hds-form-control-disabled-border-color: var(--hds-border-color-primary);
+  --hds-form-control-disabled-border-color-disabled: var(
+    --hds-border-color-primary
+  );
   --hds-form-control-disabled-surface-color: var(
     --hds-surface-color-interactive-disabled
   );
@@ -807,9 +812,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-control-padding-horizontal: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma */
   --hds-form-control-padding-vertical: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma */
   --hds-form-control-readonly-surface-color: var(--hds-surface-color-strong);
-  --hds-form-control-surface-color-checked-default: var(
-    --hds-core-color-blue-200
-  );
   --hds-form-control-surface-color-checked-disabled: var(
     --hds-surface-color-interactive-disabled
   );
@@ -1915,6 +1917,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-checkbox-background-image-size: 8px;
     --hds-form-checkbox-border-color-checked-disabled: rgba(0, 0, 0, 0);
     --hds-form-checkbox-border-radius: 2px; /** Note: Carbon uses an SVG image, not a border radius but 2px is the closest equiv as per design */
+    --hds-form-checkbox-surface-color-checked-default: #161616;
     --hds-form-control-base-border-color-default: #8d8d8d;
     --hds-form-control-base-border-color-hover: #8d8d8d;
     --hds-form-control-base-placeholder-foreground-color-default: rgba(
@@ -1935,7 +1938,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-control-border-color-unchecked-default: #161616;
     --hds-form-control-border-color-unchecked-disabled: rgba(22, 22, 22, 0.25);
     --hds-form-control-border-color-unchecked-hover: #161616;
-    --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
+    --hds-form-control-disabled-border-color-disabled: rgba(0, 0, 0, 0);
     --hds-form-control-disabled-surface-color: #f4f4f4;
     --hds-form-control-height: 40px;
     --hds-form-control-invalid-border-color-default: #da1e28; /** Carbon uses outline instead of a border color change */
@@ -1943,7 +1946,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-control-padding-horizontal: 16px;
     --hds-form-control-padding-vertical: 9px; /** Vertical padding is mainly needed by Select multiple/size as setting a min height doesn't work for these cases */
     --hds-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
-    --hds-form-control-surface-color-checked-default: #161616;
     --hds-form-control-surface-color-checked-disabled: rgba(22, 22, 22, 0.25);
     --hds-form-control-surface-color-checked-hover: #161616;
     --hds-form-control-surface-color-unchecked-default: rgba(0, 0, 0, 0);
@@ -2826,6 +2828,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-checkbox-background-image-size: 8px;
     --hds-form-checkbox-border-color-checked-disabled: rgba(0, 0, 0, 0);
     --hds-form-checkbox-border-radius: 2px; /** Note: Carbon uses an SVG image, not a border radius but 2px is the closest equiv as per design */
+    --hds-form-checkbox-surface-color-checked-default: #f4f4f4;
     --hds-form-control-base-border-color-default: #6f6f6f;
     --hds-form-control-base-border-color-hover: #6f6f6f;
     --hds-form-control-base-placeholder-foreground-color-default: rgba(
@@ -2851,7 +2854,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
       0.25
     );
     --hds-form-control-border-color-unchecked-hover: #f4f4f4;
-    --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
+    --hds-form-control-disabled-border-color-disabled: rgba(0, 0, 0, 0);
     --hds-form-control-disabled-surface-color: #262626;
     --hds-form-control-height: 40px;
     --hds-form-control-invalid-border-color-default: #fa4d56; /** Carbon uses outline instead of a border color change */
@@ -2859,7 +2862,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-control-padding-horizontal: 16px;
     --hds-form-control-padding-vertical: 9px; /** Vertical padding is mainly needed by Select multiple/size as setting a min height doesn't work for these cases */
     --hds-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
-    --hds-form-control-surface-color-checked-default: #f4f4f4;
     --hds-form-control-surface-color-checked-disabled: rgba(
       244,
       244,
@@ -3728,6 +3730,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-checkbox-background-image-size: 8px;
   --hds-form-checkbox-border-color-checked-disabled: rgba(0, 0, 0, 0);
   --hds-form-checkbox-border-radius: 2px; /** Note: Carbon uses an SVG image, not a border radius but 2px is the closest equiv as per design */
+  --hds-form-checkbox-surface-color-checked-default: #161616;
   --hds-form-control-base-border-color-default: #8d8d8d;
   --hds-form-control-base-border-color-hover: #8d8d8d;
   --hds-form-control-base-placeholder-foreground-color-default: rgba(
@@ -3748,7 +3751,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-control-border-color-unchecked-default: #161616;
   --hds-form-control-border-color-unchecked-disabled: rgba(22, 22, 22, 0.25);
   --hds-form-control-border-color-unchecked-hover: #161616;
-  --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
+  --hds-form-control-disabled-border-color-disabled: rgba(0, 0, 0, 0);
   --hds-form-control-disabled-surface-color: #f4f4f4;
   --hds-form-control-height: 40px;
   --hds-form-control-invalid-border-color-default: #da1e28; /** Carbon uses outline instead of a border color change */
@@ -3756,7 +3759,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-control-padding-horizontal: 16px;
   --hds-form-control-padding-vertical: 9px; /** Vertical padding is mainly needed by Select multiple/size as setting a min height doesn't work for these cases */
   --hds-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
-  --hds-form-control-surface-color-checked-default: #161616;
   --hds-form-control-surface-color-checked-disabled: rgba(22, 22, 22, 0.25);
   --hds-form-control-surface-color-checked-hover: #161616;
   --hds-form-control-surface-color-unchecked-default: rgba(0, 0, 0, 0);
@@ -4627,6 +4629,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-checkbox-background-image-size: 8px;
   --hds-form-checkbox-border-color-checked-disabled: rgba(0, 0, 0, 0);
   --hds-form-checkbox-border-radius: 2px; /** Note: Carbon uses an SVG image, not a border radius but 2px is the closest equiv as per design */
+  --hds-form-checkbox-surface-color-checked-default: #f4f4f4;
   --hds-form-control-base-border-color-default: #6f6f6f;
   --hds-form-control-base-border-color-hover: #6f6f6f;
   --hds-form-control-base-placeholder-foreground-color-default: rgba(
@@ -4647,7 +4650,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-control-border-color-unchecked-default: #f4f4f4;
   --hds-form-control-border-color-unchecked-disabled: rgba(244, 244, 244, 0.25);
   --hds-form-control-border-color-unchecked-hover: #f4f4f4;
-  --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
+  --hds-form-control-disabled-border-color-disabled: rgba(0, 0, 0, 0);
   --hds-form-control-disabled-surface-color: #262626;
   --hds-form-control-height: 40px;
   --hds-form-control-invalid-border-color-default: #fa4d56; /** Carbon uses outline instead of a border color change */
@@ -4655,7 +4658,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-control-padding-horizontal: 16px;
   --hds-form-control-padding-vertical: 9px; /** Vertical padding is mainly needed by Select multiple/size as setting a min height doesn't work for these cases */
   --hds-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
-  --hds-form-control-surface-color-checked-default: #f4f4f4;
   --hds-form-control-surface-color-checked-disabled: rgba(244, 244, 244, 0.25);
   --hds-form-control-surface-color-checked-hover: #f4f4f4;
   --hds-form-control-surface-color-unchecked-default: rgba(0, 0, 0, 0);
@@ -5507,6 +5509,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-checkbox-background-image-size: 8px;
   --hds-form-checkbox-border-color-checked-disabled: rgba(0, 0, 0, 0);
   --hds-form-checkbox-border-radius: 2px; /** Note: Carbon uses an SVG image, not a border radius but 2px is the closest equiv as per design */
+  --hds-form-checkbox-surface-color-checked-default: #161616;
   --hds-form-control-base-border-color-default: #8d8d8d;
   --hds-form-control-base-border-color-hover: #8d8d8d;
   --hds-form-control-base-placeholder-foreground-color-default: rgba(
@@ -5527,7 +5530,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-control-border-color-unchecked-default: #161616;
   --hds-form-control-border-color-unchecked-disabled: rgba(22, 22, 22, 0.25);
   --hds-form-control-border-color-unchecked-hover: #161616;
-  --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
+  --hds-form-control-disabled-border-color-disabled: rgba(0, 0, 0, 0);
   --hds-form-control-disabled-surface-color: #ffffff;
   --hds-form-control-height: 40px;
   --hds-form-control-invalid-border-color-default: #da1e28; /** Carbon uses outline instead of a border color change */
@@ -5535,7 +5538,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-control-padding-horizontal: 16px;
   --hds-form-control-padding-vertical: 9px; /** Vertical padding is mainly needed by Select multiple/size as setting a min height doesn't work for these cases */
   --hds-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
-  --hds-form-control-surface-color-checked-default: #161616;
   --hds-form-control-surface-color-checked-disabled: rgba(22, 22, 22, 0.25);
   --hds-form-control-surface-color-checked-hover: #161616;
   --hds-form-control-surface-color-unchecked-default: rgba(0, 0, 0, 0);
@@ -6405,6 +6407,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-checkbox-background-image-size: 8px;
   --hds-form-checkbox-border-color-checked-disabled: rgba(0, 0, 0, 0);
   --hds-form-checkbox-border-radius: 2px; /** Note: Carbon uses an SVG image, not a border radius but 2px is the closest equiv as per design */
+  --hds-form-checkbox-surface-color-checked-default: #f4f4f4;
   --hds-form-control-base-border-color-default: #8d8d8d;
   --hds-form-control-base-border-color-hover: #8d8d8d;
   --hds-form-control-base-placeholder-foreground-color-default: rgba(
@@ -6425,7 +6428,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-control-border-color-unchecked-default: #f4f4f4;
   --hds-form-control-border-color-unchecked-disabled: rgba(244, 244, 244, 0.25);
   --hds-form-control-border-color-unchecked-hover: #f4f4f4;
-  --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
+  --hds-form-control-disabled-border-color-disabled: rgba(0, 0, 0, 0);
   --hds-form-control-disabled-surface-color: #393939;
   --hds-form-control-height: 40px;
   --hds-form-control-invalid-border-color-default: #ff8389; /** Carbon uses outline instead of a border color change */
@@ -6433,7 +6436,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-control-padding-horizontal: 16px;
   --hds-form-control-padding-vertical: 9px; /** Vertical padding is mainly needed by Select multiple/size as setting a min height doesn't work for these cases */
   --hds-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
-  --hds-form-control-surface-color-checked-default: #f4f4f4;
   --hds-form-control-surface-color-checked-disabled: rgba(244, 244, 244, 0.25);
   --hds-form-control-surface-color-checked-hover: #f4f4f4;
   --hds-form-control-surface-color-unchecked-default: rgba(0, 0, 0, 0);

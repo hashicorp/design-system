@@ -6583,7 +6583,7 @@ button.hds-button[href]::after {
   box-shadow: var(--hds-elevation-inset-box-shadow);
 }
 .hds-form-checkbox:checked, .hds-form-checkbox:indeterminate {
-  background-color: var(--hds-form-control-surface-color-checked-default);
+  background-color: var(--hds-form-checkbox-surface-color-checked-default);
 }
 .hds-form-checkbox:checked {
   background-image: var(--hds-form-checkbox-background-image-data-url);
@@ -7640,7 +7640,7 @@ button.hds-button[href]::after {
 }
 .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true]:not([aria-disabled=true])::before {
-  background-color: var(--hds-form-control-surface-color-checked-default);
+  background-color: var(--hds-form-checkbox-surface-color-checked-default);
   background-image: var(--hds-form-checkbox-background-image-data-url);
   border-color: var(--hds-form-control-border-color-checked-default);
 }

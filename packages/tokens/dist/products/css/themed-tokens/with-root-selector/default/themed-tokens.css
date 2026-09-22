@@ -441,6 +441,7 @@
   --hds-form-checkbox-background-image-size: 12px;
   --hds-form-checkbox-border-color-checked-disabled: var(--hds-border-color-primary);
   --hds-form-checkbox-border-radius: var(--hds-border-radius-x-small);
+  --hds-form-checkbox-surface-color-checked-default: var(--hds-core-color-blue-200);
   --hds-form-control-base-border-color-default: var(--hds-core-color-neutral-400);
   --hds-form-control-base-border-color-hover: var(--hds-core-color-neutral-500);
   --hds-form-control-base-placeholder-foreground-color-default: var(--hds-foreground-color-faint);
@@ -451,7 +452,7 @@
   --hds-form-control-border-color-unchecked-default: var(--hds-core-color-neutral-400);
   --hds-form-control-border-color-unchecked-disabled: var(--hds-border-color-primary);
   --hds-form-control-border-color-unchecked-hover: var(--hds-core-color-neutral-500);
-  --hds-form-control-disabled-border-color: var(--hds-border-color-primary);
+  --hds-form-control-disabled-border-color-disabled: var(--hds-border-color-primary);
   --hds-form-control-disabled-surface-color: var(--hds-surface-color-interactive-disabled);
   --hds-form-control-height: 36px;
   --hds-form-control-invalid-border-color-default: var(--hds-core-color-red-300);
@@ -459,7 +460,6 @@
   --hds-form-control-padding-horizontal: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma */
   --hds-form-control-padding-vertical: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma */
   --hds-form-control-readonly-surface-color: var(--hds-surface-color-strong);
-  --hds-form-control-surface-color-checked-default: var(--hds-core-color-blue-200);
   --hds-form-control-surface-color-checked-disabled: var(--hds-surface-color-interactive-disabled);
   --hds-form-control-surface-color-checked-hover: var(--hds-core-color-blue-300);
   --hds-form-control-surface-color-unchecked-default: var(--hds-surface-color-interactive);
