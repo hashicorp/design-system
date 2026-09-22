@@ -22159,43 +22159,6 @@
         "hover"
       ]
     },
-    "hds-form-control-foreground-color-checked": {
-      "key": "{form.control.foreground.color.checked}",
-      "$type": "color",
-      "$value": "#ffffff",
-      "group": "components",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{foreground.color.high-contrast}",
-        "group": "components",
-        "$modes": {
-          "default": "{foreground.color.high-contrast}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{form.control.foreground.color.checked}"
-      },
-      "name": "hds-form-control-foreground-color-checked",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "foreground",
-        "color",
-        "checked"
-      ]
-    },
     "hds-form-control-base-foreground-color": {
       "key": "{form.control.base.foreground.color}",
       "$type": "color",
@@ -56363,43 +56326,6 @@
         "color",
         "checked",
         "hover"
-      ]
-    },
-    "hds-form-control-foreground-color-checked": {
-      "key": "{form.control.foreground.color.checked}",
-      "$type": "color",
-      "$value": "#161616",
-      "group": "components",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.white.textPrimary}",
-        "group": "components",
-        "$modes": {
-          "default": "{foreground.color.high-contrast}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{form.control.foreground.color.checked}"
-      },
-      "name": "hds-form-control-foreground-color-checked",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "foreground",
-        "color",
-        "checked"
       ]
     },
     "hds-form-control-base-foreground-color": {
@@ -90585,43 +90511,6 @@
         "hover"
       ]
     },
-    "hds-form-control-foreground-color-checked": {
-      "key": "{form.control.foreground.color.checked}",
-      "$type": "color",
-      "$value": "#161616",
-      "group": "components",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g10.textPrimary}",
-        "group": "components",
-        "$modes": {
-          "default": "{foreground.color.high-contrast}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{form.control.foreground.color.checked}"
-      },
-      "name": "hds-form-control-foreground-color-checked",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "foreground",
-        "color",
-        "checked"
-      ]
-    },
     "hds-form-control-base-foreground-color": {
       "key": "{form.control.base.foreground.color}",
       "$type": "color",
@@ -124805,43 +124694,6 @@
         "hover"
       ]
     },
-    "hds-form-control-foreground-color-checked": {
-      "key": "{form.control.foreground.color.checked}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "group": "components",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g90.textPrimary}",
-        "group": "components",
-        "$modes": {
-          "default": "{foreground.color.high-contrast}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{form.control.foreground.color.checked}"
-      },
-      "name": "hds-form-control-foreground-color-checked",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "foreground",
-        "color",
-        "checked"
-      ]
-    },
     "hds-form-control-base-foreground-color": {
       "key": "{form.control.base.foreground.color}",
       "$type": "color",
@@ -159023,43 +158875,6 @@
         "color",
         "checked",
         "hover"
-      ]
-    },
-    "hds-form-control-foreground-color-checked": {
-      "key": "{form.control.foreground.color.checked}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "group": "components",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g100.textPrimary}",
-        "group": "components",
-        "$modes": {
-          "default": "{foreground.color.high-contrast}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{form.control.foreground.color.checked}"
-      },
-      "name": "hds-form-control-foreground-color-checked",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "foreground",
-        "color",
-        "checked"
       ]
     },
     "hds-form-control-base-foreground-color": {

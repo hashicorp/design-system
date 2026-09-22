@@ -453,7 +453,6 @@
   --hds-form-control-border-color-unchecked-hover: var(--hds-core-color-neutral-500);
   --hds-form-control-disabled-border-color: var(--hds-border-color-primary);
   --hds-form-control-disabled-surface-color: var(--hds-surface-color-interactive-disabled);
-  --hds-form-control-foreground-color-checked: var(--hds-foreground-color-high-contrast);
   --hds-form-control-height: 36px;
   --hds-form-control-invalid-border-color-default: var(--hds-core-color-red-300);
   --hds-form-control-invalid-border-color-hover: var(--hds-core-color-red-400);

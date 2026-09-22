@@ -787,9 +787,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-control-disabled-surface-color: var(
     --hds-surface-color-interactive-disabled
   );
-  --hds-form-control-foreground-color-checked: var(
-    --hds-foreground-color-high-contrast
-  );
   --hds-form-control-height: 36px;
   --hds-form-control-invalid-border-color-default: var(
     --hds-core-color-red-300
@@ -1930,7 +1927,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-control-border-color-unchecked-hover: #161616;
     --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
     --hds-form-control-disabled-surface-color: #f4f4f4;
-    --hds-form-control-foreground-color-checked: #161616;
     --hds-form-control-height: 40px;
     --hds-form-control-invalid-border-color-default: #da1e28; /** Carbon uses outline instead of a border color change */
     --hds-form-control-invalid-border-color-hover: #da1e28;
@@ -2847,7 +2843,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-control-border-color-unchecked-hover: #f4f4f4;
     --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
     --hds-form-control-disabled-surface-color: #262626;
-    --hds-form-control-foreground-color-checked: #f4f4f4;
     --hds-form-control-height: 40px;
     --hds-form-control-invalid-border-color-default: #fa4d56; /** Carbon uses outline instead of a border color change */
     --hds-form-control-invalid-border-color-hover: #fa4d56;
@@ -3744,7 +3739,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-control-border-color-unchecked-hover: #161616;
   --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
   --hds-form-control-disabled-surface-color: #f4f4f4;
-  --hds-form-control-foreground-color-checked: #161616;
   --hds-form-control-height: 40px;
   --hds-form-control-invalid-border-color-default: #da1e28; /** Carbon uses outline instead of a border color change */
   --hds-form-control-invalid-border-color-hover: #da1e28;
@@ -4643,7 +4637,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-control-border-color-unchecked-hover: #f4f4f4;
   --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
   --hds-form-control-disabled-surface-color: #262626;
-  --hds-form-control-foreground-color-checked: #f4f4f4;
   --hds-form-control-height: 40px;
   --hds-form-control-invalid-border-color-default: #fa4d56; /** Carbon uses outline instead of a border color change */
   --hds-form-control-invalid-border-color-hover: #fa4d56;
