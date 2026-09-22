@@ -6737,7 +6737,7 @@ button.hds-button[href]::after {
 .hds-form-radio:disabled:checked {
   background-color: var(--hds-form-radio-surface-color-checked-disabled);
   background-image: var(--hds-form-radio-background-image-data-url-disabled);
-  border-color: var(--hds-form-control-border-color-checked-disabled);
+  border-color: var(--hds-form-radio-border-color-checked-disabled);
   box-shadow: none;
   cursor: not-allowed;
 }

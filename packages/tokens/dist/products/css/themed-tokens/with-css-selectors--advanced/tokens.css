@@ -785,9 +785,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-control-border-color-checked-default: var(
     --hds-core-color-blue-300
   );
-  --hds-form-control-border-color-checked-disabled: var(
-    --hds-border-color-primary
-  );
   --hds-form-control-border-color-checked-hover: var(--hds-core-color-blue-400);
   --hds-form-control-border-color-unchecked-default: var(
     --hds-core-color-neutral-400
@@ -888,6 +885,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   );
   --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%238C909C' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='2.5' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
   --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23ffffff' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='2.5' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-border-color-checked-disabled: var(
+    --hds-border-color-primary
+  );
   --hds-form-radio-card-border-color-checked-default: var(
     --hds-core-color-blue-300
   );
@@ -1936,7 +1936,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     );
     --hds-form-control-base-surface-color-hover: #f4f4f4;
     --hds-form-control-border-color-checked-default: #161616;
-    --hds-form-control-border-color-checked-disabled: rgba(22, 22, 22, 0.25);
     --hds-form-control-border-color-checked-hover: #161616;
     --hds-form-control-border-color-unchecked-default: #161616;
     --hds-form-control-border-color-unchecked-disabled: rgba(22, 22, 22, 0.25);
@@ -1987,6 +1986,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-legend-typography-line-height: 1.33333;
     --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%23C5C5C5' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
     --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23161616' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+    --hds-form-radio-border-color-checked-disabled: rgba(22, 22, 22, 0.25);
     --hds-form-radio-card-border-color-checked-default: #161616;
     --hds-form-radio-card-border-color-checked-hover: #161616;
     --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
@@ -2848,7 +2848,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     );
     --hds-form-control-base-surface-color-hover: #262626;
     --hds-form-control-border-color-checked-default: #f4f4f4;
-    --hds-form-control-border-color-checked-disabled: rgba(244, 244, 244, 0.25);
     --hds-form-control-border-color-checked-hover: #f4f4f4;
     --hds-form-control-border-color-unchecked-default: #f4f4f4;
     --hds-form-control-border-color-unchecked-disabled: rgba(
@@ -2909,6 +2908,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-legend-typography-line-height: 1.33333;
     --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%234d4d4d' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
     --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23ffffff' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+    --hds-form-radio-border-color-checked-disabled: rgba(244, 244, 244, 0.25);
     --hds-form-radio-card-border-color-checked-default: #f4f4f4;
     --hds-form-radio-card-border-color-checked-hover: #f4f4f4;
     --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
@@ -3751,7 +3751,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   );
   --hds-form-control-base-surface-color-hover: #f4f4f4;
   --hds-form-control-border-color-checked-default: #161616;
-  --hds-form-control-border-color-checked-disabled: rgba(22, 22, 22, 0.25);
   --hds-form-control-border-color-checked-hover: #161616;
   --hds-form-control-border-color-unchecked-default: #161616;
   --hds-form-control-border-color-unchecked-disabled: rgba(22, 22, 22, 0.25);
@@ -3802,6 +3801,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-legend-typography-line-height: 1.33333;
   --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%23C5C5C5' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
   --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23161616' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-border-color-checked-disabled: rgba(22, 22, 22, 0.25);
   --hds-form-radio-card-border-color-checked-default: #161616;
   --hds-form-radio-card-border-color-checked-hover: #161616;
   --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
@@ -4651,7 +4651,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   );
   --hds-form-control-base-surface-color-hover: #262626;
   --hds-form-control-border-color-checked-default: #f4f4f4;
-  --hds-form-control-border-color-checked-disabled: rgba(244, 244, 244, 0.25);
   --hds-form-control-border-color-checked-hover: #f4f4f4;
   --hds-form-control-border-color-unchecked-default: #f4f4f4;
   --hds-form-control-border-color-unchecked-disabled: rgba(244, 244, 244, 0.25);
@@ -4702,6 +4701,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-legend-typography-line-height: 1.33333;
   --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%234d4d4d' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
   --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23ffffff' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-border-color-checked-disabled: rgba(244, 244, 244, 0.25);
   --hds-form-radio-card-border-color-checked-default: #f4f4f4;
   --hds-form-radio-card-border-color-checked-hover: #f4f4f4;
   --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
@@ -5532,7 +5532,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   );
   --hds-form-control-base-surface-color-hover: #ffffff;
   --hds-form-control-border-color-checked-default: #161616;
-  --hds-form-control-border-color-checked-disabled: rgba(22, 22, 22, 0.25);
   --hds-form-control-border-color-checked-hover: #161616;
   --hds-form-control-border-color-unchecked-default: #161616;
   --hds-form-control-border-color-unchecked-disabled: rgba(22, 22, 22, 0.25);
@@ -5583,6 +5582,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-legend-typography-line-height: 1.33333;
   --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%23BDBDBD' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
   --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23161616' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-border-color-checked-disabled: rgba(22, 22, 22, 0.25);
   --hds-form-radio-card-border-color-checked-default: #161616;
   --hds-form-radio-card-border-color-checked-hover: #161616;
   --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
@@ -6431,7 +6431,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   );
   --hds-form-control-base-surface-color-hover: #393939;
   --hds-form-control-border-color-checked-default: #f4f4f4;
-  --hds-form-control-border-color-checked-disabled: rgba(244, 244, 244, 0.25);
   --hds-form-control-border-color-checked-hover: #f4f4f4;
   --hds-form-control-border-color-unchecked-default: #f4f4f4;
   --hds-form-control-border-color-unchecked-disabled: rgba(244, 244, 244, 0.25);
@@ -6482,6 +6481,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-legend-typography-line-height: 1.33333;
   --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%23595959' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
   --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23ffffff' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-border-color-checked-disabled: rgba(244, 244, 244, 0.25);
   --hds-form-radio-card-border-color-checked-default: #f4f4f4;
   --hds-form-radio-card-border-color-checked-hover: #f4f4f4;
   --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);

@@ -686,7 +686,6 @@
   --hds-form-control-border-color-unchecked-disabled: #656a7633;
   --hds-form-control-border-color-unchecked-hover: #656a76;
   --hds-form-control-border-color-checked-default: #0c56e9;
-  --hds-form-control-border-color-checked-disabled: #656a7633;
   --hds-form-control-border-color-checked-hover: #0046d1;
   --hds-form-control-border-radius: 5px;
   --hds-form-control-border-width: 1px;
@@ -740,6 +739,7 @@
   --hds-form-radio-card-label-typography-line-height: 1.3333; /** 24px */
   --hds-form-radio-card-transition-duration: 0.2s;
   --hds-form-radio-size: 16px;
+  --hds-form-radio-border-color-checked-disabled: #656a7633;
   --hds-form-radio-border-width: 1px;
   --hds-form-radio-background-image-size: 16px;
   --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23ffffff' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='2.5' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
@@ -7794,7 +7794,7 @@ button.hds-button[href]::after {
 .hds-form-radio:disabled:checked {
   background-color: var(--hds-form-radio-surface-color-checked-disabled);
   background-image: var(--hds-form-radio-background-image-data-url-disabled);
-  border-color: var(--hds-form-control-border-color-checked-disabled);
+  border-color: var(--hds-form-radio-border-color-checked-disabled);
   box-shadow: none;
   cursor: not-allowed;
 }
