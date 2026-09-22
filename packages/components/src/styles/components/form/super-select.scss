@@ -611,7 +611,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     &:hover:not([aria-selected="true"]),
     &.mock-hover:not([aria-selected="true"]) {
       &::before {
-        background-color: var(--hds-form-control-base-surface-color-hover);
+        background-color: var(--hds-form-control-surface-color-unchecked-hover);
         border-color: var(--hds-form-control-base-border-color-hover);
       }
     }
