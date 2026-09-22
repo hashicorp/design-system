@@ -30,6 +30,19 @@ probably need to be set to true (or omitted to rely on defaults) }}
 
     <:utilityActions>
       <HdsDropdown @enableCollisionDetection={{true}} as |dd|>
+        <dd.ToggleIcon @icon="globe" @text="language menu" />
+        <dd.Checkmark
+          @route="components"
+          {{on "click" dd.close}}
+        >English</dd.Checkmark>
+        <dd.Checkmark
+          @route="components"
+          @selected={{true}}
+          {{on "click" dd.close}}
+        >Español (Spanish)</dd.Checkmark>
+      </HdsDropdown>
+
+      <HdsDropdown @enableCollisionDetection={{true}} as |dd|>
         <dd.ToggleIcon @icon="help" @text="help menu" />
         <dd.Title @text="Help & Support" />
         <dd.Interactive
