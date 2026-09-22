@@ -49,16 +49,7 @@ MCP clients use different configuration files and may use a different property n
 
 Add the following server definition to your MCP client configuration. Replace `/absolute/path/to/design-system` with the absolute path to your local checkout.
 
-```json
-{
-  "mcpServers": {
-    "helios-design-system": {
-      "command": "node",
-      "args": ["/absolute/path/to/design-system/packages/mcp/dist/index.js"]
-    }
-  }
-}
-```
+[[code-snippets/server-config]]
 
 Restart or reload your MCP client after updating its configuration.
 
