@@ -22840,26 +22840,6 @@
         "width"
       ]
     },
-    "hds-form-radio-card-border-radius": {
-      "key": "{form.radio-card.border.radius}",
-      "$type": "dimension",
-      "$value": "6px",
-      "original": {
-        "$type": "dimension",
-        "$value": "{border.radius.medium}",
-        "key": "{form.radio-card.border.radius}"
-      },
-      "name": "hds-form-radio-card-border-radius",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "radio-card",
-        "border",
-        "radius"
-      ]
-    },
     "hds-form-radio-card-border-color-default": {
       "key": "{form.radio-card.border.color.default}",
       "$type": "color",
@@ -56961,26 +56941,6 @@
         "radio-card",
         "border",
         "width"
-      ]
-    },
-    "hds-form-radio-card-border-radius": {
-      "key": "{form.radio-card.border.radius}",
-      "$type": "dimension",
-      "$value": "0px",
-      "original": {
-        "$type": "dimension",
-        "$value": "{border.radius.medium}",
-        "key": "{form.radio-card.border.radius}"
-      },
-      "name": "hds-form-radio-card-border-radius",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "radio-card",
-        "border",
-        "radius"
       ]
     },
     "hds-form-radio-card-border-color-default": {
@@ -91100,26 +91060,6 @@
         "width"
       ]
     },
-    "hds-form-radio-card-border-radius": {
-      "key": "{form.radio-card.border.radius}",
-      "$type": "dimension",
-      "$value": "0px",
-      "original": {
-        "$type": "dimension",
-        "$value": "{border.radius.medium}",
-        "key": "{form.radio-card.border.radius}"
-      },
-      "name": "hds-form-radio-card-border-radius",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "radio-card",
-        "border",
-        "radius"
-      ]
-    },
     "hds-form-radio-card-border-color-default": {
       "key": "{form.radio-card.border.color.default}",
       "$type": "color",
@@ -125237,26 +125177,6 @@
         "width"
       ]
     },
-    "hds-form-radio-card-border-radius": {
-      "key": "{form.radio-card.border.radius}",
-      "$type": "dimension",
-      "$value": "0px",
-      "original": {
-        "$type": "dimension",
-        "$value": "{border.radius.medium}",
-        "key": "{form.radio-card.border.radius}"
-      },
-      "name": "hds-form-radio-card-border-radius",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "radio-card",
-        "border",
-        "radius"
-      ]
-    },
     "hds-form-radio-card-border-color-default": {
       "key": "{form.radio-card.border.color.default}",
       "$type": "color",
@@ -159372,26 +159292,6 @@
         "radio-card",
         "border",
         "width"
-      ]
-    },
-    "hds-form-radio-card-border-radius": {
-      "key": "{form.radio-card.border.radius}",
-      "$type": "dimension",
-      "$value": "0px",
-      "original": {
-        "$type": "dimension",
-        "$value": "{border.radius.medium}",
-        "key": "{form.radio-card.border.radius}"
-      },
-      "name": "hds-form-radio-card-border-radius",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "radio-card",
-        "border",
-        "radius"
       ]
     },
     "hds-form-radio-card-border-color-default": {

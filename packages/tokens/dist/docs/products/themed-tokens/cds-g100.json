@@ -22860,26 +22860,6 @@
     ]
   },
   {
-    "key": "{form.radio-card.border.radius}",
-    "$type": "dimension",
-    "$value": "0px",
-    "original": {
-      "$type": "dimension",
-      "$value": "{border.radius.medium}",
-      "key": "{form.radio-card.border.radius}"
-    },
-    "name": "hds-form-radio-card-border-radius",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "radio-card",
-      "border",
-      "radius"
-    ]
-  },
-  {
     "key": "{form.radio-card.border.color.default}",
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",

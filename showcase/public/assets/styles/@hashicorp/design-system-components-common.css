@@ -6776,7 +6776,7 @@ button.hds-button[href]::after {
   flex-direction: column;
   background-color: var(--hds-surface-color-primary);
   border: var(--hds-form-radio-card-border-width) solid var(--hds-form-radio-card-border-color-default);
-  border-radius: var(--hds-form-radio-card-border-radius);
+  border-radius: var(--hds-border-radius-medium);
   box-shadow: var(--hds-elevation-mid-box-shadow);
   cursor: pointer;
 }

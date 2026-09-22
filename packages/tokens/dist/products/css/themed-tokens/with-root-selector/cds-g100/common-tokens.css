@@ -113,7 +113,6 @@
   --hds-form-legend-color: var(--hds-form-label-color); /** deprecated: use `hds-form-legend-foreground-color` instead */
   --hds-form-radio-background-image-size: var(--hds-form-radio-size);
   --hds-form-radio-border-width: 1px;
-  --hds-form-radio-card-border-radius: var(--hds-border-radius-medium);
   --hds-form-radio-card-border-width: 1px;
   --hds-form-radio-card-control-size: 16px; /** This is the actual radio button control */
   --hds-form-radio-card-control-wrapper-padding: 8px;
