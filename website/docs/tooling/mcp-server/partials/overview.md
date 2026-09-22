@@ -1,14 +1,6 @@
-The Helios Design System (HDS) MCP server gives AI assistants structured access to our component APIs, documentation, design tokens, and Flight icons. It helps an assistant find HDS resources and apply our guidance while you design, build, or review an application.
+The Helios Design System (HDS) MCP server gives AI assistants structured access to our component APIs, documentation, design tokens, and icons. It helps an assistant find HDS resources and apply our guidance while you design, build, or review an application.
 
 The server implements the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/), an open standard for connecting AI applications to external tools and data sources.
-
-!!! Information
-
-**Early access**
-
-The server isn't published as an installable package yet. To try it, run the server from a local checkout of the [HDS repository](https://github.com/hashicorp/design-system) and connect your MCP client to the compiled server.
-
-!!!
 
 ## What the server provides
 
@@ -17,7 +9,7 @@ After you connect the server, your AI assistant can consult:
 - Exact component invocation names and API details.
 - Component usage, accessibility, and content guidance.
 - Design token names and resolved values.
-- Flight icon names, sizes, and variants.
+- Icon names, sizes, and variants.
 
 Your assistant can use these sources when HDS information is relevant to your task. The server provides context and guidance. It doesn't generate application files, install dependencies, or modify your project.
 
@@ -27,15 +19,18 @@ Your assistant can use these sources when HDS information is relevant to your ta
 
 You need:
 
-- Node.js 24.x
-- pnpm 10.11.0
+- Node.js 24 or later
 - An MCP client that supports local servers using the standard input/output (`stdio`) transport
 
-### Build the server
+The examples below use pnpm.
 
-Clone the HDS repository, install its dependencies, and build the MCP package.
+### Install the server
 
-[[code-snippets/build-server]]
+Install [`@hashicorp/design-system-mcp`](https://www.npmjs.com/package/@hashicorp/design-system-mcp) as a development dependency from your application directory.
+
+[[code-snippets/install-server]]
+
+The package includes the compiled server, so you don't need to clone or build the HDS repository. It runs as a separate development tool; don't import it into your application or include it in your production bundle.
 
 ### Connect an MCP client
 
@@ -47,9 +42,11 @@ MCP clients use different configuration files and may use a different property n
 
 !!!
 
-Add the following server definition to your MCP client configuration. Replace `/absolute/path/to/design-system` with the absolute path to your local checkout.
+Add the following server definition to your MCP client configuration. Replace `/absolute/path/to/application` with the absolute path to the application where you installed the package.
 
 [[code-snippets/server-config]]
+
+The `--dir` option ensures that pnpm finds the locally installed server and starts it in your application directory. If your client already starts there, you can use `"args": ["exec", "helios-design-system-mcp"]` instead.
 
 Restart or reload your MCP client after updating its configuration.
 
@@ -71,7 +68,7 @@ Your assistant uses these tools to find HDS information in response to your requ
 | `get_hds_component` | Retrieves a component's API, including arguments, accepted values, blocks, and yielded components. |
 | `search_hds_docs` | Finds usage, accessibility, and other guidance in the bundled HDS documentation. |
 | `read_hds_docs` | Reads a complete documentation passage, including guidance and code examples. |
-| `search_hds_icons` | Finds Flight icons and their available sizes by name or keyword. |
+| `search_hds_icons` | Finds icons and their available sizes by name or keyword. |
 | `search_hds_tokens` | Finds design tokens, their values, and CSS variable names. |
 
 ## Prompt guidance and examples
@@ -88,37 +85,43 @@ For more specific results, you can ask your assistant to find a component and co
 - "How do I add sorting to an HDS Advanced Table?"
 - "Review this template against the HDS Button accessibility guidance."
 - "Find the design token for the primary interactive color."
-- "Find the Flight icon for copying content and list its available sizes."
+- "Find the icon for copying content and list its available sizes."
 - "What changed in the latest version of the HDS Modal?"
 
 ## Data and privacy
 
 The server is read-only. It doesn't modify your application, HDS packages, or documentation.
 
-- Component, token, and icon data are read from local HDS packages.
+- Component, token, and icon data come from your application's installed HDS packages when their catalogs can be resolved. Otherwise, the server uses its own HDS dependencies, which may be different versions.
 - Documentation search uses a snapshot bundled with the server.
 - Tool and resource requests don't make network requests or send your project data to an HDS service.
 
 Documentation results include canonical `helios.hashicorp.design` URLs. An MCP client may choose to open or fetch those URLs independently, subject to the client's configuration and permissions.
 
+!!! Information
+
+**Check time-sensitive guidance**
+
 Because the documentation is a bundled snapshot, it may differ from the live website after a new release. Each documentation response includes snapshot provenance and a canonical URL so you can verify time-sensitive guidance.
+
+!!!
 
 ## Troubleshooting
 
 ### The server doesn't connect
 
-- Confirm that your client configuration uses an absolute path to `packages/mcp/dist/index.js`.
-- Confirm that Node.js 24.x is available to the process that starts your MCP client.
-- Rebuild the server after pulling repository changes.
+- Confirm that the `--dir` argument points to the application where you installed `@hashicorp/design-system-mcp`.
+- Confirm that Node.js 24 or later and pnpm are available to the process that starts your MCP client.
+- Confirm that you've installed your application's dependencies.
 - Restart or reload your MCP client after changing its configuration.
 
 ### Tools or resources return catalog errors
 
-Run `pnpm install` from the repository root, then rebuild the server. The server reads catalogs from the HDS workspace packages and reports an error when it can't resolve them.
+Run `pnpm install` from your application directory, then restart your MCP client. Check the client's server logs for the package and catalog path involved. If the error persists, include the error message and your installed MCP and HDS package versions when contacting [support](/about/support).
 
 ### Inspect the server directly
 
-Run the MCP Inspector from the repository root to view the registered tools and resources and call them interactively.
+Run the MCP Inspector from your application directory to view the registered tools and resources and call them interactively.
 
 [[code-snippets/inspect-server]]
 

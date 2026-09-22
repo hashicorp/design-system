@@ -1,1 +1,1 @@
-pnpm -F @hashicorp/design-system-mcp start:dev
+pnpm dlx @modelcontextprotocol/inspector pnpm exec helios-design-system-mcp

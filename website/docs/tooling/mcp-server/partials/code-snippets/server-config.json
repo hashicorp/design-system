@@ -1,8 +1,13 @@
 {
   "mcpServers": {
     "helios-design-system": {
-      "command": "node",
-      "args": ["/absolute/path/to/design-system/packages/mcp/dist/index.js"]
+      "command": "pnpm",
+      "args": [
+        "--dir",
+        "/absolute/path/to/application",
+        "exec",
+        "helios-design-system-mcp"
+      ]
     }
   }
 }
