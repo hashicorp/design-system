@@ -1,8 +1,8 @@
 ---
 title: Helios MCP Server
 description: >-
-  An MCP server that provides AI tooling and agents with the context necessary to work with HDS assets.
-caption: An MCP server that provides AI tooling and agents with the context necessary to work with HDS assets.
+  An MCP server that provides AI assistants with the context necessary to work with HDS assets.
+caption: An MCP server that provides AI assistants with the context necessary to work with HDS assets.
 previewImage: assets/testing/small_cat.png
 navigation:
   hidden: false
