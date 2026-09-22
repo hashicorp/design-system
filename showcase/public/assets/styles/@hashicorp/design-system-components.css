@@ -658,9 +658,9 @@
   --hds-form-helper-text-foreground-color: #656a76;
   --hds-form-helper-text-typography-font-size: 0.8125rem;
   --hds-form-helper-text-typography-line-height: 1.3846;
+  --hds-form-indicator-typography-font-size: 0.8125rem;
   --hds-form-indicator-optional-color: #656a76; /** deprecated: use `hds-form-indicator-optional-foreground-color` instead */
   --hds-form-indicator-optional-foreground-color: #656a76;
-  --hds-form-indicator-optional-typography-font-size: 0.8125rem;
   --hds-form-indicator-optional-typography-line-height: 1.3846;
   --hds-form-error-color: #c00005; /** deprecated: use `hds-form-error-foreground-color` instead */
   --hds-form-error-foreground-color: #c00005;
@@ -7569,7 +7569,7 @@ button.hds-button[href]::after {
 .hds-form-indicator--optional {
   color: var(--hds-form-indicator-optional-foreground-color);
   font-weight: var(--hds-typography-font-weight-regular);
-  font-size: var(--hds-form-indicator-optional-typography-font-size);
+  font-size: var(--hds-form-indicator-typography-font-size);
   font-family: var(--hds-typography-font-stack-text);
   line-height: var(--hds-form-indicator-optional-typography-line-height);
 }
@@ -7580,7 +7580,7 @@ button.hds-button[href]::after {
   padding: 0;
   color: var(--hds-form-indicator-optional-foreground-color);
   font-weight: var(--hds-typography-font-weight-regular);
-  font-size: var(--hds-form-indicator-optional-typography-font-size);
+  font-size: var(--hds-form-indicator-typography-font-size);
   font-family: var(--hds-typography-font-stack-text);
   line-height: var(--hds-form-indicator-optional-typography-line-height);
   background-color: transparent;

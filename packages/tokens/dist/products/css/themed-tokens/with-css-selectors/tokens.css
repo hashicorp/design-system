@@ -569,8 +569,8 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-indicator-optional-foreground-color: var(
     --hds-form-label-foreground-color
   );
-  --hds-form-indicator-optional-typography-font-size: 0.75rem;
   --hds-form-indicator-optional-typography-line-height: 1.33333;
+  --hds-form-indicator-typography-font-size: 0.75rem;
   --hds-form-label-foreground-color: #525252;
   --hds-form-label-inline-typography-font-size: 0.875rem;
   --hds-form-label-inline-typography-line-height: 1.28572;
@@ -1448,8 +1448,8 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-indicator-optional-foreground-color: var(
       --hds-form-label-foreground-color
     );
-    --hds-form-indicator-optional-typography-font-size: 0.75rem;
     --hds-form-indicator-optional-typography-line-height: 1.33333;
+    --hds-form-indicator-typography-font-size: 0.75rem;
     --hds-form-label-foreground-color: #525252;
     --hds-form-label-inline-typography-font-size: 0.875rem;
     --hds-form-label-inline-typography-line-height: 1.28572;
@@ -2368,8 +2368,8 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-indicator-optional-foreground-color: var(
       --hds-form-label-foreground-color
     );
-    --hds-form-indicator-optional-typography-font-size: 0.75rem;
     --hds-form-indicator-optional-typography-line-height: 1.33333;
+    --hds-form-indicator-typography-font-size: 0.75rem;
     --hds-form-label-foreground-color: #c6c6c6;
     --hds-form-label-inline-typography-font-size: 0.875rem;
     --hds-form-label-inline-typography-line-height: 1.28572;
@@ -3258,8 +3258,8 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-indicator-optional-foreground-color: var(
     --hds-form-label-foreground-color
   );
-  --hds-form-indicator-optional-typography-font-size: 0.75rem;
   --hds-form-indicator-optional-typography-line-height: 1.33333;
+  --hds-form-indicator-typography-font-size: 0.75rem;
   --hds-form-label-foreground-color: #525252;
   --hds-form-label-inline-typography-font-size: 0.875rem;
   --hds-form-label-inline-typography-line-height: 1.28572;
@@ -4155,8 +4155,8 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-indicator-optional-foreground-color: var(
     --hds-form-label-foreground-color
   );
-  --hds-form-indicator-optional-typography-font-size: 0.75rem;
   --hds-form-indicator-optional-typography-line-height: 1.33333;
+  --hds-form-indicator-typography-font-size: 0.75rem;
   --hds-form-label-foreground-color: #c6c6c6;
   --hds-form-label-inline-typography-font-size: 0.875rem;
   --hds-form-label-inline-typography-line-height: 1.28572;

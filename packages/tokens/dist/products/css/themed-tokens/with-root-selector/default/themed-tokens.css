@@ -477,8 +477,8 @@
   --hds-form-helper-text-typography-font-size: var(--hds-typography-body-100-font-size);
   --hds-form-helper-text-typography-line-height: var(--hds-typography-body-100-line-height);
   --hds-form-indicator-optional-foreground-color: #656a76;
-  --hds-form-indicator-optional-typography-font-size: var(--hds-typography-body-100-font-size);
   --hds-form-indicator-optional-typography-line-height: var(--hds-typography-body-100-line-height);
+  --hds-form-indicator-typography-font-size: var(--hds-typography-body-100-font-size);
   --hds-form-label-foreground-color: #0c0c0e;
   --hds-form-label-inline-typography-font-size: var(--hds-typography-body-200-font-size);
   --hds-form-label-inline-typography-line-height: var(--hds-typography-body-200-line-height);

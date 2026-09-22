@@ -20923,6 +20923,42 @@
     ]
   },
   {
+    "key": "{form.indicator.typography.font-size}",
+    "$type": "font-size",
+    "$value": "0.75rem",
+    "unit": "px",
+    "$modes": {
+      "default": "0.8125rem",
+      "cds-g0": "0.75rem",
+      "cds-g10": "0.75rem",
+      "cds-g90": "0.75rem",
+      "cds-g100": "0.75rem"
+    },
+    "original": {
+      "$type": "font-size",
+      "$value": "{carbon.typography.label01.font-size}",
+      "unit": "px",
+      "$modes": {
+        "default": "{typography.body-100.font-size}",
+        "cds-g0": "{carbon.typography.label01.font-size}",
+        "cds-g10": "{carbon.typography.label01.font-size}",
+        "cds-g90": "{carbon.typography.label01.font-size}",
+        "cds-g100": "{carbon.typography.label01.font-size}"
+      },
+      "key": "{form.indicator.typography.font-size}"
+    },
+    "name": "hds-form-indicator-typography-font-size",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "indicator",
+      "typography",
+      "font-size"
+    ]
+  },
+  {
     "key": "{form.indicator.optional.color}",
     "$type": "color",
     "$value": "#525252",
@@ -20983,43 +21019,6 @@
       "optional",
       "foreground",
       "color"
-    ]
-  },
-  {
-    "key": "{form.indicator.optional.typography.font-size}",
-    "$type": "font-size",
-    "$value": "0.75rem",
-    "unit": "px",
-    "$modes": {
-      "default": "0.8125rem",
-      "cds-g0": "0.75rem",
-      "cds-g10": "0.75rem",
-      "cds-g90": "0.75rem",
-      "cds-g100": "0.75rem"
-    },
-    "original": {
-      "$type": "font-size",
-      "$value": "{carbon.typography.label01.font-size}",
-      "unit": "px",
-      "$modes": {
-        "default": "{typography.body-100.font-size}",
-        "cds-g0": "{carbon.typography.label01.font-size}",
-        "cds-g10": "{carbon.typography.label01.font-size}",
-        "cds-g90": "{carbon.typography.label01.font-size}",
-        "cds-g100": "{carbon.typography.label01.font-size}"
-      },
-      "key": "{form.indicator.optional.typography.font-size}"
-    },
-    "name": "hds-form-indicator-optional-typography-font-size",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "indicator",
-      "optional",
-      "typography",
-      "font-size"
     ]
   },
   {
