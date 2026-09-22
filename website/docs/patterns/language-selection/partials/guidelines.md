@@ -11,7 +11,7 @@ The language selector provides users with a way to switch the application's lang
 
 Place the language selector in the [App Header](/components/app-header)'s utility section alongside other application-level controls. This ensures the user can switch the language from anywhere within the product without leaving the current page or context.
 
-![An example of the open language selection menu in the App Header with a list of available language options](/assets/patterns/language-selection/language-selection.png)
+![Open language selection menu in the App Header with a list of available language options](/assets/patterns/language-selection/language-selection.png)
 
 ## Components
 
