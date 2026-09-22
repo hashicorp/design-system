@@ -936,7 +936,7 @@ importers:
         version: 1.7.7
       '@hashicorp/design-system-components':
         specifier: workspace:*
-        version: file:packages/components(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-intl@8.0.2(@babel/core@7.28.0)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(typescript@5.9.2))(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
+        version: file:packages/components(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-intl@7.3.1(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(@glint/template@1.7.7)(typescript@5.9.2)(webpack@5.107.2(postcss@8.5.16)))(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
       '@hashicorp/design-system-tokens':
         specifier: workspace:*
         version: link:../packages/tokens
@@ -1057,6 +1057,9 @@ importers:
       ember-fetch:
         specifier: ^8.1.2
         version: 8.1.2
+      ember-intl:
+        specifier: ^7.3.0
+        version: 7.3.1(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(@glint/template@1.7.7)(typescript@5.9.2)(webpack@5.107.2(postcss@8.5.16))
       ember-load-initializers:
         specifier: ^3.0.1
         version: 3.0.1(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
@@ -15198,7 +15201,7 @@ snapshots:
 
   '@handlebars/parser@2.2.2': {}
 
-  '@hashicorp/design-system-components@file:packages/components(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-intl@8.0.2(@babel/core@7.28.0)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(typescript@5.9.2))(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))':
+  '@hashicorp/design-system-components@file:packages/components(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-intl@7.3.1(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(@glint/template@1.7.7)(typescript@5.9.2)(webpack@5.107.2(postcss@8.5.16)))(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))':
     dependencies:
       '@codemirror/autocomplete': 6.20.0
       '@codemirror/commands': 6.8.1
@@ -15245,7 +15248,7 @@ snapshots:
       tippy.js: 6.3.7
       tracked-built-ins: 4.0.0(@babel/core@7.28.0)
     optionalDependencies:
-      ember-intl: 8.0.2(@babel/core@7.28.0)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(typescript@5.9.2)
+      ember-intl: 7.3.1(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(@glint/template@1.7.7)(typescript@5.9.2)(webpack@5.107.2(postcss@8.5.16))
     transitivePeerDependencies:
       - '@babel/core'
       - '@ember/test-helpers'
@@ -15357,7 +15360,7 @@ snapshots:
       tippy.js: 6.3.7
       tracked-built-ins: 4.0.0(@babel/core@7.28.0)
     optionalDependencies:
-      ember-intl: 8.0.2(@babel/core@7.28.0)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(typescript@5.9.2)
+      ember-intl: 8.0.2(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(typescript@5.9.2)
     transitivePeerDependencies:
       - '@babel/core'
       - '@ember/test-helpers'
@@ -20956,7 +20959,7 @@ snapshots:
       - supports-color
       - typescript
 
-  ember-intl@8.0.2(@babel/core@7.28.0)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(typescript@5.9.2):
+  ember-intl@8.0.2(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(typescript@5.9.2):
     dependencies:
       '@embroider/addon-shim': 1.10.2
       '@formatjs/intl': 4.0.9(typescript@5.9.2)
