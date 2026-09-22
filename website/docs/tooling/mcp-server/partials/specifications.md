@@ -7,7 +7,7 @@ The server exposes six resources, organized into three areas; components, design
 | Component catalog index | A list of all HDS components with summary metadata: names, module paths, and basic properties |
 | Component detail | Full record for a specific component by name: properties, variants, usage guidance, and API details |
 
-This lets an AI agent answer questions like: *"What variants does the Alert component support?"* or *"What are the accepted values for the Button's color property?"*
+This lets an AI assistant answer questions like: *"What variants does the Alert component support?"* or *"What are the accepted values for the Button's color property?"*
 
 ## Design tokens
 
@@ -16,7 +16,7 @@ This lets an AI agent answer questions like: *"What variants does the Alert comp
 | Token catalog index | A list of all HDS tokens with summary metadata: keys, names, and paths |
 | Token detail | Full record for a specific token by key: its value, original value, and resolution chain |
 
-This lets an AI agent answer: *"What CSS value does the `foreground-primary` token resolve to?"* or *"What tokens are available for surface colors?"*
+This lets an AI assistant answer: *"What CSS value does the `foreground-primary` token resolve to?"* or *"What tokens are available for surface colors?"*
 
 ## Icons
 
@@ -35,4 +35,4 @@ Something here about website documentation lookup.
 
 - Your Figma files (that's the Figma MCP server's role)
 - Your application's codebase
-- Any design patterns or page templates not codified as components in the catalog, though it will try to interpret these to the best of it's ability using the HDS tokens.
+- Any design patterns or page templates not codified as components in the catalog, though it will try to interpret these to the best of its ability using the HDS tokens.
