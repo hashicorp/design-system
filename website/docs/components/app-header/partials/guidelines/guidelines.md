@@ -68,9 +68,9 @@ Avoid placing links to unrelated pages within the user dropdown menu.
 
 ![User dropdown in the App Header](/assets/components/app-header/app-header-user-dropdown.png)
 
-### Language sselection
+### Language selection
 
-For guidance on adding language selection to the App Header, refer to the [language selection pattern](/patterns/language-selection.png).
+For guidance on adding language selection to the App Header, refer to the [language selection pattern](/patterns/language-selection).
 
 ![An example of language selection via a dedicated dropdown menu in the App Header](/assets/patterns/language-selection/language-selection.png)
 
