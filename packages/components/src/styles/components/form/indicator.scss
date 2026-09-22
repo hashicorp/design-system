@@ -13,7 +13,7 @@
 .hds-form-indicator--optional {
   color: var(--hds-form-indicator-optional-foreground-color);
   font-weight: var(--hds-typography-font-weight-regular);
-  font-size: var(--hds-form-indicator-optional-typography-font-size);
+  font-size: var(--hds-form-indicator-typography-font-size);
   font-family: var(--hds-typography-font-stack-text);
   line-height: var(--hds-form-indicator-optional-typography-line-height);
 }
@@ -25,7 +25,7 @@
     padding: 0;
     color: var(--hds-form-indicator-optional-foreground-color);
     font-weight: var(--hds-typography-font-weight-regular);
-    font-size: var(--hds-form-indicator-optional-typography-font-size);
+    font-size: var(--hds-form-indicator-typography-font-size);
     font-family: var(--hds-typography-font-stack-text);
     line-height: var(--hds-form-indicator-optional-typography-line-height);
     background-color: transparent;
