@@ -22159,29 +22159,6 @@
         "hover"
       ]
     },
-    "hds-form-control-base-foreground-color": {
-      "key": "{form.control.base.foreground.color}",
-      "$type": "color",
-      "$value": "#0c0c0e",
-      "group": "components",
-      "original": {
-        "$type": "color",
-        "$value": "{foreground.color.strong}",
-        "group": "components",
-        "key": "{form.control.base.foreground.color}"
-      },
-      "name": "hds-form-control-base-foreground-color",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "base",
-        "foreground",
-        "color"
-      ]
-    },
     "hds-form-control-base-surface-color-hover": {
       "key": "{form.control.base.surface.color.hover}",
       "$type": "color",
@@ -24564,9 +24541,9 @@
       },
       "original": {
         "$type": "color",
-        "$value": "{form.control.base.foreground.color}",
+        "$value": "{foreground.color.strong}",
         "$modes": {
-          "default": "{form.control.base.foreground.color}",
+          "default": "{foreground.color.strong}",
           "cds-g0": "{carbon.themes.white.textInverse}",
           "cds-g10": "{carbon.themes.g10.textInverse}",
           "cds-g90": "{carbon.themes.g90.textInverse}",
@@ -56304,29 +56281,6 @@
         "hover"
       ]
     },
-    "hds-form-control-base-foreground-color": {
-      "key": "{form.control.base.foreground.color}",
-      "$type": "color",
-      "$value": "#161616",
-      "group": "components",
-      "original": {
-        "$type": "color",
-        "$value": "{foreground.color.strong}",
-        "group": "components",
-        "key": "{form.control.base.foreground.color}"
-      },
-      "name": "hds-form-control-base-foreground-color",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "base",
-        "foreground",
-        "color"
-      ]
-    },
     "hds-form-control-base-surface-color-hover": {
       "key": "{form.control.base.surface.color.hover}",
       "$type": "color",
@@ -58709,7 +58663,7 @@
         "$type": "color",
         "$value": "{carbon.themes.white.textInverse}",
         "$modes": {
-          "default": "{form.control.base.foreground.color}",
+          "default": "{foreground.color.strong}",
           "cds-g0": "{carbon.themes.white.textInverse}",
           "cds-g10": "{carbon.themes.g10.textInverse}",
           "cds-g90": "{carbon.themes.g90.textInverse}",
@@ -90463,29 +90417,6 @@
         "hover"
       ]
     },
-    "hds-form-control-base-foreground-color": {
-      "key": "{form.control.base.foreground.color}",
-      "$type": "color",
-      "$value": "#161616",
-      "group": "components",
-      "original": {
-        "$type": "color",
-        "$value": "{foreground.color.strong}",
-        "group": "components",
-        "key": "{form.control.base.foreground.color}"
-      },
-      "name": "hds-form-control-base-foreground-color",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "base",
-        "foreground",
-        "color"
-      ]
-    },
     "hds-form-control-base-surface-color-hover": {
       "key": "{form.control.base.surface.color.hover}",
       "$type": "color",
@@ -92868,7 +92799,7 @@
         "$type": "color",
         "$value": "{carbon.themes.g10.textInverse}",
         "$modes": {
-          "default": "{form.control.base.foreground.color}",
+          "default": "{foreground.color.strong}",
           "cds-g0": "{carbon.themes.white.textInverse}",
           "cds-g10": "{carbon.themes.g10.textInverse}",
           "cds-g90": "{carbon.themes.g90.textInverse}",
@@ -124622,29 +124553,6 @@
         "hover"
       ]
     },
-    "hds-form-control-base-foreground-color": {
-      "key": "{form.control.base.foreground.color}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "group": "components",
-      "original": {
-        "$type": "color",
-        "$value": "{foreground.color.strong}",
-        "group": "components",
-        "key": "{form.control.base.foreground.color}"
-      },
-      "name": "hds-form-control-base-foreground-color",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "base",
-        "foreground",
-        "color"
-      ]
-    },
     "hds-form-control-base-surface-color-hover": {
       "key": "{form.control.base.surface.color.hover}",
       "$type": "color",
@@ -127027,7 +126935,7 @@
         "$type": "color",
         "$value": "{carbon.themes.g90.textInverse}",
         "$modes": {
-          "default": "{form.control.base.foreground.color}",
+          "default": "{foreground.color.strong}",
           "cds-g0": "{carbon.themes.white.textInverse}",
           "cds-g10": "{carbon.themes.g10.textInverse}",
           "cds-g90": "{carbon.themes.g90.textInverse}",
@@ -158781,29 +158689,6 @@
         "hover"
       ]
     },
-    "hds-form-control-base-foreground-color": {
-      "key": "{form.control.base.foreground.color}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "group": "components",
-      "original": {
-        "$type": "color",
-        "$value": "{foreground.color.strong}",
-        "group": "components",
-        "key": "{form.control.base.foreground.color}"
-      },
-      "name": "hds-form-control-base-foreground-color",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "base",
-        "foreground",
-        "color"
-      ]
-    },
     "hds-form-control-base-surface-color-hover": {
       "key": "{form.control.base.surface.color.hover}",
       "$type": "color",
@@ -161186,7 +161071,7 @@
         "$type": "color",
         "$value": "{carbon.themes.g100.textInverse}",
         "$modes": {
-          "default": "{form.control.base.foreground.color}",
+          "default": "{foreground.color.strong}",
           "cds-g0": "{carbon.themes.white.textInverse}",
           "cds-g10": "{carbon.themes.g10.textInverse}",
           "cds-g90": "{carbon.themes.g90.textInverse}",

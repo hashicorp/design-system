@@ -949,7 +949,7 @@
     --hds-form-super-select-search-margin-bottom: 3px;
     --hds-form-super-select-tag-border-color: var(--hds-border-color-strong);
     --hds-form-super-select-tag-foreground-color: var(
-      --hds-form-control-base-foreground-color
+      --hds-foreground-color-strong
     );
     --hds-form-super-select-tag-surface-color: var(
       --hds-surface-color-interactive
@@ -7094,9 +7094,6 @@
     );
     --hds-form-checkbox-border-width: 1px;
     --hds-form-checkbox-size: 16px;
-    --hds-form-control-base-foreground-color: var(
-      --hds-foreground-color-strong
-    );
     --hds-form-control-border-radius: var(--hds-border-radius-small);
     --hds-form-control-border-width: 1px;
     --hds-form-control-disabled-foreground-color: var(

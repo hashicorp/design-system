@@ -22179,29 +22179,6 @@
     ]
   },
   {
-    "key": "{form.control.base.foreground.color}",
-    "$type": "color",
-    "$value": "#161616",
-    "group": "components",
-    "original": {
-      "$type": "color",
-      "$value": "{foreground.color.strong}",
-      "group": "components",
-      "key": "{form.control.base.foreground.color}"
-    },
-    "name": "hds-form-control-base-foreground-color",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "base",
-      "foreground",
-      "color"
-    ]
-  },
-  {
     "key": "{form.control.base.surface.color.hover}",
     "$type": "color",
     "$value": "#ffffff",
@@ -24583,7 +24560,7 @@
       "$type": "color",
       "$value": "{carbon.themes.g10.textInverse}",
       "$modes": {
-        "default": "{form.control.base.foreground.color}",
+        "default": "{foreground.color.strong}",
         "cds-g0": "{carbon.themes.white.textInverse}",
         "cds-g10": "{carbon.themes.g10.textInverse}",
         "cds-g90": "{carbon.themes.g90.textInverse}",
