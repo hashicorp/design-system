@@ -112,6 +112,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
   }
 
   onFilter = (filters: HdsFilterBarFilters): void => {
+    console.log("onFilter called with filters:", filters);
     const { onFilter } = this.args;
     if (onFilter && typeof onFilter === 'function') {
       onFilter(filters);
@@ -134,9 +135,13 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
   };
 
   onSearch = (event: Event): void => {
+    event.preventDefault();
+    event.stopPropagation();
     const { filters } = this.args;
     const input = event.target as HTMLInputElement;
     const value = input?.value;
+
+    console.log("onSearch called with value:", value);
 
     const newFilters = this._copyFilters(filters);
 
