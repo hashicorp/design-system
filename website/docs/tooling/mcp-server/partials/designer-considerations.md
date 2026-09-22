@@ -15,8 +15,6 @@ Almost all HDS Figma components are linked to a counterpart in code. When you us
 
 A detached component is also no longer bound by the properties the component actually supports in code. It becomes a visual approximation representing something that doesn't exist or isn't achievable within the system.
 
-![Consider an image representation here]()
-
 To ensure the best possible output from an AI assistant:
 
 - Stick to assets from the Helios library in Figma; styles, variables, components, patterns, and icons.
@@ -62,7 +60,7 @@ Before handing off your designs to an engineer or AI assistant, run Figma's **[C
 - Detached components (flagged, but cannot be auto-restored)
 - Spacing inconsistencies and where HDS spacing variables can be applied (though this is not required as spacing tokens are not used within HDS Ember components)
 
-![An example of Check Designs detecting detached variables in a Figma design file]()
+![An example of Check Designs detecting detached variables in a Figma design file](/assets/tooling/mcp-server/mcp-server-check-designs-example.png)
 
 !!! Info
 
