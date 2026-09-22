@@ -696,7 +696,6 @@
   --hds-form-control-surface-color-checked-disabled: #fafafa;
   --hds-form-control-surface-color-checked-hover: #0c56e9;
   --hds-form-control-base-foreground-color: #0c0c0e;
-  --hds-form-control-base-surface-color-default: #ffffff;
   --hds-form-control-base-surface-color-hover: #f1f2f3;
   --hds-form-control-base-border-color-default: #8c909c;
   --hds-form-control-base-border-color-hover: #656a76;
@@ -7991,7 +7990,7 @@ button.hds-button[href]::after {
   min-height: var(--hds-form-control-height);
   padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
   color: var(--hds-form-control-base-foreground-color);
-  background-color: var(--hds-form-control-base-surface-color-default);
+  background-color: var(--hds-surface-color-interactive);
   background-image: var(--hds-form-select-background-image-data-url);
   background-repeat: no-repeat;
   background-position: right var(--hds-form-select-background-image-position-right-x) center;
@@ -8216,7 +8215,7 @@ button.hds-button[href]::after {
   padding-left: var(--hds-form-super-select-padding-left);
   color: var(--hds-form-control-base-foreground-color);
   line-height: var(--hds-typography-body-200-line-height);
-  background-color: var(--hds-form-control-base-surface-color-default);
+  background-color: var(--hds-surface-color-interactive);
   background-image: var(--hds-form-select-background-image-data-url);
   background-repeat: no-repeat;
   background-position: right var(--hds-form-select-background-image-position-right-x) center, top 9px left 20px;
@@ -8352,7 +8351,7 @@ button.hds-button[href]::after {
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-options {
   padding: 3px 0;
-  background-color: var(--hds-form-control-base-surface-color-default);
+  background-color: var(--hds-surface-color-interactive);
   border-radius: inherit;
 }
 .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-options,
@@ -8474,7 +8473,7 @@ button.hds-button[href]::after {
   font-size: var(--hds-typography-body-200-font-size);
   font-family: var(--hds-typography-body-200-font-family);
   line-height: 1rem;
-  background-color: var(--hds-form-control-base-surface-color-default);
+  background-color: var(--hds-surface-color-interactive);
   border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
   border-radius: var(--hds-form-control-border-radius);
   box-shadow: var(--hds-elevation-inset-box-shadow);
@@ -8676,7 +8675,7 @@ button.hds-button[href]::after {
 
 .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message):not([aria-selected=true])::before {
-  background-color: var(--hds-form-control-base-surface-color-default);
+  background-color: var(--hds-surface-color-interactive);
   border-color: var(--hds-form-control-base-border-color-default);
   box-shadow: var(--hds-elevation-inset-box-shadow);
 }
@@ -8781,7 +8780,7 @@ button.hds-button[href]::after {
   min-height: var(--hds-form-control-height);
   padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
   color: var(--hds-form-control-base-foreground-color);
-  background-color: var(--hds-form-control-base-surface-color-default);
+  background-color: var(--hds-surface-color-interactive);
   border-radius: var(--hds-form-control-border-radius);
   box-shadow: var(--hds-elevation-inset-box-shadow);
 }
@@ -9052,7 +9051,7 @@ button.hds-button[href]::after {
   min-height: var(--hds-form-control-height);
   padding: var(--hds-form-textarea-padding-vertical) var(--hds-form-control-padding-horizontal);
   color: var(--hds-form-control-base-foreground-color);
-  background-color: var(--hds-form-control-base-surface-color-default);
+  background-color: var(--hds-surface-color-interactive);
   border-radius: var(--hds-form-control-border-radius);
   box-shadow: var(--hds-elevation-inset-box-shadow);
   resize: vertical;

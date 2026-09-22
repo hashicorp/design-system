@@ -22182,30 +22182,6 @@
         "color"
       ]
     },
-    "hds-form-control-base-surface-color-default": {
-      "key": "{form.control.base.surface.color.default}",
-      "$type": "color",
-      "$value": "#ffffff",
-      "group": "components",
-      "original": {
-        "$type": "color",
-        "$value": "{surface.color.interactive}",
-        "group": "components",
-        "key": "{form.control.base.surface.color.default}"
-      },
-      "name": "hds-form-control-base-surface-color-default",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "base",
-        "surface",
-        "color",
-        "default"
-      ]
-    },
     "hds-form-control-base-surface-color-hover": {
       "key": "{form.control.base.surface.color.hover}",
       "$type": "color",
@@ -23958,9 +23934,9 @@
         "cds-g100": "#333333"
       },
       "original": {
-        "$value": "{form.control.base.surface.color.default}",
+        "$value": "{surface.color.interactive}",
         "$modes": {
-          "default": "{form.control.base.surface.color.default}",
+          "default": "{surface.color.interactive}",
           "cds-g0": "{carbon.themes.white.layerHover01}",
           "cds-g10": "{carbon.themes.g10.layerHover01}",
           "cds-g90": "{carbon.themes.g90.layerHover01}",
@@ -56351,30 +56327,6 @@
         "color"
       ]
     },
-    "hds-form-control-base-surface-color-default": {
-      "key": "{form.control.base.surface.color.default}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "group": "components",
-      "original": {
-        "$type": "color",
-        "$value": "{surface.color.interactive}",
-        "group": "components",
-        "key": "{form.control.base.surface.color.default}"
-      },
-      "name": "hds-form-control-base-surface-color-default",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "base",
-        "surface",
-        "color",
-        "default"
-      ]
-    },
     "hds-form-control-base-surface-color-hover": {
       "key": "{form.control.base.surface.color.hover}",
       "$type": "color",
@@ -58129,7 +58081,7 @@
       "original": {
         "$value": "{carbon.themes.white.layerHover01}",
         "$modes": {
-          "default": "{form.control.base.surface.color.default}",
+          "default": "{surface.color.interactive}",
           "cds-g0": "{carbon.themes.white.layerHover01}",
           "cds-g10": "{carbon.themes.g10.layerHover01}",
           "cds-g90": "{carbon.themes.g90.layerHover01}",
@@ -90534,30 +90486,6 @@
         "color"
       ]
     },
-    "hds-form-control-base-surface-color-default": {
-      "key": "{form.control.base.surface.color.default}",
-      "$type": "color",
-      "$value": "#ffffff",
-      "group": "components",
-      "original": {
-        "$type": "color",
-        "$value": "{surface.color.interactive}",
-        "group": "components",
-        "key": "{form.control.base.surface.color.default}"
-      },
-      "name": "hds-form-control-base-surface-color-default",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "base",
-        "surface",
-        "color",
-        "default"
-      ]
-    },
     "hds-form-control-base-surface-color-hover": {
       "key": "{form.control.base.surface.color.hover}",
       "$type": "color",
@@ -92312,7 +92240,7 @@
       "original": {
         "$value": "{carbon.themes.g10.layerHover01}",
         "$modes": {
-          "default": "{form.control.base.surface.color.default}",
+          "default": "{surface.color.interactive}",
           "cds-g0": "{carbon.themes.white.layerHover01}",
           "cds-g10": "{carbon.themes.g10.layerHover01}",
           "cds-g90": "{carbon.themes.g90.layerHover01}",
@@ -124717,30 +124645,6 @@
         "color"
       ]
     },
-    "hds-form-control-base-surface-color-default": {
-      "key": "{form.control.base.surface.color.default}",
-      "$type": "color",
-      "$value": "#393939",
-      "group": "components",
-      "original": {
-        "$type": "color",
-        "$value": "{surface.color.interactive}",
-        "group": "components",
-        "key": "{form.control.base.surface.color.default}"
-      },
-      "name": "hds-form-control-base-surface-color-default",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "base",
-        "surface",
-        "color",
-        "default"
-      ]
-    },
     "hds-form-control-base-surface-color-hover": {
       "key": "{form.control.base.surface.color.hover}",
       "$type": "color",
@@ -126495,7 +126399,7 @@
       "original": {
         "$value": "{carbon.themes.g90.layerHover01}",
         "$modes": {
-          "default": "{form.control.base.surface.color.default}",
+          "default": "{surface.color.interactive}",
           "cds-g0": "{carbon.themes.white.layerHover01}",
           "cds-g10": "{carbon.themes.g10.layerHover01}",
           "cds-g90": "{carbon.themes.g90.layerHover01}",
@@ -158900,30 +158804,6 @@
         "color"
       ]
     },
-    "hds-form-control-base-surface-color-default": {
-      "key": "{form.control.base.surface.color.default}",
-      "$type": "color",
-      "$value": "#262626",
-      "group": "components",
-      "original": {
-        "$type": "color",
-        "$value": "{surface.color.interactive}",
-        "group": "components",
-        "key": "{form.control.base.surface.color.default}"
-      },
-      "name": "hds-form-control-base-surface-color-default",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "base",
-        "surface",
-        "color",
-        "default"
-      ]
-    },
     "hds-form-control-base-surface-color-hover": {
       "key": "{form.control.base.surface.color.hover}",
       "$type": "color",
@@ -160678,7 +160558,7 @@
       "original": {
         "$value": "{carbon.themes.g100.layerHover01}",
         "$modes": {
-          "default": "{form.control.base.surface.color.default}",
+          "default": "{surface.color.interactive}",
           "cds-g0": "{carbon.themes.white.layerHover01}",
           "cds-g10": "{carbon.themes.g10.layerHover01}",
           "cds-g90": "{carbon.themes.g90.layerHover01}",

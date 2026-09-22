@@ -4729,9 +4729,6 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-form-checkbox-border-width: 1px;
   --hds-form-checkbox-size: 16px;
   --hds-form-control-base-foreground-color: var(--hds-foreground-color-strong);
-  --hds-form-control-base-surface-color-default: var(
-    --hds-surface-color-interactive
-  );
   --hds-form-control-border-radius: var(--hds-border-radius-small);
   --hds-form-control-border-width: 1px;
   --hds-form-control-disabled-foreground-color: var(
