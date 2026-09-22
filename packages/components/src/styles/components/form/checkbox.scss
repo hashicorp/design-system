@@ -62,7 +62,7 @@
   &.mock-hover:checked,
   &:hover:indeterminate,
   &.mock-hover:indeterminate {
-    background-color: var(--hds-form-control-surface-color-checked-hover);
+    background-color: var(--hds-form-checkbox-surface-color-checked-hover);
     border-color: var(--hds-form-control-border-color-checked-hover);
   }
 
