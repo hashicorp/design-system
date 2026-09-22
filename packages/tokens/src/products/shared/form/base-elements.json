@@ -255,6 +255,20 @@
       }
     },
     "indicator": {
+      "typography": {
+        "font-size": {
+          "$type": "font-size",
+          "$value": "{typography.body-100.font-size}",
+          "unit": "px",
+          "$modes": {
+            "default": "{typography.body-100.font-size}",
+            "cds-g0": "{carbon.typography.label01.font-size}",
+            "cds-g10": "{carbon.typography.label01.font-size}",
+            "cds-g90": "{carbon.typography.label01.font-size}",
+            "cds-g100": "{carbon.typography.label01.font-size}"
+          }
+        }
+      },
       "optional": {
         "color": {
           "$type": "color",
@@ -278,18 +292,6 @@
           }
         },
         "typography": {
-          "font-size": {
-            "$type": "font-size",
-            "$value": "{typography.body-100.font-size}",
-            "unit": "px",
-            "$modes": {
-              "default": "{typography.body-100.font-size}",
-              "cds-g0": "{carbon.typography.label01.font-size}",
-              "cds-g10": "{carbon.typography.label01.font-size}",
-              "cds-g90": "{carbon.typography.label01.font-size}",
-              "cds-g100": "{carbon.typography.label01.font-size}"
-            }
-          },
           "line-height": {
             "$type": "number",
             "$value": "{typography.body-100.line-height}",
