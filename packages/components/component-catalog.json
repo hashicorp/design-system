@@ -12582,6 +12582,11 @@
           "valuesRef": "Hds::Icon#name"
         },
         {
+          "name": "iconColor",
+          "type": "string",
+          "required": false
+        },
+        {
           "name": "isSelected",
           "type": "boolean",
           "required": false

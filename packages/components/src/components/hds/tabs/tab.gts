@@ -13,9 +13,7 @@ import didUpdate from '@ember/render-modifiers/modifiers/did-update';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
 import willDestroy from '@ember/render-modifiers/modifiers/will-destroy';
 
-import type { IconName } from '@hashicorp/flight-icons/svg';
-
-import HdsIcon from '../icon/index.gts';
+import HdsIcon, { type HdsIconSignature } from '../icon/index.gts';
 import HdsBadgeCount from '../badge-count/index.gts';
 
 import type { HdsTabsTabIds, HdsTabsPanelIds } from './types.ts';
@@ -25,7 +23,8 @@ export interface HdsTabsTabSignature {
     tabIds?: HdsTabsTabIds;
     panelIds?: HdsTabsPanelIds;
     selectedTabIndex?: number;
-    icon?: IconName;
+    icon?: HdsIconSignature['Args']['name'];
+    iconColor?: HdsIconSignature['Args']['color'];
     count?: string;
     isSelected?: boolean;
     didInsertNode?: (element: HTMLButtonElement, isSelected?: boolean) => void;
@@ -137,6 +136,7 @@ export default class HdsTabsTab extends Component<HdsTabsTabSignature> {
         {{#if @icon}}
           <HdsIcon
             @name={{@icon}}
+            @color={{@iconColor}}
             class="hds-tabs__tab-icon"
             role="presentation"
           />
