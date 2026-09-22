@@ -6598,7 +6598,7 @@ button.hds-button[href]::after {
   border-color: var(--hds-form-control-border-color-unchecked-hover);
 }
 .hds-form-checkbox:hover:checked, .hds-form-checkbox.mock-hover:checked, .hds-form-checkbox:hover:indeterminate, .hds-form-checkbox.mock-hover:indeterminate {
-  background-color: var(--hds-form-control-surface-color-checked-hover);
+  background-color: var(--hds-form-checkbox-surface-color-checked-hover);
   border-color: var(--hds-form-control-border-color-checked-hover);
 }
 .hds-form-checkbox:focus-visible, .hds-form-checkbox.mock-focus {

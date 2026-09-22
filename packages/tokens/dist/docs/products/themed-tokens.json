@@ -21422,6 +21422,44 @@
         "default"
       ]
     },
+    "hds-form-checkbox-surface-color-checked-hover": {
+      "key": "{form.checkbox.surface.color.checked.hover}",
+      "$type": "color",
+      "$value": "#0c56e9",
+      "group": "components",
+      "$modes": {
+        "default": "#0c56e9",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.blue-300}",
+        "group": "components",
+        "$modes": {
+          "default": "{core.color.blue-300}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{form.checkbox.surface.color.checked.hover}"
+      },
+      "name": "hds-form-checkbox-surface-color-checked-hover",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "checkbox",
+        "surface",
+        "color",
+        "checked",
+        "hover"
+      ]
+    },
     "hds-form-checkbox-background-image-size": {
       "key": "{form.checkbox.background-image.size}",
       "$type": "dimension",
@@ -22119,44 +22157,6 @@
         "color",
         "checked",
         "disabled"
-      ]
-    },
-    "hds-form-control-surface-color-checked-hover": {
-      "key": "{form.control.surface.color.checked.hover}",
-      "$type": "color",
-      "$value": "#0c56e9",
-      "group": "components",
-      "$modes": {
-        "default": "#0c56e9",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{core.color.blue-300}",
-        "group": "components",
-        "$modes": {
-          "default": "{core.color.blue-300}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{form.control.surface.color.checked.hover}"
-      },
-      "name": "hds-form-control-surface-color-checked-hover",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "surface",
-        "color",
-        "checked",
-        "hover"
       ]
     },
     "hds-form-control-base-surface-color-hover": {
@@ -55545,6 +55545,44 @@
         "default"
       ]
     },
+    "hds-form-checkbox-surface-color-checked-hover": {
+      "key": "{form.checkbox.surface.color.checked.hover}",
+      "$type": "color",
+      "$value": "#161616",
+      "group": "components",
+      "$modes": {
+        "default": "#0043ce",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.iconPrimary}",
+        "group": "components",
+        "$modes": {
+          "default": "{core.color.blue-300}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{form.checkbox.surface.color.checked.hover}"
+      },
+      "name": "hds-form-checkbox-surface-color-checked-hover",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "checkbox",
+        "surface",
+        "color",
+        "checked",
+        "hover"
+      ]
+    },
     "hds-form-checkbox-background-image-size": {
       "key": "{form.checkbox.background-image.size}",
       "$type": "dimension",
@@ -56242,44 +56280,6 @@
         "color",
         "checked",
         "disabled"
-      ]
-    },
-    "hds-form-control-surface-color-checked-hover": {
-      "key": "{form.control.surface.color.checked.hover}",
-      "$type": "color",
-      "$value": "#161616",
-      "group": "components",
-      "$modes": {
-        "default": "#0043ce",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.white.iconPrimary}",
-        "group": "components",
-        "$modes": {
-          "default": "{core.color.blue-300}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{form.control.surface.color.checked.hover}"
-      },
-      "name": "hds-form-control-surface-color-checked-hover",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "surface",
-        "color",
-        "checked",
-        "hover"
       ]
     },
     "hds-form-control-base-surface-color-hover": {
@@ -89682,6 +89682,44 @@
         "default"
       ]
     },
+    "hds-form-checkbox-surface-color-checked-hover": {
+      "key": "{form.checkbox.surface.color.checked.hover}",
+      "$type": "color",
+      "$value": "#161616",
+      "group": "components",
+      "$modes": {
+        "default": "#0043ce",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.iconPrimary}",
+        "group": "components",
+        "$modes": {
+          "default": "{core.color.blue-300}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{form.checkbox.surface.color.checked.hover}"
+      },
+      "name": "hds-form-checkbox-surface-color-checked-hover",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "checkbox",
+        "surface",
+        "color",
+        "checked",
+        "hover"
+      ]
+    },
     "hds-form-checkbox-background-image-size": {
       "key": "{form.checkbox.background-image.size}",
       "$type": "dimension",
@@ -90379,44 +90417,6 @@
         "color",
         "checked",
         "disabled"
-      ]
-    },
-    "hds-form-control-surface-color-checked-hover": {
-      "key": "{form.control.surface.color.checked.hover}",
-      "$type": "color",
-      "$value": "#161616",
-      "group": "components",
-      "$modes": {
-        "default": "#0043ce",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g10.iconPrimary}",
-        "group": "components",
-        "$modes": {
-          "default": "{core.color.blue-300}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{form.control.surface.color.checked.hover}"
-      },
-      "name": "hds-form-control-surface-color-checked-hover",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "surface",
-        "color",
-        "checked",
-        "hover"
       ]
     },
     "hds-form-control-base-surface-color-hover": {
@@ -123819,6 +123819,44 @@
         "default"
       ]
     },
+    "hds-form-checkbox-surface-color-checked-hover": {
+      "key": "{form.checkbox.surface.color.checked.hover}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "group": "components",
+      "$modes": {
+        "default": "#0043ce",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.iconPrimary}",
+        "group": "components",
+        "$modes": {
+          "default": "{core.color.blue-300}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{form.checkbox.surface.color.checked.hover}"
+      },
+      "name": "hds-form-checkbox-surface-color-checked-hover",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "checkbox",
+        "surface",
+        "color",
+        "checked",
+        "hover"
+      ]
+    },
     "hds-form-checkbox-background-image-size": {
       "key": "{form.checkbox.background-image.size}",
       "$type": "dimension",
@@ -124516,44 +124554,6 @@
         "color",
         "checked",
         "disabled"
-      ]
-    },
-    "hds-form-control-surface-color-checked-hover": {
-      "key": "{form.control.surface.color.checked.hover}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "group": "components",
-      "$modes": {
-        "default": "#0043ce",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g90.iconPrimary}",
-        "group": "components",
-        "$modes": {
-          "default": "{core.color.blue-300}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{form.control.surface.color.checked.hover}"
-      },
-      "name": "hds-form-control-surface-color-checked-hover",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "surface",
-        "color",
-        "checked",
-        "hover"
       ]
     },
     "hds-form-control-base-surface-color-hover": {
@@ -157956,6 +157956,44 @@
         "default"
       ]
     },
+    "hds-form-checkbox-surface-color-checked-hover": {
+      "key": "{form.checkbox.surface.color.checked.hover}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "group": "components",
+      "$modes": {
+        "default": "#0043ce",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.iconPrimary}",
+        "group": "components",
+        "$modes": {
+          "default": "{core.color.blue-300}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{form.checkbox.surface.color.checked.hover}"
+      },
+      "name": "hds-form-checkbox-surface-color-checked-hover",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "checkbox",
+        "surface",
+        "color",
+        "checked",
+        "hover"
+      ]
+    },
     "hds-form-checkbox-background-image-size": {
       "key": "{form.checkbox.background-image.size}",
       "$type": "dimension",
@@ -158653,44 +158691,6 @@
         "color",
         "checked",
         "disabled"
-      ]
-    },
-    "hds-form-control-surface-color-checked-hover": {
-      "key": "{form.control.surface.color.checked.hover}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "group": "components",
-      "$modes": {
-        "default": "#0043ce",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g100.iconPrimary}",
-        "group": "components",
-        "$modes": {
-          "default": "{core.color.blue-300}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{form.control.surface.color.checked.hover}"
-      },
-      "name": "hds-form-control-surface-color-checked-hover",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "control",
-        "surface",
-        "color",
-        "checked",
-        "hover"
       ]
     },
     "hds-form-control-base-surface-color-hover": {
