@@ -159,11 +159,6 @@
         },
         "surface": {
           "color": {
-            "default": {
-              "$type": "color",
-              "$value": "{surface.color.interactive}",
-              "group": "components"
-            },
             "hover": {
               "$type": "color",
               "$value": "{surface.color.interactive-hover}",

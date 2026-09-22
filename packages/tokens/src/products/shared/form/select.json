@@ -37,9 +37,9 @@
       "surface": {
         "color": {
           "hover": {
-            "$value": "{form.control.base.surface.color.default}",
+            "$value": "{surface.color.interactive}",
             "$modes": {
-              "default": "{form.control.base.surface.color.default}",
+              "default": "{surface.color.interactive}",
               "cds-g0": "{carbon.themes.white.layerHover01}",
               "cds-g10": "{carbon.themes.g10.layerHover01}",
               "cds-g90": "{carbon.themes.g90.layerHover01}",
