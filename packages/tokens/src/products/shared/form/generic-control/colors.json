@@ -126,22 +126,6 @@
         }
       },
       "base": {
-        "surface": {
-          "color": {
-            "hover": {
-              "$type": "color",
-              "$value": "{surface.color.interactive-hover}",
-              "group": "components",
-              "$modes": {
-                "default": "{surface.color.interactive-hover}",
-                "cds-g0": "{carbon.themes.white.field01}",
-                "cds-g10": "{carbon.themes.g10.field01}",
-                "cds-g90": "{carbon.themes.g90.field01}",
-                "cds-g100": "{carbon.themes.g100.field01}"
-              }
-            }
-          }
-        },
         "border": {
           "color": {
             "default": {
