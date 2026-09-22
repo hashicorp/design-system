@@ -1,0 +1,30 @@
+{{! for demo purposes, we set @hasA11yRefocus to false but in your app it will probably need to be set to true (or omitted to rely on defaults) }}
+<Hds::AppHeader @hasA11yRefocus={{false}}>
+  <:logo>
+    <Doc::Placeholder @height="2em" @width="auto" @text="HomeLink" @background="#e4e4e4" />
+  </:logo>
+
+  <:globalActions>
+    <Doc::Placeholder @height="2em" @width="auto" @text="OrgSwitcher" @background="#e4e4e4" />
+  </:globalActions>
+
+  <:utilityActions>
+    <Doc::Placeholder @height="2em" @width="auto" @text="LanguageSelector" @background="#e4e4e4" />
+
+    <Doc::Placeholder @height="2em" @width="auto" @text="HelpMenu" @background="#e4e4e4" />
+    <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
+      <dd.ToggleIcon @icon="user" @text="user menu" />
+      <dd.Title @text="Signed In" />
+      <dd.Description @text="email@domain.com" />
+      <dd.Interactive @route="components" {{on "click" dd.close}}>Account settings</dd.Interactive>
+      <dd.Title @text="Theme" />
+      <dd.Checkmark
+        @icon="monitor"
+        @selected={{eq this.selectedTheme "system"}}
+        {{on "click" dd.close}}
+      >System</dd.Checkmark>
+      <dd.Checkmark @icon="sun" @selected={{eq this.selectedTheme "light"}} {{on "click" dd.close}}>Light</dd.Checkmark>
+      <dd.Checkmark @icon="moon" @selected={{eq this.selectedTheme "dark"}} {{on "click" dd.close}}>Dark</dd.Checkmark>
+    </Hds::Dropdown>
+  </:utilityActions>
+</Hds::AppHeader>
