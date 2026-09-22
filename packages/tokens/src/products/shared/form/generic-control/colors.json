@@ -54,18 +54,6 @@
                 "cds-g100": "{carbon.themes.g100.iconPrimary}"
               }
             },
-            "disabled": {
-              "$type": "color",
-              "$value": "{border.color.primary}",
-              "group": "components",
-              "$modes": {
-                "default": "{border.color.primary}",
-                "cds-g0": "{carbon.themes.white.iconDisabled}",
-                "cds-g10": "{carbon.themes.g10.iconDisabled}",
-                "cds-g90": "{carbon.themes.g90.iconDisabled}",
-                "cds-g100": "{carbon.themes.g100.iconDisabled}"
-              }
-            },
             "hover": {
               "$type": "color",
               "$value": "{core.color.blue-400}",
