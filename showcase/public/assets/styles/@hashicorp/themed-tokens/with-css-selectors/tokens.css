@@ -535,7 +535,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     22,
     0.25
   );
-  --hds-form-control-base-surface-color-hover: #f4f4f4;
   --hds-form-control-border-color-checked-default: #161616;
   --hds-form-control-border-color-checked-hover: #161616;
   --hds-form-control-border-color-unchecked-default: #161616;
@@ -1415,7 +1414,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
       22,
       0.25
     );
-    --hds-form-control-base-surface-color-hover: #f4f4f4;
     --hds-form-control-border-color-checked-default: #161616;
     --hds-form-control-border-color-checked-hover: #161616;
     --hds-form-control-border-color-unchecked-default: #161616;
@@ -2326,7 +2324,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
       244,
       0.25
     );
-    --hds-form-control-base-surface-color-hover: #262626;
     --hds-form-control-border-color-checked-default: #f4f4f4;
     --hds-form-control-border-color-checked-hover: #f4f4f4;
     --hds-form-control-border-color-unchecked-default: #f4f4f4;
@@ -3227,7 +3224,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     22,
     0.25
   );
-  --hds-form-control-base-surface-color-hover: #f4f4f4;
   --hds-form-control-border-color-checked-default: #161616;
   --hds-form-control-border-color-checked-hover: #161616;
   --hds-form-control-border-color-unchecked-default: #161616;
@@ -4125,7 +4121,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     244,
     0.25
   );
-  --hds-form-control-base-surface-color-hover: #262626;
   --hds-form-control-border-color-checked-default: #f4f4f4;
   --hds-form-control-border-color-checked-hover: #f4f4f4;
   --hds-form-control-border-color-unchecked-default: #f4f4f4;

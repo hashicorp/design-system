@@ -447,7 +447,6 @@
   --hds-form-control-base-border-color-hover: var(--hds-core-color-neutral-500);
   --hds-form-control-base-placeholder-foreground-color-default: var(--hds-foreground-color-faint);
   --hds-form-control-base-placeholder-foreground-color-disabled: var(--hds-foreground-color-disabled);
-  --hds-form-control-base-surface-color-hover: var(--hds-surface-color-interactive-hover);
   --hds-form-control-border-color-checked-default: var(--hds-core-color-blue-300);
   --hds-form-control-border-color-checked-hover: var(--hds-core-color-blue-400);
   --hds-form-control-border-color-unchecked-default: var(--hds-core-color-neutral-400);

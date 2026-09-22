@@ -7628,7 +7628,7 @@ button.hds-button[href]::after {
 .ember-power-select-option--loading-message)[aria-current=true]::before, .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message):hover:not([aria-selected=true])::before, .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message).mock-hover:not([aria-selected=true])::before {
-  background-color: var(--hds-form-control-base-surface-color-hover);
+  background-color: var(--hds-form-control-surface-color-unchecked-hover);
   border-color: var(--hds-form-control-base-border-color-hover);
 }
 .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
