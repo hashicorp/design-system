@@ -12,6 +12,10 @@ navigation:
   @include "partials/guidelines.md"
 </section>
 
+<section data-tab="Code">
+  @include "partials/code.md"
+</section>
+
 <section data-tab="Specifications">
   @include "partials/anatomy.md"
 </section>

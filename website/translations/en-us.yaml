@@ -1,0 +1,8 @@
+# These files are for demonstrating the language selection pattern
+website:
+  pages:
+    patterns:
+      language-selection:
+        trigger-text: "Language menu"
+        english-option: "English"
+        spanish-option: "Español (Spanish)"
