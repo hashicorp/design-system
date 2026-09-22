@@ -630,7 +630,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     &[aria-selected="true"] {
       &:not([aria-disabled="true"]) {
         &::before {
-          background-color: var(--hds-form-control-surface-color-checked-default);
+          background-color: var(--hds-form-checkbox-surface-color-checked-default);
           background-image: var(--hds-form-checkbox-background-image-data-url);
           border-color: var(--hds-form-control-border-color-checked-default);
         }
