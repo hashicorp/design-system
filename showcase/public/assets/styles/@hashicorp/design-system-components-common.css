@@ -7645,6 +7645,12 @@ button.hds-button[href]::after {
   border-color: var(--hds-form-control-border-color-checked-default);
 }
 .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-selected=true][aria-current=true], .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-selected=true]:hover[aria-selected=true], .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-selected=true].mock-hover[aria-selected=true] {
+  background-color: var(--hds-form-super-select-option-surface-color-checked-hover);
+}
+.hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true][aria-current=true]::before, .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true]:hover[aria-selected=true]::before, .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true].mock-hover[aria-selected=true]::before {

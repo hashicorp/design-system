@@ -753,6 +753,7 @@
   --hds-form-super-select-option-foreground-color-active: #0046d1;
   --hds-form-super-select-option-surface-color-default: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-surface-color-hover: rgba(0, 0, 0, 0);
+  --hds-form-super-select-option-surface-color-checked-hover: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-border-color: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-indicator-border-radius: 500px; /** The 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly) */
   --hds-form-super-select-option-indicator-top: 6px;
@@ -8693,6 +8694,12 @@ button.hds-button[href]::after {
   background-color: var(--hds-form-checkbox-surface-color-checked-default);
   background-image: var(--hds-form-checkbox-background-image-data-url);
   border-color: var(--hds-form-control-border-color-checked-default);
+}
+.hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-selected=true][aria-current=true], .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-selected=true]:hover[aria-selected=true], .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-selected=true].mock-hover[aria-selected=true] {
+  background-color: var(--hds-form-super-select-option-surface-color-checked-hover);
 }
 .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true][aria-current=true]::before, .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
