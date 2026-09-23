@@ -7159,6 +7159,8 @@ button.hds-button[href]::after {
   padding-bottom: 4px;
   padding-left: var(--hds-form-super-select-padding-left);
   color: var(--hds-foreground-color-strong);
+  font-size: var(--hds-typography-body-200-font-size);
+  font-family: var(--hds-typography-body-200-font-family);
   line-height: var(--hds-typography-body-200-line-height);
   background-color: var(--hds-surface-color-interactive);
   background-image: var(--hds-form-select-background-image-data-url);
