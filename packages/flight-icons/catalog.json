@@ -11560,6 +11560,26 @@
       "height": 16
     },
     {
+      "id": "11261:280",
+      "fileName": "portal-24",
+      "iconName": "portal",
+      "description": "door, developer",
+      "category": "Development",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "11261:283",
+      "fileName": "portal-16",
+      "iconName": "portal",
+      "description": "door, developer",
+      "category": "Development",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "350:3285",
       "fileName": "replication-direct-24",
       "iconName": "replication-direct",
