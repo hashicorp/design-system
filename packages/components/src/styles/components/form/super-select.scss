@@ -322,6 +322,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
   .hds-form-super-select__option-group-title {
     margin: 8px 0;
     padding: 6px 7px 2px 15px;
+    color: var(--hds-form-super-select-option-title-foreground-color);
 
     @include hds-apply-only-if-carbon() {
       border-bottom: 1px solid var(--hds-form-super-select-option-border-color);
