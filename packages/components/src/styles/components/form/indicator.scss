@@ -15,7 +15,7 @@
   font-weight: var(--hds-typography-font-weight-regular);
   font-size: var(--hds-form-indicator-typography-font-size);
   font-family: var(--hds-typography-font-stack-text);
-  line-height: var(--hds-form-indicator-optional-typography-line-height);
+  line-height: var(--hds-form-indicator-typography-line-height);
 }
 
 // Note: this uses a Badge component so does not need HDS specfic styles for its use as an indicator
@@ -27,7 +27,7 @@
     font-weight: var(--hds-typography-font-weight-regular);
     font-size: var(--hds-form-indicator-typography-font-size);
     font-family: var(--hds-typography-font-stack-text);
-    line-height: var(--hds-form-indicator-optional-typography-line-height);
+    line-height: var(--hds-form-indicator-typography-line-height);
     background-color: transparent;
 
     .hds-badge__text {
