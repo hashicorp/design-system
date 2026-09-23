@@ -88,7 +88,7 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
       return this.hdsIntl.t(
         'hds.components.form.masked-input.base.show-masked-content',
         {
-          default: 'Show masked content',
+          default: 'Toggle masked content',
         }
       );
     }
