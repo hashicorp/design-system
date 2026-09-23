@@ -7,10 +7,12 @@ const LocalComponent: TemplateOnlyComponent = <template>
     <T.Tab @count="5">One</T.Tab>
     <T.Tab @icon="download">Two</T.Tab>
     <T.Tab>Three</T.Tab>
+    <T.Tab @icon="alert-triangle" @iconColor="warning" @iconTitle="Warning">Four</T.Tab>
 
     <T.Panel>Content 1</T.Panel>
     <T.Panel>Content 2</T.Panel>
     <T.Panel>Content 3!</T.Panel>
+    <T.Panel>Content 4!</T.Panel>
   </HdsTabs>
 </template>;
 
