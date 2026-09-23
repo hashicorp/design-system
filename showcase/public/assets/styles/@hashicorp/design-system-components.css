@@ -661,7 +661,6 @@
   --hds-form-indicator-typography-font-size: 0.8125rem;
   --hds-form-indicator-optional-color: #656a76; /** deprecated: use `hds-form-indicator-optional-foreground-color` instead */
   --hds-form-indicator-optional-foreground-color: #656a76;
-  --hds-form-indicator-optional-typography-line-height: 1.3846;
   --hds-form-error-color: #c00005; /** deprecated: use `hds-form-error-foreground-color` instead */
   --hds-form-error-foreground-color: #c00005;
   --hds-form-error-typography-font-size: 0.8125rem;
@@ -7571,7 +7570,7 @@ button.hds-button[href]::after {
   font-weight: var(--hds-typography-font-weight-regular);
   font-size: var(--hds-form-indicator-typography-font-size);
   font-family: var(--hds-typography-font-stack-text);
-  line-height: var(--hds-form-indicator-optional-typography-line-height);
+  line-height: var(--hds-form-indicator-typography-line-height);
 }
 
 .hds-theme-light .hds-form-indicator--required.hds-badge,
@@ -7582,7 +7581,7 @@ button.hds-button[href]::after {
   font-weight: var(--hds-typography-font-weight-regular);
   font-size: var(--hds-form-indicator-typography-font-size);
   font-family: var(--hds-typography-font-stack-text);
-  line-height: var(--hds-form-indicator-optional-typography-line-height);
+  line-height: var(--hds-form-indicator-typography-line-height);
   background-color: transparent;
 }
 .hds-theme-light .hds-form-indicator--required.hds-badge .hds-badge__text,

@@ -657,7 +657,6 @@
   --hds-form-indicator-typography-font-size: 0.8125rem;
   --hds-form-indicator-optional-color: #656a76; /** deprecated: use `hds-form-indicator-optional-foreground-color` instead */
   --hds-form-indicator-optional-foreground-color: #656a76;
-  --hds-form-indicator-optional-typography-line-height: 1.3846;
   --hds-form-error-color: #c00005; /** deprecated: use `hds-form-error-foreground-color` instead */
   --hds-form-error-foreground-color: #c00005;
   --hds-form-error-typography-font-size: 0.8125rem;

@@ -20846,6 +20846,19 @@
       "cds-g90": "0.75rem",
       "cds-g100": "0.75rem"
     },
+    "line-height": {
+      "$type": "number",
+      "$value": 1.3846,
+      "$modes": {
+        "default": 1.3846,
+        "cds-g0": 1.33333,
+        "cds-g10": 1.33333,
+        "cds-g90": 1.33333,
+        "cds-g100": 1.33333
+      },
+      "filePath": "src/products/shared/form/base-elements.json",
+      "isSource": true
+    },
     "original": {
       "$type": "font-size",
       "$value": "{typography.body-100.font-size}",
@@ -20856,6 +20869,19 @@
         "cds-g10": "{carbon.typography.helperText01.font-size}",
         "cds-g90": "{carbon.typography.helperText01.font-size}",
         "cds-g100": "{carbon.typography.helperText01.font-size}"
+      },
+      "line-height": {
+        "$type": "number",
+        "$value": "{typography.body-100.line-height}",
+        "$modes": {
+          "default": "{typography.body-100.line-height}",
+          "cds-g0": "{carbon.typography.label01.line-height}",
+          "cds-g10": "{carbon.typography.label01.line-height}",
+          "cds-g90": "{carbon.typography.label01.line-height}",
+          "cds-g100": "{carbon.typography.label01.line-height}"
+        },
+        "filePath": "src/products/shared/form/base-elements.json",
+        "isSource": true
       },
       "key": "{form.helper-text.typography.font-size}"
     },
@@ -21001,41 +21027,6 @@
       "optional",
       "foreground",
       "color"
-    ]
-  },
-  {
-    "key": "{form.indicator.optional.typography.line-height}",
-    "$type": "number",
-    "$value": 1.3846,
-    "$modes": {
-      "default": 1.3846,
-      "cds-g0": 1.33333,
-      "cds-g10": 1.33333,
-      "cds-g90": 1.33333,
-      "cds-g100": 1.33333
-    },
-    "original": {
-      "$type": "number",
-      "$value": "{typography.body-100.line-height}",
-      "$modes": {
-        "default": "{typography.body-100.line-height}",
-        "cds-g0": "{carbon.typography.label01.line-height}",
-        "cds-g10": "{carbon.typography.label01.line-height}",
-        "cds-g90": "{carbon.typography.label01.line-height}",
-        "cds-g100": "{carbon.typography.label01.line-height}"
-      },
-      "key": "{form.indicator.optional.typography.line-height}"
-    },
-    "name": "hds-form-indicator-optional-typography-line-height",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "indicator",
-      "optional",
-      "typography",
-      "line-height"
     ]
   },
   {

@@ -6519,7 +6519,7 @@ button.hds-button[href]::after {
   font-weight: var(--hds-typography-font-weight-regular);
   font-size: var(--hds-form-indicator-typography-font-size);
   font-family: var(--hds-typography-font-stack-text);
-  line-height: var(--hds-form-indicator-optional-typography-line-height);
+  line-height: var(--hds-form-indicator-typography-line-height);
 }
 
 .hds-theme-light .hds-form-indicator--required.hds-badge,
@@ -6530,7 +6530,7 @@ button.hds-button[href]::after {
   font-weight: var(--hds-typography-font-weight-regular);
   font-size: var(--hds-form-indicator-typography-font-size);
   font-family: var(--hds-typography-font-stack-text);
-  line-height: var(--hds-form-indicator-optional-typography-line-height);
+  line-height: var(--hds-form-indicator-typography-line-height);
   background-color: transparent;
 }
 .hds-theme-light .hds-form-indicator--required.hds-badge .hds-badge__text,
