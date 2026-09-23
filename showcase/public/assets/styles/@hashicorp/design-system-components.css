@@ -8447,6 +8447,9 @@ button.hds-button[href]::after {
   margin: 8px 0;
   padding: 6px 7px 2px 15px;
   color: var(--hds-form-super-select-option-title-foreground-color);
+  font-size: var(--hds-typography-body-200-font-size);
+  font-family: var(--hds-typography-body-200-font-family);
+  line-height: var(--hds-typography-body-200-line-height);
 }
 .hds-theme-light .hds-form-super-select .ember-basic-dropdown .hds-form-super-select__option-group-title,
 .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .hds-form-super-select__option-group-title,
