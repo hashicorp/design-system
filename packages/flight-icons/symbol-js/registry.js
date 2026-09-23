@@ -39,7 +39,7 @@ export const IconRegistry = {
             16: () => import('./flight/apple-color-16.js'),
             24: () => import('./flight/apple-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/apple-color.js')
     },
     alibaba: {
         flight: {
@@ -53,7 +53,7 @@ export const IconRegistry = {
             16: () => import('./flight/alibaba-color-16.js'),
             24: () => import('./flight/alibaba-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/alibaba-color.js')
     },
     'amazon-ecs': {
         flight: {
@@ -67,7 +67,7 @@ export const IconRegistry = {
             16: () => import('./flight/amazon-ecs-color-16.js'),
             24: () => import('./flight/amazon-ecs-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/amazon-ecs-color.js')
     },
     'amazon-eks': {
         flight: {
@@ -81,7 +81,7 @@ export const IconRegistry = {
             16: () => import('./flight/amazon-eks-color-16.js'),
             24: () => import('./flight/amazon-eks-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/amazon-eks-color.js')
     },
     'ansible-community': {
         flight: {
@@ -95,7 +95,7 @@ export const IconRegistry = {
             16: () => import('./flight/ansible-community-color-16.js'),
             24: () => import('./flight/ansible-community-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/ansible-community-color.js')
     },
     'ansible-automation-platform': {
         flight: {
@@ -110,7 +110,7 @@ export const IconRegistry = {
                 import('./flight/ansible-automation-platform-color-16.js'),
             24: () => import('./flight/ansible-automation-platform-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/ansible-automation-platform-color.js')
     },
     auth0: {
         flight: {
@@ -124,7 +124,7 @@ export const IconRegistry = {
             16: () => import('./flight/auth0-color-16.js'),
             24: () => import('./flight/auth0-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/auth0-color.js')
     },
     aws: {
         flight: {
@@ -138,7 +138,7 @@ export const IconRegistry = {
             16: () => import('./flight/aws-color-16.js'),
             24: () => import('./flight/aws-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/aws-color.js')
     },
     'aws-cdk': {
         flight: {
@@ -152,7 +152,7 @@ export const IconRegistry = {
             16: () => import('./flight/aws-cdk-color-16.js'),
             24: () => import('./flight/aws-cdk-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/aws-cdk-color.js')
     },
     'aws-cloudwatch': {
         flight: {
@@ -166,7 +166,7 @@ export const IconRegistry = {
             16: () => import('./flight/aws-cloudwatch-color-16.js'),
             24: () => import('./flight/aws-cloudwatch-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/aws-cloudwatch-color.js')
     },
     'aws-ec2': {
         flight: {
@@ -180,7 +180,7 @@ export const IconRegistry = {
             16: () => import('./flight/aws-ec2-color-16.js'),
             24: () => import('./flight/aws-ec2-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/aws-ec2-color.js')
     },
     'aws-lambda': {
         flight: {
@@ -194,7 +194,7 @@ export const IconRegistry = {
             16: () => import('./flight/aws-lambda-color-16.js'),
             24: () => import('./flight/aws-lambda-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/aws-lambda-color.js')
     },
     'aws-s3': {
         flight: {
@@ -208,7 +208,7 @@ export const IconRegistry = {
             16: () => import('./flight/aws-s3-color-16.js'),
             24: () => import('./flight/aws-s3-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/aws-s3-color.js')
     },
     azure: {
         flight: {
@@ -222,7 +222,7 @@ export const IconRegistry = {
             16: () => import('./flight/azure-color-16.js'),
             24: () => import('./flight/azure-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/azure-color.js')
     },
     'azure-aks': {
         flight: {
@@ -236,7 +236,7 @@ export const IconRegistry = {
             16: () => import('./flight/azure-aks-color-16.js'),
             24: () => import('./flight/azure-aks-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/azure-aks-color.js')
     },
     'azure-blob-storage': {
         flight: {
@@ -250,7 +250,7 @@ export const IconRegistry = {
             16: () => import('./flight/azure-blob-storage-color-16.js'),
             24: () => import('./flight/azure-blob-storage-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/azure-blob-storage-color.js')
     },
     'azure-devops': {
         flight: {
@@ -264,7 +264,7 @@ export const IconRegistry = {
             16: () => import('./flight/azure-devops-color-16.js'),
             24: () => import('./flight/azure-devops-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/azure-devops-color.js')
     },
     'azure-vms': {
         flight: {
@@ -278,7 +278,7 @@ export const IconRegistry = {
             16: () => import('./flight/azure-vms-color-16.js'),
             24: () => import('./flight/azure-vms-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/azure-vms-color.js')
     },
     bitbucket: {
         flight: {
@@ -292,7 +292,7 @@ export const IconRegistry = {
             16: () => import('./flight/bitbucket-color-16.js'),
             24: () => import('./flight/bitbucket-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/bitbucket-color.js')
     },
     bridgecrew: {
         flight: {
@@ -306,7 +306,7 @@ export const IconRegistry = {
             16: () => import('./flight/bridgecrew-color-16.js'),
             24: () => import('./flight/bridgecrew-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/bridgecrew-color.js')
     },
     cisco: {
         flight: {
@@ -320,7 +320,7 @@ export const IconRegistry = {
             16: () => import('./flight/cisco-color-16.js'),
             24: () => import('./flight/cisco-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/cisco-color.js')
     },
     cloudability: {
         flight: {
@@ -334,7 +334,7 @@ export const IconRegistry = {
             16: () => import('./flight/cloudability-color-16.js'),
             24: () => import('./flight/cloudability-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/cloudability-color.js')
     },
     codepen: {
         flight: {
@@ -348,7 +348,7 @@ export const IconRegistry = {
             16: () => import('./flight/codepen-color-16.js'),
             24: () => import('./flight/codepen-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/codepen-color.js')
     },
     confluence: {
         flight: {
@@ -362,7 +362,7 @@ export const IconRegistry = {
             16: () => import('./flight/confluence-color-16.js'),
             24: () => import('./flight/confluence-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/confluence-color.js')
     },
     confluent: {
         flight: {
@@ -376,7 +376,7 @@ export const IconRegistry = {
             16: () => import('./flight/confluent-color-16.js'),
             24: () => import('./flight/confluent-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/confluent-color.js')
     },
     datadog: {
         flight: {
@@ -390,7 +390,7 @@ export const IconRegistry = {
             16: () => import('./flight/datadog-color-16.js'),
             24: () => import('./flight/datadog-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/datadog-color.js')
     },
     'digital-ocean': {
         flight: {
@@ -404,7 +404,7 @@ export const IconRegistry = {
             16: () => import('./flight/digital-ocean-color-16.js'),
             24: () => import('./flight/digital-ocean-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/digital-ocean-color.js')
     },
     docker: {
         flight: {
@@ -418,7 +418,7 @@ export const IconRegistry = {
             16: () => import('./flight/docker-color-16.js'),
             24: () => import('./flight/docker-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/docker-color.js')
     },
     duo: {
         flight: {
@@ -432,7 +432,7 @@ export const IconRegistry = {
             16: () => import('./flight/duo-color-16.js'),
             24: () => import('./flight/duo-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/duo-color.js')
     },
     'elastic-observability': {
         flight: {
@@ -446,7 +446,7 @@ export const IconRegistry = {
             16: () => import('./flight/elastic-observability-color-16.js'),
             24: () => import('./flight/elastic-observability-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/elastic-observability-color.js')
     },
     f5: {
         flight: {
@@ -460,7 +460,7 @@ export const IconRegistry = {
             16: () => import('./flight/f5-color-16.js'),
             24: () => import('./flight/f5-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/f5-color.js')
     },
     facebook: {
         flight: {
@@ -474,7 +474,7 @@ export const IconRegistry = {
             16: () => import('./flight/facebook-color-16.js'),
             24: () => import('./flight/facebook-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/facebook-color.js')
     },
     figma: {
         flight: {
@@ -488,7 +488,7 @@ export const IconRegistry = {
             16: () => import('./flight/figma-color-16.js'),
             24: () => import('./flight/figma-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/figma-color.js')
     },
     gcp: {
         flight: {
@@ -502,7 +502,7 @@ export const IconRegistry = {
             16: () => import('./flight/gcp-color-16.js'),
             24: () => import('./flight/gcp-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/gcp-color.js')
     },
     git: {
         flight: {
@@ -516,7 +516,7 @@ export const IconRegistry = {
             16: () => import('./flight/git-color-16.js'),
             24: () => import('./flight/git-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/git-color.js')
     },
     gitlab: {
         flight: {
@@ -530,7 +530,7 @@ export const IconRegistry = {
             16: () => import('./flight/gitlab-color-16.js'),
             24: () => import('./flight/gitlab-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/gitlab-color.js')
     },
     github: {
         flight: {
@@ -544,7 +544,7 @@ export const IconRegistry = {
             16: () => import('./flight/github-color-16.js'),
             24: () => import('./flight/github-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/github-color.js')
     },
     google: {
         flight: {
@@ -558,7 +558,7 @@ export const IconRegistry = {
             16: () => import('./flight/google-color-16.js'),
             24: () => import('./flight/google-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/google-color.js')
     },
     'google-docs': {
         flight: {
@@ -572,7 +572,7 @@ export const IconRegistry = {
             16: () => import('./flight/google-docs-color-16.js'),
             24: () => import('./flight/google-docs-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/google-docs-color.js')
     },
     'google-drive': {
         flight: {
@@ -586,7 +586,7 @@ export const IconRegistry = {
             16: () => import('./flight/google-drive-color-16.js'),
             24: () => import('./flight/google-drive-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/google-drive-color.js')
     },
     'google-forms': {
         flight: {
@@ -600,7 +600,7 @@ export const IconRegistry = {
             16: () => import('./flight/google-forms-color-16.js'),
             24: () => import('./flight/google-forms-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/google-forms-color.js')
     },
     'google-sheets': {
         flight: {
@@ -614,7 +614,7 @@ export const IconRegistry = {
             16: () => import('./flight/google-sheets-color-16.js'),
             24: () => import('./flight/google-sheets-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/google-sheets-color.js')
     },
     'google-slides': {
         flight: {
@@ -628,7 +628,7 @@ export const IconRegistry = {
             16: () => import('./flight/google-slides-color-16.js'),
             24: () => import('./flight/google-slides-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/google-slides-color.js')
     },
     grafana: {
         flight: {
@@ -642,7 +642,7 @@ export const IconRegistry = {
             16: () => import('./flight/grafana-color-16.js'),
             24: () => import('./flight/grafana-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/grafana-color.js')
     },
     helm: {
         flight: {
@@ -656,7 +656,7 @@ export const IconRegistry = {
             16: () => import('./flight/helm-color-16.js'),
             24: () => import('./flight/helm-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/helm-color.js')
     },
     infracost: {
         flight: {
@@ -670,7 +670,7 @@ export const IconRegistry = {
             16: () => import('./flight/infracost-color-16.js'),
             24: () => import('./flight/infracost-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/infracost-color.js')
     },
     jenkins: {
         flight: {
@@ -684,7 +684,7 @@ export const IconRegistry = {
             16: () => import('./flight/jenkins-color-16.js'),
             24: () => import('./flight/jenkins-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/jenkins-color.js')
     },
     jfrog: {
         flight: {
@@ -698,7 +698,7 @@ export const IconRegistry = {
             16: () => import('./flight/jfrog-color-16.js'),
             24: () => import('./flight/jfrog-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/jfrog-color.js')
     },
     jira: {
         flight: {
@@ -712,7 +712,7 @@ export const IconRegistry = {
             16: () => import('./flight/jira-color-16.js'),
             24: () => import('./flight/jira-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/jira-color.js')
     },
     jwt: {
         flight: {
@@ -726,7 +726,7 @@ export const IconRegistry = {
             16: () => import('./flight/jwt-color-16.js'),
             24: () => import('./flight/jwt-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/jwt-color.js')
     },
     kubernetes: {
         flight: {
@@ -740,7 +740,7 @@ export const IconRegistry = {
             16: () => import('./flight/kubernetes-color-16.js'),
             24: () => import('./flight/kubernetes-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/kubernetes-color.js')
     },
     lightlytics: {
         flight: {
@@ -754,7 +754,7 @@ export const IconRegistry = {
             16: () => import('./flight/lightlytics-color-16.js'),
             24: () => import('./flight/lightlytics-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/lightlytics-color.js')
     },
     linkedin: {
         flight: {
@@ -768,7 +768,7 @@ export const IconRegistry = {
             16: () => import('./flight/linkedin-color-16.js'),
             24: () => import('./flight/linkedin-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/linkedin-color.js')
     },
     linode: {
         flight: {
@@ -782,7 +782,7 @@ export const IconRegistry = {
             16: () => import('./flight/linode-color-16.js'),
             24: () => import('./flight/linode-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/linode-color.js')
     },
     linux: {
         flight: {
@@ -796,7 +796,7 @@ export const IconRegistry = {
             16: () => import('./flight/linux-color-16.js'),
             24: () => import('./flight/linux-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/linux-color.js')
     },
     loom: {
         flight: {
@@ -810,7 +810,7 @@ export const IconRegistry = {
             16: () => import('./flight/loom-color-16.js'),
             24: () => import('./flight/loom-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/loom-color.js')
     },
     meetup: {
         flight: {
@@ -824,7 +824,7 @@ export const IconRegistry = {
             16: () => import('./flight/meetup-color-16.js'),
             24: () => import('./flight/meetup-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/meetup-color.js')
     },
     microsoft: {
         flight: {
@@ -838,7 +838,7 @@ export const IconRegistry = {
             16: () => import('./flight/microsoft-color-16.js'),
             24: () => import('./flight/microsoft-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/microsoft-color.js')
     },
     'microsoft-teams': {
         flight: {
@@ -852,7 +852,7 @@ export const IconRegistry = {
             16: () => import('./flight/microsoft-teams-color-16.js'),
             24: () => import('./flight/microsoft-teams-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/microsoft-teams-color.js')
     },
     minio: {
         flight: {
@@ -866,7 +866,7 @@ export const IconRegistry = {
             16: () => import('./flight/minio-color-16.js'),
             24: () => import('./flight/minio-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/minio-color.js')
     },
     mongodb: {
         flight: {
@@ -880,7 +880,7 @@ export const IconRegistry = {
             16: () => import('./flight/mongodb-color-16.js'),
             24: () => import('./flight/mongodb-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/mongodb-color.js')
     },
     'new-relic': {
         flight: {
@@ -894,7 +894,7 @@ export const IconRegistry = {
             16: () => import('./flight/new-relic-color-16.js'),
             24: () => import('./flight/new-relic-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/new-relic-color.js')
     },
     okta: {
         flight: {
@@ -908,7 +908,7 @@ export const IconRegistry = {
             16: () => import('./flight/okta-color-16.js'),
             24: () => import('./flight/okta-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/okta-color.js')
     },
     oracle: {
         flight: {
@@ -922,7 +922,7 @@ export const IconRegistry = {
             16: () => import('./flight/oracle-color-16.js'),
             24: () => import('./flight/oracle-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/oracle-color.js')
     },
     opa: {
         flight: {
@@ -936,7 +936,7 @@ export const IconRegistry = {
             16: () => import('./flight/opa-color-16.js'),
             24: () => import('./flight/opa-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/opa-color.js')
     },
     openid: {
         flight: {
@@ -950,7 +950,7 @@ export const IconRegistry = {
             16: () => import('./flight/openid-color-16.js'),
             24: () => import('./flight/openid-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/openid-color.js')
     },
     openstack: {
         flight: {
@@ -964,7 +964,7 @@ export const IconRegistry = {
             16: () => import('./flight/openstack-color-16.js'),
             24: () => import('./flight/openstack-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/openstack-color.js')
     },
     pack: {
         flight: {
@@ -978,7 +978,7 @@ export const IconRegistry = {
             16: () => import('./flight/pack-color-16.js'),
             24: () => import('./flight/pack-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/pack-color.js')
     },
     'pager-duty': {
         flight: {
@@ -992,7 +992,7 @@ export const IconRegistry = {
             16: () => import('./flight/pager-duty-color-16.js'),
             24: () => import('./flight/pager-duty-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/pager-duty-color.js')
     },
     'ping-identity': {
         flight: {
@@ -1006,7 +1006,7 @@ export const IconRegistry = {
             16: () => import('./flight/ping-identity-color-16.js'),
             24: () => import('./flight/ping-identity-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/ping-identity-color.js')
     },
     postgres: {
         flight: {
@@ -1020,7 +1020,7 @@ export const IconRegistry = {
             16: () => import('./flight/postgres-color-16.js'),
             24: () => import('./flight/postgres-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/postgres-color.js')
     },
     rabbitmq: {
         flight: {
@@ -1034,7 +1034,7 @@ export const IconRegistry = {
             16: () => import('./flight/rabbitmq-color-16.js'),
             24: () => import('./flight/rabbitmq-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/rabbitmq-color.js')
     },
     saml: {
         flight: {
@@ -1048,7 +1048,7 @@ export const IconRegistry = {
             16: () => import('./flight/saml-color-16.js'),
             24: () => import('./flight/saml-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/saml-color.js')
     },
     'service-now': {
         flight: {
@@ -1062,7 +1062,7 @@ export const IconRegistry = {
             16: () => import('./flight/service-now-color-16.js'),
             24: () => import('./flight/service-now-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/service-now-color.js')
     },
     slack: {
         flight: {
@@ -1076,7 +1076,7 @@ export const IconRegistry = {
             16: () => import('./flight/slack-color-16.js'),
             24: () => import('./flight/slack-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/slack-color.js')
     },
     snyk: {
         flight: {
@@ -1090,7 +1090,7 @@ export const IconRegistry = {
             16: () => import('./flight/snyk-color-16.js'),
             24: () => import('./flight/snyk-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/snyk-color.js')
     },
     splunk: {
         flight: {
@@ -1104,7 +1104,7 @@ export const IconRegistry = {
             16: () => import('./flight/splunk-color-16.js'),
             24: () => import('./flight/splunk-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/splunk-color.js')
     },
     twilio: {
         flight: {
@@ -1118,7 +1118,7 @@ export const IconRegistry = {
             16: () => import('./flight/twilio-color-16.js'),
             24: () => import('./flight/twilio-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/twilio-color.js')
     },
     twitch: {
         flight: {
@@ -1132,7 +1132,7 @@ export const IconRegistry = {
             16: () => import('./flight/twitch-color-16.js'),
             24: () => import('./flight/twitch-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/twitch-color.js')
     },
     twitter: {
         flight: {
@@ -1146,7 +1146,7 @@ export const IconRegistry = {
             16: () => import('./flight/twitter-color-16.js'),
             24: () => import('./flight/twitter-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/twitter-color.js')
     },
     'twitter-x': {
         flight: {
@@ -1160,7 +1160,7 @@ export const IconRegistry = {
             16: () => import('./flight/twitter-x-color-16.js'),
             24: () => import('./flight/twitter-x-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/twitter-x-color.js')
     },
     vantage: {
         flight: {
@@ -1174,7 +1174,7 @@ export const IconRegistry = {
             16: () => import('./flight/vantage-color-16.js'),
             24: () => import('./flight/vantage-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/vantage-color.js')
     },
     venafi: {
         flight: {
@@ -1188,7 +1188,7 @@ export const IconRegistry = {
             16: () => import('./flight/venafi-color-16.js'),
             24: () => import('./flight/venafi-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/venafi-color.js')
     },
     vercel: {
         flight: {
@@ -1202,7 +1202,7 @@ export const IconRegistry = {
             16: () => import('./flight/vercel-color-16.js'),
             24: () => import('./flight/vercel-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/vercel-color.js')
     },
     vmware: {
         flight: {
@@ -1216,7 +1216,7 @@ export const IconRegistry = {
             16: () => import('./flight/vmware-color-16.js'),
             24: () => import('./flight/vmware-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/vmware-color.js')
     },
     youtube: {
         flight: {
@@ -1230,7 +1230,7 @@ export const IconRegistry = {
             16: () => import('./flight/youtube-color-16.js'),
             24: () => import('./flight/youtube-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/youtube-color.js')
     },
     boundary: {
         flight: {
@@ -1664,7 +1664,7 @@ export const IconRegistry = {
             16: () => import('./flight/hashicorp-color-16.js'),
             24: () => import('./flight/hashicorp-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/hashicorp-color.js')
     },
     'hashicorp-fill': {
         flight: {
@@ -1678,7 +1678,7 @@ export const IconRegistry = {
             16: () => import('./flight/hashicorp-fill-color-16.js'),
             24: () => import('./flight/hashicorp-fill-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/hashicorp-fill-color.js')
     },
     'hashicorp-square': {
         flight: {
@@ -1692,7 +1692,7 @@ export const IconRegistry = {
             16: () => import('./flight/hashicorp-square-color-16.js'),
             24: () => import('./flight/hashicorp-square-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/hashicorp-square-color.js')
     },
     hcp: {
         flight: {
@@ -1706,7 +1706,7 @@ export const IconRegistry = {
             16: () => import('./flight/hcp-color-16.js'),
             24: () => import('./flight/hcp-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/hcp-color.js')
     },
     'hcp-fill': {
         flight: {
@@ -1720,7 +1720,7 @@ export const IconRegistry = {
             16: () => import('./flight/hcp-fill-color-16.js'),
             24: () => import('./flight/hcp-fill-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/hcp-fill-color.js')
     },
     'hcp-square': {
         flight: {
@@ -1734,7 +1734,7 @@ export const IconRegistry = {
             16: () => import('./flight/hcp-square-color-16.js'),
             24: () => import('./flight/hcp-square-color-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/hcp-square-color.js')
     },
     accessibility: {
         flight: {
