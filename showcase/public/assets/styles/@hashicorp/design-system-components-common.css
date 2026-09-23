@@ -6888,7 +6888,7 @@ button.hds-button[href]::after {
 }
 
 .hds-form-radio-card__control-wrapper {
-  padding: var(--hds-form-radio-card-control-wrapper-padding);
+  padding: 8px;
   background-color: var(--hds-form-radio-card-control-wrapper-surface-color-default);
   border-color: var(--hds-form-radio-card-control-wrapper-border-color-default);
 }

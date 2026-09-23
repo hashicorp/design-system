@@ -725,7 +725,6 @@
   --hds-form-radio-card-control-wrapper-border-color-default: #656a7633;
   --hds-form-radio-card-control-wrapper-border-color-checked: #cce3fe;
   --hds-form-radio-card-control-wrapper-border-color-disabled: #656a7633;
-  --hds-form-radio-card-control-wrapper-padding: 8px;
   --hds-form-radio-card-description-typography-font-size: 0.8125rem;
   --hds-form-radio-card-label-foreground-color: #0c0c0e; /** Note: this is 'label' text within the RadioCard, not a form label in and of itself. */
   --hds-form-radio-card-label-typography-font-size: 1.125rem;
@@ -7939,7 +7938,7 @@ button.hds-button[href]::after {
 }
 
 .hds-form-radio-card__control-wrapper {
-  padding: var(--hds-form-radio-card-control-wrapper-padding);
+  padding: 8px;
   background-color: var(--hds-form-radio-card-control-wrapper-surface-color-default);
   border-color: var(--hds-form-radio-card-control-wrapper-border-color-default);
 }

@@ -721,7 +721,6 @@
   --hds-form-radio-card-control-wrapper-border-color-default: #656a7633;
   --hds-form-radio-card-control-wrapper-border-color-checked: #cce3fe;
   --hds-form-radio-card-control-wrapper-border-color-disabled: #656a7633;
-  --hds-form-radio-card-control-wrapper-padding: 8px;
   --hds-form-radio-card-description-typography-font-size: 0.8125rem;
   --hds-form-radio-card-label-foreground-color: #0c0c0e; /** Note: this is 'label' text within the RadioCard, not a form label in and of itself. */
   --hds-form-radio-card-label-typography-font-size: 1.125rem;

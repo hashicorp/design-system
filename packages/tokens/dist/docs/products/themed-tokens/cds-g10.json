@@ -23229,28 +23229,6 @@
     ]
   },
   {
-    "key": "{form.radio-card.control-wrapper.padding}",
-    "$type": "dimension",
-    "$value": "8px",
-    "unit": "px",
-    "original": {
-      "$type": "dimension",
-      "$value": "8",
-      "unit": "px",
-      "key": "{form.radio-card.control-wrapper.padding}"
-    },
-    "name": "hds-form-radio-card-control-wrapper-padding",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "radio-card",
-      "control-wrapper",
-      "padding"
-    ]
-  },
-  {
     "key": "{form.radio-card.description.typography.font-size}",
     "$type": "font-size",
     "$value": "0.875rem",

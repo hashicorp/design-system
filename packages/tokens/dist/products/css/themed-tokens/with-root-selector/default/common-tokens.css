@@ -115,7 +115,6 @@
   --hds-form-radio-border-width: 1px;
   --hds-form-radio-card-border-width: 1px;
   --hds-form-radio-card-control-size: 16px; /** This is the actual radio button control */
-  --hds-form-radio-card-control-wrapper-padding: 8px;
   --hds-form-radio-card-group-gap: 16px;
   --hds-form-radio-card-transition-duration: 0.2s;
   --hds-form-select-background-image-position-right-x: var(--hds-form-control-padding-horizontal);
