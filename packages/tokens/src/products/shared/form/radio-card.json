@@ -183,11 +183,6 @@
               }
             }
           }
-        },
-        "padding": {
-          "$type": "dimension",
-          "$value": "8",
-          "unit": "px"
         }
       },
       "description": {
