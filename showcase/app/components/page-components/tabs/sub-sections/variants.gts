@@ -38,7 +38,11 @@ export default class SubSectionVariants extends Component {
       <T.Tab @count="5">One</T.Tab>
       <T.Tab @icon="info">Two</T.Tab>
       <T.Tab @icon="x-square-fill" @iconColor="critical">Three</T.Tab>
-      <T.Tab @icon="alert-triangle" @iconColor="warning" @count="5">Four</T.Tab>
+      <T.Tab
+        @icon="waypoint"
+        @iconColor="var(--token-color-waypoint-brand)"
+        @count="5"
+      >Four</T.Tab>
 
       <T.Panel><ShwPlaceholder @text="Content one" @height="50" /></T.Panel>
       <T.Panel><ShwPlaceholder @text="Content two" @height="50" /></T.Panel>

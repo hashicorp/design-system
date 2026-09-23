@@ -13,7 +13,8 @@ import didUpdate from '@ember/render-modifiers/modifiers/did-update';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
 import willDestroy from '@ember/render-modifiers/modifiers/will-destroy';
 
-import HdsIcon, { type HdsIconSignature } from '../icon/index.gts';
+import HdsIcon from '../icon/index.gts';
+import type { HdsIconSignature } from '../icon/index.gts';
 import HdsBadgeCount from '../badge-count/index.gts';
 
 import type { HdsTabsTabIds, HdsTabsPanelIds } from './types.ts';
