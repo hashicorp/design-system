@@ -38,6 +38,12 @@ The `Tabs::Tab` component, yielded as contextual component.
   <C.Property @name="icon">
     Displays an optional icon in the tab. Accepts any [icon](/icons/library) name.
   </C.Property>
+  <C.Property @name="iconColor" @type="string | CSS color" @values={{array "primary" "strong" "faint" "disabled" "high-contrast" "action" "action-hover" "action-active" "highlight" "highlight-on-surface" "highlight-high-contrast" "success" "success-on-surface" "success-high-contrast" "warning" "warning-on-surface" "warning-high-contrast" "critical" "critical-on-surface" "critical-high-contrast" }}>
+    Accepts a [foreground color](/foundations/colors?tab=palette#foreground-1) or, as a fallback solution to handle special cases, a valid CSS color string (hex, rgb, rgba, etc.). If no `@iconColor` argument is provided, the icon inherits its color from the tab (`fill="currentColor"`).
+  </C.Property>
+  <C.Property @name="iconTitle" @type="string">
+    Adds accessible text to the icon in the tab.
+  </C.Property>
   <C.Property @name="count" @type="string">
     Displays an optional `count` indicator in the tab. Accepts the text value that should go in [Badge Count](/components/badge-count).
   </C.Property>

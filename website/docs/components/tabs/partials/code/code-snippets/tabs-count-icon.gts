@@ -5,12 +5,14 @@ import { HdsTabs } from '@hashicorp/design-system-components/components';
 const LocalComponent: TemplateOnlyComponent = <template>
   <HdsTabs as |T|>
     <T.Tab @count="5">One</T.Tab>
-    <T.Tab @icon="download">Two</T.Tab>
+    <T.Tab @icon="download" @iconTitle="download available">Two</T.Tab>
     <T.Tab>Three</T.Tab>
+    <T.Tab @icon="alert-triangle" @iconColor="warning">Four</T.Tab>
 
     <T.Panel>Content 1</T.Panel>
     <T.Panel>Content 2</T.Panel>
     <T.Panel>Content 3!</T.Panel>
+    <T.Panel>Content 4!</T.Panel>
   </HdsTabs>
 </template>;
 
