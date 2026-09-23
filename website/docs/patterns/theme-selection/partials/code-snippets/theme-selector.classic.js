@@ -1,41 +1,75 @@
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
-// import { action } from '@ember/object';
-// import { service } from '@ember/service';
-// import { registerDestructor } from '@ember/destroyable';
+import { action } from '@ember/object';
+import { service } from '@ember/service';
+
+const STORAGE_KEY = 'selected-theme-demo';
+
+const THEMING_OPTIONS = {
+  system: { icon: 'monitor', label: 'System' },
+  light: { icon: 'sun', label: 'Light' },
+  dark: { icon: 'moon', label: 'Dark' },
+};
 
 export default class LocalComponent extends Component {
-  @tracked selectedTheme = 'system';
-  // @service intl;
+  @service hdsTheming;
 
-  // @tracked selectedLanguage;
-  // _localeOnEntry;
+  constructor(owner, args) {
+    super(owner, args);
 
-  // constructor(owner, args) {
-  //   super(owner, args);
+    const savedTheme = this.readThemeFromStorage();
 
-  //   // store the locale on entry so we can restore it on exit
-  //   this._localeOnEntry = this.intl.primaryLocale;
-  //   this.selectedLanguage = this._localeOnEntry;
+    if (savedTheme) {
+      this.deferApplyTheme(savedTheme);
+    }
+  }
 
-  //   registerDestructor(this, () => {
-  //     if (this._localeOnEntry) {
-  //       // reset the locale to the one we had on entry
-  //       this.intl.setLocale(this._localeOnEntry);
-  //     }
-  //   });
-  // }
+  applyTheme(theme) {
+    this.hdsTheming.setTheme({ theme });
+  }
 
-  // @action
-  // selectLanguage(language, close, event) {
-  //   this.selectedLanguage = language;
-  //   try {
-  //     this.intl.setLocale(language);
-  //   } catch {
-  //     console.error(
-  //       'No locale found for the provided language code. Using fallback translation.'
-  //     );
-  //   }
-  //   close(event);
-  // }
+  deferApplyTheme(theme) {
+    setTimeout(() => {
+      this.applyTheme(theme);
+    });
+  }
+
+  get themingOptions() {
+    return THEMING_OPTIONS;
+  }
+
+  get hasLocalStorage() {
+    return typeof window !== 'undefined' && typeof window.localStorage !== 'undefined';
+  }
+
+  readThemeFromStorage() {
+    if (!this.hasLocalStorage) {
+      return;
+    }
+
+    const storedTheme = window.localStorage.getItem(STORAGE_KEY);
+
+    if (storedTheme === 'system' || storedTheme === 'light' || storedTheme === 'dark') {
+      return storedTheme;
+    }
+  }
+
+  storeTheme(theme) {
+    if (!this.hasLocalStorage) {
+      return;
+    }
+
+    window.localStorage.setItem(STORAGE_KEY, theme);
+  }
+
+  @action
+  selectTheme(newTheme, close) {
+    this.hdsTheming.setTheme({
+      theme: newTheme,
+      onSetTheme: () => {
+        this.storeTheme(newTheme);
+      },
+    });
+
+    close();
+  }
 }
