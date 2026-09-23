@@ -747,6 +747,7 @@
   --hds-form-super-select-option-background-image-size: 16px;
   --hds-form-super-select-option-foreground-color-hover: #0c56e9;
   --hds-form-super-select-option-foreground-color-active: #0046d1;
+  --hds-form-super-select-option-title-foreground-color: #3b3d45;
   --hds-form-super-select-option-surface-color-default: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-surface-color-hover: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-surface-color-checked-hover: rgba(0, 0, 0, 0);

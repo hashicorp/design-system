@@ -24032,6 +24032,42 @@
         "active"
       ]
     },
+    "hds-form-super-select-option-title-foreground-color": {
+      "key": "{form.super-select.option.title.foreground.color}",
+      "$type": "color",
+      "$value": "#3b3d45",
+      "$modes": {
+        "default": "#3b3d45",
+        "cds-g0": "#525252",
+        "cds-g10": "#525252",
+        "cds-g90": "#c6c6c6",
+        "cds-g100": "#c6c6c6"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{foreground.color.primary}",
+        "$modes": {
+          "default": "{foreground.color.primary}",
+          "cds-g0": "{carbon.themes.white.textSecondary}",
+          "cds-g10": "{carbon.themes.g10.textSecondary}",
+          "cds-g90": "{carbon.themes.g90.textSecondary}",
+          "cds-g100": "{carbon.themes.g100.textSecondary}"
+        },
+        "key": "{form.super-select.option.title.foreground.color}"
+      },
+      "name": "hds-form-super-select-option-title-foreground-color",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "title",
+        "foreground",
+        "color"
+      ]
+    },
     "hds-form-super-select-option-surface-color-default": {
       "key": "{form.super-select.option.surface.color.default}",
       "$type": "color",
@@ -58099,6 +58135,42 @@
         "foreground",
         "color",
         "active"
+      ]
+    },
+    "hds-form-super-select-option-title-foreground-color": {
+      "key": "{form.super-select.option.title.foreground.color}",
+      "$type": "color",
+      "$value": "#525252",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#525252",
+        "cds-g10": "#525252",
+        "cds-g90": "#c6c6c6",
+        "cds-g100": "#c6c6c6"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.textSecondary}",
+        "$modes": {
+          "default": "{foreground.color.primary}",
+          "cds-g0": "{carbon.themes.white.textSecondary}",
+          "cds-g10": "{carbon.themes.g10.textSecondary}",
+          "cds-g90": "{carbon.themes.g90.textSecondary}",
+          "cds-g100": "{carbon.themes.g100.textSecondary}"
+        },
+        "key": "{form.super-select.option.title.foreground.color}"
+      },
+      "name": "hds-form-super-select-option-title-foreground-color",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "title",
+        "foreground",
+        "color"
       ]
     },
     "hds-form-super-select-option-surface-color-default": {
@@ -92184,6 +92256,42 @@
         "active"
       ]
     },
+    "hds-form-super-select-option-title-foreground-color": {
+      "key": "{form.super-select.option.title.foreground.color}",
+      "$type": "color",
+      "$value": "#525252",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#525252",
+        "cds-g10": "#525252",
+        "cds-g90": "#c6c6c6",
+        "cds-g100": "#c6c6c6"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.textSecondary}",
+        "$modes": {
+          "default": "{foreground.color.primary}",
+          "cds-g0": "{carbon.themes.white.textSecondary}",
+          "cds-g10": "{carbon.themes.g10.textSecondary}",
+          "cds-g90": "{carbon.themes.g90.textSecondary}",
+          "cds-g100": "{carbon.themes.g100.textSecondary}"
+        },
+        "key": "{form.super-select.option.title.foreground.color}"
+      },
+      "name": "hds-form-super-select-option-title-foreground-color",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "title",
+        "foreground",
+        "color"
+      ]
+    },
     "hds-form-super-select-option-surface-color-default": {
       "key": "{form.super-select.option.surface.color.default}",
       "$type": "color",
@@ -126267,6 +126375,42 @@
         "active"
       ]
     },
+    "hds-form-super-select-option-title-foreground-color": {
+      "key": "{form.super-select.option.title.foreground.color}",
+      "$type": "color",
+      "$value": "#c6c6c6",
+      "$modes": {
+        "default": "#f4f4f4",
+        "cds-g0": "#525252",
+        "cds-g10": "#525252",
+        "cds-g90": "#c6c6c6",
+        "cds-g100": "#c6c6c6"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.textSecondary}",
+        "$modes": {
+          "default": "{foreground.color.primary}",
+          "cds-g0": "{carbon.themes.white.textSecondary}",
+          "cds-g10": "{carbon.themes.g10.textSecondary}",
+          "cds-g90": "{carbon.themes.g90.textSecondary}",
+          "cds-g100": "{carbon.themes.g100.textSecondary}"
+        },
+        "key": "{form.super-select.option.title.foreground.color}"
+      },
+      "name": "hds-form-super-select-option-title-foreground-color",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "title",
+        "foreground",
+        "color"
+      ]
+    },
     "hds-form-super-select-option-surface-color-default": {
       "key": "{form.super-select.option.surface.color.default}",
       "$type": "color",
@@ -160348,6 +160492,42 @@
         "foreground",
         "color",
         "active"
+      ]
+    },
+    "hds-form-super-select-option-title-foreground-color": {
+      "key": "{form.super-select.option.title.foreground.color}",
+      "$type": "color",
+      "$value": "#c6c6c6",
+      "$modes": {
+        "default": "#f4f4f4",
+        "cds-g0": "#525252",
+        "cds-g10": "#525252",
+        "cds-g90": "#c6c6c6",
+        "cds-g100": "#c6c6c6"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.textSecondary}",
+        "$modes": {
+          "default": "{foreground.color.primary}",
+          "cds-g0": "{carbon.themes.white.textSecondary}",
+          "cds-g10": "{carbon.themes.g10.textSecondary}",
+          "cds-g90": "{carbon.themes.g90.textSecondary}",
+          "cds-g100": "{carbon.themes.g100.textSecondary}"
+        },
+        "key": "{form.super-select.option.title.foreground.color}"
+      },
+      "name": "hds-form-super-select-option-title-foreground-color",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "title",
+        "foreground",
+        "color"
       ]
     },
     "hds-form-super-select-option-surface-color-default": {

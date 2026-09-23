@@ -7392,6 +7392,7 @@ button.hds-button[href]::after {
 .hds-form-super-select .ember-basic-dropdown .hds-form-super-select__option-group-title {
   margin: 8px 0;
   padding: 6px 7px 2px 15px;
+  color: var(--hds-form-super-select-option-title-foreground-color);
 }
 .hds-theme-light .hds-form-super-select .ember-basic-dropdown .hds-form-super-select__option-group-title,
 .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .hds-form-super-select__option-group-title,

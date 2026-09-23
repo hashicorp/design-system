@@ -626,6 +626,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-super-select-option-surface-color-checked-hover: #d1d1d1;
   --hds-form-super-select-option-surface-color-default: #f4f4f4;
   --hds-form-super-select-option-surface-color-hover: #e8e8e8;
+  --hds-form-super-select-option-title-foreground-color: #525252;
   --hds-form-super-select-padding-left: var(
     --hds-form-control-padding-horizontal
   );
@@ -1515,6 +1516,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-super-select-option-surface-color-checked-hover: #d1d1d1;
     --hds-form-super-select-option-surface-color-default: #f4f4f4;
     --hds-form-super-select-option-surface-color-hover: #e8e8e8;
+    --hds-form-super-select-option-title-foreground-color: #525252;
     --hds-form-super-select-padding-left: var(
       --hds-form-control-padding-horizontal
     );
@@ -2435,6 +2437,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-super-select-option-surface-color-checked-hover: #474747;
     --hds-form-super-select-option-surface-color-default: #262626;
     --hds-form-super-select-option-surface-color-hover: #333333;
+    --hds-form-super-select-option-title-foreground-color: #c6c6c6;
     --hds-form-super-select-padding-left: var(
       --hds-form-control-padding-horizontal
     );
@@ -3315,6 +3318,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-super-select-option-surface-color-checked-hover: #d1d1d1;
   --hds-form-super-select-option-surface-color-default: #f4f4f4;
   --hds-form-super-select-option-surface-color-hover: #e8e8e8;
+  --hds-form-super-select-option-title-foreground-color: #525252;
   --hds-form-super-select-padding-left: var(
     --hds-form-control-padding-horizontal
   );
@@ -4212,6 +4216,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-super-select-option-surface-color-checked-hover: #474747;
   --hds-form-super-select-option-surface-color-default: #262626;
   --hds-form-super-select-option-surface-color-hover: #333333;
+  --hds-form-super-select-option-title-foreground-color: #c6c6c6;
   --hds-form-super-select-padding-left: var(
     --hds-form-control-padding-horizontal
   );
