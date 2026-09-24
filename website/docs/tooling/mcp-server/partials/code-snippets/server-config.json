@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "helios-design-system": {
+      "command": "pnpm",
+      "args": [
+        "--dir",
+        "/absolute/path/to/application",
+        "exec",
+        "helios-design-system-mcp"
+      ]
+    }
+  }
+}
