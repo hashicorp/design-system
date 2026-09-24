@@ -26,6 +26,7 @@ export default class ApplicationController extends Controller {
 
   routeDidChange(transition) {
     this.clearThemeClassesWhenLeavingThemeSelector(transition);
+    this.applyDefaultThemeWhenEnteringThemeSelector(transition);
 
     // eslint-disable-next-line ember/no-runloop
     scheduleOnce('afterRender', this, this.resetSidebar);
@@ -45,6 +46,18 @@ export default class ApplicationController extends Controller {
 
     this.hdsTheming.setTheme({ theme: undefined });
     this.removeThemeClassesFromRootElement();
+  }
+
+  applyDefaultThemeWhenEnteringThemeSelector(transition) {
+    const isEnteringThemeSelectionRoute =
+      transition?.to?.name === 'show' &&
+      transition?.to?.params?.path === 'patterns/theme-selection';
+
+    if (!isEnteringThemeSelectionRoute || this.fastboot.isFastBoot) {
+      return;
+    }
+
+    this.hdsTheming.setTheme({ theme: 'system' });
   }
 
   removeThemeClassesFromRootElement() {
