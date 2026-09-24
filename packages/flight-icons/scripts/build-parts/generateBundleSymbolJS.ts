@@ -25,6 +25,16 @@ const CARBON_ICON_OVERRIDES: Record<string, string> = {
     'status--resolved': '32/watson-health/status--resolved',
 }
 
+// Individual "Products" `***-color"` icons that we want to fall back to their monochrome counterpart in the Carbon theme
+const PRODUCTS_MONOCHROME_FALLBACK_ICONS = [
+    'hashicorp-color',
+    'hashicorp-fill-color',
+    'hashicorp-square-color',
+    'hcp-color',
+    'hcp-fill-color',
+    'hcp-square-color',
+];
+
 type IconRegistry = Record<
     string,
     {
@@ -113,9 +123,9 @@ export async function generateBundleSymbolJS({ config, catalog }: { config: Conf
                     console.warn(`⚠️ Carbon icon missing: ${carbonName} (size 32) - Found in mapping for ${fileName}`);
                 }
             } else if (
-                // for the `carbon` variant of some `***-color` icons (all the "Services" icons)
+                // for the `carbon` variant of some `***-color` icons (all the "Services" icons and some of the "Products" icons)
                 //  we want to fall back to the monochrome glyphs because for those icons the colored glyphs don't work against dark backgrounds
-                category === 'Services' &&
+                (category === 'Services' || (category === 'Products' && PRODUCTS_MONOCHROME_FALLBACK_ICONS.includes(baseName))) &&
                 baseName.endsWith('-color') &&
                 !registry[baseName].carbon
             ) {
