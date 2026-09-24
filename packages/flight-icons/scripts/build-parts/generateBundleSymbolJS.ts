@@ -25,6 +25,14 @@ const CARBON_ICON_OVERRIDES: Record<string, string> = {
     'status--resolved': '32/watson-health/status--resolved',
 }
 
+type IconRegistry = Record<
+    string,
+    {
+        flight: Record<string, string>;
+        carbon: string | null;
+    }
+>;
+
 // important: if you update this function, update the identical one in `packages/components/src/services/hds-icon-registry.ts` as well (and vice versa)
 function makeDomSafeId(value: string): string {
     return value.replace(/[^a-zA-Z0-9_-]/g, '-');
@@ -49,7 +57,7 @@ const getSymbolModule = (sourceSvg: string, id: string): string => {
 };
 
 export async function generateBundleSymbolJS({ config, catalog }: { config: ConfigData, catalog: AssetsCatalog }): Promise<void> {
-    const tempSVGFolderPath = config.tempFolder;
+    const tempSvgFolder = config.tempFolder;
     const carbonIconsPath = path.resolve(__dirname, '../../node_modules/@carbon/icons/svg');
 
     // Define folders
@@ -62,10 +70,10 @@ export async function generateBundleSymbolJS({ config, catalog }: { config: Conf
     await fs.ensureDir(flightFolder);
     await fs.ensureDir(carbonFolder);
 
-    const registry: Record<string, { flight: Record<string, string>, carbon: string | null }> = {};
+    const registry: IconRegistry = {};
 
     for (const asset of catalog.assets) {
-        const { fileName, mapping } = asset;
+        const { fileName, mapping, category } = asset;
         const match = fileName.match(/^(.*)-(16|24)$/);
 
         if (match) {
@@ -76,22 +84,10 @@ export async function generateBundleSymbolJS({ config, catalog }: { config: Conf
             }
 
             // --- FLIGHT ---
-            try {
-                const key = `flight-${baseName}-${size}`;
-                const symbolId = makeSymbolIdFromKey(key);
 
-                const flightSource = await fs.readFile(`${tempSVGFolderPath}/${fileName}.svg`, 'utf8');
-                const flightContent = await prettier.format(
-                    getSymbolModule(flightSource, symbolId),
-                    { ...prettierConfig, parser: 'typescript' }
-                );
+            const symbolSource = await fs.readFile(`${tempSvgFolder}/${fileName}.svg`, 'utf8');
 
-                await fs.writeFile(`${flightFolder}/${fileName}.js`, flightContent);
-            } catch (err) {
-                console.error(`Error reading Flight icon: ${fileName}`, err);
-            }
-
-            registry[baseName].flight[size] = `() => import('./flight/${fileName}.js')`;
+            await writeFlightSymbol(baseName, size, symbolSource, flightFolder, registry);
 
             // --- CARBON ---
 
@@ -101,31 +97,40 @@ export async function generateBundleSymbolJS({ config, catalog }: { config: Conf
                     continue; // Carbon icon already processed for this baseName (e.g. for another size)
                 }
                 const carbonName = mapping.toLowerCase();
-                
+
                 let carbonPath;
                 if (Object.keys(CARBON_ICON_OVERRIDES).includes(carbonName)) {
                     carbonPath = path.join(carbonIconsPath, `${CARBON_ICON_OVERRIDES[carbonName]}.svg`);
                 } else {
                     carbonPath = path.join(carbonIconsPath, `32/${carbonName}.svg`);
-                }                    
+                }
 
                 if (fs.existsSync(carbonPath)) {
-                    const key = `carbon-${baseName}`;
-                    const symbolId = makeSymbolIdFromKey(key);
-
                     const carbonSource = await fs.readFile(carbonPath, 'utf8');
-                    const carbonContent = await prettier.format(
-                        getSymbolModule(carbonSource, symbolId), 
-                        { ...prettierConfig, parser: 'typescript' }
-                    );
 
-                    await fs.writeFile(`${carbonFolder}/${baseName}.js`, carbonContent);
-
-                    registry[baseName].carbon = `() => import('./carbon/${baseName}.js')`;
+                    await writeCarbonSymbol(baseName, carbonSource, carbonFolder, registry);
                 } else {
                     console.warn(`⚠️ Carbon icon missing: ${carbonName} (size 32) - Found in mapping for ${fileName}`);
                 }
-            }   
+            } else if (
+                // for the `carbon` variant of some `***-color` icons (all the "Services" icons)
+                //  we want to fall back to the monochrome glyphs because for those icons the colored glyphs don't work against dark backgrounds
+                category === 'Services' &&
+                baseName.endsWith('-color') &&
+                !registry[baseName].carbon
+            ) {
+                // we conventionally use the `24` variant here (the glyph for these "Services"/"Products" icons is the same at both sizes)
+                const monochromeFileName = `${baseName.replace(/-color$/, '')}-24`;
+                const monochromePath = `${tempSvgFolder}/${monochromeFileName}.svg`;
+
+                if (fs.existsSync(monochromePath)) {
+                    const monochromeSource = await fs.readFile(monochromePath, 'utf8');
+
+                    await writeCarbonSymbol(baseName, monochromeSource, carbonFolder, registry);
+                } else {
+                    console.warn(`⚠️ Monochrome fallback missing: ${monochromeFileName} - Expected by "${fileName}" (category "${category}")`);
+                }
+            }
         }
     }
 
@@ -169,4 +174,43 @@ export async function generateBundleSymbolJS({ config, catalog }: { config: Conf
     `, { ...prettierConfig, parser: 'typescript' });
 
     await fs.writeFile(`${outputFolder}/registry.d.ts`, registryDtsContent);
+}
+
+// Writes a Flight symbol module and registers its loader.
+async function writeFlightSymbol(
+    baseName: string,
+    size: string,
+    symbolSource: string,
+    flightFolder: string,
+    registry: IconRegistry
+): Promise<void> {
+    const symbolKey = `flight-${baseName}-${size}`;
+    const symbolId = makeSymbolIdFromKey(symbolKey);
+
+    const symbolContent = await prettier.format(
+        getSymbolModule(symbolSource, symbolId),
+        { ...prettierConfig, parser: 'typescript' }
+    );
+
+    await fs.writeFile(`${flightFolder}/${baseName}-${size}.js`, symbolContent);
+
+    registry[baseName].flight[size] = `() => import('./flight/${baseName}-${size}.js')`;
+}
+
+// Writes a Carbon symbol module and registers its loader.
+async function writeCarbonSymbol(
+    baseName: string,
+    symbolSource: string,
+    carbonFolder: string,
+    registry: IconRegistry
+): Promise<void> {
+    const symbolId = makeSymbolIdFromKey(`carbon-${baseName}`);
+    const symbolContent = await prettier.format(
+        getSymbolModule(symbolSource, symbolId),
+        { ...prettierConfig, parser: 'typescript' }
+    );
+
+    await fs.writeFile(`${carbonFolder}/${baseName}.js`, symbolContent);
+
+    registry[baseName].carbon = `() => import('./carbon/${baseName}.js')`;
 }
