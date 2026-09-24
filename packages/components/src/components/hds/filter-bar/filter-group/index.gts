@@ -201,7 +201,7 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
             <HdsFormTextInputBase
               @type="search"
               aria-label={{hdsT
-                "components.filter-bar.filter-group.search-input.aria-label"
+                "hds.components.filter-bar.filter-group.search-input.aria-label"
                 default="Search filter options"
               }}
               aria-description={{hdsT

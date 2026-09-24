@@ -3,12 +3,23 @@ search:
   aria-label: Search
   placeholder: Search
 applied-filters:
+  array-filter: "{keyText}: {valueText}"
   toggle-button: View applied filters
   tag:
     aria-label: Clear filter
     numerical-filter:
-      separator: and
+      between: "between {start} and {end}"
     date-filter:
-      separator: and
+      date:
+        before: "before {value}"
+        exactly: "exactly {value}"
+        after: "after {value}"
+        between: "between {start} and {end}"
+      time:
+        before: "before {value}"
+        exactly: "exactly {value}"
+        after: "after {value}"
+        between: "between {start} and {end}"
+    search-label: Search
   no-filters-applied: No filters applied
   clear-filters: Clear all filters
