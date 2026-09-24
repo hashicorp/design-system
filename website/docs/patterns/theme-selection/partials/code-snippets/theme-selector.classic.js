@@ -12,44 +12,6 @@ const THEMING_OPTIONS = {
 
 export default class LocalComponent extends Component {
   @service hdsTheming;
-  themeTimeout;
-
-  constructor(owner, args) {
-    super(owner, args);
-
-    if (!this.hasDOM) {
-      return;
-    }
-
-    const savedTheme = this.readThemeFromStorage();
-
-    if (savedTheme) {
-      this.deferApplyTheme(savedTheme);
-    } else {
-      this.deferApplyTheme('system');
-    }
-  }
-
-  applyTheme(theme) {
-    if (!this.hasDOM) {
-      return;
-    }
-
-    this.hdsTheming.setTheme({ theme });
-  }
-
-  deferApplyTheme(theme) {
-    this.themeTimeout = setTimeout(() => {
-      this.applyTheme(theme);
-    });
-  }
-
-  willDestroy() {
-    if (this.themeTimeout) {
-      clearTimeout(this.themeTimeout);
-    }
-    super.willDestroy(...arguments);
-  }
 
   get themingOptions() {
     return THEMING_OPTIONS;
@@ -61,18 +23,6 @@ export default class LocalComponent extends Component {
 
   get hasDOM() {
     return typeof window !== 'undefined' && typeof document !== 'undefined';
-  }
-
-  readThemeFromStorage() {
-    if (!this.hasLocalStorage) {
-      return;
-    }
-
-    const storedTheme = window.localStorage.getItem(STORAGE_KEY);
-
-    if (storedTheme === 'system' || storedTheme === 'light' || storedTheme === 'dark') {
-      return storedTheme;
-    }
   }
 
   storeTheme(theme) {
