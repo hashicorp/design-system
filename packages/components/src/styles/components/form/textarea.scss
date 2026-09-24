@@ -18,8 +18,8 @@
   max-width: 100%;
   min-height: var(--hds-form-control-height);
   padding: var(--hds-form-textarea-padding-vertical) var(--hds-form-control-padding-horizontal);
-  color: var(--hds-form-control-base-foreground-color);
-  background-color: var(--hds-form-control-base-surface-color-default);
+  color: var(--hds-form-control-foreground-color-base);
+  background-color: var(--hds-form-control-surface-color-base);
   border-radius: var(--hds-form-control-border-radius);
   box-shadow: var(--hds-elevation-inset-box-shadow);
   resize: vertical;
@@ -27,14 +27,14 @@
   // PLACEHOLDER
 
   &::placeholder {
-    color: var(--hds-form-control-base-placeholder-foreground-color-default);
+    color: var(--hds-form-placeholder-foreground-color-base);
   }
 
   // STATUS
 
   &:hover,
   &.mock-hover {
-    @include hds-form-control-border(var(--hds-form-control-base-border-color-hover));
+    @include hds-form-control-border(var(--hds-form-control-border-color-base-hover));
   }
 
   // focus (same for all the states)
@@ -48,18 +48,18 @@
   // READONLY
 
   &:read-only {
-    @include hds-form-control-border(var(--hds-form-control-readonly-border-color));
-    color: var(--hds-form-control-readonly-foreground-color);
-    background-color: var(--hds-form-control-readonly-surface-color);
+    @include hds-form-control-border(var(--hds-form-control-border-color-readonly));
+    color: var(--hds-form-control-foreground-color-readonly);
+    background-color: var(--hds-form-control-surface-color-readonly);
     box-shadow: none;
   }
 
   // DISABLED
 
   &:disabled {
-    @include hds-form-control-border(var(--hds-form-control-disabled-border-color));
-    color: var(--hds-form-control-disabled-foreground-color);
-    background-color: var(--hds-form-control-disabled-surface-color);
+    @include hds-form-control-border(var(--hds-form-control-border-color-disabled));
+    color: var(--hds-form-control-foreground-color-disabled);
+    background-color: var(--hds-form-control-surface-color-disabled);
     box-shadow: none;
     cursor: not-allowed;
   }
@@ -67,12 +67,12 @@
   // INVALID
 
   &.hds-form-textarea--is-invalid {
-    @include hds-form-control-border(var(--hds-form-control-invalid-border-color-default));
+    @include hds-form-control-border(var(--hds-form-control-border-color-invalid));
     @include hds-form-control-invalid-outline();
 
     &:hover,
     &.mock-hover {
-      @include hds-form-control-border(var(--hds-form-control-invalid-border-color-hover));
+      @include hds-form-control-border(var(--hds-form-control-border-color-invalid-hover));
     }
 
     &:focus-visible,

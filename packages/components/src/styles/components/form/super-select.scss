@@ -34,9 +34,9 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     padding-right: calc(var(--hds-form-control-padding-horizontal) + 21px); // extra space for the icon
     padding-bottom: 4px;
     padding-left: var(--hds-form-super-select-padding-left);
-    color: var(--hds-form-control-base-foreground-color);
+    color: var(--hds-form-control-foreground-color-base);
     line-height: var(--hds-typography-body-200-line-height);
-    background-color: var(--hds-form-control-base-surface-color-default);
+    background-color: var(--hds-form-control-surface-color-base);
     background-image: var(--hds-form-select-background-image-data-url);
     background-repeat: no-repeat;
     // placing the selection indicator to middle-right, in contrast with the Select component where it's top-right
@@ -69,7 +69,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     &:hover,
     &.mock-hover {
       &:not([aria-disabled="true"], :disabled, .mock-disabled, [readonly]) {
-        @include hds-form-control-border(var(--hds-form-control-base-border-color-hover));
+        @include hds-form-control-border(var(--hds-form-control-border-color-base-hover));
         background-color: var(--hds-form-select-surface-color-hover);
       }
     }
@@ -86,10 +86,10 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 
     // `BasicDropdown` uses `aria-disabled` on the trigger, see: https://ember-basic-dropdown.com/docs/disabled
     &[aria-disabled="true"] {
-      color: var(--hds-form-control-disabled-foreground-color);
-      background-color: var(--hds-form-control-disabled-surface-color);
+      color: var(--hds-form-control-foreground-color-disabled);
+      background-color: var(--hds-form-control-surface-color-disabled);
       background-image: var(--hds-form-select-background-image-data-url-disabled);
-      border-color: var(--hds-form-control-disabled-border-color);
+      border-color: var(--hds-form-control-border-color-disabled);
       box-shadow: none;
       cursor: not-allowed;
       opacity: 1;
@@ -100,15 +100,15 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 
       // Tag/Option item within disabled SuperSelect trigger
       .ember-power-select-multiple-option {
-        color: var(--hds-form-control-disabled-foreground-color);
-        background-color: var(--hds-form-control-disabled-surface-color);
-        border-color: var(--hds-form-control-disabled-border-color);
+        color: var(--hds-form-control-foreground-color-disabled);
+        background-color: var(--hds-form-control-surface-color-disabled);
+        border-color: var(--hds-form-control-border-color-disabled);
       }
 
       // "# selected" text, disabled
       &::after {
-        color: var(--hds-form-control-disabled-foreground-color);
-        border-left-color: var(--hds-form-control-disabled-border-color);
+        color: var(--hds-form-control-foreground-color-disabled);
+        border-left-color: var(--hds-form-control-border-color-disabled);
       }
     }
 
@@ -136,7 +136,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     }
 
     .ember-power-select-placeholder {
-      color: var(--hds-form-control-base-placeholder-foreground-color-default);
+      color: var(--hds-form-placeholder-foreground-color-base);
       font-size: var(--hds-typography-body-200-font-size);
       font-family: var(--hds-typography-body-200-font-family);
       line-height: var(--hds-typography-body-200-line-height);
@@ -148,7 +148,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
   .ember-basic-dropdown-content {
     max-width: var(--hds-var-form-super-select-dropdown-max-width, none);
     margin: 0;
-    border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
+    border: var(--hds-form-control-border-width) solid var(--hds-form-control-border-color-base);
     border-radius: var(--hds-form-control-border-radius);
 
     @include hds-apply-only-if-carbon() {
@@ -183,7 +183,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 
   .ember-power-select-options {
     padding: 3px 0;
-    background-color: var(--hds-form-control-base-surface-color-default);
+    background-color: var(--hds-form-control-surface-color-base);
     border-radius: inherit; // prevents corners appearing cut off
 
     @include hds-apply-only-if-carbon() {
@@ -242,7 +242,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 
     &[aria-current="true"] {
       // override default ember power select style
-      color: var(--hds-form-control-base-foreground-color);
+      color: var(--hds-form-control-foreground-color-base);
       background-color: var(--hds-form-super-select-option-surface-color-default);
     }
 
@@ -285,7 +285,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     // Disabled
 
     &[aria-disabled="true"] {
-      color: var(--hds-form-control-disabled-foreground-color);
+      color: var(--hds-form-control-foreground-color-disabled);
     }
   }
 
@@ -345,24 +345,24 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     width: 100%;
     min-height: var(--hds-form-control-height);
     padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
-    color: var(--hds-form-control-base-foreground-color);
+    color: var(--hds-form-control-foreground-color-base);
     font-size: var(--hds-typography-body-200-font-size);
     font-family: var(--hds-typography-body-200-font-family);
     line-height: 1rem;
-    background-color: var(--hds-form-control-base-surface-color-default);
-    border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
+    background-color: var(--hds-form-control-surface-color-base);
+    border: var(--hds-form-control-border-width) solid var(--hds-form-control-border-color-base);
     border-radius: var(--hds-form-control-border-radius);
     box-shadow: var(--hds-elevation-inset-box-shadow);
 
     // placeholder
     &::placeholder {
-      color: var(--hds-form-control-base-placeholder-foreground-color-default);
+      color: var(--hds-form-placeholder-foreground-color-base);
     }
 
     // status
     &:hover,
     &.mock-hover {
-      border-color: var(--hds-form-control-base-border-color-hover);
+      border-color: var(--hds-form-control-border-color-base-hover);
     }
 
     // focus (same for all the states)
@@ -429,7 +429,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 
   // Cancel button
   .ember-power-select-trigger-multiple-input {
-    color: var(--hds-form-control-base-foreground-color);
+    color: var(--hds-form-control-foreground-color-base);
     font-size: var(--hds-typography-body-200-font-size);
     font-family: var(--hds-typography-body-200-font-family);
 
@@ -452,11 +452,11 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
   .ember-basic-dropdown-trigger,
   .ember-power-select-trigger {
     @include hds-form-control-invalid-outline();
-    border-color: var(--hds-form-control-invalid-border-color-default);
+    border-color: var(--hds-form-control-border-color-invalid);
 
     &:hover,
     &.mock-hover {
-      border-color: var(--hds-form-control-invalid-border-color-hover);
+      border-color: var(--hds-form-control-border-color-invalid-hover);
     }
 
     &:focus-visible,
@@ -600,8 +600,8 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     // unchecked checkbox:
     &:not([aria-selected="true"]) {
       &::before {
-        background-color: var(--hds-form-control-base-surface-color-default);
-        border-color: var(--hds-form-control-base-border-color-default);
+        background-color: var(--hds-form-control-surface-color-base);
+        border-color: var(--hds-form-control-border-color-base);
         box-shadow: var(--hds-elevation-inset-box-shadow);
       }
     }
@@ -611,16 +611,16 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     &:hover:not([aria-selected="true"]),
     &.mock-hover:not([aria-selected="true"]) {
       &::before {
-        background-color: var(--hds-form-control-base-surface-color-hover);
-        border-color: var(--hds-form-control-base-border-color-hover);
+        background-color: var(--hds-form-control-surface-color-base-hover);
+        border-color: var(--hds-form-control-border-color-base-hover);
       }
     }
 
     // unchecked checkbox, disabled:
     &[aria-disabled="true"]:not([aria-selected="true"]) {
       &::before {
-        background-color: var(--hds-form-control-disabled-surface-color);
-        border-color: var(--hds-form-control-disabled-border-color);
+        background-color: var(--hds-form-control-surface-color-disabled);
+        border-color: var(--hds-form-control-border-color-disabled);
         box-shadow: none;
         cursor: not-allowed;
       }
@@ -630,9 +630,9 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     &[aria-selected="true"] {
       &:not([aria-disabled="true"]) {
         &::before {
-          background-color: var(--hds-form-control-surface-color-checked-default);
+          background-color: var(--hds-form-control-surface-color-base-checked);
           background-image: var(--hds-form-checkbox-background-image-data-url);
-          border-color: var(--hds-form-control-border-color-checked-default);
+          border-color: var(--hds-form-control-border-color-base-checked);
         }
       }
 
@@ -641,17 +641,17 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
       &:hover[aria-selected="true"],
       &.mock-hover[aria-selected="true"] {
         &::before {
-          background-color: var(--hds-form-control-border-color-checked-default);
-          border-color: var(--hds-form-control-border-color-checked-hover);
+          background-color: var(--hds-form-control-border-color-base-checked);
+          border-color: var(--hds-form-control-border-color-base-hover-checked);
         }
       }
 
       // checked checkbox, disabled:
       &[aria-disabled="true"] {
         &::before {
-          background-color: var(--hds-form-control-disabled-surface-color);
+          background-color: var(--hds-form-control-surface-color-disabled);
           background-image: var(--hds-form-checkbox-background-image-data-url-disabled);
-          border-color: var(--hds-form-control-disabled-border-color);
+          border-color: var(--hds-form-control-border-color-disabled);
           box-shadow: none;
           cursor: not-allowed;
         }
@@ -683,7 +683,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
   align-items: center;
   padding: 8px 12px;
   background-color: var(--hds-surface-color-strong);
-  border-top: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
+  border-top: var(--hds-form-control-border-width) solid var(--hds-form-control-border-color-base);
 }
 
 .hds-form-super-select__result-count {

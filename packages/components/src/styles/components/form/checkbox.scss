@@ -30,40 +30,40 @@
   // base (default)
 
   &:not(:checked, :indeterminate) {
-    background-color: var(--hds-form-control-surface-color-unchecked-default);
-    border-color: var(--hds-form-control-border-color-unchecked-default);
+    background-color: var(--hds-form-control-surface-color-base-unchecked);
+    border-color: var(--hds-form-control-border-color-base-unchecked);
     box-shadow: var(--hds-elevation-inset-box-shadow);
   }
 
   &:checked,
   &:indeterminate {
-    background-color: var(--hds-form-control-surface-color-checked-default);
+    background-color: var(--hds-form-control-surface-color-base-checked);
   }
 
   &:checked {
     background-image: var(--hds-form-checkbox-background-image-data-url);
-    border-color: var(--hds-form-control-border-color-checked-default);
+    border-color: var(--hds-form-control-border-color-base-checked);
   }
 
   &:indeterminate {
     background-image: var(--hds-form-checkbox-background-image-data-url-indeterminate);
-    border-color: var(--hds-form-control-border-color-checked-default);
+    border-color: var(--hds-form-control-border-color-base-checked);
   }
 
   // hover
 
   &:hover:not(:checked, :indeterminate),
   &.mock-hover:not(:checked, :indeterminate) {
-    background-color: var(--hds-form-control-surface-color-unchecked-hover);
-    border-color: var(--hds-form-control-border-color-unchecked-hover);
+    background-color: var(--hds-form-control-surface-color-base-hover-unchecked);
+    border-color: var(--hds-form-control-border-color-base-hover-unchecked);
   }
 
   &:hover:checked,
   &.mock-hover:checked,
   &:hover:indeterminate,
   &.mock-hover:indeterminate {
-    background-color: var(--hds-form-control-surface-color-checked-hover);
-    border-color: var(--hds-form-control-border-color-checked-hover);
+    background-color: var(--hds-form-control-surface-color-base-hover-checked);
+    border-color: var(--hds-form-control-border-color-base-hover-checked);
   }
 
   // focus (same for all the states)
@@ -79,14 +79,14 @@
   // DISABLED
 
   &:disabled:not(:checked, :indeterminate) {
-    background-color: var(--hds-form-control-surface-color-unchecked-disabled);
-    border-color: var(--hds-form-control-border-color-unchecked-disabled);
+    background-color: var(--hds-form-control-surface-color-disabled-unchecked);
+    border-color: var(--hds-form-control-border-color-disabled-unchecked);
     box-shadow: none;
     cursor: not-allowed;
   }
 
   &:disabled:checked {
-    background-color: var(--hds-form-control-surface-color-checked-disabled);
+    background-color: var(--hds-form-control-surface-color-disabled-checked);
     background-image: var(--hds-form-checkbox-background-image-data-url-disabled);
     border-color: var(--hds-form-checkbox-border-color-checked-disabled);
     box-shadow: none;
@@ -94,7 +94,7 @@
   }
 
   &:disabled:indeterminate {
-    background-color: var(--hds-form-control-surface-color-checked-disabled);
+    background-color: var(--hds-form-control-surface-color-disabled-checked);
     background-image: var(--hds-form-checkbox-background-image-data-url-indeterminate-disabled);
     background-repeat: no-repeat;
     border-color: var(--hds-form-checkbox-border-color-checked-disabled);
