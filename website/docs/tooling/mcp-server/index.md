@@ -1,5 +1,5 @@
 ---
-title: Helios MCP Server
+title: MCP Server
 description: >-
   Connect AI assistants to Helios component APIs, documentation, design tokens, and icons.
 caption: Connect AI assistants to Helios components, documentation, design tokens, and icons.
