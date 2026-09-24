@@ -525,6 +525,7 @@
   --hds-form-super-select-option-indicator-left: 3px;
   --hds-form-super-select-option-indicator-top: 6px;
   --hds-form-super-select-option-indicator-width: 2px;
+  --hds-form-super-select-option-list-after-options-surface-color: var(--hds-surface-color-strong);
   --hds-form-super-select-option-margin-top: 8px;
   --hds-form-super-select-option-surface-color-checked-hover: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-surface-color-default: rgba(0, 0, 0, 0);

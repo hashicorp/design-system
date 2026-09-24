@@ -7688,8 +7688,10 @@ button.hds-button[href]::after {
   gap: 8px;
   align-items: center;
   padding: 8px 12px;
-  background-color: var(--hds-surface-color-strong);
+  background-color: var(--hds-form-super-select-option-list-after-options-surface-color);
   border-top: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
+  border-bottom-right-radius: inherit;
+  border-bottom-left-radius: inherit;
 }
 
 .hds-form-super-select__result-count {

@@ -23936,6 +23936,42 @@
     ]
   },
   {
+    "key": "{form.super-select.option-list.after-options.surface.color}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "$modes": {
+      "default": "#e0e0e0",
+      "cds-g0": "#ffffff",
+      "cds-g10": "#ffffff",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{surface.color.interactive}",
+      "$modes": {
+        "default": "{surface.color.strong}",
+        "cds-g0": "{surface.color.interactive}",
+        "cds-g10": "{surface.color.interactive}",
+        "cds-g90": "{surface.color.interactive}",
+        "cds-g100": "{surface.color.interactive}"
+      },
+      "key": "{form.super-select.option-list.after-options.surface.color}"
+    },
+    "name": "hds-form-super-select-option-list-after-options-surface-color",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "super-select",
+      "option-list",
+      "after-options",
+      "surface",
+      "color"
+    ]
+  },
+  {
     "key": "{form.super-select.option.background-image.data-url-checkmark}",
     "$value": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3E%3Cpath fill='%23161616' d='M4.5 8.207L0 3.707L0.707 3L4.5 6.7925L11.293 0L12 0.707L4.5 8.207Z' /%3E%3C/svg%3E\")",
     "comment": "notice: the 'checkmark' color is hardcoded here!",
