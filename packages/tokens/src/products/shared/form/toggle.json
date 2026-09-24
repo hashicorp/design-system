@@ -110,7 +110,30 @@
           }
         }
       },
-      "handle": {
+      "transition": {
+        "duration": {
+          "$type": "duration",
+          "$value": "0.2",
+          "unit": "s"
+        },
+        "timing-function": {
+          "$type": "cubicBezier",
+          "$value": [ 0.68, -0.2, 0.265, 1.15 ]
+        }
+      },
+      "thumb": {
+        "size": {
+          "$type": "dimension",
+          "$value": "{form.toggle.height}",
+          "unit": "px",
+          "$modes": {
+            "default": "{form.toggle.height}",
+            "cds-g0": "10",
+            "cds-g10": "10",
+            "cds-g90": "10",
+            "cds-g100": "10"
+          }
+        },
         "surface": {
           "color": {
             "default": {
@@ -135,31 +158,6 @@
                 "cds-g100": "{carbon.themes.g100.iconOnColorDisabled}"
               }
             }
-          }
-        }
-      },
-      "transition": {
-        "duration": {
-          "$type": "duration",
-          "$value": "0.2",
-          "unit": "s"
-        },
-        "timing-function": {
-          "$type": "cubicBezier",
-          "$value": [ 0.68, -0.2, 0.265, 1.15 ]
-        }
-      },
-      "thumb": {
-        "size": {
-          "$type": "dimension",
-          "$value": "{form.toggle.height}",
-          "unit": "px",
-          "$modes": {
-            "default": "{form.toggle.height}",
-            "cds-g0": "10",
-            "cds-g10": "10",
-            "cds-g90": "10",
-            "cds-g100": "10"
           }
         }
       }
