@@ -232,6 +232,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
       margin-top: var(--hds-form-super-select-option-margin-top);
 
       @include hds-apply-only-if-carbon() {
+        // separator between option items:
         .hds-form-super-select__option-text {
           border-top: 1px solid var(--hds-form-super-select-option-border-color);
         }
@@ -690,8 +691,10 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
   gap: 8px;
   align-items: center;
   padding: 8px 12px;
-  background-color: var(--hds-surface-color-strong);
+  background-color: var(--hds-form-super-select-option-list-after-options-surface-color);
   border-top: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
+  border-bottom-right-radius: inherit;
+  border-bottom-left-radius: inherit;
 }
 
 .hds-form-super-select__result-count {
