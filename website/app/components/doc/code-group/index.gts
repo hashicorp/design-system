@@ -33,6 +33,7 @@ interface DocCodeGroupSignature {
     hideThemeSwitcher?: 'true' | 'false';
     hidePreview?: 'true' | 'false';
     isExpanded?: 'true' | 'false';
+    hasTheming?: 'true' | 'false';
   };
   Blocks: {
     default: [];
