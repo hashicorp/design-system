@@ -25304,78 +25304,6 @@
     ]
   },
   {
-    "key": "{form.toggle.handle.surface.color.default}",
-    "$type": "color",
-    "$value": "#ffffff",
-    "$modes": {
-      "default": "#ffffff",
-      "cds-g0": "#ffffff",
-      "cds-g10": "#ffffff",
-      "cds-g90": "#ffffff",
-      "cds-g100": "#ffffff"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{surface.color.interactive}",
-      "$modes": {
-        "default": "{surface.color.interactive}",
-        "cds-g0": "{carbon.themes.white.iconOnColor}",
-        "cds-g10": "{carbon.themes.g10.iconOnColor}",
-        "cds-g90": "{carbon.themes.g90.iconOnColor}",
-        "cds-g100": "{carbon.themes.g100.iconOnColor}"
-      },
-      "key": "{form.toggle.handle.surface.color.default}"
-    },
-    "name": "hds-form-toggle-handle-surface-color-default",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "toggle",
-      "handle",
-      "surface",
-      "color",
-      "default"
-    ]
-  },
-  {
-    "key": "{form.toggle.handle.surface.color.disabled}",
-    "$type": "color",
-    "$value": "#fafafa",
-    "$modes": {
-      "default": "#fafafa",
-      "cds-g0": "#8d8d8d",
-      "cds-g10": "#8d8d8d",
-      "cds-g90": "rgba(255, 255, 255, 0.25)",
-      "cds-g100": "rgba(255, 255, 255, 0.25)"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{surface.color.interactive-disabled}",
-      "$modes": {
-        "default": "{surface.color.interactive-disabled}",
-        "cds-g0": "{carbon.themes.white.iconOnColorDisabled}",
-        "cds-g10": "{carbon.themes.g10.iconOnColorDisabled}",
-        "cds-g90": "{carbon.themes.g90.iconOnColorDisabled}",
-        "cds-g100": "{carbon.themes.g100.iconOnColorDisabled}"
-      },
-      "key": "{form.toggle.handle.surface.color.disabled}"
-    },
-    "name": "hds-form-toggle-handle-surface-color-disabled",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "toggle",
-      "handle",
-      "surface",
-      "color",
-      "disabled"
-    ]
-  },
-  {
     "key": "{form.toggle.transition.duration}",
     "$type": "duration",
     "$value": "0.2s",
@@ -25456,6 +25384,78 @@
       "toggle",
       "thumb",
       "size"
+    ]
+  },
+  {
+    "key": "{form.toggle.thumb.surface.color.default}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "$modes": {
+      "default": "#ffffff",
+      "cds-g0": "#ffffff",
+      "cds-g10": "#ffffff",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{surface.color.interactive}",
+      "$modes": {
+        "default": "{surface.color.interactive}",
+        "cds-g0": "{carbon.themes.white.iconOnColor}",
+        "cds-g10": "{carbon.themes.g10.iconOnColor}",
+        "cds-g90": "{carbon.themes.g90.iconOnColor}",
+        "cds-g100": "{carbon.themes.g100.iconOnColor}"
+      },
+      "key": "{form.toggle.thumb.surface.color.default}"
+    },
+    "name": "hds-form-toggle-thumb-surface-color-default",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "toggle",
+      "thumb",
+      "surface",
+      "color",
+      "default"
+    ]
+  },
+  {
+    "key": "{form.toggle.thumb.surface.color.disabled}",
+    "$type": "color",
+    "$value": "#fafafa",
+    "$modes": {
+      "default": "#fafafa",
+      "cds-g0": "#8d8d8d",
+      "cds-g10": "#8d8d8d",
+      "cds-g90": "rgba(255, 255, 255, 0.25)",
+      "cds-g100": "rgba(255, 255, 255, 0.25)"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{surface.color.interactive-disabled}",
+      "$modes": {
+        "default": "{surface.color.interactive-disabled}",
+        "cds-g0": "{carbon.themes.white.iconOnColorDisabled}",
+        "cds-g10": "{carbon.themes.g10.iconOnColorDisabled}",
+        "cds-g90": "{carbon.themes.g90.iconOnColorDisabled}",
+        "cds-g100": "{carbon.themes.g100.iconOnColorDisabled}"
+      },
+      "key": "{form.toggle.thumb.surface.color.disabled}"
+    },
+    "name": "hds-form-toggle-thumb-surface-color-disabled",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "toggle",
+      "thumb",
+      "surface",
+      "color",
+      "disabled"
     ]
   },
   {

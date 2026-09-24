@@ -8204,7 +8204,7 @@ button.hds-button[href]::after {
   width: var(--hds-form-toggle-thumb-size);
   height: var(--hds-form-toggle-thumb-size);
   margin: auto 0;
-  background-color: var(--hds-form-toggle-handle-surface-color-default);
+  background-color: var(--hds-form-toggle-thumb-surface-color-default);
   border: var(--hds-form-toggle-border-width) solid var(--border-color);
   border-radius: 50%;
   transform: translate3d(0, 0, 0);
@@ -8285,7 +8285,7 @@ button.hds-button[href]::after {
 }
 
 :disabled:not(:checked) + .hds-form-toggle__facade::after, :disabled:checked + .hds-form-toggle__facade::after {
-  background-color: var(--hds-form-toggle-handle-surface-color-disabled);
+  background-color: var(--hds-form-toggle-thumb-surface-color-disabled);
 }
 .hds-theme-light :disabled:checked + .hds-form-toggle__facade::after,
 .hds-theme-dark :disabled:checked + .hds-form-toggle__facade::after,

@@ -549,9 +549,9 @@
   --hds-form-toggle-base-surface-color-checked-hover: #24a148;
   --hds-form-toggle-base-surface-color-default: #8d8d8d; /** the toggle has a different base surface color, compared to the other controls */
   --hds-form-toggle-base-surface-color-disabled: #c6c6c6;
-  --hds-form-toggle-handle-surface-color-default: #ffffff;
-  --hds-form-toggle-handle-surface-color-disabled: #8d8d8d;
   --hds-form-toggle-thumb-size: 10px;
+  --hds-form-toggle-thumb-surface-color-default: #ffffff;
+  --hds-form-toggle-thumb-surface-color-disabled: #8d8d8d;
   --hds-form-visibility-toggle-size: 40px;
   --hds-icon-tile-border-color-logo: #c6c6c6;
   --hds-icon-tile-border-color-overlay: #e0e0e0;
