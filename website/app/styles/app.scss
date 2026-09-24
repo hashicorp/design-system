@@ -75,6 +75,13 @@ html {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+
+  // prevent HDS "dark" theme classes on `<html>` from flipping the UA canvas to dark mode
+  &.hds-theme-dark,
+  &.hds-mode-cds-g90,
+  &.hds-mode-cds-g100 {
+    color-scheme: light;
+  }
 }
 
 body {
