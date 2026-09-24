@@ -4,8 +4,6 @@ import { eq } from 'ember-truth-helpers';
 import { service } from '@ember/service';
 import { fn } from '@ember/helper';
 
-import type Owner from '@ember/owner';
-
 import {
   HdsThemeContext,
   HdsAppFrame,
@@ -36,44 +34,6 @@ const THEMING_OPTIONS: Record<
 
 export default class LocalComponent extends Component {
   @service declare readonly hdsTheming: HdsThemingService;
-  themeTimeout?: ReturnType<typeof setTimeout>;
-
-  constructor(owner: Owner, args: Record<string, never>) {
-    super(owner, args);
-
-    if (!this.hasDOM) {
-      return;
-    }
-
-    const savedTheme = this.readThemeFromStorage();
-
-    if (savedTheme) {
-      this.deferApplyTheme(savedTheme);
-    } else {
-      this.deferApplyTheme('system');
-    }
-  }
-
-  applyTheme(theme: ThemeOption): void {
-    if (!this.hasDOM) {
-      return;
-    }
-
-    this.hdsTheming.setTheme({ theme });
-  }
-
-  deferApplyTheme(theme: ThemeOption): void {
-    this.themeTimeout = setTimeout(() => {
-      this.applyTheme(theme);
-    });
-  }
-
-  willDestroy(): void {
-    if (this.themeTimeout) {
-      clearTimeout(this.themeTimeout);
-    }
-    super.willDestroy();
-  }
 
   get hasLocalStorage(): boolean {
     return (
@@ -84,22 +44,6 @@ export default class LocalComponent extends Component {
 
   get hasDOM(): boolean {
     return typeof window !== 'undefined' && typeof document !== 'undefined';
-  }
-
-  readThemeFromStorage(): ThemeOption | undefined {
-    if (!this.hasLocalStorage) {
-      return;
-    }
-
-    const storedTheme = window.localStorage.getItem(STORAGE_KEY);
-
-    if (
-      storedTheme === 'system' ||
-      storedTheme === 'light' ||
-      storedTheme === 'dark'
-    ) {
-      return storedTheme;
-    }
   }
 
   storeTheme(theme: ThemeOption): void {
