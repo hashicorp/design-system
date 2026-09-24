@@ -74,7 +74,7 @@ export interface HdsFilterBarFilterGroupDateSignature {
 }
 
 export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarFilterGroupDateSignature> {
-  @service hdsIntl!: HdsIntlService;
+  @service declare readonly hdsIntl: HdsIntlService;
 
   @tracked private _selectorInputValue:
     | HdsFilterBarDateFilterSelector

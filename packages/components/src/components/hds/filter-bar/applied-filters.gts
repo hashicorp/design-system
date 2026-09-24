@@ -31,7 +31,7 @@ export interface HdsFilterBarAppliedFiltersSignature {
 }
 
 export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAppliedFiltersSignature> {
-  @service hdsIntl!: HdsIntlService;
+  @service declare readonly hdsIntl: HdsIntlService;
 
   private _isArrayFilter = (filter: HdsFilterBarFilter): boolean => {
     return (
@@ -87,7 +87,14 @@ export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAp
       return `${keyText} ${item.dismissTagText}`;
     } else {
       const valueText = item.label ?? String(item.value);
-      return `${keyText}: ${valueText}`;
+      return this.hdsIntl.t(
+        'hds.components.filter-bar.applied-filters.array-filter',
+        {
+          default: `${keyText}: ${valueText}`,
+          keyText,
+          valueText,
+        }
+      );
     }
   };
 
@@ -128,13 +135,14 @@ export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAp
         typeof data.value === 'object' &&
         data.value !== null
       ) {
-        const separatorText = this.hdsIntl.t(
-          'hds.components.filter-bar.tag.numerical-filter.separator',
+        return this.hdsIntl.t(
+          'hds.components.filter-bar.applied-filters.tag.numerical-filter.between',
           {
-            default: 'and',
+            default: `between ${data.value.start} and ${data.value.end}`,
+            start: data.value.start,
+            end: data.value.end,
           }
         );
-        return `${NUMERICAL_SELECTORS_TEXT[selector]} ${data.value.start} ${separatorText} ${data.value.end}`;
       } else if (typeof data.value !== 'object') {
         return `${NUMERICAL_SELECTORS_TEXT[selector]} ${data.value}`;
       }
@@ -155,37 +163,43 @@ export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAp
       'value' in data
     ) {
       const selector = data.selector as keyof typeof DATE_SELECTORS_TEXT;
+      const translationType = filter.type === 'datetime' ? 'date' : filter.type;
+
       if (
         selector === 'between' &&
         typeof data.value === 'object' &&
         data.value !== null
       ) {
-        const separatorText = this.hdsIntl.t(
-          'hds.components.filter-bar.tag.date-filter.separator',
-          {
-            default: 'and',
-          }
-        );
-        const startDateText = this._formatDateFilterText(
+        const start = this._formatDateFilterText(
           data.value.start as string,
           filter.type
         );
-        const endDateText = this._formatDateFilterText(
+        const end = this._formatDateFilterText(
           data.value.end as string,
           filter.type
         );
-        return `${DATE_SELECTORS_TEXT[selector]} ${startDateText} ${separatorText} ${endDateText}`;
-      } else if (data.value !== null && typeof data.value !== 'object') {
-        const dateText = this._formatDateFilterText(
-          data.value as string,
-          filter.type
+        return this.hdsIntl.t(
+          `hds.components.filter-bar.applied-filters.tag.date-filter.${translationType}.between`,
+          {
+            default: `between ${start} and ${end}`,
+            start,
+            end,
+          }
         );
-        return `${DATE_SELECTORS_TEXT[selector]} ${dateText}`;
+      } else if (typeof data.value === 'string') {
+        const value = this._formatDateFilterText(data.value, filter.type);
+
+        return this.hdsIntl.t(
+          `hds.components.filter-bar.applied-filters.tag.date-filter.${translationType}.${selector}`,
+          {
+            default: `${DATE_SELECTORS_TEXT[selector]} ${value}`,
+            value,
+          }
+        );
       }
-      return '';
-    } else {
-      return '';
     }
+
+    return '';
   };
 
   private _formatDateFilterText = (
