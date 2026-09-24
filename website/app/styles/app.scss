@@ -57,6 +57,7 @@
 @use "pages/whats-new/changelog" as whats-new-changelog;
 @use "pages/patterns/table-multi-select" as patterns-table-multi-select;
 @use "pages/patterns/filter-patterns" as patterns-filter-patterns;
+@use "pages/patterns/theme-selection" as patterns-theme-selection;
 @use "pages/utilities/dialog-primitive" as utilities-dialog-primitive;
 
 // Third-party declarations
