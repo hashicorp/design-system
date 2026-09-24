@@ -14,6 +14,7 @@ import { defaultValidator } from 'ember-a11y-refocus';
 export default class ApplicationController extends Controller {
   @service router;
   @service fastboot;
+  @service hdsTheming;
 
   // notice: don't set it to false, otherwise the sidebar menu will appear open on page load
   @tracked isSidebarVisibleOnSmallViewport;
@@ -23,11 +24,39 @@ export default class ApplicationController extends Controller {
     this.router.on('routeDidChange', this, 'routeDidChange');
   }
 
-  routeDidChange() {
+  routeDidChange(transition) {
+    this.clearThemeClassesWhenLeavingThemeSelector(transition);
+
     // eslint-disable-next-line ember/no-runloop
     scheduleOnce('afterRender', this, this.resetSidebar);
     // eslint-disable-next-line ember/no-runloop
     scheduleOnce('afterRender', this, this.scrollToId);
+  }
+
+  clearThemeClassesWhenLeavingThemeSelector(transition) {
+    const isLeavingThemeSelectionRoute =
+      transition?.from?.name === 'show' &&
+      transition?.from?.params?.path === 'patterns/theme-selection' &&
+      transition?.to?.params?.path !== 'patterns/theme-selection';
+
+    if (!isLeavingThemeSelectionRoute || this.fastboot.isFastBoot) {
+      return;
+    }
+
+    this.hdsTheming.setTheme({ theme: undefined });
+    this.removeThemeClassesFromRootElement();
+  }
+
+  removeThemeClassesFromRootElement() {
+    const rootElement = document.documentElement;
+    const classesToRemove = Array.from(rootElement.classList).filter(
+      (className) =>
+        className.startsWith('hds-theme-') || className.startsWith('hds-mode-'),
+    );
+
+    if (classesToRemove.length > 0) {
+      rootElement.classList.remove(...classesToRemove);
+    }
   }
 
   willDestroy() {

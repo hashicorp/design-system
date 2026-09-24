@@ -6,3 +6,4 @@ website:
         trigger-text: "Menú de idiomas"
         english-option: "English (Inglés)"
         spanish-option: "Español"
+        home-link-text: "HashiCorp"

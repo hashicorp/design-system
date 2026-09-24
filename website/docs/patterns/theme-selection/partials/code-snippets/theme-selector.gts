@@ -44,6 +44,8 @@ export default class LocalComponent extends Component {
 
     if (savedTheme) {
       this.deferApplyTheme(savedTheme);
+    } else {
+      this.deferApplyTheme('system');
     }
   }
 
