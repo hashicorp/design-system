@@ -11,11 +11,12 @@ import type { IntlService } from 'ember-intl';
 import type Owner from '@ember/owner';
 
 import {
+  HdsAppFrame,
   HdsAppHeader,
+  HdsAppHeaderHomeLink,
+  HdsApplicationState,
   HdsDropdown,
 } from '@hashicorp/design-system-components/components';
-
-import DocPlaceholder from 'website/components/doc/placeholder';
 
 type LanguageOption = 'en-us' | 'es-es';
 
@@ -57,59 +58,62 @@ export default class LocalComponent extends Component {
   };
 
   <template>
-    {{! for demo purposes, we set @hasA11yRefocus to false but in your app it will probably need to be set to true (or omitted to rely on defaults) }}
-    <HdsAppHeader @hasA11yRefocus={{false}}>
-      <:logo>
-        <DocPlaceholder
-          @height="2em"
-          @width="auto"
-          @text="HomeLink"
-          @background="#e4e4e4"
-        />
-      </:logo>
+    <div class="doc-language-selection-app-frame-mock-viewport">
+      <HdsAppFrame as |Frame|>
+        <Frame.Header>
+          {{! for demo purposes, we set @hasA11yRefocus to false but in your app it will probably need to be set to true (or omitted to rely on defaults) }}
+          <HdsAppHeader @hasA11yRefocus={{false}}>
+            <:logo>
+              <HdsAppHeaderHomeLink
+                @icon="hashicorp"
+                @text={{t
+                  "website.pages.patterns.language-selection.home-link-text"
+                }}
+                @href="/"
+              />
+            </:logo>
 
-      <:globalActions>
-        <DocPlaceholder
-          @height="2em"
-          @width="auto"
-          @text="OrgSwitcher"
-          @background="#e4e4e4"
-        />
-      </:globalActions>
+            <:utilityActions>
+              <HdsDropdown @enableCollisionDetection={{true}} as |dd|>
+                <dd.ToggleIcon
+                  @icon="globe"
+                  @text={{t
+                    "website.pages.patterns.language-selection.trigger-text"
+                  }}
+                />
+                <dd.Checkmark
+                  @selected={{eq this.selectedLanguage "en-us"}}
+                  {{on "click" (fn this.selectLanguage "en-us" dd.close)}}
+                >{{t
+                    "website.pages.patterns.language-selection.english-option"
+                  }}</dd.Checkmark>
+                <dd.Checkmark
+                  @selected={{eq this.selectedLanguage "es-es"}}
+                  {{on "click" (fn this.selectLanguage "es-es" dd.close)}}
+                >{{t
+                    "website.pages.patterns.language-selection.spanish-option"
+                  }}</dd.Checkmark>
+              </HdsDropdown>
+            </:utilityActions>
+          </HdsAppHeader>
+        </Frame.Header>
 
-      <:utilityActions>
-        <HdsDropdown @enableCollisionDetection={{true}} as |dd|>
-          <dd.ToggleIcon
-            @icon="globe"
-            @text={{t "website.pages.patterns.language-selection.trigger-text"}}
-          />
-          <dd.Checkmark
-            @selected={{eq this.selectedLanguage "en-us"}}
-            {{on "click" (fn this.selectLanguage "en-us" dd.close)}}
-          >{{t
-              "website.pages.patterns.language-selection.english-option"
-            }}</dd.Checkmark>
-          <dd.Checkmark
-            @selected={{eq this.selectedLanguage "es-es"}}
-            {{on "click" (fn this.selectLanguage "es-es" dd.close)}}
-          >{{t
-              "website.pages.patterns.language-selection.spanish-option"
-            }}</dd.Checkmark>
-        </HdsDropdown>
-
-        <DocPlaceholder
-          @height="2em"
-          @width="auto"
-          @text="HelpMenu"
-          @background="#e4e4e4"
-        />
-        <DocPlaceholder
-          @height="2em"
-          @width="auto"
-          @text="UserMenu"
-          @background="#e4e4e4"
-        />
-      </:utilityActions>
-    </HdsAppHeader>
+        <Frame.Main>
+          <div class="doc-language-switcher-app-frame-main">
+            <HdsApplicationState @align="center" as |A|>
+              <A.Header
+                @titleTag="h2"
+                @title={{if
+                  (eq this.selectedLanguage "en-us")
+                  "English"
+                  "Español"
+                }}
+              />
+              <A.Body @text="Current language selection" />
+            </HdsApplicationState>
+          </div>
+        </Frame.Main>
+      </HdsAppFrame>
+    </div>
   </template>
 }

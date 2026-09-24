@@ -53,7 +53,7 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
   @tracked private _isOpen = false;
   @tracked private _isDesktop = true;
   @tracked private _hasOverflowContent = false;
-  private _desktopMQ: MediaQueryList;
+  private _desktopMQ?: MediaQueryList;
   hasA11yRefocus = this.args.hasA11yRefocus ?? true;
   a11yRefocusSkipTo = '#' + (this.args.a11yRefocusSkipTo ?? 'hds-main');
 
@@ -65,35 +65,41 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
 
   constructor(owner: Owner, args: Record<string, never>) {
     super(owner, args);
-    this._desktopMQ = window.matchMedia(`(min-width: ${this._desktopMQVal})`);
-    this.addEventListeners();
+
+    if (typeof window !== 'undefined') {
+      this._desktopMQ = window.matchMedia(`(min-width: ${this._desktopMQVal})`);
+      this.addEventListeners();
+    }
+
     registerDestructor(this, (): void => {
       this.removeEventListeners();
     });
   }
 
   addEventListeners(): void {
-    document.addEventListener('keydown', this.escapePress, true);
-    this._desktopMQ.addEventListener(
-      'change',
+    if (typeof document !== 'undefined') {
+      document.addEventListener('keydown', this.escapePress, true);
+    }
 
+    this._desktopMQ?.addEventListener(
+      'change',
       this.updateDesktopVariable,
       true
     );
 
-    // set initial state based on viewport using a "synthetic" event
-    const syntheticEvent = new MediaQueryListEvent('change', {
-      matches: this._desktopMQ.matches,
-      media: this._desktopMQ.media,
-    });
-    this.updateDesktopVariable(syntheticEvent);
+    // set initial state based on viewport
+    if (this._desktopMQ) {
+      this.updateDesktopVariable(this._desktopMQ);
+    }
   }
 
   removeEventListeners(): void {
-    document.removeEventListener('keydown', this.escapePress, true);
-    this._desktopMQ.removeEventListener(
-      'change',
+    if (typeof document !== 'undefined') {
+      document.removeEventListener('keydown', this.escapePress, true);
+    }
 
+    this._desktopMQ?.removeEventListener(
+      'change',
       this.updateDesktopVariable,
       true
     );
@@ -139,7 +145,7 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
     }
   };
 
-  updateDesktopVariable = (event: MediaQueryListEvent): void => {
+  updateDesktopVariable = (event: Pick<MediaQueryList, 'matches'>): void => {
     this._isDesktop = event.matches;
 
     // Close the menu when switching to desktop view
