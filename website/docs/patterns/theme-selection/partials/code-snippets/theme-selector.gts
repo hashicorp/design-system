@@ -36,9 +36,14 @@ const THEMING_OPTIONS: Record<
 
 export default class LocalComponent extends Component {
   @service declare readonly hdsTheming: HdsThemingService;
+  themeTimeout?: ReturnType<typeof setTimeout>;
 
   constructor(owner: Owner, args: Record<string, never>) {
     super(owner, args);
+
+    if (!this.hasDOM) {
+      return;
+    }
 
     const savedTheme = this.readThemeFromStorage();
 
@@ -50,13 +55,24 @@ export default class LocalComponent extends Component {
   }
 
   applyTheme(theme: ThemeOption): void {
+    if (!this.hasDOM) {
+      return;
+    }
+
     this.hdsTheming.setTheme({ theme });
   }
 
   deferApplyTheme(theme: ThemeOption): void {
-    setTimeout(() => {
+    this.themeTimeout = setTimeout(() => {
       this.applyTheme(theme);
     });
+  }
+
+  willDestroy(): void {
+    if (this.themeTimeout) {
+      clearTimeout(this.themeTimeout);
+    }
+    super.willDestroy();
   }
 
   get hasLocalStorage(): boolean {
@@ -64,6 +80,10 @@ export default class LocalComponent extends Component {
       typeof window !== 'undefined' &&
       typeof window.localStorage !== 'undefined'
     );
+  }
+
+  get hasDOM(): boolean {
+    return typeof window !== 'undefined' && typeof document !== 'undefined';
   }
 
   readThemeFromStorage(): ThemeOption | undefined {
@@ -91,6 +111,10 @@ export default class LocalComponent extends Component {
   }
 
   selectTheme = (newTheme: ThemeOption, close: () => void) => {
+    if (!this.hasDOM) {
+      return;
+    }
+
     this.hdsTheming.setTheme({
       theme: newTheme,
       onSetTheme: () => {
