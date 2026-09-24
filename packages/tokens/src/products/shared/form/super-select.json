@@ -207,9 +207,9 @@
         "foreground": {
           "color": {
             "$type": "color",
-            "$value": "{form.control.base.foreground.color}",
+            "$value": "{form.control.foreground.color.base}",
             "$modes": {
-              "default": "{form.control.base.foreground.color}",
+              "default": "{form.control.foreground.color.base}",
               "cds-g0": "{carbon.themes.white.textInverse}",
               "cds-g10": "{carbon.themes.g10.textInverse}",
               "cds-g90": "{carbon.themes.g90.textInverse}",
