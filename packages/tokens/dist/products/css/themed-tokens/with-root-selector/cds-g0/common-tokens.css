@@ -100,13 +100,13 @@
   --hds-filter-bar-tabs-tab-surface-color-selected-default: var(--hds-surface-color-strong);
   --hds-form-checkbox-border-width: 1px;
   --hds-form-checkbox-size: 16px;
-  --hds-form-control-base-foreground-color: var(--hds-foreground-color-strong);
-  --hds-form-control-base-surface-color-default: var(--hds-surface-color-interactive);
+  --hds-form-control-border-color-readonly: var(--hds-border-color-faint);
   --hds-form-control-border-radius: var(--hds-border-radius-small);
   --hds-form-control-border-width: 1px;
-  --hds-form-control-disabled-foreground-color: var(--hds-foreground-color-disabled);
-  --hds-form-control-readonly-border-color: var(--hds-border-color-faint);
-  --hds-form-control-readonly-foreground-color: var(--hds-foreground-color-primary);
+  --hds-form-control-foreground-color-base: var(--hds-foreground-color-strong);
+  --hds-form-control-foreground-color-disabled: var(--hds-foreground-color-disabled);
+  --hds-form-control-foreground-color-readonly: var(--hds-foreground-color-primary);
+  --hds-form-control-surface-color-base: var(--hds-surface-color-interactive);
   --hds-form-error-color: var(--hds-core-color-red-300); /** deprecated: use `hds-form-error-foreground-color` instead */
   --hds-form-error-icon-size: 14px;
   --hds-form-helper-text-color: var(--hds-foreground-color-faint); /** deprecated: use `hds-form-helper-text-foreground-color` instead */
