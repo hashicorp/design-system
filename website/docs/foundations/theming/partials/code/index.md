@@ -145,7 +145,7 @@ To retain the selection between visits, you should persist it and restore it ear
 
 For more details about how to set and persist a theme in an application, see the [Theming service](/theming/hds-theming) documentation.
 
-For guidance around the switcher's user interface and behavior, see [Patterns/Theme switcher](/patterns/theme-switcher-pattern).
+For guidance around the switcher's user interface and behavior, see [Patterns/Theme selection](/patterns/theme-selection).
 
 Also, some areas of the application may need to force a specific theme. In that case, the [`ThemeContext`](/theming/theme-context) component can be used to scope a theme to a portion of the page. For example, an application can wrap its `AppHeader` in a `ThemeContext` and select the `dark` context when a "carbonized" theme is active, while using `default` for the "classic" theme:
 
