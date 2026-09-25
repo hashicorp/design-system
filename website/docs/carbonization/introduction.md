@@ -5,7 +5,7 @@ navigation:
   label: From Helios to Carbon
 related:
   - foundations/theming
-  - patterns/theme-switcher-pattern
+  - patterns/theme-selection
 ---
 
 ## Lorem ipsum dolor

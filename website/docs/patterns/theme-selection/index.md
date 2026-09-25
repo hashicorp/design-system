@@ -1,12 +1,12 @@
 ---
-title: Theme switching
-description: TODO Theme switching description
-caption: TODO Theme switching caption
+title: Theme selection
+description: TODO Theme selection description
+caption: TODO Theme selection caption
 related:
   - carbonization/introduction
   - foundations/theming
   - theming/theme-context
-previewImage: assets/illustrations/patterns/theme-switching-patterns.jpg
+previewImage: assets/illustrations/patterns/theme-selection.jpg
 navigation:
   keywords: ['theming', 'theme', 'mode', 'light', 'dark', 'switch']
 ---
