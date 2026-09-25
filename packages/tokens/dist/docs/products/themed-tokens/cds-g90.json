@@ -25166,28 +25166,6 @@
     ]
   },
   {
-    "key": "{form.toggle.border.radius}",
-    "$type": "dimension",
-    "$value": "0px",
-    "unit": "px",
-    "original": {
-      "$type": "dimension",
-      "$value": "{border.radius.x-small}",
-      "unit": "px",
-      "key": "{form.toggle.border.radius}"
-    },
-    "name": "hds-form-toggle-border-radius",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "toggle",
-      "border",
-      "radius"
-    ]
-  },
-  {
     "key": "{form.toggle.border.width}",
     "$type": "dimension",
     "$value": "1px",

@@ -5295,7 +5295,6 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-form-text-input-background-image-size: 16px;
   --hds-form-toggle-background-image-position-x: 2px;
   --hds-form-toggle-background-image-size: 12px;
-  --hds-form-toggle-border-radius: var(--hds-border-radius-x-small);
   --hds-form-toggle-border-width: 1px;
   --hds-form-toggle-height: 16px;
   --hds-form-toggle-transition-duration: 0.2s;
