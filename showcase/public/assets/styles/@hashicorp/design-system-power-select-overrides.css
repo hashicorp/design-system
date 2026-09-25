@@ -20,20 +20,20 @@
   min-height: 36px;
   padding: calc(var(--hds-form-control-padding-vertical) + 1px) calc(var(--hds-form-control-padding-horizontal) + 1px);
   padding-right: calc(var(--hds-form-control-padding-horizontal) + 24px);
-  color: var(--hds-form-control-base-foreground-color);
-  background-color: var(--hds-form-control-base-surface-color-default);
+  color: var(--hds-form-control-foreground-color-default);
+  background-color: var(--hds-form-control-surface-color-default);
   background-image: var(--hds-form-select-background-image-data-url);
   background-repeat: no-repeat;
   background-position: right var(--hds-form-select-background-image-position-right-x) center, top 8px left 20px;
   background-size: var(--hds-form-select-background-image-size) var(--hds-form-select-background-image-size);
-  border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
+  border: var(--hds-form-control-border-width) solid var(--hds-form-control-border-color-default);
   border-radius: var(--hds-form-control-border-radius);
   box-shadow: var(--hds-elevation-low-box-shadow);
 }
 .hds-power-select .ember-basic-dropdown-trigger:hover, .hds-power-select .ember-basic-dropdown-trigger.mock-hover,
 .hds-power-select .ember-power-select-trigger:hover,
 .hds-power-select .ember-power-select-trigger.mock-hover {
-  border-color: var(--hds-form-control-base-border-color-hover);
+  border-color: var(--hds-form-control-border-color-hover);
 }
 .hds-power-select .ember-basic-dropdown-trigger:focus-visible, .hds-power-select .ember-basic-dropdown-trigger.mock-focus,
 .hds-power-select .ember-power-select-trigger:focus-visible,
@@ -59,10 +59,10 @@
 }
 .hds-power-select .ember-basic-dropdown-trigger[aria-disabled=true],
 .hds-power-select .ember-power-select-trigger[aria-disabled=true] {
-  color: var(--hds-form-control-disabled-foreground-color);
-  background-color: var(--hds-form-control-disabled-surface-color);
+  color: var(--hds-form-control-foreground-color-disabled);
+  background-color: var(--hds-form-control-surface-color-disabled);
   background-image: var(--hds-form-select-background-image-data-url-disabled);
-  border-color: var(--hds-form-control-disabled-border-color);
+  border-color: var(--hds-form-control-border-color-disabled);
   box-shadow: none;
   cursor: not-allowed;
   opacity: 0.7;
@@ -79,7 +79,7 @@
 .hds-power-select .ember-power-select-dropdown.ember-basic-dropdown-content--below,
 .hds-power-select .ember-power-select-dropdown.ember-basic-dropdown-content--in-place {
   margin-top: -3px;
-  border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
+  border: var(--hds-form-control-border-width) solid var(--hds-form-control-border-color-default);
   border-bottom-right-radius: var(--hds-border-radius-medium);
   border-bottom-left-radius: var(--hds-border-radius-medium);
   box-shadow: var(--hds-elevation-high-box-shadow), var(--hds-elevation-high-box-shadow);
@@ -87,7 +87,7 @@
 .hds-power-select .ember-basic-select-dropdown.ember-basic-dropdown-content--above,
 .hds-power-select .ember-power-select-dropdown.ember-basic-dropdown-content--above {
   margin-top: 3px;
-  border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
+  border: var(--hds-form-control-border-width) solid var(--hds-form-control-border-color-default);
   border-radius: var(--hds-border-radius-medium) var(--hds-border-radius-medium) 0 0;
   box-shadow: none;
 }
@@ -98,18 +98,18 @@
   width: 100%;
   max-width: 100%;
   padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
-  color: var(--hds-form-control-base-foreground-color);
+  color: var(--hds-form-control-foreground-color-default);
   line-height: 1rem;
-  background-color: var(--hds-form-control-base-surface-color-default);
-  border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
+  background-color: var(--hds-form-control-surface-color-default);
+  border: var(--hds-form-control-border-width) solid var(--hds-form-control-border-color-default);
   border-radius: var(--hds-form-control-border-radius);
   box-shadow: var(--hds-elevation-inset-box-shadow);
 }
 .hds-power-select .ember-power-select-search .ember-power-select-search-input::placeholder {
-  color: var(--hds-form-control-base-placeholder-foreground-color-default);
+  color: var(--hds-form-control-placeholder-foreground-color-default);
 }
 .hds-power-select .ember-power-select-search .ember-power-select-search-input:hover, .hds-power-select .ember-power-select-search .ember-power-select-search-input.mock-hover {
-  border-color: var(--hds-form-control-base-border-color-hover);
+  border-color: var(--hds-form-control-border-color-hover);
 }
 .hds-power-select .ember-power-select-search .ember-power-select-search-input:focus-visible, .hds-power-select .ember-power-select-search .ember-power-select-search-input.mock-focus {
   outline: var(--hds-focus-ring-width-external) solid var(--hds-focus-color-action-external);
@@ -252,5 +252,5 @@
   color: var(--hds-foreground-color-primary);
   font-size: 0.8125rem;
   background-color: var(--hds-surface-color-faint);
-  border-top: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
+  border-top: var(--hds-form-control-border-width) solid var(--hds-form-control-border-color-default);
 }

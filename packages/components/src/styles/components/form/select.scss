@@ -18,8 +18,8 @@
   max-width: 100%;
   min-height: var(--hds-form-control-height);
   padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
-  color: var(--hds-form-control-base-foreground-color);
-  background-color: var(--hds-form-control-base-surface-color-default);
+  color: var(--hds-form-control-foreground-color-default);
+  background-color: var(--hds-form-control-surface-color-default);
   background-image: var(--hds-form-select-background-image-data-url);
   background-repeat: no-repeat;
   background-position: right var(--hds-form-select-background-image-position-right-x) center;
@@ -42,7 +42,7 @@
   &:hover,
   &.mock-hover {
     &:not(:disabled, .mock-disabled, [readonly]) {
-      @include hds-form-control-border(var(--hds-form-control-base-border-color-hover));
+      @include hds-form-control-border(var(--hds-form-control-border-color-hover));
       background-color: var(--hds-form-select-surface-color-hover);
     }
   }
@@ -58,9 +58,9 @@
   // DISABLED
 
   &:disabled {
-    @include hds-form-control-border(var(--hds-form-control-disabled-border-color));
-    color: var(--hds-form-control-disabled-foreground-color);
-    background-color: var(--hds-form-control-disabled-surface-color);
+    @include hds-form-control-border(var(--hds-form-control-border-color-disabled));
+    color: var(--hds-form-control-foreground-color-disabled);
+    background-color: var(--hds-form-control-surface-color-disabled);
     background-image: var(--hds-form-select-background-image-data-url-disabled);
     box-shadow: none;
     cursor: not-allowed;
@@ -69,12 +69,12 @@
   // INVALID
 
   &.hds-form-select--is-invalid {
-    @include hds-form-control-border(var(--hds-form-control-invalid-border-color-default));
+    @include hds-form-control-border(var(--hds-form-control-border-color-invalid));
     @include hds-form-control-invalid-outline();
 
     &:hover,
     &.mock-hover {
-      @include hds-form-control-border(var(--hds-form-control-invalid-border-color-hover));
+      @include hds-form-control-border(var(--hds-form-control-border-color-invalid-hover));
     }
 
     &:focus-visible,
@@ -92,44 +92,44 @@
   &[size] {
     background: none;
     // Note: The multiple/size Select has borders on all sides unlike the single Select
-    border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
+    border: var(--hds-form-control-border-width) solid var(--hds-form-control-border-color-default);
 
     &:hover,
     &.mock-hover {
-      border-color: var(--hds-form-control-base-border-color-hover);
+      border-color: var(--hds-form-control-border-color-hover);
 
       // Override default transparent carbon border-color
       @include hds-apply-only-if-carbon() {
-        border-color: var(--hds-form-control-base-border-color-hover);
+        border-color: var(--hds-form-control-border-color-hover);
       }
     }
 
     &:disabled {
-      border-color: var(--hds-form-control-disabled-border-color);
+      border-color: var(--hds-form-control-border-color-disabled);
 
       // Override default transparent carbon border-color
       @include hds-apply-only-if-carbon() {
-        border-color: var(--hds-form-control-disabled-border-color);
+        border-color: var(--hds-form-control-border-color-disabled);
       }
     }
 
     // INVALID
 
     &.hds-form-select--is-invalid {
-      border-color: var(--hds-form-control-invalid-border-color-default);
+      border-color: var(--hds-form-control-border-color-invalid);
 
       // Override default transparent carbon border-color
       @include hds-apply-only-if-carbon() {
-        border-color: var(--hds-form-control-invalid-border-color-default);
+        border-color: var(--hds-form-control-border-color-invalid);
       }
 
       &:hover,
       &.mock-hover {
-        border-color: var(--hds-form-control-invalid-border-color-hover);
+        border-color: var(--hds-form-control-border-color-invalid-hover);
 
         // Override default transparent carbon border-color
         @include hds-apply-only-if-carbon() {
-          border-color: var(--hds-form-control-invalid-border-color-hover);
+          border-color: var(--hds-form-control-border-color-invalid-hover);
         }
       }
 

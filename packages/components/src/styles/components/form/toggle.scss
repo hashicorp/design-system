@@ -115,7 +115,7 @@
   // unchecked
 
   :not(:checked) + & {
-    --border-color: var(--hds-form-control-base-border-color-default);
+    --border-color: var(--hds-form-control-border-color-base);
     background-color: var(
       --hds-form-toggle-base-surface-color-default
     ); // this is specific for "toggle", is not like the other controls!
@@ -124,7 +124,7 @@
   // checked
 
   :checked + & {
-    --border-color: var(--hds-form-control-border-color-checked-default);
+    --border-color: var(--hds-form-control-boolean-border-color-base-checked);
 
     background-color: var(--hds-form-toggle-base-surface-color-checked-default);
 
@@ -159,7 +159,7 @@
 
   :hover:not(:checked) + &,
   .mock-hover:not(:checked) + & {
-    --border-color: var(--hds-form-control-base-border-color-hover);
+    --border-color: var(--hds-form-control-border-color-base-hover);
   }
 
   // checked
@@ -167,7 +167,7 @@
 
   :hover:checked + &,
   .mock-hover:checked + & {
-    --border-color: var(--hds-form-control-border-color-checked-hover);
+    --border-color: var(--hds-form-control-boolean-border-color-base-hover-checked);
 
     background-color: var(--hds-form-toggle-base-surface-color-checked-hover);
   }
@@ -186,7 +186,7 @@
 
   :disabled:not(:checked) + &,
   :disabled:checked + & {
-    --border-color: var(--hds-form-control-disabled-border-color);
+    --border-color: var(--hds-form-control-border-color-disabled);
     background-color: var(--hds-form-toggle-base-surface-color-disabled);
     background-image: var(--hds-form-toggle-background-image-data-url-disabled);
 
