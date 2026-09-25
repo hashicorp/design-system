@@ -8205,12 +8205,12 @@ button.hds-button[href]::after {
   content: "";
 }
 :not(:checked) + .hds-form-toggle__facade {
-  --border-color: var(--hds-form-control-boolean-border-color-base-unchecked);
-  background-color: var(--hds-form-toggle-surface-color-base-unchecked);
+  --border-color: var(--hds-form-control-boolean-border-color-unchecked-default);
+  background-color: var(--hds-form-toggle-surface-color-unchecked-default);
 }
 :checked + .hds-form-toggle__facade {
-  --border-color: var(--hds-form-control-boolean-border-color-base-checked);
-  background-color: var(--hds-form-toggle-surface-color-base-checked);
+  --border-color: var(--hds-form-control-boolean-border-color-checked-default);
+  background-color: var(--hds-form-toggle-surface-color-checked-default);
 }
 .hds-theme-light :checked + .hds-form-toggle__facade,
 .hds-theme-dark :checked + .hds-form-toggle__facade,
@@ -8231,11 +8231,11 @@ button.hds-button[href]::after {
 }
 
 :hover:not(:checked) + .hds-form-toggle__facade, .mock-hover:not(:checked) + .hds-form-toggle__facade {
-  --border-color: var(--hds-form-control-boolean-border-color-base-hover-unchecked);
+  --border-color: var(--hds-form-control-boolean-border-color-unchecked-hover);
 }
 :hover:checked + .hds-form-toggle__facade, .mock-hover:checked + .hds-form-toggle__facade {
-  --border-color: var(--hds-form-control-boolean-border-color-base-hover-checked);
-  background-color: var(--hds-form-toggle-surface-color-base-hover-checked);
+  --border-color: var(--hds-form-control-boolean-border-color-checked-hover);
+  background-color: var(--hds-form-toggle-surface-color-checked-hover);
 }
 :focus + .hds-form-toggle__facade::before, .mock-focus + .hds-form-toggle__facade::before {
   outline: var(--hds-focus-ring-width-external) solid var(--hds-focus-color-action-external);
@@ -8248,8 +8248,8 @@ button.hds-button[href]::after {
 }
 
 :disabled:not(:checked) + .hds-form-toggle__facade, :disabled:checked + .hds-form-toggle__facade {
-  --border-color: var(--hds-form-control-boolean-border-color-disabled-unchecked);
-  background-color: var(--hds-form-toggle-surface-color-disabled-unchecked);
+  --border-color: var(--hds-form-control-boolean-border-color-unchecked-disabled);
+  background-color: var(--hds-form-toggle-surface-color-unchecked-disabled);
   background-image: var(--hds-form-toggle-background-image-data-url-disabled);
 }
 .hds-theme-light :disabled:not(:checked) + .hds-form-toggle__facade, .hds-theme-light :disabled:checked + .hds-form-toggle__facade,
