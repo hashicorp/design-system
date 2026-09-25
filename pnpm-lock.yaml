@@ -492,8 +492,6 @@ importers:
         version: 2.9.0
 
   packages/tokens:
-<<<<<<< HEAD
-<<<<<<< HEAD
     devDependencies:
       '@carbon/colors':
         specifier: ^11.55.0
@@ -516,54 +514,6 @@ importers:
       '@cnakazawa/watch':
         specifier: ^1.0.4
         version: 1.0.4
-=======
-  devDependencies:
-    '@carbon/colors':
-      specifier: ^11.55.0
-      version: 11.55.0
-    '@carbon/grid':
-      specifier: ^11.59.0
-      version: 11.59.0
-    '@carbon/layout':
-      specifier: ^11.56.0
-      version: 11.56.0
-    '@carbon/motion':
-      specifier: ^11.49.0
-      version: 11.49.0
-    '@carbon/themes':
-      specifier: ^11.78.0
-      version: 11.78.0
-    '@carbon/type':
-      specifier: ^11.64.0
-      version: 11.64.0
-    '@cnakazawa/watch':
-      specifier: ^1.0.4
-      version: 1.0.4
->>>>>>> 690ba7c5f3 (update component migration mappings and cwc to updated verison .60)
-=======
-    devDependencies:
-      '@carbon/colors':
-        specifier: ^11.55.0
-        version: 11.55.0
-      '@carbon/grid':
-        specifier: ^11.59.0
-        version: 11.59.0
-      '@carbon/layout':
-        specifier: ^11.56.0
-        version: 11.56.0
-      '@carbon/motion':
-        specifier: ^11.49.0
-        version: 11.49.0
-      '@carbon/themes':
-        specifier: ^11.78.0
-        version: 11.78.0
-      '@carbon/type':
-        specifier: ^11.64.0
-        version: 11.64.0
-      '@cnakazawa/watch':
-        specifier: ^1.0.4
-        version: 1.0.4
->>>>>>> 985478d6e6 (complete reverting changes, and sorting files)
       '@eslint/js':
         specifier: ^9.27.0
         version: 9.32.0
@@ -2114,11 +2064,11 @@ packages:
   '@carbon/motion@11.49.0':
     resolution: {integrity: sha512-HMSBS/tf1MVvXVJayw4jdNPsT79hn/fr31sVzowobErp/AyQGYk/t/NE7kFfOsQnARL0I3ITVEZelShfk1N87Q==}
 
-  '@carbon/themes@11.62.0':
-    resolution: {integrity: sha512-/sPOiGaC4YtXBiA4uNx2PuBxPOAjVMOThrsHfdDbroUvm2yigvRZUJcJTivunOFKtfIC5EOoKxxAP3XzxWjf0Q==}
+  '@carbon/themes@11.78.0':
+    resolution: {integrity: sha512-v0w90JjmWCq13chVvhQmjgTGRMp47OzKG7lsLJzFcWfK7kI0FvLIMWbS/tpKOP9Z6tWOjZhsSZm8UaaCd3cXQg==}
 
-  '@carbon/type@11.49.0':
-    resolution: {integrity: sha512-5SwbuMj7VO7QAxB273MQVMoVLEvwcMVflhmriWA4I+YWMDwtoprPHiXseO6ueoRGJp+TOqnItvkPMPOdKz5sjQ==}
+  '@carbon/type@11.64.0':
+    resolution: {integrity: sha512-ejnpUIbmyEbGkKWX3mzojKa3lOc3Jhoqhy7b4f2zi/nAV0uGu8KMXw978Cq/op3/WwOGYzwRf2viqTw6NNLWPQ==}
 
   '@carbon/utils-position@1.3.0':
     resolution: {integrity: sha512-bfar2dV+fQ15syIrH3n9ujY4PXd1Q+AF2VcTLJIC04IDe2f80zOnJlLNPc/RktHcWTZ7WSQm80cQo3abGcsfTA==}
@@ -13898,16 +13848,16 @@ snapshots:
     dependencies:
       '@ibm/telemetry-js': 1.10.1
 
-  '@carbon/grid@11.45.0':
+  '@carbon/grid@11.59.0':
     dependencies:
-      '@carbon/layout': 11.43.0
+      '@carbon/layout': 11.56.0
       '@ibm/telemetry-js': 1.10.1
 
-  '@carbon/icons@11.76.0':
+  '@carbon/icons@11.84.0':
     dependencies:
       '@ibm/telemetry-js': 1.10.1
 
-  '@carbon/layout@11.43.0':
+  '@carbon/layout@11.56.0':
     dependencies:
       '@ibm/telemetry-js': 1.10.1
 
@@ -13915,11 +13865,11 @@ snapshots:
     dependencies:
       '@ibm/telemetry-js': 1.10.1
 
-  '@carbon/themes@11.62.0':
+  '@carbon/themes@11.78.0':
     dependencies:
-      '@carbon/colors': 11.42.0
-      '@carbon/layout': 11.43.0
-      '@carbon/type': 11.49.0
+      '@carbon/colors': 11.55.0
+      '@carbon/layout': 11.56.0
+      '@carbon/type': 11.64.0
       '@ibm/telemetry-js': 1.10.1
       color: 4.2.3
 
