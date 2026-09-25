@@ -5,7 +5,7 @@ description: TODO theming description
 related:
   - carbonization/introduction
   - theming/theme-context
-  - patterns/theme-switcher-pattern
+  - patterns/theme-selection
 previewImage: assets/illustrations/foundations/theming.jpg
 navigation:
   keywords: ['theming', 'theme', 'mode', 'light', 'dark', 'carbon']

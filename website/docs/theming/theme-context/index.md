@@ -5,7 +5,7 @@ caption: TODO ThemeContext caption
 related:
   - carbonization/introduction
   - foundations/theming
-  - patterns/theme-switcher-pattern
+  - patterns/theme-selection
 previewImage: assets/illustrations/theming/theme-context.jpg
 navigation:
   keywords: ['theming', 'theme', 'mode', 'light', 'dark', 'carbon']
