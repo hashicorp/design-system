@@ -1,0 +1,44 @@
+The theme selector provides users with a way to switch the application's visual theme between supported options. A user can change the theme via the existing User dropdown in the [App Header](/components/app-header)'s `utilityActions`.
+
+For more details about how theming is implemented in HDS, and how to use it for theme selection in an Ember application, see [Foundations/Theming](/foundations/theming?tab=code).
+
+## Placement
+
+Place theme options as a new section within the User dropdown or settings menu in the [App Header](/components/app-header) after the existing account-level actions (Account settings, Sign out).
+
+![An example of the open user settings menu in the App Header with available theme selection options.](/assets/patterns/theme-selection/theme-selection.png)
+
+## Components
+
+The theme section should be composed using the [Dropdown](/components/dropdown) contextual components:
+
+- **Separator**: adds visual differentiation between the theme selection, the account actions, and settings.
+- **Title**: section label; set the text to "Theme"
+- **Checkmark**: one instance per theme option; includes a leading icon and accounts for the selected state
+
+## Options
+
+Use a [Checkmark List Item](/components/dropdown#selection-listitems) with a leading icon that best corresponds with the visual appearance of the theme for each theme option. Common examples include:
+
+| Option          | Leading icon | Notes                                                            |
+| --------------- | ------------ | ---------------------------------------------------------------- |
+| HashiCorp theme | <Doc::Layout @direction="horizontal" @vAlign="center" @spacing="0.5rem">`hashicorp` <Hds::Icon @name="hashicorp" /></Doc::Layout>  | Sets the theme to the HashiCorp Helios theme |
+| System theme | <Doc::Layout @direction="horizontal" @vAlign="center" @spacing="0.5rem">`monitor` <Hds::Icon @name="monitor" /></Doc::Layout> | Reflects the operating system's current light or dark preference |
+| Light theme     | <Doc::Layout @direction="horizontal" @vAlign="center" @spacing="0.5rem">`sun` <Hds::Icon @name="sun" /></Doc::Layout> | Sets light mode regardless of OS setting |
+| Dark theme      | <Doc::Layout @direction="horizontal" @vAlign="center" @spacing="0.5rem">`moon` <Hds::Icon @name="moon" /></Doc::Layout> | Sets dark mode regardless of OS |
+
+## Default theme
+
+During the transition period from HashiCorp visual language to IBM Carbon, set the application theme to `light` by default to make this transition less jarring. Otherwise, set the default theme to `system` to match the users operating system.
+
+## System theme detection
+
+The System theme should automatically match the user's operating system (OS) light or dark preference, therefore, if a user switches their OS preference from light to dark while the application is open, it should reflect the change immediately.
+
+The [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS media query is the standard mechanism for reading this preference and is what is used under the hood by the theme service provided by the design system.
+
+## Persistence
+
+Persisting the user's choice ensures their preferred theme is displayed by default whenever they visit the application, reducing friction for future visits.
+
+When the user's preference isn't stored in `localStorage` or as a user setting, the application will display the default theme. This creates an inconsistent and disruptive experience, particularly for users who rely on dark mode for accessibility reasons.

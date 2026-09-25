@@ -30,6 +30,12 @@ probably need to be set to true (or omitted to rely on defaults) }}
       <DocPlaceholder
         @height="2em"
         @width="auto"
+        @text="LanguageSelector"
+        @background="#e4e4e4"
+      />
+      <DocPlaceholder
+        @height="2em"
+        @width="auto"
         @text="HelpMenu"
         @background="#e4e4e4"
       />

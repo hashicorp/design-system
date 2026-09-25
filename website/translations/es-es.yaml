@@ -1,0 +1,9 @@
+# These files are for demonstrating the language selection pattern
+website:
+  pages:
+    patterns:
+      language-selection:
+        trigger-text: "Menú de idiomas"
+        english-option: "English (Inglés)"
+        spanish-option: "Español"
+        home-link-text: "HashiCorp"

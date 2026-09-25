@@ -1,0 +1,39 @@
+<div class="doc-language-selection-app-frame-mock-viewport">
+  <Hds::AppFrame as |Frame|>
+    <Frame.Header>
+      {{! for demo purposes, we set @hasA11yRefocus to false but in your app it will probably need to be set to true (or omitted to rely on defaults) }}
+      <Hds::AppHeader @hasA11yRefocus={{false}}>
+        <:logo>
+          <Hds::AppHeader::HomeLink
+            @icon="hashicorp"
+            @text={{t "website.pages.patterns.language-selection.home-link-text"}}
+            @href="/"
+          />
+        </:logo>
+
+        <:utilityActions>
+          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
+            <dd.ToggleIcon @icon="globe" @text={{t "website.pages.patterns.language-selection.trigger-text"}} />
+            <dd.Checkmark
+              @selected={{eq this.selectedLanguage "en-us"}}
+              {{on "click" (fn this.selectLanguage "en-us" dd.close)}}
+            >{{t "website.pages.patterns.language-selection.english-option"}}</dd.Checkmark>
+            <dd.Checkmark
+              @selected={{eq this.selectedLanguage "es-es"}}
+              {{on "click" (fn this.selectLanguage "es-es" dd.close)}}
+            >{{t "website.pages.patterns.language-selection.spanish-option"}}</dd.Checkmark>
+          </Hds::Dropdown>
+        </:utilityActions>
+      </Hds::AppHeader>
+    </Frame.Header>
+
+    <Frame.Main>
+      <div class="doc-language-switcher-app-frame-main">
+        <Hds::ApplicationState @align="center" as |A|>
+          <A.Header @titleTag="h2" @title={{if (eq this.selectedLanguage "en-us") "English" "Español"}} />
+          <A.Body @text="Current language selection" />
+        </Hds::ApplicationState>
+      </div>
+    </Frame.Main>
+  </Hds::AppFrame>
+</div>

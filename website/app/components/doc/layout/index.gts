@@ -13,6 +13,9 @@ type Direction = (typeof DIRECTIONS)[number];
 export const ALIGNMENTS = ['left', 'right', 'center', 'justify'];
 type Alignment = (typeof ALIGNMENTS)[number];
 
+export const V_ALIGNMENTS = ['start', 'center', 'end'];
+type VAlignment = (typeof V_ALIGNMENTS)[number];
+
 export const CSS_UNITS = ['px', 'rem', 'em', '%'];
 
 // sanitize & validate custom spacing value:
@@ -25,6 +28,7 @@ interface DocLayoutSignature {
     direction?: Direction;
     spacing?: string;
     align?: Alignment;
+    vAlign?: VAlignment;
   };
   Blocks: {
     default: [];
@@ -72,11 +76,23 @@ export default class DocLayout extends Component<DocLayoutSignature> {
     return align;
   }
 
+  get vAlign() {
+    const { vAlign = 'start' } = this.args;
+
+    assert(
+      '@vAlign for "Doc::Layout" must have a valid value',
+      V_ALIGNMENTS.includes(vAlign),
+    );
+
+    return vAlign;
+  }
+
   get classNames() {
     const classes = ['doc-layout'];
 
     classes.push(`doc-layout--direction-${this.direction}`);
     classes.push(`doc-layout--align-${this.align}`);
+    classes.push(`doc-layout--v-align-${this.vAlign}`);
 
     return classes.join(' ');
   }
