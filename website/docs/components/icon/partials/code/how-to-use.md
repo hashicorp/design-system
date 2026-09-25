@@ -8,6 +8,17 @@ It renders to this (where the `id` will be unique each time):
 
 [[code-snippets/icon-rendered execute=false]]
 
+!!! Insight
+
+**Icons are now asynchronous and theme-dependent**
+
+Before v7.0 icons used to be delivered as a single bundle loaded upfront (SVG sprite). Now each one is loaded individually, only when it’s actually displayed (which introduces a small latency on first render).
+
+Which icon is rendered also depends on the [theme](/foundations/theming) applied to the application: when a Carbon theme is active, the equivalent [Carbon icon](https://carbondesignsystem.com/elements/icons/library/) is displayed in place of the Flight one (which acts as fall back if no equivalent exists).
+
+For more details, refer to [Carbonization/Introduction](/carbonization/introduction) and [Foundations/Theming](/foundations/theming).
+!!!
+
 Because the icons are hidden to assistive technology, they cannot be used on their own and must be used inside of an element with an accessible name. See the [Accessibility](/components/icon?tab=accessibility) section for more details on how to best use this component in different contexts.
 
 ### Size
@@ -77,3 +88,12 @@ A prefers-reduced-motion media query will automatically disable the animation if
 If you need the non-animated version of these icons, use the corresponding [loading-static](/icons/library?searchQuery=icon%3Aloading-static) and [running-static](/icons/library?searchQuery=icon%3Arunning-static):
 
 [[code-snippets/icon-loading-static]]
+
+### Ember test selectors
+
+The `Hds::Icon` component exposes the following `data` attributes:
+- `data-test-icon="[icon-name]"` - provides a simple way to get the icon name if needed for testing
+- `data-has-carbon-equivalent` - if the HDS Flight icon has an equivalent Carbon icon (used in [theming](/foundations/theming))
+- `data-is-carbon` - if a Carbon theme is enabled and the icon has a Carbon equivalent
+
+_Note: we recommend installing [`ember-test-selectors`](https://github.com/simplabs/ember-test-selectors) which strips out all `data-test-*` attributes for production builds._
