@@ -1,5 +1,15 @@
 # @hashicorp/flight-icons
 
+## 5.2.0
+
+### Minor Changes
+
+Added `portal` icon.
+
+<small class="doc-whats-new-changelog-metadata">[#4161](https://github.com/hashicorp/design-system/pull/4161)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 5.1.0
 
 ### Minor Changes
