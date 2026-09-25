@@ -5,6 +5,7 @@
 
 import { Addon } from '@embroider/addon-dev/rollup';
 import { babel } from '@rollup/plugin-babel';
+import { fileURLToPath } from 'url';
 import copy from 'rollup-plugin-copy';
 import process from 'process';
 import path from 'node:path';
@@ -28,6 +29,13 @@ function addScssCompilationPlugins(options) {
           sourceMap: true,
           loadPaths,
         });
+
+        // Add all loaded files as watch dependencies in development mode
+        if (process.env.development && result.loadedUrls) {
+          for (const url of result.loadedUrls) {
+            this.addWatchFile(fileURLToPath(url));
+          }
+        }
 
         // Emit the compiled CSS
         this.emitFile({
@@ -106,6 +114,11 @@ const plugins = [
         inputFile: 'design-system-power-select-overrides.scss',
         outputFile: 'design-system-power-select-overrides.css',
       },
+      {
+        inputFile: 'design-system-plex-fonts.scss',
+        outputFile: 'design-system-plex-fonts.css',
+        loadPaths: ['node_modules/@ibm'],
+      },
     ]
   ),
 
@@ -143,6 +156,37 @@ const plugins = [
       { src: 'LICENSE.md', dest: 'dist' },
       // Copy Sass files for consumers to use directly
       { src: 'src/styles', dest: 'dist' },
+      // Copy the IBM Plex fonts from the @ibm packages to the public folder
+      {
+        src: 'node_modules/@ibm/plex-sans/LICENSE.txt',
+        dest: 'dist/public/assets/fonts',
+      },
+      {
+        src: [
+          'node_modules/@ibm/plex-sans/fonts/complete/woff2/IBMPlexSans-Italic.woff2',
+          'node_modules/@ibm/plex-sans/fonts/complete/woff2/IBMPlexSans-Regular.woff2',
+          'node_modules/@ibm/plex-sans/fonts/complete/woff2/IBMPlexSans-SemiBold.woff2',
+          'node_modules/@ibm/plex-sans/fonts/complete/woff2/IBMPlexSans-SemiBoldItalic.woff2',
+          'node_modules/@ibm/plex-mono/fonts/complete/woff2/IBMPlexMono-Italic.woff2',
+          'node_modules/@ibm/plex-mono/fonts/complete/woff2/IBMPlexMono-Regular.woff2',
+          'node_modules/@ibm/plex-mono/fonts/complete/woff2/IBMPlexMono-SemiBold.woff2',
+          'node_modules/@ibm/plex-mono/fonts/complete/woff2/IBMPlexMono-SemiBoldItalic.woff2',
+        ],
+        dest: 'dist/public/assets/fonts/complete/woff2',
+      },
+      {
+        src: [
+          'node_modules/@ibm/plex-sans/fonts/split/woff2/IBMPlexSans-Regular-*.woff2',
+          'node_modules/@ibm/plex-sans/fonts/split/woff2/IBMPlexSans-Italic-*.woff2',
+          'node_modules/@ibm/plex-sans/fonts/split/woff2/IBMPlexSans-SemiBold-*.woff2',
+          'node_modules/@ibm/plex-sans/fonts/split/woff2/IBMPlexSans-SemiBoldItalic-*.woff2',
+          'node_modules/@ibm/plex-mono/fonts/split/woff2/IBMPlexMono-Regular-*.woff2',
+          'node_modules/@ibm/plex-mono/fonts/split/woff2/IBMPlexMono-Italic-*.woff2',
+          'node_modules/@ibm/plex-mono/fonts/split/woff2/IBMPlexMono-SemiBold-*.woff2',
+          'node_modules/@ibm/plex-mono/fonts/split/woff2/IBMPlexMono-SemiBoldItalic-*.woff2',
+        ],
+        dest: 'dist/public/assets/fonts/split/woff2',
+      },
     ],
     hook: 'writeBundle',
     copySync: true,
