@@ -17,7 +17,32 @@ We provide components as an [Ember](https://emberjs.com/) addon with associated 
 
 ### Import component styles
 
-You can chose between importing styles as Sass or CSS.
+You can choose between importing styles as CSS (preferred) or Sass.
+
+!!! Warning
+
+**Consumer responsibility**
+
+Our component library assumes that a box-sizing reset is applied globally in your application. To ensure components render properly, include the following reset:
+
+`*, *::before, *::after { box-sizing: border-box; }`
+!!!
+
+#### CSS
+
+Import one of the following line(s) to the `ember-cli-build.js` configuration file. Pick the line(s) that match your application's stage in the migration to the "carbonized" HDS.
+
+[[code-snippets/css-import-in-cli-build]]
+
+Note: the `design-system-plex-fonts.css` file assumes that the application serves fonts from `/assets`; if that's not the case you will need to follow the [Sass-based approach](#sass).
+
+If your application uses [`SuperSelect`](/components/form/super-select), make sure `ember-basic-dropdown` is installed and the `ember-power-select` styles are imported:
+
+[[code-snippets/css-import-ember-power-select-in-cli-build]]
+
+If your application uses directly the Ember `PowerSelect` component, import also the HDS style overrides for it:
+
+[[code-snippets/css-import-power-select-overrides-in-cli-build]]
 
 #### Sass
 
@@ -29,7 +54,6 @@ Our internal Sass files for mixins, component styles, etc. are not considered a 
 
 !!!
 
-
 1. Install and configure Sass to preprocess styles, handle source maps, and include paths in your application.
 
 [[code-snippets/install-ember-cli-sass]]
@@ -40,29 +64,25 @@ Our internal Sass files for mixins, component styles, etc. are not considered a 
 
 [[code-snippets/ember-build-sass-config]]
 
-1. We also suggest adding this configuration in `ember-cli-build.js` to prevent `ember-cli` from trying to over-optimize the generated CSS by changing the order of the CSS declarations ([reference](https://github.com/hashicorp/cloud-ui/pull/3112)):
+4. We also suggest adding this configuration in `ember-cli-build.js` to prevent `ember-cli` from trying to over-optimize the generated CSS by changing the order of the CSS declarations ([reference](https://github.com/hashicorp/cloud-ui/pull/3112)):
 
 [[code-snippets/ember-build-recommended-config]]
 
-5. Add the following line to the main Sass file in your application (for example, in `app.scss`):
+5. Add one of the following line(s) to the main Sass file in your application (for example, in `app.scss`). Pick the line(s) that match your application's stage in the migration to the "carbonized" HDS.
 
 [[code-snippets/use-helios-styles]]
 
-#### CSS
+If your application serves fonts from a path other than `/assets` (e.g. `/app/assets`) configure the `$hds-ibm-plex-fonts-assets-path` Sass variable.
 
-!!! Warning
+[[code-snippets/use-plex-fonts-custom-assets-path]]
 
-**Consumer responsibility**
+If your application uses [`SuperSelect`](/components/form/super-select), make sure `ember-basic-dropdown` is installed and the `ember-power-select` styles are imported:
 
-Our component library assumes that a box-sizing reset is applied globally in your application. To ensure components render properly, include the following reset:
+[[code-snippets/use-ember-power-select]]
 
-`*, *::before, *::after { box-sizing: border-box; }`
-!!!
+If your application uses directly the Ember `PowerSelect` component, import also the HDS style overrides for it:
 
-
-Import the CSS by adding this configuration in `ember-cli-build.js`.
-
-[[code-snippets/css-import-in-cli-build]]
+[[code-snippets/use-power-select-overrides]]
 
 ### Single file components
 
@@ -99,21 +119,22 @@ and then use the component in your code like this:
 
 For details about how this component should be used and its API, see [the component documentation page](/components/icon).
 
-#### Deferred loading
+#### Icon loading
 
-The SVG sprite will be injected by default into your application's `index.html` file. If you would like this to happen later as part of your app bundle, you can set the `flightIconsSpriteLazyEmbed` flag to `true` in your app's `config/environment.js` file:
+Icons are loaded automatically and individually, on demand: only the icons actually rendered by your application are downloaded, and each one is fetched once and then reused. No configuration is required on your side.
 
-[[code-snippets/demo-flight-icons-env]]
+!!! Info
 
-#### Ember test selectors
+**Migrating from the SVG sprite**
 
-The `Hds::Icon` component exposes a `data-test-icon` helper. For this reason, we recommend installing [`ember-test-selectors`](https://github.com/simplabs/ember-test-selectors) which strips out all `data-test-*` attributes for production builds.
+Before v7.0 icons were delivered as a single SVG sprite, injected either into your application’s `index.html` file or, when the `flightIconsSpriteLazyEmbed` flag was set to `true`, as part of your app bundle. The `Hds::Icon` component no longer relies on that sprite, so the `flightIconsSpriteLazyEmbed` setting is obsolete and can be safely removed from your app’s `config/environment.js` file.
+!!!
 
 #### Using the icons without importing the whole components package
 
 If you want to use the Flight icons without installing the whole `@hashicorp/design-system-components` package, you have to use the `@hashicorp/flight-icons` to import the SVG sprite, and then you will have to build your own Ember component that renders the icons as an `<svg>` HTML element.
 
-You can copy the code for the `Hds::Icon` into your codebase, or you can [take inspiration from this PR](https://github.com/hashicorp/design-system-metrics/pull/23) to build your own component.
+You can [take inspiration from this PR](https://github.com/hashicorp/design-system-metrics/pull/23) to build your own component. Note that the `Hds::Icon` component itself is not a good starting point to copy from, since it relies on internal services to resolve and load each icon.
 
 ### React applications
 
@@ -147,7 +168,7 @@ Then declare them the same way you would with any other icon.
 
 [[code-snippets/react-animated-icon]]
 
-If you need the non-animated version of these icons, use the corresponding [loading-static](/icons/library?searchQuery=icon%3Aloading-static) and [running-static](/icons/library?searchQuery=icon%3Arunning-static):
+If you need the non-animated version of these icons, use the corresponding [loading-static](/icons/library?searchQuery=icon%3Aloading-static) and [running-static](/icons/library?searchQuery=icon%3Arunning-static).
 
 ## Tokens
 
@@ -159,7 +180,7 @@ If the Ember components are not an option for your project, you can still use th
 
 ### Import styles as CSS variables
 
-Import design tokens as CSS variables by adding one of the following lines to the main Sass file in your application (for example, in `app.scss`):
+Import design tokens as CSS variables by adding one of the following line(s) to the main Sass file in your application (for example, in `app.scss`). Pick the line(s) that match your application's stage in the migration to the "carbonized" HDS.
 
 [[code-snippets/use-helios-product-tokens]]
 
@@ -171,16 +192,27 @@ Import CSS helper classes by adding any of the following lines to the main Sass 
 
 For more examples and guidelines read [the tokens documentation](/foundations/tokens).
 
-## Browser support
+## Theming
 
-Our styles, components and icons are supported by the following browsers:
+Theming was introduced in version 7.0 of the design system, and is available only in the ["carbonized" HDS](/carbonization/introduction). The "classic" HDS has a single, light-only visual language, and doesn't respond to theming.
 
-| Browser        | Version         |
-|----------------|-----------------|
-| Chrome         | last 2 versions |
-| Safari         | last 2 versions |
-| Firefox        | last 2 versions |
-| Microsoft Edge | last 2 versions |
+### Basic implementation
+
+To use theming in your application you need to:
+
+1. install the IBM Plex fonts (`@ibm/plex-mono` and `@ibm/plex-sans`) as dependencies of your application
+
+2. import the "themed" CSS/Sass files, as described in the [Import component styles](#import-component-styles) section. The "classic" files don't contain the themed design tokens, so no theme can be applied to them
+
+3. add a theme switcher to your application and implement the logic associated with it (integration with the `hdsTheming` service and user's choice persistence)
+
+For more technical details about how theming is implemented in HDS, see [Foundations/Theming](/foundations/theming).
+
+For details about theme switching in general, see [Patterns/Theme selection](/patterns/theme-selection).
+
+### Complex configurations
+
+The steps above describe a basic setup. Depending on your application, you may need to adapt them to your codebase's folder structure, your front-end infrastructure and build system, and the theming experience you want to offer to your users. For guidance about these more advanced scenarios, see [Foundations/Theming](/foundations/theming).
 
 ## Internationalization
 
@@ -224,6 +256,17 @@ For example, to translate the "Error" text used in components:
 [[code-snippets/custom-translations]]
 
 When your application uses the `fr-fr` locale, components will display "Erreur" instead of the default English "Error".
+
+## Browser support
+
+Our styles, components and icons are supported by the following browsers:
+
+| Browser        | Version         |
+|----------------|-----------------|
+| Chrome         | last 2 versions |
+| Safari         | last 2 versions |
+| Firefox        | last 2 versions |
+| Microsoft Edge | last 2 versions |
 
 ## Ember engines
 

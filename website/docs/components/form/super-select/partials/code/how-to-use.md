@@ -8,7 +8,12 @@ It’s primarily a wrapper for [ember-power-select](https://ember-power-select.c
 
 **Consumer responsibility**
 
-This component depends on `ember-power-select` 8.0, and by extension requires [additional setup](https://ember-power-select.com/docs/installation) including adding a wormhole component and importing its styles to ensure correct rendering.
+`ember-power-select` requires `ember-basic-dropdown` as a peer dependency. Make sure that:
+
+- `ember-basic-dropdown` is installed in your application
+- `ember-power-select` styles are included in your CSS compilation.
+
+See the [ember-power-select installation documentation](https://ember-power-select.com/docs/installation) for additional setup requirements.
 
 !!!
 
