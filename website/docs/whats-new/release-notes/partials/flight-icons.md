@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 5.2.0
+
+**Minor changes**
+
+Added `portal` icon.
+
+<small class="doc-whats-new-changelog-metadata">[#4161](https://github.com/hashicorp/design-system/pull/4161)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 5.1.0
 
 **Minor changes**
@@ -248,16 +258,6 @@ mongodb and twilio icons have been added.
 `search` icon (16px only) has been increased in size to better fit within the bounding box and more closely align with other icons of the same size
 
 <small class="doc-whats-new-changelog-metadata">[#2175](https://github.com/hashicorp/design-system/pull/2175)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-## 3.3.0
-
-**Minor changes**
-
-`vagrant`, `vagrant-color`, `vagrant-fill`, `vagrant-fill-color`, `vagrant-square`, `vagrant-square-color` icons were updated per brand changes.
-
-<small class="doc-whats-new-changelog-metadata">[#2144](https://github.com/hashicorp/design-system/pull/2144)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 

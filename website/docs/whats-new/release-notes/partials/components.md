@@ -12,39 +12,37 @@
   </a>
 </p>
 
+## 6.5.1
+
+**Patch changes**
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@5.2.0
+
 ## 6.5.0
 
 [6.5.0 documentation](https://hds-website-6-5-0.vercel.app/)
 
 **Minor changes**
 
-
 `SegmentedGroup` - Added `SuperSelect` and `SuperSelectMultiple` as yielded contextual components.
 
-
-
 `SegmentedGroup` - Added `isFullWidth` and `maxWidth` arguments.
-
 
 <small class="doc-whats-new-changelog-metadata">[#4008](https://github.com/hashicorp/design-system/pull/4008)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable` - Updated the resize column behavior to support cascading resizes while guaranteeing that columns will never inadvertently shrink below the size of their container.
-
 
 <small class="doc-whats-new-changelog-metadata">[#4020](https://github.com/hashicorp/design-system/pull/4020)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Table` - Added `.hds-table__tr--is-selected` class to table rows when they are selected.
 
-
-
 `AdvancedTable` - Added `.hds-advanced-table__tr--is-selected` class to table rows when they are selected.
-
 
 <small class="doc-whats-new-changelog-metadata">[#4021](https://github.com/hashicorp/design-system/pull/4021)</small>
 
@@ -52,57 +50,41 @@
 
 **Patch changes**
 
-
 `FilterBar` - Added support for `ActionsGeneric` wrapping to new line
-
 
 <small class="doc-whats-new-changelog-metadata">[#4034](https://github.com/hashicorp/design-system/pull/4034)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable` - Fixed bug where the bottom scroll indicator was always present if reordering was enabled.
-
 
 <small class="doc-whats-new-changelog-metadata">[#4042](https://github.com/hashicorp/design-system/pull/4042)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable` - Fixed issue where keyboard order did not match visual order after sorting the table.
-
 
 <small class="doc-whats-new-changelog-metadata">[#4044](https://github.com/hashicorp/design-system/pull/4044)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `StepperNav` - Added screen reader text for step number
 
-
-
 `StepperList` - Added screen reader text for step number
-
 
 <small class="doc-whats-new-changelog-metadata">[#3993](https://github.com/hashicorp/design-system/pull/3993)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable` - Fixed an issue where clicking a cell scrolled the page to center that cell
-
 
 <small class="doc-whats-new-changelog-metadata">[#4017](https://github.com/hashicorp/design-system/pull/4017)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable` - Updated reorder handle to not be visible on resize handle hover / focus
 
-
-
 `AdvancedTable` - FIxed a bug where tooltips in the table header would be cut off behind the empty state message.
-
 
 <small class="doc-whats-new-changelog-metadata">[#4038](https://github.com/hashicorp/design-system/pull/4038)</small>
 
@@ -1629,44 +1611,6 @@ Upgraded: `@nullvoxpopuli/ember-composable-helpers` from 5.2.10 to 5.2.11
 **🔄 Updated dependencies:**
 
 - @hashicorp/flight-icons@3.12.0
-
-## 4.20.2
-
-[4.20.2 documentation](https://hds-website-4-20-2.vercel.app/)
-
-**Patch changes**
-
-Upgraded the following dependencies:
-
-- `@embroider/addon-shim` from `1.9.0` to `1.10.0`
-- `@embroider/macros` from `1.16.12` to `1.18.0`
-- `@nullvoxpopuli/ember-composable-helpers` from `5.2.9` to `5.2.10`
-- `ember-concurrency` from `4.0.2` to `4.0.4`
-- `ember-power-select` from `8.6.2` to `8.7.1`
-
-<small class="doc-whats-new-changelog-metadata">[#2952](https://github.com/hashicorp/design-system/pull/2952)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Button` - added missing types to the barrel export file
-
-`Layout::Flex` - added missing types to the barrel export file
-
-`Layout::Grid` - added missing types to the barrel export file
-
-<small class="doc-whats-new-changelog-metadata">[#2943](https://github.com/hashicorp/design-system/pull/2943)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Modal` - Reverted changes introduced in [#2846](https://github.com/hashicorp/design-system/pull/2846) and [#2902](https://github.com/hashicorp/design-system/pull/2902) related to the click behavior outside the modal when dismissing is disabled
-
-<small class="doc-whats-new-changelog-metadata">[#2964](https://github.com/hashicorp/design-system/pull/2964)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/flight-icons@3.11.1
 
 
 ---
