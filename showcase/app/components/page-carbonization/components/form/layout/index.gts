@@ -50,7 +50,7 @@ const FormLayoutCarbonizationIndex: TemplateOnlyComponent = <template>
               </FORM.SectionHeaderDescription>
             </FORM.SectionHeader>
 
-            <HdsFormTextInputField name="field-1" as |F|>
+            <HdsFormTextInputField as |F|>
               <F.Label>Text field</F.Label>
             </HdsFormTextInputField>
 
@@ -67,7 +67,7 @@ const FormLayoutCarbonizationIndex: TemplateOnlyComponent = <template>
           <FORM.Separator />
 
           <FORM.Section>
-            <HdsFormTextInputField name="field-3" as |F|>
+            <HdsFormTextInputField as |F|>
               <F.Label>Text field</F.Label>
             </HdsFormTextInputField>
           </FORM.Section>
@@ -117,10 +117,10 @@ const FormLayoutCarbonizationIndex: TemplateOnlyComponent = <template>
                 consectetur adipisicing elit.
               </FORM.SectionHeaderDescription>
             </FORM.SectionHeader>
-            <HdsFormTextInputField name="section-field-1" as |F|>
+            <HdsFormTextInputField as |F|>
               <F.Label>Field 1</F.Label>
             </HdsFormTextInputField>
-            <HdsFormTextInputField name="section-field-2" as |F|>
+            <HdsFormTextInputField as |F|>
               <F.Label>Field 2</F.Label>
             </HdsFormTextInputField>
           </FORM.Section>
@@ -161,13 +161,13 @@ const FormLayoutCarbonizationIndex: TemplateOnlyComponent = <template>
       <:theming>
         <HdsForm as |FORM|>
           <FORM.Section>
-            <HdsFormTextInputField name="sep-field-1" as |F|>
+            <HdsFormTextInputField as |F|>
               <F.Label>Field 1</F.Label>
             </HdsFormTextInputField>
           </FORM.Section>
           <FORM.Separator />
           <FORM.Section>
-            <HdsFormTextInputField name="sep-field-2" as |F|>
+            <HdsFormTextInputField as |F|>
               <F.Label>Field 2</F.Label>
             </HdsFormTextInputField>
           </FORM.Section>
