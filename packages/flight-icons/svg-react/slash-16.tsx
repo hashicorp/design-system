@@ -25,9 +25,7 @@ export const IconSlash16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    fillRule="evenodd"
                     d="M10.1 2.874a.752.752 0 0 1 1.299.752l-5.5 9.5a.751.751 0 0 1-1.298-.752z"
-                    clipRule="evenodd"
                 />
             </svg>
         );

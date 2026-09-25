@@ -565,6 +565,7 @@
       "node",
       "pipeline",
       "plug",
+      "portal",
       "replication-direct",
       "replication-perf",
       "scissors",
@@ -2355,7 +2356,7 @@
         },
         {
           "name": "icon",
-          "type": "false | \"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | ... 657 more ... | \"swap-horizontal\"",
+          "type": "false | \"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | ... 658 more ... | \"swap-horizontal\"",
           "required": false
         },
         {
@@ -2586,7 +2587,7 @@
         },
         {
           "name": "icon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "valuesRef": "Hds::Icon#name"
         },
@@ -2719,7 +2720,7 @@
         },
         {
           "name": "statusIcon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "valuesRef": "Hds::Icon#name"
         },
@@ -2958,7 +2959,7 @@
         },
         {
           "name": "icon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": true,
           "valuesRef": "Hds::Icon#name"
         },
@@ -3147,7 +3148,7 @@
         },
         {
           "name": "icon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "valuesRef": "Hds::Icon#name"
         },
@@ -3376,7 +3377,7 @@
         },
         {
           "name": "icon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "valuesRef": "Hds::Icon#name"
         },
@@ -3530,7 +3531,7 @@
       "args": [
         {
           "name": "icon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": true,
           "valuesRef": "Hds::Icon#name"
         }
@@ -3558,7 +3559,7 @@
         },
         {
           "name": "icon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "valuesRef": "Hds::Icon#name"
         },
@@ -3671,7 +3672,7 @@
         },
         {
           "name": "icon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "valuesRef": "Hds::Icon#name"
         },
@@ -3763,7 +3764,7 @@
         },
         {
           "name": "icon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "valuesRef": "Hds::Icon#name"
         },
@@ -4393,7 +4394,7 @@
         },
         {
           "name": "icon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "inheritedFrom": "hds/button",
           "valuesRef": "Hds::Icon#name"
@@ -4625,7 +4626,7 @@
         },
         {
           "name": "icon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "valuesRef": "Hds::Icon#name"
         },
@@ -4936,7 +4937,7 @@
         },
         {
           "name": "icon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "valuesRef": "Hds::Icon#name"
         },
@@ -4984,7 +4985,7 @@
         },
         {
           "name": "icon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "valuesRef": "Hds::Icon#name"
         },
@@ -5120,7 +5121,7 @@
         },
         {
           "name": "icon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "valuesRef": "Hds::Icon#name"
         },
@@ -5173,7 +5174,7 @@
         },
         {
           "name": "trailingIcon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "valuesRef": "Hds::Icon#name"
         }
@@ -5203,7 +5204,7 @@
         },
         {
           "name": "icon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "valuesRef": "Hds::Icon#name"
         },
@@ -5261,7 +5262,7 @@
         },
         {
           "name": "badgeIcon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "valuesRef": "Hds::Icon#name"
         },
@@ -5278,7 +5279,7 @@
         },
         {
           "name": "icon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "valuesRef": "Hds::Icon#name"
         },
@@ -5332,7 +5333,7 @@
         },
         {
           "name": "icon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "valuesRef": "Hds::Icon#name"
         },
@@ -5460,7 +5461,7 @@
         },
         {
           "name": "toggleButtonIcon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "valuesRef": "Hds::Icon#name"
         },
@@ -10122,7 +10123,7 @@
         },
         {
           "name": "name",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": true,
           "valuesRef": "Hds::Icon#name"
         },
@@ -10172,13 +10173,13 @@
         },
         {
           "name": "icon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "valuesRef": "Hds::Icon#name"
         },
         {
           "name": "iconSecondary",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "valuesRef": "Hds::Icon#name"
         },
@@ -10475,7 +10476,7 @@
         },
         {
           "name": "icon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "valuesRef": "Hds::Icon#name"
         },
@@ -10561,7 +10562,7 @@
         },
         {
           "name": "icon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": true,
           "valuesRef": "Hds::Icon#name"
         },
@@ -11625,7 +11626,7 @@
       "args": [
         {
           "name": "icon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "valuesRef": "Hds::Icon#name"
         },
@@ -12577,7 +12578,7 @@
         },
         {
           "name": "icon",
-          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 656 more ... | \"swap-horizontal\"",
+          "type": "\"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | \"certificate\" | ... 657 more ... | \"swap-horizontal\"",
           "required": false,
           "valuesRef": "Hds::Icon#name"
         },
@@ -13024,7 +13025,7 @@
         },
         {
           "name": "icon",
-          "type": "false | \"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | ... 657 more ... | \"swap-horizontal\"",
+          "type": "false | \"search\" | \"repeat\" | \"link\" | \"map\" | \"filter\" | \"code\" | \"type\" | \"key\" | \"file\" | \"pause\" | \"play\" | \"square\" | \"triangle\" | \"camera\" | \"enterprise\" | \"channel\" | \"cpu\" | ... 658 more ... | \"swap-horizontal\"",
           "required": false,
           "inheritedFrom": "hds/alert"
         },

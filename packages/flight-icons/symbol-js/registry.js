@@ -3864,6 +3864,13 @@ export const IconRegistry = {
         },
         carbon: () => import('./carbon/plug.js')
     },
+    portal: {
+        flight: {
+            16: () => import('./flight/portal-16.js'),
+            24: () => import('./flight/portal-24.js')
+        },
+        carbon: null
+    },
     'replication-direct': {
         flight: {
             16: () => import('./flight/replication-direct-16.js'),

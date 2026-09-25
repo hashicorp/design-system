@@ -1102,6 +1102,8 @@ export { IconPipeline24 } from './pipeline-24';
 export { IconPipeline16 } from './pipeline-16';
 export { IconPlug24 } from './plug-24';
 export { IconPlug16 } from './plug-16';
+export { IconPortal24 } from './portal-24';
+export { IconPortal16 } from './portal-16';
 export { IconReplicationDirect24 } from './replication-direct-24';
 export { IconReplicationDirect16 } from './replication-direct-16';
 export { IconReplicationPerf24 } from './replication-perf-24';
