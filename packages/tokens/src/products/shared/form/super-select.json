@@ -15,6 +15,23 @@
           }
         }
       },
+      "option-list": {
+        "after-options": {
+          "surface": {
+            "color": {
+              "$type": "color",
+              "$value": "{surface.color.strong}",
+              "$modes": {
+                "default": "{surface.color.strong}",
+                "cds-g0": "{surface.color.interactive}",
+                "cds-g10": "{surface.color.interactive}",
+                "cds-g90": "{surface.color.interactive}",
+                "cds-g100": "{surface.color.interactive}"
+              }
+            }
+          }
+        }
+      },
       "option": {
         "background-image": {
           "data-url-checkmark": {
@@ -53,6 +70,21 @@
             }
           }
         },
+        "title": {
+          "foreground": {
+            "color": {
+              "$type": "color",
+              "$value": "{foreground.color.primary}",
+              "$modes": {
+                "default": "{foreground.color.primary}",
+                "cds-g0": "{carbon.themes.white.textSecondary}",
+                "cds-g10": "{carbon.themes.g10.textSecondary}",
+                "cds-g90": "{carbon.themes.g90.textSecondary}",
+                "cds-g100": "{carbon.themes.g100.textSecondary}"
+              }
+            }
+          }
+        },
         "surface": {
           "color": {
             "default": {
@@ -75,6 +107,17 @@
                 "cds-g10": "{carbon.themes.g10.layerHover01}",
                 "cds-g90": "{carbon.themes.g90.layerHover01}",
                 "cds-g100": "{carbon.themes.g100.layerHover01}"
+              }
+            },
+            "checked-hover": {
+              "$type": "color",
+              "$value": "transparent",
+              "$modes": {
+                "default": "transparent",
+                "cds-g0": "{carbon.themes.white.layerSelectedHover01}",
+                "cds-g10": "{carbon.themes.g10.layerSelectedHover01}",
+                "cds-g90": "{carbon.themes.g90.layerSelectedHover01}",
+                "cds-g100": "{carbon.themes.g100.layerSelectedHover01}"
               }
             }
           }
@@ -207,9 +250,9 @@
         "foreground": {
           "color": {
             "$type": "color",
-            "$value": "{form.control.base.foreground.color}",
+            "$value": "{foreground.color.strong}",
             "$modes": {
-              "default": "{form.control.base.foreground.color}",
+              "default": "{foreground.color.strong}",
               "cds-g0": "{carbon.themes.white.textInverse}",
               "cds-g10": "{carbon.themes.g10.textInverse}",
               "cds-g90": "{carbon.themes.g90.textInverse}",

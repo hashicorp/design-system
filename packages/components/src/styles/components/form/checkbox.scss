@@ -37,7 +37,7 @@
 
   &:checked,
   &:indeterminate {
-    background-color: var(--hds-form-control-surface-color-checked-default);
+    background-color: var(--hds-form-checkbox-surface-color-checked-default);
   }
 
   &:checked {
@@ -62,7 +62,7 @@
   &.mock-hover:checked,
   &:hover:indeterminate,
   &.mock-hover:indeterminate {
-    background-color: var(--hds-form-control-surface-color-checked-hover);
+    background-color: var(--hds-form-checkbox-surface-color-checked-hover);
     border-color: var(--hds-form-control-border-color-checked-hover);
   }
 
@@ -108,5 +108,6 @@
 .hds-form-field--checkbox {
   .hds-form-field__label {
     font-size: var(--hds-form-label-inline-typography-font-size);
+    line-height: var(--hds-form-label-inline-typography-line-height);
   }
 }

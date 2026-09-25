@@ -22,8 +22,8 @@
     min-height: 36px;
     padding: calc(var(--hds-form-control-padding-vertical) + 1px) calc(var(--hds-form-control-padding-horizontal) + 1px);
     padding-right: calc(var(--hds-form-control-padding-horizontal) + 24px); // extra padding for icon (16px) + gap (8px)
-    color: var(--hds-form-control-base-foreground-color);
-    background-color: var(--hds-form-control-base-surface-color-default);
+    color: var(--hds-foreground-color-strong);
+    background-color: var(--hds-surface-color-interactive);
     background-image: var(--hds-form-select-background-image-data-url);
     background-repeat: no-repeat;
     background-position:
@@ -97,9 +97,9 @@
       width: 100%;
       max-width: 100%;
       padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
-      color: var(--hds-form-control-base-foreground-color);
+      color: var(--hds-foreground-color-strong);
       line-height: 1rem;
-      background-color: var(--hds-form-control-base-surface-color-default);
+      background-color: var(--hds-surface-color-interactive);
       border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
       border-radius: var(--hds-form-control-border-radius);
       box-shadow: var(--hds-elevation-inset-box-shadow);

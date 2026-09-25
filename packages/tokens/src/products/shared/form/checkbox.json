@@ -44,6 +44,36 @@
           "unit": "px"
         }
       },
+      "surface": {
+        "color": {
+          "checked": {
+            "default": {
+              "$type": "color",
+              "$value": "{core.color.blue-200}",
+              "group": "components",
+              "$modes": {
+                "default": "{core.color.blue-200}",
+                "cds-g0": "{carbon.themes.white.iconPrimary}",
+                "cds-g10": "{carbon.themes.g10.iconPrimary}",
+                "cds-g90": "{carbon.themes.g90.iconPrimary}",
+                "cds-g100": "{carbon.themes.g100.iconPrimary}"
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{core.color.blue-300}",
+              "group": "components",
+              "$modes": {
+                "default": "{core.color.blue-300}",
+                "cds-g0": "{carbon.themes.white.iconPrimary}",
+                "cds-g10": "{carbon.themes.g10.iconPrimary}",
+                "cds-g90": "{carbon.themes.g90.iconPrimary}",
+                "cds-g100": "{carbon.themes.g100.iconPrimary}"
+              }
+            }
+          }
+        }
+      },
       "background-image": {
         "size": {
           "$type": "dimension",

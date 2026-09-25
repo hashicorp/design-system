@@ -100,8 +100,6 @@
   --hds-filter-bar-tabs-tab-surface-color-selected-default: var(--hds-surface-color-strong);
   --hds-form-checkbox-border-width: 1px;
   --hds-form-checkbox-size: 16px;
-  --hds-form-control-base-foreground-color: var(--hds-foreground-color-strong);
-  --hds-form-control-base-surface-color-default: var(--hds-surface-color-interactive);
   --hds-form-control-border-radius: var(--hds-border-radius-small);
   --hds-form-control-border-width: 1px;
   --hds-form-control-disabled-foreground-color: var(--hds-foreground-color-disabled);
@@ -115,10 +113,8 @@
   --hds-form-legend-color: var(--hds-form-label-color); /** deprecated: use `hds-form-legend-foreground-color` instead */
   --hds-form-radio-background-image-size: var(--hds-form-radio-size);
   --hds-form-radio-border-width: 1px;
-  --hds-form-radio-card-border-radius: var(--hds-border-radius-medium);
   --hds-form-radio-card-border-width: 1px;
   --hds-form-radio-card-control-size: 16px; /** This is the actual radio button control */
-  --hds-form-radio-card-control-wrapper-padding: 8px;
   --hds-form-radio-card-group-gap: 16px;
   --hds-form-radio-card-transition-duration: 0.2s;
   --hds-form-select-background-image-position-right-x: var(--hds-form-control-padding-horizontal);
@@ -131,7 +127,6 @@
   --hds-form-text-input-background-image-size: 16px;
   --hds-form-toggle-background-image-position-x: 2px;
   --hds-form-toggle-background-image-size: 12px;
-  --hds-form-toggle-border-radius: var(--hds-border-radius-x-small);
   --hds-form-toggle-border-width: 1px;
   --hds-form-toggle-height: 16px;
   --hds-form-toggle-transition-duration: 0.2s;
@@ -179,7 +174,6 @@
   --hds-product-packer-surface-color: #d4f2ff;
   --hds-product-terraform-border-color: #ebdbfc;
   --hds-product-terraform-brand-color-on-dark: #a067da; /** this is an alternative brand color meant to be used on dark backgrounds */
-  --hds-product-terraform-brand-color: #7b42bc;
   --hds-product-terraform-foreground-color: #773cb4;
   --hds-product-terraform-gradient-color-faint-start: #fcfaff; /** this is the 'terraform-50' value at 25% opacity on white */
   --hds-product-terraform-gradient-color-faint-stop: #f4ecff;

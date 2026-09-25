@@ -648,6 +648,7 @@
   --hds-form-label-typography-font-weight: 600;
   --hds-form-label-typography-line-height: 1.4286;
   --hds-form-label-inline-typography-font-size: 0.875rem;
+  --hds-form-label-inline-typography-line-height: 1.4286;
   --hds-form-legend-color: #0c0c0e; /** deprecated: use `hds-form-legend-foreground-color` instead */
   --hds-form-legend-foreground-color: #0c0c0e;
   --hds-form-legend-typography-font-size: 0.875rem;
@@ -657,10 +658,9 @@
   --hds-form-helper-text-foreground-color: #656a76;
   --hds-form-helper-text-typography-font-size: 0.8125rem;
   --hds-form-helper-text-typography-line-height: 1.3846;
+  --hds-form-indicator-typography-font-size: 0.8125rem;
   --hds-form-indicator-optional-color: #656a76; /** deprecated: use `hds-form-indicator-optional-foreground-color` instead */
   --hds-form-indicator-optional-foreground-color: #656a76;
-  --hds-form-indicator-optional-typography-font-size: 0.8125rem;
-  --hds-form-indicator-optional-typography-line-height: 1.3846;
   --hds-form-error-color: #c00005; /** deprecated: use `hds-form-error-foreground-color` instead */
   --hds-form-error-foreground-color: #c00005;
   --hds-form-error-typography-font-size: 0.8125rem;
@@ -672,6 +672,8 @@
   --hds-form-checkbox-border-color-checked-disabled: #656a7633;
   --hds-form-checkbox-border-radius: 3px;
   --hds-form-checkbox-border-width: 1px;
+  --hds-form-checkbox-surface-color-checked-default: #1060ff;
+  --hds-form-checkbox-surface-color-checked-hover: #0c56e9;
   --hds-form-checkbox-background-image-size: 12px;
   --hds-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%23FFF' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' /%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
   --hds-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%23FFF' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' /%3e%3c/svg%3e"); /** notice: the 'dash' color is hardcoded here! */
@@ -685,20 +687,13 @@
   --hds-form-control-border-color-unchecked-disabled: #656a7633;
   --hds-form-control-border-color-unchecked-hover: #656a76;
   --hds-form-control-border-color-checked-default: #0c56e9;
-  --hds-form-control-border-color-checked-disabled: #656a7633;
   --hds-form-control-border-color-checked-hover: #0046d1;
   --hds-form-control-border-radius: 5px;
   --hds-form-control-border-width: 1px;
   --hds-form-control-surface-color-unchecked-default: #ffffff;
   --hds-form-control-surface-color-unchecked-disabled: #fafafa;
   --hds-form-control-surface-color-unchecked-hover: #f1f2f3;
-  --hds-form-control-surface-color-checked-default: #1060ff;
   --hds-form-control-surface-color-checked-disabled: #fafafa;
-  --hds-form-control-surface-color-checked-hover: #0c56e9;
-  --hds-form-control-foreground-color-checked: #ffffff;
-  --hds-form-control-base-foreground-color: #0c0c0e;
-  --hds-form-control-base-surface-color-default: #ffffff;
-  --hds-form-control-base-surface-color-hover: #f1f2f3;
   --hds-form-control-base-border-color-default: #8c909c;
   --hds-form-control-base-border-color-hover: #656a76;
   --hds-form-control-base-placeholder-foreground-color-default: #656a76;
@@ -718,7 +713,6 @@
   --hds-form-radio-card-surface-color-hover: #ffffff;
   --hds-form-radio-card-surface-color-disabled: #fafafa;
   --hds-form-radio-card-border-width: 1px;
-  --hds-form-radio-card-border-radius: 6px;
   --hds-form-radio-card-border-color-default: #656a7633;
   --hds-form-radio-card-border-color-checked-default: #0c56e9;
   --hds-form-radio-card-border-color-checked-hover: #0046d1;
@@ -731,7 +725,6 @@
   --hds-form-radio-card-control-wrapper-border-color-default: #656a7633;
   --hds-form-radio-card-control-wrapper-border-color-checked: #cce3fe;
   --hds-form-radio-card-control-wrapper-border-color-disabled: #656a7633;
-  --hds-form-radio-card-control-wrapper-padding: 8px;
   --hds-form-radio-card-description-typography-font-size: 0.8125rem;
   --hds-form-radio-card-label-foreground-color: #0c0c0e; /** Note: this is 'label' text within the RadioCard, not a form label in and of itself. */
   --hds-form-radio-card-label-typography-font-size: 1.125rem;
@@ -739,6 +732,7 @@
   --hds-form-radio-card-label-typography-line-height: 1.3333; /** 24px */
   --hds-form-radio-card-transition-duration: 0.2s;
   --hds-form-radio-size: 16px;
+  --hds-form-radio-border-color-checked-disabled: #656a7633;
   --hds-form-radio-border-width: 1px;
   --hds-form-radio-background-image-size: 16px;
   --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23ffffff' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='2.5' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
@@ -753,12 +747,15 @@
   --hds-form-select-surface-color-hover: #ffffff;
   --hds-form-select-multiple-option-color-checked: #ffffff;
   --hds-form-super-select-padding-left: 11px;
+  --hds-form-super-select-option-list-after-options-surface-color: #f1f2f3;
   --hds-form-super-select-option-background-image-data-url-checkmark: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%231060ff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' /%3E%3C/svg%3E"); /** notice: the 'checkmark' color is hardcoded here! */
   --hds-form-super-select-option-background-image-size: 16px;
   --hds-form-super-select-option-foreground-color-hover: #0c56e9;
   --hds-form-super-select-option-foreground-color-active: #0046d1;
+  --hds-form-super-select-option-title-foreground-color: #3b3d45;
   --hds-form-super-select-option-surface-color-default: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-surface-color-hover: rgba(0, 0, 0, 0);
+  --hds-form-super-select-option-surface-color-checked-hover: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-border-color: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-indicator-border-radius: 500px; /** The 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly) */
   --hds-form-super-select-option-indicator-top: 6px;
@@ -787,17 +784,16 @@
   --hds-form-toggle-base-surface-color-disabled: #fafafa;
   --hds-form-toggle-base-surface-color-checked-default: #1060ff;
   --hds-form-toggle-base-surface-color-checked-hover: #0c56e9;
-  --hds-form-toggle-border-radius: 3px;
   --hds-form-toggle-border-width: 1px;
   --hds-form-toggle-background-image-size: 12px;
   --hds-form-toggle-background-image-position-x: 2px;
   --hds-form-toggle-background-image-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%23FFF' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' /%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
   --hds-form-toggle-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%238C909C' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' /%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
-  --hds-form-toggle-handle-surface-color-default: #ffffff;
-  --hds-form-toggle-handle-surface-color-disabled: #fafafa;
   --hds-form-toggle-transition-duration: 0.2s;
   --hds-form-toggle-transition-timing-function: cubic-bezier(0.68, -0.2, 0.265, 1.15);
   --hds-form-toggle-thumb-size: 16px;
+  --hds-form-toggle-thumb-surface-color-default: #ffffff;
+  --hds-form-toggle-thumb-surface-color-disabled: #fafafa;
   --hds-icon-tile-border-color-overlay: #656a7633;
   --hds-icon-tile-border-color-logo: #656a7633;
   --hds-icon-tile-surface-color-overlay: #ffffff;
@@ -3842,17 +3838,27 @@
 }
 
 /**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+/**
  * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-badge-count {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   max-width: 100%;
   font-weight: var(--hds-typography-font-weight-medium);
   font-family: var(--hds-typography-font-stack-text);
   border-style: solid;
   border-width: 1px;
+}
+.hds-theme-light .hds-badge-count,
+.hds-theme-dark .hds-badge-count,
+.hds-theme-system .hds-badge-count {
+  min-width: 32px;
 }
 
 .hds-badge-count--size-small {
@@ -7563,9 +7569,9 @@ button.hds-button[href]::after {
 .hds-form-indicator--optional {
   color: var(--hds-form-indicator-optional-foreground-color);
   font-weight: var(--hds-typography-font-weight-regular);
-  font-size: var(--hds-form-indicator-optional-typography-font-size);
+  font-size: var(--hds-form-indicator-typography-font-size);
   font-family: var(--hds-typography-font-stack-text);
-  line-height: var(--hds-form-indicator-optional-typography-line-height);
+  line-height: var(--hds-form-indicator-typography-line-height);
 }
 
 .hds-theme-light .hds-form-indicator--required.hds-badge,
@@ -7574,9 +7580,9 @@ button.hds-button[href]::after {
   padding: 0;
   color: var(--hds-form-indicator-optional-foreground-color);
   font-weight: var(--hds-typography-font-weight-regular);
-  font-size: var(--hds-form-indicator-optional-typography-font-size);
+  font-size: var(--hds-form-indicator-typography-font-size);
   font-family: var(--hds-typography-font-stack-text);
-  line-height: var(--hds-form-indicator-optional-typography-line-height);
+  line-height: var(--hds-form-indicator-typography-line-height);
   background-color: transparent;
 }
 .hds-theme-light .hds-form-indicator--required.hds-badge .hds-badge__text,
@@ -7629,7 +7635,7 @@ button.hds-button[href]::after {
   box-shadow: var(--hds-elevation-inset-box-shadow);
 }
 .hds-form-checkbox:checked, .hds-form-checkbox:indeterminate {
-  background-color: var(--hds-form-control-surface-color-checked-default);
+  background-color: var(--hds-form-checkbox-surface-color-checked-default);
 }
 .hds-form-checkbox:checked {
   background-image: var(--hds-form-checkbox-background-image-data-url);
@@ -7644,7 +7650,7 @@ button.hds-button[href]::after {
   border-color: var(--hds-form-control-border-color-unchecked-hover);
 }
 .hds-form-checkbox:hover:checked, .hds-form-checkbox.mock-hover:checked, .hds-form-checkbox:hover:indeterminate, .hds-form-checkbox.mock-hover:indeterminate {
-  background-color: var(--hds-form-control-surface-color-checked-hover);
+  background-color: var(--hds-form-checkbox-surface-color-checked-hover);
   border-color: var(--hds-form-control-border-color-checked-hover);
 }
 .hds-form-checkbox:focus-visible, .hds-form-checkbox.mock-focus {
@@ -7675,6 +7681,7 @@ button.hds-button[href]::after {
 
 .hds-form-field--checkbox .hds-form-field__label {
   font-size: var(--hds-form-label-inline-typography-font-size);
+  line-height: var(--hds-form-label-inline-typography-line-height);
 }
 
 /**
@@ -7782,13 +7789,14 @@ button.hds-button[href]::after {
 .hds-form-radio:disabled:checked {
   background-color: var(--hds-form-radio-surface-color-checked-disabled);
   background-image: var(--hds-form-radio-background-image-data-url-disabled);
-  border-color: var(--hds-form-control-border-color-checked-disabled);
+  border-color: var(--hds-form-radio-border-color-checked-disabled);
   box-shadow: none;
   cursor: not-allowed;
 }
 
 .hds-form-field--radio .hds-form-field__label {
   font-size: var(--hds-form-label-inline-typography-font-size);
+  line-height: var(--hds-form-label-inline-typography-line-height);
 }
 
 /**
@@ -7820,7 +7828,7 @@ button.hds-button[href]::after {
   flex-direction: column;
   background-color: var(--hds-surface-color-primary);
   border: var(--hds-form-radio-card-border-width) solid var(--hds-form-radio-card-border-color-default);
-  border-radius: var(--hds-form-radio-card-border-radius);
+  border-radius: var(--hds-border-radius-medium);
   box-shadow: var(--hds-elevation-mid-box-shadow);
   cursor: pointer;
 }
@@ -7932,7 +7940,7 @@ button.hds-button[href]::after {
 }
 
 .hds-form-radio-card__control-wrapper {
-  padding: var(--hds-form-radio-card-control-wrapper-padding);
+  padding: 8px;
   background-color: var(--hds-form-radio-card-control-wrapper-surface-color-default);
   border-color: var(--hds-form-radio-card-control-wrapper-border-color-default);
 }
@@ -7978,8 +7986,8 @@ button.hds-button[href]::after {
   max-width: 100%;
   min-height: var(--hds-form-control-height);
   padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
-  color: var(--hds-form-control-base-foreground-color);
-  background-color: var(--hds-form-control-base-surface-color-default);
+  color: var(--hds-foreground-color-strong);
+  background-color: var(--hds-surface-color-interactive);
   background-image: var(--hds-form-select-background-image-data-url);
   background-repeat: no-repeat;
   background-position: right var(--hds-form-select-background-image-position-right-x) center;
@@ -8202,9 +8210,11 @@ button.hds-button[href]::after {
   padding-right: calc(var(--hds-form-control-padding-horizontal) + 21px);
   padding-bottom: 4px;
   padding-left: var(--hds-form-super-select-padding-left);
-  color: var(--hds-form-control-base-foreground-color);
+  color: var(--hds-foreground-color-strong);
+  font-size: var(--hds-typography-body-200-font-size);
+  font-family: var(--hds-typography-body-200-font-family);
   line-height: var(--hds-typography-body-200-line-height);
-  background-color: var(--hds-form-control-base-surface-color-default);
+  background-color: var(--hds-surface-color-interactive);
   background-image: var(--hds-form-select-background-image-data-url);
   background-repeat: no-repeat;
   background-position: right var(--hds-form-select-background-image-position-right-x) center, top 9px left 20px;
@@ -8340,7 +8350,7 @@ button.hds-button[href]::after {
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-options {
   padding: 3px 0;
-  background-color: var(--hds-form-control-base-surface-color-default);
+  background-color: var(--hds-surface-color-interactive);
   border-radius: inherit;
 }
 .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-options,
@@ -8389,7 +8399,7 @@ button.hds-button[href]::after {
 }
 
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true] {
-  color: var(--hds-form-control-base-foreground-color);
+  color: var(--hds-foreground-color-strong);
   background-color: var(--hds-form-super-select-option-surface-color-default);
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-selected=true] {
@@ -8436,6 +8446,10 @@ button.hds-button[href]::after {
 .hds-form-super-select .ember-basic-dropdown .hds-form-super-select__option-group-title {
   margin: 8px 0;
   padding: 6px 7px 2px 15px;
+  color: var(--hds-form-super-select-option-title-foreground-color);
+  font-size: var(--hds-typography-body-200-font-size);
+  font-family: var(--hds-typography-body-200-font-family);
+  line-height: var(--hds-typography-body-200-line-height);
 }
 .hds-theme-light .hds-form-super-select .ember-basic-dropdown .hds-form-super-select__option-group-title,
 .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .hds-form-super-select__option-group-title,
@@ -8458,11 +8472,11 @@ button.hds-button[href]::after {
   width: 100%;
   min-height: var(--hds-form-control-height);
   padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
-  color: var(--hds-form-control-base-foreground-color);
+  color: var(--hds-foreground-color-strong);
   font-size: var(--hds-typography-body-200-font-size);
   font-family: var(--hds-typography-body-200-font-family);
   line-height: 1rem;
-  background-color: var(--hds-form-control-base-surface-color-default);
+  background-color: var(--hds-surface-color-interactive);
   border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
   border-radius: var(--hds-form-control-border-radius);
   box-shadow: var(--hds-elevation-inset-box-shadow);
@@ -8530,7 +8544,7 @@ button.hds-button[href]::after {
   display: none;
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger-multiple-input {
-  color: var(--hds-form-control-base-foreground-color);
+  color: var(--hds-foreground-color-strong);
   font-size: var(--hds-typography-body-200-font-size);
   font-family: var(--hds-typography-body-200-font-family);
 }
@@ -8664,7 +8678,7 @@ button.hds-button[href]::after {
 
 .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message):not([aria-selected=true])::before {
-  background-color: var(--hds-form-control-base-surface-color-default);
+  background-color: var(--hds-surface-color-interactive);
   border-color: var(--hds-form-control-base-border-color-default);
   box-shadow: var(--hds-elevation-inset-box-shadow);
 }
@@ -8672,7 +8686,7 @@ button.hds-button[href]::after {
 .ember-power-select-option--loading-message)[aria-current=true]::before, .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message):hover:not([aria-selected=true])::before, .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message).mock-hover:not([aria-selected=true])::before {
-  background-color: var(--hds-form-control-base-surface-color-hover);
+  background-color: var(--hds-form-control-surface-color-unchecked-hover);
   border-color: var(--hds-form-control-base-border-color-hover);
 }
 .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
@@ -8684,9 +8698,15 @@ button.hds-button[href]::after {
 }
 .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true]:not([aria-disabled=true])::before {
-  background-color: var(--hds-form-control-surface-color-checked-default);
+  background-color: var(--hds-form-checkbox-surface-color-checked-default);
   background-image: var(--hds-form-checkbox-background-image-data-url);
   border-color: var(--hds-form-control-border-color-checked-default);
+}
+.hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-selected=true][aria-current=true], .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-selected=true]:hover[aria-selected=true], .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-selected=true].mock-hover[aria-selected=true] {
+  background-color: var(--hds-form-super-select-option-surface-color-checked-hover);
 }
 .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true][aria-current=true]::before, .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
@@ -8720,8 +8740,10 @@ button.hds-button[href]::after {
   gap: 8px;
   align-items: center;
   padding: 8px 12px;
-  background-color: var(--hds-surface-color-strong);
+  background-color: var(--hds-form-super-select-option-list-after-options-surface-color);
   border-top: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
+  border-bottom-right-radius: inherit;
+  border-bottom-left-radius: inherit;
 }
 
 .hds-form-super-select__result-count {
@@ -8768,8 +8790,8 @@ button.hds-button[href]::after {
   max-width: 100%;
   min-height: var(--hds-form-control-height);
   padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
-  color: var(--hds-form-control-base-foreground-color);
-  background-color: var(--hds-form-control-base-surface-color-default);
+  color: var(--hds-foreground-color-strong);
+  background-color: var(--hds-surface-color-interactive);
   border-radius: var(--hds-form-control-border-radius);
   box-shadow: var(--hds-elevation-inset-box-shadow);
 }
@@ -9039,8 +9061,8 @@ button.hds-button[href]::after {
   max-width: 100%;
   min-height: var(--hds-form-control-height);
   padding: var(--hds-form-textarea-padding-vertical) var(--hds-form-control-padding-horizontal);
-  color: var(--hds-form-control-base-foreground-color);
-  background-color: var(--hds-form-control-base-surface-color-default);
+  color: var(--hds-foreground-color-strong);
+  background-color: var(--hds-surface-color-interactive);
   border-radius: var(--hds-form-control-border-radius);
   box-shadow: var(--hds-elevation-inset-box-shadow);
   resize: vertical;
@@ -9234,7 +9256,7 @@ button.hds-button[href]::after {
   width: var(--hds-form-toggle-thumb-size);
   height: var(--hds-form-toggle-thumb-size);
   margin: auto 0;
-  background-color: var(--hds-form-toggle-handle-surface-color-default);
+  background-color: var(--hds-form-toggle-thumb-surface-color-default);
   border: var(--hds-form-toggle-border-width) solid var(--border-color);
   border-radius: 50%;
   transform: translate3d(0, 0, 0);
@@ -9315,7 +9337,7 @@ button.hds-button[href]::after {
 }
 
 :disabled:not(:checked) + .hds-form-toggle__facade::after, :disabled:checked + .hds-form-toggle__facade::after {
-  background-color: var(--hds-form-toggle-handle-surface-color-disabled);
+  background-color: var(--hds-form-toggle-thumb-surface-color-disabled);
 }
 .hds-theme-light :disabled:checked + .hds-form-toggle__facade::after,
 .hds-theme-dark :disabled:checked + .hds-form-toggle__facade::after,

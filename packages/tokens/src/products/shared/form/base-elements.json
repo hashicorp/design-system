@@ -146,6 +146,17 @@
               "cds-g90": "{carbon.typography.bodyCompact01.font-size}",
               "cds-g100": "{carbon.typography.bodyCompact01.font-size}"
             }
+          },
+          "line-height": {
+            "$type": "number",
+            "$value": "{typography.body-200.line-height}",
+            "$modes": {
+              "default": "{typography.body-200.line-height}",
+              "cds-g0": "{carbon.typography.bodyCompact01.line-height}",
+              "cds-g10": "{carbon.typography.bodyCompact01.line-height}",
+              "cds-g90": "{carbon.typography.bodyCompact01.line-height}",
+              "cds-g100": "{carbon.typography.bodyCompact01.line-height}"
+            }
           }
         }
       }
@@ -228,6 +239,17 @@
             "cds-g10": "{carbon.typography.helperText01.font-size}",
             "cds-g90": "{carbon.typography.helperText01.font-size}",
             "cds-g100": "{carbon.typography.helperText01.font-size}"
+          },
+          "line-height": {
+            "$type": "number",
+            "$value": "{typography.body-100.line-height}",
+            "$modes": {
+              "default": "{typography.body-100.line-height}",
+              "cds-g0": "{carbon.typography.label01.line-height}",
+              "cds-g10": "{carbon.typography.label01.line-height}",
+              "cds-g90": "{carbon.typography.label01.line-height}",
+              "cds-g100": "{carbon.typography.label01.line-height}"
+            }
           }
         },
         "line-height": {
@@ -244,6 +266,20 @@
       }
     },
     "indicator": {
+      "typography": {
+        "font-size": {
+          "$type": "font-size",
+          "$value": "{typography.body-100.font-size}",
+          "unit": "px",
+          "$modes": {
+            "default": "{typography.body-100.font-size}",
+            "cds-g0": "{carbon.typography.label01.font-size}",
+            "cds-g10": "{carbon.typography.label01.font-size}",
+            "cds-g90": "{carbon.typography.label01.font-size}",
+            "cds-g100": "{carbon.typography.label01.font-size}"
+          }
+        }
+      },
       "optional": {
         "color": {
           "$type": "color",
@@ -263,31 +299,6 @@
               "cds-g10": "{form.label.foreground.color}",
               "cds-g90": "{form.label.foreground.color}",
               "cds-g100": "{form.label.foreground.color}"
-            }
-          }
-        },
-        "typography": {
-          "font-size": {
-            "$type": "font-size",
-            "$value": "{typography.body-100.font-size}",
-            "unit": "px",
-            "$modes": {
-              "default": "{typography.body-100.font-size}",
-              "cds-g0": "{carbon.typography.label01.font-size}",
-              "cds-g10": "{carbon.typography.label01.font-size}",
-              "cds-g90": "{carbon.typography.label01.font-size}",
-              "cds-g100": "{carbon.typography.label01.font-size}"
-            }
-          },
-          "line-height": {
-            "$type": "number",
-            "$value": "{typography.body-100.line-height}",
-            "$modes": {
-              "default": "{typography.body-100.line-height}",
-              "cds-g0": "{carbon.typography.label01.line-height}",
-              "cds-g10": "{carbon.typography.label01.line-height}",
-              "cds-g90": "{carbon.typography.label01.line-height}",
-              "cds-g100": "{carbon.typography.label01.line-height}"
             }
           }
         }

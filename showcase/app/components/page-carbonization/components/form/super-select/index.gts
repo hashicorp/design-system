@@ -573,7 +573,7 @@ const FormSuperSelectCarbonizationIndex: TemplateOnlyComponent = <template>
     </ShwCarbonizationComparisonGrid>
 
     <ShwCarbonizationComparisonGrid
-      @label="Multiple selection with search"
+      @label="Multiple selection with search & after options"
       @layout="column-stacked"
     >
       <:theming>
@@ -619,6 +619,30 @@ const FormSuperSelectCarbonizationIndex: TemplateOnlyComponent = <template>
                   <div class="hds-form-super-select__option-text">Option 4</div>
                 </li>
               </ul>
+              <div class="hds-form-super-select__after-options">
+                <button
+                  class="hds-button hds-button--color-secondary-muted hds-button--size-small"
+                  type="button"
+                >
+                  <span class="hds-button__text">
+                    Show selected
+                  </span>
+                </button>
+                <button
+                  class="hds-button hds-button--color-secondary-muted hds-button--size-small"
+                  type="button"
+                >
+                  <span class="hds-button__text">
+                    Clear selected
+                  </span>
+                </button>
+                <div
+                  id="ember493"
+                  class="ember-view hds-text hds-typography-body-100 hds-font-weight-regular hds-form-super-select__result-count hds-foreground-strong"
+                >
+                  6 total
+                </div>
+              </div>
             </div>
           </div>
         </div>

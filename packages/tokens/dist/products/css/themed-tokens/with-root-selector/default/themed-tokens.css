@@ -441,29 +441,26 @@
   --hds-form-checkbox-background-image-size: 12px;
   --hds-form-checkbox-border-color-checked-disabled: var(--hds-border-color-primary);
   --hds-form-checkbox-border-radius: var(--hds-border-radius-x-small);
+  --hds-form-checkbox-surface-color-checked-default: var(--hds-core-color-blue-200);
+  --hds-form-checkbox-surface-color-checked-hover: var(--hds-core-color-blue-300);
   --hds-form-control-base-border-color-default: var(--hds-core-color-neutral-400);
   --hds-form-control-base-border-color-hover: var(--hds-core-color-neutral-500);
   --hds-form-control-base-placeholder-foreground-color-default: var(--hds-foreground-color-faint);
   --hds-form-control-base-placeholder-foreground-color-disabled: var(--hds-foreground-color-disabled);
-  --hds-form-control-base-surface-color-hover: var(--hds-surface-color-interactive-hover);
   --hds-form-control-border-color-checked-default: var(--hds-core-color-blue-300);
-  --hds-form-control-border-color-checked-disabled: var(--hds-border-color-primary);
   --hds-form-control-border-color-checked-hover: var(--hds-core-color-blue-400);
   --hds-form-control-border-color-unchecked-default: var(--hds-core-color-neutral-400);
   --hds-form-control-border-color-unchecked-disabled: var(--hds-border-color-primary);
   --hds-form-control-border-color-unchecked-hover: var(--hds-core-color-neutral-500);
   --hds-form-control-disabled-border-color: var(--hds-border-color-primary);
   --hds-form-control-disabled-surface-color: var(--hds-surface-color-interactive-disabled);
-  --hds-form-control-foreground-color-checked: var(--hds-foreground-color-high-contrast);
   --hds-form-control-height: 36px;
   --hds-form-control-invalid-border-color-default: var(--hds-core-color-red-300);
   --hds-form-control-invalid-border-color-hover: var(--hds-core-color-red-400);
   --hds-form-control-padding-horizontal: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma */
   --hds-form-control-padding-vertical: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma */
   --hds-form-control-readonly-surface-color: var(--hds-surface-color-strong);
-  --hds-form-control-surface-color-checked-default: var(--hds-core-color-blue-200);
   --hds-form-control-surface-color-checked-disabled: var(--hds-surface-color-interactive-disabled);
-  --hds-form-control-surface-color-checked-hover: var(--hds-core-color-blue-300);
   --hds-form-control-surface-color-unchecked-default: var(--hds-surface-color-interactive);
   --hds-form-control-surface-color-unchecked-disabled: var(--hds-surface-color-interactive-disabled);
   --hds-form-control-surface-color-unchecked-hover: var(--hds-surface-color-interactive-hover);
@@ -480,10 +477,10 @@
   --hds-form-helper-text-typography-font-size: var(--hds-typography-body-100-font-size);
   --hds-form-helper-text-typography-line-height: var(--hds-typography-body-100-line-height);
   --hds-form-indicator-optional-foreground-color: #656a76;
-  --hds-form-indicator-optional-typography-font-size: var(--hds-typography-body-100-font-size);
-  --hds-form-indicator-optional-typography-line-height: var(--hds-typography-body-100-line-height);
+  --hds-form-indicator-typography-font-size: var(--hds-typography-body-100-font-size);
   --hds-form-label-foreground-color: #0c0c0e;
   --hds-form-label-inline-typography-font-size: var(--hds-typography-body-200-font-size);
+  --hds-form-label-inline-typography-line-height: var(--hds-typography-body-200-line-height);
   --hds-form-label-typography-font-size: var(--hds-typography-body-200-font-size);
   --hds-form-label-typography-font-weight: var(--hds-typography-font-weight-semibold);
   --hds-form-label-typography-line-height: var(--hds-typography-body-200-line-height);
@@ -493,6 +490,7 @@
   --hds-form-legend-typography-line-height: var(--hds-typography-body-200-line-height);
   --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%238C909C' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='2.5' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
   --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23ffffff' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='2.5' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-border-color-checked-disabled: var(--hds-border-color-primary);
   --hds-form-radio-card-border-color-checked-default: var(--hds-core-color-blue-300);
   --hds-form-radio-card-border-color-checked-hover: var(--hds-core-color-blue-400);
   --hds-form-radio-card-border-color-default: var(--hds-border-color-primary);
@@ -518,7 +516,7 @@
   --hds-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%238C909C' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
   --hds-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23656A76' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
   --hds-form-select-multiple-option-color-checked: var(--hds-foreground-color-high-contrast);
-  --hds-form-select-surface-color-hover: var(--hds-form-control-base-surface-color-default);
+  --hds-form-select-surface-color-hover: var(--hds-surface-color-interactive);
   --hds-form-super-select-option-background-image-data-url-checkmark: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%231060ff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' /%3E%3C/svg%3E"); /** notice: the 'checkmark' color is hardcoded here! */
   --hds-form-super-select-option-background-image-size: var(--hds-form-select-background-image-size);
   --hds-form-super-select-option-border-color: rgba(0, 0, 0, 0);
@@ -527,13 +525,16 @@
   --hds-form-super-select-option-indicator-left: 3px;
   --hds-form-super-select-option-indicator-top: 6px;
   --hds-form-super-select-option-indicator-width: 2px;
+  --hds-form-super-select-option-list-after-options-surface-color: var(--hds-surface-color-strong);
   --hds-form-super-select-option-margin-top: 8px;
+  --hds-form-super-select-option-surface-color-checked-hover: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-surface-color-default: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-surface-color-hover: rgba(0, 0, 0, 0);
+  --hds-form-super-select-option-title-foreground-color: var(--hds-foreground-color-primary);
   --hds-form-super-select-padding-left: 11px;
   --hds-form-super-select-search-margin-bottom: 3px;
   --hds-form-super-select-tag-border-color: var(--hds-border-color-strong);
-  --hds-form-super-select-tag-foreground-color: var(--hds-form-control-base-foreground-color);
+  --hds-form-super-select-tag-foreground-color: var(--hds-foreground-color-strong);
   --hds-form-super-select-tag-surface-color: var(--hds-surface-color-interactive);
   --hds-form-text-input-background-image-data-url-search-cancel-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.78 4.28a.75.75 0 00-1.06-1.06L8 6.94 4.28 3.22a.75.75 0 00-1.06 1.06L6.94 8l-3.72 3.72a.75.75 0 101.06 1.06L8 9.06l3.72 3.72a.75.75 0 101.06-1.06L9.06 8l3.72-3.72z'/%3e%3c/svg%3e"); /** Notice: the icon color is hardcoded. The HDS theme does not use a different search image for the disabled state */
   --hds-form-text-input-background-image-data-url-search-cancel: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.78 4.28a.75.75 0 00-1.06-1.06L8 6.94 4.28 3.22a.75.75 0 00-1.06 1.06L6.94 8l-3.72 3.72a.75.75 0 101.06 1.06L8 9.06l3.72 3.72a.75.75 0 101.06-1.06L9.06 8l3.72-3.72z'/%3e%3c/svg%3e"); /** Notice: the icon color is hardcoded */
@@ -548,9 +549,9 @@
   --hds-form-toggle-base-surface-color-checked-hover: var(--hds-core-color-blue-300);
   --hds-form-toggle-base-surface-color-default: var(--hds-surface-color-strong); /** the toggle has a different base surface color, compared to the other controls */
   --hds-form-toggle-base-surface-color-disabled: var(--hds-surface-color-interactive-disabled);
-  --hds-form-toggle-handle-surface-color-default: var(--hds-surface-color-interactive);
-  --hds-form-toggle-handle-surface-color-disabled: var(--hds-surface-color-interactive-disabled);
   --hds-form-toggle-thumb-size: var(--hds-form-toggle-height);
+  --hds-form-toggle-thumb-surface-color-default: var(--hds-surface-color-interactive);
+  --hds-form-toggle-thumb-surface-color-disabled: var(--hds-surface-color-interactive-disabled);
   --hds-form-visibility-toggle-size: 24px;
   --hds-icon-tile-border-color-logo: var(--hds-border-color-primary);
   --hds-icon-tile-border-color-overlay: var(--hds-border-color-primary);
@@ -589,6 +590,7 @@
   --hds-pagination-size-selector-typography-font-size: var(--hds-typography-body-100-font-size);
   --hds-product-hashicorp-brand-color: #000000;
   --hds-product-hcp-brand-color: #000000;
+  --hds-product-terraform-brand-color: #7b42bc;
   --hds-product-vault-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --hds-product-vault-radar-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --hds-product-vault-secrets-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
