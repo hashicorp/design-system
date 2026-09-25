@@ -1,0 +1,10 @@
+<Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
+  <dd.ToggleButton @text="Theme" />
+  <dd.Title @text="Choose a theme" />
+  {{#each this.themingOptions as |option|}}
+    <dd.Checkmark
+      @selected={{eq this.hdsTheming.currentTheme option.theme}}
+      {{on "click" (fn this.onClickThemeSwitcherOption option.theme)}}
+    >{{option.label}}</dd.Checkmark>
+  {{/each}}
+</Hds::Dropdown>
