@@ -208,7 +208,7 @@ To use theming in your application you need to:
 
 For more technical details about how theming is implemented in HDS, see [Foundations/Theming](/foundations/theming).
 
-For details about theme switching in general, see [Patterns/Theme Switching](/patterns/theme-switcher-pattern).
+For details about theme switching in general, see [Patterns/Theme selection](/patterns/theme-selection).
 
 ### Complex configurations
 
