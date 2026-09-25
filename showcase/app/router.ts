@@ -194,6 +194,7 @@ Router.map(function () {
       this.route('form', function (): void {
         this.route('base-elements');
         this.route('checkbox');
+        this.route('layout');
         this.route('file-input');
         this.route('key-value-inputs');
         this.route('masked-input');

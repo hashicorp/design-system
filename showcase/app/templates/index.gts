@@ -613,6 +613,11 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
+          <LinkTo @route="page-carbonization.components.form.layout">
+            Form / Layout
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="page-carbonization.components.form.checkbox">
             Form::Checkbox
           </LinkTo>
