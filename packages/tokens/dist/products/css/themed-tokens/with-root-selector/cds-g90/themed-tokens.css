@@ -452,7 +452,7 @@
   --hds-form-control-border-color-unchecked-default: #f4f4f4;
   --hds-form-control-border-color-unchecked-disabled: rgba(244, 244, 244, 0.25);
   --hds-form-control-border-color-unchecked-hover: #f4f4f4;
-  --hds-form-control-disabled-border-color-disabled: rgba(0, 0, 0, 0);
+  --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
   --hds-form-control-disabled-surface-color: #393939;
   --hds-form-control-height: 40px;
   --hds-form-control-invalid-border-color-default: #ff8389; /** Carbon uses outline instead of a border color change */

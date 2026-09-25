@@ -22523,8 +22523,8 @@
         "color"
       ]
     },
-    "hds-form-control-disabled-border-color-disabled": {
-      "key": "{form.control.disabled.border.color.disabled}",
+    "hds-form-control-disabled-border-color": {
+      "key": "{form.control.disabled.border.color}",
       "$type": "color",
       "$value": "#656a7633",
       "group": "components",
@@ -22546,9 +22546,9 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{form.control.disabled.border.color.disabled}"
+        "key": "{form.control.disabled.border.color}"
       },
-      "name": "hds-form-control-disabled-border-color-disabled",
+      "name": "hds-form-control-disabled-border-color",
       "attributes": {
         "category": "form"
       },
@@ -22557,8 +22557,7 @@
         "control",
         "disabled",
         "border",
-        "color",
-        "disabled"
+        "color"
       ]
     },
     "hds-form-control-padding-vertical": {
@@ -56644,8 +56643,8 @@
         "color"
       ]
     },
-    "hds-form-control-disabled-border-color-disabled": {
-      "key": "{form.control.disabled.border.color.disabled}",
+    "hds-form-control-disabled-border-color": {
+      "key": "{form.control.disabled.border.color}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "group": "components",
@@ -56667,9 +56666,9 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{form.control.disabled.border.color.disabled}"
+        "key": "{form.control.disabled.border.color}"
       },
-      "name": "hds-form-control-disabled-border-color-disabled",
+      "name": "hds-form-control-disabled-border-color",
       "attributes": {
         "category": "form"
       },
@@ -56678,8 +56677,7 @@
         "control",
         "disabled",
         "border",
-        "color",
-        "disabled"
+        "color"
       ]
     },
     "hds-form-control-padding-vertical": {
@@ -90777,8 +90775,8 @@
         "color"
       ]
     },
-    "hds-form-control-disabled-border-color-disabled": {
-      "key": "{form.control.disabled.border.color.disabled}",
+    "hds-form-control-disabled-border-color": {
+      "key": "{form.control.disabled.border.color}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "group": "components",
@@ -90800,9 +90798,9 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{form.control.disabled.border.color.disabled}"
+        "key": "{form.control.disabled.border.color}"
       },
-      "name": "hds-form-control-disabled-border-color-disabled",
+      "name": "hds-form-control-disabled-border-color",
       "attributes": {
         "category": "form"
       },
@@ -90811,8 +90809,7 @@
         "control",
         "disabled",
         "border",
-        "color",
-        "disabled"
+        "color"
       ]
     },
     "hds-form-control-padding-vertical": {
@@ -124910,8 +124907,8 @@
         "color"
       ]
     },
-    "hds-form-control-disabled-border-color-disabled": {
-      "key": "{form.control.disabled.border.color.disabled}",
+    "hds-form-control-disabled-border-color": {
+      "key": "{form.control.disabled.border.color}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "group": "components",
@@ -124933,9 +124930,9 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{form.control.disabled.border.color.disabled}"
+        "key": "{form.control.disabled.border.color}"
       },
-      "name": "hds-form-control-disabled-border-color-disabled",
+      "name": "hds-form-control-disabled-border-color",
       "attributes": {
         "category": "form"
       },
@@ -124944,8 +124941,7 @@
         "control",
         "disabled",
         "border",
-        "color",
-        "disabled"
+        "color"
       ]
     },
     "hds-form-control-padding-vertical": {
@@ -159043,8 +159039,8 @@
         "color"
       ]
     },
-    "hds-form-control-disabled-border-color-disabled": {
-      "key": "{form.control.disabled.border.color.disabled}",
+    "hds-form-control-disabled-border-color": {
+      "key": "{form.control.disabled.border.color}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "group": "components",
@@ -159066,9 +159062,9 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{form.control.disabled.border.color.disabled}"
+        "key": "{form.control.disabled.border.color}"
       },
-      "name": "hds-form-control-disabled-border-color-disabled",
+      "name": "hds-form-control-disabled-border-color",
       "attributes": {
         "category": "form"
       },
@@ -159077,8 +159073,7 @@
         "control",
         "disabled",
         "border",
-        "color",
-        "disabled"
+        "color"
       ]
     },
     "hds-form-control-padding-vertical": {

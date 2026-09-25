@@ -701,7 +701,7 @@
   --hds-form-control-readonly-border-color: #656a761a;
   --hds-form-control-disabled-foreground-color: #8c909c;
   --hds-form-control-disabled-surface-color: #fafafa;
-  --hds-form-control-disabled-border-color-disabled: #656a7633;
+  --hds-form-control-disabled-border-color: #656a7633;
   --hds-form-control-padding-vertical: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma */
   --hds-form-control-padding-horizontal: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma */
   --hds-form-control-height: 36px;
