@@ -2,4 +2,4 @@
 "@hashicorp/flight-icons": minor
 ---
 
-Add `portal` icon.
+Added `portal` icon.
