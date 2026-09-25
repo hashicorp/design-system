@@ -11,9 +11,9 @@
         "$value": "16",
         "unit": "px"
       },
-      "base": {
-        "surface": {
-          "color": {
+      "surface": {
+        "color": {
+          "unchecked": {
             "default": {
               "$type": "color",
               "$value": "{surface.color.strong}",
@@ -36,30 +36,30 @@
                 "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
                 "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
               }
-            },
-            "checked": {
-              "default": {
-                "$type": "color",
-                "$value": "{core.color.blue-200}",
-                "$modes": {
-                  "default": "{core.color.blue-200}",
-                  "cds-g0": "{carbon.themes.white.supportSuccess}",
-                  "cds-g10": "{carbon.themes.g10.supportSuccess}",
-                  "cds-g90": "{carbon.themes.g90.supportSuccess}",
-                  "cds-g100": "{carbon.themes.g100.supportSuccess}"
-                }
-              },
-              "hover": {
-                "$type": "color",
-                "$value": "{core.color.blue-300}",
-                "$modes": {
-                  "default": "{core.color.blue-300}",
-                  "cds-g0": "{carbon.themes.white.supportSuccess}",
-                  "cds-g10": "{carbon.themes.g10.supportSuccess}",
-                  "cds-g90": "{carbon.themes.g90.supportSuccess}",
-                  "cds-g100": "{carbon.themes.g100.supportSuccess}"
-                }
+            }
+          },
+          "checked": {
+            "default": {
+              "$type": "color",
+              "$value": "{core.color.blue-200}",
+              "$modes": {
+                "default": "{core.color.blue-200}",
+                "cds-g0": "{carbon.themes.white.supportSuccess}",
+                "cds-g10": "{carbon.themes.g10.supportSuccess}",
+                "cds-g90": "{carbon.themes.g90.supportSuccess}",
+                "cds-g100": "{carbon.themes.g100.supportSuccess}"
               }
+            }
+          },
+          "checked-hover": {
+            "$type": "color",
+            "$value": "{core.color.blue-300}",
+            "$modes": {
+              "default": "{core.color.blue-300}",
+              "cds-g0": "{carbon.themes.white.supportSuccess}",
+              "cds-g10": "{carbon.themes.g10.supportSuccess}",
+              "cds-g90": "{carbon.themes.g90.supportSuccess}",
+              "cds-g100": "{carbon.themes.g100.supportSuccess}"
             }
           }
         }

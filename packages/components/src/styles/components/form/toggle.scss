@@ -115,18 +115,18 @@
   // unchecked
 
   :not(:checked) + & {
-    --border-color: var(--hds-form-control-base-border-color-default);
+    --border-color: var(--hds-form-control-boolean-border-color-unchecked-default);
     background-color: var(
-      --hds-form-toggle-base-surface-color-default
+      --hds-form-toggle-surface-color-unchecked-default
     ); // this is specific for "toggle", is not like the other controls!
   }
 
   // checked
 
   :checked + & {
-    --border-color: var(--hds-form-control-border-color-checked-default);
+    --border-color: var(--hds-form-control-boolean-border-color-checked-default);
 
-    background-color: var(--hds-form-toggle-base-surface-color-checked-default);
+    background-color: var(--hds-form-toggle-surface-color-checked-default);
 
     @include hds-apply-only-if-carbon() {
       background-image: none;
@@ -159,7 +159,7 @@
 
   :hover:not(:checked) + &,
   .mock-hover:not(:checked) + & {
-    --border-color: var(--hds-form-control-base-border-color-hover);
+    --border-color: var(--hds-form-control-boolean-border-color-unchecked-hover);
   }
 
   // checked
@@ -167,9 +167,9 @@
 
   :hover:checked + &,
   .mock-hover:checked + & {
-    --border-color: var(--hds-form-control-border-color-checked-hover);
+    --border-color: var(--hds-form-control-boolean-border-color-checked-hover);
 
-    background-color: var(--hds-form-toggle-base-surface-color-checked-hover);
+    background-color: var(--hds-form-toggle-surface-color-checked-hover);
   }
 
   // focus (same for all the states)
@@ -186,8 +186,8 @@
 
   :disabled:not(:checked) + &,
   :disabled:checked + & {
-    --border-color: var(--hds-form-control-disabled-border-color);
-    background-color: var(--hds-form-toggle-base-surface-color-disabled);
+    --border-color: var(--hds-form-control-boolean-border-color-unchecked-disabled);
+    background-color: var(--hds-form-toggle-surface-color-unchecked-disabled);
     background-image: var(--hds-form-toggle-background-image-data-url-disabled);
 
     @include hds-apply-only-if-carbon() {
