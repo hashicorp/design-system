@@ -271,17 +271,15 @@
         },
         "border": {
           "color": {
-            "disabled": {
-              "$type": "color",
-              "$value": "{border.color.primary}",
-              "group": "components",
-              "$modes": {
-                "default": "{border.color.primary}",
-                "cds-g0": "transparent",
-                "cds-g10": "transparent",
-                "cds-g90": "transparent",
-                "cds-g100": "transparent"
-              }
+            "$type": "color",
+            "$value": "{border.color.primary}",
+            "group": "components",
+            "$modes": {
+              "default": "{border.color.primary}",
+              "cds-g0": "transparent",
+              "cds-g10": "transparent",
+              "cds-g90": "transparent",
+              "cds-g100": "transparent"
             }
           }
         }
