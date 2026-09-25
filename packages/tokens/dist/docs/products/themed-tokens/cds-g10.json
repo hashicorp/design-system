@@ -21663,31 +21663,232 @@
     ]
   },
   {
-    "key": "{form.control.border.color.unchecked.default}",
+    "key": "{form.control.foreground.color.default}",
     "$type": "color",
     "$value": "#161616",
+    "group": "components",
+    "original": {
+      "$type": "color",
+      "$value": "{foreground.color.strong}",
+      "group": "components",
+      "key": "{form.control.foreground.color.default}"
+    },
+    "name": "hds-form-control-foreground-color-default",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control",
+      "foreground",
+      "color",
+      "default"
+    ]
+  },
+  {
+    "key": "{form.control.foreground.color.disabled}",
+    "$type": "color",
+    "$value": "rgba(22, 22, 22, 0.25)",
+    "original": {
+      "$type": "color",
+      "$value": "{foreground.color.disabled}",
+      "key": "{form.control.foreground.color.disabled}"
+    },
+    "name": "hds-form-control-foreground-color-disabled",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control",
+      "foreground",
+      "color",
+      "disabled"
+    ]
+  },
+  {
+    "key": "{form.control.foreground.color.readonly}",
+    "$type": "color",
+    "$value": "#161616",
+    "group": "components",
+    "original": {
+      "$type": "color",
+      "$value": "{foreground.color.primary}",
+      "group": "components",
+      "key": "{form.control.foreground.color.readonly}"
+    },
+    "name": "hds-form-control-foreground-color-readonly",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control",
+      "foreground",
+      "color",
+      "readonly"
+    ]
+  },
+  {
+    "key": "{form.control.surface.color.default}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "group": "components",
+    "original": {
+      "$type": "color",
+      "$value": "{surface.color.interactive}",
+      "group": "components",
+      "key": "{form.control.surface.color.default}"
+    },
+    "name": "hds-form-control-surface-color-default",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control",
+      "surface",
+      "color",
+      "default"
+    ]
+  },
+  {
+    "key": "{form.control.surface.color.hover}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "group": "components",
+    "$modes": {
+      "default": "#e8e8e8",
+      "cds-g0": "#f4f4f4",
+      "cds-g10": "#ffffff",
+      "cds-g90": "#393939",
+      "cds-g100": "#262626"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g10.field01}",
+      "group": "components",
+      "$modes": {
+        "default": "{surface.color.interactive-hover}",
+        "cds-g0": "{carbon.themes.white.field01}",
+        "cds-g10": "{carbon.themes.g10.field01}",
+        "cds-g90": "{carbon.themes.g90.field01}",
+        "cds-g100": "{carbon.themes.g100.field01}"
+      },
+      "key": "{form.control.surface.color.hover}"
+    },
+    "name": "hds-form-control-surface-color-hover",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control",
+      "surface",
+      "color",
+      "hover"
+    ]
+  },
+  {
+    "key": "{form.control.surface.color.disabled}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "group": "components",
+    "$modes": {
+      "default": "#c6c6c6",
+      "cds-g0": "#f4f4f4",
+      "cds-g10": "#ffffff",
+      "cds-g90": "#393939",
+      "cds-g100": "#262626"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g10.field01}",
+      "group": "components",
+      "$modes": {
+        "default": "{surface.color.interactive-disabled}",
+        "cds-g0": "{carbon.themes.white.field01}",
+        "cds-g10": "{carbon.themes.g10.field01}",
+        "cds-g90": "{carbon.themes.g90.field01}",
+        "cds-g100": "{carbon.themes.g100.field01}"
+      },
+      "key": "{form.control.surface.color.disabled}"
+    },
+    "name": "hds-form-control-surface-color-disabled",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control",
+      "surface",
+      "color",
+      "disabled"
+    ]
+  },
+  {
+    "key": "{form.control.surface.color.readonly}",
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "group": "components",
+    "$modes": {
+      "default": "#e0e0e0",
+      "cds-g0": "transparent",
+      "cds-g10": "transparent",
+      "cds-g90": "transparent",
+      "cds-g100": "transparent"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "transparent",
+      "group": "components",
+      "$modes": {
+        "default": "{surface.color.strong}",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "key": "{form.control.surface.color.readonly}"
+    },
+    "name": "hds-form-control-surface-color-readonly",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control",
+      "surface",
+      "color",
+      "readonly"
+    ]
+  },
+  {
+    "key": "{form.control.border.color.default}",
+    "$type": "color",
+    "$value": "#8d8d8d",
     "group": "components",
     "$modes": {
       "default": "#8d8d8d",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
+      "cds-g0": "#8d8d8d",
+      "cds-g10": "#8d8d8d",
+      "cds-g90": "#8d8d8d",
+      "cds-g100": "#6f6f6f"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.g10.iconPrimary}",
+      "$value": "{carbon.themes.g10.borderStrong01}",
       "group": "components",
       "$modes": {
         "default": "{core.color.neutral-400}",
-        "cds-g0": "{carbon.themes.white.iconPrimary}",
-        "cds-g10": "{carbon.themes.g10.iconPrimary}",
-        "cds-g90": "{carbon.themes.g90.iconPrimary}",
-        "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        "cds-g0": "{carbon.themes.white.borderStrong01}",
+        "cds-g10": "{carbon.themes.g10.borderStrong01}",
+        "cds-g90": "{carbon.themes.g90.borderStrong01}",
+        "cds-g100": "{carbon.themes.g100.borderStrong01}"
       },
-      "key": "{form.control.border.color.unchecked.default}"
+      "key": "{form.control.border.color.default}"
     },
-    "name": "hds-form-control-border-color-unchecked-default",
+    "name": "hds-form-control-border-color-default",
     "attributes": {
       "category": "form"
     },
@@ -21696,74 +21897,35 @@
       "control",
       "border",
       "color",
-      "unchecked",
       "default"
     ]
   },
   {
-    "key": "{form.control.border.color.unchecked.disabled}",
+    "key": "{form.control.border.color.hover}",
     "$type": "color",
-    "$value": "rgba(22, 22, 22, 0.25)",
-    "group": "components",
-    "$modes": {
-      "default": "#e0e0e0",
-      "cds-g0": "rgba(22, 22, 22, 0.25)",
-      "cds-g10": "rgba(22, 22, 22, 0.25)",
-      "cds-g90": "rgba(244, 244, 244, 0.25)",
-      "cds-g100": "rgba(244, 244, 244, 0.25)"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.g10.iconDisabled}",
-      "group": "components",
-      "$modes": {
-        "default": "{border.color.primary}",
-        "cds-g0": "{carbon.themes.white.iconDisabled}",
-        "cds-g10": "{carbon.themes.g10.iconDisabled}",
-        "cds-g90": "{carbon.themes.g90.iconDisabled}",
-        "cds-g100": "{carbon.themes.g100.iconDisabled}"
-      },
-      "key": "{form.control.border.color.unchecked.disabled}"
-    },
-    "name": "hds-form-control-border-color-unchecked-disabled",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "border",
-      "color",
-      "unchecked",
-      "disabled"
-    ]
-  },
-  {
-    "key": "{form.control.border.color.unchecked.hover}",
-    "$type": "color",
-    "$value": "#161616",
+    "$value": "#8d8d8d",
     "group": "components",
     "$modes": {
       "default": "#525252",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
+      "cds-g0": "#8d8d8d",
+      "cds-g10": "#8d8d8d",
+      "cds-g90": "#8d8d8d",
+      "cds-g100": "#6f6f6f"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.g10.iconPrimary}",
+      "$value": "{carbon.themes.g10.borderStrong01}",
       "group": "components",
       "$modes": {
         "default": "{core.color.neutral-500}",
-        "cds-g0": "{carbon.themes.white.iconPrimary}",
-        "cds-g10": "{carbon.themes.g10.iconPrimary}",
-        "cds-g90": "{carbon.themes.g90.iconPrimary}",
-        "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        "cds-g0": "{carbon.themes.white.borderStrong01}",
+        "cds-g10": "{carbon.themes.g10.borderStrong01}",
+        "cds-g90": "{carbon.themes.g90.borderStrong01}",
+        "cds-g100": "{carbon.themes.g100.borderStrong01}"
       },
-      "key": "{form.control.border.color.unchecked.hover}"
+      "key": "{form.control.border.color.hover}"
     },
-    "name": "hds-form-control-border-color-unchecked-hover",
+    "name": "hds-form-control-border-color-hover",
     "attributes": {
       "category": "form"
     },
@@ -21772,74 +21934,35 @@
       "control",
       "border",
       "color",
-      "unchecked",
       "hover"
     ]
   },
   {
-    "key": "{form.control.border.color.checked.default}",
+    "key": "{form.control.border.color.disabled}",
     "$type": "color",
-    "$value": "#161616",
-    "group": "components",
-    "$modes": {
-      "default": "#0043ce",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.g10.iconPrimary}",
-      "group": "components",
-      "$modes": {
-        "default": "{core.color.blue-300}",
-        "cds-g0": "{carbon.themes.white.iconPrimary}",
-        "cds-g10": "{carbon.themes.g10.iconPrimary}",
-        "cds-g90": "{carbon.themes.g90.iconPrimary}",
-        "cds-g100": "{carbon.themes.g100.iconPrimary}"
-      },
-      "key": "{form.control.border.color.checked.default}"
-    },
-    "name": "hds-form-control-border-color-checked-default",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "border",
-      "color",
-      "checked",
-      "default"
-    ]
-  },
-  {
-    "key": "{form.control.border.color.checked.disabled}",
-    "$type": "color",
-    "$value": "rgba(22, 22, 22, 0.25)",
+    "$value": "rgba(0, 0, 0, 0)",
     "group": "components",
     "$modes": {
       "default": "#e0e0e0",
-      "cds-g0": "rgba(22, 22, 22, 0.25)",
-      "cds-g10": "rgba(22, 22, 22, 0.25)",
-      "cds-g90": "rgba(244, 244, 244, 0.25)",
-      "cds-g100": "rgba(244, 244, 244, 0.25)"
+      "cds-g0": "transparent",
+      "cds-g10": "transparent",
+      "cds-g90": "transparent",
+      "cds-g100": "transparent"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.g10.iconDisabled}",
+      "$value": "transparent",
       "group": "components",
       "$modes": {
         "default": "{border.color.primary}",
-        "cds-g0": "{carbon.themes.white.iconDisabled}",
-        "cds-g10": "{carbon.themes.g10.iconDisabled}",
-        "cds-g90": "{carbon.themes.g90.iconDisabled}",
-        "cds-g100": "{carbon.themes.g100.iconDisabled}"
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
       },
-      "key": "{form.control.border.color.checked.disabled}"
+      "key": "{form.control.border.color.disabled}"
     },
-    "name": "hds-form-control-border-color-checked-disabled",
+    "name": "hds-form-control-border-color-disabled",
     "attributes": {
       "category": "form"
     },
@@ -21848,36 +21971,40 @@
       "control",
       "border",
       "color",
-      "checked",
       "disabled"
     ]
   },
   {
-    "key": "{form.control.border.color.checked.hover}",
+    "key": "{form.control.border.color.invalid}",
     "$type": "color",
-    "$value": "#161616",
+    "$value": "#da1e28",
     "group": "components",
     "$modes": {
-      "default": "#002d9c",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
+      "default": "#a2191f",
+      "cds-g0": "#da1e28",
+      "cds-g10": "#da1e28",
+      "cds-g90": "#ff8389",
+      "cds-g100": "#fa4d56"
     },
+    "comment": "Carbon uses outline instead of a border color change",
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.g10.iconPrimary}",
+      "$value": "{carbon.themes.g10.supportError}",
       "group": "components",
       "$modes": {
-        "default": "{core.color.blue-400}",
-        "cds-g0": "{carbon.themes.white.iconPrimary}",
-        "cds-g10": "{carbon.themes.g10.iconPrimary}",
-        "cds-g90": "{carbon.themes.g90.iconPrimary}",
-        "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        "default": "{core.color.red-300}",
+        "cds-g0": "{carbon.themes.white.supportError}",
+        "cds-g10": "{carbon.themes.g10.supportError}",
+        "cds-g90": "{carbon.themes.g90.supportError}",
+        "cds-g100": "{carbon.themes.g100.supportError}"
       },
-      "key": "{form.control.border.color.checked.hover}"
+      "comments": {
+        "cds": "Carbon uses outline instead of a border color change"
+      },
+      "comment": "Carbon uses outline instead of a border color change",
+      "key": "{form.control.border.color.invalid}"
     },
-    "name": "hds-form-control-border-color-checked-hover",
+    "name": "hds-form-control-border-color-invalid",
     "attributes": {
       "category": "form"
     },
@@ -21886,8 +22013,67 @@
       "control",
       "border",
       "color",
-      "checked",
-      "hover"
+      "invalid"
+    ]
+  },
+  {
+    "key": "{form.control.border.color.invalid-hover}",
+    "$type": "color",
+    "$value": "#da1e28",
+    "group": "components",
+    "$modes": {
+      "default": "#750e13",
+      "cds-g0": "#da1e28",
+      "cds-g10": "#da1e28",
+      "cds-g90": "#ff8389",
+      "cds-g100": "#fa4d56"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g10.supportError}",
+      "group": "components",
+      "$modes": {
+        "default": "{core.color.red-400}",
+        "cds-g0": "{carbon.themes.white.supportError}",
+        "cds-g10": "{carbon.themes.g10.supportError}",
+        "cds-g90": "{carbon.themes.g90.supportError}",
+        "cds-g100": "{carbon.themes.g100.supportError}"
+      },
+      "key": "{form.control.border.color.invalid-hover}"
+    },
+    "name": "hds-form-control-border-color-invalid-hover",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control",
+      "border",
+      "color",
+      "invalid-hover"
+    ]
+  },
+  {
+    "key": "{form.control.border.color.readonly}",
+    "$type": "color",
+    "$value": "#c6c6c6",
+    "group": "components",
+    "original": {
+      "$type": "color",
+      "$value": "{border.color.faint}",
+      "group": "components",
+      "key": "{form.control.border.color.readonly}"
+    },
+    "name": "hds-form-control-border-color-readonly",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control",
+      "border",
+      "color",
+      "readonly"
     ]
   },
   {
@@ -21935,433 +22121,7 @@
     ]
   },
   {
-    "key": "{form.control.surface.color.unchecked.default}",
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
-    "group": "components",
-    "$modes": {
-      "default": "#ffffff",
-      "cds-g0": "transparent",
-      "cds-g10": "transparent",
-      "cds-g90": "transparent",
-      "cds-g100": "transparent"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "transparent",
-      "group": "components",
-      "$modes": {
-        "default": "{surface.color.interactive}",
-        "cds-g0": "transparent",
-        "cds-g10": "transparent",
-        "cds-g90": "transparent",
-        "cds-g100": "transparent"
-      },
-      "key": "{form.control.surface.color.unchecked.default}"
-    },
-    "name": "hds-form-control-surface-color-unchecked-default",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "surface",
-      "color",
-      "unchecked",
-      "default"
-    ]
-  },
-  {
-    "key": "{form.control.surface.color.unchecked.disabled}",
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
-    "group": "components",
-    "$modes": {
-      "default": "#c6c6c6",
-      "cds-g0": "transparent",
-      "cds-g10": "transparent",
-      "cds-g90": "transparent",
-      "cds-g100": "transparent"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "transparent",
-      "group": "components",
-      "$modes": {
-        "default": "{surface.color.interactive-disabled}",
-        "cds-g0": "transparent",
-        "cds-g10": "transparent",
-        "cds-g90": "transparent",
-        "cds-g100": "transparent"
-      },
-      "key": "{form.control.surface.color.unchecked.disabled}"
-    },
-    "name": "hds-form-control-surface-color-unchecked-disabled",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "surface",
-      "color",
-      "unchecked",
-      "disabled"
-    ]
-  },
-  {
-    "key": "{form.control.surface.color.unchecked.hover}",
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
-    "group": "components",
-    "$modes": {
-      "default": "#e8e8e8",
-      "cds-g0": "transparent",
-      "cds-g10": "transparent",
-      "cds-g90": "transparent",
-      "cds-g100": "transparent"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "transparent",
-      "group": "components",
-      "$modes": {
-        "default": "{surface.color.interactive-hover}",
-        "cds-g0": "transparent",
-        "cds-g10": "transparent",
-        "cds-g90": "transparent",
-        "cds-g100": "transparent"
-      },
-      "key": "{form.control.surface.color.unchecked.hover}"
-    },
-    "name": "hds-form-control-surface-color-unchecked-hover",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "surface",
-      "color",
-      "unchecked",
-      "hover"
-    ]
-  },
-  {
-    "key": "{form.control.surface.color.checked.default}",
-    "$type": "color",
-    "$value": "#161616",
-    "group": "components",
-    "$modes": {
-      "default": "#0f62fe",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.g10.iconPrimary}",
-      "group": "components",
-      "$modes": {
-        "default": "{core.color.blue-200}",
-        "cds-g0": "{carbon.themes.white.iconPrimary}",
-        "cds-g10": "{carbon.themes.g10.iconPrimary}",
-        "cds-g90": "{carbon.themes.g90.iconPrimary}",
-        "cds-g100": "{carbon.themes.g100.iconPrimary}"
-      },
-      "key": "{form.control.surface.color.checked.default}"
-    },
-    "name": "hds-form-control-surface-color-checked-default",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "surface",
-      "color",
-      "checked",
-      "default"
-    ]
-  },
-  {
-    "key": "{form.control.surface.color.checked.disabled}",
-    "$type": "color",
-    "$value": "rgba(22, 22, 22, 0.25)",
-    "group": "components",
-    "$modes": {
-      "default": "#c6c6c6",
-      "cds-g0": "rgba(22, 22, 22, 0.25)",
-      "cds-g10": "rgba(22, 22, 22, 0.25)",
-      "cds-g90": "rgba(244, 244, 244, 0.25)",
-      "cds-g100": "rgba(244, 244, 244, 0.25)"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.g10.iconDisabled}",
-      "group": "components",
-      "$modes": {
-        "default": "{surface.color.interactive-disabled}",
-        "cds-g0": "{carbon.themes.white.iconDisabled}",
-        "cds-g10": "{carbon.themes.g10.iconDisabled}",
-        "cds-g90": "{carbon.themes.g90.iconDisabled}",
-        "cds-g100": "{carbon.themes.g100.iconDisabled}"
-      },
-      "key": "{form.control.surface.color.checked.disabled}"
-    },
-    "name": "hds-form-control-surface-color-checked-disabled",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "surface",
-      "color",
-      "checked",
-      "disabled"
-    ]
-  },
-  {
-    "key": "{form.control.surface.color.checked.hover}",
-    "$type": "color",
-    "$value": "#161616",
-    "group": "components",
-    "$modes": {
-      "default": "#0043ce",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.g10.iconPrimary}",
-      "group": "components",
-      "$modes": {
-        "default": "{core.color.blue-300}",
-        "cds-g0": "{carbon.themes.white.iconPrimary}",
-        "cds-g10": "{carbon.themes.g10.iconPrimary}",
-        "cds-g90": "{carbon.themes.g90.iconPrimary}",
-        "cds-g100": "{carbon.themes.g100.iconPrimary}"
-      },
-      "key": "{form.control.surface.color.checked.hover}"
-    },
-    "name": "hds-form-control-surface-color-checked-hover",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "surface",
-      "color",
-      "checked",
-      "hover"
-    ]
-  },
-  {
-    "key": "{form.control.foreground.color.checked}",
-    "$type": "color",
-    "$value": "#161616",
-    "group": "components",
-    "$modes": {
-      "default": "#ffffff",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.g10.textPrimary}",
-      "group": "components",
-      "$modes": {
-        "default": "{foreground.color.high-contrast}",
-        "cds-g0": "{carbon.themes.white.textPrimary}",
-        "cds-g10": "{carbon.themes.g10.textPrimary}",
-        "cds-g90": "{carbon.themes.g90.textPrimary}",
-        "cds-g100": "{carbon.themes.g100.textPrimary}"
-      },
-      "key": "{form.control.foreground.color.checked}"
-    },
-    "name": "hds-form-control-foreground-color-checked",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "foreground",
-      "color",
-      "checked"
-    ]
-  },
-  {
-    "key": "{form.control.base.foreground.color}",
-    "$type": "color",
-    "$value": "#161616",
-    "group": "components",
-    "original": {
-      "$type": "color",
-      "$value": "{foreground.color.strong}",
-      "group": "components",
-      "key": "{form.control.base.foreground.color}"
-    },
-    "name": "hds-form-control-base-foreground-color",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "base",
-      "foreground",
-      "color"
-    ]
-  },
-  {
-    "key": "{form.control.base.surface.color.default}",
-    "$type": "color",
-    "$value": "#ffffff",
-    "group": "components",
-    "original": {
-      "$type": "color",
-      "$value": "{surface.color.interactive}",
-      "group": "components",
-      "key": "{form.control.base.surface.color.default}"
-    },
-    "name": "hds-form-control-base-surface-color-default",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "base",
-      "surface",
-      "color",
-      "default"
-    ]
-  },
-  {
-    "key": "{form.control.base.surface.color.hover}",
-    "$type": "color",
-    "$value": "#ffffff",
-    "group": "components",
-    "$modes": {
-      "default": "#e8e8e8",
-      "cds-g0": "#f4f4f4",
-      "cds-g10": "#ffffff",
-      "cds-g90": "#393939",
-      "cds-g100": "#262626"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.g10.field01}",
-      "group": "components",
-      "$modes": {
-        "default": "{surface.color.interactive-hover}",
-        "cds-g0": "{carbon.themes.white.field01}",
-        "cds-g10": "{carbon.themes.g10.field01}",
-        "cds-g90": "{carbon.themes.g90.field01}",
-        "cds-g100": "{carbon.themes.g100.field01}"
-      },
-      "key": "{form.control.base.surface.color.hover}"
-    },
-    "name": "hds-form-control-base-surface-color-hover",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "base",
-      "surface",
-      "color",
-      "hover"
-    ]
-  },
-  {
-    "key": "{form.control.base.border.color.default}",
-    "$type": "color",
-    "$value": "#8d8d8d",
-    "group": "components",
-    "$modes": {
-      "default": "#8d8d8d",
-      "cds-g0": "#8d8d8d",
-      "cds-g10": "#8d8d8d",
-      "cds-g90": "#8d8d8d",
-      "cds-g100": "#6f6f6f"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.g10.borderStrong01}",
-      "group": "components",
-      "$modes": {
-        "default": "{core.color.neutral-400}",
-        "cds-g0": "{carbon.themes.white.borderStrong01}",
-        "cds-g10": "{carbon.themes.g10.borderStrong01}",
-        "cds-g90": "{carbon.themes.g90.borderStrong01}",
-        "cds-g100": "{carbon.themes.g100.borderStrong01}"
-      },
-      "key": "{form.control.base.border.color.default}"
-    },
-    "name": "hds-form-control-base-border-color-default",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "base",
-      "border",
-      "color",
-      "default"
-    ]
-  },
-  {
-    "key": "{form.control.base.border.color.hover}",
-    "$type": "color",
-    "$value": "#8d8d8d",
-    "group": "components",
-    "$modes": {
-      "default": "#525252",
-      "cds-g0": "#8d8d8d",
-      "cds-g10": "#8d8d8d",
-      "cds-g90": "#8d8d8d",
-      "cds-g100": "#6f6f6f"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.g10.borderStrong01}",
-      "group": "components",
-      "$modes": {
-        "default": "{core.color.neutral-500}",
-        "cds-g0": "{carbon.themes.white.borderStrong01}",
-        "cds-g10": "{carbon.themes.g10.borderStrong01}",
-        "cds-g90": "{carbon.themes.g90.borderStrong01}",
-        "cds-g100": "{carbon.themes.g100.borderStrong01}"
-      },
-      "key": "{form.control.base.border.color.hover}"
-    },
-    "name": "hds-form-control-base-border-color-hover",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "base",
-      "border",
-      "color",
-      "hover"
-    ]
-  },
-  {
-    "key": "{form.control.base.placeholder.foreground.color.default}",
+    "key": "{form.control.placeholder.foreground.color.default}",
     "$type": "color",
     "$value": "rgba(22, 22, 22, 0.4)",
     "group": "components",
@@ -22383,16 +22143,15 @@
         "cds-g90": "{carbon.themes.g90.textPlaceholder}",
         "cds-g100": "{carbon.themes.g100.textPlaceholder}"
       },
-      "key": "{form.control.base.placeholder.foreground.color.default}"
+      "key": "{form.control.placeholder.foreground.color.default}"
     },
-    "name": "hds-form-control-base-placeholder-foreground-color-default",
+    "name": "hds-form-control-placeholder-foreground-color-default",
     "attributes": {
       "category": "form"
     },
     "path": [
       "form",
       "control",
-      "base",
       "placeholder",
       "foreground",
       "color",
@@ -22400,7 +22159,7 @@
     ]
   },
   {
-    "key": "{form.control.base.placeholder.foreground.color.disabled}",
+    "key": "{form.control.placeholder.foreground.color.disabled}",
     "$type": "color",
     "$value": "rgba(22, 22, 22, 0.25)",
     "group": "components",
@@ -22422,279 +22181,19 @@
         "cds-g90": "{carbon.themes.g90.textDisabled}",
         "cds-g100": "{carbon.themes.g100.textDisabled}"
       },
-      "key": "{form.control.base.placeholder.foreground.color.disabled}"
+      "key": "{form.control.placeholder.foreground.color.disabled}"
     },
-    "name": "hds-form-control-base-placeholder-foreground-color-disabled",
+    "name": "hds-form-control-placeholder-foreground-color-disabled",
     "attributes": {
       "category": "form"
     },
     "path": [
       "form",
       "control",
-      "base",
       "placeholder",
       "foreground",
       "color",
       "disabled"
-    ]
-  },
-  {
-    "key": "{form.control.invalid.border.color.default}",
-    "$type": "color",
-    "$value": "#da1e28",
-    "group": "components",
-    "$modes": {
-      "default": "#a2191f",
-      "cds-g0": "#da1e28",
-      "cds-g10": "#da1e28",
-      "cds-g90": "#ff8389",
-      "cds-g100": "#fa4d56"
-    },
-    "comment": "Carbon uses outline instead of a border color change",
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.g10.supportError}",
-      "group": "components",
-      "$modes": {
-        "default": "{core.color.red-300}",
-        "cds-g0": "{carbon.themes.white.supportError}",
-        "cds-g10": "{carbon.themes.g10.supportError}",
-        "cds-g90": "{carbon.themes.g90.supportError}",
-        "cds-g100": "{carbon.themes.g100.supportError}"
-      },
-      "comments": {
-        "cds": "Carbon uses outline instead of a border color change"
-      },
-      "comment": "Carbon uses outline instead of a border color change",
-      "key": "{form.control.invalid.border.color.default}"
-    },
-    "name": "hds-form-control-invalid-border-color-default",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "invalid",
-      "border",
-      "color",
-      "default"
-    ]
-  },
-  {
-    "key": "{form.control.invalid.border.color.hover}",
-    "$type": "color",
-    "$value": "#da1e28",
-    "group": "components",
-    "$modes": {
-      "default": "#750e13",
-      "cds-g0": "#da1e28",
-      "cds-g10": "#da1e28",
-      "cds-g90": "#ff8389",
-      "cds-g100": "#fa4d56"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.g10.supportError}",
-      "group": "components",
-      "$modes": {
-        "default": "{core.color.red-400}",
-        "cds-g0": "{carbon.themes.white.supportError}",
-        "cds-g10": "{carbon.themes.g10.supportError}",
-        "cds-g90": "{carbon.themes.g90.supportError}",
-        "cds-g100": "{carbon.themes.g100.supportError}"
-      },
-      "key": "{form.control.invalid.border.color.hover}"
-    },
-    "name": "hds-form-control-invalid-border-color-hover",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "invalid",
-      "border",
-      "color",
-      "hover"
-    ]
-  },
-  {
-    "key": "{form.control.readonly.foreground.color}",
-    "$type": "color",
-    "$value": "#161616",
-    "group": "components",
-    "original": {
-      "$type": "color",
-      "$value": "{foreground.color.primary}",
-      "group": "components",
-      "key": "{form.control.readonly.foreground.color}"
-    },
-    "name": "hds-form-control-readonly-foreground-color",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "readonly",
-      "foreground",
-      "color"
-    ]
-  },
-  {
-    "key": "{form.control.readonly.surface.color}",
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
-    "group": "components",
-    "$modes": {
-      "default": "#e0e0e0",
-      "cds-g0": "transparent",
-      "cds-g10": "transparent",
-      "cds-g90": "transparent",
-      "cds-g100": "transparent"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "transparent",
-      "group": "components",
-      "$modes": {
-        "default": "{surface.color.strong}",
-        "cds-g0": "transparent",
-        "cds-g10": "transparent",
-        "cds-g90": "transparent",
-        "cds-g100": "transparent"
-      },
-      "key": "{form.control.readonly.surface.color}"
-    },
-    "name": "hds-form-control-readonly-surface-color",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "readonly",
-      "surface",
-      "color"
-    ]
-  },
-  {
-    "key": "{form.control.readonly.border.color}",
-    "$type": "color",
-    "$value": "#c6c6c6",
-    "group": "components",
-    "original": {
-      "$type": "color",
-      "$value": "{border.color.faint}",
-      "group": "components",
-      "key": "{form.control.readonly.border.color}"
-    },
-    "name": "hds-form-control-readonly-border-color",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "readonly",
-      "border",
-      "color"
-    ]
-  },
-  {
-    "key": "{form.control.disabled.foreground.color}",
-    "$type": "color",
-    "$value": "rgba(22, 22, 22, 0.25)",
-    "original": {
-      "$type": "color",
-      "$value": "{foreground.color.disabled}",
-      "key": "{form.control.disabled.foreground.color}"
-    },
-    "name": "hds-form-control-disabled-foreground-color",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "disabled",
-      "foreground",
-      "color"
-    ]
-  },
-  {
-    "key": "{form.control.disabled.surface.color}",
-    "$type": "color",
-    "$value": "#ffffff",
-    "group": "components",
-    "$modes": {
-      "default": "#c6c6c6",
-      "cds-g0": "#f4f4f4",
-      "cds-g10": "#ffffff",
-      "cds-g90": "#393939",
-      "cds-g100": "#262626"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.g10.field01}",
-      "group": "components",
-      "$modes": {
-        "default": "{surface.color.interactive-disabled}",
-        "cds-g0": "{carbon.themes.white.field01}",
-        "cds-g10": "{carbon.themes.g10.field01}",
-        "cds-g90": "{carbon.themes.g90.field01}",
-        "cds-g100": "{carbon.themes.g100.field01}"
-      },
-      "key": "{form.control.disabled.surface.color}"
-    },
-    "name": "hds-form-control-disabled-surface-color",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "disabled",
-      "surface",
-      "color"
-    ]
-  },
-  {
-    "key": "{form.control.disabled.border.color}",
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
-    "group": "components",
-    "$modes": {
-      "default": "#e0e0e0",
-      "cds-g0": "transparent",
-      "cds-g10": "transparent",
-      "cds-g90": "transparent",
-      "cds-g100": "transparent"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "transparent",
-      "group": "components",
-      "$modes": {
-        "default": "{border.color.primary}",
-        "cds-g0": "transparent",
-        "cds-g10": "transparent",
-        "cds-g90": "transparent",
-        "cds-g100": "transparent"
-      },
-      "key": "{form.control.disabled.border.color}"
-    },
-    "name": "hds-form-control-disabled-border-color",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "disabled",
-      "border",
-      "color"
     ]
   },
   {
@@ -22811,6 +22310,522 @@
       "form",
       "control",
       "height"
+    ]
+  },
+  {
+    "key": "{form.control-boolean.foreground.color.checked}",
+    "$type": "color",
+    "$value": "#161616",
+    "group": "components",
+    "$modes": {
+      "default": "#ffffff",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g10.textPrimary}",
+      "group": "components",
+      "$modes": {
+        "default": "{foreground.color.high-contrast}",
+        "cds-g0": "{carbon.themes.white.textPrimary}",
+        "cds-g10": "{carbon.themes.g10.textPrimary}",
+        "cds-g90": "{carbon.themes.g90.textPrimary}",
+        "cds-g100": "{carbon.themes.g100.textPrimary}"
+      },
+      "key": "{form.control-boolean.foreground.color.checked}"
+    },
+    "name": "hds-form-control-boolean-foreground-color-checked",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control-boolean",
+      "foreground",
+      "color",
+      "checked"
+    ]
+  },
+  {
+    "key": "{form.control-boolean.foreground.color.unchecked}",
+    "$type": "color",
+    "$value": "#161616",
+    "group": "components",
+    "original": {
+      "$type": "color",
+      "$value": "{foreground.color.strong}",
+      "group": "components",
+      "key": "{form.control-boolean.foreground.color.unchecked}"
+    },
+    "name": "hds-form-control-boolean-foreground-color-unchecked",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control-boolean",
+      "foreground",
+      "color",
+      "unchecked"
+    ]
+  },
+  {
+    "key": "{form.control-boolean.surface.color.checked.default}",
+    "$type": "color",
+    "$value": "#161616",
+    "group": "components",
+    "$modes": {
+      "default": "#0f62fe",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g10.iconPrimary}",
+      "group": "components",
+      "$modes": {
+        "default": "{core.color.blue-200}",
+        "cds-g0": "{carbon.themes.white.iconPrimary}",
+        "cds-g10": "{carbon.themes.g10.iconPrimary}",
+        "cds-g90": "{carbon.themes.g90.iconPrimary}",
+        "cds-g100": "{carbon.themes.g100.iconPrimary}"
+      },
+      "key": "{form.control-boolean.surface.color.checked.default}"
+    },
+    "name": "hds-form-control-boolean-surface-color-checked-default",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control-boolean",
+      "surface",
+      "color",
+      "checked",
+      "default"
+    ]
+  },
+  {
+    "key": "{form.control-boolean.surface.color.checked.hover}",
+    "$type": "color",
+    "$value": "#161616",
+    "group": "components",
+    "$modes": {
+      "default": "#0043ce",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g10.iconPrimary}",
+      "group": "components",
+      "$modes": {
+        "default": "{core.color.blue-300}",
+        "cds-g0": "{carbon.themes.white.iconPrimary}",
+        "cds-g10": "{carbon.themes.g10.iconPrimary}",
+        "cds-g90": "{carbon.themes.g90.iconPrimary}",
+        "cds-g100": "{carbon.themes.g100.iconPrimary}"
+      },
+      "key": "{form.control-boolean.surface.color.checked.hover}"
+    },
+    "name": "hds-form-control-boolean-surface-color-checked-hover",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control-boolean",
+      "surface",
+      "color",
+      "checked",
+      "hover"
+    ]
+  },
+  {
+    "key": "{form.control-boolean.surface.color.checked.disabled}",
+    "$type": "color",
+    "$value": "rgba(22, 22, 22, 0.25)",
+    "group": "components",
+    "$modes": {
+      "default": "#c6c6c6",
+      "cds-g0": "rgba(22, 22, 22, 0.25)",
+      "cds-g10": "rgba(22, 22, 22, 0.25)",
+      "cds-g90": "rgba(244, 244, 244, 0.25)",
+      "cds-g100": "rgba(244, 244, 244, 0.25)"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g10.iconDisabled}",
+      "group": "components",
+      "$modes": {
+        "default": "{surface.color.interactive-disabled}",
+        "cds-g0": "{carbon.themes.white.iconDisabled}",
+        "cds-g10": "{carbon.themes.g10.iconDisabled}",
+        "cds-g90": "{carbon.themes.g90.iconDisabled}",
+        "cds-g100": "{carbon.themes.g100.iconDisabled}"
+      },
+      "key": "{form.control-boolean.surface.color.checked.disabled}"
+    },
+    "name": "hds-form-control-boolean-surface-color-checked-disabled",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control-boolean",
+      "surface",
+      "color",
+      "checked",
+      "disabled"
+    ]
+  },
+  {
+    "key": "{form.control-boolean.surface.color.unchecked.default}",
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "group": "components",
+    "$modes": {
+      "default": "#ffffff",
+      "cds-g0": "transparent",
+      "cds-g10": "transparent",
+      "cds-g90": "transparent",
+      "cds-g100": "transparent"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "transparent",
+      "group": "components",
+      "$modes": {
+        "default": "{surface.color.interactive}",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "key": "{form.control-boolean.surface.color.unchecked.default}"
+    },
+    "name": "hds-form-control-boolean-surface-color-unchecked-default",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control-boolean",
+      "surface",
+      "color",
+      "unchecked",
+      "default"
+    ]
+  },
+  {
+    "key": "{form.control-boolean.surface.color.unchecked.hover}",
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "group": "components",
+    "$modes": {
+      "default": "#e8e8e8",
+      "cds-g0": "transparent",
+      "cds-g10": "transparent",
+      "cds-g90": "transparent",
+      "cds-g100": "transparent"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "transparent",
+      "group": "components",
+      "$modes": {
+        "default": "{surface.color.interactive-hover}",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "key": "{form.control-boolean.surface.color.unchecked.hover}"
+    },
+    "name": "hds-form-control-boolean-surface-color-unchecked-hover",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control-boolean",
+      "surface",
+      "color",
+      "unchecked",
+      "hover"
+    ]
+  },
+  {
+    "key": "{form.control-boolean.surface.color.unchecked.disabled}",
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "group": "components",
+    "$modes": {
+      "default": "#c6c6c6",
+      "cds-g0": "transparent",
+      "cds-g10": "transparent",
+      "cds-g90": "transparent",
+      "cds-g100": "transparent"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "transparent",
+      "group": "components",
+      "$modes": {
+        "default": "{surface.color.interactive-disabled}",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "key": "{form.control-boolean.surface.color.unchecked.disabled}"
+    },
+    "name": "hds-form-control-boolean-surface-color-unchecked-disabled",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control-boolean",
+      "surface",
+      "color",
+      "unchecked",
+      "disabled"
+    ]
+  },
+  {
+    "key": "{form.control-boolean.border.color.checked.default}",
+    "$type": "color",
+    "$value": "#161616",
+    "group": "components",
+    "$modes": {
+      "default": "#0043ce",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g10.iconPrimary}",
+      "group": "components",
+      "$modes": {
+        "default": "{core.color.blue-300}",
+        "cds-g0": "{carbon.themes.white.iconPrimary}",
+        "cds-g10": "{carbon.themes.g10.iconPrimary}",
+        "cds-g90": "{carbon.themes.g90.iconPrimary}",
+        "cds-g100": "{carbon.themes.g100.iconPrimary}"
+      },
+      "key": "{form.control-boolean.border.color.checked.default}"
+    },
+    "name": "hds-form-control-boolean-border-color-checked-default",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control-boolean",
+      "border",
+      "color",
+      "checked",
+      "default"
+    ]
+  },
+  {
+    "key": "{form.control-boolean.border.color.checked.hover}",
+    "$type": "color",
+    "$value": "#161616",
+    "group": "components",
+    "$modes": {
+      "default": "#002d9c",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g10.iconPrimary}",
+      "group": "components",
+      "$modes": {
+        "default": "{core.color.blue-400}",
+        "cds-g0": "{carbon.themes.white.iconPrimary}",
+        "cds-g10": "{carbon.themes.g10.iconPrimary}",
+        "cds-g90": "{carbon.themes.g90.iconPrimary}",
+        "cds-g100": "{carbon.themes.g100.iconPrimary}"
+      },
+      "key": "{form.control-boolean.border.color.checked.hover}"
+    },
+    "name": "hds-form-control-boolean-border-color-checked-hover",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control-boolean",
+      "border",
+      "color",
+      "checked",
+      "hover"
+    ]
+  },
+  {
+    "key": "{form.control-boolean.border.color.checked.disabled}",
+    "$type": "color",
+    "$value": "rgba(22, 22, 22, 0.25)",
+    "group": "components",
+    "$modes": {
+      "default": "#e0e0e0",
+      "cds-g0": "rgba(22, 22, 22, 0.25)",
+      "cds-g10": "rgba(22, 22, 22, 0.25)",
+      "cds-g90": "rgba(244, 244, 244, 0.25)",
+      "cds-g100": "rgba(244, 244, 244, 0.25)"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g10.iconDisabled}",
+      "group": "components",
+      "$modes": {
+        "default": "{border.color.primary}",
+        "cds-g0": "{carbon.themes.white.iconDisabled}",
+        "cds-g10": "{carbon.themes.g10.iconDisabled}",
+        "cds-g90": "{carbon.themes.g90.iconDisabled}",
+        "cds-g100": "{carbon.themes.g100.iconDisabled}"
+      },
+      "key": "{form.control-boolean.border.color.checked.disabled}"
+    },
+    "name": "hds-form-control-boolean-border-color-checked-disabled",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control-boolean",
+      "border",
+      "color",
+      "checked",
+      "disabled"
+    ]
+  },
+  {
+    "key": "{form.control-boolean.border.color.unchecked.default}",
+    "$type": "color",
+    "$value": "#161616",
+    "group": "components",
+    "$modes": {
+      "default": "#8d8d8d",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g10.iconPrimary}",
+      "group": "components",
+      "$modes": {
+        "default": "{core.color.neutral-400}",
+        "cds-g0": "{carbon.themes.white.iconPrimary}",
+        "cds-g10": "{carbon.themes.g10.iconPrimary}",
+        "cds-g90": "{carbon.themes.g90.iconPrimary}",
+        "cds-g100": "{carbon.themes.g100.iconPrimary}"
+      },
+      "key": "{form.control-boolean.border.color.unchecked.default}"
+    },
+    "name": "hds-form-control-boolean-border-color-unchecked-default",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control-boolean",
+      "border",
+      "color",
+      "unchecked",
+      "default"
+    ]
+  },
+  {
+    "key": "{form.control-boolean.border.color.unchecked.hover}",
+    "$type": "color",
+    "$value": "#161616",
+    "group": "components",
+    "$modes": {
+      "default": "#525252",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g10.iconPrimary}",
+      "group": "components",
+      "$modes": {
+        "default": "{core.color.neutral-500}",
+        "cds-g0": "{carbon.themes.white.iconPrimary}",
+        "cds-g10": "{carbon.themes.g10.iconPrimary}",
+        "cds-g90": "{carbon.themes.g90.iconPrimary}",
+        "cds-g100": "{carbon.themes.g100.iconPrimary}"
+      },
+      "key": "{form.control-boolean.border.color.unchecked.hover}"
+    },
+    "name": "hds-form-control-boolean-border-color-unchecked-hover",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control-boolean",
+      "border",
+      "color",
+      "unchecked",
+      "hover"
+    ]
+  },
+  {
+    "key": "{form.control-boolean.border.color.unchecked.disabled}",
+    "$type": "color",
+    "$value": "rgba(22, 22, 22, 0.25)",
+    "group": "components",
+    "$modes": {
+      "default": "#e0e0e0",
+      "cds-g0": "rgba(22, 22, 22, 0.25)",
+      "cds-g10": "rgba(22, 22, 22, 0.25)",
+      "cds-g90": "rgba(244, 244, 244, 0.25)",
+      "cds-g100": "rgba(244, 244, 244, 0.25)"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g10.iconDisabled}",
+      "group": "components",
+      "$modes": {
+        "default": "{border.color.primary}",
+        "cds-g0": "{carbon.themes.white.iconDisabled}",
+        "cds-g10": "{carbon.themes.g10.iconDisabled}",
+        "cds-g90": "{carbon.themes.g90.iconDisabled}",
+        "cds-g100": "{carbon.themes.g100.iconDisabled}"
+      },
+      "key": "{form.control-boolean.border.color.unchecked.disabled}"
+    },
+    "name": "hds-form-control-boolean-border-color-unchecked-disabled",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control-boolean",
+      "border",
+      "color",
+      "unchecked",
+      "disabled"
     ]
   },
   {
@@ -23962,7 +23977,7 @@
     "original": {
       "$value": "{carbon.themes.g10.layerHover01}",
       "$modes": {
-        "default": "{form.control.base.surface.color.default}",
+        "default": "{form.control.surface.color.default}",
         "cds-g0": "{carbon.themes.white.layerHover01}",
         "cds-g10": "{carbon.themes.g10.layerHover01}",
         "cds-g90": "{carbon.themes.g90.layerHover01}",
@@ -24590,7 +24605,7 @@
       "$type": "color",
       "$value": "{carbon.themes.g10.textInverse}",
       "$modes": {
-        "default": "{form.control.base.foreground.color}",
+        "default": "{form.control.foreground.color.default}",
         "cds-g0": "{carbon.themes.white.textInverse}",
         "cds-g10": "{carbon.themes.g10.textInverse}",
         "cds-g90": "{carbon.themes.g90.textInverse}",
@@ -25029,7 +25044,7 @@
     ]
   },
   {
-    "key": "{form.toggle.base.surface.color.default}",
+    "key": "{form.toggle.surface.color.unchecked.default}",
     "$type": "color",
     "$value": "#8d8d8d",
     "comment": "the toggle has a different base surface color, compared to the other controls",
@@ -25051,23 +25066,23 @@
         "cds-g90": "{carbon.themes.g90.toggleOff}",
         "cds-g100": "{carbon.themes.g100.toggleOff}"
       },
-      "key": "{form.toggle.base.surface.color.default}"
+      "key": "{form.toggle.surface.color.unchecked.default}"
     },
-    "name": "hds-form-toggle-base-surface-color-default",
+    "name": "hds-form-toggle-surface-color-unchecked-default",
     "attributes": {
       "category": "form"
     },
     "path": [
       "form",
       "toggle",
-      "base",
       "surface",
       "color",
+      "unchecked",
       "default"
     ]
   },
   {
-    "key": "{form.toggle.base.surface.color.disabled}",
+    "key": "{form.toggle.surface.color.unchecked.disabled}",
     "$type": "color",
     "$value": "#c6c6c6",
     "$modes": {
@@ -25087,23 +25102,23 @@
         "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
         "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
       },
-      "key": "{form.toggle.base.surface.color.disabled}"
+      "key": "{form.toggle.surface.color.unchecked.disabled}"
     },
-    "name": "hds-form-toggle-base-surface-color-disabled",
+    "name": "hds-form-toggle-surface-color-unchecked-disabled",
     "attributes": {
       "category": "form"
     },
     "path": [
       "form",
       "toggle",
-      "base",
       "surface",
       "color",
+      "unchecked",
       "disabled"
     ]
   },
   {
-    "key": "{form.toggle.base.surface.color.checked.default}",
+    "key": "{form.toggle.surface.color.checked.default}",
     "$type": "color",
     "$value": "#24a148",
     "$modes": {
@@ -25123,16 +25138,15 @@
         "cds-g90": "{carbon.themes.g90.supportSuccess}",
         "cds-g100": "{carbon.themes.g100.supportSuccess}"
       },
-      "key": "{form.toggle.base.surface.color.checked.default}"
+      "key": "{form.toggle.surface.color.checked.default}"
     },
-    "name": "hds-form-toggle-base-surface-color-checked-default",
+    "name": "hds-form-toggle-surface-color-checked-default",
     "attributes": {
       "category": "form"
     },
     "path": [
       "form",
       "toggle",
-      "base",
       "surface",
       "color",
       "checked",
@@ -25140,7 +25154,7 @@
     ]
   },
   {
-    "key": "{form.toggle.base.surface.color.checked.hover}",
+    "key": "{form.toggle.surface.color.checked-hover}",
     "$type": "color",
     "$value": "#24a148",
     "$modes": {
@@ -25160,20 +25174,18 @@
         "cds-g90": "{carbon.themes.g90.supportSuccess}",
         "cds-g100": "{carbon.themes.g100.supportSuccess}"
       },
-      "key": "{form.toggle.base.surface.color.checked.hover}"
+      "key": "{form.toggle.surface.color.checked-hover}"
     },
-    "name": "hds-form-toggle-base-surface-color-checked-hover",
+    "name": "hds-form-toggle-surface-color-checked-hover",
     "attributes": {
       "category": "form"
     },
     "path": [
       "form",
       "toggle",
-      "base",
       "surface",
       "color",
-      "checked",
-      "hover"
+      "checked-hover"
     ]
   },
   {
