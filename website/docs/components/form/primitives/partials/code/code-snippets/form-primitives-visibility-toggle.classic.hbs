@@ -1,0 +1,16 @@
+<Hds::Layout::Flex @gap="24" as |LF|>
+  <LF.Item>
+    <Hds::Form::VisibilityToggle
+      @isVisible={{true}}
+      @ariaLabel="Toggle masked content"
+      @ariaMessageText="Masked content is hidden"
+    />
+  </LF.Item>
+  <LF.Item>
+    <Hds::Form::VisibilityToggle
+      @isVisible={{false}}
+      @ariaLabel="Toggle masked content"
+      @ariaMessageText="Masked content is visible"
+    />
+  </LF.Item>
+</Hds::Layout::Flex>

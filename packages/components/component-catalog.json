@@ -10084,7 +10084,7 @@
     {
       "name": "Hds::Form::VisibilityToggle",
       "modulePath": "hds/form/visibility-toggle",
-      "docsPath": "components/form/layout",
+      "docsPath": "components/form/primitives",
       "element": "HTMLButtonElement",
       "args": [
         {
