@@ -18,44 +18,9 @@
     "dotenv": "^16.4.7",
     "prettier-plugin-ember-template-tag": "^2.0.5"
   },
-  "packageManager": "pnpm@10.11.0+sha512.6540583f41cc5f628eb3d9773ecee802f4f9ef9923cc45b69890fb47991d4b092964694ec3a4f738a420c918a333062c8b925d312f42e4f0c263eb603551f977",
+  "packageManager": "pnpm@12.5.1+sha512.e3f305bc784a2bc89f5ad3b6138889470fae8d2af5f36b61216ec91c2c3d64089775f9de38aac331044ea40f245cb0d5666392dfdf65824e1907ef6a2c62de5f",
   "engines": {
-    "pnpm": ">= 10.0.0",
+    "pnpm": ">= 12.0.0",
     "node": ">= 24"
-  },
-  "pnpm": {
-    "overrides": {
-      "@babel/plugin-transform-modules-systemjs": "7.29.4",
-      "@glimmer/component": "^2.0.0",
-      "@xmldom/xmldom": "0.9.10",
-      "ajv@6": "6.14.0",
-      "basic-ftp": "5.3.1",
-      "brace-expansion@1": "1.1.13",
-      "brace-expansion@2": "2.0.3",
-      "brace-expansion@5": "5.0.6",
-      "fast-uri": "3.1.2",
-      "flatted": "3.4.4",
-      "follow-redirects": "1.16.0",
-      "form-data": "4.0.6",
-      "ember-composable-helpers": "npm:@nullvoxpopuli/ember-composable-helpers@^5.2.11",
-      "handlebars": "4.7.9",
-      "js-yaml@3": "3.14.2",
-      "js-yaml@4": "4.1.1",
-      "linkify-it": "5.0.1",
-      "markdown-it": "14.1.1",
-      "mdast-util-to-hast": "13.2.1",
-      "minimatch@<3.0.5": "3.1.2",
-      "path-to-regexp@0": "0.1.13",
-      "path-to-regexp@8": "8.4.2",
-      "qs": "6.15.2",
-      "systeminformation": "5.31.6",
-      "tmp": "0.2.7",
-      "underscore": "1.13.8",
-      "yaml@1": "1.10.3"
-    },
-    "patchedDependencies": {
-      "broccoli-asset-rewrite": "patches/broccoli-asset-rewrite.patch",
-      "ember-app-scheduler@7.0.1": "patches/ember-app-scheduler@7.0.1.patch"
-    }
   }
 }
