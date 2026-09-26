@@ -6297,6 +6297,12 @@
           "inheritedFrom": "hds/form/fieldset"
         },
         {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "inheritedFrom": "hds/form/fieldset"
+        },
+        {
           "name": "isOptional",
           "type": "boolean",
           "required": false,
@@ -6479,6 +6485,11 @@
       "args": [
         {
           "name": "extraAriaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
           "type": "string",
           "required": false
         },
@@ -7379,6 +7390,12 @@
           "inheritedFrom": "hds/form/fieldset"
         },
         {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "inheritedFrom": "hds/form/fieldset"
+        },
+        {
           "name": "isOptional",
           "type": "boolean",
           "required": false,
@@ -7537,6 +7554,12 @@
         },
         {
           "name": "extraAriaDescribedBy",
+          "type": "string",
+          "required": false,
+          "inheritedFrom": "hds/form/fieldset"
+        },
+        {
+          "name": "id",
           "type": "string",
           "required": false,
           "inheritedFrom": "hds/form/fieldset"
@@ -10028,6 +10051,12 @@
       "args": [
         {
           "name": "extraAriaDescribedBy",
+          "type": "string",
+          "required": false,
+          "inheritedFrom": "hds/form/fieldset"
+        },
+        {
+          "name": "id",
           "type": "string",
           "required": false,
           "inheritedFrom": "hds/form/fieldset"
