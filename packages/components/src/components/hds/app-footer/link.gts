@@ -10,13 +10,12 @@ import HdsLinkInline from '../link/inline.gts';
 import HdsTextBody from '../text/body.gts';
 
 import type { HdsInteractiveSignature } from '../interactive/index.gts';
-import type { HdsLinkColors, HdsLinkIconPositions } from '../link/types.ts';
+import type { HdsLinkIconPositions } from '../link/types.ts';
 import type { HdsLinkInlineSignature } from '../link/inline.gts';
 import type { HdsIconSignature } from '../icon/index.gts';
 
 export interface HdsAppFooterLinkSignature {
   Args: HdsInteractiveSignature['Args'] & {
-    color?: HdsLinkColors;
     icon?: HdsIconSignature['Args']['name'];
     iconPosition?: HdsLinkIconPositions;
   };
