@@ -1,0 +1,167 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://helios.hashicorp.design/schemas/migration-candidate.schema.json",
+  "title": "Migration Candidate",
+  "description": "Schema for Helios to Carbon Web Components migration candidate records",
+  "type": "object",
+  "required": [
+    "id",
+    "filePath",
+    "line",
+    "heliosComponent",
+    "proposedCwcComponent",
+    "transformOperations",
+    "confidence",
+    "riskFlags",
+    "status",
+    "rationale",
+    "manualNotes"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this migration candidate",
+      "pattern": "^[a-zA-Z0-9_-]+$",
+      "minLength": 1
+    },
+    "filePath": {
+      "type": "string",
+      "description": "Relative path from workspace root to the file containing the component",
+      "minLength": 1
+    },
+    "line": {
+      "type": "integer",
+      "description": "Line number where the component usage starts (1-based)",
+      "minimum": 1
+    },
+    "heliosComponent": {
+      "type": "string",
+      "description": "Name of the Helios component being migrated",
+      "pattern": "^Hds::",
+      "minLength": 5
+    },
+    "proposedCwcComponent": {
+      "type": ["string", "null"],
+      "description": "Target Carbon Web Component name, or null if no equivalent exists",
+      "pattern": "^cds-[a-z-]+$|^null$"
+    },
+    "transformOperations": {
+      "type": "array",
+      "description": "List of transformation operations to apply",
+      "items": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "replaceTag",
+              "renameAttribute",
+              "removeAttribute",
+              "addAttribute",
+              "moveToSlot",
+              "renameEvent",
+              "transformValue",
+              "manual"
+            ],
+            "description": "Type of transformation operation"
+          },
+          "from": {
+            "type": "string",
+            "description": "Source attribute, event, or tag name"
+          },
+          "to": {
+            "type": "string",
+            "description": "Target attribute, event, or tag name"
+          },
+          "valueMap": {
+            "type": "object",
+            "description": "Mapping of source values to target values",
+            "additionalProperties": {
+              "type": ["string", "number", "boolean", "null"]
+            }
+          },
+          "notes": {
+            "type": "string",
+            "description": "Additional context or instructions for this operation"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "confidence": {
+      "type": "number",
+      "description": "Confidence score for this migration (0.0 to 1.0)",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "riskFlags": {
+      "type": "array",
+      "description": "List of risk identifiers for this migration",
+      "items": {
+        "type": "string",
+        "enum": [
+          "breaking-change",
+          "behavioral-difference",
+          "semantic-difference",
+          "no-equivalent",
+          "manual-migration-required",
+          "complex-transformation",
+          "dismissal-pattern-change",
+          "slot-to-attribute",
+          "attribute-to-slot",
+          "event-signature-change",
+          "styling-difference",
+          "accessibility-impact",
+          "incomplete-mapping",
+          "dynamic-attributes",
+          "nested-usage"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "status": {
+      "type": "string",
+      "enum": ["planned", "manual", "skipped"],
+      "description": "Migration status: planned (auto-apply), manual (requires review), or skipped (cannot migrate)"
+    },
+    "rationale": {
+      "type": "string",
+      "description": "Explanation for the confidence score and status decision",
+      "minLength": 1
+    },
+    "manualNotes": {
+      "type": "array",
+      "description": "Additional notes for manual review or follow-up actions",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "confidenceLevels": {
+      "high": {
+        "description": "High confidence (>= 0.90): Complete mapping, no risk flags, simple usage",
+        "minimum": 0.90,
+        "maximum": 1.0
+      },
+      "medium": {
+        "description": "Medium confidence (0.60-0.89): Partial mapping, minor risk flags, or complex usage",
+        "minimum": 0.60,
+        "maximum": 0.89
+      },
+      "low": {
+        "description": "Low confidence (< 0.60): Incomplete mapping, major risk flags, or parse failures",
+        "minimum": 0.0,
+        "maximum": 0.59
+      }
+    },
+    "statusRules": {
+      "planned": "High confidence (>= 0.90), safe for auto-apply",
+      "manual": "Medium/low confidence or has risk flags requiring human review",
+      "skipped": "Parse failure, missing context, or prohibited operation detected"
+    }
+  }
+}
