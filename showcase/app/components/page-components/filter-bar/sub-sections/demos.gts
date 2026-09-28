@@ -8,6 +8,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
+import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwFrame from 'showcase/components/shw/frame';
 
 import CodeFragmentWithComplexTable from 'showcase/components/page-components/filter-bar/code-fragments/with-complex-table';
@@ -26,6 +27,15 @@ const SubSectionDemos: TemplateOnlyComponent = <template>
   <ShwTextH3>Live filtering</ShwTextH3>
 
   <CodeFragmentWithTable @isLiveFilter={{true}} />
+
+  <ShwDivider @level={{2}} />
+
+  <ShwTextH3>Live search</ShwTextH3>
+
+  <ShwTextBody>General search occurs on value change, rather than after
+    submission.</ShwTextBody>
+
+  <CodeFragmentWithTable @liveSearch={{true}} />
 
   <ShwDivider @level={{2}} />
 

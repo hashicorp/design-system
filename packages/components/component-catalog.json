@@ -5400,6 +5400,11 @@
           "required": false
         },
         {
+          "name": "liveSearch",
+          "type": "boolean",
+          "required": false
+        },
+        {
           "name": "onFilter",
           "type": "(filters: HdsFilterBarFilters) => void",
           "required": false

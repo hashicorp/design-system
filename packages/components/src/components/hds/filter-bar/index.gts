@@ -38,6 +38,7 @@ export interface HdsFilterBarSignature {
     filters: HdsFilterBarFilters;
     isLiveFilter?: boolean;
     hasSearch?: boolean;
+    liveSearch?: boolean;
     searchPlaceholder?: string;
     searchAriaLabel?: string;
     onFilter?: (filters: HdsFilterBarFilters) => void;
@@ -275,7 +276,8 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
               placeholder={{this.searchPlaceholder}}
               aria-label={{this.searchAriaLabel}}
               name="search"
-              {{on "change" this.onSearch}}
+              autocomplete="off"
+              {{on (if @liveSearch "input" "change") this.onSearch}}
             />
           {{/if}}
         </div>
