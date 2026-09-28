@@ -23,18 +23,17 @@ export async function customFormatDocsJsonFunction({ dictionary, platform, optio
     // note: it is still preserved under the "original" key though
     delete outputToken.comments;
 
-    // resolve any non-primitive `$modes` entry (eg. a "property-override" object, or a "standard" array value like a
-    // `cubicBezier` timing function) into its final combined/transformed value (see below); the raw/un-combined shape
+    // resolve each `$modes` entry into its final combined/transformed value (see below); the raw/un-combined shape
     // is still preserved under `original.$modes` (used eg. to detect aliases)
     if (outputToken.$modes && typeof outputToken.$modes === 'object') {
       const modes = outputToken.$modes as Record<string, unknown>;
+      const originalModes = token.original.$modes;
       for (const modeName of Object.keys(modes)) {
-        const modeValue = modes[modeName];
-        // primitive values (string/number) are already final - Style Dictionary resolves references before this
-        // format function runs, and (unlike a token's own `$value`) there's no transform pipeline result to combine
-        if (typeof modeValue === 'object' && modeValue !== null) {
-          modes[modeName] = await resolveModeValueOverride({ token: outputToken, modeValue, platform, options });
-        }
+        // the raw entry, still un-resolved
+        const originalModeValue = originalModes?.[modeName];
+        // an alias (eg. `"{typography.body-100.font-size}"`) is already transformed - hence `transitiveOnly`
+        const isResolvedAlias = typeof originalModeValue === 'string' && originalModeValue.includes('{');
+        modes[modeName] = await resolveModeValue({ token: outputToken, modeValue: modes[modeName], platform, options, transitiveOnly: isResolvedAlias });
       }
     }
 
@@ -44,7 +43,7 @@ export async function customFormatDocsJsonFunction({ dictionary, platform, optio
   return JSON.stringify(output, null, 2);
 }
 
-// Resolves a non-primitive `$modes` entry into its single, final value, by reusing Style Dictionary's own transform
+// Resolves a `$modes` entry into its single, final value, by reusing Style Dictionary's own transform
 // registry: `StyleDictionary.hooks.transformGroups[platform.transformGroup]` gives us the exact, live, ordered list of
 // transform names configured for this platform, and `StyleDictionary.hooks.transforms[name]` gives us each transform's
 // actual `filter`/`transform` functions (including Style Dictionary's own built-ins, eg. `color/css`, `cubicBezier/css`).
@@ -52,21 +51,24 @@ export async function customFormatDocsJsonFunction({ dictionary, platform, optio
 // Style Dictionary's source) - just applied to a `$modes` entry instead, so there is a single source of truth for how
 // values get combined/transformed.
 // The reason for this extra logic is that Style Dictionary's transforms only ever operate on a token's own `$value`,
-// they don't recurse into custom nested props like `$modes`, so without this step a non-primitive `$modes` entry would
-// be left "raw"/un-transformed in the generated docs JSON - eg. `{ "$value": "14", "unit": "px" }` instead of `"14px"`,
-// or `[0.2, 0, 0.38, 0.9]` instead of `"cubic-bezier(0.2, 0, 0.38, 0.9)"`.
-async function resolveModeValueOverride({ token, modeValue, platform, options }: { token: Record<string, unknown>; modeValue: object; platform: PlatformConfig; options: Config & LocalOptions }): Promise<unknown> {
+// never on custom nested props like `$modes`: left raw, a `$modes` entry wouldn't match the generated CSS.
+// `transitiveOnly` is for values coming from an alias: they're already resolved/transformed, so only the `transitive`
+// transforms still apply, mirroring how Style Dictionary re-applies them after resolving references - running the
+// non-transitive ones again would double-apply them (eg. a `font-size` already resolved to `"0.75rem"` would be
+// converted to `rem` a second time, giving `"0.046875rem"`)
+// (see: https://styledictionary.com/reference/hooks/transforms/#transitive-transforms).
+async function resolveModeValue({ token, modeValue, platform, options, transitiveOnly = false }: { token: Record<string, unknown>; modeValue: unknown; platform: PlatformConfig; options: Config & LocalOptions; transitiveOnly?: boolean }): Promise<unknown> {
   // a `$modes` entry resolves to one of two shapes (mirroring `preprocessorReplaceValueForMode.ts`'s own categorization):
   // 1) a "property-override" object: by convention always a (non-array) object that carries its own `$value`, optionally
   //    with sibling props (eg. `unit`/`alpha`) - its keys override the token's own props (a `null` value removes that
   //    prop), same `Object.keys(modeValue)`-driven approach as the `replace-value-for-mode-*` preprocessor.
-  // 2) a "standard" non-primitive value (eg. an array, like the `cubicBezier` timing function) - it replaces the
-  //    token's `$value` directly, same as a primitive mode value would.
+  // 2) a "standard" value (eg. a primitive, or an array like the `cubicBezier` timing function) - it replaces the
+  //    token's `$value` directly.
   // `merged` is a synthetic, partial token-like object (not a full `TransformedToken` with `path`/`original`/etc.) -
   // built solely to resolve this `$modes` entry, then cast further down (`syntheticToken`) to satisfy the type
   // Style Dictionary's filter/transform functions expect.
   const merged: DesignToken = { ...token };
-  const isPropertyOverrideObject = !Array.isArray(modeValue) && '$value' in modeValue;
+  const isPropertyOverrideObject = typeof modeValue === 'object' && modeValue !== null && !Array.isArray(modeValue) && '$value' in modeValue;
   if (isPropertyOverrideObject) {
     Object.entries(modeValue).forEach(([key, value]) => {
       if (value === null) {
@@ -86,8 +88,13 @@ async function resolveModeValueOverride({ token, modeValue, platform, options }:
   for (const transformName of transformNames) {
     const transformDefinition = StyleDictionary.hooks.transforms[transformName];
     // only "value" transforms are relevant here (eg. we skip `attributes/category`/`name/kebab`)
-    if (transformDefinition?.type === 'value' && (!transformDefinition.filter || await transformDefinition.filter(syntheticToken, options))) {
-      merged.$value = await transformDefinition.transform(syntheticToken, platform, options);
+    // and when the value comes from an alias only the `transitive` ones apply (see the `transitiveOnly` note above)
+    if (transformDefinition?.type !== 'value' || (transitiveOnly && !transformDefinition.transitive)) {
+      continue;
+    } else {
+      if (!transformDefinition.filter || await transformDefinition.filter(syntheticToken, options)) {
+        merged.$value = await transformDefinition.transform(syntheticToken, platform, options);
+      }
     }
   }
 
