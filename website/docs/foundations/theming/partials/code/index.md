@@ -13,7 +13,7 @@ This means that two visual languages need to be supported in HDS, at the same ti
 
 To support all of these scenarios, HDS provides several pre-built sets of themed tokens, so each application can import only the visual language(s) it needs. See [Themed tokens](#themed-tokens) below.
 
-Each set of themed tokens declares its design tokens under `hds-theme-*`/`hds-mode-*` CSS selectors, one for each theme/mode it supports. Applying a theme, then, is simply a matter of adding the corresponding class name to the `<html>` element of the page: this is what a dedicated [`hdsTheming` service](#hdstheming-service) does under the hood.
+Each set of themed tokens declares its design tokens under `hds-theme-*`/`hds-mode-*` CSS selectors, one for each theme/mode it supports. Then, applying a theme is as simple as adding the corresponding class name to the `<html>` element of the page. This is what a dedicated [`hdsTheming` service](#hdstheming-service) does under the hood.
 
 It's also possible to apply local overrides of the global theme, scoping them to only a portion of the page using the [`ThemeContext`](#themecontext) component. This works by applying the same `hds-theme-*`/`hds-mode-*` classes to a DOM container, affecting how its content is themed.
 
@@ -30,7 +30,7 @@ Which themes and modes are available to an application depends on the themed tok
 
 ### Themed tokens
 
-The design tokens package, `@hashicorp/design-system-tokens`, provides three pre-built CSS/Sass bundles of themed tokens, each aimed at a different stage of the "carbonization" journey described above:
+The design tokens package, `@hashicorp/design-system-tokens`, provides three pre-built CSS/Sass bundles of themed tokens, each aimed at a different stage of the "carbonization" journey described in the previous section.
 
 | File                          | Themes                               | Modes                                      |
 | ------------------------------ | ------------------------------------- | -------------------------------------------- |
@@ -52,7 +52,7 @@ Besides the themed tokens, HDS provides a service and a component to apply themi
 
 Under the hood, theming is controlled by an `hdsTheming` Ember service, provided by the `@hashicorp/design-system-components` package. Calling its `setTheme` method swaps the `hds-theme-*`/`hds-mode-*` class names on the `<html>` element, so the whole page reacts to the change.
 
-For more details about this service, how to use it, and it APIs, see the [Theming service](/theming/hds-theming).
+For more details about this service, how to use it, and its APIs, see the [Theming service](/theming/hds-theming).
 
 #### `ThemeContext` component
 
@@ -92,7 +92,7 @@ In your `package.json`, update the HDS dependencies to the minimum versions that
 
 [[code-snippets/migration-dependencies-bump-hds]]
 
-Carbonized themes use the [IBM Plex typefaces](https://carbondesignsystem.com/elements/typography/overview/#typeface:-ibm-plex), so you have to add their corresponding packages as well:
+Add the [IBM Plex typefaces](https://carbondesignsystem.com/elements/typography/overview/#typeface:-ibm-plex) used by the Carbonized theme:
 
 [[code-snippets/migration-dependencies-add-plex-fonts]]
 
@@ -133,7 +133,7 @@ If your application sets the `flightIconsSpriteLazyEmbed` option in `config/envi
 
 #### Theme switching
 
-Implementing theming in your application requires adding a theme switcher. As mentioned above, the [`hdsTheming` service](/theming/hds-theming) allows to control at page-level the selected HDS theme.
+Implementing theming in your application requires adding a [theme switcher](/patterns/theme-selection). As mentioned previously, the [`hdsTheming` service](/theming/hds-theming) allows control of the selected theme at the page-level.
 
 The theme switcher needs to pass the user's selection to the `setTheme` method, so that the service can apply the corresponding theme classes and token values. During the migration, the imported "migration" token file supports both the `default` theme, which preserves the "classic" HDS appearance, and the "carbonized" `system`, `light`, and `dark` themes, which mimic the IBM Carbon visual languages.
 
@@ -158,5 +158,7 @@ Once the application has been fully migrated, the tokens file `with-css-selector
 [[code-snippets/migration-scss-tokens-final]]
 
 This file provides only the "carbonized" themes: `system`, `light`, and `dark`. The `default` theme is no longer needed.
+
+If you require to have specific modes available, use the `with-css-selectors--advanced` tokens file.
 
 Everything else can remain the same. Continue using the [`hdsTheming` service](#hdstheming-service) to apply a theme to the page, and the [`ThemeContext` component](/theming/theme-context) to apply a theme to a specific portion of it.
