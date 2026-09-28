@@ -74,7 +74,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
     const { isLastColumn } = this.args;
 
     const translatedResetWidthLabel = this.hdsIntl.t(
-      'hds.advanced-table.th-context-menu.reset-width',
+      'hds.components.advanced-table.th-context-menu.reset-width',
       { default: 'Reset column width' }
     );
 
@@ -89,7 +89,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
 
     if (!isLastColumn) {
       const translatedResizeLabel = this.hdsIntl.t(
-        'hds.advanced-table.th-context-menu.resize',
+        'hds.components.advanced-table.th-context-menu.resize',
         { default: 'Resize column' }
       );
 
@@ -111,7 +111,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
     const { isFirstNonStickyColumn, isLastColumn } = this.args;
 
     const translatedMoveColumnLabel = this.hdsIntl.t(
-      'hds.advanced-table.th-context-menu.move-column',
+      'hds.components.advanced-table.th-context-menu.move-column',
       { default: 'Move column' }
     );
 
@@ -126,7 +126,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
 
     if (!isFirstNonStickyColumn) {
       const translatedMoveColumnToStartLabel = this.hdsIntl.t(
-        'hds.advanced-table.th-context-menu.move-column-to-start',
+        'hds.components.advanced-table.th-context-menu.move-column-to-start',
         { default: 'Move column to start' }
       );
       reorderOptions = [
@@ -142,7 +142,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
 
     if (!isLastColumn) {
       const translatedMoveColumnToEndLabel = this.hdsIntl.t(
-        'hds.advanced-table.th-context-menu.move-column-to-end',
+        'hds.components.advanced-table.th-context-menu.move-column-to-end',
         { default: 'Move column to end' }
       );
       reorderOptions = [
@@ -163,11 +163,11 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
     const { isStickyColumn } = this.args;
 
     const translatedPinLabel = this.hdsIntl.t(
-      'hds.advanced-table.th-context-menu.pin',
+      'hds.components.advanced-table.th-context-menu.pin',
       { default: 'Pin column' }
     );
     const translatedUnpinLabel = this.hdsIntl.t(
-      'hds.advanced-table.th-context-menu.unpin',
+      'hds.components.advanced-table.th-context-menu.unpin',
       { default: 'Unpin column' }
     );
 

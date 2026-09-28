@@ -2,3 +2,6 @@ reordered-message: Moved {columnLabel} column to position {newPosition}
 empty-state:
   title: No data available
   description: There is currently no data to display in the table.
+sorted-message:
+  ascending: Sorted by {columnLabel} ascending
+  descending: Sorted by {columnLabel} descending
