@@ -11,7 +11,7 @@ It’s primarily a wrapper for [ember-power-select](https://ember-power-select.c
 `ember-power-select` requires `ember-basic-dropdown` as a peer dependency. Make sure that:
 
 - `ember-basic-dropdown` is installed in your application
-- `ember-power-select` styles are included in your CSS compilation.
+- `ember-power-select` styles are included in your CSS compilation
 
 See the [ember-power-select installation documentation](https://ember-power-select.com/docs/installation) for additional setup requirements.
 
