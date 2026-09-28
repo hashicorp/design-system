@@ -397,6 +397,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
               placeholder={{this.searchPlaceholder}}
               aria-label={{this.searchAriaLabel}}
               name="search"
+              autocomplete="off"
               {{on "change" this.onSearch}}
             />
           {{/if}}
