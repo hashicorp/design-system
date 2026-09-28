@@ -14,7 +14,7 @@ export async function customFormatDocsJsonFunction({ dictionary, platform, optio
   // See: https://github.com/search?q=repo%3Ahashicorp%2Fdesign-system%20%22dist%2Fdocs%2Fproducts%2Ftokens.json%22&type=code
   const output: Record<string, unknown>[] = [];
   for (const token of dictionary.allTokens) {
-    const outputToken = cloneDeep(token) as Record<string, unknown>;
+    const outputToken = cloneDeep(token) as DesignToken;
     // we remove the "filePath" prop from the token because the orginal file path is irrelevant for us
     // (plus its value is an absolute path, so it causes useless diffs in git)
     delete outputToken.filePath;
@@ -27,15 +27,29 @@ export async function customFormatDocsJsonFunction({ dictionary, platform, optio
     // is still preserved under `original.$modes` (used eg. to detect aliases)
     if (outputToken.$modes && typeof outputToken.$modes === 'object') {
       const modes = outputToken.$modes as Record<string, unknown>;
-      const originalModes = token.original.$modes;
+      // note: we read the raw/un-resolved modes from the `outputToken` clone, because we mutate them below
+      // (mutating `token.original` would alter Style Dictionary's own dictionary, which is shared across platforms)
+      const originalModes = outputToken.original.$modes;
       for (const modeName of Object.keys(modes)) {
         // the raw entry, still un-resolved
         const originalModeValue = originalModes?.[modeName];
+        if (typeof originalModeValue === 'object' && originalModeValue !== null) {
+          delete originalModeValue.filePath;
+          delete originalModeValue.isSource;
+        }
         // an alias (eg. `"{typography.body-100.font-size}"`) is already transformed - hence `transitiveOnly`
         const isResolvedAlias = typeof originalModeValue === 'string' && originalModeValue.includes('{');
         modes[modeName] = await resolveModeValue({ token: outputToken, modeValue: modes[modeName], platform, options, transitiveOnly: isResolvedAlias });
       }
     }
+
+    // we remove the "unit"/"alpha" props, because they're authoring inputs that the transforms have already baked into
+    // the values (eg. a `font-size` authored as `13` + `unit: "px"` is emitted as `"0.8125rem"`, so keeping a
+    // `unit: "px"` next to it would be misleading); they're still preserved under the "original" key
+    // notice: this has to happen *after* the `$modes` resolution above, which relies on these props to transform the
+    // mode values (eg. `dimension/unit` reads `unit` to turn `"10"` into `"10px"`)
+    delete outputToken.unit;
+    delete outputToken.alpha;
 
     output.push(outputToken);
   }
