@@ -17,7 +17,7 @@ We provide components as an [Ember](https://emberjs.com/) addon with associated 
 
 ### Import component styles
 
-You can choose between importing styles as CSS (preferred) or Sass.
+You can choose between importing styles as CSS or Sass. CSS is preferred because the files are pre-compiled, resulting in faster build times in your app, while the Sass approach requires consumer-side compilation and more setup steps.
 
 !!! Warning
 
@@ -30,7 +30,7 @@ Our component library assumes that a box-sizing reset is applied globally in you
 
 #### CSS
 
-Import one of the following line(s) to the `ember-cli-build.js` configuration file. Pick the line(s) that match your application's stage in the migration to the "carbonized" HDS.
+Import one or more of the following lines to the `ember-cli-build.js` configuration file. Pick the lines that match your application's stage in the migration to the "carbonized" HDS.
 
 [[code-snippets/css-import-in-cli-build]]
 
@@ -40,7 +40,7 @@ If your application uses [`SuperSelect`](/components/form/super-select), make su
 
 [[code-snippets/css-import-ember-power-select-in-cli-build]]
 
-If your application uses directly the Ember `PowerSelect` component, import also the HDS style overrides for it:
+If your application uses the Ember `PowerSelect` component directly, import the HDS style overrides for it:
 
 [[code-snippets/css-import-power-select-overrides-in-cli-build]]
 
@@ -80,7 +80,7 @@ If your application uses [`SuperSelect`](/components/form/super-select), make su
 
 [[code-snippets/use-ember-power-select]]
 
-If your application uses directly the Ember `PowerSelect` component, import also the HDS style overrides for it:
+If your application uses the Ember `PowerSelect` component directly, import the HDS style overrides for it:
 
 [[code-snippets/use-power-select-overrides]]
 
@@ -180,7 +180,7 @@ If the Ember components are not an option for your project, you can still use th
 
 ### Import styles as CSS variables
 
-Import design tokens as CSS variables by adding one of the following line(s) to the main Sass file in your application (for example, in `app.scss`). Pick the line(s) that match your application's stage in the migration to the "carbonized" HDS.
+Import design tokens as CSS variables by adding one or more of the following lines to the main Sass file in your application (for example, in `app.scss`). Pick the lines that match your application's stage in the migration to the "carbonized" HDS.
 
 [[code-snippets/use-helios-product-tokens]]
 
@@ -204,7 +204,7 @@ To use theming in your application you need to:
 
 2. import the "themed" CSS/Sass files, as described in the [Import component styles](#import-component-styles) section. The "classic" files don't contain the themed design tokens, so no theme can be applied to them
 
-3. add a theme switcher to your application and implement the logic associated with it (integration with the `hdsTheming` service and user's choice persistence)
+3. add a theme switcher, which follows our [theme switcher pattern](/patterns/theme-switcher-pattern), to your application and implement the logic associated with it (integration with the `hdsTheming` service and user's choice persistence)
 
 For more technical details about how theming is implemented in HDS, see [Foundations/Theming](/foundations/theming).
 
@@ -259,7 +259,7 @@ When your application uses the `fr-fr` locale, components will display "Erreur" 
 
 ## Browser support
 
-Our styles, components and icons are supported by the following browsers:
+Our styles, components, and icons are supported by the following browsers:
 
 | Browser        | Version         |
 |----------------|-----------------|
