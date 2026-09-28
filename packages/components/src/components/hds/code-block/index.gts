@@ -12,6 +12,7 @@ import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
 import { hash } from '@ember/helper';
 import { on } from '@ember/modifier';
+import { service } from '@ember/service';
 import Prism from 'prismjs';
 import style from 'ember-style-modifier';
 
@@ -29,6 +30,7 @@ import type { HdsCodeBlockTitleSignature } from './title.gts';
 import type { HdsCodeBlockDescriptionSignature } from './description.gts';
 import type { HdsCodeBlockLanguages } from './types.ts';
 import type { HdsCopyButtonSignature } from '../copy/button/index.gts';
+import type HdsIntlService from '../../../services/hds-intl.ts';
 
 import 'prismjs/plugins/line-numbers/prism-line-numbers';
 import 'prismjs/plugins/line-highlight/prism-line-highlight';
@@ -85,6 +87,8 @@ export interface HdsCodeBlockSignature {
 }
 
 export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
+
   @tracked private _prismCode: SafeString = htmlSafe('');
   @tracked private _isExpanded: boolean = false;
   @tracked private _codeContentHeight: number = 0;
@@ -184,10 +188,6 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
     return this.args.hasLineWrapping ?? false;
   }
 
-  get copyButtonText(): HdsCopyButtonSignature['Args']['text'] {
-    return this.args.copyButtonText ? this.args.copyButtonText : 'Copy';
-  }
-
   registerTitleElement = (
     element: HdsCodeBlockTitleSignature['Element']
   ): void => {
@@ -281,9 +281,17 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
     const lineOffset = this.args.lineNumberStart
       ? this.args.lineNumberStart
       : 0;
-
-    const highlightStart = '<span class="sr-only">highlight start</span>';
-    const highlightEnd = '<span class="sr-only">highlight end</span>';
+    const startText = this.hdsIntl.t(
+      'hds.components.code-block.highlight-start',
+      {
+        default: 'highlight start',
+      }
+    );
+    const endText = this.hdsIntl.t('hds.components.code-block.highlight-end', {
+      default: 'highlight end',
+    });
+    const highlightStart = `<span class="sr-only">${startText}</span>`;
+    const highlightEnd = `<span class="sr-only">${endText}</span>`;
 
     const ranges = this.args.highlightLines
       ?.replace(/\s+/g, '')
@@ -387,7 +395,7 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
           <HdsCodeBlockCopyButton
             @targetToCopy="#{{this._preCodeId}}"
             aria-describedby={{this._preCodeId}}
-            @text={{this.copyButtonText}}
+            @text={{@copyButtonText}}
             @onCopy={{@onCopy}}
             @copySuccessMessageText={{@copySuccessMessageText}}
           />
