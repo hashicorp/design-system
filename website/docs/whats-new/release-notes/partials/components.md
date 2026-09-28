@@ -14,6 +14,8 @@
 
 ## 6.5.1
 
+[6.5.1 documentation](https://hds-website-6-5-1.vercel.app/)
+
 **Patch changes**
 
 **🔄 Updated dependencies:**
