@@ -5,9 +5,11 @@
 
 import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
+import { service } from '@ember/service';
 
 import HdsPopoverPrimitive from '../popover-primitive/index.gts';
 import HdsIcon from '../icon/index.gts';
+import type HdsIntlService from '../../../services/hds-intl';
 
 export interface HdsBreadcrumbTruncationSignature {
   Args: {
@@ -20,8 +22,15 @@ export interface HdsBreadcrumbTruncationSignature {
 }
 
 export default class HdsBreadcrumbTruncation extends Component<HdsBreadcrumbTruncationSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
+
   get ariaLabel(): string {
-    return this.args.ariaLabel ?? 'show more';
+    return (
+      this.args.ariaLabel ??
+      this.hdsIntl.t('hds.components.breadcrumb.truncation.aria-label', {
+        default: 'show more',
+      })
+    );
   }
 
   <template>
