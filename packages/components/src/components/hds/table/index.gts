@@ -23,6 +23,7 @@ import HdsTableTr from './tr.gts';
 import HdsTableTh from './th.gts';
 import HdsTableThSort from './th-sort.gts';
 import HdsTableTd from './td.gts';
+import hdsT from '../../../helpers/hds-t.ts';
 
 import type {
   HdsTableColumn,
@@ -401,7 +402,10 @@ export default class HdsTable<T = HdsTableModel> extends Component<
             @onSelectionChange={{this.onSelectionAllChange}}
             @didInsert={{this.didInsertSelectAllCheckbox}}
             @willDestroy={{this.willDestroySelectAllCheckbox}}
-            @selectionAriaLabelSuffix="all rows"
+            @selectionAriaLabelSuffix={{hdsT
+              "hds.components.table.th-selectable.aria-label-suffix.all-rows"
+              default="all rows"
+            }}
           >
             {{#each @columns as |column|}}
               {{#if column.isSortable}}
@@ -434,7 +438,10 @@ export default class HdsTable<T = HdsTableModel> extends Component<
                 onSelectionChange=this.onSelectionAllChange
                 didInsert=this.didInsertSelectAllCheckbox
                 willDestroy=this.willDestroySelectAllCheckbox
-                selectionAriaLabelSuffix="all rows"
+                selectionAriaLabelSuffix=(hdsT
+                  "hds.components.table.th-selectable.aria-label-suffix.all-rows"
+                  default="all rows"
+                )
                 onClickSortBySelected=(if
                   @selectableColumnKey (fn this.setSortBy @selectableColumnKey)
                 )
