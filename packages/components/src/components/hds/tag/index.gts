@@ -11,6 +11,7 @@ import { modifier } from 'ember-modifier';
 import { on } from '@ember/modifier';
 import { or } from 'ember-truth-helpers';
 import { hash } from '@ember/helper';
+import { service } from '@ember/service';
 
 import { HdsTagColorValues } from './types.ts';
 import { HdsTagTooltipPlacementValues } from './types.ts';
@@ -23,6 +24,7 @@ import hdsTooltip from '../../../modifiers/hds-tooltip.ts';
 import type { HdsTagColors } from './types.ts';
 import type { HdsTagTooltipPlacements } from './types.ts';
 import type { HdsInteractiveSignature } from '../interactive/index.gts';
+import type HdsIntlService from '../../../services/hds-intl.ts';
 
 export const COLORS: HdsTagColors[] = Object.values(HdsTagColorValues);
 export const DEFAULT_COLOR = HdsTagColorValues.Primary;
@@ -66,7 +68,9 @@ if (typeof ResizeObserver !== 'undefined') {
 }
 
 export default class HdsTag extends Component<HdsTagSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
   @tracked private _element?: HTMLElement;
+
   private get _isTextOverflow(): boolean {
     if (!this._element) {
       return false;
@@ -118,8 +122,16 @@ export default class HdsTag extends Component<HdsTagSignature> {
   }
 
   get ariaLabel(): string {
-    const tagAriaLabel = this.args.ariaLabel ?? 'Dismiss';
-    return tagAriaLabel + ' ' + this.args.text;
+    const { ariaLabel, text } = this.args;
+
+    if (ariaLabel !== undefined) {
+      return `${ariaLabel} ${text}`;
+    }
+
+    return this.hdsIntl.t('hds.components.tag.aria-label', {
+      default: `Dismiss ${text}`,
+      text,
+    });
   }
 
   get color(): HdsTagColors | false {
