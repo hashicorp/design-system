@@ -10,7 +10,7 @@ layout:
 <section data-tab="Library">
 
   <Doc::Banner @type="information">
-    <p class="doc-markdown-p"><strong>Note</strong>: the tokens below refer to the version 7.0 or above of the components package (version 6.0 or above of the tokens package). If you are using an older version, refer to the correct <a href="/whats-new/release-notes">documentation for your version</a></p>
+    <p class="doc-markdown-p"><strong>Note</strong>: There have been major breaking changes to the tokens in version 7.0 of the components package (version 6.0 of the tokens package). <br> The tokens below refer to the latest token nomenclature. If you are using an older version, refer to the correct <a href="/whats-new/release-notes">documentation for your version</a>.</p>
   </Doc::Banner>
 
   <!-- algolia-ignore-start -->
