@@ -2,7 +2,7 @@
 
 Theming is the mechanism that lets an application switch between different visual appearances at runtime, for example between a light and a dark theme.
 
-In HDS, theming was introduced in version 7.0 as part of the "carbonization" project, aimed at migrating the HDS foundations and components from their original Helios visual language to the [IBM Carbon visual language](https://www.ibm.com/design/language/). See [From Helios to Carbon](/carbonization/introduction) for more details about this process.
+In HDS, theming was introduced in [version 7.0](whats-new/release-notes#700) as part of the "carbonization" project, aimed at migrating the HDS foundations and components from their original Helios visual language to the [IBM Carbon visual language](https://www.ibm.com/design/language/). See [From Helios to Carbon](/carbonization/introduction) for more details about this process.
 
 We expect product teams to "carbonize" their applications at their own pace. This means that some applications will continue using the "classic" HDS visual language for some time, while others will start migrating and will need both visual languages to co-exist in the same application, and once fully migrated they will use only the "carbonized" HDS.
 
@@ -11,11 +11,11 @@ This means that two visual languages need to be supported in HDS, at the same ti
 - **"classic" HDS** – the original, light-only visual language (doesn't have theming)
 - **"carbonized" HDS** – the IBM Carbon visual language applied to HDS, with support for both light and dark variants (more precisely, multiple color modes; see [Themes and modes](#themes-and-modes) below).
 
-To support all of these scenarios, HDS provides several pre-built sets of themed tokens, so each application can import only the visual language(s) it needs. See [Themed tokens files](#themed-tokens-files) below.
+To support all of these scenarios, HDS provides several pre-built sets of themed tokens, so each application can import only the visual language(s) it needs. See [Themed tokens](#themed-tokens) below.
 
 Each set of themed tokens declares its design tokens under `hds-theme-*`/`hds-mode-*` CSS selectors, one for each theme/mode it supports. Applying a theme, then, is simply a matter of adding the corresponding class name to the `<html>` element of the page: this is what a dedicated [`hdsTheming` service](#hdstheming-service) does under the hood.
 
-It's also possible to apply local overrides of the global theme, scoping them to only a portion of the page, using the [`ThemeContext`](#themecontext) component. The way in which it works is by applying the same `hds-theme-*`/`hds-mode-*` classes to a DOM container, affecting how its content is themed.
+It's also possible to apply local overrides of the global theme, scoping them to only a portion of the page using the [`ThemeContext`](#themecontext) component. This works by applying the same `hds-theme-*`/`hds-mode-*` classes to a DOM container, affecting how its content is themed.
 
 ### Themes and modes
 
@@ -58,21 +58,21 @@ For more details about this service, how to use it, and it APIs, see the [Themin
 
 `Hds::ThemeContext` is a headless component that can be used to apply a theme or mode to the content rendered inside it, independently from the theme applied to the rest of the page.
 
-For more details about this component, how to use it, and it APIs, see the [`ThemeContext` component](/theming/theme-context).
+For more details about this component, how to use it, and its APIs, see the [`ThemeContext` component](/theming/theme-context).
 
 #### `hds-apply-only-if-carbon` Sass mixin
 
 During migration, when classic and Carbon styles need to coexist, you can use the `hds-apply-only-if-carbon` Sass mixin for special cases where a Carbon style needs to override a classic style.
 
-Import in your application's Sass entry point the `styles/mixins/carbonization` file from the `@hashicorp/design-system-components` package, and then include the mixin around the styles that should only apply when the `light`, `dark`, or `system` Carbon theme is active.
+In your application's Sass entry point, import the `styles/mixins/carbonization` file from the `@hashicorp/design-system-components` package, and then include the mixin around the styles that should only apply when the `light`, `dark`, or `system` Carbon theme is active.
 
 _Note: this special mixin should be used sparingly, only during migration and only for very specific overrides that cannot be handled through themed design tokens or the standard component styles._
 
 ## How to adopt theming in your application
 
-Adopting theming is part of the broader process of ["carbonization"](/carbonization/introduction) of an an application. This process is typically gradual, because it requires updating the visual language of an existing application. Before you begin, [contact the Design System Team](/about/support) to plan the migration and get guidance on the appropriate themed tokens file.
+Adopting theming is part of the broader process of ["carbonization"](/carbonization/introduction) of an an application. This process is typically gradual because it requires updating the visual language of an existing application. Before you begin, [contact the Design System Team](/about/support) to plan the migration and get guidance on the appropriate themed tokens file.
 
-The migration of existing applications  usually progresses through three stages.
+The migration of existing applications usually progresses through three stages.
 
 ### Not yet migrated
 
@@ -82,13 +82,13 @@ Applications can still upgrade to version `7.0` or later of the design system, (
 
 ### Migrating
 
-If an application intends to migrate to the "carbonized" look&feel of their UI, the product team should [speak with the Design System Team](/about/support) to coordinate the initial effort.
+If an application intends to migrate to the "carbonized" look and feel in their UI, the product team should [speak with the Design System Team](/about/support) to coordinate the initial effort.
 
 However, for general knowledge, this is what the migration steps would look like.
 
 #### Dependencies
 
-In your `package.json` update the HDS dependencies to the minimum versions that support theming:
+In your `package.json`, update the HDS dependencies to the minimum versions that support theming:
 
 [[code-snippets/migration-dependencies-bump-hds]]
 
@@ -96,7 +96,7 @@ Carbonized themes use the [IBM Plex typefaces](https://carbondesignsystem.com/el
 
 [[code-snippets/migration-dependencies-add-plex-fonts]]
 
-#### Sass/Css imports
+#### Sass/CSS imports
 
 You now have to update your application to use the "carbonized" files. For these examples, we will use the Sass files, but equivalent files are available in CSS as well. For details about how to configure your app to consume these CSS or Sass files from the HDS packages, see [Getting started for engineers](/getting-started/for-engineers#import-component-styles).
 
@@ -117,7 +117,7 @@ If your application serves fonts from a path other than `/assets` (e.g. `/app/as
 
 #### Design tokens migration
 
-The HDS 7.0 release introduced a corresponding 6.0 release of the design tokens package. As part of the carbonization work, we renamed and reorganized the [design tokens](/foundations/tokens) to follow a new naming convention.
+The HDS `7.0` release introduced a corresponding `6.0` release of the design tokens package. As part of the carbonization work, we renamed and reorganized the [design tokens](/foundations/tokens) to follow a new naming convention.
 
 Some changes are mechanical, such as changing the `--token-*` prefix to `--hds-*`. Others change the structure of the name, for example, `--token-color-border-primary` becomes `--hds-border-color-primary`.
 
@@ -127,7 +127,7 @@ The HDS team can run an automated migration against your codebase using a valida
 
 #### Icon loading
 
-In HDS v7, icons are no longer delivered through a single SVG sprite injected into the application.
+In HDS version `7.0`, icons are no longer delivered through a single SVG sprite injected into the application.
 
 If your application sets the `flightIconsSpriteLazyEmbed` option in `config/environment.js`, this can now be removed.
 
@@ -141,7 +141,7 @@ The following is a minimal example of how a theme switcher can invoke `setTheme`
 
 [[code-snippets/migration-hds-theming-set-theme execute=false]]
 
-To retain the selection between visits, you should persist it and restore it early in the application lifecycle to avoid a flash of content rendered with the wrong theme.
+To retain the selection between visits, persist and restore it early in the application lifecycle to avoid a flash of content rendered with the wrong theme.
 
 For more details about how to set and persist a theme in an application, see the [Theming service](/theming/hds-theming) documentation.
 
