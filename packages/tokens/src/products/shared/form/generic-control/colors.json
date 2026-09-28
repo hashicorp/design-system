@@ -26,18 +26,6 @@
             "$value": "{surface.color.interactive}",
             "group": "components"
           },
-          "hover": {
-            "$type": "color",
-            "$value": "{surface.color.interactive-hover}",
-            "group": "components",
-            "$modes": {
-              "default": "{surface.color.interactive-hover}",
-              "cds-g0": "{carbon.themes.white.field01}",
-              "cds-g10": "{carbon.themes.g10.field01}",
-              "cds-g90": "{carbon.themes.g90.field01}",
-              "cds-g100": "{carbon.themes.g100.field01}"
-            }
-          },
           "disabled": {
             "$type": "color",
             "$value": "{surface.color.interactive-disabled}",
@@ -168,27 +156,6 @@
       }
     },
     "control-boolean": {
-      "foreground": {
-        "color": {
-          "checked": {
-            "$type": "color",
-            "$value": "{foreground.color.high-contrast}",
-            "group": "components",
-            "$modes": {
-              "default": "{foreground.color.high-contrast}",
-              "cds-g0": "{carbon.themes.white.textPrimary}",
-              "cds-g10": "{carbon.themes.g10.textPrimary}",
-              "cds-g90": "{carbon.themes.g90.textPrimary}",
-              "cds-g100": "{carbon.themes.g100.textPrimary}"
-            }
-          },
-          "unchecked": {
-            "$type": "color",
-            "$value": "{foreground.color.strong}",
-            "group": "components"
-          }
-        }
-      },
       "surface": {
         "color": {
           "checked": {
