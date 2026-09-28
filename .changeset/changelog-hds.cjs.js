@@ -147,7 +147,7 @@ const changelogFunctions = {
     if (metadata) {
       releaseEntry += `\n<small class="doc-whats-new-changelog-metadata">${metadata.join(" - ")}</small>\n`;
     }
-    releaseEntry += `\n<div class="doc-whats-new-changelog-separator"></div>\n`;
+    releaseEntry += `\n<div class="doc-whats-new-changelog-separator"></div>\n\n`;
     return releaseEntry;
   },
 };
