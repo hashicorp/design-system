@@ -5,6 +5,7 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+import { service } from '@ember/service';
 import { on } from '@ember/modifier';
 import { hash } from '@ember/helper';
 import style from 'ember-style-modifier';
@@ -20,12 +21,14 @@ import HdsFormCharacterCount from '../character-count/index.gts';
 import type { HdsFormFieldSignature } from '../field/index.gts';
 import type { HdsFormTextInputBaseSignature } from './base.gts';
 import type { HdsFormVisibilityToggleSignature } from '../visibility-toggle/index.gts';
+import type HdsIntlService from '../../../../services/hds-intl.ts';
 
 export interface HdsFormTextInputFieldSignature {
   Args: Omit<HdsFormFieldSignature['Args'], 'contextualClass' | 'layout'> &
     HdsFormTextInputBaseSignature['Args'] & {
       visibilityToggleAriaLabel?: HdsFormVisibilityToggleSignature['Args']['ariaLabel'];
       visibilityToggleAriaMessageText?: HdsFormVisibilityToggleSignature['Args']['ariaMessageText'];
+      visibilityToggleAriaMessageTextWhenVisible?: HdsFormVisibilityToggleSignature['Args']['ariaMessageTextWhenVisible'];
     };
   Blocks: {
     default: [
@@ -41,6 +44,8 @@ export interface HdsFormTextInputFieldSignature {
 }
 
 export default class HdsFormTextInputField extends Component<HdsFormTextInputFieldSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
+
   @tracked private _isPasswordMasked = true;
   @tracked type;
 
@@ -57,23 +62,42 @@ export default class HdsFormTextInputField extends Component<HdsFormTextInputFie
     return this.args.type === 'password' && this.hasVisibilityToggle;
   }
 
-  get visibilityToggleAriaLabel(): string | undefined {
+  get visibilityToggleAriaLabel(): string {
     if (this.args.visibilityToggleAriaLabel) {
       return this.args.visibilityToggleAriaLabel;
-    } else if (this._isPasswordMasked) {
-      return 'Show password';
     } else {
-      return 'Hide password';
+      return this.hdsIntl.t(
+        'hds.components.form.text-input.field.toggle-password-visibility',
+        {
+          default: 'Toggle password visibility',
+        }
+      );
     }
   }
 
-  get visibilityToggleAriaMessageText(): string | undefined {
+  get visibilityToggleAriaMessageText(): string {
     if (this.args.visibilityToggleAriaMessageText) {
       return this.args.visibilityToggleAriaMessageText;
-    } else if (this._isPasswordMasked) {
-      return 'Password is hidden';
     } else {
-      return 'Password is visible';
+      return this.hdsIntl.t(
+        'hds.components.form.text-input.field.toggle-password-is-hidden',
+        {
+          default: 'Password is hidden',
+        }
+      );
+    }
+  }
+
+  get visibilityToggleAriaMessageTextWhenVisible(): string {
+    if (this.args.visibilityToggleAriaMessageTextWhenVisible) {
+      return this.args.visibilityToggleAriaMessageTextWhenVisible;
+    } else {
+      return this.hdsIntl.t(
+        'hds.components.form.text-input.field.password-is-visible',
+        {
+          default: 'Password is visible',
+        }
+      );
     }
   }
 
@@ -116,7 +140,9 @@ export default class HdsFormTextInputField extends Component<HdsFormTextInputFie
               @isVisible={{this._isPasswordMasked}}
               @ariaLabel={{this.visibilityToggleAriaLabel}}
               @ariaMessageText={{this.visibilityToggleAriaMessageText}}
+              @ariaMessageTextWhenVisible={{this.visibilityToggleAriaMessageTextWhenVisible}}
               aria-controls={{F.id}}
+              aria-pressed={{if this._isPasswordMasked "false" "true"}}
               class="hds-form-text-input__visibility-toggle"
               {{on "click" this.onClickTogglePasswordReadability}}
             />

@@ -55,6 +55,7 @@ const HdsFormMaskedInputField: TemplateOnlyComponent<HdsFormMaskedInputFieldSign
           @isContentMasked={{@isContentMasked}}
           @visibilityToggleAriaLabel={{@visibilityToggleAriaLabel}}
           @visibilityToggleAriaMessageText={{@visibilityToggleAriaMessageText}}
+          @visibilityToggleAriaMessageTextWhenVisible={{@visibilityToggleAriaMessageTextWhenVisible}}
           @value={{@value}}
           @isInvalid={{@isInvalid}}
           @width={{@width}}
