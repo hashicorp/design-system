@@ -1,6 +1,6 @@
 ## Usage
 
-More details on how to assemble form components in larger form patterns can be found in the [form patterns](https://github.com/patterns/form-patterns) documentation.
+More details on how to assemble form components in larger form patterns can be found in the [form patterns](/patterns/form-patterns) documentation.
 
 - `Form::Label` is the label associated with the form control
 - `Form::HelperText` is an optional text used to help understand what the field is intended for
