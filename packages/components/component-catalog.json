@@ -12963,11 +12963,6 @@
           "required": false
         },
         {
-          "name": "isoUtcString",
-          "type": "string",
-          "required": false
-        },
-        {
           "name": "startDate",
           "type": "string | Date",
           "required": false
