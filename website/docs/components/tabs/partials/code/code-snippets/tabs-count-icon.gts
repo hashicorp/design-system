@@ -7,7 +7,11 @@ const LocalComponent: TemplateOnlyComponent = <template>
     <T.Tab @count="5">One</T.Tab>
     <T.Tab @icon="download" @iconTitle="download available">Two</T.Tab>
     <T.Tab>Three</T.Tab>
-    <T.Tab @icon="alert-triangle" @iconColor="warning" @iconTitle="warning">Four</T.Tab>
+    <T.Tab
+      @icon="alert-triangle"
+      @iconColor="warning"
+      @iconTitle="warning"
+    >Four</T.Tab>
 
     <T.Panel>Content 1</T.Panel>
     <T.Panel>Content 2</T.Panel>
