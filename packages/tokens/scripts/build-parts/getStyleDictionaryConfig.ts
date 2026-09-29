@@ -103,7 +103,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
           },
           'docs/json': {
             buildPath: 'dist/docs/products/',
-            transformGroup: 'products/web',
+            transformGroup: 'products/web/themed',
             prefix: 'hds',
             basePxFontSize: 16,
             // this has been registered in the `build` file (the standard tokens use the `default`/`hds` comments)
