@@ -1,0 +1,26 @@
+{
+  "$comment": "Generation-2 consumer migration — APPLY. Identical to migrate.hds-gen2.dry.config.json except `dryRun: false`. Only run this after reading the dry-run report. NOTE: a usage of a REMOVED token gets a `todoMarker` comment inserted at the usage site; in this monorepo that is a defect needing a real decision, not a marker — if the dry run reports any, fix them by hand first and re-check that the count is 0.",
+  "mapPath": "../reports/token-changes.generated.json",
+  "reportDir": "../reports",
+  "prefix": "--hds-",
+  "sassPrefixes": [],
+  "roots": [
+    "packages/components/src",
+    "showcase/app",
+    "showcase/tests",
+    "website/app",
+    "website/docs"
+  ],
+  "extensions": ["scss", "css", "gts", "hbs", "ts", "js", "md"],
+  "excludeGlobs": [
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/.git/**",
+    "**/*.map",
+    "**/version-history/**",
+    "**/CHANGELOG.md",
+    "showcase/public/assets/**"
+  ],
+  "todoMarker": "🚧 TODO [HDS-TOKEN-FINAL-QA]",
+  "dryRun": false
+}
