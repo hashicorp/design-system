@@ -6,12 +6,14 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { or } from 'ember-truth-helpers';
+import { service } from '@ember/service';
 import style from 'ember-style-modifier';
 import PowerSelect from 'ember-power-select/components/power-select';
 
 import type { PowerSelectSignature } from 'ember-power-select/components/power-select';
 import type { Select } from 'ember-power-select/components/power-select';
 import type { CalculatePositionResult } from 'ember-basic-dropdown/utils/calculate-position';
+import type HdsIntlService from '../../../../../services/hds-intl.ts';
 
 import {
   HdsFormSuperSelectHorizontalPositionValues,
@@ -44,6 +46,7 @@ export interface HdsFormSuperSelectMultipleBaseSignature {
 }
 
 export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSuperSelectMultipleBaseSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
   @tracked private _powerSelectAPI?: Select;
   @tracked private _showOnlySelected = false;
   @tracked private _showNoSelectedMessage = false;
@@ -67,7 +70,13 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
       return this.args.resultCountMessage;
     }
 
-    return `${this.optionsCount} total`;
+    return this.hdsIntl.t(
+      'hds.components.form.super-select.multiple.result-count',
+      {
+        default: `${this.optionsCount} total`,
+        optionsCount: this.optionsCount,
+      }
+    );
   }
 
   get resultCountMessageFunction(): PowerSelectSignature['Args']['resultCountMessage'] {
@@ -138,7 +147,12 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
 
   // NOTE: The searchPlaceholder doesn't currently work for the multiple select
   get searchPlaceholder(): string {
-    return this.args.searchPlaceholder ?? 'Search';
+    return (
+      this.args.searchPlaceholder ??
+      this.hdsIntl.t('hds.components.form.super-select.multiple.search', {
+        default: 'Search',
+      })
+    );
   }
 
   get styles(): Record<string, string> {
@@ -155,8 +169,16 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
       styles['--hds-var-form-super-select-selected-text-display'] = 'flex';
     }
 
-    styles['--hds-var-form-super-select-selected-text'] =
-      `'${this.selectedCount} selected'`;
+    const selectedCountText = this.hdsIntl.t(
+      'hds.components.form.super-select.multiple.selected-count',
+      {
+        default: `${this.selectedCount} selected`,
+        selectedCount: this.selectedCount,
+      }
+    );
+
+    styles['--hds-form-super-select-selected-text'] =
+      `'${selectedCountText}'`;
 
     return styles;
   }
