@@ -3,15 +3,19 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import StyleDictionary from 'style-dictionary';
-import type { Dictionary, DesignToken, TransformedToken, PlatformConfig, Config, LocalOptions }  from 'style-dictionary/types';
+import type { Dictionary, DesignToken } from 'style-dictionary/types';
 
-import { cloneDeep } from 'lodash-es';
+import { cloneDeep, isEqual } from 'lodash-es';
 
-export async function customFormatDocsJsonFunction({ dictionary, platform, options }: { dictionary: Dictionary; platform: PlatformConfig; options: Config & LocalOptions }): Promise<string> {
+// the resolved value of every token, for each mode (see how it's built in the `build` file)
+export type TokensByMode = Record<string, Map<string, DesignToken['$value']>>;
+
+export async function customFormatDocsJsonFunction({ dictionary, tokensByMode }: { dictionary: Dictionary; tokensByMode: TokensByMode }): Promise<string> {
   // Notice: this object shape is used also in the documentation so any updates
   // to this format should be reflected in the corresponding type definition.
   // See: https://github.com/search?q=repo%3Ahashicorp%2Fdesign-system%20%22dist%2Fdocs%2Fproducts%2Ftokens.json%22&type=code
+  const modes = Object.keys(tokensByMode);
+
   const output: Record<string, unknown>[] = [];
   for (const token of dictionary.allTokens) {
     const outputToken = cloneDeep(token) as DesignToken;
@@ -22,95 +26,56 @@ export async function customFormatDocsJsonFunction({ dictionary, platform, optio
     // we remove the top-level "comments" prop (resolved into "comment" by the `resolve-comments-for-mode-*` preprocessor)
     // note: it is still preserved under the "original" key though
     delete outputToken.comments;
-
-    // resolve each `$modes` entry into its final combined/transformed value (see below); the raw/un-combined shape
-    // is still preserved under `original.$modes` (used eg. to detect aliases)
-    if (outputToken.$modes && typeof outputToken.$modes === 'object') {
-      const modes = outputToken.$modes as Record<string, unknown>;
-      // note: we read the raw/un-resolved modes from the `outputToken` clone, because we mutate them below
-      // (mutating `token.original` would alter Style Dictionary's own dictionary, which is shared across platforms)
-      const originalModes = outputToken.original.$modes;
-      for (const modeName of Object.keys(modes)) {
-        // the raw entry, still un-resolved
-        const originalModeValue = originalModes?.[modeName];
-        if (typeof originalModeValue === 'object' && originalModeValue !== null) {
-          delete originalModeValue.filePath;
-          delete originalModeValue.isSource;
-        }
-        // an alias (eg. `"{typography.body-100.font-size}"`) is already transformed - hence `transitiveOnly`
-        const isResolvedAlias = typeof originalModeValue === 'string' && originalModeValue.includes('{');
-        modes[modeName] = await resolveModeValue({ token: outputToken, modeValue: modes[modeName], platform, options, transitiveOnly: isResolvedAlias });
-      }
-    }
-
-    // we remove the "unit"/"alpha" props, because they're authoring inputs that the transforms have already baked into
-    // the values (eg. a `font-size` authored as `13` + `unit: "px"` is emitted as `"0.8125rem"`, so keeping a
-    // `unit: "px"` next to it would be misleading); they're still preserved under the "original" key
-    // notice: this has to happen *after* the `$modes` resolution above, which relies on these props to transform the
-    // mode values (eg. `dimension/unit` reads `unit` to turn `"10"` into `"10px"`)
+    // we remove the "unit"/"alpha" props, because they have already been baked into the value (they're still preserved under the "original" key)
     delete outputToken.unit;
     delete outputToken.alpha;
 
-    output.push(outputToken);
+    for (const originalModeValue of Object.values(outputToken.original?.$modes ?? {}) as DesignToken[]) {
+      if (typeof originalModeValue === 'object' && originalModeValue !== null) {
+        delete originalModeValue.filePath;
+        delete originalModeValue.isSource;
+      }
+    }
+
+    // we replace the `$modes` values with the ones resolved by the per-mode builds: there, Style Dictionary has already
+    // resolved every reference/alias against that specific mode and applied the transforms, so the values are final.
+    // this also covers the tokens that don't declare their own `$modes` but are an alias of a token that does (their
+    // value still changes from one mode to the other, so they need to expose it too); conversely a token whose value
+    // is the same in every mode isn't themed at all, so exposing `$modes` for it would be misleading.
+    output.push(withValuesByMode(outputToken, getValuesByMode({ token: outputToken, modes, tokensByMode })));
   }
 
   return JSON.stringify(output, null, 2);
 }
 
-// Resolves a `$modes` entry into its single, final value, by reusing Style Dictionary's own transform
-// registry: `StyleDictionary.hooks.transformGroups[platform.transformGroup]` gives us the exact, live, ordered list of
-// transform names configured for this platform, and `StyleDictionary.hooks.transforms[name]` gives us each transform's
-// actual `filter`/`transform` functions (including Style Dictionary's own built-ins, eg. `color/css`, `cubicBezier/css`).
-// This mirrors what Style Dictionary itself does when transforming a token's own `$value` (see `transformToken()` in
-// Style Dictionary's source) - just applied to a `$modes` entry instead, so there is a single source of truth for how
-// values get combined/transformed.
-// The reason for this extra logic is that Style Dictionary's transforms only ever operate on a token's own `$value`,
-// never on custom nested props like `$modes`: left raw, a `$modes` entry wouldn't match the generated CSS.
-// `transitiveOnly` is for values coming from an alias: they're already resolved/transformed, so only the `transitive`
-// transforms still apply, mirroring how Style Dictionary re-applies them after resolving references - running the
-// non-transitive ones again would double-apply them (eg. a `font-size` already resolved to `"0.75rem"` would be
-// converted to `rem` a second time, giving `"0.046875rem"`)
-// (see: https://styledictionary.com/reference/hooks/transforms/#transitive-transforms).
-async function resolveModeValue({ token, modeValue, platform, options, transitiveOnly = false }: { token: Record<string, unknown>; modeValue: unknown; platform: PlatformConfig; options: Config & LocalOptions; transitiveOnly?: boolean }): Promise<unknown> {
-  // a `$modes` entry resolves to one of two shapes (mirroring `preprocessorReplaceValueForMode.ts`'s own categorization):
-  // 1) a "property-override" object: by convention always a (non-array) object that carries its own `$value`, optionally
-  //    with sibling props (eg. `unit`/`alpha`) - its keys override the token's own props (a `null` value removes that
-  //    prop), same `Object.keys(modeValue)`-driven approach as the `replace-value-for-mode-*` preprocessor.
-  // 2) a "standard" value (eg. a primitive, or an array like the `cubicBezier` timing function) - it replaces the
-  //    token's `$value` directly.
-  // `merged` is a synthetic, partial token-like object (not a full `TransformedToken` with `path`/`original`/etc.) -
-  // built solely to resolve this `$modes` entry, then cast further down (`syntheticToken`) to satisfy the type
-  // Style Dictionary's filter/transform functions expect.
-  const merged: DesignToken = { ...token };
-  const isPropertyOverrideObject = typeof modeValue === 'object' && modeValue !== null && !Array.isArray(modeValue) && '$value' in modeValue;
-  if (isPropertyOverrideObject) {
-    Object.entries(modeValue).forEach(([key, value]) => {
-      if (value === null) {
-        delete merged[key];
-      } else {
-        merged[key] = value;
-      }
-    });
-  } else {
-    merged.$value = modeValue;
-  }
-
-  const transformGroupName = platform?.transformGroup;
-  const transformNames = (transformGroupName && StyleDictionary.hooks.transformGroups[transformGroupName]) || [];
-  const syntheticToken = merged as unknown as TransformedToken;
-
-  for (const transformName of transformNames) {
-    const transformDefinition = StyleDictionary.hooks.transforms[transformName];
-    // only "value" transforms are relevant here (eg. we skip `attributes/category`/`name/kebab`)
-    // and when the value comes from an alias only the `transitive` ones apply (see the `transitiveOnly` note above)
-    if (transformDefinition?.type !== 'value' || (transitiveOnly && !transformDefinition.transitive)) {
-      continue;
-    } else {
-      if (!transformDefinition.filter || await transformDefinition.filter(syntheticToken, options)) {
-        merged.$value = await transformDefinition.transform(syntheticToken, platform, options);
-      }
+// returns a copy of the token with the `$modes` prop set (or removed, when `valuesByMode` is `undefined`)
+function withValuesByMode(token: DesignToken, valuesByMode: Record<string, DesignToken['$value']> | undefined): Record<string, unknown> {
+  const outputToken: Record<string, unknown> = {};
+  for (const [key, value] of Object.entries(token)) {
+    if (key === '$modes') continue;
+    outputToken[key] = value;
+    if (key === '$value' && valuesByMode) {
+      // always placed right after `$value` for consistency/readability
+      outputToken['$modes'] = valuesByMode;
     }
   }
+  return outputToken;
+}
 
-  return merged.$value;
+// returns the token's value in each mode, or `undefined` when the value is the same in all of them.
+function getValuesByMode({ token, modes, tokensByMode }: { token: DesignToken; modes: string[]; tokensByMode: TokensByMode }): Record<string, DesignToken['$value']> | undefined {
+  if (!token.key) {
+    return undefined;
+  }
+  const valuesByMode: Record<string, DesignToken['$value']> = {};
+  for (const mode of modes) {
+    const value = tokensByMode[mode]?.get(token.key);
+    // a token missing from a per-mode build (eg. a token that is not part of the themed sources) can't be themed
+    if (value === undefined) {
+      return undefined;
+    }
+    valuesByMode[mode] = value;
+  }
+  const values = Object.values(valuesByMode);
+  return values.every((value) => isEqual(value, values[0])) ? undefined : valuesByMode;
 }
