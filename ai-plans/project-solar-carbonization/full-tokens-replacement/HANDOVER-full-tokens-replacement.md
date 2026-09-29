@@ -69,25 +69,36 @@ Flat object; mutually-exclusive **transformation categories** as top-level keys;
 
 | Category | Count | Rule |
 | --- | ---: | --- |
-| `prefix-only` | 228 | only prefix changed: `--token-X` → `--hds-X` |
+| `prefix-only` | 212 | only prefix changed: `--token-X` → `--hds-X` |
 | `prefix-plus-renaming__palette-colors` | 42 | `color-palette-{hue}-{step}` → `core-color-{hue}-{step}` |
 | `prefix-plus-renaming__product-colors` | 86 | `color-{product}-…` → `product-{product}-…-color` |
 | `prefix-plus-renaming__semantic-colors` | 46 | `color-{semantic}-{rest}` → `{semantic}-color-{rest}` |
 | `prefix-plus-renaming__focus-ring` | 2 | `focus-ring-{variant}-box-shadow` → `focus-ring-box-shadow-{variant}` |
 | `prefix-plus-renaming__transition-function` | 2 | `{rest}-transition-function` → `{rest}-transition-timing-function` |
-| `prefix-plus-renaming__form-radio-card` | 5 | `form-radiocard-{rest}` → `form-radio-card-{rest}` (hyphen inserted) |
-| `prefix-plus-renaming__form-elements` | 9 | form renames with **no single rule** — curated by hand (see below) |
+| `prefix-plus-renaming__form-radio-card` | 4 | `form-radiocard-{rest}` → `form-radio-card-{rest}` (hyphen inserted) |
+| `prefix-plus-renaming__form-elements` | 22 | form renames with **no single rule** — curated by hand (see below) |
 | `prefix-plus-renaming__other` | 4 | **non-form** structural renames with no systematic rule (review each) |
-| `removed` | 18 | pre token with no successor → `after: null` |
-| `added` | 626 | brand-new post tokens (`before: null`) — reference only, Phase B ignores |
+| `removed` | 22 | pre token with no successor → `after: null` |
+| `added` | 630 | brand-new post tokens (`before: null`) — reference only, Phase B ignores |
 
-Check: 228+42+86+46+2+2+5+9+4+18 = 442 pre tokens ✓.
+Check: 212+42+86+46+2+2+4+22+4+22 = 442 pre tokens ✓. Total entries 1072.
 
-> **2026-09-29 — categories reorganised.** `prefix-plus-renaming__form-elements` was introduced,
-> `…__form-control-checked` (5) was dissolved into it, and the 4 `form-*` entries were lifted out of
-> `…__other` (8 → 4, now non-form only). **No `(before, after)` pair changed** — verified by
-> checksum over all 1068 sorted pairs — so the changeset and every other downstream artifact
-> remained valid untouched. See `final-qa-tokens-renaming/PLAN-PART-1.md`.
+**`after` values are FINAL names.** The map describes ① → ③ in one hop: pre-carbonization
+`--token-*` → the name that ships. The intermediate `--hds-*` names that existed mid-effort are
+deliberately absent — a consumer upgrading must see one rename, not two.
+
+> **2026-09-29 — categories reorganised (Part 1).** `prefix-plus-renaming__form-elements` was
+> introduced, `…__form-control-checked` (5) was dissolved into it, and the 4 `form-*` entries were
+> lifted out of `…__other` (8 → 4, now non-form only). **No `(before, after)` pair changed** —
+> verified by checksum over all 1068 sorted pairs — so the changeset and every other downstream
+> artifact remained valid untouched. See `final-qa-tokens-renaming/PLAN-PART-1.md`.
+
+> **2026-09-29 — final-QA renaming folded in (Part 2).** The `after` column was rewritten from the
+> intermediate names to the final ones: 35 retargeted, 4 orphaned (`after` → `null`), 1 dropped,
+> 5 appended. 18 entries changed category — 14 left `prefix-only` because their ① → ③ pair is no
+> longer a pure prefix swap, and 4 became orphans. Closure against `packages/tokens/src` is exact
+> (1046 = 1046) and the `--token-*` column is unchanged at 442.
+> See `final-qa-tokens-renaming/PLAN-PART-2.md`.
 
 Phase B consumes **every** category uniformly: non-null `after` → rename; `after: null` → insert TODO marker;
 `before: null` → ignored. So category names are for human legibility only and never affect behavior — adding
@@ -111,6 +122,10 @@ list of entries. **This is one reason Phase A must not be re-run** — `classify
 of them into `__other`.
 
 ### Signal sources (Phase A inference, priority order)
+
+> Describes the **original 2026-09-15 inference run**, not current state. The counts below are that
+> run's; the map has since been recategorised and had the final-QA renaming folded in (see §2).
+
 - **S0** mechanical prefix swap (`--token-`→`--hds-`) — applies to every pre token; 228 land verbatim in post.
 - **S1** changeset rename tables/arrows (`.changeset/*.md`) — supports **both** `--hds-*`→`--hds-*` chains
   (old format) and `--token-*`→`--hds-*` direct pairs (e.g. `carbonization-design-tokens.md`). The resolver

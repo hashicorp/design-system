@@ -7,13 +7,21 @@
 > Status: **TOOLING BUILT & VALIDATED — map accepted as generated.** Phase A implemented and run; its `tooling/reports/hds/token-map.generated.json` is accepted as-is (the `__other` = 8 and `removed` = 18 buckets were inspected and are correct — no manual finalization needed). Phase B implemented and validated end-to-end against a `main` worktree (1176 replacements, 34 TODOs, 33 interpolated skipped, 0 stale remaining, idempotent); the resulting applied diff was reviewed in a GUI client and approved. Phase A was last re-run on 2026-09-15 to pick up tokens added upstream after the tooling was built (see §9.1). Next step: run Phase B against the real downstream target(s).
 > Last updated: 2026-09-15
 
-> ⚠️ **Historical document — category names below are out of date (2026-09-29).**
+> ⚠️ **Historical document — counts and names below are out of date (2026-09-29).**
 > This records the plan as designed and executed at the time; it is deliberately **not** rewritten.
-> Since then the map's categories were reorganised by hand: `prefix-plus-renaming__form-elements`
-> (9) was introduced, `…__form-control-checked` (5) dissolved into it, and `…__other` went 8 → 4
-> (non-form only). **No `(before, after)` pair changed.** Phase A is now a spent one-off and must not
-> be re-run. Authoritative: `token-map.generated.json` and
-> `final-qa-tokens-renaming/PLAN-PART-1.md`.
+> Two things have happened since:
+>
+> 1. **Categories reorganised** — `prefix-plus-renaming__form-elements` introduced,
+>    `…__form-control-checked` dissolved into it, `…__other` reduced 8 → 4 (non-form only).
+>    No `(before, after)` pair changed.
+> 2. **Final-QA renaming folded in** — every `after` is now the **final** shipping name, so the
+>    intermediate `--hds-*` names this document discusses no longer exist.
+>
+> Current shape: `prefix-only` 212, `…__form-radio-card` 4, `…__form-elements` 22, `…__other` 4,
+> `removed` 22, `added` 630 — 1072 entries, 442 with a non-null `before`.
+>
+> Phase A is a spent one-off and must not be re-run. Authoritative: `token-map.generated.json`,
+> `final-qa-tokens-renaming/PLAN-PART-1.md` and `PLAN-PART-2.md`.
 
 ---
 
