@@ -67,21 +67,6 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
             ],
             // these have been registered in the `build` file
             preprocessors: [`replace-value-for-mode-${mode}`, `resolve-comments-for-mode-${mode}`],
-          },
-          [`docs/themed-json--mode-${mode}`]: {
-            buildPath: 'dist/docs/products/',
-            transformGroup: 'products/web',
-            prefix: 'hds',
-            basePxFontSize: 16,
-            files: [
-              {
-                destination: `themed-tokens/${mode}.json`,
-                format: 'docs/json',
-                filter: excludePrivateTokens,
-              }
-            ],
-            // these have been registered in the `build` file
-            preprocessors: [`replace-value-for-mode-${mode}`, `resolve-comments-for-mode-${mode}`],
           }
         }
       };
@@ -130,7 +115,6 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
                 filter: excludePrivateTokens,
               }
             ],
-            actions: ['generate-theming-docs-files'],
           }
         }
       };

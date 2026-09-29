@@ -21,7 +21,6 @@ import { customFormatDocsJsonFunction } from './build-parts/customFormatDocsJson
 import { generateCssHelpers } from './build-parts/generateCssHelpers.ts';
 import { validateThemingCssFiles } from './build-parts/validateThemingCssFiles.ts';
 import { generateThemingCssFiles } from './build-parts/generateThemingCssFiles.ts';
-import { generateThemingDocsFiles } from './build-parts/generateThemingDocsFiles.ts';
 
 // SCRIPT CONFIG
 
@@ -264,12 +263,6 @@ StyleDictionary.registerAction({
 StyleDictionary.registerAction({
     name: 'validate-theming-css-files',
     do: validateThemingCssFiles,
-    undo: () => {}
-});
-
-StyleDictionary.registerAction({
-    name: 'generate-theming-docs-files',
-    do: generateThemingDocsFiles,
     undo: () => {}
 });
 
