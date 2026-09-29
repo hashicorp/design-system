@@ -141,7 +141,7 @@ export default class HdsTabsTab extends Component<HdsTabsTabSignature> {
             @color={{@iconColor}}
             @title={{@iconTitle}}
             class="hds-tabs__tab-icon"
-            {{! Bypass lint rule that "tab" cant have semantic descendants; hdsIcon handles its semantic role internally   }}
+            {{! Bypass lint rule that "tab" cant have semantic descendants; hdsIcon handles its semantic role internally }}
             role="presentation"
           />
         {{/if}}
