@@ -483,7 +483,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     test('resetting a column width is idempotent', async function (assert) {
       await render(
         <template>
-          <div {{style width="900px"}}>
+          <div {{style width="600px"}}>
             <HdsAdvancedTable
               id="reset-table"
               @columns={{array
