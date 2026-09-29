@@ -121,7 +121,7 @@ export default class HdsFormKeyValueInputsField extends Component<HdsFormKeyValu
     return this.hdsIntl.t(
       'hds.components.form.key-value-inputs.field.label-hidden-text',
       {
-        default: 'row {rowNumber}',
+        default: `row ${this.args.rowIndex + 1}`,
         rowNumber: this.args.rowIndex + 1,
       }
     );
