@@ -15,7 +15,6 @@ import type { HdsButtonSignature } from '../../button/index.gts';
 
 export interface HdsFormKeyValueInputsAddRowButtonSignature {
   Args: {
-    ariaLabel?: string;
     onClick?: () => void;
     text?: HdsButtonSignature['Args']['text'];
   };
