@@ -3,14 +3,15 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { Dictionary, DesignToken } from 'style-dictionary/types';
+import { getReferences } from 'style-dictionary/utils';
+import type { Dictionary, DesignToken, Config, LocalOptions } from 'style-dictionary/types';
 
-import { cloneDeep, isEqual } from 'lodash-es';
+import { cloneDeep } from 'lodash-es';
 
 // the resolved value of every token, for each mode (see how it's built in the `build` file)
 export type TokensByMode = Record<string, Map<string, DesignToken['$value']>>;
 
-export async function customFormatDocsJsonFunction({ dictionary, tokensByMode }: { dictionary: Dictionary; tokensByMode: TokensByMode }): Promise<string> {
+export async function customFormatDocsJsonFunction({ dictionary, options, tokensByMode }: { dictionary: Dictionary; options: Config & LocalOptions; tokensByMode: TokensByMode }): Promise<string> {
   // Notice: this object shape is used also in the documentation so any updates
   // to this format should be reflected in the corresponding type definition.
   // See: https://github.com/search?q=repo%3Ahashicorp%2Fdesign-system%20%22dist%2Fdocs%2Fproducts%2Ftokens.json%22&type=code
@@ -39,13 +40,35 @@ export async function customFormatDocsJsonFunction({ dictionary, tokensByMode }:
 
     // we replace the `$modes` values with the ones resolved by the per-mode builds: there, Style Dictionary has already
     // resolved every reference/alias against that specific mode and applied the transforms, so the values are final.
-    // this also covers the tokens that don't declare their own `$modes` but are an alias of a token that does (their
-    // value still changes from one mode to the other, so they need to expose it too); conversely a token whose value
-    // is the same in every mode isn't themed at all, so exposing `$modes` for it would be misleading.
-    output.push(withValuesByMode(outputToken, getValuesByMode({ token: outputToken, modes, tokensByMode })));
+    // this also covers the tokens that don't declare their own `$modes` but alias token(s) in their resolution chain that do
+    const valuesByMode = isThemed(outputToken, dictionary, options.usesDtcg) ? getValuesByMode({ token: outputToken, modes, tokensByMode }) : undefined;
+    output.push(withValuesByMode(outputToken, valuesByMode));
   }
 
   return JSON.stringify(output, null, 2);
+}
+
+// A token is "themed" when a `$modes` declaration exists on the token itself or anywhere in the chain of references it resolves through
+function isThemed(token: DesignToken, dictionary: Dictionary, usesDtcg?: boolean, visitedKeys = new Set<string>()): boolean {
+  const tokenKey = token.key ?? token.path?.join('.');
+  if (token.$modes) {
+    return true;
+  } else if (tokenKey && visitedKeys.has(tokenKey)) {
+    // we already went through this token (this also avoids looping over circular references)
+    return false;
+  } else {
+    if (tokenKey) {
+      visitedKeys.add(tokenKey);
+    }
+    // a value can reference more than one token (eg. the `box-shadow` ones), and any of them can bring in the theming
+    const references = getReferences(usesDtcg ? token.original?.$value : token.original?.value, dictionary.tokens, {
+      // note: we pass `unfilteredTokens` to ensure we find the refs even if they are filtered out (eg. the `private` ones)
+      unfilteredTokens: dictionary.unfilteredTokens,
+      usesDtcg,
+      warnImmediately: false,
+    });
+    return references.some((reference: DesignToken) => isThemed(reference, dictionary, usesDtcg, visitedKeys));
+  }
 }
 
 // returns a copy of the token with the `$modes` prop set (or removed, when `valuesByMode` is `undefined`)
@@ -62,7 +85,7 @@ function withValuesByMode(token: DesignToken, valuesByMode: Record<string, Desig
   return outputToken;
 }
 
-// returns the token's value in each mode, or `undefined` when the value is the same in all of them.
+// returns the token's value in each mode, as resolved by the per-mode builds
 function getValuesByMode({ token, modes, tokensByMode }: { token: DesignToken; modes: string[]; tokensByMode: TokensByMode }): Record<string, DesignToken['$value']> | undefined {
   if (!token.key) {
     return undefined;
@@ -76,6 +99,5 @@ function getValuesByMode({ token, modes, tokensByMode }: { token: DesignToken; m
     }
     valuesByMode[mode] = value;
   }
-  const values = Object.values(valuesByMode);
-  return values.every((value) => isEqual(value, values[0])) ? undefined : valuesByMode;
+  return valuesByMode;
 }
