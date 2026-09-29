@@ -22,11 +22,16 @@ import { generateCssHelpers } from './build-parts/generateCssHelpers.ts';
 import { validateThemingCssFiles } from './build-parts/validateThemingCssFiles.ts';
 import { generateThemingCssFiles } from './build-parts/generateThemingCssFiles.ts';
 
+import type { TokensByMode } from './build-parts/customFormatDocsJson.ts';
+
 // SCRIPT CONFIG
 
 const __filename = fileURLToPath(import.meta.url); // Get the file path of the current module
 const __dirname = dirname(__filename); // Get the directory name of the current module
 const distFolder = path.resolve(__dirname, '../dist');
+
+// this is used to store the tokens resolved by each per-mode build (used to generate the `$modes` values in the "docs" JSON files)
+const tokensByMode: TokensByMode = {};
 
 
 // •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
@@ -242,7 +247,9 @@ for (const target of ['common', 'themed']) {
 
 StyleDictionary.registerFormat({
   name: 'docs/json',
-  format: customFormatDocsJsonFunction,
+  // we pass the `tokensByMode` store to the `customFormatDocsJsonFunction` custom formatter
+  // so it can populate the `$modes` entries directly with fully-resolved values (no need to recursively resolve aliases to get those values)
+  format: (args) => customFormatDocsJsonFunction({ ...args, tokensByMode }),
 });
 
 
@@ -286,6 +293,9 @@ for (const mode of modes) {
   console.log(`\n---\n\nProcessing mode "${mode}"...`);
   await StyleDictionaryInstance.hasInitialized;
   await StyleDictionaryInstance.buildAllPlatforms()
+  // store the tokens resolved by this build: they are the source of the `$modes` values in the "docs" JSON files
+  const { allTokens } = await StyleDictionaryInstance.getPlatformTokens(`web/themed-css-variables--mode-${mode}`);
+  tokensByMode[mode] = new Map(allTokens.filter((token) => token.key).map((token) => [token.key as string, token.$value]));
   console.log('\nEnd processing');
 }
 
