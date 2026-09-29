@@ -37,7 +37,11 @@ export default class SubSectionVariants extends Component {
     <HdsTabs as |T|>
       <T.Tab @count="5">One</T.Tab>
       <T.Tab @icon="info">Two</T.Tab>
-      <T.Tab @icon="x-square-fill" @iconColor="critical">Three</T.Tab>
+      <T.Tab
+        @icon="x-square-fill"
+        @iconColor="critical"
+        @iconTitle="error"
+      >Three</T.Tab>
       <T.Tab
         @icon="waypoint"
         @iconColor="var(--token-color-waypoint-brand)"
