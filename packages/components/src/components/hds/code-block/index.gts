@@ -345,6 +345,10 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
       classes.push('hds-code-block--is-expanded');
     }
 
+    if (this.args.hasCopyButton) {
+      classes.push('hds-code-block--has-copy-button');
+    }
+
     return classes.join(' ');
   }
 

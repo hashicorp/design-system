@@ -61,6 +61,13 @@ $hds-code-block-code-footer-height: 48px;
   }
 }
 
+// hasCopyButton
+.hds-code-block--has-copy-button {
+  .hds-code-block__code {
+    padding-right: 40px;
+  }
+}
+
 // CHILD COMPONENTS / ELEMENTS
 
 // Header (contains title & description)
