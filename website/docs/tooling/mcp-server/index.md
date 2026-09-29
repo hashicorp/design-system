@@ -15,10 +15,6 @@ navigation:
     - documentation
 ---
 
-<section data-tab="Overview">
-  @include "partials/overview.md"
-</section>
-
 <section data-tab="Getting started">
   @include "partials/getting-started.md"
 </section>
