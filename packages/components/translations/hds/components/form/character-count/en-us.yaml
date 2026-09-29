@@ -1,0 +1,6 @@
+required: "{count, plural, one {# character required} other {# characters required}}"
+more-required: "{count, plural, one {# more character required} other {# more characters required}}"
+allowed: "{count, plural, one {# character allowed} other {# characters allowed}}"
+remaining: "{count, plural, one {# character remaining} other {# characters remaining}}"
+exceeded-by: "{count, plural, one {Exceeded by # character} other {Exceeded by # characters}}"
+entered: "{count, plural, one {# character entered} other {# characters entered}}"
