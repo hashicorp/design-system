@@ -1,0 +1,26 @@
+{
+  "$comment": "Generation-2 consumer migration — DRY RUN. Reuses full-tokens-replacement/tooling/migrate-tokens.mjs unmodified. Unlike the generation-1 config, `prefix` is `--hds-`: consumers were already migrated off `--token-*`, so the input namespace is the post-carbonization one. `mapPath`/`reportDir` resolve relative to THIS file. Run this first, read the report, then run the .apply. variant.",
+  "mapPath": "../reports/token-changes.generated.json",
+  "reportDir": "../reports",
+  "prefix": "--hds-",
+  "sassPrefixes": [],
+  "roots": [
+    "packages/components/src",
+    "showcase/app",
+    "showcase/tests",
+    "website/app",
+    "website/docs"
+  ],
+  "extensions": ["scss", "css", "gts", "hbs", "ts", "js", "md"],
+  "excludeGlobs": [
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/.git/**",
+    "**/*.map",
+    "**/version-history/**",
+    "**/CHANGELOG.md",
+    "showcase/public/assets/**"
+  ],
+  "todoMarker": "🚧 TODO [HDS-TOKEN-FINAL-QA]",
+  "dryRun": true
+}
