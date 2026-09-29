@@ -9,11 +9,11 @@ While the Helios MCP server is generally intended for an engineering pipeline, i
 
 Use these guidelines in the Figma to code pipeline using the MCP server as an interpretive layer, translating design system Figma components, properties, and styles/variables into working code.
 
-## Design hygiene
+## Prepare your Figma file
 
 To get the most out the Helios MCP server with an AI assistant, your Figma file or the input you are passing to the assistant needs to be machine-readable; structured in a way that allows an assistant to accurately understand what you've designed and translate it into a meaningful output. Contrary to an engineer using judgement, recognizing patterns, asking clarifying questions, and applying years of experience, an AI assistant reads only the metadata and pixels your file contains. If that data is incomplete or ambiguous, the output will be too.
 
-### Connected HDS components
+### Use connected HDS components
 
 Almost all HDS Figma components are linked to a counterpart in code. When you use a component from the HDS library, an AI assistant can see the the metadata of the component: its name, supported properties, accepted variants, the type of content it expresses, and recommendations for how it should be used. When a component is detached, the link to necessary metadata is severed. The AI assistant will struggle to identify it as an HDS component, restricting access to the necessary context that would otherwise constrain and guide its output.
 
@@ -32,7 +32,7 @@ HDS design tokens (variables and styles in Figma) are named values that map dire
 
 The same principle applies to typography: using a text style named `body-200` tells the assistant exactly which typographic token to reference in code, or which properties to set when using the `<HdsText>` component.
 
-### Use Auto Layout and Figma's layout mechanisms
+### Use Figma's layout mechanisms
 
 When a frame or layer uses Auto Layout, an AI assistant receives structured information about how elements relate to each other: direction, spacing, padding, alignment, and wrapping behavior. This maps closely to [flexbox in CSS](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Flexbox) and ensures that a design reflects the natural flow of the document object model (DOM).
 
@@ -47,7 +47,7 @@ Designs built without a formalized layout or outside of the natural document flo
 - Define document flow and structure by setting gap and padding on elements with Auto Layout, not by dragging elements into position visually.
 - Avoid using absolute positioning unless there is a specific, intentional reason (e.g., overlays, positioned tooltips).
 
-### Layer naming and organization
+### Name and organize layers
 
 Layer names are part of the metadata an AI assistant reads. Descriptive, consistent names help the assistant understand the hierarchy and purpose of elements, where Figma's default layer names (`Frame 47`, `Group 3`, `Rectangle 12`) provide no meaningful information.
 
@@ -56,7 +56,7 @@ Layer names are part of the metadata an AI assistant reads. Descriptive, consist
 - Flatten nested groups that don't serve a structural purpose.
 - Pursue a flat layout; avoid nesting frames inside frames unless there's an intentional layout, hierarchical, or structural purpose.
 
-### Run Figma Check Designs as a pre-flight step
+### Run Figma Check Designs before handoff
 
 Before handing off your designs to an engineer or AI assistant, run Figma's **[Check Designs](https://help.figma.com/hc/en-us/articles/39592284074263-Check-designs-in-Figma)** feature. This scans your file to identify gaps that degrade the context the assistant receives and improves the quality of its output by flagging:
 
