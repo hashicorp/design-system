@@ -138,6 +138,12 @@ module('Integration | Component | hds-icon', function (hooks) {
       .dom('svg.hds-icon.hds-icon-activity')
       .doesNotHaveAttribute('aria-labelledby');
   });
+  test('it has a role of img if a title is defined', async function (assert) {
+    await render(
+      <template><HdsIcon @name="activity" @title="try to avoid" /></template>,
+    );
+    assert.dom('svg.hds-icon').hasAttribute('role', 'img');
+  });
   test('it has a g element with role of presentation if a title exists', async function (assert) {
     await render(
       <template>

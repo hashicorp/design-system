@@ -492,6 +492,8 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .dom('.hds-tabs__tab-icon')
       .hasAttribute('data-test-icon', 'x-square-fill');
     assert.dom('.hds-tabs__tab-icon title').containsText('critical error');
+    assert.dom('.hds-tabs__tab-icon').hasAttribute('role', 'img');
+    assert.dom('.hds-tabs__tab-icon').hasAria('hidden', 'false');
   });
 
   // ===============================================================
