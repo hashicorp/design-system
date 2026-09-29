@@ -29,7 +29,7 @@ const FormLayoutCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid
       @label="Form with header, sections, and footer"
-      @layout="side-by-side"
+      @layout="column-stacked"
     >
       <:theming>
         <HdsForm as |FORM|>
