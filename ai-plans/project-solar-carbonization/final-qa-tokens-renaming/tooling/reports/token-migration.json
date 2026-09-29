@@ -1,0 +1,443 @@
+{
+  "generatedAt": "2026-09-29T18:47:39.167Z",
+  "mapPath": "ai-plans/project-solar-carbonization/final-qa-tokens-renaming/tooling/reports/token-changes.generated.json",
+  "prefixes": [
+    "--hds-"
+  ],
+  "roots": [
+    "packages/components/src",
+    "showcase/app",
+    "showcase/tests",
+    "website/app",
+    "website/docs"
+  ],
+  "dryRun": false,
+  "summary": {
+    "filesScanned": 3698,
+    "filesChanged": 0,
+    "replacements": 0,
+    "todos": 0,
+    "interpolated": 83,
+    "staleRemaining": 0
+  },
+  "replacementsByToken": [],
+  "todos": [],
+  "interpolated": [
+    {
+      "token": "--hds-accordion-item-toggle-padding-top-",
+      "line": 41,
+      "file": "packages/components/src/styles/components/accordion.scss"
+    },
+    {
+      "token": "--hds-accordion-item-toggle-padding-top-",
+      "line": 42,
+      "file": "packages/components/src/styles/components/accordion.scss"
+    },
+    {
+      "token": "--hds-accordion-item-toggle-padding-top-",
+      "line": 43,
+      "file": "packages/components/src/styles/components/accordion.scss"
+    },
+    {
+      "token": "--hds-accordion-item-toggle-padding-left-",
+      "line": 44,
+      "file": "packages/components/src/styles/components/accordion.scss"
+    },
+    {
+      "token": "--hds-accordion-item-toggle-gap-",
+      "line": 45,
+      "file": "packages/components/src/styles/components/accordion.scss"
+    },
+    {
+      "token": "--hds-accordion-item-toggle-icon-size-",
+      "line": 46,
+      "file": "packages/components/src/styles/components/accordion.scss"
+    },
+    {
+      "token": "--hds-accordion-item-content-padding-top-",
+      "line": 47,
+      "file": "packages/components/src/styles/components/accordion.scss"
+    },
+    {
+      "token": "--hds-accordion-item-content-padding-right-",
+      "line": 48,
+      "file": "packages/components/src/styles/components/accordion.scss"
+    },
+    {
+      "token": "--hds-accordion-item-content-padding-bottom-",
+      "line": 49,
+      "file": "packages/components/src/styles/components/accordion.scss"
+    },
+    {
+      "token": "--hds-accordion-item-content-padding-left-",
+      "line": 50,
+      "file": "packages/components/src/styles/components/accordion.scss"
+    },
+    {
+      "token": "--hds-advanced-table-cell-height-",
+      "line": 90,
+      "file": "packages/components/src/styles/components/advanced-table.scss"
+    },
+    {
+      "token": "--hds-advanced-table-cell-padding-vertical-",
+      "line": 91,
+      "file": "packages/components/src/styles/components/advanced-table.scss"
+    },
+    {
+      "token": "--hds-advanced-table-cell-padding-vertical-",
+      "line": 93,
+      "file": "packages/components/src/styles/components/advanced-table.scss"
+    },
+    {
+      "token": "--hds-alert-surface-color-",
+      "line": 189,
+      "file": "packages/components/src/styles/components/alert.scss"
+    },
+    {
+      "token": "--hds-alert-border-color-",
+      "line": 190,
+      "file": "packages/components/src/styles/components/alert.scss"
+    },
+    {
+      "token": "--hds-alert-inline-border-left-color-",
+      "line": 195,
+      "file": "packages/components/src/styles/components/alert.scss"
+    },
+    {
+      "token": "--hds-alert-icon-color-",
+      "line": 200,
+      "file": "packages/components/src/styles/components/alert.scss"
+    },
+    {
+      "token": "--hds-alert-title-foreground-color-",
+      "line": 204,
+      "file": "packages/components/src/styles/components/alert.scss"
+    },
+    {
+      "token": "--hds-badge-height-",
+      "line": 35,
+      "file": "packages/components/src/styles/components/badge-count.scss"
+    },
+    {
+      "token": "--hds-badge-padding-vertical-",
+      "line": 37,
+      "file": "packages/components/src/styles/components/badge-count.scss"
+    },
+    {
+      "token": "--hds-badge-count-padding-horizontal-",
+      "line": 39,
+      "file": "packages/components/src/styles/components/badge-count.scss"
+    },
+    {
+      "token": "--hds-badge-typography-font-size-",
+      "line": 40,
+      "file": "packages/components/src/styles/components/badge-count.scss"
+    },
+    {
+      "token": "--hds-badge-typography-line-height-",
+      "line": 41,
+      "file": "packages/components/src/styles/components/badge-count.scss"
+    },
+    {
+      "token": "--hds-badge-height-",
+      "line": 42,
+      "file": "packages/components/src/styles/components/badge-count.scss"
+    },
+    {
+      "token": "--hds-badge-foreground-color-",
+      "line": 52,
+      "file": "packages/components/src/styles/components/badge-count.scss"
+    },
+    {
+      "token": "--hds-badge-foreground-color-",
+      "line": 56,
+      "file": "packages/components/src/styles/components/badge-count.scss"
+    },
+    {
+      "token": "--hds-badge-surface-color-",
+      "line": 58,
+      "file": "packages/components/src/styles/components/badge-count.scss"
+    },
+    {
+      "token": "--hds-badge-gap-",
+      "line": 39,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--hds-badge-height-",
+      "line": 40,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--hds-badge-padding-vertical-",
+      "line": 42,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--hds-badge-padding-horizontal-",
+      "line": 43,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--hds-badge-icon-size-",
+      "line": 46,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--hds-badge-icon-size-",
+      "line": 47,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--hds-badge-typography-font-size-",
+      "line": 51,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--hds-badge-typography-line-height-",
+      "line": 52,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--hds-badge-foreground-color-",
+      "line": 63,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--hds-badge-surface-color-",
+      "line": 68,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--hds-badge-foreground-color-",
+      "line": 72,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--hds-badge-surface-color-",
+      "line": 74,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--hds-button-foreground-color-",
+      "line": 77,
+      "file": "packages/components/src/styles/components/dropdown.scss"
+    },
+    {
+      "token": "--hds-button-surface-color-",
+      "line": 78,
+      "file": "packages/components/src/styles/components/dropdown.scss"
+    },
+    {
+      "token": "--hds-button-border-color-",
+      "line": 79,
+      "file": "packages/components/src/styles/components/dropdown.scss"
+    },
+    {
+      "token": "--hds-button-foreground-color-",
+      "line": 83,
+      "file": "packages/components/src/styles/components/dropdown.scss"
+    },
+    {
+      "token": "--hds-button-surface-color-",
+      "line": 84,
+      "file": "packages/components/src/styles/components/dropdown.scss"
+    },
+    {
+      "token": "--hds-button-border-color-",
+      "line": 85,
+      "file": "packages/components/src/styles/components/dropdown.scss"
+    },
+    {
+      "token": "--hds-button-foreground-color-",
+      "line": 99,
+      "file": "packages/components/src/styles/components/dropdown.scss"
+    },
+    {
+      "token": "--hds-button-surface-color-",
+      "line": 100,
+      "file": "packages/components/src/styles/components/dropdown.scss"
+    },
+    {
+      "token": "--hds-button-foreground-color-",
+      "line": 105,
+      "file": "packages/components/src/styles/components/dropdown.scss"
+    },
+    {
+      "token": "--hds-button-surface-color-",
+      "line": 106,
+      "file": "packages/components/src/styles/components/dropdown.scss"
+    },
+    {
+      "token": "--hds-button-border-color-",
+      "line": 107,
+      "file": "packages/components/src/styles/components/dropdown.scss"
+    },
+    {
+      "token": "--hds-product-",
+      "line": 143,
+      "file": "packages/components/src/styles/components/icon-tile.scss"
+    },
+    {
+      "token": "--hds-product-",
+      "line": 160,
+      "file": "packages/components/src/styles/components/icon-tile.scss"
+    },
+    {
+      "token": "--hds-product-",
+      "line": 165,
+      "file": "packages/components/src/styles/components/icon-tile.scss"
+    },
+    {
+      "token": "--hds-product-",
+      "line": 166,
+      "file": "packages/components/src/styles/components/icon-tile.scss"
+    },
+    {
+      "token": "--hds-var-layout-grid-column-width-",
+      "line": 87,
+      "file": "packages/components/src/styles/components/layout/grid.scss"
+    },
+    {
+      "token": "--hds-var-layout-grid-column-width-",
+      "line": 91,
+      "file": "packages/components/src/styles/components/layout/grid.scss"
+    },
+    {
+      "token": "--hds-var-layout-grid-column-span-",
+      "line": 150,
+      "file": "packages/components/src/styles/components/layout/grid.scss"
+    },
+    {
+      "token": "--hds-var-layout-grid-column-span-",
+      "line": 153,
+      "file": "packages/components/src/styles/components/layout/grid.scss"
+    },
+    {
+      "token": "--hds-var-layout-grid-row-span-",
+      "line": 161,
+      "file": "packages/components/src/styles/components/layout/grid.scss"
+    },
+    {
+      "token": "--hds-var-layout-grid-row-span-",
+      "line": 164,
+      "file": "packages/components/src/styles/components/layout/grid.scss"
+    },
+    {
+      "token": "--hds-link-standalone-icon-size-",
+      "line": 62,
+      "file": "packages/components/src/styles/components/link/standalone.scss"
+    },
+    {
+      "token": "--hds-link-standalone-icon-size-",
+      "line": 63,
+      "file": "packages/components/src/styles/components/link/standalone.scss"
+    },
+    {
+      "token": "--hds-link-standalone-typography-font-size-",
+      "line": 67,
+      "file": "packages/components/src/styles/components/link/standalone.scss"
+    },
+    {
+      "token": "--hds-link-standalone-typography-line-height-",
+      "line": 68,
+      "file": "packages/components/src/styles/components/link/standalone.scss"
+    },
+    {
+      "token": "--hds-stepper-task-indicator-foreground-color-",
+      "line": 35,
+      "file": "packages/components/src/styles/components/stepper/task-indicator.scss"
+    },
+    {
+      "token": "--hds-stepper-task-indicator-foreground-color-",
+      "line": 39,
+      "file": "packages/components/src/styles/components/stepper/task-indicator.scss"
+    },
+    {
+      "token": "--hds-stepper-task-indicator-foreground-color-",
+      "line": 44,
+      "file": "packages/components/src/styles/components/stepper/task-indicator.scss"
+    },
+    {
+      "token": "--hds-table-cell-height-",
+      "line": 57,
+      "file": "packages/components/src/styles/components/table.scss"
+    },
+    {
+      "token": "--hds-table-cell-padding-vertical-",
+      "line": 58,
+      "file": "packages/components/src/styles/components/table.scss"
+    },
+    {
+      "token": "--hds-table-cell-padding-vertical-",
+      "line": 59,
+      "file": "packages/components/src/styles/components/table.scss"
+    },
+    {
+      "token": "--hds-button-height-",
+      "line": 355,
+      "file": "packages/components/src/styles/mixins/_button.scss"
+    },
+    {
+      "token": "--hds-button-padding-vertical-",
+      "line": 356,
+      "file": "packages/components/src/styles/mixins/_button.scss"
+    },
+    {
+      "token": "--hds-button-padding-horizontal-",
+      "line": 356,
+      "file": "packages/components/src/styles/mixins/_button.scss"
+    },
+    {
+      "token": "--hds-button-icon-size-",
+      "line": 359,
+      "file": "packages/components/src/styles/mixins/_button.scss"
+    },
+    {
+      "token": "--hds-button-icon-size-",
+      "line": 360,
+      "file": "packages/components/src/styles/mixins/_button.scss"
+    },
+    {
+      "token": "--hds-button-typography-font-size-",
+      "line": 364,
+      "file": "packages/components/src/styles/mixins/_button.scss"
+    },
+    {
+      "token": "--hds-button-typography-line-height-",
+      "line": 365,
+      "file": "packages/components/src/styles/mixins/_button.scss"
+    },
+    {
+      "token": "--hds-button-height-",
+      "line": 370,
+      "file": "packages/components/src/styles/mixins/_button.scss"
+    },
+    {
+      "token": "--hds-button-padding-vertical-",
+      "line": 371,
+      "file": "packages/components/src/styles/mixins/_button.scss"
+    },
+    {
+      "token": "--hds-button-padding-vertical-",
+      "line": 372,
+      "file": "packages/components/src/styles/mixins/_button.scss"
+    },
+    {
+      "token": "--hds-border-radius-",
+      "line": 21,
+      "file": "website/docs/foundations/border/index.js"
+    },
+    {
+      "token": "--hds-elevation-",
+      "line": 15,
+      "file": "website/docs/foundations/elevation/index.js"
+    },
+    {
+      "token": "--hds-surface-",
+      "line": 18,
+      "file": "website/docs/foundations/elevation/index.js"
+    }
+  ],
+  "staleRemaining": []
+}
