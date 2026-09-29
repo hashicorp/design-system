@@ -659,6 +659,7 @@
   --hds-form-helper-text-typography-font-size: 0.8125rem;
   --hds-form-helper-text-typography-line-height: 1.3846;
   --hds-form-indicator-typography-font-size: 0.8125rem;
+  --hds-form-indicator-typography-line-height: 1.3846;
   --hds-form-indicator-optional-color: #656a76; /** deprecated: use `hds-form-indicator-optional-foreground-color` instead */
   --hds-form-indicator-optional-foreground-color: #656a76;
   --hds-form-error-color: #c00005; /** deprecated: use `hds-form-error-foreground-color` instead */
@@ -8430,6 +8431,9 @@ button.hds-button[href]::after {
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-disabled=true] {
   color: var(--hds-form-control-foreground-color-disabled);
 }
+.hds-form-super-select .ember-basic-dropdown .hds-form-super-select__option-group:first-child::before {
+  display: none;
+}
 .hds-form-super-select .ember-basic-dropdown .hds-form-super-select__option-group:first-child .hds-form-super-select__option-group-title {
   margin-top: 0;
 }
@@ -8449,16 +8453,14 @@ button.hds-button[href]::after {
 .hds-form-super-select .ember-basic-dropdown .hds-form-super-select__option-group .hds-form-super-select__option-group {
   padding-left: 16px;
 }
-.hds-form-super-select .ember-basic-dropdown .hds-form-super-select__option-group .hds-form-super-select__option-group:first-child::before {
-  display: none;
-}
 .hds-form-super-select .ember-basic-dropdown .hds-form-super-select__option-group-title {
   margin: 8px 0;
   padding: 6px 7px 2px 15px;
   color: var(--hds-form-super-select-option-title-foreground-color);
-  font-size: var(--hds-typography-body-200-font-size);
-  font-family: var(--hds-typography-body-200-font-family);
-  line-height: var(--hds-typography-body-200-line-height);
+  font-weight: var(--hds-typography-font-weight-semibold);
+  font-size: var(--hds-typography-body-100-font-size);
+  font-family: var(--hds-typography-body-100-font-family);
+  line-height: var(--hds-typography-body-100-line-height);
 }
 .hds-theme-light .hds-form-super-select .ember-basic-dropdown .hds-form-super-select__option-group-title,
 .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .hds-form-super-select__option-group-title,

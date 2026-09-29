@@ -837,6 +837,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-indicator-typography-font-size: var(
     --hds-typography-body-100-font-size
   );
+  --hds-form-indicator-typography-line-height: var(
+    --hds-typography-body-100-line-height
+  );
   --hds-form-label-foreground-color: #0c0c0e;
   --hds-form-label-inline-typography-font-size: var(
     --hds-typography-body-200-font-size
@@ -1980,6 +1983,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
       --hds-form-label-foreground-color
     );
     --hds-form-indicator-typography-font-size: 0.75rem;
+    --hds-form-indicator-typography-line-height: 1.33333;
     --hds-form-label-foreground-color: #525252;
     --hds-form-label-inline-typography-font-size: 0.875rem;
     --hds-form-label-inline-typography-line-height: 1.28572;
@@ -2920,6 +2924,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
       --hds-form-label-foreground-color
     );
     --hds-form-indicator-typography-font-size: 0.75rem;
+    --hds-form-indicator-typography-line-height: 1.33333;
     --hds-form-label-foreground-color: #c6c6c6;
     --hds-form-label-inline-typography-font-size: 0.875rem;
     --hds-form-label-inline-typography-line-height: 1.28572;
@@ -3835,6 +3840,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-label-foreground-color
   );
   --hds-form-indicator-typography-font-size: 0.75rem;
+  --hds-form-indicator-typography-line-height: 1.33333;
   --hds-form-label-foreground-color: #525252;
   --hds-form-label-inline-typography-font-size: 0.875rem;
   --hds-form-label-inline-typography-line-height: 1.28572;
@@ -4752,6 +4758,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-label-foreground-color
   );
   --hds-form-indicator-typography-font-size: 0.75rem;
+  --hds-form-indicator-typography-line-height: 1.33333;
   --hds-form-label-foreground-color: #c6c6c6;
   --hds-form-label-inline-typography-font-size: 0.875rem;
   --hds-form-label-inline-typography-line-height: 1.28572;
