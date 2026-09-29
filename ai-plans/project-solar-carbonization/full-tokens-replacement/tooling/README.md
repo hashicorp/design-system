@@ -49,8 +49,12 @@ Writes to `reports/hds/`:
   - `prefix-plus-renaming__focus-ring` — `focus-ring-{variant}-box-shadow` → `focus-ring-box-shadow-{variant}`.
   - `prefix-plus-renaming__transition-function` — `{rest}-transition-function` → `{rest}-transition-timing-function`.
   - `prefix-plus-renaming__form-radio-card` — `form-radiocard-{rest}` → `form-radio-card-{rest}`.
-  - `prefix-plus-renaming__form-control-checked` — `form-control-checked-{type}-color-{rest?}` → `form-control-{type}-color-checked-{rest?}`.
-  - `prefix-plus-renaming__other` — structural renames with no systematic rule (review each).
+  - `prefix-plus-renaming__form-elements` — form token renames with no single systematic rule.
+    Descriptive, not mechanical: members differ by *what* changed (state moved from prefix to
+    suffix, a `base` marker dropped, a `boolean` sub-namespace introduced, two tokens merged into
+    one). See `final-qa-tokens-renaming/PLAN-PART-1.md`.
+  - `prefix-plus-renaming__other` — **non-form** structural renames with no systematic rule
+    (review each).
   - `removed` — no successor found (`after: null`); decide manually or flag with a TODO.
   - `added` — brand-new post tokens (`before: null`); informational, not applied by Phase B.
 - `token-diff.md` — detailed human report (per-category and per-signal
@@ -59,24 +63,38 @@ Writes to `reports/hds/`:
 ### The generated map is the source of truth
 
 `token-map.generated.json` is consumed directly by Phase B — there is **no
-separate confirmation step**. Phase A (re)writes it on every run (safe to
-overwrite), and `token-diff.md` is the detailed audit companion. If a run ever
-surfaces something questionable (e.g. in the **`prefix-plus-renaming__other`** or
+separate confirmation step**. `token-diff.md` is the detailed audit companion. If a
+run ever surfaces something questionable (e.g. in the **`prefix-plus-renaming__other`** or
 **`removed`** buckets), edit the generated JSON in place before running Phase B.
 
-### Re-run Phase A after any `packages/tokens` change
+### ⚠️ Phase A is a spent one-off — do NOT re-run it
 
-The map is a snapshot of the post token set, so it goes stale as soon as tokens
-are added, renamed, or removed upstream. **Always re-run Phase A before a Phase B
-apply.** Two things to keep in mind:
+> **Re-running `diff-tokens.mjs` will overwrite `token-map.generated.json` and lose work that cannot
+> be reconstructed.**
+
+Phase A *inferred* the pre→post mapping from a git diff. That job is finished, and the map has since
+been curated by hand:
+
+1. **Categories were reorganised** (`final-qa-tokens-renaming/PLAN-PART-1.md`) —
+   `prefix-plus-renaming__form-elements` was introduced and `…__form-control-checked` dissolved.
+   Phase A knows nothing about either.
+2. Phase A reads the post token set from `packages/tokens/dist/products/css/tokens.css`, which is
+   **stale** relative to `packages/tokens/src`.
+3. Once the final-QA renaming is folded in (`PLAN-PART-2.md`), `classify()` would re-derive
+   categories from the *final* names and get different, wrong answers — entries that are legitimately
+   `prefix-only` today fall through to `__other` once their final name differs.
+
+If the map genuinely needs to change, edit it deliberately or use the scripts in
+`final-qa-tokens-renaming/tooling/`. Treat this file as the historical record of how the map was
+originally produced.
+
+Two properties of the original inference, retained for reference:
 
 - Source tokens marked `"private": "true"` are **not** emitted to
   `dist/products/css/tokens.css` (only to `dist/docs/**`), so they never appear in
-  the map — that is by design, the products CSS is the canonical inventory.
+  the map — by design; the products CSS is the canonical inventory.
 - Newly added tokens only ever grow the `added` category (`before: null`), which
   Phase B ignores, so a refresh that adds tokens cannot change a migration result.
-  A refresh that changes `before`→`after` pairs, however, does — review the diff of
-  `token-map.generated.json` after every re-run.
 
 ## Phase B — apply the map
 
