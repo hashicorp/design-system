@@ -1657,7 +1657,15 @@
       "after": "--hds-form-radio-card-transition-duration"
     }
   ],
-  "prefix-plus-renaming__form-control-checked": [
+  "prefix-plus-renaming__form-elements": [
+    {
+      "before": "--token-form-control-base-foreground-placeholder-color",
+      "after": "--hds-form-control-base-foreground-color"
+    },
+    {
+      "before": "--token-form-control-base-foreground-value-color",
+      "after": "--hds-form-control-base-foreground-color"
+    },
     {
       "before": "--token-form-control-checked-border-color-default",
       "after": "--hds-form-control-border-color-checked-default"
@@ -1677,6 +1685,14 @@
     {
       "before": "--token-form-control-checked-surface-color-hover",
       "after": "--hds-form-control-surface-color-checked-hover"
+    },
+    {
+      "before": "--token-form-control-padding",
+      "after": "--hds-form-control-padding-vertical"
+    },
+    {
+      "before": "--token-form-text-input-background-image-data-url-search",
+      "after": "--hds-form-text-input-background-image-data-url-search-cancel"
     }
   ],
   "prefix-plus-renaming__other": [
@@ -1695,22 +1711,6 @@
     {
       "before": "--token-app-side-nav-color-surface-primary",
       "after": "--hds-app-side-nav-wrapper-surface-color"
-    },
-    {
-      "before": "--token-form-control-base-foreground-placeholder-color",
-      "after": "--hds-form-control-base-foreground-color"
-    },
-    {
-      "before": "--token-form-control-base-foreground-value-color",
-      "after": "--hds-form-control-base-foreground-color"
-    },
-    {
-      "before": "--token-form-control-padding",
-      "after": "--hds-form-control-padding-vertical"
-    },
-    {
-      "before": "--token-form-text-input-background-image-data-url-search",
-      "after": "--hds-form-text-input-background-image-data-url-search-cancel"
     }
   ],
   "removed": [
