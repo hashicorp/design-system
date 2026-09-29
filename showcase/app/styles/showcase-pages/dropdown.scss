@@ -26,6 +26,12 @@ body.page-components-dropdown {
     outline: 1px dotted var(--shw-color-gray-400);
   }
 
+  .shw-component-dropdown-inheritance-container {
+    min-width: 240px;
+    min-height: 400px;
+    outline: 1px dotted var(--shw-color-gray-400);
+  }
+
   .shw-component-dropdown-states-matrix {
     .shw-grid__item {
       // we hide all the labels (except for the first "row")
@@ -42,4 +48,16 @@ body.page-components-dropdown {
       }
     }
   }
+}
+
+// we need to leave this out of the main selector to keep the specificity low
+
+.shw-component-dropdown-style-overrides {
+  padding: 8px 12px;
+  color: #911ced;
+  font-weight: 900;
+  font-size: 18px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #f9f2ff;
+  border: 1px dashed #911ced;
 }
