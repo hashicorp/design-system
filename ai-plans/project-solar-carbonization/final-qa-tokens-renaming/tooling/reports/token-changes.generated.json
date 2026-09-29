@@ -1,0 +1,200 @@
+{
+  "meta": {
+    "generatedAt": "2026-09-29T18:29:46.719Z",
+    "generatedBy": "final-qa-tokens-renaming/tooling/build-token-changes.mjs",
+    "source": "ai-plans/project-solar-carbonization/tokens-qa/token-changes.md",
+    "sourceSha256": "c4d94ee1df736c50f1edb49ac5849749d643c627e60fc22b5f8135f8b329490e",
+    "afterRef": "ec38d38e10b1be1e11d3e474863c210b329a1fa6",
+    "afterRefIsWorkingTree": true,
+    "canonicalCount": 1046,
+    "counts": {
+      "renamed": 34,
+      "removed": 5,
+      "added": 5
+    },
+    "validated": true,
+    "warnings": []
+  },
+  "renamed": [
+    {
+      "before": "--hds-form-control-base-border-color-default",
+      "after": "--hds-form-control-border-color-default"
+    },
+    {
+      "before": "--hds-form-control-base-border-color-hover",
+      "after": "--hds-form-control-border-color-hover"
+    },
+    {
+      "before": "--hds-form-control-base-foreground-color",
+      "after": "--hds-form-control-foreground-color-default"
+    },
+    {
+      "before": "--hds-form-control-base-placeholder-foreground-color-default",
+      "after": "--hds-form-control-placeholder-foreground-color-default"
+    },
+    {
+      "before": "--hds-form-control-base-placeholder-foreground-color-disabled",
+      "after": "--hds-form-control-placeholder-foreground-color-disabled"
+    },
+    {
+      "before": "--hds-form-control-base-surface-color-default",
+      "after": "--hds-form-control-surface-color-default"
+    },
+    {
+      "before": "--hds-form-control-border-color-checked-default",
+      "after": "--hds-form-control-boolean-border-color-checked-default"
+    },
+    {
+      "before": "--hds-form-control-border-color-checked-disabled",
+      "after": "--hds-form-control-boolean-border-color-checked-disabled"
+    },
+    {
+      "before": "--hds-form-control-border-color-checked-hover",
+      "after": "--hds-form-control-boolean-border-color-checked-hover"
+    },
+    {
+      "before": "--hds-form-control-border-color-unchecked-default",
+      "after": "--hds-form-control-boolean-border-color-unchecked-default"
+    },
+    {
+      "before": "--hds-form-control-border-color-unchecked-disabled",
+      "after": "--hds-form-control-boolean-border-color-unchecked-disabled"
+    },
+    {
+      "before": "--hds-form-control-border-color-unchecked-hover",
+      "after": "--hds-form-control-boolean-border-color-unchecked-hover"
+    },
+    {
+      "before": "--hds-form-control-disabled-border-color",
+      "after": "--hds-form-control-border-color-disabled"
+    },
+    {
+      "before": "--hds-form-control-disabled-foreground-color",
+      "after": "--hds-form-control-foreground-color-disabled"
+    },
+    {
+      "before": "--hds-form-control-disabled-surface-color",
+      "after": "--hds-form-control-surface-color-disabled"
+    },
+    {
+      "before": "--hds-form-control-invalid-border-color-default",
+      "after": "--hds-form-control-border-color-invalid"
+    },
+    {
+      "before": "--hds-form-control-invalid-border-color-hover",
+      "after": "--hds-form-control-border-color-invalid-hover"
+    },
+    {
+      "before": "--hds-form-control-readonly-border-color",
+      "after": "--hds-form-control-border-color-readonly"
+    },
+    {
+      "before": "--hds-form-control-readonly-foreground-color",
+      "after": "--hds-form-control-foreground-color-readonly"
+    },
+    {
+      "before": "--hds-form-control-readonly-surface-color",
+      "after": "--hds-form-control-surface-color-readonly"
+    },
+    {
+      "before": "--hds-form-control-surface-color-checked-default",
+      "after": "--hds-form-control-boolean-surface-color-checked-default"
+    },
+    {
+      "before": "--hds-form-control-surface-color-checked-disabled",
+      "after": "--hds-form-control-boolean-surface-color-checked-disabled"
+    },
+    {
+      "before": "--hds-form-control-surface-color-checked-hover",
+      "after": "--hds-form-control-boolean-surface-color-checked-hover"
+    },
+    {
+      "before": "--hds-form-control-surface-color-unchecked-default",
+      "after": "--hds-form-control-boolean-surface-color-unchecked-default"
+    },
+    {
+      "before": "--hds-form-control-surface-color-unchecked-disabled",
+      "after": "--hds-form-control-boolean-surface-color-unchecked-disabled"
+    },
+    {
+      "before": "--hds-form-control-surface-color-unchecked-hover",
+      "after": "--hds-form-control-boolean-surface-color-unchecked-hover"
+    },
+    {
+      "before": "--hds-form-indicator-optional-typography-font-size",
+      "after": "--hds-form-indicator-typography-font-size"
+    },
+    {
+      "before": "--hds-form-indicator-optional-typography-line-height",
+      "after": "--hds-form-indicator-typography-line-height"
+    },
+    {
+      "before": "--hds-form-toggle-base-surface-color-checked-default",
+      "after": "--hds-form-toggle-surface-color-checked-default"
+    },
+    {
+      "before": "--hds-form-toggle-base-surface-color-checked-hover",
+      "after": "--hds-form-toggle-surface-color-checked-hover"
+    },
+    {
+      "before": "--hds-form-toggle-base-surface-color-default",
+      "after": "--hds-form-toggle-surface-color-unchecked-default"
+    },
+    {
+      "before": "--hds-form-toggle-base-surface-color-disabled",
+      "after": "--hds-form-toggle-surface-color-unchecked-disabled"
+    },
+    {
+      "before": "--hds-form-toggle-handle-surface-color-default",
+      "after": "--hds-form-toggle-thumb-surface-color-default"
+    },
+    {
+      "before": "--hds-form-toggle-handle-surface-color-disabled",
+      "after": "--hds-form-toggle-thumb-surface-color-disabled"
+    }
+  ],
+  "removed": [
+    {
+      "before": "--hds-form-control-base-surface-color-hover",
+      "after": null
+    },
+    {
+      "before": "--hds-form-control-foreground-color-checked",
+      "after": null
+    },
+    {
+      "before": "--hds-form-radio-card-border-radius",
+      "after": null
+    },
+    {
+      "before": "--hds-form-radio-card-control-wrapper-padding",
+      "after": null
+    },
+    {
+      "before": "--hds-form-toggle-border-radius",
+      "after": null
+    }
+  ],
+  "added": [
+    {
+      "before": null,
+      "after": "--hds-form-label-inline-typography-line-height"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-radio-border-color-checked-disabled"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-option-list-after-options-surface-color"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-option-surface-color-checked-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-option-title-foreground-color"
+    }
+  ]
+}
