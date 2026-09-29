@@ -628,7 +628,7 @@ Added tokens:
 | `--hds-app-side-nav-body-list-title-padding-horizontal` |
 | `--hds-app-side-nav-body-list-title-padding-vertical` |
 | `--hds-app-side-nav-toggle-button-height` |
-| `---hds-app-side-nav-toggle-button-top` |
+| `--hds-app-side-nav-toggle-button-top` |
 | `--hds-border-radius-rounded` |
 | `--hds-breadcrumb-divider-color` |
 | `--hds-breadcrumb-link-foreground-color-active` |
