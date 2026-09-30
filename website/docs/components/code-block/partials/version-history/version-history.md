@@ -1,3 +1,8 @@
+## 6.6.0
+
+Added extra right-side padding around code when copy button is enabled preventing overlap when text-wrapping is enabled and allowing users to scroll farther to the right to view all code
+
+
 ## 6.2.1
 
 Translated strings for height toggle button text

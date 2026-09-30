@@ -18,39 +18,31 @@
 
 **Minor changes**
 
-<!-- START components/form/masked-input -->
 
 `Form::MaskedInput` - Fixed a few accessibility issues in `Form::MaskedInput::Base` and `Form::MaskedInput::Field`, including:
 
 - Changed `@visibilityToggleAriaLabel` to have a static value for visible and hidden states. Added the `aria-pressed` attribute to the visibility toggle button to communicate state.
 - Added `@visibilityToggleAriaMessageTextWhenVisible` argument to set a custom message for the visible state.
-<!-- END -->
 
-<!-- START components/form/text-input -->
 
 `Form::TextInput` - Fixed a few accessibility issues in `Form::TextInput::Field`, including:
 
 - Changed `@visibilityToggleAriaLabel` to have a static value for visible and hidden states. Added the `aria-pressed` attribute to the visibility toggle button to communicate state.
 - Added `@visibilityToggleAriaMessageTextWhenVisible` argument to set a custom message for the visible state.
-<!-- END -->
 
-<!-- START components/form/primitives -->
 
 `Form::VisibilityToggle` - Added `@ariaMessageTextWhenVisible` argument to set a message for the visible state.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4118](https://github.com/hashicorp/design-system/pull/4118)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/tabs -->
 
 `Tabs` - Added arguments to support customizing the icon on a `Tab`, including:
 
 - `@iconColor` to set an icon color
 - `@iconTitle` to add accessible text to an icon
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4157](https://github.com/hashicorp/design-system/pull/4157)</small>
 
@@ -58,31 +50,25 @@
 
 **Patch changes**
 
-<!-- START components/app-footer -->
 
 `AppFooter` - Removed unused `@color` property from `[AF].Link` contextual component
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4099](https://github.com/hashicorp/design-system/pull/4099)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/code-block -->
 
 `CodeBlock` - Added extra right-side padding around code when copy button is enabled preventing overlap when text-wrapping is enabled and allowing users to scroll farther to the right to view all code
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4132](https://github.com/hashicorp/design-system/pull/4132)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/form/fieldset -->
 
 `Form::Fieldset` - Add missing `@id` argument to the component signature.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4107](https://github.com/hashicorp/design-system/pull/4107)</small>
 
@@ -94,21 +80,17 @@
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/time -->
 
 `Time` - Removed unused `@isoUtcString` argument
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4108](https://github.com/hashicorp/design-system/pull/4108)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/form/key-value-inputs -->
 
 `Form::KeyValueInputs` - Removed unused `@ariaLabel` argument from `[F].AddRowButton` contextual component
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4114](https://github.com/hashicorp/design-system/pull/4114)</small>
 

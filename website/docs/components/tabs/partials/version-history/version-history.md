@@ -1,3 +1,10 @@
+## 6.6.0
+
+Added arguments to support customizing the icon on a `Tab`, including:
+
+- `@iconColor` to set an icon color
+- `@iconTitle` to add accessible text to an icon
+
 ## 6.1.0
 
 Converted component to gts format.

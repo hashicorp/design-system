@@ -25,8 +25,6 @@ navigation:
     - dropdown
     - input
     - select
-status:
-  updated: 6.5.0
 ---
 
 <section data-tab="Guidelines">

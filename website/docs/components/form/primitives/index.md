@@ -19,6 +19,8 @@ navigation:
     - fieldset
     - input
     - character count
+status:
+  updated: 6.6.0
 ---
 
 <section data-tab="Guidelines">
