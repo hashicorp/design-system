@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import { service } from '@ember/service';
 import { assert } from '@ember/debug';
 import { eq } from 'ember-truth-helpers';
 // TEST
@@ -15,6 +16,7 @@ import {
 } from './types.ts';
 import HdsInteractive from '../interactive/index.gts';
 import HdsIcon from '../icon/index.gts';
+import type HdsThemingService from '../../../services/hds-theming.ts';
 
 import type {
   HdsButtonSizes,
@@ -48,6 +50,8 @@ export interface HdsButtonSignature {
 }
 
 export default class HdsButton extends Component<HdsButtonSignature> {
+  @service declare readonly hdsTheming: HdsThemingService;
+
   get text(): string {
     // TEST2
     const { text } = this.args;
@@ -116,7 +120,8 @@ export default class HdsButton extends Component<HdsButtonSignature> {
   }
 
   get iconSize(): HdsIconSignature['Args']['size'] {
-    if (this.args.size === 'large') {
+    // The Carbon Button component uses a consistent 16px SVG icon across all Button sizes. In contrast, the HDS Button uses a 24px SVG icon for the largest size and a 16px SVG icon for smaller sizes. (Using a single SVG resized via CSS, for example, would alter the stroke width at different sizes, which is undesirable.)
+    if (this.args.size === 'large' && !this.hdsTheming.isCarbonThemeEnabled) {
       return '24';
     } else {
       return '16';

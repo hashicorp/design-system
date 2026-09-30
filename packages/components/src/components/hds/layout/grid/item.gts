@@ -36,49 +36,49 @@ export default class HdsLayoutGridItem extends Component<HdsLayoutGridItemSignat
 
   get inlineStyles(): Record<string, unknown> {
     const inlineStyles: {
-      '--hds-layout-grid-column-span'?: string;
-      '--hds-layout-grid-row-span'?: string;
+      '--hds-var-layout-grid-column-span'?: string;
+      '--hds-var-layout-grid-row-span'?: string;
 
       // responsive
       // column span
-      '--hds-layout-grid-column-span-sm'?: string;
-      '--hds-layout-grid-column-span-md'?: string;
-      '--hds-layout-grid-column-span-lg'?: string;
-      '--hds-layout-grid-column-span-xl'?: string;
-      '--hds-layout-grid-column-span-xxl'?: string;
+      '--hds-var-layout-grid-column-span-sm'?: string;
+      '--hds-var-layout-grid-column-span-md'?: string;
+      '--hds-var-layout-grid-column-span-lg'?: string;
+      '--hds-var-layout-grid-column-span-xl'?: string;
+      '--hds-var-layout-grid-column-span-xxl'?: string;
 
       // row span
-      '--hds-layout-grid-row-span-sm'?: string;
-      '--hds-layout-grid-row-span-md'?: string;
-      '--hds-layout-grid-row-span-lg'?: string;
-      '--hds-layout-grid-row-span-xl'?: string;
-      '--hds-layout-grid-row-span-xxl'?: string;
+      '--hds-var-layout-grid-row-span-sm'?: string;
+      '--hds-var-layout-grid-row-span-md'?: string;
+      '--hds-var-layout-grid-row-span-lg'?: string;
+      '--hds-var-layout-grid-row-span-xl'?: string;
+      '--hds-var-layout-grid-row-span-xxl'?: string;
     } = {};
 
     if (this.args.colspan) {
       if (typeof this.args.colspan === 'number') {
-        inlineStyles['--hds-layout-grid-column-span'] =
+        inlineStyles['--hds-var-layout-grid-column-span'] =
           this.args.colspan.toString();
       } else if (typeof this.args.colspan === 'object') {
         // Responsive column spans
         if (this.args.colspan.sm) {
-          inlineStyles['--hds-layout-grid-column-span-sm'] =
+          inlineStyles['--hds-var-layout-grid-column-span-sm'] =
             this.args.colspan.sm.toString();
         }
         if (this.args.colspan.md) {
-          inlineStyles['--hds-layout-grid-column-span-md'] =
+          inlineStyles['--hds-var-layout-grid-column-span-md'] =
             this.args.colspan.md.toString();
         }
         if (this.args.colspan.lg) {
-          inlineStyles['--hds-layout-grid-column-span-lg'] =
+          inlineStyles['--hds-var-layout-grid-column-span-lg'] =
             this.args.colspan.lg.toString();
         }
         if (this.args.colspan.xl) {
-          inlineStyles['--hds-layout-grid-column-span-xl'] =
+          inlineStyles['--hds-var-layout-grid-column-span-xl'] =
             this.args.colspan.xl.toString();
         }
         if (this.args.colspan.xxl) {
-          inlineStyles['--hds-layout-grid-column-span-xxl'] =
+          inlineStyles['--hds-var-layout-grid-column-span-xxl'] =
             this.args.colspan.xxl.toString();
         }
       }
@@ -86,28 +86,28 @@ export default class HdsLayoutGridItem extends Component<HdsLayoutGridItemSignat
 
     if (this.args.rowspan) {
       if (typeof this.args.rowspan === 'number') {
-        inlineStyles['--hds-layout-grid-row-span'] =
+        inlineStyles['--hds-var-layout-grid-row-span'] =
           this.args.rowspan.toString();
       } else if (typeof this.args.rowspan === 'object') {
         // Responsive row spans
         if (this.args.rowspan.sm) {
-          inlineStyles['--hds-layout-grid-row-span-sm'] =
+          inlineStyles['--hds-var-layout-grid-row-span-sm'] =
             this.args.rowspan.sm.toString();
         }
         if (this.args.rowspan.md) {
-          inlineStyles['--hds-layout-grid-row-span-md'] =
+          inlineStyles['--hds-var-layout-grid-row-span-md'] =
             this.args.rowspan.md.toString();
         }
         if (this.args.rowspan.lg) {
-          inlineStyles['--hds-layout-grid-row-span-lg'] =
+          inlineStyles['--hds-var-layout-grid-row-span-lg'] =
             this.args.rowspan.lg.toString();
         }
         if (this.args.rowspan.xl) {
-          inlineStyles['--hds-layout-grid-row-span-xl'] =
+          inlineStyles['--hds-var-layout-grid-row-span-xl'] =
             this.args.rowspan.xl.toString();
         }
         if (this.args.rowspan.xxl) {
-          inlineStyles['--hds-layout-grid-row-span-xxl'] =
+          inlineStyles['--hds-var-layout-grid-row-span-xxl'] =
             this.args.rowspan.xxl.toString();
         }
       }
