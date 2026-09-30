@@ -73,7 +73,7 @@ export default class HdsTableTh extends Component<HdsTableThSignature> {
           <div class="hds-table__th-content">
             <span
               id={{this._labelId}}
-              class="hds-typography-body-200 hds-font-weight-semibold"
+              class="hds-table__th-content-text"
             >{{yield}}</span>
             <HdsTableThButtonTooltip
               @tooltip={{@tooltip}}
@@ -81,9 +81,7 @@ export default class HdsTableTh extends Component<HdsTableThSignature> {
             />
           </div>
         {{else}}
-          <span
-            class="hds-typography-body-200 hds-font-weight-semibold"
-          >{{yield}}</span>
+          <span class="hds-table__th-content-text">{{yield}}</span>
         {{/if}}
       {{/if}}
     </th>
