@@ -20,7 +20,7 @@
 - Added `@visibilityToggleAriaMessageTextWhenVisible` argument to set a custom message for the visible state.
 <!-- END -->
 
-<!-- START components/form/primitives/visibility-toggle -->
+<!-- START components/form/primitives -->
 
 `Form::VisibilityToggle` - Added `@ariaMessageTextWhenVisible` argument to set a message for the visible state.
 
