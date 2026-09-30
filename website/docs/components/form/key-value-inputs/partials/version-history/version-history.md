@@ -1,3 +1,8 @@
+## 6.6.0
+
+Removed unused `@ariaLabel` argument from `[F].AddRowButton` contextual component
+
+
 ## 6.2.0
 
 Translated strings for `DeleteRowButton` and `Field` screen reader text.

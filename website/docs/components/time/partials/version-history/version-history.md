@@ -1,3 +1,8 @@
+## 6.6.0
+
+Removed unused `@isoUtcString` argument
+
+
 ## 6.1.0
 
 Converted component to gts format.

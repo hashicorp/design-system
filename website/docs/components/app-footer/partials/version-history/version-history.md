@@ -1,3 +1,8 @@
+## 6.6.0
+
+Removed unused `@color` property from `[AF].Link` contextual component
+
+
 ## 6.3.0
 
 Exported `THEMES` constant.

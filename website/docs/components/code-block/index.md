@@ -24,6 +24,8 @@ navigation:
     - example
     - syntax
     - highlight
+status:
+  updated: 6.6.0
 ---
 
 <section data-tab="Guidelines">

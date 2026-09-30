@@ -1,5 +1,89 @@
 # @hashicorp/design-system-components
 
+## 6.6.0
+
+[6.6.0 documentation](https://hds-website-6-6-0.vercel.app/)
+
+### Minor Changes
+
+
+`Form::MaskedInput` - Fixed a few accessibility issues in `Form::MaskedInput::Base` and `Form::MaskedInput::Field`, including:
+
+- Changed `@visibilityToggleAriaLabel` to have a static value for visible and hidden states. Added the `aria-pressed` attribute to the visibility toggle button to communicate state.
+- Added `@visibilityToggleAriaMessageTextWhenVisible` argument to set a custom message for the visible state.
+
+
+`Form::TextInput` - Fixed a few accessibility issues in `Form::TextInput::Field`, including:
+
+- Changed `@visibilityToggleAriaLabel` to have a static value for visible and hidden states. Added the `aria-pressed` attribute to the visibility toggle button to communicate state.
+- Added `@visibilityToggleAriaMessageTextWhenVisible` argument to set a custom message for the visible state.
+
+
+`Form::VisibilityToggle` - Added `@ariaMessageTextWhenVisible` argument to set a message for the visible state.
+
+
+<small class="doc-whats-new-changelog-metadata">[#4118](https://github.com/hashicorp/design-system/pull/4118)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Tabs` - Added arguments to support customizing the icon on a `Tab`, including:
+
+- `@iconColor` to set an icon color
+- `@iconTitle` to add accessible text to an icon
+
+<small class="doc-whats-new-changelog-metadata">[#4157](https://github.com/hashicorp/design-system/pull/4157)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+
+`AppFooter` - Removed unused `@color` property from `[AF].Link` contextual component
+
+
+<small class="doc-whats-new-changelog-metadata">[#4099](https://github.com/hashicorp/design-system/pull/4099)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`CodeBlock` - Added extra right-side padding around code when copy button is enabled preventing overlap when text-wrapping is enabled and allowing users to scroll farther to the right to view all code
+
+
+<small class="doc-whats-new-changelog-metadata">[#4132](https://github.com/hashicorp/design-system/pull/4132)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Form::Fieldset` - Added missing `@id` argument to the component signature.
+
+
+<small class="doc-whats-new-changelog-metadata">[#4107](https://github.com/hashicorp/design-system/pull/4107)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Dropdown` - Set text alignment of Title and Description to left explicitly to prevent accidental override
+
+<small class="doc-whats-new-changelog-metadata">[#4134](https://github.com/hashicorp/design-system/pull/4134)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Time` - Removed unused `@isoUtcString` argument
+
+
+<small class="doc-whats-new-changelog-metadata">[#4108](https://github.com/hashicorp/design-system/pull/4108)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Form::KeyValueInputs` - Removed unused `@ariaLabel` argument from `[F].AddRowButton` contextual component
+
+
+<small class="doc-whats-new-changelog-metadata">[#4114](https://github.com/hashicorp/design-system/pull/4114)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 6.5.1
 
 [6.5.1 documentation](https://hds-website-6-5-1.vercel.app/)

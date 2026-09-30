@@ -12,6 +12,90 @@
   </a>
 </p>
 
+## 6.6.0
+
+[6.6.0 documentation](https://hds-website-6-6-0.vercel.app/)
+
+**Minor changes**
+
+
+`Form::MaskedInput` - Fixed a few accessibility issues in `Form::MaskedInput::Base` and `Form::MaskedInput::Field`, including:
+
+- Changed `@visibilityToggleAriaLabel` to have a static value for visible and hidden states. Added the `aria-pressed` attribute to the visibility toggle button to communicate state.
+- Added `@visibilityToggleAriaMessageTextWhenVisible` argument to set a custom message for the visible state.
+
+
+`Form::TextInput` - Fixed a few accessibility issues in `Form::TextInput::Field`, including:
+
+- Changed `@visibilityToggleAriaLabel` to have a static value for visible and hidden states. Added the `aria-pressed` attribute to the visibility toggle button to communicate state.
+- Added `@visibilityToggleAriaMessageTextWhenVisible` argument to set a custom message for the visible state.
+
+
+`Form::VisibilityToggle` - Added `@ariaMessageTextWhenVisible` argument to set a message for the visible state.
+
+
+<small class="doc-whats-new-changelog-metadata">[#4118](https://github.com/hashicorp/design-system/pull/4118)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Tabs` - Added arguments to support customizing the icon on a `Tab`, including:
+
+- `@iconColor` to set an icon color
+- `@iconTitle` to add accessible text to an icon
+
+<small class="doc-whats-new-changelog-metadata">[#4157](https://github.com/hashicorp/design-system/pull/4157)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Patch changes**
+
+
+`AppFooter` - Removed unused `@color` property from `[AF].Link` contextual component
+
+
+<small class="doc-whats-new-changelog-metadata">[#4099](https://github.com/hashicorp/design-system/pull/4099)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`CodeBlock` - Added extra right-side padding around code when copy button is enabled preventing overlap when text-wrapping is enabled and allowing users to scroll farther to the right to view all code
+
+
+<small class="doc-whats-new-changelog-metadata">[#4132](https://github.com/hashicorp/design-system/pull/4132)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Form::Fieldset` - Added missing `@id` argument to the component signature.
+
+
+<small class="doc-whats-new-changelog-metadata">[#4107](https://github.com/hashicorp/design-system/pull/4107)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Dropdown` - Set text alignment of Title and Description to left explicitly to prevent accidental override
+
+<small class="doc-whats-new-changelog-metadata">[#4134](https://github.com/hashicorp/design-system/pull/4134)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Time` - Removed unused `@isoUtcString` argument
+
+
+<small class="doc-whats-new-changelog-metadata">[#4108](https://github.com/hashicorp/design-system/pull/4108)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Form::KeyValueInputs` - Removed unused `@ariaLabel` argument from `[F].AddRowButton` contextual component
+
+
+<small class="doc-whats-new-changelog-metadata">[#4114](https://github.com/hashicorp/design-system/pull/4114)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 6.5.1
 
 [6.5.1 documentation](https://hds-website-6-5-1.vercel.app/)
@@ -1539,80 +1623,6 @@ Dependencies - Added `tracked-built-ins`
 <small class="doc-whats-new-changelog-metadata">[#2987](https://github.com/hashicorp/design-system/pull/2987)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
-
-## 4.21.0
-
-[4.21.0 documentation](https://hds-website-4-21-0.vercel.app/)
-
-**Minor changes**
-
-`Form` - Added `Form` component and related sub-components for form layout
-
-<small class="doc-whats-new-changelog-metadata">[#2898](https://github.com/hashicorp/design-system/pull/2898)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Added `ember-math-helpers` dependency.
-
-`AdvancedTable` - Added `hasResizableColumns` argument. When `true`, allows the table's columns to be resized with both a click-and-drag and a keyboard interface.
-
-<small class="doc-whats-new-changelog-metadata">[#2849](https://github.com/hashicorp/design-system/pull/2849)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`AppHeader` - Refactored the Home Link, removed the `@ariaLabel` argument, added `@text` (should replace `@ariaLabel`) and `@isIconOnly` arguments.
-
-<small class="doc-whats-new-changelog-metadata">[#2951](https://github.com/hashicorp/design-system/pull/2951)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Form::KeyValueInputs` - Added component and related sub-components.
-
-<small class="doc-whats-new-changelog-metadata">[#2911](https://github.com/hashicorp/design-system/pull/2911)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Layout::Grid` - Added @columnWidth to set "fixed" width for columns
-
-<small class="doc-whats-new-changelog-metadata">[#2976](https://github.com/hashicorp/design-system/pull/2976)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-`Form::FileInput` - Added `@id` and `@ariaDescribedBy` arguments to `Form::FileInput::Base`.
-
-`Form::Legend` - Added `@id` argument.
-
-`Form::Label` - Added `@hiddenText` argument, which adds visually hidden text inside the label.
-
-`Form::MaskedInput` - Added `@ariaDescribedBy` argument to `Form::MaskedInput::Base`.
-
-`Form::Select` - Added `@id` and `@ariaDescribedBy` arguments to `Form::Select::Base`.
-
-`Form::TextInput` - Added `@id` and `@ariaDescribedBy` arguments to `Form::TextInput::Base`.
-
-`Form::Textarea` - Added `@id` and `@ariaDescribedBy` arguments to `Form::Textarea::Base`.
-
-<small class="doc-whats-new-changelog-metadata">[#2911](https://github.com/hashicorp/design-system/pull/2911)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Form::SuperSelect` - Enhanced display of grouped options when only selected options are shown in the `SuperSelect::Multiple`
-
-<small class="doc-whats-new-changelog-metadata">[#2948](https://github.com/hashicorp/design-system/pull/2948)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Upgraded: `@nullvoxpopuli/ember-composable-helpers` from 5.2.10 to 5.2.11
-
-<small class="doc-whats-new-changelog-metadata">[#2954](https://github.com/hashicorp/design-system/pull/2954) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/flight-icons@3.12.0
 
 
 ---
