@@ -1,3 +1,7 @@
+## 6.6.0
+
+Set text alignment of Title and Description to left explicitly to prevent accidental override
+
 ## 6.2.1
 
 Fixed vertical alignment between text and `Badge` in `DropdownListItemInteractive`

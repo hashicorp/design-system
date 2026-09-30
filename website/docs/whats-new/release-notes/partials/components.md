@@ -67,7 +67,7 @@
 <div class="doc-whats-new-changelog-separator"></div>
 
 
-`Form::Fieldset` - Add missing `@id` argument to the component signature.
+`Form::Fieldset` - Added missing `@id` argument to the component signature.
 
 
 <small class="doc-whats-new-changelog-metadata">[#4107](https://github.com/hashicorp/design-system/pull/4107)</small>

@@ -3,7 +3,7 @@
 
 `Form::VisibilityToggle` - Added `@ariaMessageTextWhenVisible` argument to set a message for the visible state.
 
-`Form::Fieldset` - Add missing `@id` argument to the component signature.
+`Form::Fieldset` - Added missing `@id` argument to the component signature.
 
 
 ## 6.3.0
