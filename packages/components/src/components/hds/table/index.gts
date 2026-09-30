@@ -176,10 +176,14 @@ export default class HdsTable<T = HdsTableModel> extends Component<
       }[this.sortOrder];
       const lowerCaseTranslatedSortOrder = translatedSortOrder.toLowerCase();
 
+      const columnLabel =
+        this.args.columns?.find((column) => column.key === this.sortBy)
+          ?.label ?? this.sortBy;
+
       return this.hdsIntl.t('hds.components.table.sorted-message-text', {
-        sortBy: this.sortBy,
+        sortBy: columnLabel,
         sortOrder: lowerCaseTranslatedSortOrder,
-        default: `Sorted by ${this.sortBy} ${lowerCaseTranslatedSortOrder}`,
+        default: `Sorted by ${columnLabel} ${lowerCaseTranslatedSortOrder}`,
       });
     } else {
       return '';

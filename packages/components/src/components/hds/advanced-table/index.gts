@@ -560,12 +560,16 @@ export default class HdsAdvancedTable<
         ? 'ascending'
         : 'descending';
 
+    const columnLabel =
+      this.args.columns.find((column) => column.key === this.currentSortBy)
+        ?.label ?? this.currentSortBy;
+
     // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
     return this.hdsIntl.t(
       `hds.components.advanced-table.sorted-message.${sortOrder}`,
       {
-        default: `Sorted by ${this.currentSortBy} ${sortOrder}`,
-        columnLabel: this.currentSortBy,
+        default: `Sorted by ${columnLabel} ${sortOrder}`,
+        columnLabel,
       }
     );
   }
