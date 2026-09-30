@@ -7,7 +7,7 @@
 // MASKED-INPUT
 //
 
-$hds-form-masked-input-button-size: 24px;
+@use "../../mixins/carbonization" as *;
 
 .hds-form-masked-input {
   position: relative;
@@ -18,8 +18,15 @@ $hds-form-masked-input-button-size: 24px;
 
   .hds-form-masked-input__control {
     grid-area: input;
-    padding-right: calc(var(--token-form-control-padding) + $hds-form-masked-input-button-size);
+    // Add space for positioned toggle-button.
+    // In the case of the HDS theme, the width of the button plus its positioning from the edge of the input need to be taken into account
+    // In the case of carbon themes, the button is positioned to the input edge with no extra space around it (its width is wider)
+    padding-right: calc(var(--hds-form-control-padding-horizontal) + var(--hds-form-visibility-toggle-size));
     scrollbar-width: thin;
+
+    @include hds-apply-only-if-carbon() {
+      padding-right: var(--hds-form-visibility-toggle-size);
+    }
   }
 }
 
@@ -37,9 +44,14 @@ $hds-form-masked-input-button-size: 24px;
 
 .hds-form-masked-input__toggle-button {
   position: absolute;
-  top: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
-  right: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
+  top: calc(var(--hds-form-control-padding-vertical) - var(--hds-form-control-border-width));
+  right: calc(var(--hds-form-control-padding-horizontal) - var(--hds-form-control-border-width));
   grid-area: input;
+
+  @include hds-apply-only-if-carbon() {
+    top: 0;
+    right: 0;
+  }
 }
 
 .hds-form-masked-input__copy-button {
