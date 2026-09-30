@@ -61,9 +61,8 @@ function isThemed(token: DesignToken, dictionary: Dictionary, usesDtcg?: boolean
       visitedKeys.add(tokenKey);
     }
     // a value can reference more than one token (eg. the `box-shadow` ones), and any of them can bring in the theming
-    const references = getReferences(usesDtcg ? token.original?.$value : token.original?.value, dictionary.tokens, {
-      // note: we pass `unfilteredTokens` to ensure we find the refs even if they are filtered out (eg. the `private` ones)
-      unfilteredTokens: dictionary.unfilteredTokens,
+    // note: we search the unfiltered tokens directly because private references are intentionally part of the chain
+    const references = getReferences(usesDtcg ? token.original?.$value : token.original?.value, dictionary.unfilteredTokens ?? dictionary.tokens, {
       usesDtcg,
       warnImmediately: false,
     });
