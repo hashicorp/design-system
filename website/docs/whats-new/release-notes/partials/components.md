@@ -14,6 +14,8 @@
 
 ## 6.6.0
 
+[6.6.0 documentation](https://hds-website-6-6-0.vercel.app/)
+
 **Minor changes**
 
 <!-- START components/form/masked-input -->
@@ -32,7 +34,7 @@
 - Added `@visibilityToggleAriaMessageTextWhenVisible` argument to set a custom message for the visible state.
 <!-- END -->
 
-<!-- START components/form/primitives/visibility-toggle -->
+<!-- START components/form/primitives -->
 
 `Form::VisibilityToggle` - Added `@ariaMessageTextWhenVisible` argument to set a message for the visible state.
 

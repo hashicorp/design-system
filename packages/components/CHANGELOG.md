@@ -2,6 +2,8 @@
 
 ## 6.6.0
 
+[6.6.0 documentation](https://hds-website-6-6-0.vercel.app/)
+
 ### Minor Changes
 
 <!-- START components/form/masked-input -->
