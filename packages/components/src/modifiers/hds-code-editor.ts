@@ -33,7 +33,6 @@ import type {
 } from '@codemirror/view';
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
 import type Owner from '@ember/owner';
-import type { HdsIntlTOptions } from '../services/hds-intl.ts';
 
 type HTMLElementWithEditor = HTMLElement & { editor: EditorViewType };
 
@@ -118,7 +117,7 @@ const LANGUAGES: Record<
     load: () => Promise<Extension | StreamLanguageType<unknown>>;
     loadLinter?: (
       onLint?: HdsCodeEditorSignature['Args']['Named']['onLint'],
-      translate?: (key: string, options: HdsIntlTOptions) => string
+      hdsIntl?: HdsIntlService
     ) => Promise<Extension>;
   }
 > = {
@@ -386,9 +385,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         if (isLintingEnabled && LANGUAGES[language].loadLinter) {
           extensionPromises = [
             ...extensionPromises,
-            LANGUAGES[language].loadLinter(onLint, (key, options) =>
-              this.hdsIntl.t(key, options)
-            ),
+            LANGUAGES[language].loadLinter(onLint, this.hdsIntl),
           ];
         }
 
@@ -470,24 +467,30 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         hasLineWrapping ? EditorView.lineWrapping : []
       );
 
-      let extensions: Extension[] = [
-        EditorState.phrases.of({
-          Diagnostics: this.hdsIntl.t(
-            'hds.modifiers.hds-code-editor.phrases.diagnostics',
-            { default: 'Diagnostics' }
-          ),
-          'No diagnostics': this.hdsIntl.t(
-            'hds.modifiers.hds-code-editor.phrases.no-diagnostics',
-            { default: 'No diagnostics' }
-          ),
-          close: this.hdsIntl.t('hds.modifiers.hds-code-editor.phrases.close', {
-            default: 'close',
-          }),
-          'Control character': this.hdsIntl.t(
-            'hds.modifiers.hds-code-editor.phrases.control-character',
-            { default: 'Control character' }
-          ),
+      const phrasesExtension = EditorState.phrases.of({
+        Diagnostics: this.hdsIntl.t(
+          'hds.modifiers.hds-code-editor.phrases.diagnostics',
+          { default: 'Diagnostics' }
+        ),
+        'No diagnostics': this.hdsIntl.t(
+          'hds.modifiers.hds-code-editor.phrases.no-diagnostics',
+          { default: 'No diagnostics' }
+        ),
+        close: this.hdsIntl.t('hds.modifiers.hds-code-editor.phrases.close', {
+          default: 'close',
         }),
+        'Control character': this.hdsIntl.t(
+          'hds.modifiers.hds-code-editor.phrases.control-character',
+          { default: 'Control character' }
+        ),
+        'Selection deleted': this.hdsIntl.t(
+          'hds.modifiers.hds-code-editor.phrases.selection-deleted',
+          { default: 'Selection deleted' }
+        ),
+      });
+
+      let extensions: Extension[] = [
+        phrasesExtension,
         lineWrappingExtension,
         bracketMatching(),
         highlightActiveLine(),

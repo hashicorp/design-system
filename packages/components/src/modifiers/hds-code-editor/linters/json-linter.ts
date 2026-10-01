@@ -6,7 +6,7 @@
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
 import type { HdsCodeEditorSignature } from '../../hds-code-editor';
 import type { Extension, Text } from '@codemirror/state';
-import type { HdsIntlTOptions } from '../../../services/hds-intl.ts';
+import type HdsIntlService from '../../../services/hds-intl.ts';
 
 export enum HdsCodeEditorJsonLintingError {
   InvalidSyntax = 'Invalid syntax',
@@ -16,8 +16,6 @@ export enum HdsCodeEditorJsonLintingError {
   TrailingComma = 'Trailing comma',
   ValueExpected = 'Value expected',
 }
-
-type HdsCodeEditorTranslate = (key: string, options: HdsIntlTOptions) => string;
 
 const JSON_LINTING_ERROR_KEYS: Record<HdsCodeEditorJsonLintingError, string> = {
   [HdsCodeEditorJsonLintingError.InvalidSyntax]: 'invalid-syntax',
@@ -90,21 +88,21 @@ export function determineErrorMessage({
 export function renderErrorMessage(
   message: string,
   lineNumber: number,
-  translate?: HdsCodeEditorTranslate
+  hdsIntl?: HdsIntlService
 ): HTMLElement {
   const errorKey =
     JSON_LINTING_ERROR_KEYS[message as HdsCodeEditorJsonLintingError];
 
   const displayMessage =
-    translate && errorKey
-      ? translate(
+    hdsIntl && errorKey
+      ? hdsIntl.t(
           `hds.modifiers.hds-code-editor.json-linter.errors.${errorKey}`,
           { default: message }
         )
       : message;
 
-  const textContent = translate
-    ? translate('hds.modifiers.hds-code-editor.json-linter.line-message', {
+  const textContent = hdsIntl
+    ? hdsIntl.t('hds.modifiers.hds-code-editor.json-linter.line-message', {
         default: `Line ${lineNumber}: ${displayMessage}`,
         lineNumber,
         message: displayMessage,
@@ -131,7 +129,7 @@ const errorNodeName = '⚠';
 
 export default async function jsonLinter(
   onLint: HdsCodeEditorSignature['Args']['Named']['onLint'],
-  translate?: HdsCodeEditorTranslate
+  hdsIntl?: HdsIntlService
 ): Promise<Extension[]> {
   const [
     { EditorView, keymap },
@@ -168,8 +166,7 @@ export default async function jsonLinter(
           to: node.to,
           message,
           severity: 'error',
-          renderMessage: () =>
-            renderErrorMessage(message, lineNumber, translate),
+          renderMessage: () => renderErrorMessage(message, lineNumber, hdsIntl),
         });
 
         seenLines.add(lineNumber);
