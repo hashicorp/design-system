@@ -163,28 +163,22 @@ export default class HdsTable<T = HdsTableModel> extends Component<
     if (this.args.sortedMessageText) {
       return this.args.sortedMessageText;
     } else if (this.sortBy && this.sortOrder) {
-      // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
-      const translatedSortOrder = {
-        [HdsTableThSortOrderValues.Asc]: this.hdsIntl.t(
-          'hds.components.common.ascending',
-          { default: 'ascending' }
-        ),
-        [HdsTableThSortOrderValues.Desc]: this.hdsIntl.t(
-          'hds.components.common.descending',
-          { default: 'descending' }
-        ),
-      }[this.sortOrder];
-      const lowerCaseTranslatedSortOrder = translatedSortOrder.toLowerCase();
+      const sortOrder =
+        this.sortOrder === HdsTableThSortOrderValues.Asc
+          ? 'ascending'
+          : 'descending';
 
       const columnLabel =
         this.args.columns?.find((column) => column.key === this.sortBy)
           ?.label ?? this.sortBy;
 
-      return this.hdsIntl.t('hds.components.table.sorted-message-text', {
-        sortBy: columnLabel,
-        sortOrder: lowerCaseTranslatedSortOrder,
-        default: `Sorted by ${columnLabel} ${lowerCaseTranslatedSortOrder}`,
-      });
+      return this.hdsIntl.t(
+        `hds.components.table.sorted-message.${sortOrder}`,
+        {
+          default: `Sorted by ${columnLabel} ${sortOrder}`,
+          columnLabel,
+        }
+      );
     } else {
       return '';
     }
@@ -407,7 +401,7 @@ export default class HdsTable<T = HdsTableModel> extends Component<
             @didInsert={{this.didInsertSelectAllCheckbox}}
             @willDestroy={{this.willDestroySelectAllCheckbox}}
             @selectionAriaLabelSuffix={{hdsT
-              "hds.components.table.th-selectable.aria-label-suffix.all-rows"
+              "hds.components.table.table-row.selection-aria-label-suffix"
               default="all rows"
             }}
           >
