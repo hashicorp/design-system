@@ -71,11 +71,11 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     const registryEntry = IconRegistry[this.name];
 
     assert(
-      `The icon @name "${this.args.name}" or @size "${this.args.size}" provided to <Hds::Icon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`,
+      `The icon @name "${this.args.name}" provided to <Hds::Icon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`,
       registryEntry !== undefined
     );
 
-    return IconRegistry[this.name];
+    return registryEntry;
   }
 
   get hasCarbonEquivalent(): boolean {
