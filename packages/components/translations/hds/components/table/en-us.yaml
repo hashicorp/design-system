@@ -1,3 +1,5 @@
-sorted-message-text: "Sorted by {sortBy} {sortOrder}"
+sorted-message:
+  ascending: Sorted by {columnLabel} ascending
+  descending: Sorted by {columnLabel} descending
 table-row:
   selection-aria-label-suffix: all rows
