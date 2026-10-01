@@ -30,6 +30,24 @@
  *
  * Usage:
  *   node ai-plans/project-solar-carbonization/full-tokens-replacement/tooling/diff-tokens.mjs
+ *
+ * ⚠️ SPENT ONE-OFF — DO NOT RE-RUN.
+ *
+ * This script produced `token-map.generated.json` once. The map has since been
+ * curated by hand and re-running would overwrite it with worse data:
+ *
+ *   1. Categories were reorganised (see
+ *      `final-qa-tokens-renaming/PLAN-PART-1.md`): `__form-elements` was added
+ *      and `__form-control-checked` dissolved. `classify()` below reflects that
+ *      new set, but it CANNOT reproduce `__form-elements` — its members follow
+ *      seven different transformation signatures, so no single predicate exists.
+ *   2. It reads the post token set from `packages/tokens/dist`, which is stale
+ *      relative to `packages/tokens/src`.
+ *   3. After the final-QA renaming is folded in (`PLAN-PART-2.md`), `classify()`
+ *      would judge the FINAL names and mis-bucket entries that are legitimately
+ *      `prefix-only` today.
+ *
+ * Kept as the historical record of how the map was originally inferred.
  */
 
 import {
@@ -313,7 +331,7 @@ const CATEGORY_ORDER = [
   'prefix-plus-renaming__focus-ring',
   'prefix-plus-renaming__transition-function',
   'prefix-plus-renaming__form-radio-card',
-  'prefix-plus-renaming__form-control-checked',
+  'prefix-plus-renaming__form-elements',
   'prefix-plus-renaming__other',
   'removed',
   'added',
@@ -347,27 +365,19 @@ function formRadioCardExpected(preBare) {
   return `form-radio-card-${preBare.slice(prefix.length)}`;
 }
 
-/**
- * Expected form-control-checked post name:
- * `form-control-checked-{type}-color-{rest?}` → `form-control-{type}-color-checked-{rest?}`
- * where {type} is e.g. "border", "surface", "foreground".
- */
-function formControlCheckedExpected(preBare) {
-  const prefix = 'form-control-checked-';
-  if (!preBare.startsWith(prefix)) return null;
-  const tail = preBare.slice(prefix.length); // e.g. "border-color-default"
-  const colorIdx = tail.indexOf('-color');
-  if (colorIdx === -1) return null;
-  const type = tail.slice(0, colorIdx + '-color'.length); // e.g. "border-color"
-  const rest = tail.slice(colorIdx + '-color'.length);    // e.g. "-default" or ""
-  return `form-control-${type}-checked${rest}`;
-}
+/* ---------------------------------------------------------- classify --- */
 
 /**
  * Classify a resolved before→after pair into one mutually-exclusive category.
  * Classification is DESCRIPTIVE: the actual pair must fit the rule, otherwise it
- * falls through to `prefix-plus-renaming__other` (which doubles as the
- * review-by-hand bucket for fuzzy / one-off renames).
+ * falls through to `prefix-plus-renaming__other`.
+ *
+ * ⚠️ This function can no longer reproduce the committed map — see the header.
+ * `prefix-plus-renaming__form-elements` has **no predicate** because its members
+ * follow seven different transformation signatures; it is curated by hand in
+ * `final-qa-tokens-renaming/tooling/recategorise-token-map.mjs`. Any form rename
+ * reaching this function therefore lands in `__other`, which is why re-running
+ * Phase A would produce a different (worse) grouping than the committed file.
  */
 function classify(before, after) {
   if (after === null) return 'removed';
@@ -391,9 +401,6 @@ function classify(before, after) {
   }
   if (postBare === formRadioCardExpected(preBare)) {
     return 'prefix-plus-renaming__form-radio-card';
-  }
-  if (postBare === formControlCheckedExpected(preBare)) {
-    return 'prefix-plus-renaming__form-control-checked';
   }
   return 'prefix-plus-renaming__other';
 }
@@ -610,10 +617,10 @@ function writeReports({ preNames, postNames, resolutions, added, changesetPairs,
       'Rule: `{rest}-transition-function` → `{rest}-transition-timing-function`.',
     'prefix-plus-renaming__form-radio-card':
       'Rule: `form-radiocard-{rest}` → `form-radio-card-{rest}` (hyphen inserted).',
-    'prefix-plus-renaming__form-control-checked':
-      'Rule: `form-control-checked-{type}-color-{rest?}` → `form-control-{type}-color-checked-{rest?}` (segment reorder).',
+    'prefix-plus-renaming__form-elements':
+      'Form token renames with no single rule — state moved from prefix to suffix, a `base` marker dropped, a `boolean` sub-namespace introduced, or two tokens merged into one. Curated by hand; see `final-qa-tokens-renaming/PLAN-PART-1.md`.',
     'prefix-plus-renaming__other':
-      'Structural renames that do not fit a systematic rule — review each.',
+      'Non-form structural renames that do not fit a systematic rule — review each.',
     removed:
       'No successor token found (`after: null`) — decide: map manually or flag with a TODO.',
     added:

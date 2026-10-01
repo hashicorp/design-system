@@ -369,60 +369,12 @@
       "after": "--hds-form-checkbox-size"
     },
     {
-      "before": "--token-form-control-base-border-color-default",
-      "after": "--hds-form-control-base-border-color-default"
-    },
-    {
-      "before": "--token-form-control-base-border-color-hover",
-      "after": "--hds-form-control-base-border-color-hover"
-    },
-    {
-      "before": "--token-form-control-base-surface-color-default",
-      "after": "--hds-form-control-base-surface-color-default"
-    },
-    {
-      "before": "--token-form-control-base-surface-color-hover",
-      "after": "--hds-form-control-base-surface-color-hover"
-    },
-    {
       "before": "--token-form-control-border-radius",
       "after": "--hds-form-control-border-radius"
     },
     {
       "before": "--token-form-control-border-width",
       "after": "--hds-form-control-border-width"
-    },
-    {
-      "before": "--token-form-control-disabled-border-color",
-      "after": "--hds-form-control-disabled-border-color"
-    },
-    {
-      "before": "--token-form-control-disabled-foreground-color",
-      "after": "--hds-form-control-disabled-foreground-color"
-    },
-    {
-      "before": "--token-form-control-disabled-surface-color",
-      "after": "--hds-form-control-disabled-surface-color"
-    },
-    {
-      "before": "--token-form-control-invalid-border-color-default",
-      "after": "--hds-form-control-invalid-border-color-default"
-    },
-    {
-      "before": "--token-form-control-invalid-border-color-hover",
-      "after": "--hds-form-control-invalid-border-color-hover"
-    },
-    {
-      "before": "--token-form-control-readonly-border-color",
-      "after": "--hds-form-control-readonly-border-color"
-    },
-    {
-      "before": "--token-form-control-readonly-foreground-color",
-      "after": "--hds-form-control-readonly-foreground-color"
-    },
-    {
-      "before": "--token-form-control-readonly-surface-color",
-      "after": "--hds-form-control-readonly-surface-color"
     },
     {
       "before": "--token-form-error-color",
@@ -467,14 +419,6 @@
     {
       "before": "--token-form-indicator-optional-foreground-color",
       "after": "--hds-form-indicator-optional-foreground-color"
-    },
-    {
-      "before": "--token-form-indicator-optional-typography-font-size",
-      "after": "--hds-form-indicator-optional-typography-font-size"
-    },
-    {
-      "before": "--token-form-indicator-optional-typography-line-height",
-      "after": "--hds-form-indicator-optional-typography-line-height"
     },
     {
       "before": "--token-form-label-color",
@@ -591,14 +535,6 @@
     {
       "before": "--token-form-toggle-background-image-size",
       "after": "--hds-form-toggle-background-image-size"
-    },
-    {
-      "before": "--token-form-toggle-base-surface-color-default",
-      "after": "--hds-form-toggle-base-surface-color-default"
-    },
-    {
-      "before": "--token-form-toggle-border-radius",
-      "after": "--hds-form-toggle-border-radius"
     },
     {
       "before": "--token-form-toggle-border-width",
@@ -1637,10 +1573,6 @@
   ],
   "prefix-plus-renaming__form-radio-card": [
     {
-      "before": "--token-form-radiocard-border-radius",
-      "after": "--hds-form-radio-card-border-radius"
-    },
-    {
       "before": "--token-form-radiocard-border-width",
       "after": "--hds-form-radio-card-border-width"
     },
@@ -1657,26 +1589,94 @@
       "after": "--hds-form-radio-card-transition-duration"
     }
   ],
-  "prefix-plus-renaming__form-control-checked": [
+  "prefix-plus-renaming__form-elements": [
+    {
+      "before": "--token-form-control-base-border-color-default",
+      "after": "--hds-form-control-border-color-default"
+    },
+    {
+      "before": "--token-form-control-base-border-color-hover",
+      "after": "--hds-form-control-border-color-hover"
+    },
+    {
+      "before": "--token-form-control-base-foreground-placeholder-color",
+      "after": "--hds-form-control-foreground-color-default"
+    },
+    {
+      "before": "--token-form-control-base-foreground-value-color",
+      "after": "--hds-form-control-foreground-color-default"
+    },
+    {
+      "before": "--token-form-control-base-surface-color-default",
+      "after": "--hds-form-control-surface-color-default"
+    },
     {
       "before": "--token-form-control-checked-border-color-default",
-      "after": "--hds-form-control-border-color-checked-default"
+      "after": "--hds-form-control-boolean-border-color-checked-default"
     },
     {
       "before": "--token-form-control-checked-border-color-hover",
-      "after": "--hds-form-control-border-color-checked-hover"
-    },
-    {
-      "before": "--token-form-control-checked-foreground-color",
-      "after": "--hds-form-control-foreground-color-checked"
+      "after": "--hds-form-control-boolean-border-color-checked-hover"
     },
     {
       "before": "--token-form-control-checked-surface-color-default",
-      "after": "--hds-form-control-surface-color-checked-default"
+      "after": "--hds-form-control-boolean-surface-color-checked-default"
     },
     {
       "before": "--token-form-control-checked-surface-color-hover",
-      "after": "--hds-form-control-surface-color-checked-hover"
+      "after": "--hds-form-control-boolean-surface-color-checked-hover"
+    },
+    {
+      "before": "--token-form-control-disabled-border-color",
+      "after": "--hds-form-control-border-color-disabled"
+    },
+    {
+      "before": "--token-form-control-disabled-foreground-color",
+      "after": "--hds-form-control-foreground-color-disabled"
+    },
+    {
+      "before": "--token-form-control-disabled-surface-color",
+      "after": "--hds-form-control-surface-color-disabled"
+    },
+    {
+      "before": "--token-form-control-invalid-border-color-default",
+      "after": "--hds-form-control-border-color-invalid"
+    },
+    {
+      "before": "--token-form-control-invalid-border-color-hover",
+      "after": "--hds-form-control-border-color-invalid-hover"
+    },
+    {
+      "before": "--token-form-control-padding",
+      "after": "--hds-form-control-padding-vertical"
+    },
+    {
+      "before": "--token-form-control-readonly-border-color",
+      "after": "--hds-form-control-border-color-readonly"
+    },
+    {
+      "before": "--token-form-control-readonly-foreground-color",
+      "after": "--hds-form-control-foreground-color-readonly"
+    },
+    {
+      "before": "--token-form-control-readonly-surface-color",
+      "after": "--hds-form-control-surface-color-readonly"
+    },
+    {
+      "before": "--token-form-indicator-optional-typography-font-size",
+      "after": "--hds-form-indicator-typography-font-size"
+    },
+    {
+      "before": "--token-form-indicator-optional-typography-line-height",
+      "after": "--hds-form-indicator-typography-line-height"
+    },
+    {
+      "before": "--token-form-text-input-background-image-data-url-search",
+      "after": "--hds-form-text-input-background-image-data-url-search-cancel"
+    },
+    {
+      "before": "--token-form-toggle-base-surface-color-default",
+      "after": "--hds-form-toggle-surface-color-unchecked-default"
     }
   ],
   "prefix-plus-renaming__other": [
@@ -1695,22 +1695,6 @@
     {
       "before": "--token-app-side-nav-color-surface-primary",
       "after": "--hds-app-side-nav-wrapper-surface-color"
-    },
-    {
-      "before": "--token-form-control-base-foreground-placeholder-color",
-      "after": "--hds-form-control-base-foreground-color"
-    },
-    {
-      "before": "--token-form-control-base-foreground-value-color",
-      "after": "--hds-form-control-base-foreground-color"
-    },
-    {
-      "before": "--token-form-control-padding",
-      "after": "--hds-form-control-padding-vertical"
-    },
-    {
-      "before": "--token-form-text-input-background-image-data-url-search",
-      "after": "--hds-form-text-input-background-image-data-url-search-cancel"
     }
   ],
   "removed": [
@@ -1755,11 +1739,27 @@
       "after": null
     },
     {
+      "before": "--token-form-control-base-surface-color-hover",
+      "after": null
+    },
+    {
+      "before": "--token-form-control-checked-foreground-color",
+      "after": null
+    },
+    {
+      "before": "--token-form-radiocard-border-radius",
+      "after": null
+    },
+    {
       "before": "--token-form-radiocard-control-padding",
       "after": null
     },
     {
       "before": "--token-form-select-background-image-position-top-y",
+      "after": null
+    },
+    {
+      "before": "--token-form-toggle-border-radius",
       "after": null
     },
     {
@@ -3250,27 +3250,35 @@
     },
     {
       "before": null,
-      "after": "--hds-form-control-base-placeholder-foreground-color-default"
+      "after": "--hds-form-control-boolean-border-color-checked-disabled"
     },
     {
       "before": null,
-      "after": "--hds-form-control-base-placeholder-foreground-color-disabled"
+      "after": "--hds-form-control-boolean-border-color-unchecked-default"
     },
     {
       "before": null,
-      "after": "--hds-form-control-border-color-checked-disabled"
+      "after": "--hds-form-control-boolean-border-color-unchecked-disabled"
     },
     {
       "before": null,
-      "after": "--hds-form-control-border-color-unchecked-default"
+      "after": "--hds-form-control-boolean-border-color-unchecked-hover"
     },
     {
       "before": null,
-      "after": "--hds-form-control-border-color-unchecked-disabled"
+      "after": "--hds-form-control-boolean-surface-color-checked-disabled"
     },
     {
       "before": null,
-      "after": "--hds-form-control-border-color-unchecked-hover"
+      "after": "--hds-form-control-boolean-surface-color-unchecked-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-control-boolean-surface-color-unchecked-disabled"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-control-boolean-surface-color-unchecked-hover"
     },
     {
       "before": null,
@@ -3282,19 +3290,11 @@
     },
     {
       "before": null,
-      "after": "--hds-form-control-surface-color-checked-disabled"
+      "after": "--hds-form-control-placeholder-foreground-color-default"
     },
     {
       "before": null,
-      "after": "--hds-form-control-surface-color-unchecked-default"
-    },
-    {
-      "before": null,
-      "after": "--hds-form-control-surface-color-unchecked-disabled"
-    },
-    {
-      "before": null,
-      "after": "--hds-form-control-surface-color-unchecked-hover"
+      "after": "--hds-form-control-placeholder-foreground-color-disabled"
     },
     {
       "before": null,
@@ -3323,6 +3323,14 @@
     {
       "before": null,
       "after": "--hds-form-label-inline-typography-font-size"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-label-inline-typography-line-height"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-radio-border-color-checked-disabled"
     },
     {
       "before": null,
@@ -3355,10 +3363,6 @@
     {
       "before": null,
       "after": "--hds-form-radio-card-control-wrapper-border-color-disabled"
-    },
-    {
-      "before": null,
-      "after": "--hds-form-radio-card-control-wrapper-padding"
     },
     {
       "before": null,
@@ -3462,7 +3466,15 @@
     },
     {
       "before": null,
+      "after": "--hds-form-super-select-option-list-after-options-surface-color"
+    },
+    {
+      "before": null,
       "after": "--hds-form-super-select-option-margin-top"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-option-surface-color-checked-hover"
     },
     {
       "before": null,
@@ -3471,6 +3483,10 @@
     {
       "before": null,
       "after": "--hds-form-super-select-option-surface-color-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-option-title-foreground-color"
     },
     {
       "before": null,
@@ -3514,23 +3530,23 @@
     },
     {
       "before": null,
-      "after": "--hds-form-toggle-base-surface-color-checked-default"
+      "after": "--hds-form-toggle-surface-color-checked-default"
     },
     {
       "before": null,
-      "after": "--hds-form-toggle-base-surface-color-checked-hover"
+      "after": "--hds-form-toggle-surface-color-checked-hover"
     },
     {
       "before": null,
-      "after": "--hds-form-toggle-base-surface-color-disabled"
+      "after": "--hds-form-toggle-surface-color-unchecked-disabled"
     },
     {
       "before": null,
-      "after": "--hds-form-toggle-handle-surface-color-default"
+      "after": "--hds-form-toggle-thumb-surface-color-default"
     },
     {
       "before": null,
-      "after": "--hds-form-toggle-handle-surface-color-disabled"
+      "after": "--hds-form-toggle-thumb-surface-color-disabled"
     },
     {
       "before": null,
