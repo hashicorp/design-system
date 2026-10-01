@@ -11,9 +11,9 @@
         "$value": "16",
         "unit": "px"
       },
-      "base": {
-        "surface": {
-          "color": {
+      "surface": {
+        "color": {
+          "unchecked": {
             "default": {
               "$type": "color",
               "$value": "{surface.color.strong}",
@@ -36,40 +36,35 @@
                 "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
                 "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
               }
+            }
+          },
+          "checked": {
+            "default": {
+              "$type": "color",
+              "$value": "{core.color.blue-200}",
+              "$modes": {
+                "default": "{core.color.blue-200}",
+                "cds-g0": "{carbon.themes.white.supportSuccess}",
+                "cds-g10": "{carbon.themes.g10.supportSuccess}",
+                "cds-g90": "{carbon.themes.g90.supportSuccess}",
+                "cds-g100": "{carbon.themes.g100.supportSuccess}"
+              }
             },
-            "checked": {
-              "default": {
-                "$type": "color",
-                "$value": "{core.color.blue-200}",
-                "$modes": {
-                  "default": "{core.color.blue-200}",
-                  "cds-g0": "{carbon.themes.white.supportSuccess}",
-                  "cds-g10": "{carbon.themes.g10.supportSuccess}",
-                  "cds-g90": "{carbon.themes.g90.supportSuccess}",
-                  "cds-g100": "{carbon.themes.g100.supportSuccess}"
-                }
-              },
-              "hover": {
-                "$type": "color",
-                "$value": "{core.color.blue-300}",
-                "$modes": {
-                  "default": "{core.color.blue-300}",
-                  "cds-g0": "{carbon.themes.white.supportSuccess}",
-                  "cds-g10": "{carbon.themes.g10.supportSuccess}",
-                  "cds-g90": "{carbon.themes.g90.supportSuccess}",
-                  "cds-g100": "{carbon.themes.g100.supportSuccess}"
-                }
+            "hover": {
+              "$type": "color",
+              "$value": "{core.color.blue-300}",
+              "$modes": {
+                "default": "{core.color.blue-300}",
+                "cds-g0": "{carbon.themes.white.supportSuccess}",
+                "cds-g10": "{carbon.themes.g10.supportSuccess}",
+                "cds-g90": "{carbon.themes.g90.supportSuccess}",
+                "cds-g100": "{carbon.themes.g100.supportSuccess}"
               }
             }
           }
         }
       },
       "border": {
-        "radius": {
-          "$type": "dimension",
-          "$value": "{border.radius.x-small}",
-          "unit": "px"
-        },
         "width": {
           "$type": "dimension",
           "$value": "1",
@@ -110,7 +105,30 @@
           }
         }
       },
-      "handle": {
+      "transition": {
+        "duration": {
+          "$type": "duration",
+          "$value": "0.2",
+          "unit": "s"
+        },
+        "timing-function": {
+          "$type": "cubicBezier",
+          "$value": [ 0.68, -0.2, 0.265, 1.15 ]
+        }
+      },
+      "thumb": {
+        "size": {
+          "$type": "dimension",
+          "$value": "{form.toggle.height}",
+          "unit": "px",
+          "$modes": {
+            "default": "{form.toggle.height}",
+            "cds-g0": "10",
+            "cds-g10": "10",
+            "cds-g90": "10",
+            "cds-g100": "10"
+          }
+        },
         "surface": {
           "color": {
             "default": {
@@ -135,31 +153,6 @@
                 "cds-g100": "{carbon.themes.g100.iconOnColorDisabled}"
               }
             }
-          }
-        }
-      },
-      "transition": {
-        "duration": {
-          "$type": "duration",
-          "$value": "0.2",
-          "unit": "s"
-        },
-        "timing-function": {
-          "$type": "cubicBezier",
-          "$value": [ 0.68, -0.2, 0.265, 1.15 ]
-        }
-      },
-      "thumb": {
-        "size": {
-          "$type": "dimension",
-          "$value": "{form.toggle.height}",
-          "unit": "px",
-          "$modes": {
-            "default": "{form.toggle.height}",
-            "cds-g0": "10",
-            "cds-g10": "10",
-            "cds-g90": "10",
-            "cds-g100": "10"
           }
         }
       }

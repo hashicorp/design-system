@@ -40,10 +40,6 @@
           "$value": "1",
           "unit": "px"
         },
-        "radius": {
-          "$type": "dimension",
-          "$value": "{border.radius.medium}"
-        },
         "color": {
           "default": {
             "$type": "color",
@@ -187,11 +183,6 @@
               }
             }
           }
-        },
-        "padding": {
-          "$type": "dimension",
-          "$value": "8",
-          "unit": "px"
         }
       },
       "description": {

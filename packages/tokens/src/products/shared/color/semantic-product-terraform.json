@@ -5,7 +5,17 @@
         "color": {
           "$type": "color",
           "$value": "{core.color.terraform-brand}",
-          "group": "branding"
+          "group": "branding",
+          "$modes": {
+            "default": "{core.color.terraform-brand}",
+            "cds-g0": "{core.color.terraform-brand}",
+            "cds-g10": "{core.color.terraform-brand}",
+            "cds-g90": "{product.terraform.brand.color-on-dark}",
+            "cds-g100": "{product.terraform.brand.color-on-dark}"
+          },
+          "comments": {
+            "cds": "for dark `cds` modes, we use the `color-on-dark` color"
+          }
         },
         "color-on-dark": {
           "$type": "color",
