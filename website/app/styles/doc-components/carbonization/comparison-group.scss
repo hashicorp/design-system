@@ -1,0 +1,96 @@
+@use "../../typography/mixins" as *;
+
+.doc-carbonization-comparison-group {
+  margin: 0.5rem 0 1.5rem;
+  row-gap: 12px;
+  column-gap: 8px;
+}
+
+// display
+
+.doc-carbonization-comparison-group--display-grid {
+  display: grid;
+
+  &.doc-carbonization-comparison-group--layout-row {
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  }
+
+  // .doc-carbonization-comparison-group--column {}
+}
+
+.doc-carbonization-comparison-group--display-flex {
+  display: flex;
+
+  &.doc-carbonization-comparison-group--layout-column {
+    flex-direction: column;
+  }
+}
+
+.doc-carbonization-comparison-group__top-label {
+  @include doc-font-family("mono");
+  margin-bottom: 1rem;
+  color: var(--doc-color-gray-100);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 24px;
+}
+
+// ITEM
+
+.doc-carbonization-comparison-group__item-label {
+  @include doc-font-family("mono");
+  margin-bottom: 0.75rem;
+  color: var(--doc-color-gray-200);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+// THEMING BLOCKS
+
+.doc-carbonization-comparison-group__item-content {
+  padding: 12px;
+  background-color: var(--content-background-color);
+  border: 1px solid var(--content-border-color);
+}
+
+// HDS
+
+.doc-carbonization-comparison-group__item--context-default {
+  --content-background-color: #fff;
+  --content-border-color: var(--doc-color-gray-400);
+}
+
+// Carbon themes
+
+.doc-carbonization-comparison-group__item--context-light {
+  --content-background-color: #fff;
+  --content-border-color: var(--doc-color-gray-400);
+}
+
+.doc-carbonization-comparison-group__item--context-dark {
+  --content-background-color: #161616;
+  --content-border-color: var(--doc-color-gray-black);
+}
+
+// Carbon modes
+
+.doc-carbonization-comparison-group__item--context-cds-g0 {
+  --content-background-color: #fff;
+  --content-border-color: var(--doc-color-gray-400);
+}
+
+.doc-carbonization-comparison-group__item--context-cds-g10 {
+  --content-background-color: #f4f4f4;
+  --content-border-color: var(--doc-color-gray-400);
+}
+
+.doc-carbonization-comparison-group__item--context-cds-g90 {
+  --content-background-color: #262626;
+  --content-border-color: var(--doc-color-gray-black);
+}
+
+.doc-carbonization-comparison-group__item--context-cds-g100 {
+  --content-background-color: #161616;
+  --content-border-color: var(--doc-color-gray-black);
+}
