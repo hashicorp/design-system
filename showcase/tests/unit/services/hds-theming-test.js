@@ -201,6 +201,77 @@ module('Unit | Service | hds-theming', function (hooks) {
     );
   });
 
+  test('setTheme() with invalid theme', function (assert) {
+    this.service.setTheme({ theme: 'invalid' });
+    assert.strictEqual(
+      this.service.currentTheme,
+      undefined,
+      'currentTheme is undefined',
+    );
+    assert.strictEqual(
+      this.service.currentMode,
+      undefined,
+      'currentMode is undefined',
+    );
+    assert.notOk(
+      /hds-(theme|mode)-/.test(document.documentElement.className),
+      'no theme or mode classes are applied',
+    );
+  });
+
+  test('setTheme() with incomplete theme options', function (assert) {
+    this.service.setTheme({
+      theme: HdsThemeValues.Light,
+      options: {
+        lightTheme: HdsModesLightValues.CdsG10,
+      },
+    });
+    assert.strictEqual(
+      this.service.currentLightTheme,
+      DEFAULT_THEMING_OPTION_LIGHT_THEME,
+      'currentLightTheme has the default value',
+    );
+    assert.strictEqual(
+      this.service.currentDarkTheme,
+      DEFAULT_THEMING_OPTION_DARK_THEME,
+      'currentDarkTheme has the default value',
+    );
+  });
+
+  test('setTheme() clears theme/mode when changing to System theme', function (assert) {
+    this.service.setTheme({ theme: HdsThemeValues.Light });
+    this.service.setTheme({ theme: HdsThemeValues.System });
+    assert.strictEqual(
+      this.service.currentTheme,
+      HdsThemeValues.System,
+      'currentTheme is System',
+    );
+    assert.notOk(
+      document.documentElement.classList.contains('hds-theme-light'),
+      'hds-theme-light class is removed',
+    );
+    assert.strictEqual(
+      this.service.currentMode,
+      undefined,
+      'currentMode is undefined',
+    );
+    assert.notOk(
+      document.documentElement.classList.contains(
+        `hds-mode-${DEFAULT_THEMING_OPTION_LIGHT_THEME}`,
+      ),
+      'hds-mode-cds-g0 class is removed',
+    );
+  });
+
+  test('setTheme() preserves unrelated root element classes', function (assert) {
+    document.documentElement.classList.add('foo');
+    this.service.setTheme({ theme: HdsThemeValues.Light });
+    assert.ok(
+      document.documentElement.classList.contains('foo'),
+      'unrelated root element class is preserved',
+    );
+  });
+
   test('setTheme() triggers onSetTheme callback', function (assert) {
     const onSetThemeSpy = sinon.spy();
     this.service.setTheme({
@@ -217,48 +288,24 @@ module('Unit | Service | hds-theming', function (hooks) {
     );
   });
 
-  test('getters return correct values', function (assert) {
-    assert.expect(8);
-    this.service.setTheme({ theme: HdsThemeValues.Default });
-    assert.strictEqual(
-      this.service.currentTheme,
-      HdsThemeValues.Default,
-      'currentTheme getter reflects the default theme',
-    );
-    assert.false(
-      this.service.isCarbonThemeEnabled,
-      'isCarbonThemeEnabled getter is false for the default theme',
-    );
-    assert.strictEqual(
-      this.service.currentMode,
-      undefined,
-      'currentMode getter is undefined for the default theme',
-    );
+  test('isCarbonThemeEnabled returns correct values', function (assert) {
+    const testCases = new Map([
+      [undefined, false],
+      [HdsThemeValues.Default, false],
+      [HdsThemeValues.System, true],
+      [HdsThemeValues.Light, true],
+      [HdsThemeValues.Dark, true],
+    ]);
 
-    this.service.setTheme({ theme: HdsThemeValues.Light });
-    assert.strictEqual(
-      this.service.currentTheme,
-      HdsThemeValues.Light,
-      'currentTheme getter is correct',
-    );
-    assert.true(
-      this.service.isCarbonThemeEnabled,
-      'isCarbonThemeEnabled getter is correct',
-    );
-    assert.strictEqual(
-      this.service.currentLightTheme,
-      DEFAULT_THEMING_OPTION_LIGHT_THEME,
-      'currentLightTheme getter is correct',
-    );
-    assert.strictEqual(
-      this.service.currentDarkTheme,
-      DEFAULT_THEMING_OPTION_DARK_THEME,
-      'currentDarkTheme getter is correct',
-    );
-    assert.strictEqual(
-      this.service.currentMode,
-      DEFAULT_THEMING_OPTION_LIGHT_THEME,
-      'currentMode getter is correct',
-    );
+    assert.expect(testCases.size);
+
+    testCases.forEach((expected, theme) => {
+      this.service.setTheme({ theme });
+      assert.strictEqual(
+        this.service.isCarbonThemeEnabled,
+        expected,
+        `isCarbonThemeEnabled is ${expected} for the ${theme} theme`,
+      );
+    });
   });
 });
