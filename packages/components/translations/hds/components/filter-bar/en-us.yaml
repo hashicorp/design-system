@@ -3,7 +3,7 @@ search:
   aria-label: Search
   placeholder: Search
 applied-filters:
-  array-filter: "{keyText}: {valueText}"
+  key-value: "{keyText}: {valueText}"
   toggle-button: View applied filters
   tag:
     aria-label: Clear filter
