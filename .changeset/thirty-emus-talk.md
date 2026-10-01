@@ -6,6 +6,7 @@
 `AdvancedTable` - Updated the following for i18n:
 - Added translations for sort announcements in `AdvancedTable` and refactored code to better support localization
 - Added translation for `ariaLabel` suffix in `ThSelectable`
+- Added translations for the screen reader sort order label in `ThButtonSort`
 - Corrected translation keys in `ThContextMenu`
 <!-- END -->
 
@@ -32,6 +33,7 @@
 <!-- START components/filter-bar -->
 `FilterBar` - Updated the following for i18n:
 - Added translation to applied search filter label
+- Added translations for each type of filter in `Date` to better support localization for aria labels
 - Added missing translations in applied filters and refactored date filter code to better support localization
 - Corrected translation keys in `AppliedFilters` and `Numerical`
 <!-- END -->
@@ -49,7 +51,7 @@
 <!-- END -->
 
 <!-- START components/form/super-select -->
-`Form::SuperSelect` - Added translations for search placeholders, result count, and selected count in `Single::Base` and `Multiple::Base`
+`Form::SuperSelect` - Added translations for search placeholders, result count, selected count, no matches message, loading message, and search message in `Single::Base` and `Multiple::Base`
 <!-- END -->
 
 <!-- START components/pagination -->
@@ -57,7 +59,9 @@
 <!-- END -->
 
 <!-- START components/table/table -->
-`Table` - Added translations for `ariaLabel` suffix in `Table` and `ThSelectable`
+`Table` - Updated the following for i18n:
+- Added translations for `ariaLabel` suffix in `Table` and `ThSelectable`
+- Refactored sort announcement code in `Table` to better support localization
 <!-- END -->
 
 <!-- START components/tag -->
