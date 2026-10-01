@@ -56,6 +56,30 @@ export const DATE_SELECTORS_INPUT_TEXT: Record<
   [HdsFilterBarDateFilterSelectorValues.between]: 'Between',
 };
 
+const DATE_TYPE_DEFAULT_TEXT: Record<
+  HdsFilterBarFilterGroupDateType,
+  { label: string; value: string; start: string; end: string }
+> = {
+  [HdsFilterBarFilterGroupDateTypeValues.date]: {
+    label: 'Date is',
+    value: 'Date value',
+    start: 'Date start value',
+    end: 'Date end value',
+  },
+  [HdsFilterBarFilterGroupDateTypeValues.datetime]: {
+    label: 'Datetime is',
+    value: 'Datetime value',
+    start: 'Datetime start value',
+    end: 'Datetime end value',
+  },
+  [HdsFilterBarFilterGroupDateTypeValues.time]: {
+    label: 'Time is',
+    value: 'Time value',
+    start: 'Time start value',
+    end: 'Time end value',
+  },
+};
+
 export const DATE_FILTER_GROUP_TYPES: HdsFilterBarFilterGroupDateType[] =
   Object.values(HdsFilterBarFilterGroupDateTypeValues);
 
@@ -105,8 +129,29 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
     return this.hdsIntl.t(
       `hds.components.filter-bar.filter-group.date.${this.type}.label`,
       {
-        default: 'Date is',
+        default: DATE_TYPE_DEFAULT_TEXT[this.type].label,
       }
+    );
+  }
+
+  get valueInputAriaLabel(): string {
+    return this.hdsIntl.t(
+      `hds.components.filter-bar.filter-group.date.${this.type}.value-input.aria-label`,
+      { default: DATE_TYPE_DEFAULT_TEXT[this.type].value }
+    );
+  }
+
+  get betweenStartInputAriaLabel(): string {
+    return this.hdsIntl.t(
+      `hds.components.filter-bar.filter-group.date.${this.type}.between-value-inputs.start.aria-label`,
+      { default: DATE_TYPE_DEFAULT_TEXT[this.type].start }
+    );
+  }
+
+  get betweenEndInputAriaLabel(): string {
+    return this.hdsIntl.t(
+      `hds.components.filter-bar.filter-group.date.${this.type}.between-value-inputs.end.aria-label`,
+      { default: DATE_TYPE_DEFAULT_TEXT[this.type].end }
     );
   }
 
@@ -314,11 +359,7 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
               @type={{this.inputType}}
               @value={{this.betweenValueStart}}
               name={{concat @key "-between-start"}}
-              aria-label={{hdsT
-                "hds.components.filter-bar.filter-group.date.between-value-inputs.start.aria-label"
-                type=this.type
-                default="Date start value"
-              }}
+              aria-label={{this.betweenStartInputAriaLabel}}
               placeholder={{hdsT
                 "hds.components.filter-bar.filter-group.date.between-value-inputs.start.placeholder"
                 default="Start"
@@ -331,11 +372,7 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
               @type={{this.inputType}}
               @value={{this.betweenValueEnd}}
               name={{concat @key "-between-end"}}
-              aria-label={{hdsT
-                "hds.components.filter-bar.filter-group.date.between-value-inputs.end.aria-label"
-                type=this.type
-                default="Date end value"
-              }}
+              aria-label={{this.betweenEndInputAriaLabel}}
               placeholder={{hdsT
                 "hds.components.filter-bar.filter-group.date.between-value-inputs.end.placeholder"
                 default="End"
@@ -350,11 +387,7 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
             @type={{this.inputType}}
             @value={{this.value}}
             name={{concat @key "-value"}}
-            aria-label={{hdsT
-              "hds.components.filter-bar.filter-group.date.value-input.aria-label"
-              type=this.type
-              default="Date value"
-            }}
+            aria-label={{this.valueInputAriaLabel}}
             class="hds-filter-bar__filter-group__field"
             {{on "change" (fn this.onValueChange G.updateFilter)}}
           />
