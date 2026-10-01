@@ -69,19 +69,36 @@ Flat object; mutually-exclusive **transformation categories** as top-level keys;
 
 | Category | Count | Rule |
 | --- | ---: | --- |
-| `prefix-only` | 228 | only prefix changed: `--token-X` → `--hds-X` |
+| `prefix-only` | 212 | only prefix changed: `--token-X` → `--hds-X` |
 | `prefix-plus-renaming__palette-colors` | 42 | `color-palette-{hue}-{step}` → `core-color-{hue}-{step}` |
 | `prefix-plus-renaming__product-colors` | 86 | `color-{product}-…` → `product-{product}-…-color` |
 | `prefix-plus-renaming__semantic-colors` | 46 | `color-{semantic}-{rest}` → `{semantic}-color-{rest}` |
 | `prefix-plus-renaming__focus-ring` | 2 | `focus-ring-{variant}-box-shadow` → `focus-ring-box-shadow-{variant}` |
 | `prefix-plus-renaming__transition-function` | 2 | `{rest}-transition-function` → `{rest}-transition-timing-function` |
-| `prefix-plus-renaming__form-radio-card` | 5 | `form-radiocard-{rest}` → `form-radio-card-{rest}` (hyphen inserted) |
-| `prefix-plus-renaming__form-control-checked` | 5 | `form-control-checked-{type}-color-{rest?}` → `form-control-{type}-color-checked-{rest?}` |
-| `prefix-plus-renaming__other` | 8 | structural renames with no systematic rule (review each) |
-| `removed` | 18 | pre token with no successor → `after: null` |
-| `added` | 626 | brand-new post tokens (`before: null`) — reference only, Phase B ignores |
+| `prefix-plus-renaming__form-radio-card` | 4 | `form-radiocard-{rest}` → `form-radio-card-{rest}` (hyphen inserted) |
+| `prefix-plus-renaming__form-elements` | 22 | form renames with **no single rule** — curated by hand (see below) |
+| `prefix-plus-renaming__other` | 4 | **non-form** structural renames with no systematic rule (review each) |
+| `removed` | 22 | pre token with no successor → `after: null` |
+| `added` | 630 | brand-new post tokens (`before: null`) — reference only, Phase B ignores |
 
-Check: 228+42+86+46+2+2+5+5+8+18 = 442 pre tokens ✓.
+Check: 212+42+86+46+2+2+4+22+4+22 = 442 pre tokens ✓. Total entries 1072.
+
+**`after` values are FINAL names.** The map describes ① → ③ in one hop: pre-carbonization
+`--token-*` → the name that ships. The intermediate `--hds-*` names that existed mid-effort are
+deliberately absent — a consumer upgrading must see one rename, not two.
+
+> **2026-09-29 — categories reorganised (Part 1).** `prefix-plus-renaming__form-elements` was
+> introduced, `…__form-control-checked` (5) was dissolved into it, and the 4 `form-*` entries were
+> lifted out of `…__other` (8 → 4, now non-form only). **No `(before, after)` pair changed** —
+> verified by checksum over all 1068 sorted pairs — so the changeset and every other downstream
+> artifact remained valid untouched. See `final-qa-tokens-renaming/PLAN-PART-1.md`.
+
+> **2026-09-29 — final-QA renaming folded in (Part 2).** The `after` column was rewritten from the
+> intermediate names to the final ones: 35 retargeted, 4 orphaned (`after` → `null`), 1 dropped,
+> 5 appended. 18 entries changed category — 14 left `prefix-only` because their ① → ③ pair is no
+> longer a pure prefix swap, and 4 became orphans. Closure against `packages/tokens/src` is exact
+> (1046 = 1046) and the `--token-*` column is unchanged at 442.
+> See `final-qa-tokens-renaming/PLAN-PART-2.md`.
 
 Phase B consumes **every** category uniformly: non-null `after` → rename; `after: null` → insert TODO marker;
 `before: null` → ignored. So category names are for human legibility only and never affect behavior — adding
@@ -96,9 +113,19 @@ it falls to `__other`. Key predicates in `diff-tokens.mjs`:
 - focus-ring (`focusRingReorderExpected`): `/^focus-ring-(.+)-box-shadow$/` → `focus-ring-box-shadow-$1`
 - transition-function (`transitionFunctionExpected`): `{rest}-transition-function` → `{rest}-transition-timing-function`
 - form-radio-card (`formRadioCardExpected`): `form-radiocard-{rest}` → `form-radio-card-{rest}`
-- form-control-checked (`formControlCheckedExpected`): `form-control-checked-{type}-color-{rest?}` → `form-control-{type}-color-checked-{rest?}`
+
+`prefix-plus-renaming__form-elements` has **no predicate**: its members follow several different
+transformation signatures (state moved from prefix to suffix, a `base` marker dropped, a `boolean`
+sub-namespace introduced, two tokens merged into one), so no single rule describes them. It is
+maintained by `final-qa-tokens-renaming/tooling/recategorise-token-map.mjs`, which moves an explicit
+list of entries. **This is one reason Phase A must not be re-run** — `classify()` would drop every one
+of them into `__other`.
 
 ### Signal sources (Phase A inference, priority order)
+
+> Describes the **original 2026-09-15 inference run**, not current state. The counts below are that
+> run's; the map has since been recategorised and had the final-QA renaming folded in (see §2).
+
 - **S0** mechanical prefix swap (`--token-`→`--hds-`) — applies to every pre token; 228 land verbatim in post.
 - **S1** changeset rename tables/arrows (`.changeset/*.md`) — supports **both** `--hds-*`→`--hds-*` chains
   (old format) and `--token-*`→`--hds-*` direct pairs (e.g. `carbonization-design-tokens.md`). The resolver
@@ -145,6 +172,29 @@ it falls to `__other`. Key predicates in `diff-tokens.mjs`:
 **Lesson:** whenever `packages/tokens` changes upstream, re-run Phase A before using the map, and remember
 that `private` tokens never reach `dist/products/css/tokens.css`.
 
+> **⚠️ Superseded 2026-09-29 — do NOT follow the "re-run Phase A" advice above.** It was correct while
+> the map was still a pure Phase A product. The map has since been curated by hand and re-running the
+> script would destroy that work. See the next entry.
+
+### Categories reorganised — no pair changed (✅ 2026-09-29)
+- `prefix-plus-renaming__form-elements` introduced (**9** entries): `…__form-control-checked` (5)
+  dissolved into it, and the 4 `form-*` entries lifted out of `…__other` (8 → **4**, now non-form only).
+- **Not caused by any token change.** Purely a taxonomy improvement; could have been done at any point
+  since #4036.
+- **No `(before, after)` pair was modified** — verified by checksum over all 1068 sorted pairs before
+  and after (identical). Entry total unchanged at 1068, pre-token total unchanged at 442. Because the
+  changeset renders flat tables and carries no category information, `.changeset/**` stayed valid and
+  **untouched**.
+- Done by `final-qa-tokens-renaming/tooling/recategorise-token-map.mjs`, which moves an **explicit list**
+  of entries (a `/form/` regex would wrongly capture `form-radio-card`). Idempotent.
+- `…__form-radio-card` deliberately **kept**: it has a single mechanically-verifiable rule —
+  reconstruction confirmed for all 5 members — and its own changeset bullet.
+- **Consequence:** `classify()` can no longer reproduce this map, because `__form-elements` has no single
+  predicate (its members follow several different transformation signatures). Phase A is now a **spent
+  one-off**; `token-diff.md` is frozen and will not be regenerated.
+- Plan: `final-qa-tokens-renaming/PLAN-PART-1.md`. Report:
+  `final-qa-tokens-renaming/tooling/reports/recategorisation.md`.
+
 ### HDS `main` test harness (✅ complete)
 - Phase B run against a throwaway worktree of `main` (`git worktree add /tmp/hds-main main`).
 - Result: **2970 scanned, 99 changed, 1176 replacements, 34 TODOs, 33 interpolated skipped, 0 stale remaining.**
@@ -169,12 +219,20 @@ that `private` tokens never reach `dist/products/css/tokens.css`.
 
 ## 4. How to run
 
-### Phase A (regenerate the map — only inside this monorepo)
+### Phase A (⛔ DO NOT RE-RUN — spent one-off)
 ```bash
-node ai-plans/project-solar-carbonization/full-tokens-replacement/tooling/diff-tokens.mjs
+# node ai-plans/project-solar-carbonization/full-tokens-replacement/tooling/diff-tokens.mjs
 ```
-No args/config. Reads pre from `main` (via `git show`) and post from the working tree. Overwrites
-`reports/hds/token-map.generated.json` + `token-diff.md`. Safe to re-run.
+No args/config. Read pre from `main` (via `git show`) and post from the working tree; overwrote
+`reports/hds/token-map.generated.json` + `token-diff.md`.
+
+> **This was safe to re-run only while the map was a pure Phase A product.** It no longer is: the
+> categories were curated by hand on 2026-09-29, and `__form-elements` has no `classify()` predicate,
+> so a re-run would silently dump its 9 entries into `__other`. It also reads the post set from
+> `packages/tokens/dist`, which is stale relative to `packages/tokens/src`.
+>
+> To change the map, edit it deliberately or use the scripts in `final-qa-tokens-renaming/tooling/`.
+> `token-diff.md` is frozen at the last Phase A run and is **not** regenerated.
 
 ### Phase B (apply/verify — reusable, per-repo config)
 ```bash
