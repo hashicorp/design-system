@@ -114,20 +114,8 @@ Renamed tokens:
 | `--token-form-checkbox-border-radius` | `--hds-form-checkbox-border-radius` |
 | `--token-form-checkbox-border-width` | `--hds-form-checkbox-border-width` |
 | `--token-form-checkbox-size` | `--hds-form-checkbox-size` |
-| `--token-form-control-base-border-color-default` | `--hds-form-control-base-border-color-default` |
-| `--token-form-control-base-border-color-hover` | `--hds-form-control-base-border-color-hover` |
-| `--token-form-control-base-surface-color-default` | `--hds-form-control-base-surface-color-default` |
-| `--token-form-control-base-surface-color-hover` | `--hds-form-control-base-surface-color-hover` |
 | `--token-form-control-border-radius` | `--hds-form-control-border-radius` |
 | `--token-form-control-border-width` | `--hds-form-control-border-width` |
-| `--token-form-control-disabled-border-color` | `--hds-form-control-disabled-border-color` |
-| `--token-form-control-disabled-foreground-color` | `--hds-form-control-disabled-foreground-color` |
-| `--token-form-control-disabled-surface-color` | `--hds-form-control-disabled-surface-color` |
-| `--token-form-control-invalid-border-color-default` | `--hds-form-control-invalid-border-color-default` |
-| `--token-form-control-invalid-border-color-hover` | `--hds-form-control-invalid-border-color-hover` |
-| `--token-form-control-readonly-border-color` | `--hds-form-control-readonly-border-color` |
-| `--token-form-control-readonly-foreground-color` | `--hds-form-control-readonly-foreground-color` |
-| `--token-form-control-readonly-surface-color` | `--hds-form-control-readonly-surface-color` |
 | `--token-form-error-color` | `--hds-form-error-color` |
 | `--token-form-error-foreground-color` | `--hds-form-error-foreground-color` |
 | `--token-form-error-icon-size` | `--hds-form-error-icon-size` |
@@ -139,8 +127,6 @@ Renamed tokens:
 | `--token-form-helper-text-typography-line-height` | `--hds-form-helper-text-typography-line-height` |
 | `--token-form-indicator-optional-color` | `--hds-form-indicator-optional-color` |
 | `--token-form-indicator-optional-foreground-color` | `--hds-form-indicator-optional-foreground-color` |
-| `--token-form-indicator-optional-typography-font-size` | `--hds-form-indicator-optional-typography-font-size` |
-| `--token-form-indicator-optional-typography-line-height` | `--hds-form-indicator-optional-typography-line-height` |
 | `--token-form-label-color` | `--hds-form-label-color` |
 | `--token-form-label-foreground-color` | `--hds-form-label-foreground-color` |
 | `--token-form-label-typography-font-size` | `--hds-form-label-typography-font-size` |
@@ -170,8 +156,6 @@ Renamed tokens:
 | `--token-form-toggle-background-image-data-url-disabled` | `--hds-form-toggle-background-image-data-url-disabled` |
 | `--token-form-toggle-background-image-position-x` | `--hds-form-toggle-background-image-position-x` |
 | `--token-form-toggle-background-image-size` | `--hds-form-toggle-background-image-size` |
-| `--token-form-toggle-base-surface-color-default` | `--hds-form-toggle-base-surface-color-default` |
-| `--token-form-toggle-border-radius` | `--hds-form-toggle-border-radius` |
 | `--token-form-toggle-border-width` | `--hds-form-toggle-border-width` |
 | `--token-form-toggle-height` | `--hds-form-toggle-height` |
 | `--token-form-toggle-thumb-size` | `--hds-form-toggle-thumb-size` |
@@ -428,24 +412,36 @@ Renamed tokens:
 | `--token-focus-ring-critical-box-shadow` | `--hds-focus-ring-box-shadow-critical` |
 | `--token-tabs-indicator-transition-function` | `--hds-tabs-indicator-transition-timing-function` |
 | `--token-tooltip-transition-function` | `--hds-tooltip-transition-timing-function` |
-| `--token-form-radiocard-border-radius` | `--hds-form-radio-card-border-radius` |
 | `--token-form-radiocard-border-width` | `--hds-form-radio-card-border-width` |
 | `--token-form-radiocard-content-padding` | `--hds-form-radio-card-content-padding` |
 | `--token-form-radiocard-group-gap` | `--hds-form-radio-card-group-gap` |
 | `--token-form-radiocard-transition-duration` | `--hds-form-radio-card-transition-duration` |
-| `--token-form-control-checked-border-color-default` | `--hds-form-control-border-color-checked-default` |
-| `--token-form-control-checked-border-color-hover` | `--hds-form-control-border-color-checked-hover` |
-| `--token-form-control-checked-foreground-color` | `--hds-form-control-foreground-color-checked` |
-| `--token-form-control-checked-surface-color-default` | `--hds-form-control-surface-color-checked-default` |
-| `--token-form-control-checked-surface-color-hover` | `--hds-form-control-surface-color-checked-hover` |
+| `--token-form-control-base-border-color-default` | `--hds-form-control-border-color-default` |
+| `--token-form-control-base-border-color-hover` | `--hds-form-control-border-color-hover` |
+| `--token-form-control-base-foreground-placeholder-color` | `--hds-form-control-foreground-color-default` |
+| `--token-form-control-base-foreground-value-color` | `--hds-form-control-foreground-color-default` |
+| `--token-form-control-base-surface-color-default` | `--hds-form-control-surface-color-default` |
+| `--token-form-control-checked-border-color-default` | `--hds-form-control-boolean-border-color-checked-default` |
+| `--token-form-control-checked-border-color-hover` | `--hds-form-control-boolean-border-color-checked-hover` |
+| `--token-form-control-checked-surface-color-default` | `--hds-form-control-boolean-surface-color-checked-default` |
+| `--token-form-control-checked-surface-color-hover` | `--hds-form-control-boolean-surface-color-checked-hover` |
+| `--token-form-control-disabled-border-color` | `--hds-form-control-border-color-disabled` |
+| `--token-form-control-disabled-foreground-color` | `--hds-form-control-foreground-color-disabled` |
+| `--token-form-control-disabled-surface-color` | `--hds-form-control-surface-color-disabled` |
+| `--token-form-control-invalid-border-color-default` | `--hds-form-control-border-color-invalid` |
+| `--token-form-control-invalid-border-color-hover` | `--hds-form-control-border-color-invalid-hover` |
+| `--token-form-control-padding` | `--hds-form-control-padding-vertical` |
+| `--token-form-control-readonly-border-color` | `--hds-form-control-border-color-readonly` |
+| `--token-form-control-readonly-foreground-color` | `--hds-form-control-foreground-color-readonly` |
+| `--token-form-control-readonly-surface-color` | `--hds-form-control-surface-color-readonly` |
+| `--token-form-indicator-optional-typography-font-size` | `--hds-form-indicator-typography-font-size` |
+| `--token-form-indicator-optional-typography-line-height` | `--hds-form-indicator-typography-line-height` |
+| `--token-form-text-input-background-image-data-url-search` | `--hds-form-text-input-background-image-data-url-search-cancel` |
+| `--token-form-toggle-base-surface-color-default` | `--hds-form-toggle-surface-color-unchecked-default` |
 | `--token-app-header-home-link-size` | `--hds-app-header-home-link-logo-size` |
 | `--token-app-side-nav-body-list-item-content-spacing-horizontal` | `--hds-app-side-nav-body-list-item-padding-horizontal` |
 | `--token-app-side-nav-body-list-item-spacing-vertical` | `--hds-app-side-nav-body-list-margin-vertical` |
 | `--token-app-side-nav-color-surface-primary` | `--hds-app-side-nav-wrapper-surface-color` |
-| `--token-form-control-base-foreground-placeholder-color` | `--hds-form-control-base-foreground-color` |
-| `--token-form-control-base-foreground-value-color` | `--hds-form-control-base-foreground-color` |
-| `--token-form-control-padding` | `--hds-form-control-padding-vertical` |
-| `--token-form-text-input-background-image-data-url-search` | `--hds-form-text-input-background-image-data-url-search-cancel` |
 
 ---
 
@@ -586,10 +582,10 @@ Added tokens:
 | `--hds-alert-title-foreground-color-warning` |
 | `--hds-alert-typography-line-height` |
 | `--hds-app-footer-border-color` |
-| `--hds-app-footer-foreground-color-default` |
+| `--hds-app-footer-foreground-color-action-active` |
 | `--hds-app-footer-foreground-color-action-default` |
 | `--hds-app-footer-foreground-color-action-hover` |
-| `--hds-app-footer-foreground-color-action-active` |
+| `--hds-app-footer-foreground-color-default` |
 | `--hds-app-footer-link-focus-outline-color` |
 | `--hds-app-footer-link-focus-outline-width` |
 | `--hds-app-header-actions-gap` |
@@ -818,18 +814,18 @@ Added tokens:
 | `--hds-focus-ring-width-external` |
 | `--hds-focus-ring-width-internal` |
 | `--hds-form-checkbox-border-color-checked-disabled` |
-| `--hds-form-control-base-placeholder-foreground-color-default` |
-| `--hds-form-control-base-placeholder-foreground-color-disabled` |
-| `--hds-form-control-border-color-checked-disabled` |
-| `--hds-form-control-border-color-unchecked-default` |
-| `--hds-form-control-border-color-unchecked-disabled` |
-| `--hds-form-control-border-color-unchecked-hover` |
+| `--hds-form-control-boolean-border-color-checked-disabled` |
+| `--hds-form-control-boolean-border-color-unchecked-default` |
+| `--hds-form-control-boolean-border-color-unchecked-disabled` |
+| `--hds-form-control-boolean-border-color-unchecked-hover` |
+| `--hds-form-control-boolean-surface-color-checked-disabled` |
+| `--hds-form-control-boolean-surface-color-unchecked-default` |
+| `--hds-form-control-boolean-surface-color-unchecked-disabled` |
+| `--hds-form-control-boolean-surface-color-unchecked-hover` |
 | `--hds-form-control-height` |
 | `--hds-form-control-padding-horizontal` |
-| `--hds-form-control-surface-color-checked-disabled` |
-| `--hds-form-control-surface-color-unchecked-default` |
-| `--hds-form-control-surface-color-unchecked-disabled` |
-| `--hds-form-control-surface-color-unchecked-hover` |
+| `--hds-form-control-placeholder-foreground-color-default` |
+| `--hds-form-control-placeholder-foreground-color-disabled` |
 | `--hds-form-error-icon-color` |
 | `--hds-form-file-input-background-image-data-url-file-selector-button-default` |
 | `--hds-form-file-input-background-image-data-url-file-selector-button-disabled` |
@@ -837,6 +833,8 @@ Added tokens:
 | `--hds-form-file-input-button-height` |
 | `--hds-form-group-control-field-margin-top` |
 | `--hds-form-label-inline-typography-font-size` |
+| `--hds-form-label-inline-typography-line-height` |
+| `--hds-form-radio-border-color-checked-disabled` |
 | `--hds-form-radio-card-border-color-checked-default` |
 | `--hds-form-radio-card-border-color-checked-hover` |
 | `--hds-form-radio-card-border-color-default` |
@@ -845,7 +843,6 @@ Added tokens:
 | `--hds-form-radio-card-control-wrapper-border-color-checked` |
 | `--hds-form-radio-card-control-wrapper-border-color-default` |
 | `--hds-form-radio-card-control-wrapper-border-color-disabled` |
-| `--hds-form-radio-card-control-wrapper-padding` |
 | `--hds-form-radio-card-control-wrapper-surface-color-checked` |
 | `--hds-form-radio-card-control-wrapper-surface-color-default` |
 | `--hds-form-radio-card-control-wrapper-surface-color-disabled` |
@@ -871,9 +868,12 @@ Added tokens:
 | `--hds-form-super-select-option-indicator-left` |
 | `--hds-form-super-select-option-indicator-top` |
 | `--hds-form-super-select-option-indicator-width` |
+| `--hds-form-super-select-option-list-after-options-surface-color` |
 | `--hds-form-super-select-option-margin-top` |
+| `--hds-form-super-select-option-surface-color-checked-hover` |
 | `--hds-form-super-select-option-surface-color-default` |
 | `--hds-form-super-select-option-surface-color-hover` |
+| `--hds-form-super-select-option-title-foreground-color` |
 | `--hds-form-super-select-padding-left` |
 | `--hds-form-super-select-search-margin-bottom` |
 | `--hds-form-super-select-tag-border-color` |
@@ -884,11 +884,11 @@ Added tokens:
 | `--hds-form-text-input-background-image-data-url-search-disabled` |
 | `--hds-form-text-input-search-cancel-button-width` |
 | `--hds-form-textarea-padding-vertical` |
-| `--hds-form-toggle-base-surface-color-checked-default` |
-| `--hds-form-toggle-base-surface-color-checked-hover` |
-| `--hds-form-toggle-base-surface-color-disabled` |
-| `--hds-form-toggle-handle-surface-color-default` |
-| `--hds-form-toggle-handle-surface-color-disabled` |
+| `--hds-form-toggle-surface-color-checked-default` |
+| `--hds-form-toggle-surface-color-checked-hover` |
+| `--hds-form-toggle-surface-color-unchecked-disabled` |
+| `--hds-form-toggle-thumb-surface-color-default` |
+| `--hds-form-toggle-thumb-surface-color-disabled` |
 | `--hds-form-visibility-toggle-size` |
 | `--hds-link-inline-icon-margin-horizontal` |
 | `--hds-link-inline-outline-color` |
@@ -1096,8 +1096,12 @@ Removed tokens:
 | `--token-app-side-nav-header-home-link-logo-size` |
 | `--token-app-side-nav-header-home-link-logo-size-minimized` |
 | `--token-app-side-nav-header-home-link-padding` |
+| `--token-form-control-base-surface-color-hover` |
+| `--token-form-control-checked-foreground-color` |
+| `--token-form-radiocard-border-radius` |
 | `--token-form-radiocard-control-padding` |
 | `--token-form-select-background-image-position-top-y` |
+| `--token-form-toggle-border-radius` |
 | `--token-pagination-nav-control-focus-inset` |
 | `--token-pagination-nav-control-padding-horizontal` |
 | `--token-tabs-tab-focus-inset` |
