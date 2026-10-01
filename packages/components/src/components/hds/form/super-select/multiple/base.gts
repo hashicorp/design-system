@@ -71,7 +71,7 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
     }
 
     return this.hdsIntl.t(
-      'hds.components.form.super-select.multiple.result-count',
+      'hds.components.form.super-select.multiple.result-count-message',
       {
         default: `${this.optionsCount} total`,
         optionsCount: this.optionsCount,
@@ -85,6 +85,42 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
     }
 
     return undefined;
+  }
+
+  get noMatchesMessage(): string {
+    return (
+      this.args.noMatchesMessage ??
+      this.hdsIntl.t(
+        'hds.components.form.super-select.multiple.no-matches-message',
+        {
+          default: 'No results found',
+        }
+      )
+    );
+  }
+
+  get loadingMessage(): string {
+    return (
+      this.args.loadingMessage ??
+      this.hdsIntl.t(
+        'hds.components.form.super-select.multiple.loading-message',
+        {
+          default: 'Loading options...',
+        }
+      )
+    );
+  }
+
+  get searchMessage(): string {
+    return (
+      this.args.searchMessage ??
+      this.hdsIntl.t(
+        'hds.components.form.super-select.multiple.search-message',
+        {
+          default: 'Type to search',
+        }
+      )
+    );
   }
 
   calculatePosition = (
@@ -244,11 +280,11 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
         @horizontalPosition={{@horizontalPosition}}
         @initiallyOpened={{@initiallyOpened}}
         @labelText={{@labelText}}
-        @loadingMessage={{@loadingMessage}}
+        @loadingMessage={{this.loadingMessage}}
         @matcher={{@matcher}}
         @matchTriggerWidth={{if @dropdownMaxWidth false @matchTriggerWidth}}
         @multiple={{true}}
-        @noMatchesMessage={{@noMatchesMessage}}
+        @noMatchesMessage={{this.noMatchesMessage}}
         @onBlur={{@onBlur}}
         @onChange={{@onChange}}
         @onClose={{@onClose}}
@@ -269,7 +305,7 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
         @searchEnabled={{@searchEnabled}}
         @searchField={{@searchField}}
         @searchFieldPosition="before-options"
-        @searchMessage={{@searchMessage}}
+        @searchMessage={{this.searchMessage}}
         @searchPlaceholder={{this.searchPlaceholder}}
         @selected={{@selected}}
         @selectedItemComponent={{@selectedItemComponent}}
