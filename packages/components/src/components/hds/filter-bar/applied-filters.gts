@@ -70,7 +70,18 @@ export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAp
     const valueText = this._filterValueText(filter);
     const keyText = this._filterKeyText(key, filter);
     const separatorText = this._filterSeparatorText(filter);
-    return `${keyText}${separatorText} ${valueText}`;
+
+    if (separatorText) {
+      return this.hdsIntl.t(
+        'hds.components.filter-bar.applied-filters.key-value',
+        {
+          default: `${keyText}: ${valueText}`,
+          keyText,
+          valueText,
+        }
+      );
+    }
+    return `${keyText} ${valueText}`;
   };
 
   private _arrayFilterText = (
@@ -88,7 +99,7 @@ export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAp
     } else {
       const valueText = item.label ?? String(item.value);
       return this.hdsIntl.t(
-        'hds.components.filter-bar.applied-filters.array-filter',
+        'hds.components.filter-bar.applied-filters.key-value',
         {
           default: `${keyText}: ${valueText}`,
           keyText,
