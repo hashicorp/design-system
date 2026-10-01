@@ -1,1 +1,3 @@
 sorted-message-text: "Sorted by {sortBy} {sortOrder}"
+table-row:
+  selection-aria-label-suffix: all rows

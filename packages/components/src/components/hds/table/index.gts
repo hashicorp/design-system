@@ -443,7 +443,7 @@ export default class HdsTable<T = HdsTableModel> extends Component<
                 didInsert=this.didInsertSelectAllCheckbox
                 willDestroy=this.willDestroySelectAllCheckbox
                 selectionAriaLabelSuffix=(hdsT
-                  "hds.components.table.th-selectable.aria-label-suffix.all-rows"
+                  "hds.components.table.table-row.selection-aria-label-suffix"
                   default="all rows"
                 )
                 onClickSortBySelected=(if

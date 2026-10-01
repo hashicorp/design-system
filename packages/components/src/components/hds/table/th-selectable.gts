@@ -74,10 +74,9 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
   get ariaLabel(): string {
     const suffix =
       this.args.selectionAriaLabelSuffix ??
-      this.hdsIntl.t(
-        'hds.components.table.th-selectable.aria-label-suffix.row',
-        { default: 'row' }
-      );
+      this.hdsIntl.t('hds.components.table.th-selectable.aria-label-suffix', {
+        default: 'row',
+      });
 
     return this.hdsIntl.t('hds.components.table.th-selectable.aria-label', {
       default: `Select ${suffix}`,

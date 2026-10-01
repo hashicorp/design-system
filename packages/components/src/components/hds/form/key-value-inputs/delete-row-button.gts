@@ -48,13 +48,14 @@ export default class HdsFormKeyValueInputsDeleteRowButton extends Component<HdsF
   });
 
   get text(): string {
+    const rowNumber = this.args.rowIndex + 1;
     return (
       this.args.text ??
       this.hdsIntl.t(
         'hds.components.form.key-value-inputs.delete-row-button.text',
         {
-          default: `Delete row ${this.args.rowIndex + 1}`,
-          rowNumber: this.args.rowIndex + 1,
+          default: `Delete row ${rowNumber}`,
+          rowNumber,
         }
       )
     );

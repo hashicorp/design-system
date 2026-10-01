@@ -20,6 +20,6 @@ applied-filters:
         exactly: "exactly {value}"
         after: "after {value}"
         between: "between {start} and {end}"
-    search-label: Search
+    search-filter: Search
   no-filters-applied: No filters applied
   clear-filters: Clear all filters
