@@ -1,23 +1,39 @@
 legend: "Filter by {text}"
 date:
   label: Date is
+  value-input:
+    aria-label: Date value
+  between-value-inputs:
+    start:
+      aria-label: Date start value
+    end:
+      aria-label: Date end value
 datetime:
   label: Datetime is
+  value-input:
+    aria-label: Datetime value
+  between-value-inputs:
+    start:
+      aria-label: Datetime start value
+    end:
+      aria-label: Datetime end value
 time:
   label: Time is
+  value-input:
+    aria-label: Time value
+  between-value-inputs:
+    start:
+      aria-label: Time start value
+    end:
+      aria-label: Time end value
 selector-input:
   default-value: Pick a selector
   before: Before
   exactly: Exactly
   after: After
   between: Between
-value-input:
-  aria-label: "{type} value"
-  placeholder: Enter a date
 between-value-inputs:
   start:
-    aria-label: "{type} start value"
     placeholder: Start
   end:
-    aria-label: "{type} end value"
     placeholder: End
