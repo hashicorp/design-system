@@ -27,7 +27,7 @@
 <!-- END -->
 
 <!-- START components/code-editor -->
-`CodeEditor` - Added translation for copy button
+`CodeEditor` - Added translations for copy button, linting, and diagnostic messages.
 <!-- END -->
 
 <!-- START components/filter-bar -->
