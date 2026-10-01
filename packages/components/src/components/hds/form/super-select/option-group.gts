@@ -6,8 +6,6 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 
-import HdsTextBody from '../../text/body.gts';
-
 export interface HdsFormSuperSelectOptionGroupSignature {
   Args: {
     group: {
@@ -28,15 +26,12 @@ export default class HdsFormSuperSelectOptionGroup extends Component<HdsFormSupe
       role="group"
       aria-labelledby={{this._groupTitleId}}
     >
-      <HdsTextBody
-        @tag="div"
-        @size="100"
-        @weight="semibold"
+      <div
         class="hds-form-super-select__option-group-title"
         id={{this._groupTitleId}}
       >
         {{@group.groupName}}
-      </HdsTextBody>
+      </div>
       {{yield}}
     </li>
   </template>

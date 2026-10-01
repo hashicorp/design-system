@@ -18,7 +18,7 @@ import {
   HdsFormSuperSelectHorizontalPositionToPlacementValues,
 } from '../types.ts';
 import anchoredPositionModifier from '../../../../../modifiers/hds-anchored-position.ts';
-import HdsTextBody from '../../../text/body.gts';
+
 import HdsFormSuperSelectOptionGroup from '../option-group.gts';
 import HdsFormSuperSelectPlaceholder from '../placeholder.gts';
 import HdsFormSuperSelectAfterOptions from '../after-options.gts';
@@ -210,10 +210,10 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
         ...attributes
         as |option select|
       >
-        <HdsTextBody
-          class="hds-form-super-select__option-text"
-          @tag="div"
-        >{{yield option select}}</HdsTextBody>
+        <div class="hds-form-super-select__option-text">{{yield
+            option
+            select
+          }}</div>
       </PowerSelect>
     </div>
   </template>
