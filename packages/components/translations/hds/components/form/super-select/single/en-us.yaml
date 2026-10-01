@@ -1,2 +1,5 @@
-result-count: "{resultCount} total"
+result-count-message: "{resultCount} total"
+no-matches-message: No results found
+loading-message: Loading options...
+search-message: Type to search
 search: Search

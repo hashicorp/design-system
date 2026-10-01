@@ -63,7 +63,7 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
 
     const resultCount = this.powerSelectAPI?.resultsCount || 0;
     return this.hdsIntl.t(
-      'hds.components.form.super-select.single.result-count',
+      'hds.components.form.super-select.single.result-count-message',
       {
         default: `${resultCount} total`,
         resultCount,
@@ -77,6 +77,39 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
     }
 
     return undefined;
+  }
+
+  get noMatchesMessage(): string {
+    return (
+      this.args.noMatchesMessage ??
+      this.hdsIntl.t(
+        'hds.components.form.super-select.single.no-matches-message',
+        {
+          default: 'No results found',
+        }
+      )
+    );
+  }
+
+  get loadingMessage(): string {
+    return (
+      this.args.loadingMessage ??
+      this.hdsIntl.t(
+        'hds.components.form.super-select.single.loading-message',
+        {
+          default: 'Loading options...',
+        }
+      )
+    );
+  }
+
+  get searchMessage(): string {
+    return (
+      this.args.searchMessage ??
+      this.hdsIntl.t('hds.components.form.super-select.single.search-message', {
+        default: 'Type to search',
+      })
+    );
   }
 
   /**
@@ -187,10 +220,10 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
         @horizontalPosition={{@horizontalPosition}}
         @initiallyOpened={{@initiallyOpened}}
         @labelText={{@labelText}}
-        @loadingMessage={{@loadingMessage}}
+        @loadingMessage={{this.loadingMessage}}
         @matcher={{@matcher}}
         @matchTriggerWidth={{if @dropdownMaxWidth false @matchTriggerWidth}}
-        @noMatchesMessage={{@noMatchesMessage}}
+        @noMatchesMessage={{this.noMatchesMessage}}
         @onBlur={{@onBlur}}
         @onChange={{@onChange}}
         @onClose={{@onClose}}
@@ -211,7 +244,7 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
         @searchEnabled={{@searchEnabled}}
         @searchField={{@searchField}}
         @searchFieldPosition="before-options"
-        @searchMessage={{@searchMessage}}
+        @searchMessage={{this.searchMessage}}
         @searchPlaceholder={{this.searchPlaceholder}}
         @selected={{@selected}}
         @selectedItemComponent={{@selectedItemComponent}}

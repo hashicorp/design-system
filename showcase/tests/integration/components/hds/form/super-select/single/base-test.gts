@@ -4,7 +4,7 @@
  */
 
 import { module, test } from 'qunit';
-import { click, render } from '@ember/test-helpers';
+import { click, fillIn, render } from '@ember/test-helpers';
 
 import { HdsFormSuperSelectSingleBase } from '@hashicorp/design-system-components/components';
 
@@ -30,6 +30,64 @@ module(
       assert
         .dom('.hds-form-super-select-single #test-super-select-single')
         .exists();
+    });
+
+    // MESSAGES
+
+    test('it renders the default no matches message', async function (assert) {
+      await render(
+        <template>
+          <HdsFormSuperSelectSingleBase
+            @onChange={{NOOP}}
+            @options={{OPTIONS}}
+            @searchEnabled={{true}}
+            as |option|
+          >{{option}}</HdsFormSuperSelectSingleBase>
+        </template>,
+      );
+      await click('.hds-form-super-select .ember-basic-dropdown-trigger');
+      await fillIn('.ember-power-select-search-input', 'Option 4');
+      assert
+        .dom('.ember-power-select-option--no-matches-message')
+        .hasText('No results found');
+    });
+
+    test('it renders the default loading message', async function (assert) {
+      const loadingOptions = new Promise<string[]>(() => {});
+
+      await render(
+        <template>
+          <HdsFormSuperSelectSingleBase
+            @onChange={{NOOP}}
+            @options={{loadingOptions}}
+            as |option|
+          >{{option}}</HdsFormSuperSelectSingleBase>
+        </template>,
+      );
+      await click('.hds-form-super-select .ember-basic-dropdown-trigger');
+      assert
+        .dom('.ember-power-select-option--loading-message')
+        .hasText('Loading options...');
+    });
+
+    test('it renders the default search message', async function (assert) {
+      const search = (term: string) =>
+        OPTIONS.filter((option) => option.includes(term));
+
+      await render(
+        <template>
+          <HdsFormSuperSelectSingleBase
+            @onChange={{NOOP}}
+            @search={{search}}
+            @searchEnabled={{true}}
+            as |option|
+          >{{option}}</HdsFormSuperSelectSingleBase>
+        </template>,
+      );
+      await click('.hds-form-super-select .ember-basic-dropdown-trigger');
+      assert
+        .dom('.ember-power-select-option--search-message')
+        .hasText('Type to search');
     });
 
     // OPTIONS
