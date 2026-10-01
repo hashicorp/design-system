@@ -88,7 +88,7 @@ module(
         .hasAttribute('type', 'date');
       assert
         .dom('.hds-filter-bar__filter-group__date .hds-form-text-input')
-        .hasAria('label', 'date value');
+        .hasAria('label', 'Date value');
 
       await select(
         '.hds-filter-bar__filter-group__date .hds-form-select',
@@ -102,12 +102,14 @@ module(
         .dom('[name="test-key-between-start"]')
         .hasAttribute('type', 'date');
       assert
-        .dom('[name="test-key-between-start"]')
-        .hasAria('label', 'date start value');
-      assert.dom('[name="test-key-between-end"]').hasAttribute('type', 'date');
+        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(1)')
+        .hasAria('label', 'Date start value');
       assert
-        .dom('[name="test-key-between-end"]')
-        .hasAria('label', 'date end value');
+        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(2)')
+        .hasAttribute('type', 'date');
+      assert
+        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(2)')
+        .hasAria('label', 'Date end value');
     });
 
     test('it should render the appropriate inputs if the @type argument is time', async function (assert) {
@@ -124,7 +126,7 @@ module(
         .hasAttribute('type', 'time');
       assert
         .dom('.hds-filter-bar__filter-group__date .hds-form-text-input')
-        .hasAria('label', 'time value');
+        .hasAria('label', 'Time value');
 
       await select(
         '.hds-filter-bar__filter-group__date .hds-form-select',
@@ -138,12 +140,14 @@ module(
         .dom('[name="test-key-between-start"]')
         .hasAttribute('type', 'time');
       assert
-        .dom('[name="test-key-between-start"]')
-        .hasAria('label', 'time start value');
-      assert.dom('[name="test-key-between-end"]').hasAttribute('type', 'time');
+        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(1)')
+        .hasAria('label', 'Time start value');
       assert
-        .dom('[name="test-key-between-end"]')
-        .hasAria('label', 'time end value');
+        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(2)')
+        .hasAttribute('type', 'time');
+      assert
+        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(2)')
+        .hasAria('label', 'Time end value');
     });
 
     test('it should render the appropriate inputs if the @type argument is datetime', async function (assert) {
@@ -160,7 +164,7 @@ module(
         .hasAttribute('type', 'datetime-local');
       assert
         .dom('.hds-filter-bar__filter-group__date .hds-form-text-input')
-        .hasAria('label', 'datetime value');
+        .hasAria('label', 'Datetime value');
 
       await select(
         '.hds-filter-bar__filter-group__date .hds-form-select',
@@ -174,14 +178,14 @@ module(
         .dom('[name="test-key-between-start"]')
         .hasAttribute('type', 'datetime-local');
       assert
-        .dom('[name="test-key-between-start"]')
-        .hasAria('label', 'datetime start value');
+        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(1)')
+        .hasAria('label', 'Datetime start value');
       assert
         .dom('[name="test-key-between-end"]')
         .hasAttribute('type', 'datetime-local');
       assert
-        .dom('[name="test-key-between-end"]')
-        .hasAria('label', 'datetime end value');
+        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(2)')
+        .hasAria('label', 'Datetime end value');
     });
 
     // TEXT
