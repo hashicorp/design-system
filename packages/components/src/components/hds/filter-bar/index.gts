@@ -141,7 +141,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
       newFilters['search'] = {
         type: 'search',
         text: this.hdsIntl.t(
-          'hds.components.filter-bar.applied-filters.tag.search-label',
+          'hds.components.filter-bar.applied-filters.tag.search-filter',
           {
             default: 'Search',
           }

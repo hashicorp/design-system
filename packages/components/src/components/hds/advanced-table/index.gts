@@ -1084,7 +1084,7 @@ export default class HdsAdvancedTable<
                   @didInsert={{this.didInsertSelectAllCheckbox}}
                   @willDestroy={{this.willDestroySelectAllCheckbox}}
                   @selectionAriaLabelSuffix={{hdsT
-                    "hds.components.advanced-table.th-selectable.aria-label-suffix.all-rows"
+                    "hds.components.advanced-table.table-row.selection-aria-label-suffix"
                     default="all rows"
                   }}
                   @hasStickyColumn={{this.hasStickyFirstColumn}}

@@ -163,7 +163,7 @@ export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAp
       'value' in data
     ) {
       const selector = data.selector as keyof typeof DATE_SELECTORS_TEXT;
-      const translationType = filter.type === 'datetime' ? 'date' : filter.type;
+      const dateFilterType = filter.type === 'datetime' ? 'date' : filter.type;
 
       if (
         selector === 'between' &&
@@ -179,18 +179,21 @@ export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAp
           filter.type
         );
         return this.hdsIntl.t(
-          `hds.components.filter-bar.applied-filters.tag.date-filter.${translationType}.between`,
+          `hds.components.filter-bar.applied-filters.tag.date-filter.${dateFilterType}.between`,
           {
             default: `between ${start} and ${end}`,
             start,
             end,
           }
         );
-      } else if (typeof data.value === 'string') {
-        const value = this._formatDateFilterText(data.value, filter.type);
+      } else if (data.value !== null && typeof data.value !== 'object') {
+        const value = this._formatDateFilterText(
+          data.value as string,
+          filter.type
+        );
 
         return this.hdsIntl.t(
-          `hds.components.filter-bar.applied-filters.tag.date-filter.${translationType}.${selector}`,
+          `hds.components.filter-bar.applied-filters.tag.date-filter.${dateFilterType}.${selector}`,
           {
             default: `${DATE_SELECTORS_TEXT[selector]} ${value}`,
             value,

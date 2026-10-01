@@ -71,7 +71,7 @@ export default class HdsAdvancedTableThSelectable extends Component<HdsAdvancedT
     const suffix =
       this.args.selectionAriaLabelSuffix ??
       this.hdsIntl.t(
-        'hds.components.advanced-table.th-selectable.aria-label-suffix.row',
+        'hds.components.advanced-table.th-selectable.aria-label-suffix',
         { default: 'row' }
       );
 

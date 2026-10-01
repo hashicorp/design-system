@@ -128,7 +128,7 @@ export default class HdsTag extends Component<HdsTagSignature> {
       return `${ariaLabel} ${text}`;
     }
 
-    return this.hdsIntl.t('hds.components.tag.aria-label', {
+    return this.hdsIntl.t('hds.components.tag.dismiss-button.aria-label', {
       default: `Dismiss ${text}`,
       text,
     });

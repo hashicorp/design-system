@@ -47,13 +47,19 @@ export default class HdsFormCharacterCount extends Component<HdsFormCharacterCou
     return value ? value.length : 0;
   }
 
-  private _countMessage(
-    key: string,
-    count: number,
-    singular: string,
-    plural: string,
-    prefix = ''
-  ): string {
+  private _countMessage({
+    key,
+    count,
+    singular,
+    plural,
+    prefix = '',
+  }: {
+    key: string;
+    count: number;
+    singular: string;
+    plural: string;
+    prefix?: string;
+  }): string {
     return this.hdsIntl.t(key, {
       default: `${prefix}${count} ${count === 1 ? singular : plural}`,
       count,
@@ -84,52 +90,52 @@ export default class HdsFormCharacterCount extends Component<HdsFormCharacterCou
 
   get message(): string {
     if (this.minLength && this.currentLength === 0) {
-      return this._countMessage(
-        'hds.components.form.character-count.required',
-        this.minLength,
-        'character required',
-        'characters required'
-      );
+      return this._countMessage({
+        key: 'hds.components.form.character-count.required',
+        count: this.minLength,
+        singular: 'character required',
+        plural: 'characters required',
+      });
     } else if (this.minLength && this.currentLength < this.minLength) {
-      return this._countMessage(
-        'hds.components.form.character-count.more-required',
-        this.shortfall ?? 0,
-        'more character required',
-        'more characters required'
-      );
+      return this._countMessage({
+        key: 'hds.components.form.character-count.more-required',
+        count: this.shortfall ?? 0,
+        singular: 'more character required',
+        plural: 'more characters required',
+      });
     } else if (this.maxLength && this.currentLength === 0) {
-      return this._countMessage(
-        'hds.components.form.character-count.allowed',
-        this.maxLength,
-        'character allowed',
-        'characters allowed'
-      );
+      return this._countMessage({
+        key: 'hds.components.form.character-count.allowed',
+        count: this.maxLength,
+        singular: 'character allowed',
+        plural: 'characters allowed',
+      });
     } else if (this.maxLength && this.currentLength <= this.maxLength) {
-      return this._countMessage(
-        'hds.components.form.character-count.remaining',
-        this.remaining ?? 0,
-        'character remaining',
-        'characters remaining'
-      );
+      return this._countMessage({
+        key: 'hds.components.form.character-count.remaining',
+        count: this.remaining ?? 0,
+        singular: 'character remaining',
+        plural: 'characters remaining',
+      });
     } else if (
       this.maxLength &&
       this.remaining &&
       this.currentLength > this.maxLength
     ) {
-      return this._countMessage(
-        'hds.components.form.character-count.exceeded-by',
-        -this.remaining,
-        'character',
-        'characters',
-        'Exceeded by '
-      );
+      return this._countMessage({
+        key: 'hds.components.form.character-count.exceeded-by',
+        count: -this.remaining,
+        singular: 'character',
+        plural: 'characters',
+        prefix: 'Exceeded by ',
+      });
     } else {
-      return this._countMessage(
-        'hds.components.form.character-count.entered',
-        this.currentLength,
-        'character entered',
-        'characters entered'
-      );
+      return this._countMessage({
+        key: 'hds.components.form.character-count.entered',
+        count: this.currentLength,
+        singular: 'character entered',
+        plural: 'characters entered',
+      });
     }
   }
 

@@ -1,1 +1,2 @@
-aria-label: Dismiss {text}
+dismiss-button:
+  aria-label: Dismiss {text}

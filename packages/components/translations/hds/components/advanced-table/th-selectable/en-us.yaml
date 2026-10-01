@@ -1,4 +1,2 @@
 aria-label: Select {suffix}
-aria-label-suffix:
-  row: row
-  all-rows: all rows
+aria-label-suffix: row
