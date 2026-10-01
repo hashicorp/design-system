@@ -92,7 +92,7 @@ module(
         .hasAttribute('type', 'date');
       assert
         .dom('.hds-filter-bar__filter-group__date .hds-form-text-input')
-        .hasAria('label', 'date value');
+        .hasAria('label', 'Date value');
 
       await select(
         '.hds-filter-bar__filter-group__date .hds-form-select',
@@ -107,13 +107,13 @@ module(
         .hasAttribute('type', 'date');
       assert
         .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(1)')
-        .hasAria('label', 'date start value');
+        .hasAria('label', 'Date start value');
       assert
         .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(2)')
         .hasAttribute('type', 'date');
       assert
         .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(2)')
-        .hasAria('label', 'date end value');
+        .hasAria('label', 'Date end value');
     });
 
     test('it should render the appropriate inputs if the @type argument is time', async function (assert) {
@@ -130,7 +130,7 @@ module(
         .hasAttribute('type', 'time');
       assert
         .dom('.hds-filter-bar__filter-group__date .hds-form-text-input')
-        .hasAria('label', 'time value');
+        .hasAria('label', 'Time value');
 
       await select(
         '.hds-filter-bar__filter-group__date .hds-form-select',
@@ -145,13 +145,13 @@ module(
         .hasAttribute('type', 'time');
       assert
         .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(1)')
-        .hasAria('label', 'time start value');
+        .hasAria('label', 'Time start value');
       assert
         .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(2)')
         .hasAttribute('type', 'time');
       assert
         .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(2)')
-        .hasAria('label', 'time end value');
+        .hasAria('label', 'Time end value');
     });
 
     test('it should render the appropriate inputs if the @type argument is datetime', async function (assert) {
@@ -168,7 +168,7 @@ module(
         .hasAttribute('type', 'datetime-local');
       assert
         .dom('.hds-filter-bar__filter-group__date .hds-form-text-input')
-        .hasAria('label', 'datetime value');
+        .hasAria('label', 'Datetime value');
 
       await select(
         '.hds-filter-bar__filter-group__date .hds-form-select',
@@ -183,13 +183,13 @@ module(
         .hasAttribute('type', 'datetime-local');
       assert
         .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(1)')
-        .hasAria('label', 'datetime start value');
+        .hasAria('label', 'Datetime start value');
       assert
         .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(2)')
         .hasAttribute('type', 'datetime-local');
       assert
         .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(2)')
-        .hasAria('label', 'datetime end value');
+        .hasAria('label', 'Datetime end value');
     });
 
     // TEXT
