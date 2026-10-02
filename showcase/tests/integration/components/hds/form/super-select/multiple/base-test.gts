@@ -279,7 +279,7 @@ module(
         .hasClass('hds-form-super-select--dropdown-content-auto-width')
         .hasAttribute(
           'style',
-          "--hds-form-super-select-dropdown-max-width: 40em; --hds-form-super-select-selected-text-display: none; --hds-form-super-select-selected-text: '0 selected';",
+          "--hds-var-form-super-select-dropdown-max-width: 40em; --hds-var-form-super-select-selected-text-display: none; --hds-var-form-super-select-selected-text: '0 selected';",
         );
     });
 
