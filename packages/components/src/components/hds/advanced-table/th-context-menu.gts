@@ -300,6 +300,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
           }}
           @hasChevron={{false}}
           @size="small"
+          @color="secondary-muted"
           {{this._registerDropdownToggleElement}}
         />
 
