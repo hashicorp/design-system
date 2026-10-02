@@ -109,7 +109,11 @@ export default class LocalComponent extends Component {
                   "Español"
                 }}
               />
-              <A.Body @text="Current language selection" />
+              <A.Body
+                @text={{t
+                  "website.pages.patterns.language-selection.current-language"
+                }}
+              />
             </HdsApplicationState>
           </div>
         </Frame.Main>
