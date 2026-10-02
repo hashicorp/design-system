@@ -14,6 +14,7 @@ import { HdsIcon } from '@hashicorp/design-system-components/components';
 import DocLogoDesignSystem from 'website/components/doc/logo/design-system';
 import DocPageHeaderNavItem from 'website/components/doc/page/header/nav-item';
 import DocPageHeaderAlgoliaSearch from 'website/components/doc/page/header/algolia-search';
+import DocVersionSwitcher from 'website/components/doc/version-switcher';
 
 interface DocPageHeaderSignature {
   Args: {
@@ -31,6 +32,7 @@ const DocPageHeader: TemplateOnlyComponent<DocPageHeaderSignature> = <template>
     <LinkTo @route="index" class="doc-page-header__logo" aria-label="home page">
       <DocLogoDesignSystem />
     </LinkTo>
+    <DocVersionSwitcher />
     <nav
       class="doc-page-header__nav-menu"
       aria-label="primary navigation"

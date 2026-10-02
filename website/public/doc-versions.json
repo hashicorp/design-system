@@ -1,0 +1,14 @@
+{
+  "$comment": "This file is the source of truth for the list of published documentation websites. It is served as a static asset at https://helios.hashicorp.design/doc-versions.json and is fetched at runtime by the `DocVersionSwitcher` component, so that older/archived versions of the documentation website can display an up-to-date list of versions too. Notes: the `versions` list only contains the versions from `6.0.0` onwards (the links to the documentation of the older ones are listed in the release notes page), it's sorted from the most recent to the oldest one, and needs to be kept in sync with the 'documentation' links declared in `website/docs/whats-new/release-notes/partials/components.md` (with the exception of the `latest` version, which points to the canonical documentation website instead of its archived deployment).",
+  "latest": "6.5.0",
+  "versions": [
+    { "version": "6.5.0", "url": "https://helios.hashicorp.design/" },
+    { "version": "6.4.0", "url": "https://hds-website-6-4-0.vercel.app/" },
+    { "version": "6.3.0", "url": "https://hds-website-6-3-0.vercel.app/" },
+    { "version": "6.2.1", "url": "https://hds-website-6-2-1.vercel.app/" },
+    { "version": "6.2.0", "url": "https://hds-website-6-2-0.vercel.app/" },
+    { "version": "6.1.1", "url": "https://hds-website-6-1-1.vercel.app/" },
+    { "version": "6.1.0", "url": "https://hds-website-6-1-0.vercel.app/" },
+    { "version": "6.0.0", "url": "https://hds-website-6-0-0.vercel.app/" }
+  ]
+}
