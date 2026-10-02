@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { fn } from '@ember/helper';
 
-import { HdsFormSuperSelectSingleField } from '@hashicorp/design-system-components/components';
+import { HdsFormSuperSelectMultipleField } from '@hashicorp/design-system-components/components';
 
 export default class LocalComponent extends Component {
   OPTIONS = [
@@ -15,7 +15,7 @@ export default class LocalComponent extends Component {
   SELECTED_OPTIONS = null;
 
   <template>
-    <HdsFormSuperSelectSingleField
+    <HdsFormSuperSelectMultipleField
       @onChange={{fn (mut this.SELECTED_OPTIONS)}}
       @selected={{this.SELECTED_OPTIONS}}
       @options={{this.OPTIONS}}
@@ -25,6 +25,6 @@ export default class LocalComponent extends Component {
       <F.Label>This is the label</F.Label>
       {{! @glint-expect-error }}
       <F.Options>{{F.options}}</F.Options>
-    </HdsFormSuperSelectSingleField>
+    </HdsFormSuperSelectMultipleField>
   </template>
 }
