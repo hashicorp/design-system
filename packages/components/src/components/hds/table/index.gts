@@ -23,6 +23,7 @@ import HdsTableTr from './tr.gts';
 import HdsTableTh from './th.gts';
 import HdsTableThSort from './th-sort.gts';
 import HdsTableTd from './td.gts';
+import hdsT from '../../../helpers/hds-t.ts';
 
 import type {
   HdsTableColumn,
@@ -162,24 +163,22 @@ export default class HdsTable<T = HdsTableModel> extends Component<
     if (this.args.sortedMessageText) {
       return this.args.sortedMessageText;
     } else if (this.sortBy && this.sortOrder) {
-      // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
-      const translatedSortOrder = {
-        [HdsTableThSortOrderValues.Asc]: this.hdsIntl.t(
-          'hds.components.common.ascending',
-          { default: 'ascending' }
-        ),
-        [HdsTableThSortOrderValues.Desc]: this.hdsIntl.t(
-          'hds.components.common.descending',
-          { default: 'descending' }
-        ),
-      }[this.sortOrder];
-      const lowerCaseTranslatedSortOrder = translatedSortOrder.toLowerCase();
+      const sortOrder =
+        this.sortOrder === HdsTableThSortOrderValues.Asc
+          ? 'ascending'
+          : 'descending';
 
-      return this.hdsIntl.t('hds.components.table.sorted-message-text', {
-        sortBy: this.sortBy,
-        sortOrder: lowerCaseTranslatedSortOrder,
-        default: `Sorted by ${this.sortBy} ${lowerCaseTranslatedSortOrder}`,
-      });
+      const columnLabel =
+        this.args.columns?.find((column) => column.key === this.sortBy)
+          ?.label ?? this.sortBy;
+
+      return this.hdsIntl.t(
+        `hds.components.table.sorted-message.${sortOrder}`,
+        {
+          default: `Sorted by ${columnLabel} ${sortOrder}`,
+          columnLabel,
+        }
+      );
     } else {
       return '';
     }
@@ -401,7 +400,10 @@ export default class HdsTable<T = HdsTableModel> extends Component<
             @onSelectionChange={{this.onSelectionAllChange}}
             @didInsert={{this.didInsertSelectAllCheckbox}}
             @willDestroy={{this.willDestroySelectAllCheckbox}}
-            @selectionAriaLabelSuffix="all rows"
+            @selectionAriaLabelSuffix={{hdsT
+              "hds.components.table.table-row.selection-aria-label-suffix"
+              default="all rows"
+            }}
           >
             {{#each @columns as |column|}}
               {{#if column.isSortable}}
@@ -434,7 +436,10 @@ export default class HdsTable<T = HdsTableModel> extends Component<
                 onSelectionChange=this.onSelectionAllChange
                 didInsert=this.didInsertSelectAllCheckbox
                 willDestroy=this.willDestroySelectAllCheckbox
-                selectionAriaLabelSuffix="all rows"
+                selectionAriaLabelSuffix=(hdsT
+                  "hds.components.table.table-row.selection-aria-label-suffix"
+                  default="all rows"
+                )
                 onClickSortBySelected=(if
                   @selectableColumnKey (fn this.setSortBy @selectableColumnKey)
                 )

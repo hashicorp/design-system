@@ -39,7 +39,10 @@ export default class HdsApplicationStateHeader extends Component<HdsApplicationS
           @weight="medium"
           @color="faint"
         >
-          {{hdsT "hds.application-state.header.error" default="ERROR"}}
+          {{hdsT
+            "hds.components.application-state.header.error"
+            default="ERROR"
+          }}
           {{@errorCode}}
         </HdsTextBody>
       {{/if}}

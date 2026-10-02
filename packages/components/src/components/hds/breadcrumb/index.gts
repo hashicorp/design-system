@@ -4,8 +4,10 @@
  */
 
 import Component from '@glimmer/component';
+import { service } from '@ember/service';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
 import didInsert from '@ember/render-modifiers/modifiers/did-insert';
+import type HdsIntlService from '../../../services/hds-intl';
 
 export interface HdsBreadcrumbSignature {
   Args: {
@@ -22,6 +24,8 @@ export interface HdsBreadcrumbSignature {
 const NOOP = () => {};
 
 export default class HdsBreadcrumb extends Component<HdsBreadcrumbSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
+
   get didInsert(): () => void {
     const { didInsert } = this.args;
 
@@ -37,7 +41,12 @@ export default class HdsBreadcrumb extends Component<HdsBreadcrumbSignature> {
   }
 
   get ariaLabel(): string {
-    return this.args.ariaLabel ?? 'breadcrumbs';
+    return (
+      this.args.ariaLabel ??
+      this.hdsIntl.t('hds.components.breadcrumb.aria-label', {
+        default: 'breadcrumbs',
+      })
+    );
   }
 
   get classNames(): string {

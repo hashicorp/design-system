@@ -9,6 +9,7 @@ import { hash } from '@ember/helper';
 import { modifier } from 'ember-modifier';
 import { or } from 'ember-truth-helpers';
 import { tracked } from '@glimmer/tracking';
+import { service } from '@ember/service';
 // @ts-expect-error: missing types https://github.com/josemarluedke/ember-focus-trap/issues/86
 import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
 
@@ -29,6 +30,7 @@ import type { HdsCodeEditorDescriptionSignature } from './description.gts';
 import type { HdsCodeEditorSignature as HdsCodeEditorModifierSignature } from '../../../modifiers/hds-code-editor.ts';
 import type { HdsCodeEditorTitleSignature } from './title.gts';
 import type { HdsCopyButtonSignature } from '../copy/button/index.gts';
+import type HdsIntlService from '../../../services/hds-intl.ts';
 
 export interface HdsCodeEditorSignature {
   Args: {
@@ -56,6 +58,8 @@ export interface HdsCodeEditorSignature {
 }
 
 export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
+
   @tracked private _isFullScreen = false;
   @tracked private _isSetupComplete = false;
   @tracked private _value;
@@ -125,7 +129,11 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
   }
 
   get copyButtonText(): HdsCopyButtonSignature['Args']['text'] {
-    return this.args.copyButtonText ? this.args.copyButtonText : 'Copy';
+    return this.args.copyButtonText
+      ? this.args.copyButtonText
+      : this.hdsIntl.t('hds.components.code-editor.copy-button', {
+          default: 'Copy',
+        });
   }
 
   registerTitleElement = (

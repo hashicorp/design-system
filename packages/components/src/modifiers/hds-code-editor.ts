@@ -8,7 +8,7 @@ import { assert, warn } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
 import { task } from 'ember-concurrency';
 import { macroCondition, isTesting } from '@embroider/macros';
-import { Compartment } from '@codemirror/state';
+import { Compartment, EditorState } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
 import { guidFor } from '@ember/object/internals';
 import { isEmpty } from '@ember/utils';
@@ -116,7 +116,8 @@ const LANGUAGES: Record<
   {
     load: () => Promise<Extension | StreamLanguageType<unknown>>;
     loadLinter?: (
-      onLint?: HdsCodeEditorSignature['Args']['Named']['onLint']
+      onLint?: HdsCodeEditorSignature['Args']['Named']['onLint'],
+      hdsIntl?: HdsIntlService
     ) => Promise<Extension>;
   }
 > = {
@@ -158,10 +159,10 @@ const LANGUAGES: Record<
   },
   json: {
     load: async () => (await import('@codemirror/lang-json')).json(),
-    loadLinter: async (onLint) => {
+    loadLinter: async (onLint, hdsIntl) => {
       const linter = await import('./hds-code-editor/linters/json-linter.ts');
 
-      return linter.default(onLint);
+      return linter.default(onLint, hdsIntl);
     },
   },
   markdown: {
@@ -384,7 +385,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         if (isLintingEnabled && LANGUAGES[language].loadLinter) {
           extensionPromises = [
             ...extensionPromises,
-            LANGUAGES[language].loadLinter(onLint),
+            LANGUAGES[language].loadLinter(onLint, this.hdsIntl),
           ];
         }
 
@@ -466,7 +467,30 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         hasLineWrapping ? EditorView.lineWrapping : []
       );
 
+      const phrasesExtension = EditorState.phrases.of({
+        Diagnostics: this.hdsIntl.t(
+          'hds.modifiers.hds-code-editor.phrases.diagnostics',
+          { default: 'Diagnostics' }
+        ),
+        'No diagnostics': this.hdsIntl.t(
+          'hds.modifiers.hds-code-editor.phrases.no-diagnostics',
+          { default: 'No diagnostics' }
+        ),
+        close: this.hdsIntl.t('hds.modifiers.hds-code-editor.phrases.close', {
+          default: 'close',
+        }),
+        'Control character': this.hdsIntl.t(
+          'hds.modifiers.hds-code-editor.phrases.control-character',
+          { default: 'Control character' }
+        ),
+        'Selection deleted': this.hdsIntl.t(
+          'hds.modifiers.hds-code-editor.phrases.selection-deleted',
+          { default: 'Selection deleted' }
+        ),
+      });
+
       let extensions: Extension[] = [
+        phrasesExtension,
         lineWrappingExtension,
         bracketMatching(),
         highlightActiveLine(),
@@ -536,8 +560,6 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       >
     ) => {
       try {
-        const { EditorState } = await import('@codemirror/state');
-
         const extensions = await this._buildExtensionsTask.perform({
           cspNonce,
           extraKeys,

@@ -175,7 +175,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
       assert
         .dom('#data-test-advanced-table .hds-advanced-table__caption')
-        .hasText('Sorted by artist ascending');
+        .hasText('Sorted by Artist ascending');
 
       await click(
         '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1) button',
@@ -185,7 +185,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         .hasText('The Beatles');
       assert
         .dom('#data-test-advanced-table .hds-advanced-table__caption')
-        .hasText('Sorted by artist descending');
+        .hasText('Sorted by Artist descending');
     });
 
     test('it sorts the rows asc by default when the sort button is clicked on an unsorted column', async function (assert) {

@@ -35,7 +35,7 @@ export default class HdsFormIndicator extends Component<HdsFormIndicatorSignatur
     {{#if @isOptional}}
       <span class={{this.classNames}}>
         ({{hdsT
-          "hds.components.form.common.optional_field_indicator"
+          "hds.components.form.common.optional-field-indicator"
           default="Optional"
         }})
       </span>
@@ -47,7 +47,7 @@ export default class HdsFormIndicator extends Component<HdsFormIndicatorSignatur
         @size="small"
         @color="neutral"
         @text={{hdsT
-          "hds.components.form.common.required_field_indicator"
+          "hds.components.form.common.required-field-indicator"
           default="Required"
         }}
       />

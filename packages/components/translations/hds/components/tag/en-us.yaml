@@ -1,0 +1,2 @@
+dismiss-button:
+  aria-label: Dismiss {text}
