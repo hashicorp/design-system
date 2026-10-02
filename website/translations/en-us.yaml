@@ -7,3 +7,4 @@ website:
         english-option: "English"
         spanish-option: "Español (Spanish)"
         home-link-text: "HashiCorp"
+        current-language: "Current language"
