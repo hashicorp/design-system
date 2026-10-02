@@ -33,7 +33,7 @@
 <!-- START components/filter-bar -->
 `FilterBar` - Updated the following for i18n:
 - Added translation to applied search filter label
-- Added translations for each type of filter in `Date` to better support localization for aria labels
+- Added type assertion in `Date` to guard against invalid types and translations for each type of filter to better support localization for aria labels
 - Added missing translations in applied filters and refactored date filter code to better support localization
 - Corrected translation keys in `AppliedFilters` and `Numerical`
 <!-- END -->

@@ -5,7 +5,13 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render, fillIn, select } from '@ember/test-helpers';
+import {
+  render,
+  fillIn,
+  select,
+  resetOnerror,
+  setupOnerror,
+} from '@ember/test-helpers';
 import { TrackedObject } from 'tracked-built-ins';
 
 import {
@@ -40,6 +46,10 @@ module(
   'Integration | Component | hds/filter-bar/filter-group/date',
   function (hooks) {
     setupRenderingTest(hooks);
+
+    hooks.afterEach(() => {
+      resetOnerror();
+    });
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
@@ -350,6 +360,27 @@ module(
       assert.equal(context.selector, 'between');
       assert.equal(context.valueStart, '2024-11-04');
       assert.equal(context.valueEnd, '2025-11-04');
+    });
+
+    // ASSERTIONS
+
+    test('it should throw an assertion if an incorrect value for @type is provided', async function (assert) {
+      const errorMessage =
+        '@type for "Hds::FilterBar::FilterGroup::Date" must be one of the following: date, time, datetime; received: foo';
+      assert.expect(2);
+      setupOnerror(function (error) {
+        assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+      });
+
+      await render(
+        <template>
+          {{! @glint-expect-error - assertion testing invalid value }}
+          <HdsFilterBarFilterGroupDate @key="test-key" @type="foo" />
+        </template>,
+      );
+      assert.throws(function () {
+        throw new Error(errorMessage);
+      });
     });
   },
 );
