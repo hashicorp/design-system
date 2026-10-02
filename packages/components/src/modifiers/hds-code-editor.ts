@@ -159,10 +159,10 @@ const LANGUAGES: Record<
   },
   json: {
     load: async () => (await import('@codemirror/lang-json')).json(),
-    loadLinter: async (onLint, translate) => {
+    loadLinter: async (onLint, hdsIntl) => {
       const linter = await import('./hds-code-editor/linters/json-linter.ts');
 
-      return linter.default(onLint, translate);
+      return linter.default(onLint, hdsIntl);
     },
   },
   markdown: {

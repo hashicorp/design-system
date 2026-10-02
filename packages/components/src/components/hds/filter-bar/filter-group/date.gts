@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import { guidFor } from '@ember/object/internals';
 import { service } from '@ember/service';
@@ -82,6 +83,7 @@ const DATE_TYPE_DEFAULT_TEXT: Record<
 
 export const DATE_FILTER_GROUP_TYPES: HdsFilterBarFilterGroupDateType[] =
   Object.values(HdsFilterBarFilterGroupDateTypeValues);
+export const DEFAULT_DATE_TYPE = HdsFilterBarFilterGroupDateTypeValues.date;
 
 export interface HdsFilterBarFilterGroupDateSignature {
   Args: {
@@ -115,7 +117,16 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
   private _betweenValueEndInputId = 'between-value-end-input-' + guidFor(this);
 
   get type(): 'date' | 'time' | 'datetime' {
-    return this.args.type || 'date';
+    const { type = DEFAULT_DATE_TYPE } = this.args;
+
+    assert(
+      `@type for "Hds::FilterBar::FilterGroup::Date" must be one of the following: ${DATE_FILTER_GROUP_TYPES.join(
+        ', '
+      )}; received: ${type}`,
+      DATE_FILTER_GROUP_TYPES.includes(type)
+    );
+
+    return type;
   }
 
   get inputType(): HdsFormTextInputTypes {
