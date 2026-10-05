@@ -2,20 +2,22 @@
 
 **Setting realistic expectations**
 
-An AI assistant connected to the Helios MCP is a powerful tool for exploring the design system, generating quick prototypes, and accelerating routine work. However, it is not a tool that can interpret design intent reliably on its own. An experienced engineer reviewing your Figma file can often infer meaning even when the file is imperfect, something that an AI assistant cannot feasibly accomplish. The quality of its output is directly correlated with the quality of the input, including your design preparation, prompt, and relevant context.
+An AI assistant connected to the Helios MCP is a powerful tool for exploring the design system, generating quick prototypes, and accelerating routine work. However, unlike a human, AI cannot infer design intent. The output quality depends directly on clear inputs—including well-structured designs, clear prompts, and adequate context.
 !!!
 
-While the Helios MCP server is generally intended for an engineering workflow, it can also provide value for designers working to test component properties, create high-resolution prototypes, vet design concepts, and other pre-production practices.
+While primarily intended for engineering workflows, the Helios MCP server can help designers prototype, test component properties, and vet concepts quickly.
 
-Use these guidelines when working in a Figma-to-code pipeline, where the MCP server acts as an interpretive layer between Helios Figma components, properties, styles, variables, and working code.
+Follow these guidelines to get the most out of Helios when translating your Figma mockups, components, styles, and variables into code.
 
 ## Prepare your Figma file
 
-To get the most out of the Helios MCP server with an AI assistant, your Figma file or the input you are passing to the assistant needs to be machine-readable and structured in a way that allows an assistant to accurately understand what you've designed and translate it into a meaningful output. Unlike an engineer using judgement, recognizing patterns, asking clarifying questions, and applying years of experience, an AI assistant reads only the metadata and pixels your file contains. If that data is incomplete or ambiguous, the output will be too.
+To get the most out of the Helios MCP, ensure Figma files are appropriately structured, named, and machine-readable. While a human can ask clarifying questions or spot subtle patterns, AI relies entirely on the file's layer structure, metadata, and explicit prompt context. Clear input leads directly to clear output.
 
 ### Use connected HDS components
 
-Almost all HDS Figma components are linked to a counterpart in code. When you use a component from the HDS library, an AI assistant can access its metadata: its name, supported properties, accepted variants, intended purpose, and recommendations for use. When a component is detached, the link to this metadata is severed. The AI assistant will struggle to identify it as an HDS component, restricting access to the context that would otherwise constrain and guide its output. Detached components are also no longer bound by the properties the corresponding code component supports, becoming visual approximations of something that may not be achievable within the system.
+Most HDS Figma components have a counterpart in code. When using attached Figma instances, AI automatically reads their properties, variant options, and usage guidelines.
+
+Detaching HDS components breaks the link to the component metadata. Without that context, AI is forced to infer properties, often resulting in something non-standard.
 
 To give an AI assistant the best available Helios context:
 
@@ -26,41 +28,38 @@ To give an AI assistant the best available Helios context:
 
 ### Use HDS tokens and styles
 
-HDS tokens are named values exposed in Figma through variables and styles that map directly to CSS custom properties in code. When you apply a Figma variable like `page-primary` as a background fill, an AI assistant knows both the semantic intent and the exact code-level value to use. When you apply a raw hex value (e.g., `#ffffff`), an AI assistant sees a color but has no context about its role in the system and cannot reliably determine whether it should be `page-primary`, `surface-primary`, or `neutral-0`, even if they all resolve to the same hex value.
+HDS design tokens are available in Figma as variables or styles and map directly to CSS properties in code.
 
-The same principle applies to typography: using a text style such as `body-200` tells the assistant which typographic token to reference in code or which properties to pass to `<HdsText>`.
+- Design Tokens: Using a variable like `page-primary` tells AI the raw color _and_ its semantic role in the system.
+- Hex Values: Using a hex value like `#ffffff` leaves AI guessing whether it should be `page-primary`, `surface-primary`, or `neutral-0`.
 
-### Use Figma's layout mechanisms
+The same applies to typography. Applying the `body-200` text style tells AI which tokens to reference or which properties to pass to `<HdsText>`.
 
-When a frame or layer uses Auto Layout, an AI assistant receives structured information about how elements relate to each other: direction, spacing, padding, alignment, and wrapping behavior. This maps closely to [flexbox in CSS](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Flexbox) and ensures that a design reflects the natural flow of the document object model (DOM).
+### Use auto layout
 
-!!! Insight
+Auto Layout provides structured data about direction, spacing, padding, alignment, and wrapping. AI uses this data to map your frames to flexible code layouts (like `<HdsLayoutFlex>` and `<HdsLayoutGrid>`).
 
-A layer that uses Auto Layout can be interpreted by an AI assistant to use HDS layout components like `<HdsLayoutFlex>` and `<HdsLayoutGrid>`, even if an equivalent component does not exist in Figma.
-!!!
+Designs built without Auto Layout force both humans and AI to guess at intended spacing and structure, which often leads to inaccurate code.
 
-Designs built without a formalized layout or outside of the natural document flow require engineers and AI assistants to make assumptions about spacing and structure, which are often incorrect.
+- Use Auto Layout for any frame containing more than one element.
+- Define spacing explicitly using gap and padding variables rather than manually positioning elements on canvas.
+- Avoid absolute positioning unless specifically required, e.g., tooltips, overlays, etc.
 
-- Use Auto Layout for frames and layers that contain more than one element.
-- Define document flow and structure by setting gap and padding on elements with Auto Layout, not by dragging elements into position visually.
-- Avoid using absolute positioning unless there is a specific, intentional reason (e.g., overlays, positioned tooltips).
+### Figma hygiene
 
-### Name and organize layers
+Layer names provide essential metadata for AI. Clear, consistent names help it identify the hierarchy and purpose of your design. Figma's default names like `Frame 47`, `Group 3`, or `Rectangle 12` give AI no meaningful context.
 
-Layer names are part of the metadata an AI assistant reads. Descriptive, consistent names help the assistant understand the hierarchy and purpose of elements, whereas Figma's default layer names (`Frame 47`, `Group 3`, `Rectangle 12`) provide no meaningful information.
+- Name frames and groups based on their purpose, e.g., `header`, `sidenav`, `form-section`, `empty-state`.
+- Rename component instances to reflect their specific purpose, e.g., changing "Text Input" to `name-input`. This adds helpful context without breaking the underlying metadata.
+- Avoid unnecessary nesting. Only nest frames or groups when required for Auto Layout, hierarchy, or visual structure.
 
-- Name frames and groups to reflect their purpose: `header`, `sidebar`, `form-section`, `empty-state`.
-- Component instances usually inherit a sensible name from the library. Leave these as is or rename them to match the instance's intent (e.g., `name-input` for a text input collecting a user's name). Renaming a component instance does not affect the metadata or context available to an AI assistant.
-- Flatten nested groups that don't serve a structural purpose.
-- Pursue a flat layout; avoid nesting frames inside frames unless there's an intentional layout, hierarchical, or structural purpose.
+### Validate files with "Check Designs"
 
-### Run Figma Check Designs before handoff
+Before passing your designs to an AI assistant or engineer, run Figma's **[Check Designs](https://help.figma.com/hc/en-us/articles/39592284074263-Check-designs-in-Figma)** feature. It automatically flags missing structure and context, helping you spot:
 
-Before handing off your designs to an engineer or AI assistant, run Figma's **[Check Designs](https://help.figma.com/hc/en-us/articles/39592284074263-Check-designs-in-Figma)** feature. It identifies gaps that reduce the context available to an assistant, including:
-
-- Detached color variables, typography styles, and effects (and can auto-restore many of them)
+- Detached variables and type styles (which it can often auto-restore)
 - Detached components (flagged, but cannot be auto-restored)
-- Spacing inconsistencies and places where HDS spacing variables can be applied
+- Spacing inconsistencies where system tokens can be applied
 
 HDS Ember components do not use spacing tokens, so applying spacing variables is not required for code generation.
 
@@ -68,8 +67,8 @@ HDS Ember components do not use spacing tokens, so applying spacing variables is
 
 !!! Info
 
-**Figma Check Designs**
+**Note on Token Suggestions**
 
-Check Designs can often automatically restore detached variables and styles. However, it does not always suggest the semantically correct token. For example, it may suggest `neutral-0` where `page-primary` is the appropriate choice. Use Check Designs as a starting point, then review flagged items with the HDS token documentation to confirm the right token for each context.
+While Check Designs can automatically restore detached variables, double-check its suggestions. It identifies matching values, not semantic intent, so it might suggest `neutral-0` when `page-primary` is the correct choice. Always review token suggestions against your design intent.
 !!!
 

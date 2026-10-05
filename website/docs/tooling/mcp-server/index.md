@@ -19,8 +19,8 @@ navigation:
   @include "partials/getting-started.md"
 </section>
 
-<section data-tab="Specifications">
-  @include "partials/specifications.md"
+<section data-tab="Resources">
+  @include "partials/resources.md"
 </section>
 
 <section data-tab="Designer considerations">
