@@ -17,6 +17,6 @@
 | Menu button      | Required                                  |
 | **Utilities**    |                                           |
 | Search           | Optional                                  |
-| Language selection | Optional |
+| Language dropdown | Optional |
 | Help dropdown    | Optional, but highly recommend ([WCAG guidelines](https://www.w3.org/WAI/WCAG22/Understanding/consistent-help.html))     |
 | User dropdown    | Required                                  |
