@@ -1111,13 +1111,13 @@ Removed tokens:
 
 ---
 
-CSS helper classes for the focus ring have been renamed to follow the same naming convention:
-
-Renamed tokens:
+CSS helper classes for the focus ring have been renamed to follow the same naming convention as renamed tokens:
 
 | CSS Class / Before | CSS Class / After |
 | --- | --- |
 | `.hds-focus-ring-action-box-shadow` |	`.hds-focus-ring-box-shadow-action` |
 | `.hds-focus-ring-critical-box-shadow`	| `.hds-focus-ring-box-shadow-critical` |
+
+Added CSS helper class `.hds-surface-high-contrast`.
 
 ---
