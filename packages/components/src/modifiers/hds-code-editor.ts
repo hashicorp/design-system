@@ -8,7 +8,7 @@ import { assert, warn } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
 import { task } from 'ember-concurrency';
 import { macroCondition, isTesting } from '@embroider/macros';
-import { Compartment, EditorState } from '@codemirror/state';
+import { Compartment } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
 import { guidFor } from '@ember/object/internals';
 import { isEmpty } from '@ember/utils';
@@ -422,6 +422,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       | 'onLint'
     >) => {
       const [
+        { EditorState },
         {
           keymap,
           lineNumbers,
@@ -432,6 +433,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         { defaultKeymap, history, historyKeymap },
         { bracketMatching, syntaxHighlighting },
       ] = await Promise.all([
+        import('@codemirror/state'),
         import('@codemirror/view'),
         import('@codemirror/commands'),
         import('@codemirror/language'),
@@ -560,6 +562,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       >
     ) => {
       try {
+        const { EditorState } = await import('@codemirror/state');
         const extensions = await this._buildExtensionsTask.perform({
           cspNonce,
           extraKeys,
