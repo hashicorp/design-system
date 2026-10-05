@@ -16,7 +16,3 @@ keywords: ['onboarding', 'beacon', 'wizard', 'highlight']
   @include "partials/specifications.md"
 </section>
 
-<section data-tab="Content">
-  @include "partials/content.md"
-</section>
-
