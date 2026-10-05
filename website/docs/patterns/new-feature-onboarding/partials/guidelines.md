@@ -9,7 +9,7 @@ Onboard new users and communicate updates to existing features using this patter
 
 ## Beacon
 
-Use a Beacon element to highlight a new or updated feature, or otherwise draw attention to a specific part of the UI. Position the Beacon adjacent to or subtlely overlapping the UI element it is intended to highlight.
+Use a Beacon element to highlight a new or updated feature, or otherwise draw attention to a specific part of the UI. Position the Beacon adjacent to or subtly overlapping the UI element it is intended to highlight.
 
 The Beacon is used as an interactive element to toggle open a [Rich Tooltip](/components/rich-tooltip) containing information about the feature.
 
@@ -36,7 +36,7 @@ Highlighting new features to a user is important, but can risk being intrusive o
 !!! Do
 
 - Show the Beacon adjacent to a new feature the first time a user sees it.
-- Do provide the user with an escape hatch to dismiss the onboarding tooltip if necessary. This holds true for single-step new feature onboarding, or multi-step onbaording flows.
+- Do provide the user with an escape hatch to dismiss the onboarding tooltip if necessary. This holds true for single-step new feature onboarding, or multi-step onboarding flows.
 - Persist the status of whether the user has see or interacted with the onboarding materials, consider using `localStorage` or persisting the viewed state in user preferences or settings.
 !!!
 
@@ -52,4 +52,4 @@ When onboarding users on to more complex features, or when the feature touches m
 
 Support navigation-oriented actions in a multi-step onboarding sequence by using the HDS [Button](/components/button) component. Use short, navigation-oriented language like "Next", "Back", and "Cancel" for these actions.
 
-With a multi-step onboarding sequence, highlight the first step in the sequence with a Beacon, then continue using the Beacon paired with the Rich Tooltip for each subsquent step to help draw the users eye through the flow.
+With a multi-step onboarding sequence, highlight the first step in the sequence with a Beacon, then continue using the Beacon paired with the Rich Tooltip for each subsequent step to help draw the users eye through the flow.
