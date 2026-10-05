@@ -54,7 +54,7 @@ Added the `hds-form-control-border` and `hds-form-control-invalid-outline` sass 
 <!-- END -->
 
 <!-- START components/table/table -->
-`Table` - Removed `hds-typography-body-200` and `hds-font-weight-semibold` classes from `hds-table__td` element in `TableTh` and `TableTbSort`
+`Table` - Removed `hds-typography-body-200` and `hds-font-weight-semibold` classes from `hds-table__td` element in `TableTh` and `TableThSort`
 <!-- END -->
 
 <!-- START components/tooltip -->

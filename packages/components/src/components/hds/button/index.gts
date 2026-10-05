@@ -7,7 +7,6 @@ import Component from '@glimmer/component';
 import { service } from '@ember/service';
 import { assert } from '@ember/debug';
 import { eq } from 'ember-truth-helpers';
-// TEST
 
 import {
   HdsButtonSizeValues,
@@ -53,7 +52,6 @@ export default class HdsButton extends Component<HdsButtonSignature> {
   @service declare readonly hdsTheming: HdsThemingService;
 
   get text(): string {
-    // TEST2
     const { text } = this.args;
 
     assert(
