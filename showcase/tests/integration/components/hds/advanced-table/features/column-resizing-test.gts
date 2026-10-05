@@ -14,6 +14,7 @@ import {
   settled,
   triggerEvent,
   triggerKeyEvent,
+  waitUntil,
 } from '@ember/test-helpers';
 import { performContextMenuAction, waitForLayout } from '../utils';
 import { TrackedObject } from 'tracked-built-ins';
@@ -125,6 +126,17 @@ function getTableGridValues(tableElement: Element) {
   return gridValues;
 }
 
+async function waitForInitialTableLayout(selector: string) {
+  await waitForLayout();
+
+  const table = findOrThrow(selector);
+
+  // These short fixtures should not have the transient scrollbar seen during measurement.
+  await waitUntil(() => table.scrollHeight <= table.clientHeight, {
+    timeoutMessage: `${selector} still has vertical overflow before capturing baseline widths`,
+  });
+}
+
 async function simulatePointerDrag(
   handle: Element,
   toX: number,
@@ -190,7 +202,7 @@ const createResizableTable = async (options: {
     </template>,
   );
 
-  await waitForLayout();
+  await waitForInitialTableLayout('#resize-test-table');
 };
 
 module('Integration | Component | hds/advanced-table/index', function (hooks) {
@@ -509,7 +521,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         </template>,
       );
 
-      await waitForLayout();
+      await waitForInitialTableLayout('#reset-table');
 
       const widths = () =>
         [0, 1, 2].map((index) => columnWidth('#reset-table', index));
@@ -933,7 +945,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         </template>,
       );
 
-      await waitForLayout();
+      await waitForInitialTableLayout('#kbd-table');
 
       const startFirst = columnWidth('#kbd-table', 0);
 
