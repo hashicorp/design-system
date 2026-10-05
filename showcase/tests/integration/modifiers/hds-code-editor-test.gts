@@ -19,7 +19,14 @@ import type { EditorView as EditorViewType } from '@codemirror/view';
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
 
 import hdsCodeEditor from '@hashicorp/design-system-components/modifiers/hds-code-editor';
-import { EditorView } from '@hashicorp/design-system-components/codemirror';
+import {
+  HdsCodeEditorJsonLintingError,
+  renderErrorMessage,
+} from '@hashicorp/design-system-components/modifiers/hds-code-editor/linters/json-linter';
+import {
+  EditorState,
+  EditorView,
+} from '@hashicorp/design-system-components/codemirror';
 import type { HdsCodeEditorSignature } from '@hashicorp/design-system-components/modifiers/hds-code-editor';
 
 import { setupRenderingTest } from 'showcase/tests/helpers';
@@ -84,6 +91,40 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
       'EditorView',
       'it attaches an EditorView instance to the element',
     );
+  });
+
+  test('it registers the default CodeMirror phrases', async function (assert) {
+    await createCodeEditor({ ariaLabel: 'test' });
+
+    const element = find('#code-editor-wrapper') as ElementWithEditor;
+
+    assert.deepEqual(element.editor.state.facet(EditorState.phrases), [
+      {
+        Diagnostics: 'Diagnostics',
+        'No diagnostics': 'No diagnostics',
+        close: 'close',
+        'Control character': 'Control character',
+        'Selection deleted': 'Selection deleted',
+      },
+    ]);
+  });
+
+  test('it renders the default JSON linting messages', function (assert) {
+    const messages = [
+      HdsCodeEditorJsonLintingError.InvalidSyntax,
+      HdsCodeEditorJsonLintingError.KeyExpected,
+      HdsCodeEditorJsonLintingError.KeyMustBeDoubleQuoted,
+      HdsCodeEditorJsonLintingError.MissingComma,
+      HdsCodeEditorJsonLintingError.TrailingComma,
+      HdsCodeEditorJsonLintingError.ValueExpected,
+    ];
+
+    messages.forEach((message) => {
+      const text = renderErrorMessage(message, 1).querySelector(
+        'span',
+      )?.textContent;
+      assert.strictEqual(text, `Line 1: ${message}`);
+    });
   });
 
   // value

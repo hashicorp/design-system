@@ -111,6 +111,23 @@ module(
         .hasText('Type to search');
     });
 
+    test('it renders the default search placeholder', async function (assert) {
+      await render(
+        <template>
+          <HdsFormSuperSelectMultipleBase
+            @onChange={{NOOP}}
+            @options={{OPTIONS}}
+            @searchEnabled={{true}}
+            as |option|
+          >{{option}}</HdsFormSuperSelectMultipleBase>
+        </template>,
+      );
+      await click('.hds-form-super-select .ember-basic-dropdown-trigger');
+      assert
+        .dom('.ember-power-select-search-input')
+        .hasAttribute('placeholder', 'Search');
+    });
+
     // AFTER OPTIONS
 
     test('it should render the after options block by default', async function (assert) {

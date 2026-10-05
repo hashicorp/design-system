@@ -293,6 +293,14 @@ module(
         </template>,
       );
       assert.dom('.hds-filter-bar__filter-group__search').exists();
+      assert
+        .dom('.hds-filter-bar__filter-group__search .hds-form-text-input')
+        .hasAttribute('aria-label', 'Search filter options')
+        .hasAttribute(
+          'aria-description',
+          'Search will be performed automatically as you type',
+        )
+        .hasAttribute('placeholder', 'Search');
     });
 
     test('it should filter the list of options by the search term provided', async function (assert) {

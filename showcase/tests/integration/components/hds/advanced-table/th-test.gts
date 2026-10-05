@@ -97,6 +97,10 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
         '#data-advanced-test-table-th .hds-advanced-table__th-button--expand',
       )
       .hasText('Toggle')
+      .hasAttribute(
+        'aria-description',
+        'Toggle the visibility of the related rows',
+      )
       .hasAria('expanded', 'false');
   });
 

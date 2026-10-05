@@ -450,6 +450,18 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
       .dom('#test-code-block-highlight [data-range="1"]')
       .exists()
       .hasClass('line-highlight');
+
+    const highlightLabels = document.querySelectorAll(
+      '#test-code-block-highlight .hds-code-block__code .sr-only',
+    );
+    assert.strictEqual(
+      highlightLabels[0]?.textContent?.trim(),
+      'highlight start',
+    );
+    assert.strictEqual(
+      highlightLabels[1]?.textContent?.trim(),
+      'highlight end',
+    );
   });
 
   // maxHeight

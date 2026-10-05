@@ -90,6 +90,23 @@ module(
         .hasText('Type to search');
     });
 
+    test('it renders the default search placeholder', async function (assert) {
+      await render(
+        <template>
+          <HdsFormSuperSelectSingleBase
+            @onChange={{NOOP}}
+            @options={{OPTIONS}}
+            @searchEnabled={{true}}
+            as |option|
+          >{{option}}</HdsFormSuperSelectSingleBase>
+        </template>,
+      );
+      await click('.hds-form-super-select .ember-basic-dropdown-trigger');
+      assert
+        .dom('.ember-power-select-search-input')
+        .hasAttribute('placeholder', 'Search');
+    });
+
     // OPTIONS
 
     test('it should render the options passed', async function (assert) {
