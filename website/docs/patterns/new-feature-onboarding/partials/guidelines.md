@@ -31,7 +31,7 @@ At a minimum, we recommend including text about the feature, but other common el
 
 ## Persistence and display
 
-Highlighting new features to a user is important, but can risk being intrusive or interrupting a workflow. Consider when to display onboarding-focused components and how they should be persisted after a user has interacted with them.
+Highlighting new features is important, but it can be intrusive or disruptive to users' workflows. consider when best to display onboarding-focused components and how they should persist after users interact with them.
 
 !!! Do
 
@@ -42,7 +42,7 @@ Highlighting new features to a user is important, but can risk being intrusive o
 
 !!! Dont
 
-- Display the Beacon or onboarding elements again _after_ a user has interacted with it, or dismissed it.
+- Don't display the Beacon or onboarding elements again _after_ a user has interacted with it, or dismissed it.
 - Don't open an onboarding RichTooltip by default, this can be intrusive and potentially annoy the user.
 !!!
 
