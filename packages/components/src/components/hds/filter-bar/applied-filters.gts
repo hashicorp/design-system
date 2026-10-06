@@ -189,27 +189,68 @@ export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAp
           data.value.end as string,
           filter.type
         );
-        return this.hdsIntl.t(
-          `hds.components.filter-bar.applied-filters.tag.date-filter.${dateFilterType}.between`,
-          {
-            default: `between ${start} and ${end}`,
-            start,
-            end,
-          }
-        );
+        const options = { default: `between ${start} and ${end}`, start, end };
+        return dateFilterType === 'date'
+          ? this.hdsIntl.t(
+              'hds.components.filter-bar.applied-filters.tag.date-filter.date.between',
+              options
+            )
+          : this.hdsIntl.t(
+              'hds.components.filter-bar.applied-filters.tag.date-filter.time.between',
+              options
+            );
       } else if (data.value !== null && typeof data.value !== 'object') {
         const value = this._formatDateFilterText(
           data.value as string,
           filter.type
         );
 
-        return this.hdsIntl.t(
-          `hds.components.filter-bar.applied-filters.tag.date-filter.${dateFilterType}.${selector}`,
-          {
-            default: `${DATE_SELECTORS_TEXT[selector]} ${value}`,
-            value,
-          }
-        );
+        const options = {
+          default: `${DATE_SELECTORS_TEXT[selector]} ${value}`,
+          value,
+        };
+        switch (selector) {
+          case 'before':
+            return dateFilterType === 'date'
+              ? this.hdsIntl.t(
+                  'hds.components.filter-bar.applied-filters.tag.date-filter.date.before',
+                  options
+                )
+              : this.hdsIntl.t(
+                  'hds.components.filter-bar.applied-filters.tag.date-filter.time.before',
+                  options
+                );
+          case 'exactly':
+            return dateFilterType === 'date'
+              ? this.hdsIntl.t(
+                  'hds.components.filter-bar.applied-filters.tag.date-filter.date.exactly',
+                  options
+                )
+              : this.hdsIntl.t(
+                  'hds.components.filter-bar.applied-filters.tag.date-filter.time.exactly',
+                  options
+                );
+          case 'after':
+            return dateFilterType === 'date'
+              ? this.hdsIntl.t(
+                  'hds.components.filter-bar.applied-filters.tag.date-filter.date.after',
+                  options
+                )
+              : this.hdsIntl.t(
+                  'hds.components.filter-bar.applied-filters.tag.date-filter.time.after',
+                  options
+                );
+          case 'between':
+            return dateFilterType === 'date'
+              ? this.hdsIntl.t(
+                  'hds.components.filter-bar.applied-filters.tag.date-filter.date.between',
+                  options
+                )
+              : this.hdsIntl.t(
+                  'hds.components.filter-bar.applied-filters.tag.date-filter.time.between',
+                  options
+                );
+        }
       }
     }
 
