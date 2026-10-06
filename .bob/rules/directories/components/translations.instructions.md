@@ -13,7 +13,7 @@ description: "Instructions for how translation files should be structured and us
 - Reference translation strings in the component template using the `hdsT` helper or in the component class functions using the `HdsIntlService`.
   ```hbs
   <div class="hds-component-name">
-    {{hdsT "hds.components.component-name.string-key"}}
+    {{hdsT "hds.components.component-name.string-key" default="Translation string value"}}
   </div>
   ```
   ```ts
@@ -31,3 +31,7 @@ description: "Instructions for how translation files should be structured and us
 ### Best practices
 - Use kebab case for translation string keys, and group them by component and subcomponent.
 - Use descriptive keys that indicate where the string is used in the component.
+- Pass a non-empty literal key directly to `hdsT` or `hdsIntl.t`. For conditional translations, use branches or exhaustive typed maps of functions containing literal-key calls. Do not interpolate keys or pass key variables.
+- Type service properties and parameters with the imported `HdsIntlService` (or a local `Pick<HdsIntlService, 't'>` alias) so the checker can identify translation calls.
+- Run `pnpm check:translations` in `packages/components` before submitting changes. CI checks for missing keys, unused catalog entries, invalid catalogs, and uncheckable calls.
+- Only references in library source count as usage; Showcase, tests, and documentation do not keep a translation entry in use.

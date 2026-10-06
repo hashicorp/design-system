@@ -4,10 +4,9 @@
  */
 
 import type { HdsInteractiveSignature } from '../interactive/index.gts';
+import type HdsIntlService from '../../../services/hds-intl.ts';
 
-type HdsIntlLike = {
-  t(key: string, options: { default: string; [key: string]: unknown }): string;
-};
+type HdsIntlLike = Pick<HdsIntlService, 't'>;
 
 export enum HdsPaginationDirectionValues {
   Next = 'next',
@@ -30,18 +29,13 @@ export function getHdsPaginationDirectionAriaLabel(
   direction: HdsPaginationDirections,
   intl: HdsIntlLike
 ): string {
-  const key =
-    HDS_PAGINATION_DIRECTION_ARIA_LABEL_KEYS[
-      direction as HdsPaginationDirectionValues
-    ];
-  const defaults = {
-    [HdsPaginationDirectionValues.Prev]: 'Previous page',
-    [HdsPaginationDirectionValues.Next]: 'Next page',
-  } as const;
-
-  return intl.t(key, {
-    default: defaults[direction as HdsPaginationDirectionValues],
-  });
+  return direction === HdsPaginationDirectionValues.Prev
+    ? intl.t('hds.components.pagination.nav.arrow.aria-label.direction.prev', {
+        default: 'Previous page',
+      })
+    : intl.t('hds.components.pagination.nav.arrow.aria-label.direction.next', {
+        default: 'Next page',
+      });
 }
 
 // Display "label" text for nav arrow buttons
@@ -56,18 +50,13 @@ export function getHdsPaginationDirectionLabel(
   direction: HdsPaginationDirections,
   intl: HdsIntlLike
 ): string {
-  const key =
-    HDS_PAGINATION_DIRECTION_LABEL_KEYS[
-      direction as HdsPaginationDirectionValues
-    ];
-  const defaults = {
-    [HdsPaginationDirectionValues.Prev]: 'Previous',
-    [HdsPaginationDirectionValues.Next]: 'Next',
-  } as const;
-
-  return intl.t(key, {
-    default: defaults[direction as HdsPaginationDirectionValues],
-  });
+  return direction === HdsPaginationDirectionValues.Prev
+    ? intl.t('hds.components.pagination.nav.arrow.label.direction.prev', {
+        default: 'Previous',
+      })
+    : intl.t('hds.components.pagination.nav.arrow.label.direction.next', {
+        default: 'Next',
+      });
 }
 
 export type HdsPaginationElliptizedPageArrayItem = string | number;
