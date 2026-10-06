@@ -16,7 +16,13 @@ export function readCatalog(files) {
   for (const { file, source } of files) {
     const lines = new LineCounter();
     const document = parseDocument(source, { lineCounter: lines });
-    const locale = path.basename(file).replace(/\.ya?ml$/, '');
+    // match ember-intl's filename and locale normalization before comparing records
+    const locale = path.posix
+      .basename(file)
+      .split('.')[0]
+      .replace(/_/g, '-')
+      .trim()
+      .toLowerCase();
     const directory = path.posix.dirname(file);
     const namespace = directory === '.' ? [] : directory.split('/');
     const report = (offset, message) => {
@@ -39,7 +45,7 @@ export function readCatalog(files) {
     let values;
 
     try {
-      // use the same YAML loader and default schema as ember-intl; the AST supplies locations
+      // js-yaml matches runtime values; the yaml ast supplies locations
       values = load(source);
     } catch (error) {
       report(error.mark?.position ?? 0, error.message);
@@ -57,10 +63,12 @@ export function readCatalog(files) {
     }
 
     function register(segments, kind, offset) {
+      // retain segment boundaries to distinguish dotted keys from nested mappings
       const identity = JSON.stringify([locale, ...segments]);
       const previous = structures.get(identity);
 
       if (previous !== undefined && previous.kind !== kind) {
+        // runtime merging would overwrite either the string or the namespace
         report(
           offset,
           `Translation path ${segments.join('.')} is both a string and a namespace (${locale}); conflicts with ${previous.file}`
