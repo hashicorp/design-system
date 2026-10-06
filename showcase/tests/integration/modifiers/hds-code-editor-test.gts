@@ -23,8 +23,7 @@ import {
   HdsCodeEditorJsonLintingError,
   renderErrorMessage,
 } from '@hashicorp/design-system-components/modifiers/hds-code-editor/linters/json-linter';
-import {  EditorView,
-} from '@hashicorp/design-system-components/codemirror';
+import { EditorView } from '@hashicorp/design-system-components/codemirror';
 import type { HdsCodeEditorSignature } from '@hashicorp/design-system-components/modifiers/hds-code-editor';
 
 import { setupRenderingTest } from 'showcase/tests/helpers';
