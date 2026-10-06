@@ -1,0 +1,44 @@
+{
+  "generatedAt": "2026-09-29T18:48:50.900Z",
+  "prefix": "--hds-",
+  "tokenSource": {
+    "path": "packages/tokens/dist/products/css/tokens.css",
+    "kind": "dependency",
+    "parseMode": "postcss"
+  },
+  "roots": [
+    "packages/components/src",
+    "showcase/app",
+    "showcase/tests",
+    "website/app",
+    "website/docs"
+  ],
+  "extensions": [
+    "scss",
+    "css",
+    "gts",
+    "hbs",
+    "ts",
+    "js"
+  ],
+  "ignoreComments": false,
+  "reportGroups": [
+    "packages/tokens",
+    "packages/components",
+    "packages/flight-icons",
+    "showcase",
+    "website"
+  ],
+  "summary": {
+    "officialTokens": 1046,
+    "allowlistTokens": 106,
+    "validTokens": 1152,
+    "filesScanned": 3141,
+    "totalTokenUsages": 2206,
+    "interpolatedUsages": 83,
+    "commentedUsages": 0,
+    "distinctInvalidTokens": 0,
+    "totalInvalidOccurrences": 0
+  },
+  "invalidTokens": []
+}
