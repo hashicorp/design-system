@@ -1,5 +1,15 @@
 # @hashicorp/design-system-mcp
 
+## 0.2.2
+
+### Patch Changes
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/design-system-components@7.0.0
+- @hashicorp/design-system-tokens@6.0.0
+- @hashicorp/flight-icons@5.3.0
+
 ## 0.2.1
 
 ### Patch Changes

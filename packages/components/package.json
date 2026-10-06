@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/design-system-components",
-  "version": "6.6.0",
+  "version": "7.0.0",
   "description": "Helios Design System Components",
   "keywords": [
     "hashicorp",
@@ -55,8 +55,8 @@
     "@embroider/macros": "^1.18.1",
     "@embroider/util": "^1.13.4",
     "@floating-ui/dom": "^1.6.12",
-    "@hashicorp/design-system-tokens": "workspace:^5.1.0",
-    "@hashicorp/flight-icons": "workspace:^5.2.0",
+    "@hashicorp/design-system-tokens": "workspace:^6.0.0",
+    "@hashicorp/flight-icons": "workspace:^5.3.0",
     "@ibm/plex-mono": "^1.1.0",
     "@ibm/plex-sans": "^1.1.0",
     "@lezer/highlight": "^1.2.1",
