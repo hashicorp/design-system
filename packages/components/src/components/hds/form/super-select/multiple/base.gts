@@ -213,7 +213,8 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
       }
     );
 
-    styles['--hds-var-form-super-select-selected-text'] = `'${selectedCountText}'`;
+    styles['--hds-var-form-super-select-selected-text'] =
+      `'${selectedCountText}'`;
 
     return styles;
   }
