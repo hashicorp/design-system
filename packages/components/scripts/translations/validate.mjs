@@ -14,6 +14,7 @@ export function validateTranslations({ catalogs, sources }) {
     ...catalog.diagnostics,
     ...usages.flatMap((usage) => usage.diagnostics),
   ];
+  // other locales cannot substitute for a missing source-locale definition
   const keys = new Set(
     catalog.records
       .filter((record) => record.locale === 'en-us')
@@ -42,6 +43,7 @@ export function validateTranslations({ catalogs, sources }) {
     }
   }
 
+  // incomplete extraction cannot establish that a catalog entry is unused
   if (
     usages.every((usage) => usage.diagnostics.length === 0) &&
     catalog.diagnostics.length === 0
