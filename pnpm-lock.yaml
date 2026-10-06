@@ -592,6 +592,21 @@ importers:
       '@babel/plugin-proposal-decorators':
         specifier: ^7.27.1
         version: 7.28.0(@babel/core@7.28.0)
+      '@carbon/grid':
+        specifier: ^11.53.0
+        version: 11.59.0
+      '@carbon/icons':
+        specifier: ^11.76.0
+        version: 11.84.0
+      '@carbon/layout':
+        specifier: ^11.51.0
+        version: 11.56.0
+      '@carbon/themes':
+        specifier: ^11.71.0
+        version: 11.78.0
+      '@carbon/type':
+        specifier: ^11.57.0
+        version: 11.64.0
       '@codemirror/lint':
         specifier: ^6.8.4
         version: 6.8.5
@@ -15263,6 +15278,8 @@ snapshots:
       '@floating-ui/dom': 1.7.3
       '@hashicorp/design-system-tokens': file:packages/tokens
       '@hashicorp/flight-icons': file:packages/flight-icons
+      '@ibm/plex-mono': 1.1.0
+      '@ibm/plex-sans': 1.1.0
       '@lezer/highlight': 1.2.1
       '@nullvoxpopuli/ember-composable-helpers': 5.2.11(@babel/core@7.28.0)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
       clipboard-polyfill: 4.1.1
