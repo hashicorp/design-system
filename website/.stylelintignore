@@ -1,5 +1,8 @@
 # unconventional files
 /blueprints/*/files/
 
+# documentation code snippets
+/docs/getting-started/for-engineers/code-snippets/use-helios-product-tokens.scss
+
 # compiled output
 /dist/
