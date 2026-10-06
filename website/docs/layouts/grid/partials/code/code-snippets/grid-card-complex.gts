@@ -18,9 +18,6 @@ const LocalComponent: TemplateOnlyComponent = <template>
         @level="mid"
         @hasBorder={{true}}
         {{style padding="24px"}}
-        {{style
-          background="radial-gradient(151.34% 168.34% at 0 0,#f6f9ff 0,#ebf2ff 100%)"
-        }}
       >
         <HdsLayoutGrid @columnWidth="100%" @gap="16" as |LG|>
           <LG.Item>

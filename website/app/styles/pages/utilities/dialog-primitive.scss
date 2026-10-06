@@ -10,7 +10,7 @@
   .doc-dialog-primitive-grid-layout {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    background: white;
+    background: var(--hds-page-color-primary);
   }
 
   .doc-dialog-primitive-flex-layout {
