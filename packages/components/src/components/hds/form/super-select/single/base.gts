@@ -18,7 +18,7 @@ import {
   HdsFormSuperSelectHorizontalPositionToPlacementValues,
 } from '../types.ts';
 import anchoredPositionModifier from '../../../../../modifiers/hds-anchored-position.ts';
-import HdsTextBody from '../../../text/body.gts';
+
 import HdsFormSuperSelectOptionGroup from '../option-group.gts';
 import HdsFormSuperSelectPlaceholder from '../placeholder.gts';
 import HdsFormSuperSelectAfterOptions from '../after-options.gts';
@@ -117,7 +117,7 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
   get dropdownMaxWidthStyle(): Record<string, string> {
     const maxWidthStyle: { [key: string]: string } = {};
     if (this.args.dropdownMaxWidth) {
-      maxWidthStyle['--hds-form-super-select-dropdown-max-width'] =
+      maxWidthStyle['--hds-var-form-super-select-dropdown-max-width'] =
         this.args.dropdownMaxWidth;
     }
     return maxWidthStyle;
@@ -210,7 +210,10 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
         ...attributes
         as |option select|
       >
-        <HdsTextBody>{{yield option select}}</HdsTextBody>
+        <div class="hds-form-super-select__option-text">{{yield
+            option
+            select
+          }}</div>
       </PowerSelect>
     </div>
   </template>

@@ -31,7 +31,9 @@ export default class HdsDropdownListItemCheckbox extends Component<HdsDropdownLi
   }
 
   <template>
-    <li class="hds-dropdown-list-item hds-dropdown-list-item--variant-checkbox">
+    <li
+      class="hds-dropdown-list-item hds-dropdown-list-item--color-action hds-dropdown-list-item--variant-checkbox"
+    >
       <label
         class="hds-dropdown-list-item__label hds-typography-body-200"
         for={{this.id}}

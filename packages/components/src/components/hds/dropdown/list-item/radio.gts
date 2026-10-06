@@ -31,7 +31,9 @@ export default class HdsDropdownListItemRadio extends Component<HdsDropdownListI
   }
 
   <template>
-    <li class="hds-dropdown-list-item hds-dropdown-list-item--variant-radio">
+    <li
+      class="hds-dropdown-list-item hds-dropdown-list-item--color-action hds-dropdown-list-item--variant-radio"
+    >
       <label
         class="hds-dropdown-list-item__label hds-typography-body-200"
         for={{this.id}}
