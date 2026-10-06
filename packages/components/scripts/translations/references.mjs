@@ -18,28 +18,35 @@ function unwrap(expression) {
     ts.isTypeAssertionExpression(expression) ||
     ts.isNonNullExpression(expression) ||
     ts.isSatisfiesExpression(expression)
-  )
+  ) {
     expression = expression.expression;
+  }
+
   return expression;
 }
 
 function propertyName(node) {
-  if (node === undefined) return undefined;
-  if (
+  if (node === undefined) {
+    return undefined;
+  } else if (
     ts.isIdentifier(node) ||
     ts.isStringLiteral(node) ||
     ts.isNoSubstitutionTemplateLiteral(node)
-  )
+  ) {
     return node.text;
-  return undefined;
+  } else {
+    return undefined;
+  }
 }
 
 function memberAccess(expression) {
   expression = unwrap(expression);
-  if (ts.isPropertyAccessExpression(expression))
+
+  if (ts.isPropertyAccessExpression(expression)) {
     return { receiver: expression.expression, name: expression.name.text };
-  if (ts.isElementAccessExpression(expression)) {
+  } else if (ts.isElementAccessExpression(expression)) {
     const key = unwrap(expression.argumentExpression);
+
     return {
       receiver: expression.expression,
       name:
@@ -47,22 +54,26 @@ function memberAccess(expression) {
           ? key.text
           : undefined,
     };
+  } else {
+    return undefined;
   }
-  return undefined;
 }
 
 function enclosingThisClass(node) {
   let parent = node.parent;
+
   while (parent !== undefined) {
-    if (ts.isClassDeclaration(parent) || ts.isClassExpression(parent))
+    if (ts.isClassDeclaration(parent) || ts.isClassExpression(parent)) {
       return parent;
-    if (ts.isFunctionLike(parent) && !ts.isArrowFunction(parent)) {
+    } else if (ts.isFunctionLike(parent) && !ts.isArrowFunction(parent)) {
+      // arrows inherit this; other functions introduce a new boundary
       return ts.isClassDeclaration(parent.parent) ||
         ts.isClassExpression(parent.parent)
         ? parent.parent
         : undefined;
+    } else {
+      parent = parent.parent;
     }
-    parent = parent.parent;
   }
   return undefined;
 }
@@ -78,6 +89,7 @@ export function readReferences({ file, source }) {
   const report = (offset, category, message) => {
     const { line, character } =
       locationSource.getLineAndCharacterOfPosition(offset);
+
     diagnostics.push({
       file,
       line: line + 1,
@@ -93,10 +105,13 @@ export function readReferences({ file, source }) {
         'uncheckable-call',
         'Translation keys must be non-empty string literals'
       );
+
       return;
     }
+
     const { line, character } =
       locationSource.getLineAndCharacterOfPosition(offset);
+
     references.push({ key, file, line: line + 1, col: character + 1 });
   };
 
@@ -105,11 +120,12 @@ export function readReferences({ file, source }) {
       ? preprocessor.parse(source, { filename: file })
       : [];
     let script = source;
-    // preserve UTF-16 offsets and newlines so diagnostics point into the original file
+    // mask templates without shifting utf-16 offsets or line numbers
     for (const tag of [...templates].reverse()) {
       const start = tag.range.startUtf16Codepoint;
       const end = tag.range.endUtf16Codepoint;
       const replacement = tag.type === 'class-member' ? ';' : '0';
+
       script =
         script.slice(0, start) +
         replacement +
@@ -123,15 +139,19 @@ export function readReferences({ file, source }) {
       true,
       ts.ScriptKind.TS
     );
+
     if (ast.parseDiagnostics.length > 0) {
-      for (const error of ast.parseDiagnostics)
+      for (const error of ast.parseDiagnostics) {
         report(
           error.start ?? 0,
           'parse-error',
           ts.flattenDiagnosticMessageText(error.messageText, '\n')
         );
+      }
+
       return { references, diagnostics };
     }
+    // resolve local bindings without loading the application or its dependencies
     const host = {
       ...ts.createCompilerHost({}),
       getSourceFile: (name) => (name === file ? ast : undefined),
@@ -147,12 +167,15 @@ export function readReferences({ file, source }) {
     const checker = program.getTypeChecker();
     const helpers = new Set();
     const services = new Set();
+
     for (const statement of ast.statements) {
       if (
         !ts.isImportDeclaration(statement) ||
         !ts.isStringLiteral(statement.moduleSpecifier)
-      )
+      ) {
         continue;
+      }
+
       const bindings = statement.importClause?.namedBindings;
       const names = [
         statement.importClause?.name,
@@ -165,26 +188,49 @@ export function readReferences({ file, source }) {
               .map((binding) => binding.name)
           : []),
       ].filter((name) => name !== undefined);
+
       for (const name of names) {
         const symbol = checker.getSymbolAtLocation(name);
-        if (helperModule.test(statement.moduleSpecifier.text))
+
+        if (helperModule.test(statement.moduleSpecifier.text)) {
           helpers.add(symbol);
-        if (serviceModule.test(statement.moduleSpecifier.text))
+        }
+
+        if (serviceModule.test(statement.moduleSpecifier.text)) {
           services.add(symbol);
+        }
       }
     }
 
     function isServiceType(type, seen = new Set()) {
-      if (type === undefined || !ts.isTypeReferenceNode(type)) return false;
+      if (type === undefined) {
+        return false;
+      } else if (ts.isParenthesizedTypeNode(type)) {
+        return isServiceType(type.type, seen);
+      } else if (ts.isUnionTypeNode(type)) {
+        // keep cycle detection independent for each union branch
+        return type.types.some((member) =>
+          isServiceType(member, new Set(seen))
+        );
+      } else if (!ts.isTypeReferenceNode(type)) {
+        return false;
+      }
+
       const symbol = checker.getSymbolAtLocation(type.typeName);
-      if (services.has(symbol)) return true;
-      if (
+
+      if (services.has(symbol)) {
+        return true;
+      } else if (
         type.typeName.getText(ast) === 'Pick' &&
         type.typeArguments?.[1]?.getText(ast).replaceAll('"', "'") === "'t'"
-      )
+      ) {
         return isServiceType(type.typeArguments[0], seen);
-      if (symbol === undefined || seen.has(symbol)) return false;
+      } else if (symbol === undefined || seen.has(symbol)) {
+        return false;
+      }
+
       seen.add(symbol);
+
       return (symbol.declarations ?? []).some(
         (declaration) =>
           ts.isTypeAliasDeclaration(declaration) &&
@@ -192,54 +238,86 @@ export function readReferences({ file, source }) {
       );
     }
 
-    function serviceProperty(receiver, name) {
-      receiver = unwrap(receiver);
-      if (receiver.kind === ts.SyntaxKind.ThisKeyword) {
-        const declaration = enclosingThisClass(receiver)?.members.find(
-          (member) => propertyName(member.name) === name
-        );
-        return isServiceType(declaration?.type);
-      }
-      const symbol = checker.getTypeAtLocation(receiver).getProperty(name);
+    function hasServiceProperty(type, name) {
+      const symbol = type.getProperty(name);
+
       return (symbol?.declarations ?? []).some((declaration) =>
         isServiceType(declaration.type)
       );
     }
 
+    function serviceProperty(receiver, name) {
+      receiver = unwrap(receiver);
+
+      if (receiver.kind === ts.SyntaxKind.ThisKeyword) {
+        // unresolved base classes can hide declared properties from type lookup
+        const declaration = enclosingThisClass(receiver)?.members.find(
+          (member) => propertyName(member.name) === name
+        );
+
+        return isServiceType(declaration?.type);
+      } else {
+        return hasServiceProperty(checker.getTypeAtLocation(receiver), name);
+      }
+    }
+
     function isService(expression, seen = new Set()) {
       expression = unwrap(expression);
+
       const member = memberAccess(expression);
+
       if (
         member?.name !== undefined &&
         serviceProperty(member.receiver, member.name)
-      )
+      ) {
         return true;
+      }
+
       const symbol = checker.getSymbolAtLocation(
         ts.isPropertyAccessExpression(expression) ? expression.name : expression
       );
-      if (symbol === undefined || seen.has(symbol)) return false;
+
+      if (symbol === undefined || seen.has(symbol)) {
+        return false;
+      }
+
       seen.add(symbol);
+
       return (symbol.declarations ?? []).some((declaration) => {
         const type = declaration.type;
-        if (isServiceType(type)) return true;
-        if (
+
+        if (isServiceType(type)) {
+          return true;
+        } else if (
           ts.isBindingElement(declaration) &&
           ts.isObjectBindingPattern(declaration.parent)
         ) {
+          // parameter bindings have a declared type but may have no initializer
           const name = propertyName(
             declaration.propertyName ?? declaration.name
           );
           const initializer = declaration.parent.parent.initializer;
+
+          if (name === undefined || declaration.dotDotDotToken !== undefined) {
+            return false;
+          } else if (
+            hasServiceProperty(
+              checker.getTypeAtLocation(declaration.parent),
+              name
+            )
+          ) {
+            return true;
+          } else {
+            return (
+              initializer !== undefined && serviceProperty(initializer, name)
+            );
+          }
+        } else {
           return (
-            name !== undefined &&
-            initializer !== undefined &&
-            serviceProperty(initializer, name)
+            declaration.initializer !== undefined &&
+            isService(declaration.initializer, seen)
           );
         }
-        return (
-          declaration.initializer !== undefined &&
-          isService(declaration.initializer, seen)
-        );
       });
     }
 
@@ -247,6 +325,7 @@ export function readReferences({ file, source }) {
       const member = ts.isCallExpression(node)
         ? memberAccess(node.expression)
         : undefined;
+
       if (
         member !== undefined &&
         isService(member.receiver) &&
@@ -257,15 +336,16 @@ export function readReferences({ file, source }) {
           'uncheckable-call',
           'HDS service method access must use a literal name'
         );
-      }
-      if (member?.name === 't' && isService(member.receiver)) {
+      } else if (member?.name === 't' && isService(member.receiver)) {
         const key = node.arguments[0];
-        // the helper's implementation forwards its public arguments rather than owning a translation key
+
+        // the internal helper forwards keys rather than owning them
         const forwarding =
           file === 'src/helpers/hds-t.ts' &&
           key?.getText(ast) === 'key' &&
           node.arguments[1]?.getText(ast) === 'named';
-        if (!forwarding)
+
+        if (!forwarding) {
           record(
             key !== undefined &&
               (ts.isStringLiteral(key) ||
@@ -274,22 +354,30 @@ export function readReferences({ file, source }) {
               : undefined,
             (key ?? node).getStart(ast)
           );
+        }
       }
+
       ts.forEachChild(node, visit);
     }
+
     visit(ast);
 
     for (const tag of templates) {
       const start = tag.range.startUtf16Codepoint;
       const contentStart = tag.startRange.endUtf16Codepoint;
       let context = ast;
+
       function findContext(node) {
         if (node.pos <= start && node.end > start) {
           context = node;
+
           ts.forEachChild(node, findContext);
         }
       }
+
       findContext(ast);
+
+      // match import symbols so shadowed names are not treated as helpers
       const helperNames = new Set(
         checker
           .getSymbolsInScope(
@@ -301,8 +389,10 @@ export function readReferences({ file, source }) {
       );
       const template = preprocess(tag.contents);
       const ancestors = [];
+
       const templateOffset = (node) => {
         const lines = tag.contents.split('\n');
+
         return (
           contentStart +
           lines
@@ -311,10 +401,13 @@ export function readReferences({ file, source }) {
           node.loc.start.column
         );
       };
+
       traverse(template, {
         All: {
           enter(node) {
             ancestors.push(node);
+
+            // yielded names shadow children, not the component's arguments or modifiers
             if (
               (node.type === 'MustacheStatement' ||
                 node.type === 'SubExpression') &&
@@ -328,6 +421,7 @@ export function readReferences({ file, source }) {
               )
             ) {
               const key = node.params[0];
+
               record(
                 key?.type === 'StringLiteral' ? key.value : undefined,
                 templateOffset(key ?? node)
@@ -343,5 +437,6 @@ export function readReferences({ file, source }) {
   } catch (error) {
     report(0, 'parse-error', error.message);
   }
+
   return { references, diagnostics };
 }
