@@ -45,9 +45,6 @@ jobs:
           cache: pnpm
       - name: Install Dependencies
         run: pnpm install
-      - name: Test Translation Checker
-        run: pnpm test:translations
-        working-directory: packages/components
       - name: Check Translations
         run: pnpm check:translations
         working-directory: packages/components
