@@ -7,6 +7,7 @@ import { module, test } from 'qunit';
 import {
   click,
   find,
+  findAll,
   render,
   resetOnerror,
   settled,
@@ -451,17 +452,11 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
       .exists()
       .hasClass('line-highlight');
 
-    const highlightLabels = document.querySelectorAll(
+    const highlightLabels = findAll(
       '#test-code-block-highlight .hds-code-block__code .sr-only',
     );
-    assert.strictEqual(
-      highlightLabels[0]?.textContent?.trim(),
-      'highlight start',
-    );
-    assert.strictEqual(
-      highlightLabels[1]?.textContent?.trim(),
-      'highlight end',
-    );
+    assert.dom(highlightLabels[0]).hasText('highlight start');
+    assert.dom(highlightLabels[1]).hasText('highlight end');
   });
 
   // maxHeight

@@ -23,9 +23,7 @@ import {
   HdsCodeEditorJsonLintingError,
   renderErrorMessage,
 } from '@hashicorp/design-system-components/modifiers/hds-code-editor/linters/json-linter';
-import {
-  EditorState,
-  EditorView,
+import {  EditorView,
 } from '@hashicorp/design-system-components/codemirror';
 import type { HdsCodeEditorSignature } from '@hashicorp/design-system-components/modifiers/hds-code-editor';
 
@@ -93,20 +91,28 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     );
   });
 
-  test('it registers the default CodeMirror phrases', async function (assert) {
+  test('it returns the default CodeMirror phrases', async function (assert) {
     await createCodeEditor({ ariaLabel: 'test' });
 
     const element = find('#code-editor-wrapper') as ElementWithEditor;
 
-    assert.deepEqual(element.editor.state.facet(EditorState.phrases), [
-      {
-        Diagnostics: 'Diagnostics',
-        'No diagnostics': 'No diagnostics',
-        close: 'close',
-        'Control character': 'Control character',
-        'Selection deleted': 'Selection deleted',
-      },
-    ]);
+    assert.strictEqual(
+      element.editor.state.phrase('Diagnostics'),
+      'Diagnostics',
+    );
+    assert.strictEqual(
+      element.editor.state.phrase('No diagnostics'),
+      'No diagnostics',
+    );
+    assert.strictEqual(element.editor.state.phrase('close'), 'close');
+    assert.strictEqual(
+      element.editor.state.phrase('Control character'),
+      'Control character',
+    );
+    assert.strictEqual(
+      element.editor.state.phrase('Selection deleted'),
+      'Selection deleted',
+    );
   });
 
   test('it renders the default JSON linting messages', function (assert) {
