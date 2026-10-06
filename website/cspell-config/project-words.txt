@@ -42,6 +42,7 @@ powerselect
 preprocess
 Println
 rabbitmq
+radiocard
 radiocards
 recertification
 recertify
