@@ -83,7 +83,7 @@ _Conducted a one-off mechanical rename in `@hashicorp/design-system-components` 
 - `hds-app-side-nav-width-minimized` → `hds-var-app-side-nav-width-minimized`
 <!-- END -->
 
-<!-- START components/form -->
+<!-- START components/form/layout -->
 
 `Form` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
