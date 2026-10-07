@@ -9,7 +9,7 @@ body.page-components-card {
   .shw-component-card-wrapper {
     width: fit-content;
     padding: 2rem;
-    background-color: #fafafa;
+    background-color: var(--shw-color-gray-600);
   }
 
   .shw-component-card-overflow__wrapper-relative {

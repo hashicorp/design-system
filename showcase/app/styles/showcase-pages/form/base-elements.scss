@@ -15,35 +15,35 @@ body.page-components-form-base-elements {
   .shw-component-form-base-elements-layout-highlight {
     .hds-form-field--layout-vertical,
     .hds-form-field--layout-flag {
-      outline: 2px dashed #e3f2fd;
+      outline: 2px dashed var(--hds-surface-color-action);
     }
 
     .hds-form-field__label {
-      background-color: #e3f2fd;
+      background-color: var(--hds-surface-color-action);
     }
 
     .hds-form-field__helper-text {
-      background-color: #e8f5e9;
+      background-color: var(--hds-surface-color-success);
     }
 
     .hds-form-field__error {
-      background-color: #ffebee;
+      background-color: var(--hds-surface-color-critical);
     }
 
     .hds-form-group--layout-vertical,
     .hds-form-group--layout-horizontal {
-      outline: 2px dashed #e3f2fd;
+      outline: 2px dashed var(--hds-surface-color-action);
 
       .hds-form-legend {
-        background-color: #fff8e1;
+        background-color: var(--hds-surface-color-warning);
       }
 
       .hds-form-helper-text {
-        background-color: #e8f5e9;
+        background-color: var(--hds-surface-color-success);
       }
 
       .hds-form-error {
-        background-color: #ffebee;
+        background-color: var(--hds-surface-color-critical);
       }
     }
   }

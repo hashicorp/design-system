@@ -101,7 +101,7 @@ body.page-layouts-app-frame {
     }
 
     &.shw-is-3d {
-      outline: 1px dotted #ccc;
+      outline: 1px dotted var(--shw-color-gray-400);
 
       .hds-app-frame__header {
         @include shw-apply-transform(3);

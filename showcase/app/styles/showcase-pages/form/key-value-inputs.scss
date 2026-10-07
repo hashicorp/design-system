@@ -33,8 +33,8 @@ body.page-components-form-key-value-inputs-index {
     .hds-form-key-value-inputs__row,
     .hds-form-key-value-inputs__footer {
       position: relative;
-      background-color: #f6fcff;
-      outline: 1px dashed #78909c;
+      background-color: var(--shw-layout-highlight-level-1-background-color);
+      outline: 1px dashed var(--shw-layout-highlight-border-color);
 
       &::after {
         @include shw-font-family("system mono");

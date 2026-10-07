@@ -20,6 +20,12 @@
   text-shadow: 0 0 5px var(--shw-color-white);
   background-color: var(--shw-placeholder-background-color);
 
+  // For custom backgrounds the text and shadow color are not theme-aware
+  &.shw-placeholder__has-custom-background {
+    color: #6b6b6b;
+    text-shadow: 0 0 5px #fff;
+  }
+
   a,
   a > & {
     color: var(--shw-placeholder-link-color);
