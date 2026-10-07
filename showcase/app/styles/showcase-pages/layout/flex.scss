@@ -57,4 +57,10 @@ body.page-layouts-flex {
   .shw-layout-flex-example-gap-override {
     --hds-var-layout-flex-column-gap: 20px;
   }
+
+  // Replicate the placeholder custom background settings since the background is set through the flex item tinting
+  .shw-placeholder {
+    color: #6b6b6b;
+    text-shadow: 0 0 5px #fff;
+  }
 }

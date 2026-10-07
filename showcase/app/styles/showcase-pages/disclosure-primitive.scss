@@ -17,14 +17,14 @@ body.page-utilities-disclosure-primitive {
     margin: 4px 0 0 0;
     padding: 10px;
     list-style: none;
-    border: 1px solid #ccc;
+    border: 1px solid var(--shw-color-gray-400);
 
     li {
       margin: 0;
       padding: 0;
 
       & + li {
-        border-top: 1px dotted #ccc;
+        border-top: 1px dotted var(--shw-color-gray-400);
       }
     }
 
@@ -37,7 +37,7 @@ body.page-utilities-disclosure-primitive {
   .shw-utility-disclosure-primitive-button-wrapper {
     .hds-disclosure-primitive__toggle {
       padding: 20px;
-      outline: 1px dotted #ccc;
+      outline: 1px dotted var(--shw-color-gray-400);
     }
   }
 }

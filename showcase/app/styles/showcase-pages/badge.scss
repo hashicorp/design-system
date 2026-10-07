@@ -18,8 +18,8 @@ body.page-components-badge-count {
   }
 
   .shw-component-badge-sample-color--neutral-dark-mode {
-    background: #0c0c0e;
-    outline: 2px solid #0c0c0e;
+    background: var(--shw-color-gray-100);
+    outline: 2px solid var(--shw-color-gray-100);
   }
 
   .shw-component-badge-group {

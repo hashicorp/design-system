@@ -49,8 +49,8 @@ body.page-components-copy-button {
 
   .shw-component-copy-button-code-block {
     padding: 1rem;
-    color: white;
-    background-color: black;
+    color: var(--shw-color-white);
+    background-color: var(--shw-color-black);
     border-radius: 5px;
   }
 
