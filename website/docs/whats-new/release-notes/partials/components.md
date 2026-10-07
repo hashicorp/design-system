@@ -290,11 +290,7 @@ Included subset of IBM Plex fonts to the `dist/public` folder of the addon
 
 Added a `hds-apply-only-if-carbon` sass mixin to apply styles only for Carbon themes
 
-<!-- START theming/theme-context -->
-
 `ThemeContext` - Added headless component
-
-<!-- END -->
 
 <!-- START components/icon -->
 
