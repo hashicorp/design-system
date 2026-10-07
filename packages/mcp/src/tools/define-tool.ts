@@ -3,16 +3,19 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { NOOP_TELEMETRY, withToolTelemetry } from "../telemetry/index.js";
+
+import type { McpServer, ToolCallback } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type {
   AnySchema,
   ZodRawShapeCompat,
 } from "@modelcontextprotocol/sdk/server/zod-compat.js";
+import type { Telemetry } from "../telemetry/index.js";
 import type { McpTool } from "./types.js";
 
 export interface ToolRegistration {
   name: string;
-  register: (server: McpServer) => void;
+  register: (server: McpServer, telemetry?: Telemetry) => void;
 }
 
 export const defineTool = <
@@ -25,8 +28,16 @@ export const defineTool = <
 ): ToolRegistration => {
   return {
     name: tool.name,
-    register: (server: McpServer) => {
-      server.registerTool(tool.name, tool.config, tool.executeCallback);
+    register: (server: McpServer, telemetry: Telemetry = NOOP_TELEMETRY) => {
+      // the sdk's callback type is conditional on the input shape, which a generic wrapper
+      // cannot resolve; the wrapper forwards its arguments untouched, so the shape holds
+      const executeCallback = withToolTelemetry(
+        tool.name,
+        tool.executeCallback as Parameters<typeof withToolTelemetry>[1],
+        telemetry,
+      ) as ToolCallback<InputArgs>;
+
+      server.registerTool(tool.name, tool.config, executeCallback);
     },
   };
 };
