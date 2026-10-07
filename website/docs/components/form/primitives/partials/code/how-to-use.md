@@ -155,8 +155,24 @@ The layout of the content inside the "control" container is the responsibility o
 It’s unlikely that you’ll need to use this component directly, but if you do [contact the Design Systems Team](/about/support) so we can provide support.
 !!!
 
-The default invocation renders an icon-only button used to show or hide masked content. Pass an `@isVisible` argument to control the icon displayed by the button. Set `@isVisible={{true}}` when the associated content is hidden to display the `eye` icon. Set `@isVisible={{false}}` when the associated content is visible to display the `eye-off` icon. Provide an `@ariaLabel` argument to describe the button action and an `@ariaMessageText` argument to announce the current visibility state when the button is pressed.
+The default invocation renders an icon-only button used to show or hide masked content. Pass an `@isVisible` argument to control the displayed icon based on the state of the associated content.
 
-Because this component only renders the toggle button, it is the responsibility of the product team to manage the masked state of the associated form control, provide the click behavior, and handle the semantic relationship with the associated form control using the `aria-controls` attribute. 
+Pass an `@ariaLabel` argument to describe the button action. When the visibility state is toggled, use the arguments `@ariaMessageText` to announce that the associated content is hidden and `@ariaMessageTextWhenVisible` to announce that it is visible. 
 
-[[code-snippets/form-primitives-visibility-toggle]]
+#### Hidden content
+
+When the associated content is hidden, set `@isVisible` to `true` to display the eye icon.
+
+[[code-snippets/form-primitives-visibility-toggle-hidden]]
+
+#### Visible content
+
+When the associated content is visible, set `@isVisible` to `false` to display the eye-off icon.
+
+[[code-snippets/form-primitives-visibility-toggle-visible]]
+
+#### With a form control
+
+Because this component only renders the toggle button, it is the responsibility of the product team to manage the visibility state of the associated form control, provide the click behavior, and associate the button to the control using the `aria-controls` attribute.
+
+[[code-snippets/form-primitives-visibility-toggle-with-control]]

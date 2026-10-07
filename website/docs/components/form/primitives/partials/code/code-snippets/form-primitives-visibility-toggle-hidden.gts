@@ -8,11 +8,6 @@ const LocalComponent: TemplateOnlyComponent = <template>
     @ariaLabel="Toggle masked content"
     @ariaMessageText="Masked content is hidden"
   />
-  <HdsFormVisibilityToggle
-    @isVisible={{false}}
-    @ariaLabel="Toggle masked content"
-    @ariaMessageText="Masked content is visible"
-  />
 </template>;
 
 export default LocalComponent;
