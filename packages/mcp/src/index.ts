@@ -11,7 +11,14 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { registerPrompts } from "./prompts/index.js";
 import { registerResources } from "./resources/index.js";
+import {
+  TELEMETRY_ENV_VAR,
+  createTelemetry,
+  resolveTelemetryConfig,
+} from "./telemetry/index.js";
 import { registerTools } from "./tools/index.js";
+
+import type { Telemetry } from "./telemetry/index.js";
 
 const currentFilePath = fileURLToPath(import.meta.url);
 const currentDirectoryPath = dirname(currentFilePath);
@@ -46,6 +53,7 @@ const buildServer = (): McpServer => {
 
 const installLifecycleHandlers = (
   server: McpServer,
+  telemetry: Telemetry,
 ): { shutdown: (reason: string, error?: unknown) => Promise<void> } => {
   let isShuttingDown = false;
 
@@ -73,32 +81,31 @@ const installLifecycleHandlers = (
 
       console.error("Failed to close MCP server cleanly:", closeError);
     }
+
+    await telemetry.shutdown();
   };
 
-  const onSigint = (): void => {
-    void shutdown("SIGINT").finally(() => process.exit(process.exitCode ?? 0));
-  };
-
-  const onSigterm = (): void => {
-    void shutdown("SIGTERM").finally(() => process.exit(process.exitCode ?? 0));
-  };
-
-  const onUnhandledRejection = (reason: unknown): void => {
-    void shutdown("unhandledRejection", reason).finally(() =>
-      process.exit(process.exitCode ?? 1),
+  const shutdownAndExit = (
+    reason: string,
+    defaultExitCode: number,
+    error?: unknown,
+  ): void => {
+    void shutdown(reason, error).finally(() =>
+      process.exit(process.exitCode ?? defaultExitCode),
     );
   };
 
-  const onUncaughtException = (error: Error): void => {
-    void shutdown("uncaughtException", error).finally(() =>
-      process.exit(process.exitCode ?? 1),
-    );
-  };
-
-  process.once("SIGINT", onSigint);
-  process.once("SIGTERM", onSigterm);
-  process.once("unhandledRejection", onUnhandledRejection);
-  process.once("uncaughtException", onUncaughtException);
+  process.once("SIGINT", () => shutdownAndExit("SIGINT", 0));
+  process.once("SIGTERM", () => shutdownAndExit("SIGTERM", 0));
+  process.once("unhandledRejection", (reason: unknown) =>
+    shutdownAndExit("unhandledRejection", 1, reason),
+  );
+  process.once("uncaughtException", (error: Error) =>
+    shutdownAndExit("uncaughtException", 1, error),
+  );
+  // stdio clients disconnect by closing stdin; without this the process exits
+  // before telemetry can flush
+  process.stdin.once("end", () => shutdownAndExit("stdin closed", 0));
 
   return {
     shutdown,
@@ -112,8 +119,10 @@ const main = async (): Promise<void> => {
 
   try {
     const server = buildServer();
+    const telemetryConfig = resolveTelemetryConfig({ env: process.env });
+    const telemetry = createTelemetry(telemetryConfig);
 
-    shutdown = installLifecycleHandlers(server).shutdown;
+    shutdown = installLifecycleHandlers(server, telemetry).shutdown;
 
     registerPrompts(server);
     registerResources(server);
@@ -125,6 +134,14 @@ const main = async (): Promise<void> => {
 
     // STDIO servers must never write to stdout; use stderr for diagnostics.
     console.error("Helios Design System MCP server running on stdio");
+
+    if (telemetryConfig !== null) {
+      const mode = telemetryConfig.debug ? " in debug mode" : "";
+
+      console.error(
+        `Usage telemetry is enabled${mode}. Unset ${TELEMETRY_ENV_VAR} to disable it.`,
+      );
+    }
   } catch (error: unknown) {
     if (shutdown) {
       await shutdown("startup-failure", error);
