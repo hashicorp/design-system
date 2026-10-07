@@ -5,8 +5,8 @@
 
 // one `tool_called` event per tool call, read from the fields every tool result shares
 //
-// only counts, booleans, enumerated values and public catalog versions leave the process:
-// the query, the requested name and any error message are free text and are never sent
+// the shared properties are only counts, booleans, enumerated values and public catalog
+// versions; a tool may add its own through a mapper, bounded by the rules in sanitize.ts
 
 import { withCallTelemetry } from "./call-telemetry.js";
 import { TOOL_CALLED_EVENT } from "./events.js";
@@ -80,15 +80,64 @@ export const toToolResultProperties = (
   ]);
 };
 
+export interface ToolTelemetryCall {
+  // the input the sdk validated against the tool's input schema
+  args: StructuredRecord;
+  // the structured content the tool itself built
+  content: StructuredRecord;
+}
+
+// the properties one tool adds about its own call, on top of the shared ones
+export type ToolTelemetryMapper = (
+  call: ToolTelemetryCall,
+) => TelemetryProperties;
+
+const toArgsRecord = (args: unknown[]): StructuredRecord => {
+  const [input] = args;
+
+  return typeof input === "object" && input !== null && !Array.isArray(input)
+    ? (input as StructuredRecord)
+    : {};
+};
+
+// a failed or unreadable call has no tool-specific signal, and a throwing mapper costs only
+// its own properties rather than the whole event
+const toMappedProperties = (
+  args: unknown[],
+  result: CallToolResult | undefined,
+  toToolProperties: ToolTelemetryMapper | undefined,
+): TelemetryProperties => {
+  if (
+    toToolProperties === undefined ||
+    result === undefined ||
+    result.isError === true ||
+    result.structuredContent === undefined
+  ) {
+    return {};
+  }
+
+  try {
+    return toToolProperties({
+      args: toArgsRecord(args),
+      content: result.structuredContent,
+    });
+  } catch {
+    return {};
+  }
+};
+
 export const withToolTelemetry = <TArgs extends unknown[]>(
   toolName: string,
   handler: (...args: TArgs) => CallToolResult | Promise<CallToolResult>,
   telemetry: Telemetry,
+  toToolProperties?: ToolTelemetryMapper,
 ): ((...args: TArgs) => Promise<CallToolResult>) =>
   withCallTelemetry(handler, {
     telemetry,
     event: TOOL_CALLED_EVENT,
-    toProperties: ({ result, durationMs, isFirstCall }) => ({
+    toProperties: ({ args, result, durationMs, isFirstCall }) => ({
+      ...toMappedProperties(args, result, toToolProperties),
+      // the shared properties are spread last so a tool cannot overwrite them
       tool: toolName,
       outcome: toToolOutcome(result),
       durationMs,

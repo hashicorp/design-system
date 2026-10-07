@@ -35,6 +35,7 @@ export const defineTool = <
         tool.name,
         tool.executeCallback as Parameters<typeof withToolTelemetry>[1],
         telemetry,
+        tool.toTelemetryProperties,
       ) as ToolCallback<InputArgs>;
 
       server.registerTool(tool.name, tool.config, executeCallback);

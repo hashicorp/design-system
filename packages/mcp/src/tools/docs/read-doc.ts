@@ -21,6 +21,7 @@ import {
 import { getOrLoadDocsStore } from "../../stores/docs/index.js";
 import { getHeadingPath } from "../../stores/docs/lookup.js";
 import { selectChunkContent, toSerializablePageLinks } from "./utils.js";
+import { createReadDocTelemetry } from "./telemetry.js";
 
 import type { ToolRegistration } from "../define-tool.js";
 import type { DocsCatalogStore } from "../../stores/docs/index.js";
@@ -145,6 +146,7 @@ export const createReadDocTool = (
       },
     },
     executeCallback,
+    toTelemetryProperties: createReadDocTelemetry(getStore),
   });
 };
 

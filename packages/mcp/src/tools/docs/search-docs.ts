@@ -21,6 +21,7 @@ import {
 } from "./constants.js";
 import { getOrLoadDocsStore } from "../../stores/docs/index.js";
 import { toSerializableSearchResult } from "./utils.js";
+import { toSearchDocsTelemetry } from "./telemetry.js";
 
 import type { ToolRegistration } from "../define-tool.js";
 import type { DocsCatalogStore } from "../../stores/docs/index.js";
@@ -192,6 +193,7 @@ export const createSearchDocsTool = (
       },
     },
     executeCallback,
+    toTelemetryProperties: toSearchDocsTelemetry,
   });
 };
 

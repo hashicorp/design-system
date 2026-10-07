@@ -90,9 +90,23 @@ To opt in, set `HDS_MCP_TELEMETRY=1` and provide the PostHog project API key thr
 | `hds_mcp_resource_read` | Every resource read | Resource name, outcome, duration, whether it was the first read |
 | `hds_mcp_prompt_requested` | Every prompt request | Prompt name, outcome |
 
+Each tool call also reports properties specific to that tool:
+
+| Tool | Properties |
+| --- | --- |
+| All searches | Query length and word count, requested result limit, name of the top result |
+| `search_hds_docs` | Matched and unmatched word counts, number of results anchored to a page, top result's docs path, score and whether it is page-anchored |
+| `search_hds_icons`, `search_hds_tokens`, `search_hds_docs` | Which filter kinds (`section`, `tab`, `docsPath`, `category`, `size`) were not recognized; filter values only when they match the catalog |
+| `search_hds_tokens` | Whether the query is a hex color, the `type` filter |
+| `get_hds_component` | Whether the name was written as an invocation, class name or module path; the component it resolved to; how many of its arguments had their values capped. On a miss: the requested name (see below), the number of suggestions and the top suggestion |
+| `read_hds_docs` | Byte limit, whether children were requested, bytes returned, child and omitted passage counts, the docs path read. On a miss: whether the id names a real page, that page's docs path, and the top suggestion |
+
+A requested component name is sent only when it has the shape of an HDS name (`Hds::Form::TextInput`, `HdsFormTextInput` or `hds/form/text-input`), uses only letters, digits, `::`, `/` and `-`, and is 64 characters or fewer. This shows which components agents expect Helios to have. Any other name is reported only as `other`.
+
 #### What is never collected
 
-- Search queries, requested names and ids, prompt arguments, or resource URIs
+- Search queries or the words in them, documentation ids, prompt arguments, or resource URIs
+- Requested component names that are not shaped like an HDS name, and filter values the catalog does not recognize
 - Tool results, documentation content, or error messages
 - File paths, environment variables, or anything about your application's code
 

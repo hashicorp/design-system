@@ -228,3 +228,72 @@ describe("withToolTelemetry", () => {
     ]);
   });
 });
+
+describe("withToolTelemetry with a tool's own properties", () => {
+  it("merges them with the shared properties, which the tool cannot overwrite", async () => {
+    const { telemetry, events } = createRecordingTelemetry();
+    const handler = withToolTelemetry(
+      "get_hds_component",
+      (input: { name: string }) =>
+        toJsonToolResponse({ found: input.name.length > 0 }),
+      telemetry,
+      ({ args, content }) => ({
+        argName: String(args.name),
+        found: content.found === true,
+        tool: "overwritten",
+        outcome: "overwritten",
+      }),
+    );
+
+    await handler({ name: "Hds::Button" });
+
+    expect(events[0].properties).toStrictEqual({
+      argName: "Hds::Button",
+      found: true,
+      tool: "get_hds_component",
+      outcome: "ok",
+      durationMs: expect.any(Number),
+      isFirstCall: true,
+    });
+  });
+
+  it("keeps the shared event when the tool's mapper throws", async () => {
+    const { telemetry, events } = createRecordingTelemetry();
+    const handler = withToolTelemetry(
+      "search_hds_docs",
+      () => toJsonToolResponse({ totalMatches: 2 }),
+      telemetry,
+      () => {
+        throw new Error("bad mapper");
+      },
+    );
+
+    await handler();
+
+    expect(events[0].properties).toMatchObject({
+      tool: "search_hds_docs",
+      outcome: "ok",
+      totalMatches: 2,
+    });
+  });
+
+  it("does not ask the tool for properties of a failed call", async () => {
+    vi.spyOn(console, "error").mockImplementation(() => {});
+
+    const { telemetry } = createRecordingTelemetry();
+    const mapper = vi.fn(() => ({}));
+    const handler = withToolTelemetry(
+      "search_hds_docs",
+      withSafeToolHandler("search_hds_docs", () => {
+        throw new Error("catalog unreadable");
+      }),
+      telemetry,
+      mapper,
+    );
+
+    await handler();
+
+    expect(mapper).not.toHaveBeenCalled();
+  });
+});
+
