@@ -22,6 +22,7 @@ resolvePeersFromWorkspaceRoot: false
 # Less strict, but required for tooling to not barf on duplicate peer trees.
 # (many libraries declare the same peers, which resolve to the same
 #  versions)
+autoDedupe: true
 dedupeInjectedDeps: true
 dedupePeerDependents: true
 injectWorkspacePackages: true
