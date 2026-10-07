@@ -55,6 +55,32 @@ The project root defaults to the nearest `package.json` at or above the process 
 
 Documentation comes from the `docs-catalog.json` snapshot shipped with the MCP package, not from the application's dependencies.
 
+### Telemetry
+
+Usage telemetry is opt-in and disabled by default. The server does not collect any events yet; this setting only prepares the opt-in.
+
+To opt in, set `HDS_MCP_TELEMETRY=1` and provide the PostHog project API key through `HDS_MCP_POSTHOG_API_KEY` in your MCP client configuration:
+
+```json
+{
+  "mcpServers": {
+    "helios-design-system": {
+      "command": "pnpm",
+      "args": ["exec", "helios-design-system-mcp"],
+      "env": {
+        "HDS_MCP_TELEMETRY": "1",
+        "HDS_MCP_POSTHOG_API_KEY": "<posthog-project-api-key>"
+      }
+    }
+  }
+}
+```
+
+- Telemetry stays disabled when the API key is missing, even when `HDS_MCP_TELEMETRY` is set.
+- Setting `DO_NOT_TRACK=1` always disables telemetry, even when `HDS_MCP_TELEMETRY` is set.
+- Events are sent to PostHog's EU region with a random ID generated each time the server starts. No ID is stored on disk, no person profiles are created, and IP addresses are not used for geolocation.
+- When telemetry is enabled, the server prints a notice to stderr on startup.
+
 ## Scripts
 
 - `pnpm lint`
@@ -72,6 +98,8 @@ From the monorepo root:
 pnpm -F @hashicorp/design-system-mcp build
 pnpm -F @hashicorp/design-system-mcp start
 ```
+
+Set `HDS_MCP_TELEMETRY=debug` and `HDS_MCP_POSTHOG_DEV_API_KEY` to send telemetry to the development PostHog project and log each event to stderr.
 
 ## Verify with MCP Inspector
 
