@@ -9,9 +9,14 @@ import type { TelemetryConfig } from "./config.js";
 import type { Telemetry } from "./types.js";
 
 export { TELEMETRY_ENV_VAR, resolveTelemetryConfig } from "./config.js";
+export { withPromptTelemetry } from "./prompt-events.js";
+export { withResourceTelemetry } from "./resource-events.js";
+export { trackSessionInitialized } from "./session.js";
+export { withToolTelemetry } from "./tool-events.js";
 export type { Telemetry } from "./types.js";
 
-const NOOP_TELEMETRY: Telemetry = {
+// registrars default to this, so a server built without telemetry behaves as it did before
+export const NOOP_TELEMETRY: Telemetry = {
   track: () => {},
   shutdown: async () => {},
 };

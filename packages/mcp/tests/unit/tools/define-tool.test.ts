@@ -8,6 +8,9 @@ import { z } from "zod";
 import { describe, expect, it, vi } from "vitest";
 import { defineTool } from "../../../src/tools/define-tool.js";
 import { toJsonToolResponse } from "../../../src/tools/responses.js";
+import { createRecordingTelemetry } from "../../support/recording-telemetry.js";
+import { buildRequestHandlerExtra } from "../../support/request-handler.js";
+import { captureToolRegistrations } from "../../support/tool-registration.js";
 
 const inputShape = { query: z.string().min(1) };
 
@@ -73,5 +76,53 @@ describe("defineTool", () => {
       "search_hds_docs",
       "read_hds_docs",
     ]);
+  });
+
+  it("reports each call to the telemetry it is registered with", async () => {
+    const { telemetry, events } = createRecordingTelemetry();
+    const tool = defineTool({
+      name: "search_hds_docs",
+      config: { inputSchema: inputShape },
+      executeCallback: ({ query }) =>
+        toJsonToolResponse({ query, totalMatches: 1 }),
+    });
+
+    const [{ callback }] = captureToolRegistrations((server) =>
+      tool.register(server, telemetry),
+    );
+    const result = await callback(
+      { query: "button" },
+      buildRequestHandlerExtra(),
+    );
+
+    expect(result.structuredContent).toStrictEqual({
+      query: "button",
+      totalMatches: 1,
+    });
+    expect(events).toStrictEqual([
+      {
+        event: "hds_mcp_tool_called",
+        properties: expect.objectContaining({
+          tool: "search_hds_docs",
+          outcome: "ok",
+        }),
+      },
+    ]);
+  });
+
+  it("registers a working callback when no telemetry is given", async () => {
+    const tool = defineTool({
+      name: "search_hds_docs",
+      config: { inputSchema: inputShape },
+      executeCallback: ({ query }) => toJsonToolResponse({ query }),
+    });
+
+    const [{ callback }] = captureToolRegistrations((server) =>
+      tool.register(server),
+    );
+
+    await expect(
+      callback({ query: "button" }, buildRequestHandlerExtra()),
+    ).resolves.toMatchObject({ structuredContent: { query: "button" } });
   });
 });
