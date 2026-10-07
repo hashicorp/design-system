@@ -19,6 +19,8 @@ navigation:
     - sort
     - search
     - utility bar
+status:
+  updated: 7.0.0
 ---
 
 <section data-tab="Guidelines">

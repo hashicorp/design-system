@@ -18,14 +18,11 @@
 
 _Conducted a one-off mechanical rename in `@hashicorp/design-system-components` of internal component CSS variables. Consumers consuming or overriding HDS CSS variables will need to update `--hds-*` references to `--hds-var-*`._
 
-<!-- START components/table/advanced-table -->
 
 `AdvancedTable` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
 - `hds-advanced-table-sticky-column-offset` → `hds-var-advanced-table-sticky-column-offset`
-<!-- END -->
 
-<!-- START components/accordion -->
 
 `Accordion` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
@@ -40,16 +37,12 @@ _Conducted a one-off mechanical rename in `@hashicorp/design-system-components` 
 - `hds-accordion-item-toggle-padding-left` → `hds-var-accordion-item-toggle-padding-left`
 - `hds-accordion-item-toggle-padding-right` → `hds-var-accordion-item-toggle-padding-right`
 - `hds-accordion-item-toggle-padding-top` → `hds-var-accordion-item-toggle-padding-top`
-<!-- END -->
 
-<!-- START components/app-footer -->
 
 `AppFooter` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
 - `hds-app-footer-status-icon-color` → `hds-var-app-footer-status-icon-color`
-<!-- END -->
 
-<!-- START components/app-side-nav -->
 
 `AppSideNav` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
@@ -60,92 +53,68 @@ _Conducted a one-off mechanical rename in `@hashicorp/design-system-components` 
 - `hds-app-side-nav-width-expanded` → `hds-var-app-side-nav-width-expanded`
 - `hds-app-side-nav-width-fixed` → `hds-var-app-side-nav-width-fixed`
 - `hds-app-side-nav-width-minimized` → `hds-var-app-side-nav-width-minimized`
-<!-- END -->
 
-<!-- START components/code-block -->
 
 `CodeBlock` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
 - `hds-code-block-color-{property}` → `hds-var-code-block-color-{property}`
-<!-- END -->
 
-<!-- START components/filter-bar -->
 
 `FilterBar` - Changed the component CSS custom property prefix from `--filter-bar` to `--hds-var-filter-bar`.
 
 - `--filter-bar-filters-dropdown-height` → `--hds-var-filter-bar-filters-dropdown-height`
-<!-- END -->
 
-<!-- START components/flyout -->
 
 `Flyout` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
 - `hds-app-side-nav-width-minimized` → `hds-var-app-side-nav-width-minimized`
-<!-- END -->
 
-<!-- START components/form/layout -->
 
 `Form` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
 - `hds-form-section-max-width` → `hds-var-form-section-max-width`
 - `hds-form-section-multi-field-group-item-width` → `hds-var-form-section-multi-field-group-item-width`
-<!-- END -->
 
-<!-- START components/form/key-value-inputs -->
 
 `KeyValueInputs` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
 - `hds-key-value-inputs-column-index` → `hds-var-key-value-inputs-column-index`
 - `hds-key-value-inputs-columns` → `hds-var-key-value-inputs-columns`
-<!-- END -->
 
-<!-- START components/form/super-select -->
 
 `SuperSelect` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
 - `hds-form-super-select-dropdown-max-width` → `hds-var-form-super-select-dropdown-max-width`
 - `hds-form-super-select-selected-text` → `hds-var-form-super-select-selected-text`
 - `hds-form-super-select-selected-text-display` → `hds-var-form-super-select-selected-text-display`
-<!-- END -->
 
-<!-- START components/segmented-group -->
 
 `SegmentedGroup` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
 - `hds-segmented-group-max-width` → `hds-var-segmented-group-max-width`
-<!-- END -->
 
-<!-- START components/stepper/nav -->
 
 `Stepper Nav` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
 - `hds-stepper-nav-progress-bar-width` → `hds-var-stepper-nav-progress-bar-width`
-<!-- END -->
 
-<!-- START components/tag -->
 
 `Tag` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
 - `hds-tag-focus-ring-inset-left-cds` → `hds-var-tag-focus-ring-inset-left-cds`
 - `hds-tag-focus-ring-inset-right-cds` → `hds-var-tag-focus-ring-inset-right-cds`
-<!-- END -->
 
-<!-- START components/tooltip -->
 
 `Tooltip` - Changed the component CSS custom property prefix from `--token-*` to `--hds-var-*`.
 
 - `token-tooltip-max-width` → `hds-tooltip-max-width`
-<!-- END -->
 
-<!-- START layouts/flex -->
 
 `Flex` - Changed the layout CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
 - `hds-layout-flex-column-gap` → `hds-var-layout-flex-column-gap`
 - `hds-layout-flex-row-gap` → `hds-var-layout-flex-row-gap`
-<!-- END -->
 
-<!-- START layouts/grid -->
 
 `Grid` - Changed the layout CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
@@ -170,104 +139,73 @@ _Conducted a one-off mechanical rename in `@hashicorp/design-system-components` 
 - `hds-layout-grid-row-span-sm` → `hds-var-layout-grid-row-span-sm`
 - `hds-layout-grid-row-span-xl` → `hds-var-layout-grid-row-span-xl`
 - `hds-layout-grid-row-span-xxl` → `hds-var-layout-grid-row-span-xxl`
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4076](https://github.com/hashicorp/design-system/pull/4076)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/table/advanced-table -->
 
 `AdvancedTable` - Added new value `secondary-muted` for the `@color` argument in `ThContextMenu`.
 
 - `secondary-muted` is identical to `secondary` for HDS themes, but differs for Carbon themes
-<!-- END -->
 
-<!-- START components/button -->
 
 `Button` - Added new value `secondary-muted` for the `@color` argument
 
-<!-- END -->
 
-<!-- START components/code-block -->
 
 `CodeBlock` - Updated footer button `@color` from `secondary` to `secondary-muted`
 
-<!-- END -->
 
-<!-- START components/dropdown -->
 
 `Dropdown` - Added new value `secondary-muted` for the `@color` argument in `ToggleButton` and `ToggleIcon`
 
-<!-- END -->
 
-<!-- START components/filter-bar -->
 
 `FilterBar` - Updated toggle `@color` from `secondary` to `secondary-muted` in `ActionsDropdown` and `FiltersDropdown` and applied filters button
 
-<!-- END -->
 
-<!-- START components/form/super-select -->
 
 `SuperSelect` - Updated `AfterOptions` show and clear button `@color` from `secondary` to `secondary-muted`
 
-<!-- END -->
 
-<!-- START components/code-editor -->
 
 `CodeEditor` - Removed dark theme modifiers and replaced them with theme agnostic versions
 
 - Removed the `hdsDarkHighlightStyle` style modifier and replaced it with a theme-agnostic `hdsHighlightStyle` modifier
 - Removed the `hdsDark` style modifier and replaced it with a theme-agnostic `hdsTheme` modifier
-<!-- END -->
 
-<!-- START components/form/primitives -->
 
 Added the `hds-form-control-border` and `hds-form-control-invalid-outline` sass mixins
 
-<!-- END -->
 
-<!-- START components/form/radio-card -->
 
 `RadioCard` - Updated `RadioCardDescription` element from `HdsTextBody` to a `HTMLSpanElement`
 
-<!-- END -->
 
-<!-- START components/form/radio-card -->
 
 `RadioCard` - Updated `RadioCardLabel` element from `HdsTextDisplay` to a `HTMLSpanElement`
 
-<!-- END -->
 
-<!-- START components/table/advanced-table -->
 
 `AdvancedTable` - Removed `hds-typography-body-200` and `hds-font-weight-semibold` classes from `hds-advanced-table__th-content-text` element in `AdvancedTableTh`
 
-<!-- END -->
 
-<!-- START components/table/table -->
 
 `Table` - Removed `hds-typography-body-200` and `hds-font-weight-regular` classes from `hds-table__td` element in `TableTd`
 
-<!-- END -->
 
-<!-- START components/table/table -->
 
 `Table` - Removed `hds-typography-body-200` and `hds-font-weight-semibold` classes from `hds-table__td` element in `TableTh` and `TableThSort`
 
-<!-- END -->
 
-<!-- START components/tooltip -->
 
 `Tooltip` - Replaced custom arrow with `hds-tooltip-pointer` class with native popover arrow
 
-<!-- END -->
 
-<!-- START utilities/dialog-primitive -->
 
 `DialogPrimitive` - Updated internal text element from `HdsTextBody` to a `HTMLDivElement`
 
-<!-- END -->
 
 Removed the `hds-interactive-dark-theme` mixin
 
@@ -292,7 +230,6 @@ Added a `hds-apply-only-if-carbon` sass mixin to apply styles only for Carbon th
 
 `ThemeContext` - Added headless component
 
-<!-- START components/icon -->
 
 `Icon` - Made significant changes to icon loading and available icons to support Carbon themes
 
@@ -300,7 +237,6 @@ Added a `hds-apply-only-if-carbon` sass mixin to apply styles only for Carbon th
 - Added support for loading Carbon icons when the user is using a Carbon theme
 - The full SVG sprite is no longer injected into the consuming application
 - Consumers can safely remove the `flightIconsSpriteLazyEmbed` setting in their `config/environment.js` file.
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4076](https://github.com/hashicorp/design-system/pull/4076)</small>
 

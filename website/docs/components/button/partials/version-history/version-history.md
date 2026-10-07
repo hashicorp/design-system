@@ -1,3 +1,8 @@
+## 7.0.0
+
+Added new value `secondary-muted` for the `@color` argument
+
+
 ## 6.1.0
 
 Removed usage of `hdsLinkToModels` and `hdsLinkToQuery` helpers, instead forward the arguments to `HdsInteractive`.

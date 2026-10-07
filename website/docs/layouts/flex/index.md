@@ -16,6 +16,8 @@ navigation:
     - spacing
     - grid
   label: Flex
+status:
+  updated: 7.0.0
 ---
 
 <section data-tab="Code">

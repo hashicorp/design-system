@@ -1,3 +1,12 @@
+## 7.0.0
+
+Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-code-block-color-{property}` → `hds-var-code-block-color-{property}`
+
+Updated footer button `@color` from `secondary` to `secondary-muted`
+
+
 ## 6.6.0
 
 Added extra right-side padding around code when copy button is enabled preventing overlap when text-wrapping is enabled and allowing users to scroll farther to the right to view all code

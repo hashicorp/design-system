@@ -1,3 +1,10 @@
+## 7.0.0
+
+Changed the layout CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-layout-flex-column-gap` → `hds-var-layout-flex-column-gap`
+- `hds-layout-flex-row-gap` → `hds-var-layout-flex-row-gap`
+
 ## 6.1.0
 
 Converted component to gts format.

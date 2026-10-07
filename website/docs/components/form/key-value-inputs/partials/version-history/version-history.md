@@ -1,3 +1,10 @@
+## 7.0.0
+
+Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-key-value-inputs-column-index` → `hds-var-key-value-inputs-column-index`
+- `hds-key-value-inputs-columns` → `hds-var-key-value-inputs-columns`
+
 ## 6.6.0
 
 Removed unused `@ariaLabel` argument from `[F].AddRowButton` contextual component

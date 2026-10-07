@@ -1,3 +1,8 @@
+## 7.0.0
+
+Added new value `secondary-muted` for the `@color` argument in `ToggleButton` and `ToggleIcon`
+
+
 ## 6.6.0
 
 Set text alignment of Title and Description to left explicitly to prevent accidental override
