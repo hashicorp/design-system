@@ -1,11 +1,3 @@
-!!! Information
-
-**A note about versions**
-
-The helper class names and tokens used here refer to `v7.0` or above of the components package, and `v6.0` or above of the tokens package. If you are using an older version, refer to the [documentation for your version](/whats-new/release-notes).
-
-!!!
-
 ## How to use these styles
 
 We offer different ways to apply typography styles to UI elements:
