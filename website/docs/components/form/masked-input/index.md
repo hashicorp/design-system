@@ -23,8 +23,6 @@ navigation:
     - form
     - input
     - textarea
-status:
-  updated: 6.6.0
 ---
 
 <section data-tab="Guidelines">

@@ -1,3 +1,9 @@
+## 7.0.0
+
+Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-app-side-nav-width-minimized` → `hds-var-app-side-nav-width-minimized`
+
 ## 6.3.0
 
 Replaced custom box shadow with standard `elevation-overlay-box-shadow` token.

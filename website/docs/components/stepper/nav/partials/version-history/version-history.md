@@ -1,3 +1,9 @@
+## 7.0.0
+
+Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-stepper-nav-progress-bar-width` → `hds-var-stepper-nav-progress-bar-width`
+
 ## 6.5.0
 
 Added screen reader text for step number

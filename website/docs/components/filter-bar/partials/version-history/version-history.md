@@ -1,3 +1,12 @@
+## 7.0.0
+
+Changed the component CSS custom property prefix from `--filter-bar` to `--hds-var-filter-bar`.
+
+- `--filter-bar-filters-dropdown-height` → `--hds-var-filter-bar-filters-dropdown-height`
+
+Updated toggle `@color` from `secondary` to `secondary-muted` in `ActionsDropdown` and `FiltersDropdown` and applied filters button
+
+
 ## 6.5.0
 
 Added support for `ActionsGeneric` wrapping to new line

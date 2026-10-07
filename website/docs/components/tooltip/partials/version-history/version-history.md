@@ -1,3 +1,12 @@
+## 7.0.0
+
+Changed the component CSS custom property prefix from `--token-*` to `--hds-var-*`.
+
+- `token-tooltip-max-width` → `hds-tooltip-max-width`
+
+Replaced custom arrow with `hds-tooltip-pointer` class with native popover arrow
+
+
 ## 6.1.0
 
 Fixed issue where showing the Tooltip caused page layout shift by reducing the width of the Tooltip container from 100% to the Tooltip max width of 280px.

@@ -20,7 +20,7 @@ navigation:
     - input
     - character count
 status:
-  updated: 6.6.0
+  updated: 7.0.0
 ---
 
 <section data-tab="Guidelines">

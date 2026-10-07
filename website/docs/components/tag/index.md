@@ -18,6 +18,8 @@ navigation:
     - pill
     - label
     - filter
+status:
+  updated: 7.0.0
 ---
 
 <section data-tab="Guidelines">

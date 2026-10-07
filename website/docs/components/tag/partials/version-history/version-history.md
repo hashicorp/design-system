@@ -1,3 +1,10 @@
+## 7.0.0
+
+Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-tag-focus-ring-inset-left-cds` → `hds-var-tag-focus-ring-inset-left-cds`
+- `hds-tag-focus-ring-inset-right-cds` → `hds-var-tag-focus-ring-inset-right-cds`
+
 ## 6.3.0
 
 Multiple changes:
