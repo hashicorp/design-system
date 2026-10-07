@@ -9,6 +9,7 @@ import type {
   ZodRawShapeCompat,
 } from "@modelcontextprotocol/sdk/server/zod-compat.js";
 import type { ToolAnnotations } from "@modelcontextprotocol/sdk/types.js";
+import type { ToolTelemetryMapper } from "../telemetry/tool-events.js";
 
 export interface McpTool<
   InputArgs extends ZodRawShapeCompat | undefined = undefined,
@@ -26,4 +27,7 @@ export interface McpTool<
     _meta?: Record<string, unknown>;
   };
   executeCallback: ToolCallback<InputArgs>;
+  // what this tool adds to its `tool_called` event; see src/telemetry/sanitize.ts for what
+  // may be sent
+  toTelemetryProperties?: ToolTelemetryMapper;
 }
