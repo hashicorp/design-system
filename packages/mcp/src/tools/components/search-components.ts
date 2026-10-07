@@ -23,6 +23,7 @@ import {
 } from "./constants.js";
 import { SEARCH_DOCS_TOOL_NAME } from "../docs/constants.js";
 import { getOrLoadComponentStore } from "../../stores/components/index.js";
+import { toSearchComponentsTelemetry } from "./telemetry.js";
 
 import type { ToolRegistration } from "../define-tool.js";
 import type { ComponentCatalogStore } from "../../stores/components/index.js";
@@ -118,6 +119,7 @@ export const createSearchComponentsTool = (
       annotations: CATALOG_TOOL_ANNOTATIONS,
     },
     executeCallback,
+    toTelemetryProperties: toSearchComponentsTelemetry,
   });
 };
 

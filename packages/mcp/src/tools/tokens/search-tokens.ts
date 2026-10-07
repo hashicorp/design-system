@@ -26,6 +26,7 @@ import {
 } from "../constants.js";
 import { getOrLoadTokenStore } from "../../stores/tokens/index.js";
 import { TOKEN_TYPES } from "../../stores/tokens/schema.js";
+import { toSearchTokensTelemetry } from "./telemetry.js";
 
 import type { JsonValue } from "../../types.js";
 import type { ToolRegistration } from "../define-tool.js";
@@ -199,6 +200,7 @@ export const createSearchTokensTool = (
       annotations: CATALOG_TOOL_ANNOTATIONS,
     },
     executeCallback,
+    toTelemetryProperties: toSearchTokensTelemetry,
   });
 };
 

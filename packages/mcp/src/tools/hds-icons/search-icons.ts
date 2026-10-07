@@ -25,6 +25,7 @@ import {
 } from "../constants.js";
 import { SEARCH_ICONS_TOOL_NAME } from './constants.js'
 import { getOrLoadIconStore } from "../../stores/hds-icons/index.js";
+import { toSearchIconsTelemetry } from "./telemetry.js";
 
 import type { ToolRegistration } from "../define-tool.js";
 import type { IconCatalogStore } from "../../stores/hds-icons/index.js";
@@ -181,6 +182,7 @@ export const createSearchIconsTool = (
       annotations: CATALOG_TOOL_ANNOTATIONS,
     },
     executeCallback,
+    toTelemetryProperties: toSearchIconsTelemetry,
   });
 };
 
