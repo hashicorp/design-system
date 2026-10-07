@@ -205,6 +205,26 @@ The override changes catalog lookup only; it does not change where pnpm looks fo
 
 Catalogs are cached in memory. Restart the MCP server after changing installed Helios packages or the project root.
 
+### Telemetry
+
+Usage telemetry is opt-in and disabled by default. The server does not collect any events yet; this setting only prepares the opt-in.
+
+To opt in, add an `env` field alongside `command` and `args` in your MCP client configuration, and provide the PostHog project API key:
+
+```json
+{
+  "env": {
+    "HDS_MCP_TELEMETRY": "1",
+    "HDS_MCP_POSTHOG_API_KEY": "<posthog-project-api-key>"
+  }
+}
+```
+
+- Telemetry stays disabled when the API key is missing, even when `HDS_MCP_TELEMETRY` is set.
+- Setting `DO_NOT_TRACK=1` always disables telemetry, even when `HDS_MCP_TELEMETRY` is set.
+- Events are sent to PostHog's EU region with a random ID generated each time the server starts. No ID is stored on disk, no person profiles are created, and IP addresses are not used for geolocation.
+- When telemetry is enabled, the server prints a notice to stderr on startup.
+
 ## Troubleshooting
 
 | Symptom                                                     | What to check                                                                                                                                                                                             |
