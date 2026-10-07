@@ -5,6 +5,9 @@
 
 export type TelemetryProperties = Record<string, string | number | boolean>;
 
+// `miss` is a lookup that resolved to nothing, `empty` a search with no matches
+export type CallOutcome = "ok" | "miss" | "empty" | "error";
+
 export interface Telemetry {
   track: (event: string, properties?: TelemetryProperties) => void;
   shutdown: () => Promise<void>;

@@ -63,7 +63,11 @@ It also exposes catalog resources for clients that support MCP resources:
 
 The server prefers component, token, and icon catalogs from your application's installed HDS packages. If those catalogs can't be resolved, it falls back to its own HDS dependencies, which may be different versions. Documentation comes from a snapshot bundled with the server.
 
-The catalog and documentation data are read locally. Documentation results include canonical Helios URLs, but tool calls do not make network requests.
+The catalog and documentation data are read locally. Documentation results include canonical Helios URLs, but tool calls do not fetch anything over the network. The only outbound traffic is opt-in telemetry, described below.
+
+## Telemetry
+
+Usage telemetry is off unless you opt in by setting `HDS_MCP_TELEMETRY=1` and `HDS_MCP_POSTHOG_API_KEY`. When enabled, the server reports which tools, resources, and prompts are used, their outcomes and timings, and the client and server versions. It never sends search queries, requested names, prompt arguments, or tool results. Setting `DO_NOT_TRACK=1` always disables it. See the package README for the full list of collected properties.
 
 ## Inspect the server
 

@@ -15,6 +15,7 @@ import {
   TELEMETRY_ENV_VAR,
   createTelemetry,
   resolveTelemetryConfig,
+  trackSessionInitialized,
 } from "./telemetry/index.js";
 import { registerTools } from "./tools/index.js";
 
@@ -42,10 +43,10 @@ const getServerVersion = (): string => {
   return defaultServerVersion;
 };
 
-const buildServer = (): McpServer => {
+const buildServer = (version: string): McpServer => {
   const server = new McpServer({
     name: "helios-design-system-mcp",
-    version: getServerVersion(),
+    version,
   });
 
   return server;
@@ -118,15 +119,17 @@ const main = async (): Promise<void> => {
     | undefined;
 
   try {
-    const server = buildServer();
+    const serverVersion = getServerVersion();
+    const server = buildServer(serverVersion);
     const telemetryConfig = resolveTelemetryConfig({ env: process.env });
     const telemetry = createTelemetry(telemetryConfig);
 
     shutdown = installLifecycleHandlers(server, telemetry).shutdown;
 
-    registerPrompts(server);
-    registerResources(server);
-    registerTools(server);
+    trackSessionInitialized(server, telemetry, serverVersion);
+    registerPrompts(server, telemetry);
+    registerResources(server, telemetry);
+    registerTools(server, telemetry);
 
     const transport = new StdioServerTransport();
 

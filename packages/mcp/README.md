@@ -57,7 +57,7 @@ Documentation comes from the `docs-catalog.json` snapshot shipped with the MCP p
 
 ### Telemetry
 
-Usage telemetry is opt-in and disabled by default. The server does not collect any events yet; this setting only prepares the opt-in.
+Usage telemetry is opt-in and disabled by default. When enabled, it reports how the server is used so we can find gaps in the Helios documentation and catalogs and improve the tools.
 
 To opt in, set `HDS_MCP_TELEMETRY=1` and provide the PostHog project API key through `HDS_MCP_POSTHOG_API_KEY` in your MCP client configuration:
 
@@ -80,6 +80,21 @@ To opt in, set `HDS_MCP_TELEMETRY=1` and provide the PostHog project API key thr
 - Setting `DO_NOT_TRACK=1` always disables telemetry, even when `HDS_MCP_TELEMETRY` is set.
 - Events are sent to PostHog's EU region with a random ID generated each time the server starts. No ID is stored on disk, no person profiles are created, and IP addresses are not used for geolocation.
 - When telemetry is enabled, the server prints a notice to stderr on startup.
+
+#### What is collected
+
+| Event | When | Properties |
+| --- | --- | --- |
+| `hds_mcp_session_initialized` | Once, after the client connects | Client name and version (as the client reports them, capped at 64 characters), server version, Node.js major version, operating system platform |
+| `hds_mcp_tool_called` | Every tool call | Tool name; outcome (`ok`, `miss`, `empty` or `error`); duration in milliseconds; whether it was the tool's first call in the session; total and returned match counts; whether results were truncated; the version of the HDS package the catalog came from and how it was located; age of the bundled documentation in days |
+| `hds_mcp_resource_read` | Every resource read | Resource name, outcome, duration, whether it was the first read |
+| `hds_mcp_prompt_requested` | Every prompt request | Prompt name, outcome |
+
+#### What is never collected
+
+- Search queries, requested names and ids, prompt arguments, or resource URIs
+- Tool results, documentation content, or error messages
+- File paths, environment variables, or anything about your application's code
 
 ## Scripts
 
