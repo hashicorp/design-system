@@ -9,6 +9,8 @@ related:
 previewImage: assets/illustrations/theming/theme-context.jpg
 navigation:
   keywords: ['theming', 'theme', 'mode', 'light', 'dark', 'carbon', 'cds', 'g0', 'g10', 'g90', 'g100']
+status:
+  added: 7.0.0
 ---
 
 <section data-tab="Code">
