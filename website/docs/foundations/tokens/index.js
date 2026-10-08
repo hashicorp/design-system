@@ -23,7 +23,7 @@ const getAliases = (token, TOKENS_RAW) => {
 // collect all the searchable text associated with a token
 const getSearchableValues = (token) => {
   // note: we prefix `value` with `$` because we're using the DTCG format
-  const values = [token.name, token.$value, token.comment];
+  const values = [`--${token.name}`, token.$value, token.comment];
 
   if (token.$modes) {
     values.push(...Object.values(token.$modes));
