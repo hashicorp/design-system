@@ -147,5 +147,8 @@
 // deprecated token
 
 .doc-tokens-list__item--is-deprecated {
-  opacity: 0.5;
+  .doc-meta-row__value-not-copyable {
+    color: var(--doc-color-gray-300);
+    text-decoration: line-through;
+  }
 }
