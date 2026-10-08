@@ -168,7 +168,7 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
         />
       {{/if}}
       <HdsFormVisibilityToggle
-        @isVisible={{this.isContentMasked}}
+        @isMasked={{this.isContentMasked}}
         @ariaLabel={{this.visibilityToggleAriaLabel}}
         @ariaMessageText={{this.visibilityToggleAriaMessageText}}
         @ariaMessageTextWhenVisible={{this.visibilityToggleAriaMessageTextWhenVisible}}
