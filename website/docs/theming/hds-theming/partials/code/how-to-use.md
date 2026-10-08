@@ -10,7 +10,7 @@ The `hdsTheming` service is used to apply one of the HDS themes to the pages of 
 
 It works by conditionally applying the `.hds-theme-*` and `.hds-mode-*` classes on the `<html>` element (the DOM `:root`) depending on the theme selected.
 
-It doesn't persist the user's choice, though, so it's left to consumers to implement this [consumer-side logic](#persisting-the-users-choice).
+It's a consumer responsibility to implement the logic to [persist the user's choice](#persisting-the-users-choice).
 
 ### Themed tokens
 
@@ -63,7 +63,6 @@ The `currentLightTheme`/`currentDarkTheme` properties return the current mode ma
 Because these values are reactive, templates and getters that consume them update when `setTheme` changes the current theme or mode.
 
 ### Persisting the user's choice
-
 
 The `hdsTheming` service applies a theme to a page but doesn't persist the user's choice.
 
