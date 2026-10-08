@@ -119,38 +119,26 @@ export default class HdsFormField extends Component<HdsFormFieldSignature> {
 
   <template>
     <div class={{this.classNames}} ...attributes>
-      {{yield
-        (hash
-          Label=(component
-            HdsFormLabel
-            controlId=this.id
-            isRequired=this.isRequired
-            isOptional=this.isOptional
-            contextualClass="hds-form-field__label"
-          )
-        )
-      }}
-      {{#unless (eq @layout "flag")}}
-        {{yield
-          (hash
-            HelperText=(component
-              HdsFormHelperText
-              controlId=this.id
-              onInsert=this.appendDescriptor
-              contextualClass="hds-form-field__helper-text"
-            )
-          )
-        }}
-      {{/unless}}
-      {{! @glint-expect-error }}
-      {{#let this.ariaDescribedBy as |ariaDescribedBy|}}
-        <div class="hds-form-field__control">
-          {{yield
-            (hash Control=HdsYield id=this.id ariaDescribedBy=ariaDescribedBy)
-          }}
-        </div>
-      {{/let}}
       {{#if (eq @layout "flag")}}
+        {{! @glint-expect-error }}
+        {{#let this.ariaDescribedBy as |ariaDescribedBy|}}
+          <div class="hds-form-field__control">
+            {{yield
+              (hash Control=HdsYield id=this.id ariaDescribedBy=ariaDescribedBy)
+            }}
+          </div>
+        {{/let}}
+        {{yield
+          (hash
+            Label=(component
+              HdsFormLabel
+              controlId=this.id
+              isRequired=this.isRequired
+              isOptional=this.isOptional
+              contextualClass="hds-form-field__label"
+            )
+          )
+        }}
         {{yield
           (hash
             HelperText=(component
@@ -161,6 +149,36 @@ export default class HdsFormField extends Component<HdsFormFieldSignature> {
             )
           )
         }}
+      {{else}}
+        {{yield
+          (hash
+            Label=(component
+              HdsFormLabel
+              controlId=this.id
+              isRequired=this.isRequired
+              isOptional=this.isOptional
+              contextualClass="hds-form-field__label"
+            )
+          )
+        }}
+        {{yield
+          (hash
+            HelperText=(component
+              HdsFormHelperText
+              controlId=this.id
+              onInsert=this.appendDescriptor
+              contextualClass="hds-form-field__helper-text"
+            )
+          )
+        }}
+        {{! @glint-expect-error }}
+        {{#let this.ariaDescribedBy as |ariaDescribedBy|}}
+          <div class="hds-form-field__control">
+            {{yield
+              (hash Control=HdsYield id=this.id ariaDescribedBy=ariaDescribedBy)
+            }}
+          </div>
+        {{/let}}
       {{/if}}
       {{yield
         (hash
