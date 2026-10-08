@@ -47,12 +47,10 @@ Add the following server entry to your client's MCP configuration. Replace `/abs
 
 Using `--dir` makes both executable lookup and catalog resolution independent of where your client starts.
 
-<details open>
-<summary>Claude Code, Claude Desktop, and Cursor</summary>
+Most clients, including VS Code with GitHub Copilot, accept the portable `mcpServers` configuration format:
 
-Use the `mcpServers` configuration format:
-
-- **Claude Code:** `.mcp.json` in your project.
+- **Claude Code, VS Code with GitHub Copilot:** `.mcp.json` at the root of your project.
+- **GitHub Copilot (user-level):** `~/.copilot/mcp-config.json`.
 - **Claude Desktop:** `claude_desktop_config.json`, accessible through **Settings → Developer → Edit Config**.
 - **Cursor:** `.cursor/mcp.json` in your project, or `~/.cursor/mcp.json` for all projects.
 
@@ -72,12 +70,12 @@ Use the `mcpServers` configuration format:
 }
 ```
 
-</details>
+To share the server with your team, commit a project-level `.mcp.json` to source control. Avoid machine-specific absolute paths in shared configuration. Clients that start project servers from the project root can use `["exec", "helios-design-system-mcp"]` instead, or a relative `--dir` path to an application workspace in a monorepo.
 
 <details>
-<summary>VS Code with GitHub Copilot</summary>
+<summary>VS Code with <code>.vscode/mcp.json</code></summary>
 
-Add this to `.vscode/mcp.json`. VS Code uses `servers` rather than `mcpServers`:
+VS Code also supports its own `.vscode/mcp.json` format, which uses `servers` rather than `mcpServers`. Prefer the portable `.mcp.json` above for new configuration; use this format if your workspace already defines servers in `.vscode/mcp.json`:
 
 ```json
 {
