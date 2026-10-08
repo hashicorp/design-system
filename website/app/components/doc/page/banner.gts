@@ -8,12 +8,23 @@ import { tracked } from '@glimmer/tracking';
 import { service } from '@ember/service';
 import { on } from '@ember/modifier';
 import FastBootService from 'ember-cli-fastboot/services/fastboot';
+import type { HdsIconSignature } from '@hashicorp/design-system-components/components/hds/icon/index';
 
 import { HdsIcon } from '@hashicorp/design-system-components/components';
 
 const COOKIE_NAME = 'hide-banner';
 
-export default class DocPageBanner extends Component {
+interface DocPageBannerSignature {
+  Args: {
+    icon?: HdsIconSignature['Args']['name'];
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLDivElement;
+}
+
+export default class DocPageBanner extends Component<DocPageBannerSignature> {
   @tracked isVisible = !this.isDismissed;
   @service declare readonly fastboot: FastBootService;
 
@@ -39,18 +50,12 @@ export default class DocPageBanner extends Component {
   <template>
     {{#if this.isVisible}}
       <div class="doc-page-banner">
-        <HdsIcon
-          class="doc-page-banner__icon"
-          @name="message-circle-fill"
-          @size="24"
-        />
-        <p class="doc-page-banner__text doc-text-body">Got a minute? We’d like
-          your feedback!
-          <a
-            href="https://forms.gle/TtEa9AwtoHH9VCJG8"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Take the survey</a></p>
+        {{#if @icon}}
+          <span class="doc-page-banner__icon">
+            <HdsIcon @name={{@icon}} @size="24" />
+          </span>
+        {{/if}}
+        <div class="doc-page-banner__text doc-text-body">{{yield}}</div>
         <button
           type="button"
           class="doc-page-banner__close"
