@@ -8,6 +8,7 @@ The `@hashicorp/design-system-mcp` package helps your assistant:
 - Choose design tokens by name or value and retrieve their CSS variables.
 - Find Flight icons by name, keyword, category, or size.
 - Read documentation examples, accessibility guidance, and design recommendations.
+- Follow guided workflows for choosing, implementing, reviewing, and troubleshooting Helios components.
 
 The server runs locally over **stdio**. Its tools are read-only and query local catalogs without making network requests. No API key or account is required.
 
@@ -15,15 +16,16 @@ The server runs locally over **stdio**. Its tools are read-only and query local 
 
 - [Getting started](#getting-started)
 - [Usage](#usage)
-- [Tools and resources](#tools-and-resources)
+- [Tools, prompts, and resources](#tools-prompts-and-resources)
 - [Data sources and configuration](#data-sources-and-configuration)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
 - [License](#license)
+- [Versioning](#versioning)
 
 ## Getting started
 
-### Requirements
+### Compatibility
 
 - [Node.js](https://nodejs.org/) 24 or later.
 - [pnpm](https://pnpm.io/installation) for the commands below.
@@ -122,7 +124,9 @@ Try prompts such as:
 
 For component work, the useful sequence is **find the component → inspect its API → search and read its documentation**. Component search matches names and paths; documentation search handles questions about usage and design. Read the full documentation passage to retrieve code examples, since search results contain only snippets.
 
-## Tools and resources
+If your client supports MCP prompts, you can also start one of the server's [guided workflows](#prompts) directly instead of writing the request yourself.
+
+## Tools, prompts, and resources
 
 ### Tools
 
@@ -140,6 +144,19 @@ Your assistant chooses and calls these tools through the MCP client. Names may a
 Use `get_hds_component` for precise API questions; it accepts names such as `Hds::Button`, `HdsButton`, `button`, or `hds/button`. Look up yielded components separately to see their own arguments.
 
 For documentation, scope searches with the component's `docsPath` when available. Use `tab: "Version history"` for version and changelog questions. Search results are relevance-ranked: read the passages and check `pageAnchored` and `unmatchedTerms` before treating a result as evidence of a supported feature.
+
+### Prompts
+
+Prompts are reusable workflows that you start from your client, which typically exposes them as slash commands or in a prompt picker. Each prompt directs your assistant to use the component and documentation tools above, check which catalog version answered, and respond in the conversation without editing files or installing dependencies.
+
+| Prompt                       | Purpose                                                                                                         | Required arguments                                          | Optional arguments |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------ |
+| `choose_hds_component`       | Recommend a component or pattern for an interaction, with rationale, alternatives, and accessibility notes.     | `requirements`                                              | `context`          |
+| `implement_hds_pattern`      | Produce a focused `.gts` implementation using verified APIs, with ember-qunit integration test examples.        | `requirements`                                              | `code`, `context`  |
+| `review_hds_usage`           | Review a code snippet for API usage, composition, and accessibility responsibilities, with prioritized fixes.   | `code`                                                      | `context`          |
+| `troubleshoot_hds_component` | Diagnose unexpected component behavior with evidence-ranked causes, diagnostic steps, and a minimal correction. | `component`, `code`, `expectedBehavior`, `observedBehavior` | `context`          |
+
+Arguments are plain text. `code` accepts up to 20,000 characters, `component` up to 200, and other arguments up to 4,000. Include relevant template, state, and event handler code so the assistant does not have to guess at omitted behavior.
 
 ### Resources
 
@@ -199,26 +216,18 @@ Catalogs are cached in memory. Restart the MCP server after changing installed H
 | Server connects, but answers reflect another Helios version | Inspect `source.version` and `source.resolvedVia`. Check the application path and whether its packages ship the requested catalogs, then restart the server.                                              |
 | Catalog loading fails                                       | Check the client's server logs for the failing catalog. Reinstall dependencies if files are missing; include the package versions and error when reporting an issue.                                      |
 | Documentation looks outdated                                | Check `bundledAt` and follow the result's canonical URL for the live page. Documentation refreshes come with updated MCP snapshots.                                                                       |
-| Running the server in a terminal appears to hang            | The stdio server waits for MCP messages on stdin. Connect through an MCP client or use the Inspector described below. It does not serve an HTTP URL.                                                      |
+| Running the server in a terminal appears to hang            | The stdio server waits for MCP messages on stdin. Connect through an MCP client or use the MCP Inspector described in [CONTRIBUTING.md](CONTRIBUTING.md). It does not serve an HTTP URL.                  |
 
 Server diagnostics are written to stderr; stdout is reserved for MCP messages. If an issue persists, [open an issue](https://github.com/hashicorp/design-system/issues) with your client, Node.js and package versions, configuration, and relevant server logs.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for setup, testing, catalog generation, and release guidance. Development uses Node.js 24.x and pnpm 10.11.0.
-
-After installing workspace dependencies, run this command from the monorepo root:
-
-```bash
-pnpm -F @hashicorp/design-system-mcp start:dev
-```
-
-`start:dev` builds the server, watches for changes, and launches the [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector). Connect using stdio, list the tools, and call `get_hds_component` with `{"name":"Hds::Button"}` to verify a catalog lookup. You can also inspect the resources listed above.
-
-To connect an MCP client directly to a local build, use `node` as the command and the absolute path to `packages/mcp/dist/index.js` as its argument. Set `HDS_MCP_PROJECT_ROOT` to query a separate application's installed catalogs.
-
-See the [changelog](CHANGELOG.md) for MCP package changes and the [Helios documentation](https://helios.hashicorp.design) for design system guidance.
+See the [Contributing](CONTRIBUTING.md) guide for details.
 
 ## License
 
 This project is licensed under the [Mozilla Public License 2.0](https://github.com/hashicorp/design-system/blob/main/LICENSE).
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. See the [changelog](CHANGELOG.md) for MCP package changes.
