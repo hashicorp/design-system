@@ -15,6 +15,18 @@ navigation:
     - documentation
 ---
 
-<section data-tab="Overview">
-  @include "partials/overview.md"
+<section data-tab="Getting started">
+  @include "partials/getting-started.md"
+</section>
+
+<section data-tab="Resources">
+  @include "partials/resources.md"
+</section>
+
+<section data-tab="Designer considerations">
+  @include "partials/designer-considerations.md"
+</section>
+
+<section data-tab="Version history">
+  @include "partials/version-history.md"
 </section>
