@@ -3,13 +3,13 @@
   <LF.Item>
     <input
       id="input-with-visibility-toggle"
-      type={{if this.isContentHidden "password" "text"}}
+      type={{if this.isContentMasked "password" "text"}}
       value="example-content"
     />
   </LF.Item>
   <LF.Item>
     <Hds::Form::VisibilityToggle
-      @isVisible={{this.isContentHidden}}
+      @isVisible={{this.isContentMasked}}
       @ariaLabel="Toggle content visibility"
       @ariaMessageText="Content is hidden"
       @ariaMessageTextWhenVisible="Content is visible"

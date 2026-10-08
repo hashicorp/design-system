@@ -8,10 +8,10 @@ import {
 } from '@hashicorp/design-system-components/components';
 
 export default class LocalComponent extends Component {
-  @tracked isContentHidden = true;
+  @tracked isContentMasked = true;
 
   toggleVisibility = () => {
-    this.isContentHidden = !this.isContentHidden;
+    this.isContentMasked = !this.isContentMasked;
   };
 
   <template>
@@ -20,13 +20,13 @@ export default class LocalComponent extends Component {
       <LF.Item>
         <input
           id="input-with-visibility-toggle"
-          type={{if this.isContentHidden "password" "text"}}
+          type={{if this.isContentMasked "password" "text"}}
           value="example-content"
         />
       </LF.Item>
       <LF.Item>
         <HdsFormVisibilityToggle
-          @isVisible={{this.isContentHidden}}
+          @isVisible={{this.isContentMasked}}
           @ariaLabel="Toggle content visibility"
           @ariaMessageText="Content is hidden"
           @ariaMessageTextWhenVisible="Content is visible"

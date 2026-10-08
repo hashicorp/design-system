@@ -231,13 +231,13 @@ Control, label, helper text, and error content are passed to the field as yielde
 ### Form::VisibilityToggle
 <Doc::ComponentApi as |C|>
   <C.Property @name="isVisible" @type="boolean" @default="false">
-    Controls which icon is displayed to indicate the visibility state. Displays the `eye` icon when `true` for hidden content and the `eye-off` when `false` for visible content. 
+    Controls which icon is displayed to indicate the visibility state. Displays the `eye` icon when `true` for masked content and the `eye-off` when `false` for visible content. 
   </C.Property>
   <C.Property @name="ariaLabel" @type="string">
     Sets an accessible name for the button's action.
   </C.Property>
   <C.Property @name="ariaMessageText" @type="string">
-    Sets a message announced via the component's `aria-live` region when the associated content is hidden.
+    Sets a message announced via the component's `aria-live` region when the associated content is masked.
   </C.Property>
   <C.Property @name="ariaMessageTextWhenVisible" @type="string">
     Sets a message announced via the component's `aria-live` region when the associated content is made visible.

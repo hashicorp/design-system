@@ -155,15 +155,15 @@ The layout of the content inside the "control" container is the responsibility o
 It’s unlikely that you’ll need to use this component directly, but if you do [contact the Design Systems Team](/about/support) so we can provide support.
 !!!
 
-The default invocation renders an icon-only button used to show or hide masked content. Pass an `@isVisible` argument to control the displayed icon based on the state of the associated content.
+The default invocation renders an icon-only button used to show or mask content. Pass an `@isVisible` argument to control the displayed icon based on the state of the associated content.
 
-Pass an `@ariaLabel` argument to describe the button action. When the visibility state is toggled, use the arguments `@ariaMessageText` to announce that the associated content is hidden and `@ariaMessageTextWhenVisible` to announce that it is visible. 
+Pass an `@ariaLabel` argument to describe the button action. When the visibility state is toggled, use the arguments `@ariaMessageText` to announce that the associated content is masked and `@ariaMessageTextWhenVisible` to announce that it is visible. 
 
-#### Hidden content
+#### Masked content
 
-When the associated content is hidden, set `@isVisible` to `true` to display the eye icon.
+When the associated content is masked, set `@isVisible` to `true` to display the eye icon.
 
-[[code-snippets/form-primitives-visibility-toggle-hidden]]
+[[code-snippets/form-primitives-visibility-toggle-masked]]
 
 #### Visible content
 

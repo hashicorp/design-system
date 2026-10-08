@@ -2,9 +2,9 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
 export default class LocalComponent extends Component {
-  @tracked isContentHidden = true;
+  @tracked isContentMasked = true;
 
   toggleVisibility = () => {
-    this.isContentHidden = !this.isContentHidden;
+    this.isContentMasked = !this.isContentMasked;
   };
 }
