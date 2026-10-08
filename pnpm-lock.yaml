@@ -465,6 +465,9 @@ importers:
       '@modelcontextprotocol/sdk':
         specifier: ^1.30.0
         version: 1.30.0(zod@4.4.3)
+      posthog-node:
+        specifier: ^5.55.0
+        version: 5.55.0(rxjs@7.8.2)
       zod:
         specifier: ^4.4.3
         version: 4.4.3
@@ -3434,6 +3437,12 @@ packages:
 
   '@popperjs/core@2.11.8':
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
+
+  '@posthog/core@1.57.1':
+    resolution: {integrity: sha512-0RQvInX+TlsETdwCnmpdu9Ji2BSqe/NyxxxiEHjsp6iA3W3UtyJ2yUYyZnadjYMArP3LvudEwhN1oSQYMw2pzQ==}
+
+  '@posthog/types@1.415.1':
+    resolution: {integrity: sha512-7Qs2wcqipl8KcFpIkIKE1Wcj1djX4dEB3cfq907HrNpKK7/xKh3U4N4bkOD6h9+8j3SxWWrj9JNpE8CZXsE35w==}
 
   '@prettier/sync@0.2.1':
     resolution: {integrity: sha512-7ls1R6//+GPYD9vof1XaL5psViv83CwpdwlS8oUkWldYgbPhzZ3WgxIQMWqGyBmWPmoBfQg8C7jj7KI/ZuDHhQ==}
@@ -10467,6 +10476,15 @@ packages:
     resolution: {integrity: sha512-vuwillviilfKZsg0VGj5R/YwwcHx4SLsIOI/7K6mQkWx+l5cUHTjj5g0AasTBcyXsbfTgrwsUNmVUb5xVwyPwg==}
     engines: {node: ^10 || ^12 || >=14}
 
+  posthog-node@5.55.0:
+    resolution: {integrity: sha512-8dFtlDTqs0CKGZ8t4mUnk4NdShAgzru3B9D0MfM/NTBzlRyAjctivzWINLtMLRQxYjvgBohxy7RTwiQf4mPycQ==}
+    engines: {node: ^20.20.0 || >=22.22.0}
+    peerDependencies:
+      rxjs: ^7.0.0
+    peerDependenciesMeta:
+      rxjs:
+        optional: true
+
   preact@10.25.4:
     resolution: {integrity: sha512-jLdZDb+Q+odkHJ+MpW/9U5cODzqnB+fy2EiHSZES7ldV5LK7yjlVzTp7R8Xy6W6y75kfK8iWYtFVH7lvjwrCMA==}
 
@@ -15971,6 +15989,12 @@ snapshots:
       find-up: 5.0.0
 
   '@popperjs/core@2.11.8': {}
+
+  '@posthog/core@1.57.1':
+    dependencies:
+      '@posthog/types': 1.415.1
+
+  '@posthog/types@1.415.1': {}
 
   '@prettier/sync@0.2.1(prettier@3.6.2)':
     dependencies:
@@ -25492,6 +25516,12 @@ snapshots:
       nanoid: 3.3.12
       picocolors: 1.1.1
       source-map-js: 1.2.1
+
+  posthog-node@5.55.0(rxjs@7.8.2):
+    dependencies:
+      '@posthog/core': 1.57.1
+    optionalDependencies:
+      rxjs: 7.8.2
 
   preact@10.25.4: {}
 
