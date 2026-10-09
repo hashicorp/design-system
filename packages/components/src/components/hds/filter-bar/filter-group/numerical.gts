@@ -248,32 +248,38 @@ export default class HdsFilterBarFilterGroupNumerical extends Component<HdsFilte
     selector: HdsFilterBarNumericalFilterSelector
   ): string => {
     const options = { default: NUMERICAL_SELECTORS_INPUT_TEXT[selector] };
+
     switch (selector) {
       case 'less-than':
         return this.hdsIntl.t(
           'hds.components.filter-bar.filter-group.numerical.selector-input.less-than',
           options
         );
+
       case 'less-than-or-equal-to':
         return this.hdsIntl.t(
           'hds.components.filter-bar.filter-group.numerical.selector-input.less-than-or-equal-to',
           options
         );
+
       case 'equal-to':
         return this.hdsIntl.t(
           'hds.components.filter-bar.filter-group.numerical.selector-input.equal-to',
           options
         );
+
       case 'greater-than-or-equal-to':
         return this.hdsIntl.t(
           'hds.components.filter-bar.filter-group.numerical.selector-input.greater-than-or-equal-to',
           options
         );
+
       case 'greater-than':
         return this.hdsIntl.t(
           'hds.components.filter-bar.filter-group.numerical.selector-input.greater-than',
           options
         );
+
       case 'between':
         return this.hdsIntl.t(
           'hds.components.filter-bar.filter-group.numerical.selector-input.between',

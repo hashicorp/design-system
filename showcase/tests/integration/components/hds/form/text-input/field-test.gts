@@ -409,10 +409,13 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
     await render(
       <template><HdsFormTextInputField @type="password" /></template>,
     );
+
     assert
       .dom('.hds-form-visibility-toggle')
       .hasText('Overridden hidden message');
+
     await click('.hds-form-visibility-toggle');
+
     assert
       .dom('.hds-form-visibility-toggle')
       .hasText('Overridden visible message');
