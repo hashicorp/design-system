@@ -15,8 +15,8 @@ body.page-components-form-textarea {
       display: flex;
       justify-content: space-between;
       padding: 10px;
-      background-color: #e4e4e4;
-      border: 1px solid #999;
+      background-color: var(--shw-color-gray-600);
+      border: 1px solid var(--shw-color-gray-400);
       border-bottom: none;
       border-radius: 5px 5px 0 0;
     }

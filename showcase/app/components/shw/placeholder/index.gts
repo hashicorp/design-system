@@ -79,8 +79,17 @@ export default class ShwPlaceholder extends Component<ShwPlaceholderSignature> {
     return styles.length > 0 ? htmlSafe(styles.join('; ')) : undefined;
   }
 
+  get classNames(): string {
+    const classNames = ['shw-placeholder'];
+    if (this.args.background && this.args.background !== 'transparent') {
+      classNames.push('shw-placeholder__has-custom-background');
+    }
+
+    return classNames.join(' ');
+  }
+
   <template>
-    <div class="shw-placeholder" style={{this.style}} ...attributes>
+    <div class={{this.classNames}} style={{this.style}} ...attributes>
       {{#if @text}}
         {{@text}}
       {{else}}
