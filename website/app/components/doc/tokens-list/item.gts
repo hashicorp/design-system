@@ -173,7 +173,7 @@ export default class DocTokensListItem extends Component<DocTokensListItemSignat
                   class="doc-tokens-list__item-row-carbonization-badge"
                   @type="information-inverted"
                   @size="medium"
-                >Carbonized</DocBadge>
+                >Carbon modes</DocBadge>
               {{/if}}
             </:extra>
           </DocMetaRow>
@@ -194,7 +194,7 @@ export default class DocTokensListItem extends Component<DocTokensListItemSignat
         {{/if}}
         {{#if (and this.isExpanded this.token.modes)}}
           <div class="doc-tokens-list__content-divider"></div>
-          <div class="doc-tokens-list__content-label">Carbonization</div>
+          <div class="doc-tokens-list__content-label">Carbon modes</div>
           <div class="doc-tokens-list__content-modes">
             {{#each this.token.modes as |mode|}}
               {{#unless (eq mode.mode "default")}}
