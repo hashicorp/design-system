@@ -80,7 +80,7 @@ export default class HdsFormTextInputField extends Component<HdsFormTextInputFie
       return this.args.visibilityToggleAriaMessageText;
     } else {
       return this.hdsIntl.t(
-        'hds.components.form.text-input.field.toggle-password-is-hidden',
+        'hds.components.form.text-input.field.password-is-hidden',
         {
           default: 'Password is hidden',
         }

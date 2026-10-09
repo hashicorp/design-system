@@ -172,13 +172,20 @@ export default class HdsTable<T = HdsTableModel> extends Component<
         this.args.columns?.find((column) => column.key === this.sortBy)
           ?.label ?? this.sortBy;
 
-      return this.hdsIntl.t(
-        `hds.components.table.sorted-message.${sortOrder}`,
-        {
-          default: `Sorted by ${columnLabel} ${sortOrder}`,
-          columnLabel,
-        }
-      );
+      const options = {
+        default: `Sorted by ${columnLabel} ${sortOrder}`,
+        columnLabel,
+      };
+
+      return sortOrder === 'ascending'
+        ? this.hdsIntl.t(
+            'hds.components.table.sorted-message.ascending',
+            options
+          )
+        : this.hdsIntl.t(
+            'hds.components.table.sorted-message.descending',
+            options
+          );
     } else {
       return '';
     }
