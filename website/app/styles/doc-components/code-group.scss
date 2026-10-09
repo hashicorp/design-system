@@ -150,7 +150,7 @@ $doc-code-group-footer-height: 48px; // 32px button height + 16px bottom padding
   }
 
   &.hds-theme-dark {
-    background-image: linear-gradient(rgba(0, 0, 0, 80%), rgba(0, 0, 0, 80%)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 2'%3E%3Cpath d='M1 2V0h1v1H0v1z' fill-opacity='.05'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='2' height='2' viewBox='0 0 2 2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='2' height='2' fill='%23141414'/%3E%3Cpath d='M1 2V0H2V1H0V2H1Z' fill='white' fill-opacity='0.05'/%3E%3C/svg%3E%0A");
   }
 }
 
