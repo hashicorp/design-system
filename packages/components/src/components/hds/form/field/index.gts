@@ -117,6 +117,23 @@ export default class HdsFormField extends Component<HdsFormFieldSignature> {
     unregisterAriaDescriptionElement(this as AriaDescribedByComponent, element);
   };
 
+  /*
+    Conditional logic & DOM structure of template code:
+
+    if @layout === "flag":
+      Control
+      Label
+      HelperText
+    
+    else
+      Label
+      HelperText
+      Control
+    /if
+
+    CharacterCount
+    Error
+  */
   <template>
     <div class={{this.classNames}} ...attributes>
       {{#if (eq @layout "flag")}}
@@ -149,6 +166,7 @@ export default class HdsFormField extends Component<HdsFormFieldSignature> {
             )
           )
         }}
+
       {{else}}
         {{yield
           (hash
@@ -180,6 +198,7 @@ export default class HdsFormField extends Component<HdsFormFieldSignature> {
           </div>
         {{/let}}
       {{/if}}
+
       {{yield
         (hash
           CharacterCount=(component
