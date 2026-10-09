@@ -101,20 +101,19 @@ For details about how this component should be used and its API, see [the compon
 
 #### Icon loading
 
-Icons are loaded automatically and individually, on demand: only the icons actually rendered by your application are downloaded, and each one is fetched once and then reused. No configuration is required on your side.
+Icons are loaded automatically and individually on demand. Only rendered icons are fetched, downloaded once, and reused across the application—no extra configuration required.
 
 !!! Info
 
 **Migrating from the SVG sprite**
 
-Before v7.0 icons were delivered as a single SVG sprite, injected either into your application’s `index.html` file or, when the `flightIconsSpriteLazyEmbed` flag was set to `true`, as part of your app bundle. The `Hds::Icon` component no longer relies on that sprite, so the `flightIconsSpriteLazyEmbed` setting is obsolete and can be safely removed from your app’s `config/environment.js` file.
+Before v7.0 icons were delivered as a single SVG sprite, injected either into your application’s `index.html` file or, when the `flightIconsSpriteLazyEmbed` flag was set to `true`, as part of your app bundle. The `Hds::Icon` component no longer relies on that sprite, so you can safely remove the obsolete `flightIconsSpriteLazyEmbed` setting from your app's `config/environment.js` file.
+
 !!!
 
 #### Using the icons without importing the whole components package
 
-If you want to use the Flight icons without installing the whole `@hashicorp/design-system-components` package, you have to use the `@hashicorp/flight-icons` to import the SVG sprite, and then you will have to build your own Ember component that renders the icons as an `<svg>` HTML element.
-
-You can [take inspiration from this PR](https://github.com/hashicorp/design-system-metrics/pull/23) to build your own component. Note that the `Hds::Icon` component itself is not a good starting point to copy from, since it relies on internal services to resolve and load each icon.
+If you want to use the Flight icons without installing the whole `@hashicorp/design-system-components` package, you have to use the `@hashicorp/flight-icons` to import the SVG assets, and then you will have to build your own Ember component that renders the icons as an `<svg>` HTML element.
 
 ### React applications
 
