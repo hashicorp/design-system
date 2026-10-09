@@ -25,18 +25,18 @@ Some examples of semantic color combinations with their respective contrast rati
 
 ### How are semantic names created?
 
-In semantic token naming, the semantic **element** and the **role** are defined to make color decisions easier and more consistent. HDS organizes semantic tokens into **element** categories with **properties** and **roles** appended.
+In semantic token naming, the **semantic** and **modifier** values are defined to make color decisions easier and more consistent. HDS organizes tokens into **semantic** categories, followed by **properties**, and then **modifiers**.
 
 ![Columns showing how the token name is broken down into a prefix, element, property, and role](/assets/foundations/color/colors-semantic-token-naming.png)
 
-Examples of **element** naming include:
+Examples of **semantic** naming include:
 
 - **Foreground** - For text, link, status, and icon elements
 - **Border** - For borders (or strokes) on components, containers, or dividers
 - **Surface** - For the background (or surface) of a component or container
 - **Page** - For page backgrounds
 
-Examples of **role** in naming include:
+Examples of **modifiers** in naming include:
 
 - Strong
 - Primary
@@ -93,15 +93,15 @@ Page colors are used for page backgrounds. HDS components do not use these token
 
 ## Accessible color combinations
 
-We are conformant with WCAG 2.2 Level AA requirements. For color contrast, this means a luminosity ratio of 4.5:1 for normal sized text, and 3:1 for large text (commonly 22px). Further details are outlined on [WCAG’s understanding of Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html).
+HDS colors are conformant with WCAG 2.2 Level AA requirements. For color contrast, this means a luminosity ratio of 4.5:1 for normal sized text, and 3:1 for large text (commonly 22px). Further details are outlined on [WCAG’s understanding of Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html).
 
 HDS semantic color tokens provide accessible color combinations out of the box when used according to their naming conventions (`Surface/Color/{Status color}`is compliant in combination with `Foreground/Color/{Status color on surface}`). Using other color token combinations requires manual validation.
 
-It is important to note that we [do not recommend the usage of disabled elements](/patterns/disabled-patterns), especially isolating disabled colors out of context, as they are not accessible.
+It is important to note that we [do not recommend the usage of disabled elements](/patterns/disabled-patterns), especially the use of disabled colors out of context, as they are not accessible.
 
 ### Using palette colors
 
-If Semantic tokens do not meet your needs, the Core Palette is published for general use. These values are usage-agnostic, which can introduce challenges in consistently scaling designs but also allow more freedom and flexibility in color pairing.
+If the Semantic tokens do not meet your needs, the Core Palette has been published for general use. These values are usage-agnostic, which can introduce challenges in consistently scaling designs but also allows more freedom and flexibility in color pairing.
 
 When pairing colors from the Core Palette, check that adjacent colors meet accessible contrast ratios. To validate your color combinations, use free tools like the [WebAIM contrast checker](https://webaim.org/resources/contrastchecker/) or [Stark’s Figma plugin](https://www.figma.com/community/plugin/732603254453395948/stark-contrast-accessibility-checker).
 
@@ -109,6 +109,6 @@ When pairing colors from the Core Palette, check that adjacent colors meet acces
 
 Core palette colors don't respond to theming changes. If you need to use them in an application that supports theming, make sure you check how the color behaves in different theme contexts, especially in terms of contrast and accessibility.
 
-Whenever possible, prefer semantic color tokens, which automatically resolve to the correct value for the active theme.
+Whenever possible, use semantic color tokens, which automatically resolve to the correct value for the active theme.
 
 !!!
