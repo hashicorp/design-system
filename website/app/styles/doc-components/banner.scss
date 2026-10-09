@@ -49,8 +49,18 @@
     color: var(--doc-banner-title-color);
   }
 
-  > p:first-child:has(strong) {
+  // we want content to be a bit more compact inside a banner
+  > p {
     margin: 0 0 6px 0;
+  }
+
+  > ol,
+  > ul {
+    margin-top: 6px;
+
+    > li + li {
+      margin-top: 6px;
+    }
   }
 
   // we need to override the font size of some of the most commonly used type of content
