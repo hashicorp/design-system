@@ -10,7 +10,7 @@
     position: relative;
     max-width: 280px;
     padding: 16px 16px 65px;
-    background: #fff;
+    background: var(--hds-page-color-primary);
     border: 1px solid;
     border-radius: 16px;
     aspect-ratio: 9 / 16;
@@ -22,7 +22,7 @@
       width: 40px;
       height: 40px;
       margin: 0 auto;
-      background: var(--hds-core-color-neutral-200);
+      background: var(--hds-surface-color-strong);
       border-radius: 50%;
       content: "";
     }
