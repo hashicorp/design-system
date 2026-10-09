@@ -16,6 +16,7 @@ export function readCatalog(files) {
   for (const { file, source } of files) {
     const lines = new LineCounter();
     const document = parseDocument(source, { lineCounter: lines });
+
     // match ember-intl's filename and locale normalization before comparing records
     const locale = path.posix
       .basename(file)
@@ -25,6 +26,7 @@ export function readCatalog(files) {
       .toLowerCase();
     const directory = path.posix.dirname(file);
     const namespace = directory === '.' ? [] : directory.split('/');
+
     const report = (offset, message) => {
       diagnostics.push({
         file: `translations/${file}`,

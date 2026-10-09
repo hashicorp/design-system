@@ -569,6 +569,7 @@ export default class HdsAdvancedTable<
       default: `Sorted by ${columnLabel} ${sortOrder}`,
       columnLabel,
     };
+
     return sortOrder === 'ascending'
       ? this.hdsIntl.t(
           'hds.components.advanced-table.sorted-message.ascending',

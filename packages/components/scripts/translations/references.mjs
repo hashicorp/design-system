@@ -75,17 +75,20 @@ function enclosingThisClass(node) {
       parent = parent.parent;
     }
   }
+
   return undefined;
 }
 
 export function readReferences({ file, source }) {
   const references = [];
   const diagnostics = [];
+
   const locationSource = ts.createSourceFile(
     file,
     source,
     ts.ScriptTarget.Latest
   );
+
   const report = (offset, category, message) => {
     const { line, character } =
       locationSource.getLineAndCharacterOfPosition(offset);
@@ -98,6 +101,7 @@ export function readReferences({ file, source }) {
       message,
     });
   };
+
   const record = (key, offset) => {
     if (typeof key !== 'string' || key.trim().length === 0) {
       report(
@@ -120,6 +124,7 @@ export function readReferences({ file, source }) {
       ? preprocessor.parse(source, { filename: file })
       : [];
     let script = source;
+
     // mask templates without shifting utf-16 offsets or line numbers
     for (const tag of [...templates].reverse()) {
       const start = tag.range.startUtf16Codepoint;
@@ -132,6 +137,7 @@ export function readReferences({ file, source }) {
         script.slice(start + 1, end).replace(/[^\r\n]/g, ' ') +
         script.slice(end);
     }
+
     const ast = ts.createSourceFile(
       file,
       script,
@@ -151,6 +157,7 @@ export function readReferences({ file, source }) {
 
       return { references, diagnostics };
     }
+
     // resolve local bindings without loading the application or its dependencies
     const host = {
       ...ts.createCompilerHost({}),
@@ -159,11 +166,13 @@ export function readReferences({ file, source }) {
       readFile: (name) => (name === file ? script : undefined),
       writeFile: () => {},
     };
+
     const program = ts.createProgram(
       [file],
       { noLib: true, noResolve: true, allowNonTsExtensions: true },
       host
     );
+
     const checker = program.getTypeChecker();
     const helpers = new Set();
     const services = new Set();
@@ -177,6 +186,7 @@ export function readReferences({ file, source }) {
       }
 
       const bindings = statement.importClause?.namedBindings;
+
       const names = [
         statement.importClause?.name,
         ...(bindings !== undefined && ts.isNamedImports(bindings)
@@ -296,6 +306,7 @@ export function readReferences({ file, source }) {
           const name = propertyName(
             declaration.propertyName ?? declaration.name
           );
+
           const initializer = declaration.parent.parent.initializer;
 
           if (name === undefined || declaration.dotDotDotToken !== undefined) {
@@ -387,6 +398,7 @@ export function readReferences({ file, source }) {
           .filter((symbol) => helpers.has(symbol))
           .map((symbol) => symbol.name)
       );
+
       const template = preprocess(tag.contents);
       const ancestors = [];
 

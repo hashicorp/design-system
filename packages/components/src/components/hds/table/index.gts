@@ -176,6 +176,7 @@ export default class HdsTable<T = HdsTableModel> extends Component<
         default: `Sorted by ${columnLabel} ${sortOrder}`,
         columnLabel,
       };
+
       return sortOrder === 'ascending'
         ? this.hdsIntl.t(
             'hds.components.table.sorted-message.ascending',

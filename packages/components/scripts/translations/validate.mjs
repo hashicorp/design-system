@@ -10,16 +10,19 @@ export function validateTranslations({ catalogs, sources }) {
   const catalog = readCatalog(catalogs);
   const usages = sources.map(readReferences);
   const references = usages.flatMap((usage) => usage.references);
+
   const diagnostics = [
     ...catalog.diagnostics,
     ...usages.flatMap((usage) => usage.diagnostics),
   ];
+
   // other locales cannot substitute for a missing source-locale definition
   const keys = new Set(
     catalog.records
       .filter((record) => record.locale === 'en-us')
       .map((record) => record.key)
   );
+
   const used = new Set(references.map((reference) => reference.key));
 
   if (catalogs.length === 0 || sources.length === 0 || keys.size === 0) {
@@ -34,12 +37,13 @@ export function validateTranslations({ catalogs, sources }) {
 
   if (catalog.diagnostics.length === 0) {
     for (const reference of references) {
-      if (!keys.has(reference.key))
+      if (!keys.has(reference.key)) {
         diagnostics.push({
           ...reference,
           category: 'missing-key',
           message: reference.key,
         });
+      }
     }
   }
 
@@ -49,12 +53,13 @@ export function validateTranslations({ catalogs, sources }) {
     catalog.diagnostics.length === 0
   ) {
     for (const record of catalog.records) {
-      if (!used.has(record.key))
+      if (!used.has(record.key)) {
         diagnostics.push({
           ...record,
           category: 'unused-key',
           message: `${record.key} (${record.locale})`,
         });
+      }
     }
   }
 

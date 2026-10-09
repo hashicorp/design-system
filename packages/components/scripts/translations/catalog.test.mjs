@@ -76,6 +76,7 @@ describe('readCatalog', () => {
       'Translation hds.empty must have a string value',
       'Translation hds.flag must have a string value',
     ]);
+
     assert.deepEqual(result.records, []);
   });
 
@@ -186,6 +187,7 @@ describe('readCatalog', () => {
     assert.deepEqual(messages(result), [
       'Translation directories must use lowercase letters, digits, hyphens, or underscores',
     ]);
+
     assert.deepEqual(result.records, []);
   });
 });
