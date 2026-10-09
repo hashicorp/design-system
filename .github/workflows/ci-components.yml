@@ -51,12 +51,13 @@ jobs:
       - name: Check Component Catalog
         run: pnpm test:component-catalog
         working-directory: packages/components
-      - name: Lint Showcase
-        run: pnpm lint
-        working-directory: showcase
-      - name: Lint Components
-        run: pnpm lint
-        working-directory: packages/components
+      - parallel:
+          - name: Lint Showcase
+            run: pnpm lint
+            working-directory: showcase
+          - name: Lint Components
+            run: pnpm lint
+            working-directory: packages/components
       - name: Resolve Chrome for Percy (as Percy fails to do so)
         run: |
           set -euo pipefail
