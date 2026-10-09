@@ -13,7 +13,7 @@
     Appends an `Optional` indicator next to the label text when user input is optional.
   </C.Property>
   <C.Property @name="hiddenText" @type="string">
-    Accepts a string. The `hiddenText` value is rendered as visually hidden accessible text.
+    Renders the `hiddenText` value as visually hidden accessible text.
   </C.Property>
   <C.Property @name="yield">
     Elements passed as children are yielded as inner content of a `<label>` HTML element.
@@ -225,5 +225,24 @@ Control, label, helper text, and error content are passed to the field as yielde
         If the error is made of multiple messages, you can iterate over a collection of error messages yielding individual items using `Error.Message`.
       </C.Property>
     </Doc::ComponentApi>
+  </C.Property>
+</Doc::ComponentApi>
+
+### Form::VisibilityToggle
+<Doc::ComponentApi as |C|>
+  <C.Property @name="isVisible" @type="boolean" @default="false">
+    Controls which icon is displayed to indicate the visibility state. Displays the `eye` icon when `true` for masked content and the `eye-off` icon when `false` for visible content.
+  </C.Property>
+  <C.Property @name="ariaLabel" @type="string">
+    Sets an accessible name for the button’s action.
+  </C.Property>
+  <C.Property @name="ariaMessageText" @type="string">
+    Sets a message announced via the component’s `aria-live` region when the associated content is masked.
+  </C.Property>
+  <C.Property @name="ariaMessageTextWhenVisible" @type="string">
+    Sets a message announced via the component’s `aria-live` region when the associated content is made visible.
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
