@@ -34,6 +34,7 @@
     "start": "rollup --config --watch --environment development",
     "test:dist-files": "node scripts/check-dist-files.mjs",
     "test:component-catalog": "node scripts/check-component-catalog.mjs",
+    "test:translations": "node --test \"scripts/translations/*.test.mjs\"",
     "prepublishOnly": "pnpm build && pnpm test:dist-files"
   },
   "dependencies": {
