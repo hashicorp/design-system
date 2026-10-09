@@ -1,8 +1,8 @@
 ## How theming works in HDS
 
-Theming is the mechanism that lets an application switch between different visual appearances at runtime, for example between a light and a dark theme.
+Theming allows applications to switch between visual appearances at runtime, e.g., light vs dark theme. Introduced in HDS [v7.0](whats-new/release-notes#700), it supports our transition from the "classic" Helios visual language to [IBM's visual language](https://www.ibm.com/design/language/). 
 
-In HDS, theming was introduced in [version 7.0](whats-new/release-notes#700) as part of the "carbonization" project, aimed at migrating the HDS foundations and components from their original Helios visual language to the [IBM Carbon visual language](https://www.ibm.com/design/language/). See [From Helios to Carbon](/carbonization/introduction) for more details about this process.
+See [From Helios to Carbon](/carbonization/introduction) for more details about this process.
 
 We expect product teams to "carbonize" their applications at their own pace. This means that some applications will continue using the "classic" HDS visual language for some time, while others will start migrating and will need both visual languages to co-exist in the same application, and once fully migrated they will use only the "carbonized" HDS.
 
@@ -32,7 +32,7 @@ Which themes and modes are available to an application depends on the themed tok
 
 The design tokens package, `@hashicorp/design-system-tokens`, provides three pre-built CSS/Sass bundles of themed tokens, each aimed at a different stage of the "carbonization" journey described in the previous section.
 
-| File                          | Themes                               | Modes                                      |
+| File                          | Themes supported                               | Carbon modes                                      |
 | ------------------------------ | ------------------------------------- | -------------------------------------------- |
 | `with-css-selectors`            | `system`, `light`, `dark`             | `cds-g0`, `cds-g100`                         |
 | `with-css-selectors--migration` | `default`, `system`, `light`, `dark`  | `cds-g0`, `cds-g100`                         |
@@ -46,7 +46,7 @@ For complex use cases, the package also provides a Sass bundle with mixins that 
 
 ### Theming utilities
 
-Besides the themed tokens, HDS provides a service and a component to apply theming programmatically to an application, or to a portion of it.
+In addition to themed tokens, we provide a service, a component, and a Sass mixin to programmatically apply theming to an application.
 
 #### `hdsTheming` service
 
@@ -56,7 +56,7 @@ For more details about this service, how to use it, and its APIs, see the [Themi
 
 #### `ThemeContext` component
 
-`Hds::ThemeContext` is a headless component that can be used to apply a theme or mode to the content rendered inside it, independently from the theme applied to the rest of the page.
+`Hds::ThemeContext` is a headless component that can be used to apply a theme or mode to the content rendered inside it, regardless of the theme applied to the rest of the page.
 
 For more details about this component, how to use it, and its APIs, see the [`ThemeContext` component](/theming/theme-context).
 
@@ -88,7 +88,7 @@ However, for general knowledge, this is what the migration steps would look like
 
 #### Dependencies
 
-In your `package.json`, update the HDS dependencies to the minimum versions that support theming:
+In your `package.json`, update the HDS dependencies to the minimum theme-supported versions:
 
 [[code-snippets/migration-dependencies-bump-hds]]
 
