@@ -134,9 +134,16 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
   };
 
   onSearch = (event: Event): void => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    console.log('change occurred on Filter search');
+
     const { filters } = this.args;
     const input = event.target as HTMLInputElement;
     const value = input?.value;
+
+    console.log('current search value:', value);
 
     const newFilters = this._copyFilters(filters);
 
@@ -397,7 +404,8 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
               placeholder={{this.searchPlaceholder}}
               aria-label={{this.searchAriaLabel}}
               name="search"
-              {{on "change" this.onSearch}}
+              autocomplete="off"
+              {{on "input" this.onSearch}}
             />
           {{/if}}
         </div>
