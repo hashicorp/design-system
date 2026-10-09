@@ -21,39 +21,49 @@ function translateErrorMessage(
   message: string,
   hdsIntl?: HdsIntlService
 ): string {
-  if (hdsIntl === undefined) return message;
+  if (hdsIntl === undefined) {
+    return message;
+  }
+
   const options = { default: message };
+
   switch (message as HdsCodeEditorJsonLintingError) {
     case HdsCodeEditorJsonLintingError.InvalidSyntax:
       return hdsIntl.t(
         'hds.modifiers.hds-code-editor.json-linter.errors.invalid-syntax',
         options
       );
+
     case HdsCodeEditorJsonLintingError.KeyExpected:
       return hdsIntl.t(
         'hds.modifiers.hds-code-editor.json-linter.errors.key-expected',
         options
       );
+
     case HdsCodeEditorJsonLintingError.KeyMustBeDoubleQuoted:
       return hdsIntl.t(
         'hds.modifiers.hds-code-editor.json-linter.errors.key-must-be-double-quoted',
         options
       );
+
     case HdsCodeEditorJsonLintingError.MissingComma:
       return hdsIntl.t(
         'hds.modifiers.hds-code-editor.json-linter.errors.missing-comma',
         options
       );
+
     case HdsCodeEditorJsonLintingError.TrailingComma:
       return hdsIntl.t(
         'hds.modifiers.hds-code-editor.json-linter.errors.trailing-comma',
         options
       );
+
     case HdsCodeEditorJsonLintingError.ValueExpected:
       return hdsIntl.t(
         'hds.modifiers.hds-code-editor.json-linter.errors.value-expected',
         options
       );
+
     default:
       return message;
   }
