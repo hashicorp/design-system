@@ -383,4 +383,38 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
     await click('.hds-form-visibility-toggle');
     assert.dom('.hds-form-visibility-toggle').hasText('My password is hidden');
   });
+
+  // TRANSLATIONS
+
+  test('it uses app translation overrides for the visibility toggle messages', async function (assert) {
+    const intl = this.owner.lookup('service:intl');
+
+    intl.addTranslations('en-us', {
+      hds: {
+        components: {
+          form: {
+            'text-input': {
+              field: {
+                'password-is-hidden': 'Overridden hidden message',
+                'password-is-visible': 'Overridden visible message',
+                // the pre-rename key must no longer be consulted
+                'toggle-password-is-hidden': 'Stale hidden message',
+              },
+            },
+          },
+        },
+      },
+    });
+
+    await render(
+      <template><HdsFormTextInputField @type="password" /></template>,
+    );
+    assert
+      .dom('.hds-form-visibility-toggle')
+      .hasText('Overridden hidden message');
+    await click('.hds-form-visibility-toggle');
+    assert
+      .dom('.hds-form-visibility-toggle')
+      .hasText('Overridden visible message');
+  });
 });
