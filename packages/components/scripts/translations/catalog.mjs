@@ -109,7 +109,8 @@ export function readCatalog(files) {
         if (isMap(value)) {
           register(childSegments, 'mapping', offset);
           visit(value, childSegments, loadedValue);
-        } else if (isScalar(value) && typeof loadedValue === 'string') {
+        } else if (typeof loadedValue === 'string') {
+          // aliases are not scalar nodes, but js-yaml resolves them to runtime strings
           register(childSegments, 'string', offset);
 
           const identity = `${locale}:${fullKey}`;
