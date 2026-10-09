@@ -19,6 +19,10 @@ import type { EditorView as EditorViewType } from '@codemirror/view';
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
 
 import hdsCodeEditor from '@hashicorp/design-system-components/modifiers/hds-code-editor';
+import {
+  HdsCodeEditorJsonLintingError,
+  renderErrorMessage,
+} from '@hashicorp/design-system-components/modifiers/hds-code-editor/linters/json-linter';
 import { EditorView } from '@hashicorp/design-system-components/codemirror';
 import type { HdsCodeEditorSignature } from '@hashicorp/design-system-components/modifiers/hds-code-editor';
 
@@ -84,6 +88,48 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
       'EditorView',
       'it attaches an EditorView instance to the element',
     );
+  });
+
+  test('it returns the default CodeMirror phrases', async function (assert) {
+    await createCodeEditor({ ariaLabel: 'test' });
+
+    const element = find('#code-editor-wrapper') as ElementWithEditor;
+
+    assert.strictEqual(
+      element.editor.state.phrase('Diagnostics'),
+      'Diagnostics',
+    );
+    assert.strictEqual(
+      element.editor.state.phrase('No diagnostics'),
+      'No diagnostics',
+    );
+    assert.strictEqual(element.editor.state.phrase('close'), 'close');
+    assert.strictEqual(
+      element.editor.state.phrase('Control character'),
+      'Control character',
+    );
+    assert.strictEqual(
+      element.editor.state.phrase('Selection deleted'),
+      'Selection deleted',
+    );
+  });
+
+  test('it renders the default JSON linting messages', function (assert) {
+    const messages = [
+      HdsCodeEditorJsonLintingError.InvalidSyntax,
+      HdsCodeEditorJsonLintingError.KeyExpected,
+      HdsCodeEditorJsonLintingError.KeyMustBeDoubleQuoted,
+      HdsCodeEditorJsonLintingError.MissingComma,
+      HdsCodeEditorJsonLintingError.TrailingComma,
+      HdsCodeEditorJsonLintingError.ValueExpected,
+    ];
+
+    messages.forEach((message) => {
+      const text = renderErrorMessage(message, 1).querySelector(
+        'span',
+      )?.textContent;
+      assert.strictEqual(text, `Line 1: ${message}`);
+    });
   });
 
   // value

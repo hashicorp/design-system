@@ -354,13 +354,13 @@ module('Integration | Component | hds/table/index', function (hooks) {
     assert.dom('#data-test-table td:nth-of-type(1)').hasText('Melanie');
     assert
       .dom('#data-test-table caption')
-      .hasText('Sorted by artist ascending');
+      .hasText('Sorted by Artist ascending');
 
     await click('#data-test-table .hds-table__th--sort:nth-of-type(1) button');
     assert.dom('#data-test-table td:nth-of-type(1)').hasText('The Beatles');
     assert
       .dom('#data-test-table caption')
-      .hasText('Sorted by artist descending');
+      .hasText('Sorted by Artist descending');
   });
 
   test('it renders a custom sortedMessageText if supplied', async function (assert) {

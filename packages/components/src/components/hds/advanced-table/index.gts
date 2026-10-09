@@ -550,12 +550,28 @@ export default class HdsAdvancedTable<
 
     if (sortedMessageText !== undefined) {
       return sortedMessageText;
-    } else if (this.currentSortBy !== undefined) {
-      // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
-      return `Sorted by ${this.currentSortBy} ${this.currentSortOrder}ending`;
-    } else {
+    }
+
+    if (this.currentSortBy === undefined) {
       return '';
     }
+
+    const sortOrder =
+      this.currentSortOrder === HdsAdvancedTableThSortOrderValues.Asc
+        ? 'ascending'
+        : 'descending';
+
+    const columnLabel =
+      this.args.columns.find((column) => column.key === this.currentSortBy)
+        ?.label ?? this.currentSortBy;
+
+    return this.hdsIntl.t(
+      `hds.components.advanced-table.sorted-message.${sortOrder}`,
+      {
+        default: `Sorted by ${columnLabel} ${sortOrder}`,
+        columnLabel,
+      }
+    );
   }
 
   get isSelectable(): boolean {
@@ -749,7 +765,7 @@ export default class HdsAdvancedTable<
     } else {
       const newPosition = insertedAt + 1;
       const translatedReorderedMessageText = this.hdsIntl.t(
-        'hds.advanced-table.reordered-message',
+        'hds.components.advanced-table.reordered-message',
         {
           default: `Moved ${column.label} column to position ${newPosition}`,
           columnLabel: column.label,
@@ -1067,7 +1083,10 @@ export default class HdsAdvancedTable<
                   @onSelectionChange={{this.onSelectionAllChange}}
                   @didInsert={{this.didInsertSelectAllCheckbox}}
                   @willDestroy={{this.willDestroySelectAllCheckbox}}
-                  @selectionAriaLabelSuffix="all rows"
+                  @selectionAriaLabelSuffix={{hdsT
+                    "hds.components.advanced-table.table-row.selection-aria-label-suffix"
+                    default="all rows"
+                  }}
                   @hasStickyColumn={{this.hasStickyFirstColumn}}
                   @isStickyColumnPinned={{this.isStickyColumnPinned}}
                 >

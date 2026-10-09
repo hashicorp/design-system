@@ -73,8 +73,8 @@ module(
       );
       assert.dom('#test-form-character-count').hasText('0 characters entered');
 
-      await typeIn('#input-1', 'cl');
-      assert.dom('#test-form-character-count').hasText('2 characters entered');
+      await typeIn('#input-1', 'c');
+      assert.dom('#test-form-character-count').hasText('1 character entered');
     });
     test('it renders a character count in the predefined format when only @maxLength is set', async function (assert) {
       const context = new TrackedObject({

@@ -57,7 +57,10 @@ module(
         </template>,
       );
 
-      assert.dom('.hds-application-state__error-code').exists();
+      assert
+        .dom('.hds-application-state__error-code')
+        .exists()
+        .hasText('ERROR 404');
     });
 
     test('it should render the title with a `div` tag if no `@titleTag` is provided', async function (assert) {

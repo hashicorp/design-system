@@ -6,12 +6,14 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { or } from 'ember-truth-helpers';
+import { service } from '@ember/service';
 import style from 'ember-style-modifier';
 import PowerSelect from 'ember-power-select/components/power-select';
 
 import type { PowerSelectSignature } from 'ember-power-select/components/power-select';
 import type { Select } from 'ember-power-select/components/power-select';
 import type { CalculatePositionResult } from 'ember-basic-dropdown/utils/calculate-position';
+import type HdsIntlService from '../../../../../services/hds-intl.ts';
 
 import {
   HdsFormSuperSelectHorizontalPositionValues,
@@ -46,6 +48,7 @@ export interface HdsFormSuperSelectSingleBaseSignature {
 }
 
 export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuperSelectSingleBaseSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
   @tracked powerSelectAPI?: Select;
 
   get horizontalPosition(): HdsFormSuperSelectHorizontalPositions {
@@ -58,7 +61,14 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
       return this.args.resultCountMessage;
     }
 
-    return `${this.powerSelectAPI?.resultsCount || 0} total`;
+    const resultCount = this.powerSelectAPI?.resultsCount || 0;
+    return this.hdsIntl.t(
+      'hds.components.form.super-select.single.result-count-message',
+      {
+        default: `${resultCount} total`,
+        resultCount,
+      }
+    );
   }
 
   get resultCountMessageFunction(): PowerSelectSignature['Args']['resultCountMessage'] {
@@ -67,6 +77,39 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
     }
 
     return undefined;
+  }
+
+  get noMatchesMessage(): string {
+    return (
+      this.args.noMatchesMessage ??
+      this.hdsIntl.t(
+        'hds.components.form.super-select.single.no-matches-message',
+        {
+          default: 'No results found',
+        }
+      )
+    );
+  }
+
+  get loadingMessage(): string {
+    return (
+      this.args.loadingMessage ??
+      this.hdsIntl.t(
+        'hds.components.form.super-select.single.loading-message',
+        {
+          default: 'Loading options...',
+        }
+      )
+    );
+  }
+
+  get searchMessage(): string {
+    return (
+      this.args.searchMessage ??
+      this.hdsIntl.t('hds.components.form.super-select.single.search-message', {
+        default: 'Type to search',
+      })
+    );
   }
 
   /**
@@ -111,7 +154,12 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
   }
 
   get searchPlaceholder(): string {
-    return this.args.searchPlaceholder ?? 'Search';
+    return (
+      this.args.searchPlaceholder ??
+      this.hdsIntl.t('hds.components.form.super-select.single.search', {
+        default: 'Search',
+      })
+    );
   }
 
   get dropdownMaxWidthStyle(): Record<string, string> {
@@ -172,10 +220,10 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
         @horizontalPosition={{@horizontalPosition}}
         @initiallyOpened={{@initiallyOpened}}
         @labelText={{@labelText}}
-        @loadingMessage={{@loadingMessage}}
+        @loadingMessage={{this.loadingMessage}}
         @matcher={{@matcher}}
         @matchTriggerWidth={{if @dropdownMaxWidth false @matchTriggerWidth}}
-        @noMatchesMessage={{@noMatchesMessage}}
+        @noMatchesMessage={{this.noMatchesMessage}}
         @onBlur={{@onBlur}}
         @onChange={{@onChange}}
         @onClose={{@onClose}}
@@ -196,7 +244,7 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
         @searchEnabled={{@searchEnabled}}
         @searchField={{@searchField}}
         @searchFieldPosition="before-options"
-        @searchMessage={{@searchMessage}}
+        @searchMessage={{this.searchMessage}}
         @searchPlaceholder={{this.searchPlaceholder}}
         @selected={{@selected}}
         @selectedItemComponent={{@selectedItemComponent}}
