@@ -27,7 +27,7 @@ export default class DocMetaRow extends Component<DocMetaRowSignature> {
   get classNames() {
     const classes = ['doc-meta-row'];
 
-    // add a class based on the @size argument
+    // add a class based on the @compact argument
     if (this.args.compact) {
       classes.push('doc-meta-row--compact');
     }
