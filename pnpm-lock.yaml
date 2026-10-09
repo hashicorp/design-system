@@ -454,7 +454,7 @@ importers:
   packages/mcp:
     dependencies:
       '@hashicorp/design-system-components':
-        specifier: workspace:^7.0.0
+        specifier: workspace:^7.0.1
         version: file:packages/components(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-intl@8.0.2(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(typescript@5.9.2))(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
       '@hashicorp/design-system-tokens':
         specifier: workspace:^6.0.0
