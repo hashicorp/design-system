@@ -32,6 +32,7 @@ interface DocCodeGroupSignature {
     customLang?: string;
     hidePreview?: 'true' | 'false';
     isExpanded?: 'true' | 'false';
+    hasTheming?: 'true' | 'false';
   };
   Blocks: {
     default: [];
@@ -78,6 +79,10 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   };
 
   private readonly handleStoredThemeChange = (event: Event) => {
+    if (!this.hasTheming) {
+      return;
+    }
+
     const customEvent = event as CustomEvent<string>;
     this.applyThemeSelection(customEvent.detail);
   };
@@ -90,6 +95,10 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
 
       this.applyLanguageSelection(event.newValue);
     } else if (event.key === CODE_GROUP_THEME_STORAGE_KEY) {
+      if (!this.hasTheming) {
+        return;
+      }
+
       this.applyThemeSelection(event.newValue);
     }
   };
@@ -103,7 +112,9 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
         )
       : this.languageOptions[0]?.value || 'hbs';
 
-    this.currentTheme = this.resolveThemeSelection(this.getStoredTheme());
+    this.currentTheme = this.hasTheming
+      ? this.resolveThemeSelection(this.getStoredTheme())
+      : 'hds-default';
 
     if (args.isExpanded === 'true') {
       this.isExpanded = true;
@@ -251,6 +262,10 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     return `Code Demo Theme Selected - ${this.normalizedCurrentRouteName} - ${this.currentTheme}`;
   }
 
+  get hasTheming() {
+    return this.args.hasTheming !== 'false';
+  }
+
   get shouldSyncLanguageSelection() {
     return !!this.args.hbsSnippet && !!this.args.gtsSnippet;
   }
@@ -332,7 +347,9 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   }
 
   private applyThemeSelection(value?: string | null) {
-    this.currentTheme = this.resolveThemeSelection(value);
+    this.currentTheme = this.hasTheming
+      ? this.resolveThemeSelection(value)
+      : 'hds-default';
   }
 
   private persistLanguageSelection(value: string) {
@@ -349,7 +366,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   }
 
   private persistThemeSelection(value: string) {
-    if (this.fastboot.isFastBoot) {
+    if (this.fastboot.isFastBoot || !this.hasTheming) {
       return;
     }
 
@@ -377,6 +394,10 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   };
 
   handleThemeChange = (event: Event) => {
+    if (!this.hasTheming) {
+      return;
+    }
+
     const input = event.target as HTMLSelectElement;
     const selectedOption = input.selectedOptions[0]?.value;
 
@@ -395,12 +416,14 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
       {{#if this.showPreview}}
         <DocCodeGroupActionBar>
           <:primary>
-            <DocCodeGroupThemePicker
-              @themeOptions={{this.themeOptions}}
-              @currentTheme={{this.currentTheme}}
-              @eventName={{this.themeEventName}}
-              @onThemeChange={{this.handleThemeChange}}
-            />
+            {{#if this.hasTheming}}
+              <DocCodeGroupThemePicker
+                @themeOptions={{this.themeOptions}}
+                @currentTheme={{this.currentTheme}}
+                @eventName={{this.themeEventName}}
+                @onThemeChange={{this.handleThemeChange}}
+              />
+            {{/if}}
           </:primary>
         </DocCodeGroupActionBar>
         <div class="doc-code-group__preview {{this.previewThemeClass}}">
