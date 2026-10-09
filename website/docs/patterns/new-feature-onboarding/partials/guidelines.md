@@ -1,31 +1,31 @@
 !!! Info
 
-We currently do not ship a cohesive set of components supporting onboarding, only guidelines and recommendations for how to compose HDS components together. If this would help in your work please [submit a request](/about/support).
+These guidelines are meant to assist teams in designing and building new feature onboarding workflows. Currently there aren't Ember components to support this pattern, but they can be composed using HDS components.
 
 For now, reference our Figma [Patterns](#jory-insert-link) library and implementation in [Terraform/Atlas](#jory-insert-link).
+
+If having a dedicated component would help in your work, please [submit a request](/about/support).
 !!!
 
-Onboard new users and communicate updates to existing features using this pattern, recommended components, and structure.
+The new feature onboarding pattern outlines a consistent way to onboard new users or communicate updates to new or existing features. This pattern can exist as a single entity or be part of a multi-step sequence.
 
 ## Beacon
 
-Use a Beacon element to highlight a new or updated feature, or otherwise draw attention to a specific part of the UI. Position the Beacon adjacent to or subtly overlapping the UI element it is intended to highlight.
+A beacon highlights a new or updated feature, or otherwise draws attention to a specific part of the UI. It should be positioned adjacent to or slightly overlapping the UI element it is intended to highlight.
 
-The Beacon is used as an interactive element to toggle open a [Rich Tooltip](/components/rich-tooltip) containing information about the feature.
+Clicking on a beacon should toggle a [Rich Tooltip](/components/rich-tooltip) containing information about the feature.
 
 ![A Beacon attached to a button highlighting a new function to analyze your configuration with an AI agent](/assets/patterns/new-feature-onboarding/new-feature-onboarding-beacon-example.png)
 
 ## Rich Tooltip
 
-Use the [Rich Tooltip](/components/rich-tooltip) to convey information about the new feature, support a multi-step flow, link out to additional documentation, release notes, or a changelog.
-
-When toggled open, the onboarding Rich Tooltip should be positioned adjacent (either top, bottom, left, or right) to the Beacon with a gap of 4px.
+Use the [Rich Tooltip](/components/rich-tooltip) to convey information about the new feature, support a multi-step flow, or link out to additional documentation, release notes, or a changelogs.
 
 At a minimum, we recommend including text about the feature, but other common elements include:
 
-- title: to display the name of the feature
-- [Badge](/components/badge): to communicate the status of the new feature and add visual interest.
-- actions: use one or more [Buttons](/components/button)) to navigate a multi-step onboarding flow.
+- Title: to display the name of the feature
+- [Badge](/components/badge): to communicate the status of the new feature; e.g., "Alpha", "Beta", "New", "Updated".
+- Actions: use one or more [Buttons](/components/button)) to navigate a multi-step onboarding flow.
 
 ![Content within a Rich Tooltip explaining the value of the new feature](/assets/patterns/new-feature-onboarding/new-feature-onboarding-auto-configuration-example.png)
 
@@ -48,8 +48,15 @@ Highlighting new features is important, but it can be intrusive or disruptive to
 
 ## Multi-step sequences
 
-When onboarding users to more complex features, or when the feature touches multiple parts of the UI, consider breaking the onboarding experience into multiple smaller, easier-to-digest sequential steps. This can be helpful to highlight the initial entry point of a new or updated feature, and subsequently highlight key aspects of the feature as they relate to a critical user journey (CUJ).
+When onboarding users to more complex features, or when the feature touches multiple parts of the UI, consider breaking the experience into multiple easier-to-digest steps. This can be helpful to highlight the initial entry point of a new or updated feature, and subsequently highlight key aspects of the feature as they relate to a critical user journey (CUJ).
 
-Support navigation-oriented actions in a multi-step onboarding sequence by using the HDS [Button](/components/button) component. Use short, navigation-oriented language like "Next", "Back", and "Cancel" for these actions.
+Support navigation in a multi-step onboarding sequence by using a [Button](/components/button) component. Use navigation-oriented language like "Next", "Back", and "Cancel".
 
-In a multi-step onboarding sequence, highlight the first step in the sequence using a Beacon, then continue using the Beacon paired with a Rich Tooltip for each subsequent step to draw the user's eye through the flow.
+In a multi-step sequence, use a beacon to highlight the first step. When a user is ready to move forward, the beacon (and open RichTooltip) should appear at the next step, and so on until all steps are complete or the user has opted out of the rest of the flow. Moving the beacon to each step will draw the user's eye through the flow.
+
+<video width="100%" controls loop>
+  <source
+    src="/assets/patterns/new-feature-onboarding/multi-step-onboarding-sequence.mp4"
+    type="video/mp4"
+  />
+</video>

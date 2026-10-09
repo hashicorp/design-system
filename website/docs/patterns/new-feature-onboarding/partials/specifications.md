@@ -6,7 +6,13 @@
 |---------|-------|
 | Beacon | Highlights the new feature and anchors the onboarding experience. |
 | [Rich Tooltip](/components/rich-tooltip) | Contains contextual onboarding information. |
-| Tooltip content | Explains the value or purpose of the feature within the flow using structured content. |
-| Target feature | The feature introduced by the pattern. |
+| Content | Explains the value or purpose of the feature within the flow using structured content. |
+| Target | The feature introduced by the pattern. |
 | Actions | Allows navigation within a multi-step onboarding sequence. |
-| Links | Directs the user to relevant documentation or supporting resources. |
+| Link | Directs the user to relevant documentation or supporting resources. |
+
+## Spacing
+
+When toggled open, the onboarding Rich Tooltip should be positioned adjacent (either top, bottom, left, or right) to the beacon with a gap of 4px.
+
+![](/assets/patterns/new-feature-onboarding/new-feature-onboarding-spacing.png)
