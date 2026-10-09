@@ -49,11 +49,9 @@ export default class DocPageBanner extends Component<DocPageBannerSignature> {
 
   <template>
     {{#if this.isVisible}}
-      <div class="doc-page-banner">
+      <div class="doc-page-banner" ...attributes>
         {{#if @icon}}
-          <span class="doc-page-banner__icon">
-            <HdsIcon @name={{@icon}} @size="24" />
-          </span>
+          <HdsIcon @name={{@icon}} @size="24" class="doc-page-banner__icon" />
         {{/if}}
         <div class="doc-page-banner__text doc-text-body">{{yield}}</div>
         <button
