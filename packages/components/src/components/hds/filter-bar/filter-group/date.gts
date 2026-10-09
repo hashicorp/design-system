@@ -138,17 +138,20 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
 
   get selectorLabelText(): string {
     const options = { default: DATE_TYPE_DEFAULT_TEXT[this.type].label };
+
     switch (this.type) {
       case 'date':
         return this.hdsIntl.t(
           'hds.components.filter-bar.filter-group.date.date.label',
           options
         );
+
       case 'datetime':
         return this.hdsIntl.t(
           'hds.components.filter-bar.filter-group.date.datetime.label',
           options
         );
+
       case 'time':
         return this.hdsIntl.t(
           'hds.components.filter-bar.filter-group.date.time.label',
@@ -159,17 +162,20 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
 
   get valueInputAriaLabel(): string {
     const options = { default: DATE_TYPE_DEFAULT_TEXT[this.type].value };
+
     switch (this.type) {
       case 'date':
         return this.hdsIntl.t(
           'hds.components.filter-bar.filter-group.date.date.value-input.aria-label',
           options
         );
+
       case 'datetime':
         return this.hdsIntl.t(
           'hds.components.filter-bar.filter-group.date.datetime.value-input.aria-label',
           options
         );
+
       case 'time':
         return this.hdsIntl.t(
           'hds.components.filter-bar.filter-group.date.time.value-input.aria-label',
@@ -180,17 +186,20 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
 
   get betweenStartInputAriaLabel(): string {
     const options = { default: DATE_TYPE_DEFAULT_TEXT[this.type].start };
+
     switch (this.type) {
       case 'date':
         return this.hdsIntl.t(
           'hds.components.filter-bar.filter-group.date.date.between-value-inputs.start.aria-label',
           options
         );
+
       case 'datetime':
         return this.hdsIntl.t(
           'hds.components.filter-bar.filter-group.date.datetime.between-value-inputs.start.aria-label',
           options
         );
+
       case 'time':
         return this.hdsIntl.t(
           'hds.components.filter-bar.filter-group.date.time.between-value-inputs.start.aria-label',
@@ -201,17 +210,20 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
 
   get betweenEndInputAriaLabel(): string {
     const options = { default: DATE_TYPE_DEFAULT_TEXT[this.type].end };
+
     switch (this.type) {
       case 'date':
         return this.hdsIntl.t(
           'hds.components.filter-bar.filter-group.date.date.between-value-inputs.end.aria-label',
           options
         );
+
       case 'datetime':
         return this.hdsIntl.t(
           'hds.components.filter-bar.filter-group.date.datetime.between-value-inputs.end.aria-label',
           options
         );
+
       case 'time':
         return this.hdsIntl.t(
           'hds.components.filter-bar.filter-group.date.time.between-value-inputs.end.aria-label',
@@ -371,22 +383,26 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
     selector: HdsFilterBarDateFilterSelector
   ): string => {
     const options = { default: DATE_SELECTORS_INPUT_TEXT[selector] };
+
     switch (selector) {
       case 'before':
         return this.hdsIntl.t(
           'hds.components.filter-bar.filter-group.date.selector-input.before',
           options
         );
+
       case 'exactly':
         return this.hdsIntl.t(
           'hds.components.filter-bar.filter-group.date.selector-input.exactly',
           options
         );
+
       case 'after':
         return this.hdsIntl.t(
           'hds.components.filter-bar.filter-group.date.selector-input.after',
           options
         );
+
       case 'between':
         return this.hdsIntl.t(
           'hds.components.filter-bar.filter-group.date.selector-input.between',

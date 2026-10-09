@@ -189,7 +189,9 @@ export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAp
           data.value.end as string,
           filter.type
         );
+
         const options = { default: `between ${start} and ${end}`, start, end };
+
         return dateFilterType === 'date'
           ? this.hdsIntl.t(
               'hds.components.filter-bar.applied-filters.tag.date-filter.date.between',
@@ -209,6 +211,7 @@ export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAp
           default: `${DATE_SELECTORS_TEXT[selector]} ${value}`,
           value,
         };
+
         switch (selector) {
           case 'before':
             return dateFilterType === 'date'
@@ -220,6 +223,7 @@ export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAp
                   'hds.components.filter-bar.applied-filters.tag.date-filter.time.before',
                   options
                 );
+
           case 'exactly':
             return dateFilterType === 'date'
               ? this.hdsIntl.t(
@@ -230,6 +234,7 @@ export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAp
                   'hds.components.filter-bar.applied-filters.tag.date-filter.time.exactly',
                   options
                 );
+
           case 'after':
             return dateFilterType === 'date'
               ? this.hdsIntl.t(
@@ -240,6 +245,7 @@ export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAp
                   'hds.components.filter-bar.applied-filters.tag.date-filter.time.after',
                   options
                 );
+
           case 'between':
             return dateFilterType === 'date'
               ? this.hdsIntl.t(
