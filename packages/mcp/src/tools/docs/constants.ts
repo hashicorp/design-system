@@ -19,7 +19,7 @@ export const VERSION_HISTORY_TAB = "Version history";
 
 export const DOCS_TABS = [
   "Accessibility",
-  "Carbonization",
+  "Carbon theme",
   "Code",
   "Components",
   "Content",
