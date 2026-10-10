@@ -500,12 +500,12 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
     const numLinesBeforeStart = linesBeforeStart?.length ?? 0;
     const numLinesBeforeEnd = linesBeforeEnd?.length ?? 0;
 
-    // Note: We add 1 because highlight lines are 1-based
+    // Note: We add 1 because line numbers are 1-based
     assert.strictEqual(numLinesBeforeStart + 1, 2);
     assert.strictEqual(numLinesBeforeEnd + 1, 4);
   });
 
-  test('it places the `sr-only` markers correctly when `@lineNumberStart` is defined', async function (assert) {
+  test('it places the `sr-only` markers correctly for a multi-line highlight when `@lineNumberStart` is defined', async function (assert) {
     await render(
       <template>
         <HdsCodeBlock
@@ -560,9 +560,56 @@ end"
     const numLinesBeforeStart = linesBeforeStart?.length ?? 0;
     const numLinesBeforeEnd = linesBeforeEnd?.length ?? 0;
 
-    // Note: Expected newline counts have been subtracted by (lineNumberStart - 1)
+    // Note: Expected number of newlines have been subtracted by (lineNumberStart - 1)
     assert.strictEqual(numLinesBeforeStart + 1, 13);
     assert.strictEqual(numLinesBeforeEnd + 1, 16);
+  });
+
+  test('it places the `sr-only` markers correctly for a single line highlight when `@lineNumberStart` is defined', async function (assert) {
+    await render(
+      <template>
+        <HdsCodeBlock
+          id="test-code-block-highlight"
+          @language="go"
+          @highlightLines="3"
+          @lineNumberStart={{2}}
+          @value="package main
+  import 'fmt'
+  func main() {
+    fmt.Println('hello world')
+  }"
+        />
+      </template>,
+    );
+
+    const startLabelRange = document.createRange();
+    const endLabelRange = document.createRange();
+
+    const highlightLabels = findAll(
+      '#test-code-block-highlight .hds-code-block__code .sr-only',
+    );
+    const highlightStart = highlightLabels[0];
+    const highlightEnd = highlightLabels[1];
+
+    const codeElement = find('.hds-code-block__code code');
+
+    if (codeElement && highlightStart && highlightEnd) {
+      startLabelRange.setStartBefore(codeElement);
+      startLabelRange.setEndAfter(highlightStart);
+
+      endLabelRange.setStartBefore(codeElement);
+      endLabelRange.setEndAfter(highlightEnd);
+    }
+
+    const linesBeforeStart = startLabelRange.toString().match(/\r?\n/g);
+    const linesBeforeEnd = endLabelRange.toString().match(/\r?\n/g);
+
+    const numLinesBeforeStart = linesBeforeStart?.length ?? 0;
+    const numLinesBeforeEnd = linesBeforeEnd?.length ?? 0;
+
+    // Note: Expected number of newlines have been subtracted by (lineNumberStart - 1)
+    assert.strictEqual(numLinesBeforeStart + 1, 2);
+    assert.strictEqual(numLinesBeforeEnd + 1, 2);
   });
 
   // maxHeight
