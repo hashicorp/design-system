@@ -4,6 +4,9 @@ description: >-
   A Figma plugin to help designers work more efficiently and effectively with HDS assets.
 caption: A Figma plugin to help designers work efficiently with HDS assets.
 previewImage: assets/illustrations/tooling/design-tooling-figma-plugin.jpg
+links:
+  figma: >-
+    https://www.figma.com/community/plugin/1572365910132690910
 navigation:
   hidden: false
   order: 2
@@ -21,8 +24,8 @@ navigation:
   @include "partials/table-generator.md"
 </section>
 
-<section data-tab="Visual Regression Testing">
-  @include "partials/visual-regression-testing.md"
+<section data-tab="Visual Diff">
+  @include "partials/visual-diff.md"
 </section>
 
 <section data-tab="Service Icon Finder">
