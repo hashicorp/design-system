@@ -4,18 +4,18 @@ These guidelines are meant to assist teams in designing and building new feature
 
 For now, reference our Figma [Patterns](#jory-insert-link) library and implementation in [Terraform/Atlas](#jory-insert-link).
 
-If having a dedicated component would help in your work, please [submit a request](/about/support).
+If a dedicated component would help in your work, please [submit a request](/about/support).
 !!!
 
-The new feature onboarding pattern outlines a consistent way to onboard new users or communicate updates to new or existing features. This pattern can exist as a single entity or be part of a multi-step sequence.
+The new feature onboarding pattern provides a consistent way to onboard new users or announce updates to features—either new or existing. This pattern can function as a standalone step or be part of a multi-step sequence.
 
 ## Beacon
 
-A beacon highlights a new or updated feature, or otherwise draws attention to a specific part of the UI. It should be positioned adjacent to or slightly overlapping the UI element it is intended to highlight.
+A beacon can be used to highlight a new or updated feature, or draw attention to a specific part of the UI. It should be positioned adjacent to or slightly overlapping the UI element it is intended to highlight.
 
-Clicking on a beacon should toggle a [Rich Tooltip](/components/rich-tooltip) containing information about the feature.
+Clicking on the beacon should toggle a [Rich Tooltip](/components/rich-tooltip) containing information about the feature.
 
-![A Beacon attached to a button highlighting a new function to analyze your configuration with an AI agent](/assets/patterns/new-feature-onboarding/new-feature-onboarding-beacon-example.png)
+![A Beacon attached to a button used to highlight a new function to analyzing your configuration using an AI agent](/assets/patterns/new-feature-onboarding/new-feature-onboarding-beacon-example.png)
 
 ## Rich Tooltip
 
@@ -25,7 +25,7 @@ At a minimum, we recommend including text about the feature, but other common el
 
 - Title: to display the name of the feature
 - [Badge](/components/badge): to communicate the status of the new feature; e.g., "Alpha", "Beta", "New", "Updated".
-- Actions: use one or more [Buttons](/components/button)) to navigate a multi-step onboarding flow.
+- Actions: use one or more [Buttons](/components/button) to navigate a multi-step onboarding flow.
 
 ![Content within a Rich Tooltip explaining the value of the new feature](/assets/patterns/new-feature-onboarding/new-feature-onboarding-auto-configuration-example.png)
 

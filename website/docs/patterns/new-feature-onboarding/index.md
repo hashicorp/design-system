@@ -1,5 +1,5 @@
 ---
-title: New Feature Onboarding
+title: New feature onboarding
 description: Guidelines for highlighting new features and onboarding new users.
 caption: Guidelines for highlighting new features and onboarding new users.
 related: ['components/rich-tooltip', 'components/tooltip',]
@@ -15,4 +15,3 @@ keywords: ['onboarding', 'beacon', 'wizard', 'highlight']
 <section data-tab="Specifications">
   @include "partials/specifications.md"
 </section>
-
