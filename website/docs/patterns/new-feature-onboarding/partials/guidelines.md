@@ -19,7 +19,7 @@ Clicking on the beacon should toggle a [Rich Tooltip](/components/rich-tooltip) 
 
 ## Rich Tooltip
 
-Use the [Rich Tooltip](/components/rich-tooltip) to convey information about the new feature, support a multi-step flow, or link out to additional documentation, release notes, or a changelogs.
+Use the [Rich Tooltip](/components/rich-tooltip) to convey information about the new feature, support a multi-step flow, or link to additional documentation, release notes, or a changelogs.
 
 At a minimum, we recommend including text about the feature, but other common elements include:
 
@@ -36,8 +36,8 @@ Highlighting new features is important, but it can be intrusive or disruptive to
 !!! Do
 
 - Show the Beacon adjacent to a new feature the first time a user sees it.
-- Do provide the user with an escape hatch to dismiss the onboarding tooltip if necessary. This holds true for single-step new feature onboarding, or multi-step onboarding flows.
-- Persist the status of whether the user has seen or interacted with the onboarding materials, consider using `localStorage` or persisting the viewed state in user preferences or settings.
+- Provide the user with an escape hatch to dismiss the onboarding tooltip if necessary. This holds true for both single-step and multi-step onboarding flows.
+- Persist the status of whether the user has seen or interacted with the onboarding materials to prevent them from being displayed to the user repeatedly. Consider using `localStorage` or storing the viewed state in user preferences or settings.
 !!!
 
 !!! Dont
@@ -48,11 +48,11 @@ Highlighting new features is important, but it can be intrusive or disruptive to
 
 ## Multi-step sequences
 
-When onboarding users to more complex features, or when the feature touches multiple parts of the UI, consider breaking the experience into multiple easier-to-digest steps. This can be helpful to highlight the initial entry point of a new or updated feature, and subsequently highlight key aspects of the feature as they relate to a critical user journey (CUJ).
+To onboard users to more complex features, or if the feature touches multiple parts of the UI, consider breaking the experience into multiple steps. This can be helpful to highlight the initial entry point of a new or updated feature, and subsequently highlight key aspects of the feature as they relate to a critical user journey (CUJ).
 
-Support navigation in a multi-step onboarding sequence by using a [Button](/components/button) component. Use navigation-oriented language like "Next", "Back", and "Cancel".
+Use [Button](/components/button) components with labels like "Next", "Back", and "Cancel" to navigate users through a multi-step onboarding sequence.
 
-In a multi-step sequence, use a beacon to highlight the first step. When a user is ready to move forward, the beacon (and open RichTooltip) should appear at the next step, and so on until all steps are complete or the user has opted out of the rest of the flow. Moving the beacon to each step will draw the user's eye through the flow.
+In a multi-step sequence, use a beacon to highlight the first step. As the user progresses, the beacon (and open RichTooltip) should appear at the next step, repeating this pattern until all steps are completed or the user opts out of the flow. Moving the beacon to each step guides the user's attention through the sequence.
 
 <video width="100%" controls loop>
   <source
