@@ -28,6 +28,12 @@ These Pagination sub-elements may be used directly if you need to cover a very s
 <C.Property @name="totalItems" @required={{true}} @type="number">
 Pass the total number of items to be paginated. If no value is defined an error will be thrown.
 </C.Property>
+<C.Property @name="showInfo" @type="boolean" @default="true">
+Used to control the visibility of the informational text.
+</C.Property>
+<C.Property @name="showPageNumbers" @type="boolean" @default="true">
+Used to control the visibility of the page number controls.
+</C.Property>
 <C.Property @name="showLabels" @type="boolean" @default="false">
 Used to control the visibility of the "prev/next" text labels.
 </C.Property>

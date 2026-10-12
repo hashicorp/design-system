@@ -12,7 +12,7 @@ There are two available colors for a link: `primary` and `secondary`. The defaul
 
 ### Dismiss
 
-In most cases, the Tag should be dismissable. If you don’t provide a callback function to the `onDismiss` argument the dismiss button will not be rendered.
+In most cases, the Tag should be dismissable. If you don’t provide a callback function to the `@onDismiss` argument the dismiss button will not be rendered.
 
 [[code-snippets/tag-no-dismiss]]
 

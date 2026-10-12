@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 
@@ -39,11 +39,11 @@ export default class SubSectionBaseElements extends Component {
         if (status === 'success') {
           // Note: Timeout is needed to allow the copy button component to load the default icon before it's replaced with the status icon
           window.setTimeout(() => {
-            icon.setAttribute('href', `#flight-${SUCCESS_ICON}-16`);
+            icon.setAttribute('href', `#hds-icon-flight-${SUCCESS_ICON}-16`);
           }, 200);
         } else if (status === 'error') {
           window.setTimeout(() => {
-            icon.setAttribute('href', `#flight-${ERROR_ICON}-16`);
+            icon.setAttribute('href', `#hds-icon-flight-${ERROR_ICON}-16`);
           }, 200);
         }
       }

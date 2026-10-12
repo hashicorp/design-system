@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
@@ -49,7 +49,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
         <HdsAppHeaderHomeLink
           @icon="boundary"
           @text="Boundary"
-          @color="var(--token-color-boundary-brand)"
+          @color="var(--hds-product-boundary-brand-color)"
           @href="#"
         />
       </div>
@@ -109,7 +109,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
             <HdsAppHeaderHomeLink
               @icon="boundary"
               @text="Boundary"
-              @color="var(--token-color-boundary-brand)"
+              @color="var(--hds-product-boundary-brand-color)"
               @href="#"
               mock-state-value={{state}}
             />

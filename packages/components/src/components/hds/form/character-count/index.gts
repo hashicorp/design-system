@@ -4,10 +4,12 @@
  */
 import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
+import { service } from '@ember/service';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
 import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 
 import type { HdsTextBodySignature } from '../../text/body.gts';
+import type HdsIntlService from '../../../../services/hds-intl';
 
 const ID_PREFIX = 'character-count-';
 const NOOP = (): void => {};
@@ -37,22 +39,31 @@ export interface HdsFormCharacterCountSignature {
 }
 
 export default class HdsFormCharacterCount extends Component<HdsFormCharacterCountSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
+
   // The current number of characters in @value
   get currentLength(): number {
     const { value } = this.args;
     return value ? value.length : 0;
   }
 
-  // Inflector utility function to determine plural or singular for 'character' noun
-  private _pluralize(
-    count?: number,
+  private _countMessage({
+    key,
+    count,
+    singular,
+    plural,
     prefix = '',
-    noun = 'character',
-    suffix = 's'
-  ): string {
-    return `${count}${prefix ? ' ' + prefix : ''} ${noun}${
-      count !== 1 ? suffix : ''
-    }`;
+  }: {
+    key: string;
+    count: number;
+    singular: string;
+    plural: string;
+    prefix?: string;
+  }): string {
+    return this.hdsIntl.t(key, {
+      default: `${prefix}${count} ${count === 1 ? singular : plural}`,
+      count,
+    });
   }
 
   get maxLength(): number | undefined {
@@ -78,25 +89,54 @@ export default class HdsFormCharacterCount extends Component<HdsFormCharacterCou
   }
 
   get message(): string {
-    let messageText = '';
     if (this.minLength && this.currentLength === 0) {
-      messageText = `${this._pluralize(this.minLength)} required`;
+      return this._countMessage({
+        key: 'hds.components.form.character-count.required',
+        count: this.minLength,
+        singular: 'character required',
+        plural: 'characters required',
+      });
     } else if (this.minLength && this.currentLength < this.minLength) {
-      messageText = `${this._pluralize(this.shortfall, 'more')} required`;
+      return this._countMessage({
+        key: 'hds.components.form.character-count.more-required',
+        count: this.shortfall ?? 0,
+        singular: 'more character required',
+        plural: 'more characters required',
+      });
     } else if (this.maxLength && this.currentLength === 0) {
-      messageText = `${this._pluralize(this.maxLength)} allowed`;
+      return this._countMessage({
+        key: 'hds.components.form.character-count.allowed',
+        count: this.maxLength,
+        singular: 'character allowed',
+        plural: 'characters allowed',
+      });
     } else if (this.maxLength && this.currentLength <= this.maxLength) {
-      messageText = `${this._pluralize(this.remaining)} remaining`;
+      return this._countMessage({
+        key: 'hds.components.form.character-count.remaining',
+        count: this.remaining ?? 0,
+        singular: 'character remaining',
+        plural: 'characters remaining',
+      });
     } else if (
       this.maxLength &&
       this.remaining &&
       this.currentLength > this.maxLength
     ) {
-      messageText = `Exceeded by ${this._pluralize(-this.remaining)}`;
+      return this._countMessage({
+        key: 'hds.components.form.character-count.exceeded-by',
+        count: -this.remaining,
+        singular: 'character',
+        plural: 'characters',
+        prefix: 'Exceeded by ',
+      });
     } else {
-      messageText = `${this._pluralize(this.currentLength)} entered`;
+      return this._countMessage({
+        key: 'hds.components.form.character-count.entered',
+        count: this.currentLength,
+        singular: 'character entered',
+        plural: 'characters entered',
+      });
     }
-    return messageText;
   }
 
   get id(): string | null {

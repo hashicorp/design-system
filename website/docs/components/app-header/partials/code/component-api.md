@@ -29,7 +29,7 @@
       <C.Property @name="a11yRefocusNavigationText" @type="string">
         Pass-through property for the `navigationText` argument - The text used as navigation message. Defaults to "The page navigation is complete. You may now navigate the page content as you wish.".
       </C.Property>
-      <C.Property @name="a11yRefocusRouteChangeValidator" @type="string">
+      <C.Property @name="a11yRefocusRouteChangeValidator" @type="function">
         Pass-through property for the `routeChangeValidator` argument - Custom function used to define which route changes should trigger the refocusing behavior for the navigator narrator. - For details see [Customizing the definition of a route change](https://github.com/ember-a11y/ember-a11y-refocus#customizing-the-definition-of-a-route-change).
       </C.Property>
       <C.Property @name="a11yRefocusExcludeAllQueryParams" @type="boolean">

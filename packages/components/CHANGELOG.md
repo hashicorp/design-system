@@ -1,14 +1,402 @@
 # @hashicorp/design-system-components
 
+## 7.0.0
+
+### Major Changes
+
+_Conducted a one-off mechanical rename in `@hashicorp/design-system-components` of internal component CSS variables. Consumers consuming or overriding HDS CSS variables will need to update `--hds-*` references to `--hds-var-*`._
+
+
+`AdvancedTable` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-advanced-table-sticky-column-offset` → `hds-var-advanced-table-sticky-column-offset`
+
+
+`Accordion` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-accordion-item-button-focus-ring-inset-hds` → `hds-var-accordion-item-button-focus-ring-inset-hds`
+- `hds-accordion-item-content-padding-bottom` → `hds-var-accordion-item-content-padding-bottom`
+- `hds-accordion-item-content-padding-left` → `hds-var-accordion-item-content-padding-left`
+- `hds-accordion-item-content-padding-right` → `hds-var-accordion-item-content-padding-right`
+- `hds-accordion-item-content-padding-top` → `hds-var-accordion-item-content-padding-top`
+- `hds-accordion-item-toggle-gap` → `hds-var-accordion-item-toggle-gap`
+- `hds-accordion-item-toggle-icon-size` → `hds-var-accordion-item-toggle-icon-size`
+- `hds-accordion-item-toggle-padding-bottom` → `hds-var-accordion-item-toggle-padding-bottom`
+- `hds-accordion-item-toggle-padding-left` → `hds-var-accordion-item-toggle-padding-left`
+- `hds-accordion-item-toggle-padding-right` → `hds-var-accordion-item-toggle-padding-right`
+- `hds-accordion-item-toggle-padding-top` → `hds-var-accordion-item-toggle-padding-top`
+
+
+`AppFooter` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-app-footer-status-icon-color` → `hds-var-app-footer-status-icon-color`
+
+
+`AppSideNav` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-app-side-nav-animation-delay` → `hds-var-app-side-nav-animation-delay`
+- `hds-app-side-nav-animation-duration` → `hds-var-app-side-nav-animation-duration`
+- `hds-app-side-nav-animation-easing` → `hds-var-app-side-nav-animation-easing`
+- `hds-app-side-nav-toggle-button-width` → `hds-var-app-side-nav-toggle-button-width`
+- `hds-app-side-nav-width-expanded` → `hds-var-app-side-nav-width-expanded`
+- `hds-app-side-nav-width-fixed` → `hds-var-app-side-nav-width-fixed`
+- `hds-app-side-nav-width-minimized` → `hds-var-app-side-nav-width-minimized`
+
+
+`CodeBlock` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-code-block-color-{property}` → `hds-var-code-block-color-{property}`
+
+
+`FilterBar` - Changed the component CSS custom property prefix from `--filter-bar` to `--hds-var-filter-bar`.
+
+- `--filter-bar-filters-dropdown-height` → `--hds-var-filter-bar-filters-dropdown-height`
+
+
+`Flyout` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-app-side-nav-width-minimized` → `hds-var-app-side-nav-width-minimized`
+
+
+`Form` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-form-section-max-width` → `hds-var-form-section-max-width`
+- `hds-form-section-multi-field-group-item-width` → `hds-var-form-section-multi-field-group-item-width`
+
+
+`KeyValueInputs` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-key-value-inputs-column-index` → `hds-var-key-value-inputs-column-index`
+- `hds-key-value-inputs-columns` → `hds-var-key-value-inputs-columns`
+
+
+`SuperSelect` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-form-super-select-dropdown-max-width` → `hds-var-form-super-select-dropdown-max-width`
+- `hds-form-super-select-selected-text` → `hds-var-form-super-select-selected-text`
+- `hds-form-super-select-selected-text-display` → `hds-var-form-super-select-selected-text-display`
+
+
+`SegmentedGroup` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-segmented-group-max-width` → `hds-var-segmented-group-max-width`
+
+
+`Stepper Nav` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-stepper-nav-progress-bar-width` → `hds-var-stepper-nav-progress-bar-width`
+
+
+`Tag` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-tag-focus-ring-inset-left-cds` → `hds-var-tag-focus-ring-inset-left-cds`
+- `hds-tag-focus-ring-inset-right-cds` → `hds-var-tag-focus-ring-inset-right-cds`
+
+
+`Tooltip` - Changed the component CSS custom property prefix from `--token-*` to `--hds-var-*`.
+
+- `token-tooltip-max-width` → `hds-tooltip-max-width`
+
+
+`Flex` - Changed the layout CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-layout-flex-column-gap` → `hds-var-layout-flex-column-gap`
+- `hds-layout-flex-row-gap` → `hds-var-layout-flex-row-gap`
+
+
+`Grid` - Changed the layout CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-layout-grid-column-fill-type` → `hds-var-layout-grid-column-fill-type`
+- `hds-layout-grid-column-gap` → `hds-var-layout-grid-column-gap`
+- `hds-layout-grid-column-min-width` → `hds-var-layout-grid-column-min-width`
+- `hds-layout-grid-column-span` → `hds-var-layout-grid-column-span`
+- `hds-layout-grid-column-span-lg` → `hds-var-layout-grid-column-span-lg`
+- `hds-layout-grid-column-span-md` → `hds-var-layout-grid-column-span-md`
+- `hds-layout-grid-column-span-sm` → `hds-var-layout-grid-column-span-sm`
+- `hds-layout-grid-column-span-xl` → `hds-var-layout-grid-column-span-xl`
+- `hds-layout-grid-column-span-xxl` → `hds-var-layout-grid-column-span-xxl`
+- `hds-layout-grid-column-width-lg` → `hds-var-layout-grid-column-width-lg`
+- `hds-layout-grid-column-width-md` → `hds-var-layout-grid-column-width-md`
+- `hds-layout-grid-column-width-sm` → `hds-var-layout-grid-column-width-sm`
+- `hds-layout-grid-column-width-xl` → `hds-var-layout-grid-column-width-xl`
+- `hds-layout-grid-column-width-xxl` → `hds-var-layout-grid-column-width-xxl`
+- `hds-layout-grid-row-gap` → `hds-var-layout-grid-row-gap`
+- `hds-layout-grid-row-span` → `hds-var-layout-grid-row-span`
+- `hds-layout-grid-row-span-lg` → `hds-var-layout-grid-row-span-lg`
+- `hds-layout-grid-row-span-md` → `hds-var-layout-grid-row-span-md`
+- `hds-layout-grid-row-span-sm` → `hds-var-layout-grid-row-span-sm`
+- `hds-layout-grid-row-span-xl` → `hds-var-layout-grid-row-span-xl`
+- `hds-layout-grid-row-span-xxl` → `hds-var-layout-grid-row-span-xxl`
+
+<small class="doc-whats-new-changelog-metadata">[#4076](https://github.com/hashicorp/design-system/pull/4076)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`AdvancedTable` - Added new value `secondary-muted` for the `@color` argument in `ThContextMenu`.
+
+- `secondary-muted` is identical to `secondary` for HDS themes, but differs for Carbon themes
+
+
+`Button` - Added new value `secondary-muted` for the `@color` argument
+
+
+
+`CodeBlock` - Updated footer button `@color` from `secondary` to `secondary-muted`
+
+
+
+`Dropdown` - Added new value `secondary-muted` for the `@color` argument in `ToggleButton` and `ToggleIcon`
+
+
+
+`FilterBar` - Updated toggle `@color` from `secondary` to `secondary-muted` in `ActionsDropdown` and `FiltersDropdown` and applied filters button
+
+
+
+`SuperSelect` - Updated `AfterOptions` show and clear button `@color` from `secondary` to `secondary-muted`
+
+
+
+`CodeEditor` - Removed dark theme modifiers and replaced them with theme agnostic versions
+
+- Removed the `hdsDarkHighlightStyle` style modifier and replaced it with a theme-agnostic `hdsHighlightStyle` modifier
+- Removed the `hdsDark` style modifier and replaced it with a theme-agnostic `hdsTheme` modifier
+
+
+Added the `hds-form-control-border` and `hds-form-control-invalid-outline` sass mixins
+
+
+
+`RadioCard` - Updated `RadioCardDescription` element from `HdsTextBody` to a `HTMLSpanElement`
+
+
+
+`RadioCard` - Updated `RadioCardLabel` element from `HdsTextDisplay` to a `HTMLSpanElement`
+
+
+
+`AdvancedTable` - Removed `hds-typography-body-200` and `hds-font-weight-semibold` classes from `hds-advanced-table__th-content-text` element in `AdvancedTableTh`
+
+
+
+`Table` - Removed `hds-typography-body-200` and `hds-font-weight-regular` classes from `hds-table__td` element in `TableTd`
+
+
+
+`Table` - Removed `hds-typography-body-200` and `hds-font-weight-semibold` classes from `hds-table__td` element in `TableTh` and `TableThSort`
+
+
+
+`Tooltip` - Replaced custom arrow with `hds-tooltip-pointer` class with native popover arrow
+
+
+
+`DialogPrimitive` - Updated internal text element from `HdsTextBody` to a `HTMLDivElement`
+
+
+Removed the `hds-interactive-dark-theme` mixin
+
+Updated the `hds-focus-ring-basic` sass mixin
+Added the `hds-focus-ring-advanced` sass mixin
+Removed the `hds-focus-ring-with-pseudo-element` and `hds-focus-ring-with-pseudo-element-focus-always-visible` sass mixins
+
+<small class="doc-whats-new-changelog-metadata">[#4076](https://github.com/hashicorp/design-system/pull/4076)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Added `HdsTheming` service for theming
+
+Added `HdsIconRegistry` service for async icons loading
+
+Added `@ibm/plex-[mono|sans]` packages as dependencies
+
+Added `design-system-plex-fonts.scss` to the `packages/components` styles
+Included subset of IBM Plex fonts to the `dist/public` folder of the addon
+
+Added a `hds-apply-only-if-carbon` sass mixin to apply styles only for Carbon themes
+
+`ThemeContext` - Added headless component
+
+
+`Icon` - Made significant changes to icon loading and available icons to support Carbon themes
+
+- Changed the way that icons are loaded (from SVG sprite to dynamic importing and generation at runtime)
+- Added support for loading Carbon icons when the user is using a Carbon theme
+- The full SVG sprite is no longer injected into the consuming application
+- Consumers can safely remove the `flightIconsSpriteLazyEmbed` setting in their `config/environment.js` file.
+
+<small class="doc-whats-new-changelog-metadata">[#4076](https://github.com/hashicorp/design-system/pull/4076)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/design-system-tokens@6.0.0
+- @hashicorp/flight-icons@5.3.0
+
+## 6.6.0
+
+[6.6.0 documentation](https://hds-website-6-6-0.vercel.app/)
+
+### Minor Changes
+
+`Form::MaskedInput` - Fixed a few accessibility issues in `Form::MaskedInput::Base` and `Form::MaskedInput::Field`, including:
+
+- Changed `@visibilityToggleAriaLabel` to have a static value for visible and hidden states. Added the `aria-pressed` attribute to the visibility toggle button to communicate state.
+- Added `@visibilityToggleAriaMessageTextWhenVisible` argument to set a custom message for the visible state.
+
+`Form::TextInput` - Fixed a few accessibility issues in `Form::TextInput::Field`, including:
+
+- Changed `@visibilityToggleAriaLabel` to have a static value for visible and hidden states. Added the `aria-pressed` attribute to the visibility toggle button to communicate state.
+- Added `@visibilityToggleAriaMessageTextWhenVisible` argument to set a custom message for the visible state.
+
+`Form::VisibilityToggle` - Added `@ariaMessageTextWhenVisible` argument to set a message for the visible state.
+
+<small class="doc-whats-new-changelog-metadata">[#4118](https://github.com/hashicorp/design-system/pull/4118)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Tabs` - Added arguments to support customizing the icon on a `Tab`, including:
+
+- `@iconColor` to set an icon color
+- `@iconTitle` to add accessible text to an icon
+
+<small class="doc-whats-new-changelog-metadata">[#4157](https://github.com/hashicorp/design-system/pull/4157)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+`AppFooter` - Removed unused `@color` property from `[AF].Link` contextual component
+
+<small class="doc-whats-new-changelog-metadata">[#4099](https://github.com/hashicorp/design-system/pull/4099)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CodeBlock` - Added extra right-side padding around code when copy button is enabled preventing overlap when text-wrapping is enabled and allowing users to scroll farther to the right to view all code
+
+<small class="doc-whats-new-changelog-metadata">[#4132](https://github.com/hashicorp/design-system/pull/4132)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Form::Fieldset` - Added missing `@id` argument to the component signature.
+
+<small class="doc-whats-new-changelog-metadata">[#4107](https://github.com/hashicorp/design-system/pull/4107)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Dropdown` - Set text alignment of Title and Description to left explicitly to prevent accidental override
+
+<small class="doc-whats-new-changelog-metadata">[#4134](https://github.com/hashicorp/design-system/pull/4134)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Time` - Removed unused `@isoUtcString` argument
+
+<small class="doc-whats-new-changelog-metadata">[#4108](https://github.com/hashicorp/design-system/pull/4108)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Form::KeyValueInputs` - Removed unused `@ariaLabel` argument from `[F].AddRowButton` contextual component
+
+<small class="doc-whats-new-changelog-metadata">[#4114](https://github.com/hashicorp/design-system/pull/4114)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+## 6.5.1
+
+[6.5.1 documentation](https://hds-website-6-5-1.vercel.app/)
+
+### Patch Changes
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@5.2.0
+
+## 6.5.0
+
+[6.5.0 documentation](https://hds-website-6-5-0.vercel.app/)
+
+### Minor Changes
+
+`SegmentedGroup` - Added `SuperSelect` and `SuperSelectMultiple` as yielded contextual components.
+
+`SegmentedGroup` - Added `isFullWidth` and `maxWidth` arguments.
+
+<small class="doc-whats-new-changelog-metadata">[#4008](https://github.com/hashicorp/design-system/pull/4008)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AdvancedTable` - Updated the resize column behavior to support cascading resizes while guaranteeing that columns will never inadvertently shrink below the size of their container.
+
+<small class="doc-whats-new-changelog-metadata">[#4020](https://github.com/hashicorp/design-system/pull/4020)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Table` - Added `.hds-table__tr--is-selected` class to table rows when they are selected.
+
+`AdvancedTable` - Added `.hds-advanced-table__tr--is-selected` class to table rows when they are selected.
+
+<small class="doc-whats-new-changelog-metadata">[#4021](https://github.com/hashicorp/design-system/pull/4021)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+`FilterBar` - Added support for `ActionsGeneric` wrapping to new line
+
+<small class="doc-whats-new-changelog-metadata">[#4034](https://github.com/hashicorp/design-system/pull/4034)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AdvancedTable` - Fixed bug where the bottom scroll indicator was always present if reordering was enabled.
+
+<small class="doc-whats-new-changelog-metadata">[#4042](https://github.com/hashicorp/design-system/pull/4042)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AdvancedTable` - Fixed issue where keyboard order did not match visual order after sorting the table.
+
+<small class="doc-whats-new-changelog-metadata">[#4044](https://github.com/hashicorp/design-system/pull/4044)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`StepperNav` - Added screen reader text for step number
+
+`StepperList` - Added screen reader text for step number
+
+<small class="doc-whats-new-changelog-metadata">[#3993](https://github.com/hashicorp/design-system/pull/3993)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AdvancedTable` - Fixed an issue where clicking a cell scrolled the page to center that cell
+
+<small class="doc-whats-new-changelog-metadata">[#4017](https://github.com/hashicorp/design-system/pull/4017)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AdvancedTable` - Updated reorder handle to not be visible on resize handle hover / focus
+
+`AdvancedTable` - FIxed a bug where tooltips in the table header would be cut off behind the empty state message.
+
+<small class="doc-whats-new-changelog-metadata">[#4038](https://github.com/hashicorp/design-system/pull/4038)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@5.1.0
+
 ## 6.4.0
 
 [6.4.0 documentation](https://hds-website-6-4-0.vercel.app/)
 
 ### Minor Changes
 
-
 `FilterBar` - Added a `searchAriaLabel` feature to expose the value of the search input aria-label, allowing the value to be customized
-
 
 <small class="doc-whats-new-changelog-metadata">[#3980](https://github.com/hashicorp/design-system/pull/3980)</small>
 

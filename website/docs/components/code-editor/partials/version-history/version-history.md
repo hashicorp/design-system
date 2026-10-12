@@ -1,3 +1,10 @@
+## 7.0.0
+
+Removed dark theme modifiers and replaced them with theme agnostic versions
+
+- Removed the `hdsDarkHighlightStyle` style modifier and replaced it with a theme-agnostic `hdsHighlightStyle` modifier
+- Removed the `hdsDark` style modifier and replaced it with a theme-agnostic `hdsTheme` modifier
+
 ## 6.1.0
 
 Converted component to gts format.

@@ -51,15 +51,13 @@ export async function generateBundleSVG({ config, catalog } : { config: ConfigDa
 
     // add CSS used to animate "loading" and "running" icons
     await fs.writeFile(`${config.mainFolder}/svg/animation.css`, animationIconCss);
-   
+
     // generate an "index.js" file
-    let svgModuleContent = '/**\n * Copyright IBM Corp. 2021, 2025\n * SPDX-License-Identifier: MPL-2.0\n */\n\n';
-    svgModuleContent += `export const iconNames = [ ${uniq(allIcons).join(', ')} ];`;
+    const svgModuleContent = `export const iconNames = [ ${uniq(allIcons).join(', ')} ];`;
     await fs.writeFile(`${config.mainFolder}/svg/index.js`, svgModuleContent);
 
     // generate an "index.d.ts" file
-    let svgModuleDeclarationContent = '/**\n * Copyright IBM Corp. 2021, 2025\n * SPDX-License-Identifier: MPL-2.0\n */\n\n';
-    svgModuleDeclarationContent += `export declare const iconNames: readonly [${uniq(allIcons).join(', ')}];\n`;
+    let svgModuleDeclarationContent = `export declare const iconNames: readonly [${uniq(allIcons).join(', ')}];\n`;
     svgModuleDeclarationContent += `export type IconName = typeof iconNames[number];\n`;
     await fs.writeFile(`${config.mainFolder}/svg/index.d.ts`, svgModuleDeclarationContent);
 }

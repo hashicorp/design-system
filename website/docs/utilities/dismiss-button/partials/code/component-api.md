@@ -3,7 +3,7 @@
 ### DismissButton
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="ariaLabel" @type="string" @default="dismiss">
+  <C.Property @name="ariaLabel" @type="string" @default="Dismiss">
     Accepts a string.
   </C.Property>
   <C.Property @name="...attributes">

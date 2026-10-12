@@ -53,7 +53,7 @@ By default, the sort order is set to ascending. To indicate that the column defi
 To implement a custom sort callback on a column:
 
 1. add a custom function as the value for `sortingFunction` in the column hash,
-2. include a custom `onSort` action in your Table invocation to track the sorting order and use it in the custom sorting function.
+2. include a custom `@onSort` action in your Table invocation to track the sorting order and use it in the custom sorting function.
 
 This is useful for cases where the key might not be A-Z or 0-9 sortable by default, e.g., status, and you’re otherwise unable to influence the shape of the data in the model.
 
@@ -72,15 +72,15 @@ This is a pretty advanced example, intended to cover some edge cases that we enc
 
 The `Hds::Table` exposes (via yielding) some of its internal properties and methods, to allow extremely customized sorting functionalities:
 
-- `setSortBy` is the internal function used to set the `sortBy` and `sortOrder` tracked values
-- `sortBy` is the "key" of the column used for sorting (when the table is sorted)
-- `sortOrder` is the sorting direction (ascending or descending)
+- `@setSortBy` is the internal function used to set the `@sortBy` and `@sortOrder` tracked values
+- `@sortBy` is the "key" of the column used for sorting (when the table is sorted)
+- `@sortOrder` is the sorting direction (ascending or descending)
 
 For more details about these properties refer to the [Component API](#component-api) section below.
 
-In the `<:head>` the `setSortBy` function is invoked when the `<ThSort>` element is clicked to set the values of `sortBy` and `sortOrder` in the table; in turn these values are then used by the `<ThSort>` element to assign the sorting icon via the `@sortOrder` argument.
+In the `<:head>` the `@setSortBy` function is invoked when the `<ThSort>` element is clicked to set the values of `@sortBy` and `@sortOrder` in the table; in turn these values are then used by the `<ThSort>` element to assign the sorting icon via the `@sortOrder` argument.
 
-In the `<:body>` the values of `sortBy` and `sortOrder` are provided instead as arguments to a consumer-side function that takes care of custom sorting the model/data.
+In the `<:body>` the values of `@sortBy` and `@sortOrder` are provided instead as arguments to a consumer-side function that takes care of custom sorting the model/data.
 
 _Notice: in this case for the example we're using the [`call` helper](https://github.com/NullVoxPopuli/ember-composable-helpers?tab=readme-ov-file#call) from [@nullvoxpopuli/ember-composable-helpers](https://github.com/NullVoxPopuli/ember-composable-helpers)._
 
@@ -159,7 +159,7 @@ In this case the table layout is still set to `auto` (default). If instead you w
 
 A multi-select table includes checkboxes enabling users to select multiple rows in a table for purposes of performing bulk operations. Checking or unchecking the checkbox in the table header either selects or deselects the checkboxes on each row in the table body. Individual checkboxes in the rows can also be selected or deselected.
 
-Add `isSelectable=true` to create a multi-select table. The `@onSelectionChange` argument can be used to pass a callback function to receive selection keys when the selected table rows change. You must also pass a `@selectionKey` argument to each row which gets passed back through the `@onSelectionChange` callback which maps the row selection on the table to an item in your data model.
+Add `@isSelectable=true` to create a multi-select table. The `@onSelectionChange` argument can be used to pass a callback function to receive selection keys when the selected table rows change. You must also pass a `@selectionKey` argument to each row which gets passed back through the `@onSelectionChange` callback which maps the row selection on the table to an item in your data model.
 
 #### Multi-select table using a model
 
@@ -167,7 +167,7 @@ Add `isSelectable=true` to create a multi-select table. The `@onSelectionChange`
 
 **Code consideration**
 
-If you want the state of the checkboxes to persist after the model updates, you will need to provide an `identityKey` value.
+If you want the state of the checkboxes to persist after the model updates, you will need to provide an `@identityKey` value.
 !!!
 
 This is a simple example of a table with multi-selection. Notice the `@selectionKey` argument provided to the rows, used by the `@onSelectionChange` callback to provide the list of selected/deselected rows as argument(s) for the invoked function.

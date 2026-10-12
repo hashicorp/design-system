@@ -22,6 +22,7 @@ import {
   HdsAdvancedTableDensityValues,
   HdsAdvancedTableVerticalAlignmentValues,
 } from './types.ts';
+import { requestAnimationFrameWaiter } from './utils.ts';
 import HdsFilterBar from '../filter-bar/index.gts';
 import HdsApplicationState from '../application-state/index.gts';
 import HdsComposite from '../composite/index.gts';
@@ -45,6 +46,7 @@ import type {
   HdsAdvancedTableVerticalAlignment,
   HdsAdvancedTableExpandState,
   HdsAdvancedTableColumnReorderCallback,
+  HdsAdvancedTableColumnResizeCallback,
   HdsAdvancedTableModel,
 } from './types.ts';
 
@@ -185,7 +187,7 @@ export interface HdsAdvancedTableSignature<T = HdsAdvancedTableModel> {
     childrenKey?: string;
     maxHeight?: string;
     onColumnReorder?: HdsAdvancedTableColumnReorderCallback;
-    onColumnResize?: (columnKey: string, newWidth?: string) => void;
+    onColumnResize?: HdsAdvancedTableColumnResizeCallback;
     onSelectionChange?: (
       selection: HdsAdvancedTableOnSelectionChangeSignature
     ) => void;
@@ -238,6 +240,7 @@ export default class HdsAdvancedTable<
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
   @tracked private _tableHeight = 0;
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
+  private _isBulkSelectionChange = false;
   private _captionId = 'caption-' + guidFor(this);
   private _scrollHandler!: (event: Event) => void;
   private _dragOverHandler!: (event: DragEvent) => void;
@@ -269,6 +272,27 @@ export default class HdsAdvancedTable<
 
     const updateHorizontalScrollIndicators = () => {
       this.showScrollIndicatorRight = element.clientWidth < element.scrollWidth;
+    };
+
+    const updateBottomScrollIndicator = () => {
+      // when hasReorderableColumns is true, the reorder handles are absolutely
+      // positioned with translateY(50%), which causes them to overflow the
+      // header's bottom edge by half their height, inflating scrollHeight even
+      // when there is no actual scrollable content. visibility:hidden means
+      // getBoundingClientRect() returns zeros at mount time, so we use
+      // offsetHeight / 2 instead.
+      let reorderHandleOverflow = 0;
+      if (this.args.hasReorderableColumns) {
+        const firstHandle = this._theadElement?.querySelector(
+          '.hds-advanced-table__th-reorder-handle'
+        ) as HTMLElement;
+        if (firstHandle) {
+          reorderHandleOverflow = firstHandle.offsetHeight / 2;
+        }
+      }
+
+      this.showScrollIndicatorBottom =
+        element.scrollHeight - reorderHandleOverflow - element.clientHeight > 0;
     };
 
     this._scrollHandler = () => {
@@ -371,13 +395,14 @@ export default class HdsAdvancedTable<
         }
       };
 
-      window.requestAnimationFrame(setUpdatedMeasurements);
+      requestAnimationFrameWaiter(setUpdatedMeasurements);
     };
 
     this._resizeObserver = new ResizeObserver((entries) => {
       entries.forEach(() => {
         updateMeasurements();
         updateHorizontalScrollIndicators();
+        updateBottomScrollIndicator();
       });
     });
 
@@ -389,9 +414,7 @@ export default class HdsAdvancedTable<
     updateHorizontalScrollIndicators();
 
     // on render check if should show bottom scroll indicator
-    if (element.clientHeight < element.scrollHeight) {
-      this.showScrollIndicatorBottom = true;
-    }
+    updateBottomScrollIndicator();
 
     return () => {
       element.removeEventListener('scroll', this._scrollHandler);
@@ -527,12 +550,28 @@ export default class HdsAdvancedTable<
 
     if (sortedMessageText !== undefined) {
       return sortedMessageText;
-    } else if (this.currentSortBy !== undefined) {
-      // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
-      return `Sorted by ${this.currentSortBy} ${this.currentSortOrder}ending`;
-    } else {
+    }
+
+    if (this.currentSortBy === undefined) {
       return '';
     }
+
+    const sortOrder =
+      this.currentSortOrder === HdsAdvancedTableThSortOrderValues.Asc
+        ? 'ascending'
+        : 'descending';
+
+    const columnLabel =
+      this.args.columns.find((column) => column.key === this.currentSortBy)
+        ?.label ?? this.currentSortBy;
+
+    return this.hdsIntl.t(
+      `hds.components.advanced-table.sorted-message.${sortOrder}`,
+      {
+        default: `Sorted by ${columnLabel} ${sortOrder}`,
+        columnLabel,
+      }
+    );
   }
 
   get isSelectable(): boolean {
@@ -726,7 +765,7 @@ export default class HdsAdvancedTable<
     } else {
       const newPosition = insertedAt + 1;
       const translatedReorderedMessageText = this.hdsIntl.t(
-        'hds.advanced-table.reordered-message',
+        'hds.components.advanced-table.reordered-message',
         {
           default: `Moved ${column.label} column to position ${newPosition}`,
           columnLabel: column.label,
@@ -801,9 +840,14 @@ export default class HdsAdvancedTable<
 
   @action
   onSelectionAllChange(): void {
+    this._isBulkSelectionChange = true;
+
     this._selectableRows.forEach((row) => {
       row.checkbox.checked = this._selectAllCheckbox?.checked ?? false;
+      row.checkbox.dispatchEvent(new Event('change', { bubbles: true }));
     });
+
+    this._isBulkSelectionChange = false;
     this._isSelectAllCheckboxSelected =
       this._selectAllCheckbox?.checked ?? false;
     this.onSelectionChangeCallback(this._selectAllCheckbox, 'all');
@@ -814,6 +858,10 @@ export default class HdsAdvancedTable<
     checkbox?: HdsFormCheckboxBaseSignature['Element'],
     selectionKey?: string
   ): void {
+    if (this._isBulkSelectionChange) {
+      return;
+    }
+
     this.setSelectAllState();
     this.onSelectionChangeCallback(checkbox, selectionKey);
   }
@@ -1004,7 +1052,7 @@ export default class HdsAdvancedTable<
               aria-describedby={{this._captionId}}
               {{style
                 grid-template-columns=CM.gridTemplateColumns
-                --hds-advanced-table-sticky-column-offset=this.stickyColumnOffset
+                --hds-var-advanced-table-sticky-column-offset=this.stickyColumnOffset
                 max-height=@maxHeight
               }}
               {{this._setUpScrollWrapper}}
@@ -1035,7 +1083,10 @@ export default class HdsAdvancedTable<
                   @onSelectionChange={{this.onSelectionAllChange}}
                   @didInsert={{this.didInsertSelectAllCheckbox}}
                   @willDestroy={{this.willDestroySelectAllCheckbox}}
-                  @selectionAriaLabelSuffix="all rows"
+                  @selectionAriaLabelSuffix={{hdsT
+                    "hds.components.advanced-table.table-row.selection-aria-label-suffix"
+                    default="all rows"
+                  }}
                   @hasStickyColumn={{this.hasStickyFirstColumn}}
                   @isStickyColumnPinned={{this.isStickyColumnPinned}}
                 >
@@ -1066,7 +1117,6 @@ export default class HdsAdvancedTable<
                         CM.draggedColumnKey
                         (CM.getSiblingColumnKeys CM.draggedColumnKey)
                       }}
-                      @siblingColumnKeys={{CM.getSiblingColumnKeys column.key}}
                       @tableHeight={{this._tableHeight}}
                       @tooltip={{column.tooltip}}
                       @hasExpandAllButton={{this.hasRowsWithChildren}}
@@ -1076,26 +1126,25 @@ export default class HdsAdvancedTable<
                         (eq column.key this.currentSortBy)
                         this.currentSortOrder
                       }}
-                      @onApplyTransientWidth={{CM.applyTransientWidth}}
+                      @onBeginColumnResize={{CM.beginColumnResize}}
                       @onClickSort={{if
                         column.isSortable
                         (fn this.setSortBy column.key)
                       }}
                       @onClickToggle={{this.toggleExpandAll}}
                       @onColumnResize={{@onColumnResize}}
+                      @onCommitColumnWidths={{CM.commitColumnWidths}}
                       @onGetAppliedWidth={{CM.getAppliedWidth}}
-                      @onGetColumnByKey={{CM.getColumnByKey}}
+                      @onGetRenderedWidth={{CM.getRenderedWidth}}
                       @onMoveColumnToTerminalPosition={{CM.moveColumnToTerminalPosition}}
                       @onPinFirstColumn={{this._onPinFirstColumn}}
                       @onReorderDrop={{CM.moveColumnToDropTarget}}
-                      @onRestoreColumnWidth={{CM.restoreColumnWidth}}
                       @onResetTransientColumnWidths={{CM.resetTransientColumnWidths}}
+                      @onResizeColumnByDelta={{CM.resizeColumnByDelta}}
+                      @onRestoreColumnWidth={{CM.restoreColumnWidth}}
                       @onSetDraggedColumnKey={{CM.setDraggedColumnKey}}
                       @onSetReorderHoveredColumnKey={{CM.setReorderHoveredColumnKey}}
-                      @onSetTransientColumnWidth={{CM.setTransientColumnWidth}}
-                      @onSetTransientColumnWidths={{CM.setTransientColumnWidths}}
                       @onStepColumn={{CM.stepColumn}}
-                      @onUpdateResizeDebt={{CM.updateResizeDebt}}
                       {{CM.syncThElements column.key}}
                     >
                       {{column.label}}

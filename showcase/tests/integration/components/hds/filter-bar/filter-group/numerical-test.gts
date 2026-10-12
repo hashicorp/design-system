@@ -74,14 +74,10 @@ module(
         'between',
       );
       assert
-        .dom(
-          '.hds-filter-bar__filter-group__numerical .hds-filter-bar__filter-group__field--between:nth-of-type(1)',
-        )
+        .dom('[name="test-key-between-start"]')
         .hasAttribute('name', 'test-key-between-start');
       assert
-        .dom(
-          '.hds-filter-bar__filter-group__numerical .hds-filter-bar__filter-group__field--between:nth-of-type(2)',
-        )
+        .dom('[name="test-key-between-end"]')
         .hasAttribute('name', 'test-key-between-end');
     });
 
@@ -119,12 +115,8 @@ module(
       assert
         .dom('.hds-filter-bar__filter-group__field--between')
         .exists({ count: 2 });
-      assert
-        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(1)')
-        .hasValue('10');
-      assert
-        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(2)')
-        .hasValue('20');
+      assert.dom('[name="test-key-between-start"]').hasValue('10');
+      assert.dom('[name="test-key-between-end"]').hasValue('20');
     });
 
     // TEXT
@@ -237,14 +229,8 @@ module(
         .dom('.hds-filter-bar__filter-group__field--between')
         .exists({ count: 2 });
 
-      await fillIn(
-        '.hds-filter-bar__filter-group__field--between:nth-of-type(1)',
-        '10',
-      );
-      await fillIn(
-        '.hds-filter-bar__filter-group__field--between:nth-of-type(2)',
-        '20',
-      );
+      await fillIn('[name="test-key-between-start"]', '10');
+      await fillIn('[name="test-key-between-end"]', '20');
       assert.ok(context.isChanged);
       assert.equal(context.selector, 'between');
       assert.equal(context.valueStart, '10');

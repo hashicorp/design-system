@@ -32,6 +32,7 @@ export interface HdsFormCheckboxFieldSignature {
 const HdsFormCheckboxField: TemplateOnlyComponent<HdsFormCheckboxFieldSignature> =
   <template>
     <HdsFormField
+      class="hds-form-field--checkbox"
       @layout="flag"
       @contextualClass={{@contextualClass}}
       @extraAriaDescribedBy={{@extraAriaDescribedBy}}

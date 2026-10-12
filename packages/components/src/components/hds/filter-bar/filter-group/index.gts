@@ -69,7 +69,6 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
 
   private _setUpFilterPanel = modifier(() => {
     // Note: Due to the filters being an Ember object, structuredClone cannot be used here.
-    // Further investigation will be done in a follow-up task: https://hashicorp.atlassian.net/browse/HDS-5907
     if (this.keyFilter) {
       this.internalFilters = JSON.parse(
         JSON.stringify(this.keyFilter.data)
@@ -202,7 +201,7 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
             <HdsFormTextInputBase
               @type="search"
               aria-label={{hdsT
-                "components.filter-bar.filter-group.search-input.aria-label"
+                "hds.components.filter-bar.filter-group.search-input.aria-label"
                 default="Search filter options"
               }}
               aria-description={{hdsT

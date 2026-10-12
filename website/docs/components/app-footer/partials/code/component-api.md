@@ -8,7 +8,7 @@ The base `AppFooter` component includes a copyright notice. It also wraps and co
   <C.Property @name="<[AF].ExtraBefore>" @type="yielded component">
     A generic container yielded as contextual component. Its content is injected before the `<ul>` list of links and items.
   </C.Property>
-  <C.Property @name="<[AF].StatusLink>" @type="yielded component">
+  <C.Property @name="<[AF].StatusLink>" @type="yielded component" @default="&quot;https://status.hashicorp.com&quot;">
     The yielded `AppFooter::StatusLink` contextual component (see below).
   </C.Property>
   <C.Property @name="<[AF].LegalLinks>" @type="yielded component">
@@ -93,7 +93,7 @@ The `AppFooter::LegalLinks` component, yielded as contextual component.
   <C.Property @name="hrefForSecurity" @type="string" @default="&quot;https://www.hashicorp.com/security&quot;">
     Override the default href value with a custom url value.
   </C.Property>
-  <C.Property @name="Accessibility" @type="string" @default="&quot;https://www.hashicorp.com/accessibility&quot;">
+  <C.Property @name="hrefForAccessibility" @type="string" @default="&quot;https://www.hashicorp.com/accessibility&quot;">
     Override the default href value with a custom url value.
   </C.Property>
   <C.Property @name="ariaLabel" @type="string" @default="&quot;Legal links&quot;">

@@ -14,7 +14,14 @@
   @routeChangeValidator={{this.transitionValidator}}
 />
 {{! uncomment this to turn the survey banner back on, but ensure survey link has been updated as well }}
-{{! <Doc::Page::Banner /> }}
+{{! <Doc::Page::Banner @icon="message-circle-fill">
+  Got a minute? We’d like your feedback!
+  <a href="https://forms.gle/TtEa9AwtoHH9VCJG8" target="_blank" rel="noopener noreferrer">Take the survey</a>
+</Doc::Page::Banner> }}
+<Doc::Page::Banner>
+  HDS components v7.0.0 is now available!
+  <LinkTo @route="show" @model="whats-new/release-notes">Learn more about the changes in this major release</LinkTo>
+</Doc::Page::Banner>
 <Doc::Page::Sidebar
   {{! `this.model.toc` comes from `routes/application.js` }}
   @toc={{this.model.toc}}

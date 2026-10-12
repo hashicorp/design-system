@@ -17,8 +17,11 @@ project {
     "**/dist/**",
     # Type declarations
     "**/*.d.ts",
-    # SVG icons packed as `tsx` files
-    "packages/flight-icons/svg-react/*",
+    # Generated files for Flight Icons
+    "packages/flight-icons/svg-original/**",
+    "packages/flight-icons/svg-react/**",
+    "packages/flight-icons/svg-sprite/**",
+    "packages/flight-icons/symbol-js/**",
     # Handlebars components sensitive to white-space
     "packages/components/src/components/hds/interactive/*.hbs",
     "packages/components/src/components/hds/link/*.hbs",
@@ -33,9 +36,13 @@ project {
     "website/app/controllers/show.js",
     "website/app/templates/show.hbs",
     # Don't include header on examples for the website
-    "website/docs/**/*.hbs",
-    "website/docs/**/*.gts",
-    "website/docs/**/*.js",
+    "website/docs/**/code-snippets/**/*.hbs",
+    "website/docs/**/code-snippets/**/*.gts",
+    "website/docs/**/code-snippets/**/*.js",
+    "website/docs/**/code-snippets/**/*.scss",
+    "website/docs/**/code-snippets/**/*.bash",
+    "website/docs/**/code-snippets/**/*.html",
+    "website/docs/**/code-snippets/**/*.yaml",
     "website/lib/markdown/index.js",
     "website/lib/markdown/markdown-to-jsonapi.js",
     "website/lib/markdown/table-of-contents.js",

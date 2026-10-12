@@ -73,14 +73,14 @@ module('Integration | Component | hds/layout/grid/item', function (hooks) {
 
   // COL SPAN
 
-  // Note: A fallback value of 1 is set in the CSS for the `--hds-layout-grid-column-span` custom property
-  test('if the @colspan prop is not declared, --hds-layout-grid-column-span should be unset', async function (assert) {
+  // Note: A fallback value of 1 is set in the CSS for the `--hds-var-layout-grid-column-span` custom property
+  test('if the @colspan prop is not declared, --hds-var-layout-grid-column-span should be unset', async function (assert) {
     await render(
       <template><HdsLayoutGridItem id="test-layout-grid-item" /></template>,
     );
     assert
       .dom('#test-layout-grid-item')
-      .doesNotHaveStyle({ '--hds-layout-grid-column-span': '' });
+      .doesNotHaveStyle({ '--hds-var-layout-grid-column-span': '' });
   });
 
   test('it should render the correct column span if the @colspan prop is declared', async function (assert) {
@@ -91,7 +91,7 @@ module('Integration | Component | hds/layout/grid/item', function (hooks) {
     );
     assert
       .dom('#test-layout-grid')
-      .hasStyle({ '--hds-layout-grid-column-span': '2' });
+      .hasStyle({ '--hds-var-layout-grid-column-span': '2' });
   });
 
   test('it should set responsive colspan values if passed in', async function (assert) {
@@ -105,11 +105,11 @@ module('Integration | Component | hds/layout/grid/item', function (hooks) {
     );
     assert
       .dom('#test-layout-grid')
-      .hasStyle({ '--hds-layout-grid-column-span-sm': '1' })
-      .hasStyle({ '--hds-layout-grid-column-span-md': '2' })
-      .hasStyle({ '--hds-layout-grid-column-span-lg': '3' })
-      .hasStyle({ '--hds-layout-grid-column-span-xl': '4' })
-      .hasStyle({ '--hds-layout-grid-column-span-xxl': '5' })
+      .hasStyle({ '--hds-var-layout-grid-column-span-sm': '1' })
+      .hasStyle({ '--hds-var-layout-grid-column-span-md': '2' })
+      .hasStyle({ '--hds-var-layout-grid-column-span-lg': '3' })
+      .hasStyle({ '--hds-var-layout-grid-column-span-xl': '4' })
+      .hasStyle({ '--hds-var-layout-grid-column-span-xxl': '5' })
       .hasClass('hds-layout-grid--col-span-view-sm')
       .hasClass('hds-layout-grid--col-span-view-md')
       .hasClass('hds-layout-grid--col-span-view-lg')
@@ -119,14 +119,14 @@ module('Integration | Component | hds/layout/grid/item', function (hooks) {
 
   // ROW SPAN
 
-  // Note: A fallback value of 1 is set in the CSS for the `--hds-layout-grid-row-span` custom property
-  test('if the @rowspan prop is not declared, --hds-layout-grid-row-span should be unset', async function (assert) {
+  // Note: A fallback value of 1 is set in the CSS for the `--hds-var-layout-grid-row-span` custom property
+  test('if the @rowspan prop is not declared, --hds-var-layout-grid-row-span should be unset', async function (assert) {
     await render(
       <template><HdsLayoutGridItem id="test-layout-grid" /></template>,
     );
     assert
       .dom('#test-layout-grid')
-      .doesNotHaveStyle({ '--hds-layout-grid-row-span': '' });
+      .doesNotHaveStyle({ '--hds-var-layout-grid-row-span': '' });
   });
 
   test('it should render the correct row span if the @rowspan prop is declared', async function (assert) {
@@ -137,7 +137,7 @@ module('Integration | Component | hds/layout/grid/item', function (hooks) {
     );
     assert
       .dom('#test-layout-grid')
-      .hasStyle({ '--hds-layout-grid-row-span': '2' });
+      .hasStyle({ '--hds-var-layout-grid-row-span': '2' });
   });
 
   test('it should set responsive rowspan values if passed in', async function (assert) {
@@ -151,11 +151,11 @@ module('Integration | Component | hds/layout/grid/item', function (hooks) {
     );
     assert
       .dom('#test-layout-grid')
-      .hasStyle({ '--hds-layout-grid-row-span-sm': '1' })
-      .hasStyle({ '--hds-layout-grid-row-span-md': '2' })
-      .hasStyle({ '--hds-layout-grid-row-span-lg': '3' })
-      .hasStyle({ '--hds-layout-grid-row-span-xl': '4' })
-      .hasStyle({ '--hds-layout-grid-row-span-xxl': '5' })
+      .hasStyle({ '--hds-var-layout-grid-row-span-sm': '1' })
+      .hasStyle({ '--hds-var-layout-grid-row-span-md': '2' })
+      .hasStyle({ '--hds-var-layout-grid-row-span-lg': '3' })
+      .hasStyle({ '--hds-var-layout-grid-row-span-xl': '4' })
+      .hasStyle({ '--hds-var-layout-grid-row-span-xxl': '5' })
       .hasClass('hds-layout-grid--row-span-view-sm')
       .hasClass('hds-layout-grid--row-span-view-md')
       .hasClass('hds-layout-grid--row-span-view-lg')

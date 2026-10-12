@@ -175,7 +175,7 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
         'labelledby',
         `${prefixLabel?.id} ${buttonLabel?.id} ${suffixLabel?.id}`,
       );
-    assert.dom(suffixLabel).hasText('Ascending');
+    assert.dom(suffixLabel).hasText('ascending');
   });
 
   // ONCLICKSORT

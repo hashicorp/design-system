@@ -42,7 +42,7 @@ The `@forceState` argument can be used to programmatically control individual Ac
 
 ### Accessible name
 
-The `ariaLabel` value is applied to the HTML button which controls visibility of the content block. The text does not display in the UI. The default value is "Toggle display" but you can set a custom value useful for translated text for example.
+The `@ariaLabel` value is applied to the HTML button which controls visibility of the content block. The text does not display in the UI. You can set a custom value useful for translated text for example. If not provided, the accessible name is taken from the toggle block content via `aria-labelledby`. 
 
 [[code-snippets/accordion-a11y-name]]
 
@@ -61,18 +61,18 @@ The `@titleTag` argument changes the HTML element that wraps the title block of 
 
 ### Open
 
-Set `isOpen` to `true` on an `Accordion::Item` to display its associated content on page load instead of initially hiding it.
+Set `@isOpen` to `true` on an `Accordion::Item` to display its associated content on page load instead of initially hiding it.
 
 [[code-snippets/accordion-open]]
 
 ### Static
 
-Set `isStatic` to `true` on an `Accordion::Item` to remove the ability to interact with the toggle.
+Set `@isStatic` to `true` on an `Accordion::Item` to remove the ability to interact with the toggle.
 
 [[code-snippets/accordion-static]]
 
 ### Contains interactive
 
-By default, the `containsInteractive` property of the `Accordion::Item` is set to `false`, meaning that the entire `Accordion::Item` toggle block can be clicked to hide and show the associated content. If set to `true`, only the chevron button of the `Accordion::Item` is clickable vs. the entire block. This allows you to add other interactive content inside the toggle block if desired.
+By default, the `@containsInteractive` property of the `Accordion::Item` is set to `false`, meaning that the entire `Accordion::Item` toggle block can be clicked to hide and show the associated content. If set to `true`, only the chevron button of the `Accordion::Item` is clickable vs. the entire block. This allows you to add other interactive content inside the toggle block if desired.
 
 [[code-snippets/accordion-contains-interactive-complex]]

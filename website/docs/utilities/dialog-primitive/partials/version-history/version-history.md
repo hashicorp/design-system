@@ -1,3 +1,8 @@
+## 7.0.0
+
+Updated internal text element from `HdsTextBody` to a `HTMLDivElement`
+
+
 ## 6.1.0
 
 Converted component to gts format.

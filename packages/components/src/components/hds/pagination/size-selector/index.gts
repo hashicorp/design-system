@@ -8,10 +8,12 @@ import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { on } from '@ember/modifier';
 import { eq } from 'ember-truth-helpers';
+import { service } from '@ember/service';
 
 import HdsFormSelectBase from '../../form/select/base.gts';
 
 import type { HdsFormSelectBaseSignature } from '../../form/select/base.gts';
+import type HdsIntlService from '../../../../services/hds-intl';
 
 export interface HdsPaginationSizeSelectorSignature {
   Args: {
@@ -24,6 +26,8 @@ export interface HdsPaginationSizeSelectorSignature {
 }
 
 export default class HdsPaginationSizeSelector extends Component<HdsPaginationSizeSelectorSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
+
   private _sizeSelectorId = 'pagination-size-selector-' + guidFor(this);
 
   get pageSizes(): number[] {
@@ -51,9 +55,12 @@ export default class HdsPaginationSizeSelector extends Component<HdsPaginationSi
   }
 
   get label(): string {
-    const { label = 'Items per page' } = this.args;
-
-    return label;
+    return (
+      this.args.label ??
+      this.hdsIntl.t('hds.components.pagination.size-selector.label', {
+        default: 'Items per page',
+      })
+    );
   }
 
   onChange = (e: Event): void => {

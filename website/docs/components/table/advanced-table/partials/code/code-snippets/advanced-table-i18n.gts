@@ -20,17 +20,17 @@ export default class LocalComponent extends Component {
       @columns={{array
         (hash
           key="artist"
-          label=(hdsT "components.table.headers.artist" default="Artist")
+          label=(hdsT "hds.components.table.headers.artist" default="Artist")
           isSortable=true
         )
         (hash
           key="album"
-          label=(hdsT "components.table.headers.album" default="Album")
+          label=(hdsT "hds.components.table.headers.album" default="Album")
           isSortable=true
         )
         (hash
           key="year"
-          label=(hdsT "components.table.headers.year" default="Year")
+          label=(hdsT "hds.components.table.headers.year" default="Year")
           isSortable=true
         )
         (hash key="other" label=(hdsT "global.titles.other" default="Other"))

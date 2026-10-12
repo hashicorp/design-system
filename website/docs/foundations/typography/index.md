@@ -10,6 +10,13 @@ navigation:
   keywords: ['text', 'typography', 'display', 'body', 'code']
 ---
 
+!!! Information
+
+**A note about versions**
+
+The tokens and helper class names used here refer to `v7.0` or above of the components package, and `v6.0` or above of the tokens package. If you are using an older version, refer to the [documentation for your version](/whats-new/release-notes).
+
+!!!
 
 <section data-tab="Guidelines">
   @include "partials/guidelines/overview.md"

@@ -23,15 +23,15 @@ export function generateTypographyHelpers(tokens: TransformedTokens, outputCssVa
 
       const selector = `.${PREFIX}-font`;
       if (fontStackTokens?.sans?.display) {
-        const valueFontStackDisplay = outputCssVars ? 'var(--token-typography-font-stack-display)' : fontStackTokens.display.$value;
+        const valueFontStackDisplay = outputCssVars ? 'var(--hds-typography-font-stack-display)' : fontStackTokens.display.$value;
         helpers.push(`${selector}-family-sans-display { font-family: ${valueFontStackDisplay}; }`);
       }
       if (fontStackTokens?.sans?.text) {
-        const valueFontStackText = outputCssVars ? 'var(--token-typography-font-stack-text)' : fontStackTokens.text.$value;
+        const valueFontStackText = outputCssVars ? 'var(--hds-typography-font-stack-text)' : fontStackTokens.text.$value;
         helpers.push(`${selector}-family-sans-text { font-family: ${valueFontStackText}; }`);
       }
       if (fontStackTokens?.monospace?.code) {
-        const valueFontStackCode = outputCssVars ? 'var(--token-typography-font-stack-code)' : fontStackTokens.code.$value;
+        const valueFontStackCode = outputCssVars ? 'var(--hds-typography-font-stack-code)' : fontStackTokens.code.$value;
         helpers.push(`${selector}-family-mono-code { font-family: ${valueFontStackCode}; }`);
       }
 
@@ -42,7 +42,7 @@ export function generateTypographyHelpers(tokens: TransformedTokens, outputCssVa
       if (fontWeightTokens) {
         Object.keys(fontWeightTokens).forEach(weight => {
           const selector = `.${PREFIX}-font-weight-${weight}`;
-          const valueFontWeight = outputCssVars ? `var(--token-typography-font-weight-${weight})` : fontWeightTokens[weight].$value;
+          const valueFontWeight = outputCssVars ? `var(--hds-typography-font-weight-${weight})` : fontWeightTokens[weight].$value;
           helpers.push(`${selector} { font-weight: ${valueFontWeight}; }`);
         });
       }
@@ -53,9 +53,9 @@ export function generateTypographyHelpers(tokens: TransformedTokens, outputCssVa
 
       // basic font styles
       if (outputCssVars) {
-        declarations.push(`font-family: var(--token-typography-${stylename}-font-family);`);
-        declarations.push(`font-size: var(--token-typography-${stylename}-font-size);`);
-        declarations.push(`line-height: var(--token-typography-${stylename}-line-height);`);
+        declarations.push(`font-family: var(--hds-typography-${stylename}-font-family);`);
+        declarations.push(`font-size: var(--hds-typography-${stylename}-font-size);`);
+        declarations.push(`line-height: var(--hds-typography-${stylename}-line-height);`);
       } else {
         if (tokens[key] && tokens[key]['font-family'] && tokens[key]['font-family'].$value) {
           declarations.push(`font-family: ${tokens[key]['font-family'].$value};`);

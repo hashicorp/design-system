@@ -1,3 +1,16 @@
+## 7.0.0
+
+Removed `hds-typography-body-200` and `hds-font-weight-regular` classes from `hds-table__td` element in `TableTd`
+
+
+Removed `hds-typography-body-200` and `hds-font-weight-semibold` classes from `hds-table__td` element in `TableTh` and `TableThSort`
+
+
+## 6.5.0
+
+Added `.hds-table__tr--is-selected` class to table rows when they are selected.
+
+
 ## 6.2.0
 
 Fixed element typing to `HTMLTableCellElement` to reflect the actual rendered table-cell element.

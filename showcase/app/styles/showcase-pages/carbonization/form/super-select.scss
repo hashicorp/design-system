@@ -1,0 +1,12 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// CARBONIZATION > FORM > SUPER SELECT
+
+body.page-carbonization-components-form-super-select {
+  .page-carbonization-components-form-super-select-options-no-max-height {
+    max-height: none;
+  }
+}

@@ -80,6 +80,9 @@
   <C.Property @name="isRequired" @type="boolean" @default="false">
     Appends a `Required` indicator next to the legend text and sets the `required` attribute on the controls when user input is required.
   </C.Property>
+  <C.Property @name="isOptional" @type="boolean" @default="false">
+    Appends an `Optional` indicator next to the legend text when user input is optional.
+  </C.Property>
   <C.Property @name="layout" @type="string" @values={{array "horizontal" "vertical" }} @default="horizontal">
     By default, the Radio Cards will be horizontal, one next to another. Set this property to `vertical` to stack them one underneath each other.
   </C.Property>

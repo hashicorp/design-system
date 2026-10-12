@@ -15,7 +15,6 @@ import type { HdsButtonSignature } from '../../button/index.gts';
 
 export interface HdsFormKeyValueInputsAddRowButtonSignature {
   Args: {
-    ariaLabel?: string;
     onClick?: () => void;
     text?: HdsButtonSignature['Args']['text'];
   };
@@ -59,7 +58,7 @@ export default class HdsFormKeyValueInputsAddRowButton extends Component<HdsForm
     <HdsButton
       @text={{this.text}}
       @size="medium"
-      @color="secondary"
+      @color="secondary-muted"
       @icon="plus"
       @iconPosition="leading"
       class="hds-form-key-value-inputs__add-row-button"

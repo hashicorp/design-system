@@ -15,9 +15,6 @@
     <br />
     _Notice: in this case the tooltip can't be dismissed via `esc` or "click outside" until the end user has interacted with it (it's in a "manual" state)._
   </C.Property>
-  <C.Property @name="enableSoftEvents" @type="boolean" @default="true" @values={{array "true" "false"}}>
-    Assigns "soft" event listeners (`mouseEnter/Leave` + `focusIn/Out`) to the toggle to control the visibility of the tooltip.
-  </C.Property>
   <C.Property @name="enableClickEvents" @type="boolean" @default="false" @values={{array "true" "false"}}>
     Assigns a "click" event listener (`onClick`) to the toggle to control the visibility of the tooltip.
     <br />

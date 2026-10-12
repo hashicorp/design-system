@@ -78,7 +78,7 @@ export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvance
       aria-expanded="{{this.isExpanded}}"
       aria-description={{hdsT
         "hds.components.advanced-table.th-button-expand.aria-description"
-        default="Toggle the visibility of the related rows."
+        default="Toggle the visibility of the related rows"
       }}
       ...attributes
     >

@@ -40,7 +40,9 @@ module('Integration | Component | hds/breadcrumb/truncation', function (hooks) {
         <HdsBreadcrumbTruncation id="test-breadcrumb-truncation" />
       </template>,
     );
-    assert.dom('#test-breadcrumb-truncation button').hasAttribute('aria-label');
+    assert
+      .dom('#test-breadcrumb-truncation button')
+      .hasAttribute('aria-label', 'show more');
   });
 
   // CONTENT

@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { hash } from '@ember/helper';
+import { tracked } from '@glimmer/tracking';
 import { eq } from 'ember-truth-helpers';
 
 import HdsAdvancedTableThSelectable from './th-selectable.gts';
@@ -87,6 +88,8 @@ export type HdsAdvancedTableTrSignature<T> = BaseHdsAdvancedTableTrSignature<T>;
 export default class HdsAdvancedTableTr<T> extends Component<
   HdsAdvancedTableTrSignature<T>
 > {
+  @tracked private isSelectedOverride?: boolean;
+
   get selectionKey(): string | undefined {
     if (this.args.isSelectable && this.args.selectionScope === 'row') {
       assert(
@@ -96,6 +99,11 @@ export default class HdsAdvancedTableTr<T> extends Component<
       return this.args.selectionKey;
     }
     return undefined;
+  }
+
+  // Carbon applies styles to the entire row when it is selected, so we need a state to track the selection state to toggle the appropriate class.
+  get isSelected(): boolean {
+    return this.isSelectedOverride ?? this.args.isSelected ?? false;
   }
 
   get classNames(): string {
@@ -116,6 +124,10 @@ export default class HdsAdvancedTableTr<T> extends Component<
 
     if (isLastRow) {
       classes.push('hds-advanced-table__tr--last-row');
+    }
+
+    if (this.isSelected) {
+      classes.push(`hds-advanced-table__tr--is-selected`);
     }
 
     return classes.join(' ');
@@ -156,6 +168,18 @@ export default class HdsAdvancedTableTr<T> extends Component<
     }
   }
 
+  onSelectionChange = (
+    checkbox?: HdsFormCheckboxBaseSignature['Element'],
+    selectionKey?: string
+  ): void => {
+    this.isSelectedOverride = checkbox?.checked ?? false;
+
+    const { onSelectionChange } = this.args;
+    if (typeof onSelectionChange === 'function') {
+      onSelectionChange(checkbox, selectionKey);
+    }
+  };
+
   <template>
     <div class={{this.classNames}} role="row" {{@compositeGroup}} ...attributes>
       {{#if @isSelectable}}
@@ -163,7 +187,7 @@ export default class HdsAdvancedTableTr<T> extends Component<
           role={{if (eq @selectionScope "row") "gridcell" "columnheader"}}
           @compositeItem={{@compositeItem}}
           @isCompositeItemDisabled={{@isCompositeItemDisabled}}
-          @isSelected={{@isSelected}}
+          @isSelected={{this.isSelected}}
           @selectionScope={{@selectionScope}}
           @selectionKey={{this.selectionKey}}
           @selectionAriaLabelSuffix={{@selectionAriaLabelSuffix}}
@@ -171,7 +195,7 @@ export default class HdsAdvancedTableTr<T> extends Component<
           @didInsert={{@didInsert}}
           @willDestroy={{@willDestroy}}
           @onClickSortBySelected={{@onClickSortBySelected}}
-          @onSelectionChange={{@onSelectionChange}}
+          @onSelectionChange={{this.onSelectionChange}}
           @isStickyColumn={{@hasStickyColumn}}
           @isStickyColumnPinned={{@isStickyColumnPinned}}
         />

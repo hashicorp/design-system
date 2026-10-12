@@ -90,7 +90,7 @@ The `Link::Standalone` component, yielded as contextual component inside the `"a
 
 <Doc::ComponentApi as |C|>
   <C.Property>
-    It exposes the same API as the [`Link::Standalone`](/components/link/standalone) component, apart from the `@size` argument, which is pre-defined to be
+    It exposes the same API as the [`Link::Standalone`](/components/link/standalone) component, apart from the `@size` argument, which is pre-defined to be `small`.
   </C.Property>
 </Doc::ComponentApi>
 

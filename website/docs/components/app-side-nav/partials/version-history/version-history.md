@@ -1,3 +1,15 @@
+## 7.0.0
+
+Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-app-side-nav-animation-delay` → `hds-var-app-side-nav-animation-delay`
+- `hds-app-side-nav-animation-duration` → `hds-var-app-side-nav-animation-duration`
+- `hds-app-side-nav-animation-easing` → `hds-var-app-side-nav-animation-easing`
+- `hds-app-side-nav-toggle-button-width` → `hds-var-app-side-nav-toggle-button-width`
+- `hds-app-side-nav-width-expanded` → `hds-var-app-side-nav-width-expanded`
+- `hds-app-side-nav-width-fixed` → `hds-var-app-side-nav-width-fixed`
+- `hds-app-side-nav-width-minimized` → `hds-var-app-side-nav-width-minimized`
+
 ## 6.1.0
 
 Converted component to gts format.

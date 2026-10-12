@@ -25,7 +25,7 @@ jobs:
           fetch-depth: 0
       - name: Get changed files
         id: read-files
-        run: ./.github/scripts/filter_changed_files.sh "packages/components" "packages/flight-icons/catalog.json" "showcase" ".github/workflows/ci-components.yml" "packages/tokens"
+        run: ./.github/scripts/filter_changed_files.sh "packages/components/" "packages/flight-icons/catalog.json" "showcase/" ".github/workflows/ci-components.yml" "packages/tokens/"
 
   test:
     name: "Tests"
@@ -47,6 +47,9 @@ jobs:
         run: pnpm install
       - name: Build Components
         run: pnpm build
+        working-directory: packages/components
+      - name: Check Component Catalog
+        run: pnpm test:component-catalog
         working-directory: packages/components
       - name: Lint Showcase
         run: pnpm lint

@@ -32,6 +32,9 @@ This component uses [CodeMirror 6](https://codemirror.net/) under the hood.
   <C.Property @name="customExtensions" @type="array">
     Accepts custom CodeMirror 6 extensions. More information about creating extensions can be found in the [CodeMirror documentation](https://codemirror.net/docs/ref/#state.Extension).
   </C.Property>
+  <C.Property @name="extraKeys" @type="object">
+    Accepts an object of custom key bindings to register with the editor. More information about creating keymaps can be found in the [CodeMirror documentation](https://codemirror.net/docs/ref/#view.KeyBinding).
+  </C.Property>
   <C.Property @name="cspNonce" @type="string">
     Provides a Content Security Policy nonce to use when creating the style sheets for the editor. If none is provided, the editor will attempt to extract a nonce from the Content Security Policy.
   </C.Property>

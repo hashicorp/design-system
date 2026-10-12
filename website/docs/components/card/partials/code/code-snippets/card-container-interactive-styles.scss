@@ -1,8 +1,3 @@
-/**
- * Copyright IBM Corp. 2021, 2026
- * SPDX-License-Identifier: MPL-2.0
- */
-
 .doc-card-interactive-demo {
   .hds-card__container {
     a {
@@ -12,7 +7,7 @@
 
       &:focus {
         outline: none;
-        box-shadow: var(--token-focus-ring-action-box-shadow);
+        box-shadow: var(--hds-focus-ring-box-shadow-action);
       }
     }
   }

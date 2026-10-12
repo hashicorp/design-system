@@ -1,10 +1,10 @@
 ## Component API
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="name" @type="string" @required="true">
+  <C.Property @name="name" @type="string" @required={{true}}>
     The name of the icon you wish to use. If the value does not match an existing icon name, an error will be thrown. Search for existing icon names in [the Icon library](/icons/library).
   </C.Property>
-  <C.Property @name="size" @type="number" @default="16" @values={{array "16" "24"}}>
+  <C.Property @name="size" @type="'16' | '24'" @default="16" @values={{array "16" "24"}}>
     Sets the size of the icon in pixels. Only two sizes are supported. (Setting a non-standard size will cause the SVG to render at the specified size but it will be invisible.)
   </C.Property>
   <C.Property @name="color" @type="string | CSS color" @values={{array "primary" "strong" "faint" "disabled" "high-contrast" "action" "action-hover" "action-active" "highlight" "highlight-on-surface" "highlight-high-contrast" "success" "success-on-surface" "success-high-contrast" "warning" "warning-on-surface" "warning-high-contrast" "critical" "critical-on-surface" "critical-high-contrast" }}>

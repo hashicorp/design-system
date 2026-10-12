@@ -25,9 +25,7 @@ export const IconQueue16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    fillRule="evenodd"
                     d="M14.25 12a.75.75 0 0 1 0 1.5h-8a.75.75 0 0 1 0-1.5zm0-3.5a.75.75 0 0 1 0 1.5h-8a.75.75 0 0 1 0-1.5zM1.174 2.77a.75.75 0 0 1 1.056-.096l3 2.5a.75.75 0 0 1 0 1.152l-3 2.5a.75.75 0 0 1-.96-1.152L3.578 5.75 1.27 3.826a.75.75 0 0 1-.096-1.056M14.25 5a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1 0-1.5z"
-                    clipRule="evenodd"
                 />
             </svg>
         );

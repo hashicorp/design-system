@@ -12,6 +12,49 @@
   </a>
 </p>
 
+## 5.3.0
+
+**Minor changes**
+
+Added a monochrome Carbon-theme fallback for all the colored `Services` icons and some `Products` icons
+
+The `Services` and `Products` icons have no IBM Carbon equivalent. Their `***-color` glyphs don't always work against dark backgrounds. So when the Carbon themes are activated, and their colored glyph is rendered, there are color contrast issues (eg. a dark icon on a dark background).
+
+With this change they now fall back to their monochrome counterpart (eg. `aws-cloudwatch-color` to `aws-cloudwatch`, `hashicorp-color` to `hashicorp`), whose dynamic color is emitted as `currentColor` so it adapts to the current theme.
+
+This is handled entirely in the build pipeline: the generated registry keeps its existing shape, so no changes are required in consuming applications.
+
+<small class="doc-whats-new-changelog-metadata">[#4159](https://github.com/hashicorp/design-system/pull/4159)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+## 5.2.0
+
+**Minor changes**
+
+Added `portal` icon.
+
+<small class="doc-whats-new-changelog-metadata">[#4161](https://github.com/hashicorp/design-system/pull/4161)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+## 5.1.0
+
+**Minor changes**
+
+Added icons `delay` and `user-minus`
+Added Carbon icon references to contributed icons
+
+<small class="doc-whats-new-changelog-metadata">[#3995](https://github.com/hashicorp/design-system/pull/3995)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Added `incomplete-normal`, `circle-dash`, and `error-filled` icons.
+
+<small class="doc-whats-new-changelog-metadata">[#4002](https://github.com/hashicorp/design-system/pull/4002)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 5.0.0
 
 **Major changes**
@@ -213,50 +256,6 @@ Updated `okta` and `okta-color` to reflect updated branding.
 mongodb and twilio icons have been added.
 
 <small class="doc-whats-new-changelog-metadata">[#2260](https://github.com/hashicorp/design-system/pull/2260)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-## 3.4.0
-
-**Minor changes**
-
-`service-now` and `pager-duty` icons added.
-
-<small class="doc-whats-new-changelog-metadata">[#2191](https://github.com/hashicorp/design-system/pull/2191)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-`search` icon (16px only) has been increased in size to better fit within the bounding box and more closely align with other icons of the same size
-
-<small class="doc-whats-new-changelog-metadata">[#2175](https://github.com/hashicorp/design-system/pull/2175)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-## 3.3.0
-
-**Minor changes**
-
-`vagrant`, `vagrant-color`, `vagrant-fill`, `vagrant-fill-color`, `vagrant-square`, `vagrant-square-color` icons were updated per brand changes.
-
-<small class="doc-whats-new-changelog-metadata">[#2144](https://github.com/hashicorp/design-system/pull/2144)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-## 3.2.0
-
-**Minor changes**
-
-Added two icon logos: `minio` and `git`.
-
-<small class="doc-whats-new-changelog-metadata">[#2058](https://github.com/hashicorp/design-system/pull/2058)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`sparkle` icon added
-
-<small class="doc-whats-new-changelog-metadata">[#2081](https://github.com/hashicorp/design-system/pull/2081)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 

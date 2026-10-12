@@ -265,4 +265,122 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
     assert.dom('input').hasAttribute('required');
     assert.dom('label .hds-form-indicator').doesNotExist();
   });
+
+  // ACCESSIBILITY (for @type="password")
+
+  test('it should set aria-controls on the visibility toggle button', async function (assert) {
+    await render(
+      <template><HdsFormTextInputField @type="password" /></template>,
+    );
+    // the control ID is dynamically generated
+    const control = find('.hds-form-field__control input');
+    const controlId = control?.id ?? '';
+    assert
+      .dom('.hds-form-visibility-toggle')
+      .hasAttribute('aria-controls', controlId);
+  });
+
+  test('it should render a default aria-label on the visibility toggle button', async function (assert) {
+    await render(
+      <template><HdsFormTextInputField @type="password" /></template>,
+    );
+    assert
+      .dom('.hds-form-visibility-toggle')
+      .hasAttribute('aria-label', 'Toggle password visibility');
+  });
+
+  test('it should support a custom aria-label on the visibility toggle button', async function (assert) {
+    await render(
+      <template>
+        <HdsFormTextInputField
+          @type="password"
+          @visibilityToggleAriaLabel="Toggle my password visibility"
+        />
+      </template>,
+    );
+    assert
+      .dom('.hds-form-visibility-toggle')
+      .hasAttribute('aria-label', 'Toggle my password visibility');
+  });
+
+  test('it should render aria-pressed="false" by default on the visibility toggle button', async function (assert) {
+    await render(
+      <template><HdsFormTextInputField @type="password" /></template>,
+    );
+    assert
+      .dom('.hds-form-visibility-toggle')
+      .hasAttribute('aria-pressed', 'false');
+  });
+
+  test('it should update the aria-pressed state on toggle', async function (assert) {
+    await render(
+      <template><HdsFormTextInputField @type="password" /></template>,
+    );
+    assert
+      .dom('.hds-form-visibility-toggle')
+      .hasAttribute('aria-pressed', 'false');
+    await click('.hds-form-visibility-toggle');
+    assert
+      .dom('.hds-form-visibility-toggle')
+      .hasAttribute('aria-pressed', 'true');
+    await click('.hds-form-visibility-toggle');
+    assert
+      .dom('.hds-form-visibility-toggle')
+      .hasAttribute('aria-pressed', 'false');
+  });
+
+  test('it informs the user about visibility change on toggle', async function (assert) {
+    await render(
+      <template><HdsFormTextInputField @type="password" /></template>,
+    );
+    await click('.hds-form-visibility-toggle');
+    assert.dom('.hds-form-visibility-toggle').hasText('Password is visible');
+    await click('.hds-form-visibility-toggle');
+    assert.dom('.hds-form-visibility-toggle').hasText('Password is hidden');
+  });
+
+  test('it renders a custom message for the hidden state when only @visibilityToggleAriaMessageText is provided', async function (assert) {
+    await render(
+      <template>
+        <HdsFormTextInputField
+          @type="password"
+          @visibilityToggleAriaMessageText="My password is hidden"
+        />
+      </template>,
+    );
+    assert.dom('.hds-form-visibility-toggle').hasText('My password is hidden');
+    await click('.hds-form-visibility-toggle');
+    assert.dom('.hds-form-visibility-toggle').hasText('Password is visible');
+  });
+
+  test('it renders a custom message for the visible state when only @visibilityToggleAriaMessageTextWhenVisible is provided', async function (assert) {
+    await render(
+      <template>
+        <HdsFormTextInputField
+          @type="password"
+          @visibilityToggleAriaMessageTextWhenVisible="My password is visible"
+        />
+      </template>,
+    );
+    await click('.hds-form-visibility-toggle');
+    assert.dom('.hds-form-visibility-toggle').hasText('My password is visible');
+    await click('.hds-form-visibility-toggle');
+    assert.dom('.hds-form-visibility-toggle').hasText('Password is hidden');
+  });
+
+  test('it renders custom messages for both states on toggle', async function (assert) {
+    await render(
+      <template>
+        <HdsFormTextInputField
+          @type="password"
+          @visibilityToggleAriaMessageText="My password is hidden"
+          @visibilityToggleAriaMessageTextWhenVisible="My password is visible"
+        />
+      </template>,
+    );
+    await click('.hds-form-visibility-toggle');
+    assert.dom('.hds-form-visibility-toggle').hasText('My password is visible');
+    await click('.hds-form-visibility-toggle');
+    assert.dom('.hds-form-visibility-toggle').hasText('My password is hidden');
+  });
 });

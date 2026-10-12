@@ -25,9 +25,7 @@ export const IconNavigationAlt16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    fillRule="evenodd"
                     d="M8 1c.302 0 .574.181.691.46l5.25 12.5a.75.75 0 0 1-1.027.96L8 12.458 3.086 14.92a.75.75 0 0 1-1.028-.961l5.25-12.5A.75.75 0 0 1 8 1M4.226 12.67l3.438-1.722a.75.75 0 0 1 .672 0l3.437 1.723L8 3.686z"
-                    clipRule="evenodd"
                 />
             </svg>
         );

@@ -1,10 +1,25 @@
-import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import type { McpTool } from "./types.js";
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
 
-const TOOLS: McpTool[] = [];
+import componentsTools from "./components/index.js";
+import docsTools from "./docs/index.js";
+import hdsIconsTools from "./hds-icons/index.js";
+import tokensTools from "./tokens/index.js";
+
+import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import type { ToolRegistration } from "./define-tool.js";
+
+export const TOOLS: ToolRegistration[] = [
+  ...componentsTools,
+  ...docsTools,
+  ...hdsIconsTools,
+  ...tokensTools,
+];
 
 export function registerTools(server: McpServer) {
   for (const tool of TOOLS) {
-    server.registerTool(tool.name, tool.config, tool.executeCallback);
+    tool.register(server);
   }
 }

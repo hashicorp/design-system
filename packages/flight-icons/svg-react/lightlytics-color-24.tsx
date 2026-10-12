@@ -23,16 +23,12 @@ export const IconLightlyticsColor24 = forwardRef<SVGSVGElement, IconProps>(
                 {...props}
             >
                 {title ? <title id={titleId}>{title}</title> : null}
-                <path fill="#7b00f4" d="M5.832 22h8.083L22 10.237h-7.666z" />
                 <path
                     fill="#b627ff"
                     d="M12 2h8.082l-5.686 8.237H22l-4.49 6.528H2z"
                 />
-                <path
-                    fill="#000"
-                    d="m8.107 18.883 9.07-2.118H9.604z"
-                    opacity={0.4}
-                />
+                <path fill="#000" d="m8.107 18.883 9.07-2.118H9.604z" />
+                <path fill="#7b00f4" d="M5.832 22h8.083L22 10.237h-7.666z" />
             </svg>
         );
     }

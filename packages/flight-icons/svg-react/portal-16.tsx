@@ -1,0 +1,33 @@
+import { forwardRef, useMemo } from 'react';
+import { IconProps } from './types';
+
+export const IconPortal16 = forwardRef<SVGSVGElement, IconProps>(
+    ({ color = 'currentColor', title, ...props }, svgRef) => {
+        const titleId = useMemo(
+            () =>
+                title
+                    ? 'title-' + Math.random().toString(36).substr(2, 9)
+                    : undefined,
+            [title]
+        );
+        return (
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={16}
+                height={16}
+                fill="none"
+                viewBox="0 0 16 16"
+                aria-hidden={!title}
+                ref={svgRef}
+                aria-labelledby={titleId}
+                {...props}
+            >
+                {title ? <title id={titleId}>{title}</title> : null}
+                <g fill={color}>
+                    <path d="M14.162 2.505A.75.75 0 0 1 15 3.25v9.5a.75.75 0 0 1-.838.745l-4.25-.5a.75.75 0 0 1 .176-1.49l3.412.401V4.093l-3.412.402a.75.75 0 0 1-.176-1.49z" />
+                    <path d="M9.133 1.009A.75.75 0 0 1 10 1.75v12.5a.75.75 0 0 1-.86.742l-7.5-1.105a.75.75 0 0 1-.64-.742V2.94a.75.75 0 0 1 .633-.74zM2.5 3.58v8.915l6 .885V2.628z" />
+                </g>
+            </svg>
+        );
+    }
+);

@@ -1,9 +1,16 @@
+!!! Information
+
+**A note about versions**
+
+The tokens used here refer to `v7.0` or above of the components package, and `v6.0` or above of the tokens package. If you are using an older version, refer to the [documentation for your version](/whats-new/release-notes).
+
+!!!
 
 ## How to use this style
 
 We recommend applying the “focus-ring” style to an element using the **design token** provided as a custom CSS property.
 
-!!! Warning 
+!!! Warning
 
 **Consumer responsibility**
 
@@ -12,7 +19,7 @@ Note that `border-radius` is not included with this token and needs to be set ac
 
 ### Design tokens (recommended)
 
-Use the `--token-focus-ring-action-box-shadow` [design token](./tokens) directly in your CSS definitions. Note that it can only be used with the `box-shadow` property.
+Use the `--hds-focus-ring-box-shadow-action` [design token](./tokens) directly in your CSS definitions. Note that it can only be used with the `box-shadow` property.
 
 [[code-snippets/focus-ring-token-usage]]
 
@@ -28,20 +35,20 @@ To use this class, ensure you’ve imported the relevant CSS file:
 
 ### Border radius
 
-<div class="hds-focus-ring-action-box-shadow" style="margin-bottom: 16px;">
+<div class="hds-focus-ring-box-shadow-action" style="margin-bottom: 16px;">
   <Doc::Placeholder @text="no radius" @width="100" @height="100" @background="transparent" />
 </div>
 
-<div class="hds-focus-ring-action-box-shadow" style="margin-bottom: 16px; border-radius: 5px;">
+<div class="hds-focus-ring-box-shadow-action" style="margin-bottom: 16px; border-radius: 5px;">
   <Doc::Placeholder @text="with border radius" @width="100" @height="100" @background="transparent" />
 </div>
 
 ### Colors
 
-<div class="hds-focus-ring-action-box-shadow" style="margin-bottom: 16px;">
+<div class="hds-focus-ring-box-shadow-action" style="margin-bottom: 16px;">
   <Doc::Placeholder @text="action" @width="100" @height="100" @background="transparent" />
 </div>
 
-<div class="hds-focus-ring-critical-box-shadow" style="margin-bottom: 16px;">
+<div class="hds-focus-ring-box-shadow-critical" style="margin-bottom: 16px;">
   <Doc::Placeholder @text="critical" @width="100" @height="100" @background="transparent" />
 </div>

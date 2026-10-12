@@ -6,12 +6,14 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { or } from 'ember-truth-helpers';
+import { service } from '@ember/service';
 import style from 'ember-style-modifier';
 import PowerSelect from 'ember-power-select/components/power-select';
 
 import type { PowerSelectSignature } from 'ember-power-select/components/power-select';
 import type { Select } from 'ember-power-select/components/power-select';
 import type { CalculatePositionResult } from 'ember-basic-dropdown/utils/calculate-position';
+import type HdsIntlService from '../../../../../services/hds-intl.ts';
 
 import {
   HdsFormSuperSelectHorizontalPositionValues,
@@ -44,6 +46,7 @@ export interface HdsFormSuperSelectMultipleBaseSignature {
 }
 
 export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSuperSelectMultipleBaseSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
   @tracked private _powerSelectAPI?: Select;
   @tracked private _showOnlySelected = false;
   @tracked private _showNoSelectedMessage = false;
@@ -67,7 +70,13 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
       return this.args.resultCountMessage;
     }
 
-    return `${this.optionsCount} total`;
+    return this.hdsIntl.t(
+      'hds.components.form.super-select.multiple.result-count-message',
+      {
+        default: `${this.optionsCount} total`,
+        optionsCount: this.optionsCount,
+      }
+    );
   }
 
   get resultCountMessageFunction(): PowerSelectSignature['Args']['resultCountMessage'] {
@@ -76,6 +85,42 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
     }
 
     return undefined;
+  }
+
+  get noMatchesMessage(): string {
+    return (
+      this.args.noMatchesMessage ??
+      this.hdsIntl.t(
+        'hds.components.form.super-select.multiple.no-matches-message',
+        {
+          default: 'No results found',
+        }
+      )
+    );
+  }
+
+  get loadingMessage(): string {
+    return (
+      this.args.loadingMessage ??
+      this.hdsIntl.t(
+        'hds.components.form.super-select.multiple.loading-message',
+        {
+          default: 'Loading options...',
+        }
+      )
+    );
+  }
+
+  get searchMessage(): string {
+    return (
+      this.args.searchMessage ??
+      this.hdsIntl.t(
+        'hds.components.form.super-select.multiple.search-message',
+        {
+          default: 'Type to search',
+        }
+      )
+    );
   }
 
   calculatePosition = (
@@ -138,25 +183,38 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
 
   // NOTE: The searchPlaceholder doesn't currently work for the multiple select
   get searchPlaceholder(): string {
-    return this.args.searchPlaceholder ?? 'Search';
+    return (
+      this.args.searchPlaceholder ??
+      this.hdsIntl.t('hds.components.form.super-select.multiple.search', {
+        default: 'Search',
+      })
+    );
   }
 
   get styles(): Record<string, string> {
     const styles: { [key: string]: string } = {};
 
     if (this.args.dropdownMaxWidth) {
-      styles['--hds-form-super-select-dropdown-max-width'] =
+      styles['--hds-var-form-super-select-dropdown-max-width'] =
         this.args.dropdownMaxWidth;
     }
 
     if (this.selectedCount === '0') {
-      styles['--hds-form-super-select-selected-text-display'] = 'none';
+      styles['--hds-var-form-super-select-selected-text-display'] = 'none';
     } else {
-      styles['--hds-form-super-select-selected-text-display'] = 'flex';
+      styles['--hds-var-form-super-select-selected-text-display'] = 'flex';
     }
 
-    styles['--hds-form-super-select-selected-text'] =
-      `'${this.selectedCount} selected'`;
+    const selectedCountText = this.hdsIntl.t(
+      'hds.components.form.super-select.multiple.selected-count',
+      {
+        default: `${this.selectedCount} selected`,
+        selectedCount: this.selectedCount,
+      }
+    );
+
+    styles['--hds-var-form-super-select-selected-text'] =
+      `'${selectedCountText}'`;
 
     return styles;
   }
@@ -222,11 +280,11 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
         @horizontalPosition={{@horizontalPosition}}
         @initiallyOpened={{@initiallyOpened}}
         @labelText={{@labelText}}
-        @loadingMessage={{@loadingMessage}}
+        @loadingMessage={{this.loadingMessage}}
         @matcher={{@matcher}}
         @matchTriggerWidth={{if @dropdownMaxWidth false @matchTriggerWidth}}
         @multiple={{true}}
-        @noMatchesMessage={{@noMatchesMessage}}
+        @noMatchesMessage={{this.noMatchesMessage}}
         @onBlur={{@onBlur}}
         @onChange={{@onChange}}
         @onClose={{@onClose}}
@@ -247,7 +305,7 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
         @searchEnabled={{@searchEnabled}}
         @searchField={{@searchField}}
         @searchFieldPosition="before-options"
-        @searchMessage={{@searchMessage}}
+        @searchMessage={{this.searchMessage}}
         @searchPlaceholder={{this.searchPlaceholder}}
         @selected={{@selected}}
         @selectedItemComponent={{@selectedItemComponent}}
@@ -262,7 +320,10 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
         as |option select|
       >
         {{! even if technically what is yielded here are _a list_ of options, we've decided to keep the option name for consistency with the existing PowerSelect API }}
-        {{yield option select}}
+        <div class="hds-form-super-select__option-text">{{yield
+            option
+            select
+          }}</div>
       </PowerSelect>
     </div>
   </template>

@@ -48,9 +48,9 @@
   // stylelint-disable-next-line media-feature-range-notation
   @media (min-height: 480px) {
     .hds-app-frame--has-header-with-sidebar & {
-      top: var(--token-app-header-height);
-      height: calc(100vh - var(--token-app-header-height));
-      min-height: calc(100vh - var(--token-app-header-height));
+      top: var(--hds-app-header-height);
+      height: calc(100vh - var(--hds-app-header-height));
+      min-height: calc(100vh - var(--hds-app-header-height));
     }
   }
 }
@@ -60,8 +60,8 @@
 
   // This prevents content from being hidden behind the fixed app-header when the skip link is used
   .hds-app-frame--has-header-with-sidebar & {
-    margin-top: calc(var(--token-app-header-height) * -1);
-    padding-top: var(--token-app-header-height);
+    margin-top: calc(var(--hds-app-header-height) * -1);
+    padding-top: var(--hds-app-header-height);
   }
 }
 

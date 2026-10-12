@@ -11,86 +11,39 @@ import { on } from '@ember/modifier';
 import style from 'ember-style-modifier';
 import { concat } from '@ember/helper';
 
-import { parsePixel, requestAnimationFrameWaiter } from './utils.ts';
-import { BORDER_WIDTH } from './index.gts';
 import {
-  DEFAULT_MIN_WIDTH,
-  DEFAULT_MAX_WIDTH,
-} from './column-manager/width.gts';
+  measureColumnWidth,
+  parsePixel,
+  requestAnimationFrameWaiter,
+} from './utils.ts';
+import { BORDER_WIDTH } from './index.gts';
+import { DEFAULT_MIN_WIDTH } from './column-manager/width.gts';
 import hdsT from '../../../helpers/hds-t.ts';
 
 import type Owner from '@ember/owner';
-import type { HdsAdvancedTableNormalizedColumn } from './types';
+import type {
+  HdsAdvancedTableNormalizedColumn,
+  HdsAdvancedTablePixelString,
+} from './types';
 import type { HdsAdvancedTableSignature } from './index.gts';
 
 const KEYBOARD_RESIZE_STEP = 10;
 
-function calculateEffectiveDelta(
-  deltaX: number,
-  col: HdsAdvancedTableNormalizedColumn,
-  startColW: number,
-  nextCol: HdsAdvancedTableNormalizedColumn,
-  startNextColW: number
-): number {
-  const colMin = parsePixel(col.minWidth ?? DEFAULT_MIN_WIDTH) ?? 0;
-  const colMax = parsePixel(col.maxWidth ?? DEFAULT_MAX_WIDTH) ?? Infinity;
-  const nextMin = parsePixel(nextCol.minWidth ?? DEFAULT_MIN_WIDTH) ?? 0;
-  const nextMax = parsePixel(nextCol.maxWidth ?? DEFAULT_MAX_WIDTH) ?? Infinity;
-
-  let effectiveDelta = 0;
-
-  // expanding col, shrinking nextCol
-  if (deltaX > 0) {
-    const maxCanExpandCol = colMax - startColW;
-    const maxCanShrinkNext = startNextColW - nextMin;
-
-    effectiveDelta = Math.min(deltaX, maxCanExpandCol, maxCanShrinkNext);
-    effectiveDelta = Math.max(0, effectiveDelta);
-  }
-  // shrinking col, expanding nextCol
-  else if (deltaX < 0) {
-    const absDeltaX = -deltaX;
-    const maxCanShrinkCol = startColW - colMin;
-
-    let maxCanExpandNext: number;
-    if (startNextColW > nextMax) {
-      maxCanExpandNext = Infinity;
-    } else {
-      maxCanExpandNext = nextMax - startNextColW;
-    }
-
-    effectiveDelta = -Math.min(absDeltaX, maxCanShrinkCol, maxCanExpandNext);
-    effectiveDelta = Math.min(0, effectiveDelta);
-  }
-
-  return effectiveDelta;
-}
-
 export interface HdsAdvancedTableThResizeHandleSignature {
   Args: {
     column?: HdsAdvancedTableNormalizedColumn;
-    siblingColumnKeys?: {
-      previous?: HdsAdvancedTableNormalizedColumn['key'];
-      next?: HdsAdvancedTableNormalizedColumn['key'];
-    };
     tableHeight?: number;
-    onApplyTransientWidth?: (
-      columnKey: HdsAdvancedTableNormalizedColumn['key']
-    ) => void;
+    onBeginColumnResize?: () => void;
+    onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
+    onCommitColumnWidths?: () => void;
     onGetAppliedWidth?: (
       columnKey: HdsAdvancedTableNormalizedColumn['key']
     ) => HdsAdvancedTableNormalizedColumn['width'];
-    onGetColumnByKey?: (
-      columnKey: HdsAdvancedTableNormalizedColumn['key']
-    ) => HdsAdvancedTableNormalizedColumn | undefined;
-    onSetTransientColumnWidth?: (
-      columnKey: HdsAdvancedTableNormalizedColumn['key'],
-      width: `${number}px`
-    ) => void;
-    onSetTransientColumnWidths?: (options: { roundValues?: boolean }) => void;
     onResetTransientColumnWidths?: () => void;
-    onUpdateResizeDebt?: (delta: number) => void;
-    onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
+    onResizeColumnByDelta?: (
+      columnKey: HdsAdvancedTableNormalizedColumn['key'],
+      deltaPx: number
+    ) => number;
   };
   Blocks: {
     default?: [];
@@ -99,12 +52,7 @@ export interface HdsAdvancedTableThResizeHandleSignature {
 }
 
 export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvancedTableThResizeHandleSignature> {
-  @tracked resizing: {
-    startX: number;
-    startColumnPxWidth: number;
-    startNextColumnPxWidth?: number;
-  } | null = null;
-  // track the width change as it is changing, applied when resizing stops
+  @tracked resizing: { startX: number } | null = null;
   @tracked private _transientDelta: number = 0;
   @tracked private _isUpdateQueued: boolean = false;
   @tracked private _lastPointerEvent: PointerEvent | null = null;
@@ -136,9 +84,15 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       return 0;
     }
 
-    const appliedWidth = onGetAppliedWidth(column.key);
+    const pixelWidth = parsePixel(onGetAppliedWidth(column.key));
 
-    return parsePixel(appliedWidth) ?? 0;
+    if (pixelWidth !== undefined) {
+      return Math.round(pixelWidth);
+    }
+
+    // the applied width is an `fr` weight once a resize commits, and parsing that
+    // would report 0 — measure the rendered cell instead
+    return parsePixel(measureColumnWidth(this._handleElement)) ?? 0;
   }
 
   get minWidthInPixels(): number {
@@ -146,9 +100,21 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
   }
 
   get maxWidthInPixels(): number {
-    return (
-      parsePixel(this.args.column?.maxWidth ?? DEFAULT_MAX_WIDTH) ?? Infinity
-    );
+    const explicitMax = parsePixel(this.args.column?.maxWidth);
+
+    if (explicitMax !== undefined) {
+      return explicitMax;
+    }
+
+    const table = this._handleElement?.closest('.hds-advanced-table');
+
+    return table instanceof HTMLElement
+      ? table.offsetWidth
+      : this.minWidthInPixels;
+  }
+
+  get widthValueText(): string {
+    return `${this.currentWidthInPixels}px`;
   }
 
   get height(): string | undefined {
@@ -171,29 +137,32 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     return classes.join(' ');
   }
 
-  private _applyTransientWidths() {
-    const { column, siblingColumnKeys, onApplyTransientWidth } = this.args;
-
-    if (column === undefined || onApplyTransientWidth === undefined) {
-      return;
-    }
-
-    const { next: nextColumnKey } = siblingColumnKeys ?? {};
-
-    onApplyTransientWidth(column.key);
-
-    if (nextColumnKey !== undefined) {
-      onApplyTransientWidth(nextColumnKey);
-    }
-  }
-
   @action
-  onColumnResize(key?: string, width?: string): void {
+  onColumnResize(key?: string, width?: HdsAdvancedTablePixelString): void {
     const { onColumnResize } = this.args;
 
     if (typeof onColumnResize === 'function' && key !== undefined) {
       onColumnResize(key, width);
     }
+  }
+
+  private _finishColumnResize(
+    columnKey: HdsAdvancedTableNormalizedColumn['key']
+  ): void {
+    const { onCommitColumnWidths, onResetTransientColumnWidths } = this.args;
+
+    if (this._transientDelta !== 0) {
+      onCommitColumnWidths?.();
+    }
+
+    onResetTransientColumnWidths?.();
+
+    this.resizing = null;
+    this._transientDelta = 0;
+
+    requestAnimationFrameWaiter(() => {
+      this.onColumnResize(columnKey, measureColumnWidth(this._handleElement));
+    });
   }
 
   @action
@@ -209,48 +178,28 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
     const {
       column,
-      siblingColumnKeys,
-      onApplyTransientWidth,
-      onGetAppliedWidth,
-      onSetTransientColumnWidths,
+      onBeginColumnResize,
+      onResizeColumnByDelta,
+      onCommitColumnWidths,
       onResetTransientColumnWidths,
-      onUpdateResizeDebt,
     } = this.args;
-    const { next: nextColumnKey } = siblingColumnKeys ?? {};
 
     if (
       column === undefined ||
-      nextColumnKey === undefined ||
-      onApplyTransientWidth === undefined ||
-      onGetAppliedWidth === undefined ||
-      onSetTransientColumnWidths === undefined ||
-      onUpdateResizeDebt === undefined ||
+      onBeginColumnResize === undefined ||
+      onResizeColumnByDelta === undefined ||
+      onCommitColumnWidths === undefined ||
       onResetTransientColumnWidths === undefined
     ) {
       return;
     }
 
-    onSetTransientColumnWidths({ roundValues: true });
+    onBeginColumnResize();
 
-    const startColumnAppliedWidth = onGetAppliedWidth(column.key);
-    const startNextColumnAppliedWidth = onGetAppliedWidth(nextColumnKey);
-
-    const startColumnPxWidth = Math.round(
-      parsePixel(startColumnAppliedWidth) ?? 0
-    );
-    const startNextColumnPxWidth = Math.round(
-      parsePixel(startNextColumnAppliedWidth) ?? 0
-    );
     const deltaX =
       event.key === 'ArrowRight' ? KEYBOARD_RESIZE_STEP : -KEYBOARD_RESIZE_STEP;
 
-    this._applyResizeDelta(
-      deltaX,
-      startColumnPxWidth,
-      column,
-      nextColumnKey,
-      startNextColumnPxWidth
-    );
+    this._transientDelta = onResizeColumnByDelta(column.key, deltaX);
 
     // ensure the resize handle remains visible during keyboard navigation.
     this._handleElement.scrollIntoView({
@@ -260,19 +209,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     });
 
     // use a microtask to commit the final state after the render pass.
-    queueMicrotask(() => {
-      if (this._transientDelta !== 0) {
-        onUpdateResizeDebt(this._transientDelta);
-      }
-      // reset transient values
-      onApplyTransientWidth(column.key);
-      onApplyTransientWidth(nextColumnKey);
-
-      onResetTransientColumnWidths();
-      this._transientDelta = 0;
-
-      this.onColumnResize(column.key, column.width);
-    });
+    queueMicrotask(() => this._finishColumnResize(column.key));
   }
 
   @action
@@ -284,122 +221,18 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     event.preventDefault();
     event.stopPropagation();
 
-    const {
-      column,
-      siblingColumnKeys,
-      onGetAppliedWidth,
-      onSetTransientColumnWidths,
-    } = this.args;
+    const { column, onBeginColumnResize } = this.args;
 
-    if (
-      column === undefined ||
-      onGetAppliedWidth === undefined ||
-      onSetTransientColumnWidths === undefined
-    ) {
+    if (column === undefined || onBeginColumnResize === undefined) {
       return;
     }
 
-    const { next: nextColumnKey } = siblingColumnKeys ?? {};
+    onBeginColumnResize();
 
-    onSetTransientColumnWidths({});
-
-    const startColumnAppliedWidth = onGetAppliedWidth(column.key);
-    const startNextColumnAppliedWidth =
-      nextColumnKey !== undefined
-        ? onGetAppliedWidth(nextColumnKey)
-        : undefined;
-
-    const startColumnPxWidth = Math.round(
-      parsePixel(startColumnAppliedWidth) ?? 0
-    );
-    const startNextColumnPxWidth = Math.round(
-      parsePixel(startNextColumnAppliedWidth) ?? 0
-    );
-
-    this.resizing = {
-      startX: event.clientX,
-      startColumnPxWidth,
-      startNextColumnPxWidth,
-    };
+    this.resizing = { startX: event.clientX };
 
     window.addEventListener('pointermove', this._boundResize);
     window.addEventListener('pointerup', this._boundStopResize);
-  }
-
-  private _setColumnWidth(
-    column: HdsAdvancedTableNormalizedColumn,
-    width: number
-  ): void {
-    const { onSetTransientColumnWidth } = this.args;
-
-    if (column === undefined || onSetTransientColumnWidth === undefined) {
-      return;
-    }
-
-    onSetTransientColumnWidth(column.key, `${width}px`);
-  }
-
-  private _applyResizeDelta(
-    deltaX: number,
-    startColumnPxWidth: number,
-    column?: HdsAdvancedTableNormalizedColumn,
-    nextColumnKey?: HdsAdvancedTableNormalizedColumn['key'],
-    startNextColumnPxWidth?: number
-  ): void {
-    const { onGetAppliedWidth, onGetColumnByKey, onSetTransientColumnWidth } =
-      this.args;
-
-    if (
-      column === undefined ||
-      onGetAppliedWidth === undefined ||
-      onGetColumnByKey === undefined
-    ) {
-      return;
-    }
-
-    const canResizeNeighbor =
-      nextColumnKey !== undefined && startNextColumnPxWidth !== undefined;
-
-    if (canResizeNeighbor) {
-      const nextColumn = onGetColumnByKey(nextColumnKey);
-
-      if (nextColumn === undefined) {
-        return;
-      }
-
-      const effectiveDelta = calculateEffectiveDelta(
-        deltaX,
-        column,
-        startColumnPxWidth,
-        nextColumn,
-        startNextColumnPxWidth
-      );
-
-      // set the width for the current column
-      this._setColumnWidth(
-        column,
-        Math.round(startColumnPxWidth + effectiveDelta)
-      );
-
-      // the actual new column width may differ from the intended width due to min/max constraints.
-      const columnAppliedWidth = onGetAppliedWidth(column.key);
-      const actualNewColumnWidth =
-        parsePixel(columnAppliedWidth) ?? startColumnPxWidth;
-      const actualAppliedDelta = actualNewColumnWidth - startColumnPxWidth;
-
-      // set the width for the next sibling column
-      this._setColumnWidth(
-        nextColumn,
-        Math.round(startNextColumnPxWidth - actualAppliedDelta)
-      );
-
-      this._transientDelta = actualAppliedDelta;
-    } else if (onSetTransientColumnWidth !== undefined) {
-      onSetTransientColumnWidth(
-        column.key,
-        `${Math.round(startColumnPxWidth + deltaX)}px`
-      );
-    }
   }
 
   private _resize(event: PointerEvent): void {
@@ -422,60 +255,34 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
       event.preventDefault();
 
-      const { column, siblingColumnKeys } = this.args;
-      const { next: nextColumnKey } = siblingColumnKeys ?? {};
-      const { startX, startColumnPxWidth, startNextColumnPxWidth } =
-        this.resizing;
-      const deltaX = event.clientX - startX;
+      const { column, onResizeColumnByDelta } = this.args;
 
-      this._applyResizeDelta(
-        deltaX,
-        startColumnPxWidth, // Width at the start of the drag
-        column,
-        nextColumnKey,
-        startNextColumnPxWidth // Width of next col at the start of the drag
-      );
+      if (column !== undefined && onResizeColumnByDelta !== undefined) {
+        const deltaX = event.clientX - this.resizing.startX;
+
+        this._transientDelta = onResizeColumnByDelta(column.key, deltaX);
+      }
 
       this._isUpdateQueued = false;
     });
   }
 
   private _stopResize(): void {
-    const {
-      column,
-      onGetAppliedWidth,
-      onResetTransientColumnWidths,
-      onUpdateResizeDebt,
-    } = this.args;
-
-    if (
-      column === undefined ||
-      onGetAppliedWidth === undefined ||
-      onResetTransientColumnWidths === undefined ||
-      onUpdateResizeDebt === undefined
-    ) {
-      return;
-    }
-
     window.removeEventListener('pointermove', this._boundResize);
     window.removeEventListener('pointerup', this._boundStopResize);
 
-    if (this._transientDelta !== 0) {
-      onUpdateResizeDebt(this._transientDelta);
+    const { column } = this.args;
+
+    if (column === undefined) {
+      this.args.onResetTransientColumnWidths?.();
+
+      this.resizing = null;
+      this._transientDelta = 0;
+
+      return;
     }
 
-    this._applyTransientWidths();
-
-    // reset the transient width
-    onResetTransientColumnWidths();
-
-    // reset the resizing state
-    this.resizing = null;
-    this._transientDelta = 0;
-
-    const appliedWidth = onGetAppliedWidth(column.key);
-
-    this.onColumnResize(column.key, appliedWidth);
+    this._finishColumnResize(column.key);
   }
 
   <template>
@@ -488,6 +295,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       aria-valuenow={{this.currentWidthInPixels}}
       aria-valuemin={{this.minWidthInPixels}}
       aria-valuemax={{this.maxWidthInPixels}}
+      aria-valuetext={{this.widthValueText}}
       tabindex="0"
       aria-label={{hdsT
         "hds.components.advanced-table.th-resize-handle.aria-label"

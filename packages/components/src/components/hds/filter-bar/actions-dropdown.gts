@@ -32,7 +32,7 @@ export interface HdsFilterBarActionsDropdownSignature {
 }
 
 export default class HdsFilterBarActionsDropdown extends Component<HdsFilterBarActionsDropdownSignature> {
-  @service hdsIntl!: HdsIntlService;
+  @service declare readonly hdsIntl: HdsIntlService;
 
   get toggleButtonText(): string {
     return (
@@ -62,7 +62,7 @@ export default class HdsFilterBarActionsDropdown extends Component<HdsFilterBarA
       <D.ToggleButton
         @icon={{@toggleButtonIcon}}
         @text={{this.toggleButtonText}}
-        @color="secondary"
+        @color="secondary-muted"
         @size="small"
       />
       {{yield D}}

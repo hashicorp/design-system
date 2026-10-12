@@ -1,3 +1,14 @@
+## 7.0.0
+
+Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-form-super-select-dropdown-max-width` → `hds-var-form-super-select-dropdown-max-width`
+- `hds-form-super-select-selected-text` → `hds-var-form-super-select-selected-text`
+- `hds-form-super-select-selected-text-display` → `hds-var-form-super-select-selected-text-display`
+
+Updated `AfterOptions` show and clear button `@color` from `secondary` to `secondary-muted`
+
+
 ## 6.1.0
 
 Converted component to gts format.

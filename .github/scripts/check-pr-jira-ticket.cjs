@@ -8,7 +8,7 @@ async function main() {
   const eventPath = process.env.GITHUB_EVENT_PATH;
   const repository = process.env.GITHUB_REPOSITORY;
 
-  if (!token || !eventPath || !repository) {
+  if (!eventPath || !repository) {
     throw new Error('Missing required GitHub Actions environment variables.');
   }
 
@@ -23,6 +23,10 @@ async function main() {
   if (pullRequest.user?.type === 'Bot') {
     console.log('Skipping Jira ticket check for bot-authored pull request.');
     return;
+  }
+
+  if (!token) {
+    throw new Error('Missing required GitHub Actions token.');
   }
 
   const authorLogin = pullRequest.user.login;

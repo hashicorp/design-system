@@ -20,6 +20,18 @@ export function requestAnimationFrameWaiter(callback: () => void) {
   });
 }
 
+export function measureColumnWidth(
+  descendant: Element | null | undefined
+): `${number}px` | undefined {
+  const th = descendant?.closest('.hds-advanced-table__th');
+
+  if (!(th instanceof HTMLElement)) {
+    return undefined;
+  }
+
+  return `${th.offsetWidth}px`;
+}
+
 export function pixelToNumber(px: `${number}px`): number {
   return Number(px.replace('px', ''));
 }

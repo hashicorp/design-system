@@ -26,6 +26,8 @@ If you want to control the internal "selected tab" state of the component, and p
 
 ### Count and icon
 
+To add a count indicator or icon to a `Tab` element, use the `@count` or `@icon` arguments. Pass `@iconColor` to customize the icon color, and `@iconTitle` to provide accessible text when the icon conveys information not communicated by the `Tab` text.
+
 [[code-snippets/tabs-count-icon]]
 
 ### Call a function on tab click

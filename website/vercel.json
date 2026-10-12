@@ -19,6 +19,15 @@
           "value": "none"
         }
       ]
+    },
+    {
+      "source": "/doc-versions.json",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
     }
   ],
   "framework": "ember",

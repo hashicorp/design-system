@@ -69,7 +69,7 @@ export interface HdsFilterBarFilterGroupNumericalSignature {
 }
 
 export default class HdsFilterBarFilterGroupNumerical extends Component<HdsFilterBarFilterGroupNumericalSignature> {
-  @service hdsIntl!: HdsIntlService;
+  @service declare readonly hdsIntl: HdsIntlService;
 
   @tracked private _selectorInputValue:
     | HdsFilterBarNumericalFilterSelector
@@ -304,11 +304,11 @@ export default class HdsFilterBarFilterGroupNumerical extends Component<HdsFilte
               @value={{this.stringBetweenValueStart}}
               name={{concat @key "-between-start"}}
               aria-label={{hdsT
-                "hds.components.filter-bar.between-value-inputs.start.aria-label"
+                "hds.components.filter-bar.filter-group.numerical.between-value-inputs.start.aria-label"
                 default="Number start value"
               }}
               placeholder={{hdsT
-                "hds.components.filter-bar.between-value-inputs.start.placeholder"
+                "hds.components.filter-bar.filter-group.numerical.between-value-inputs.start.placeholder"
                 default="Start"
               }}
               class="hds-filter-bar__filter-group__field hds-filter-bar__filter-group__field--between"
@@ -320,11 +320,11 @@ export default class HdsFilterBarFilterGroupNumerical extends Component<HdsFilte
               @value={{this.stringBetweenValueEnd}}
               name={{concat @key "-between-end"}}
               aria-label={{hdsT
-                "hds.components.filter-bar.between-value-inputs.end.aria-label"
+                "hds.components.filter-bar.filter-group.numerical.between-value-inputs.end.aria-label"
                 default="Number end value"
               }}
               placeholder={{hdsT
-                "hds.components.filter-bar.between-value-inputs.end.placeholder"
+                "hds.components.filter-bar.filter-group.numerical.between-value-inputs.end.placeholder"
                 default="End"
               }}
               class="hds-filter-bar__filter-group__field hds-filter-bar__filter-group__field--between"

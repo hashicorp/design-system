@@ -8,6 +8,9 @@ layout:
 ---
 
 <section data-tab="Library">
+  <Doc::Banner @type="warning">
+    <p class="doc-markdown-p"><strong>Breaking changes</strong> <br> Major breaking changes to the tokens were released in `v7.0` of the components package and `v6.0` of the tokens package. <br> This list of tokens refers to the latest tokens. If you are using an older version, refer to the <a href="/whats-new/release-notes">documentation for your version</a>.</p>
+  </Doc::Banner>
   <!-- algolia-ignore-start -->
   <Doc::TokensList
     @groupedTokens={{this.filteredGroupedTokens}}

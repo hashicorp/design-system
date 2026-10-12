@@ -10,10 +10,10 @@ In Figma, reusable text styles are called “Text Styles” and are categorized 
 
 In code, these styles are constructed differently using “Tokens.” Tokens are generated from an agnostic JSON file and differ from Figma “Text Styles” because a single token does not reference multiple font properties. Instead, each Token defines the different properties of a single text style. This means that constructing the equivalence of Figma’s Text Style `Display/500/Bold` would use the following tokens:
 
-- `font-family: var(--token-typography-display-500-font-family);`
-- `font-size:var(--token-typography-display-500-font-size);`
-- `line-height:var(--token-typography-display-500-line-height);`
-- `font-weight:var(--token-typography-font-weight-bold);`
+- `font-family: var(--hds-typography-display-500-font-family);`
+- `font-size:var(--hds-typography-display-500-font-size);`
+- `line-height:var(--hds-typography-display-500-line-height);`
+- `font-weight:var(--hds-typography-font-weight-bold);`
 
 Rather than calling upon each of these tokens in code every time text is styled, the [Text Component](/components/text) was created to replicate how Figma styles group text-based properties. Additional [CSS helper classes](https://helios.hashicorp.design/foundations/typography?tab=code#css-helper-classes) have been created to ease the style creation process, if necessary.
 
@@ -128,7 +128,7 @@ Body text styles are available in the following weights and sizes:
 
 ### Code
 
-Code styles are used exclusively for text representing code in the UI (like the [Code Block component](/components/code-block)). 
+Code styles are used exclusively for text representing code in the UI (like the [Code Block component](/components/code-block)).
 
 Code text styles come in the following weights and sizes:
 

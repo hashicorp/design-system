@@ -25,6 +25,11 @@ const hdsScrollIntoViewOnFocus =
       const scrollOptions = named.options ?? DEFAULT_OPTIONS;
 
       const onFocus = (): void => {
+        // only scroll for keyboard-driven focus
+        if (element.matches(':focus-visible') === false) {
+          return;
+        }
+
         element.scrollIntoView(scrollOptions);
       };
 

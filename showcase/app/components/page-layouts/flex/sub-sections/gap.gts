@@ -192,8 +192,8 @@ const SubSectionGap: TemplateOnlyComponent = <template>
       <HdsLayoutFlex
         @wrap={{true}}
         {{style
-          --hds-layout-flex-row-gap="20px"
-          --hds-layout-flex-column-gap="1.25rem"
+          --hds-var-layout-flex-row-gap="20px"
+          --hds-var-layout-flex-column-gap="1.25rem"
         }}
       >
         <ShwPlaceholder @text="#1" @width="45%" @height="24" />

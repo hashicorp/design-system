@@ -1,3 +1,14 @@
+## 7.0.0
+
+Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-app-footer-status-icon-color` → `hds-var-app-footer-status-icon-color`
+
+## 6.6.0
+
+Removed unused `@color` property from `[AF].Link` contextual component
+
+
 ## 6.3.0
 
 Exported `THEMES` constant.

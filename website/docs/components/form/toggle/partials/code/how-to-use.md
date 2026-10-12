@@ -63,7 +63,7 @@ When helper text is added, the component automatically adds an `aria-describedby
 
 Use the `@isRequired` and `@isOptional` arguments to add a visual indication next to the legend text that the field is "required" or "optional".
 
-Note: While the Toggle component is already normally required by the nature of its use for on/off selection, there may be rare instances in which a Toggle is turned off by default but requires the user to interact with it before submitting a form. For example, for accepting terms and conditions.
+_Note: While the Toggle component is already normally required by the nature of its use for on/off selection, there may be rare instances in which a Toggle is turned off by default but requires the user to interact with it before submitting a form. For example, for accepting terms and conditions._
 
 [[code-snippets/toggle-indicators]]
 

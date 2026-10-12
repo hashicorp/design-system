@@ -13,6 +13,7 @@ export type HdsButtonSizes = `${HdsButtonSizeValues}`;
 export enum HdsButtonColorValues {
   Primary = 'primary',
   Secondary = 'secondary',
+  SecondaryMuted = 'secondary-muted',
   Tertiary = 'tertiary',
   Critical = 'critical',
 }

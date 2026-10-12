@@ -139,17 +139,17 @@
           },
           "g90": {
             "$type": "color",
-            "$value": "rgb(141 141 141 / 30%)",
+            "$value": "rgba(141, 141, 141, 0.3)",
             "group": "cds-themes",
             "private": true,
-            "cds-original-value": "rgb(141 141 141 / 30%)"
+            "cds-original-value": "rgba(141, 141, 141, 0.3)"
           },
           "g100": {
             "$type": "color",
-            "$value": "rgb(141 141 141 / 30%)",
+            "$value": "rgba(141, 141, 141, 0.3)",
             "group": "cds-themes",
             "private": true,
-            "cds-original-value": "rgb(141 141 141 / 30%)"
+            "cds-original-value": "rgba(141, 141, 141, 0.3)"
           }
         },
         "buttonPrimary": {

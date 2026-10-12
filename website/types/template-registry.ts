@@ -53,6 +53,7 @@ import DocTokensList from '../app/components/doc/tokens-list';
 import DocTokensListGrid from '../app/components/doc/tokens-list/grid';
 import DocTokensListItem from '../app/components/doc/tokens-list/item';
 import DocVarsList from '../app/components/doc/vars-list';
+import DocVersionSwitcher from '../app/components/doc/version-switcher';
 import DocWcagList from '../app/components/doc/wcag-list';
 
 import DynamicTemplateError from '../app/components/dynamic-template-error';
@@ -209,6 +210,9 @@ export default interface WebsiteTemplateRegistry {
 
   'Doc::VarsList': typeof DocVarsList;
   'doc/vars-list': typeof DocVarsList;
+
+  'Doc::VersionSwitcher': typeof DocVersionSwitcher;
+  'doc/version-switcher': typeof DocVersionSwitcher;
 
   'Doc::WcagList': typeof DocWcagList;
   'doc/wcag-list': typeof DocWcagList;

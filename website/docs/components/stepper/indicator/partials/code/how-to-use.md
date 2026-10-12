@@ -5,7 +5,7 @@ There are two types of indicators: `Step::Indicator` and `Task::Indicator`, whic
 
 ## How to use the Stepper::Step::Indicator
 
-Although not required, the basic invocation should include `text` and `status` arguments.
+Although not required, the basic invocation should include `@text` and `@status` arguments.
 
 [[code-snippets/stepper-step-indicator-basic]]
 
@@ -23,7 +23,7 @@ To change the status of the Step Indicator, set the `@status` argument to `incom
 
 ## How to use the Stepper::Task::Indicator
 
-Although not required, the basic invocation should include a `status` argument.
+Although not required, the basic invocation should include a `@status` argument.
 
 [[code-snippets/stepper-task-indicator-basic]]
 

@@ -2,71 +2,73 @@
 
 **Setting realistic expectations**
 
-An AI agent connected to the Helios MCP is a powerful tool for exploring the design system, generating quick prototypes, and accelerating routine work. However, it is not a tool that can realize design intent on its own. An experienced engineer reviewing your Figma file can often infer meaning even when the file is imperfect, something that an AI agent cannot feasibly accomplish. The quality of its output is directly correlated to the quality of the input; e.g., your design preparation, prompt, and provided relevant context.
+An AI assistant connected to the Helios MCP is a powerful tool for exploring the design system, generating quick prototypes, and accelerating routine work. However, unlike a human, AI cannot infer design intent. The output quality depends directly on clear inputs—including well-structured designs, clear prompts, and adequate context.
 !!!
 
-## Design hygiene
+While primarily intended for engineering workflows, the Helios MCP server can help designers prototype, test component properties, and vet concepts quickly.
 
-To get the most out of an AI agent, your Figma file or the input you are passing to the agent needs to be machine-readable; structured in a way that allows an agent (which reads metadata, not pixels) to accurately understand what you've designed and translate it into a meaningful output. Contrary to an engineer using judgement, recognizing patterns, asking clarifying questions, and applying years of experience, an AI agent reads only the data your file contains. If that data is incomplete or ambiguous, the output will be too.
+Follow these guidelines to get the most out of Helios when translating your Figma mockups, components, styles, and variables into code.
 
-### Connected HDS components
+## Prepare your Figma file
 
-Almost all HDS Figma components are linked to a counterpart in code. When you use a component from the HDS library, the AI agent can see not just what the component looks like, but what is _is_: its name, supported properties, accepted variants, the type of content it expresses, and how it should be used. When a component is detached, that link is severed. The AI agent will struggle to identify it as an HDS component, preventing access to the necessary context that would otherwise constrain and guide its output.
+To get the most out of the Helios MCP, ensure Figma files are appropriately structured, named, and machine-readable. While a human can ask clarifying questions or spot subtle patterns, AI relies entirely on the file's layer structure, metadata, and explicit prompt context. Clear input leads directly to clear output.
 
-A detached component is also no longer bound by the properties the component actually supports in code. It becomes a visual approximation that may represent something that doesn't exist or isn't achievable within the system.
+### Use connected HDS components
 
-To ensure the best possible output from an AI agent:
+Most HDS Figma components have a counterpart in code. When using attached Figma instances, AI automatically reads their properties, variant options, and usage guidelines.
 
-- Stick to assets from the Helios library in Figma; styles, variables, components, patterns, and icons.
+Detaching HDS components breaks the link to the component metadata. Without that context, AI is forced to infer properties, often resulting in something non-standard.
+
+To give an AI assistant the best available Helios context:
+
+- Use assets directly from the Helios library in Figma: styles, variables, components, patterns, and icons.
 - Use properties that are exposed in the Figma component to customize it.
-- Check for detached assets using Figma's [Check Designs](https://help.figma.com/hc/en-us/articles/39592284074263-Check-designs-in-Figma) feature and re-attach elements where necessary.
+- Check for detached assets using Figma's [Check Designs](https://help.figma.com/hc/en-us/articles/39592284074263-Check-designs-in-Figma) feature and re-attach assets where necessary.
+- Refrain from overriding styles or variables within a component, as this creates divergence between the design input and the code output.
 
-### Use HDS styles, variables, and tokens
+### Use HDS tokens and styles
 
-HDS design tokens (variables and styles in Figma) are named values that map directly to CSS custom properties in code. When you apply a style token like `page-primary` to a background color, an AI agent knows both the semantic intent and the exact code-level value that should be used. When you apply a raw hex value (e.g., `#ffffff`) to an agent, the agent sees a color but has no context about what role it plays in the system and cannot reliably determine whether it should be `page-primary`, `surface-primary`, or `neutral-0`, even if they all resolve to the same hex value.
+HDS design tokens are available in Figma as variables or styles and map directly to CSS properties in code.
 
-The same principle applies to typography: using a text style named `body-200` tells the agent exactly which typographic token to reference in code, or which properties to set when using the `<HdsText>` component.
+- Design Tokens: Using a variable like `page-primary` tells AI the raw color _and_ its semantic role in the system.
+- Hex Values: Using a hex value like `#ffffff` leaves AI guessing whether it should be `page-primary`, `surface-primary`, or `neutral-0`.
+
+The same applies to typography. Applying the `body-200` text style tells AI which tokens to reference or which properties to pass to `<HdsText>`.
+
+### Use auto layout
+
+Auto Layout provides structured data about direction, spacing, padding, alignment, and wrapping. AI uses this data to map your frames to flexible code layouts (like `<HdsLayoutFlex>` and `<HdsLayoutGrid>`).
+
+Designs built without Auto Layout force both humans and AI to guess at intended spacing and structure, which often leads to inaccurate code.
+
+- Use Auto Layout for any frame containing more than one element.
+- Define spacing explicitly using gap and padding variables rather than manually positioning elements on canvas.
+- Avoid absolute positioning unless specifically required, e.g., tooltips, overlays, etc.
+
+### Figma hygiene
+
+Layer names provide essential metadata for AI. Clear, consistent names help it identify the hierarchy and purpose of your design. Figma's default names like `Frame 47`, `Group 3`, or `Rectangle 12` give AI no meaningful context.
+
+- Name frames and groups based on their purpose, e.g., `header`, `sidenav`, `form-section`, `empty-state`.
+- Rename component instances to reflect their specific purpose, e.g., changing "Text Input" to `name-input`. This adds helpful context without breaking the underlying metadata.
+- Avoid unnecessary nesting. Only nest frames or groups when required for Auto Layout, hierarchy, or visual structure.
+
+### Validate files with "Check Designs"
+
+Before passing your designs to an AI assistant or engineer, run Figma's **[Check Designs](https://help.figma.com/hc/en-us/articles/39592284074263-Check-designs-in-Figma)** feature. It automatically flags missing structure and context, helping you spot:
+
+- Detached variables and type styles (which it can often auto-restore)
+- Detached components (flagged, but cannot be auto-restored)
+- Spacing inconsistencies where system tokens can be applied
+
+HDS Ember components do not use spacing tokens, so applying spacing variables is not required for code generation.
+
+![An example of Check Designs detecting detached variables in a Figma design file](/assets/tooling/mcp-server/mcp-server-check-designs-example.png)
 
 !!! Info
 
-**Figma Check Designs**
+**Note on Token Suggestions**
 
-Figma's Check Designs feature can detect detached variables/styles and can often automatically restore them. However, it does not always map to the semantically correct token. For example, it may suggest `neutral-0` where `page-primary` is the appropriate choice. Use Check Designs as a starting point, then review flagged items with the HDS token documentation to confirm the right token for each context.
+While Check Designs can automatically restore detached variables, double-check its suggestions. It identifies matching values, not semantic intent, so it might suggest `neutral-0` when `page-primary` is the correct choice. Always review token suggestions against your design intent.
 !!!
-
-### Use Auto Layout and Figma's layout mechanisms
-
-When a frame or layer uses Auto Layout, the AI agent receives structured information about how elements relate to each other: direction, spacing, padding, alignment, and wrapping behavior. This maps closely to flexbox in CSS and ensures that a design reflects that natural flow of the document object model (DOM).
-
-!!! Insight
-
-A layer that uses Auto Layout can also be interpreted by an AI agent to use HDS layout components like `<HdsLayoutFlex>` and `<HdsLayoutGrid>`.
-!!!
-
-Designs built without a formalized layout or outside of the natural document flow require engineers (and AI agents) to make assumptions (or infer) about spacing and structure, which are often incorrect.
-
-- Use Auto Layout on most (if not all) frames that contain more than one element.
-- Set gap and padding intrinsically on elements with Auto Layout, not by dragging elements into position visually.
-- Avoid using absolute positioning unless there is a specific reason (e.g., overlays, positioned tooltips).
-
-### Layer naming and organization
-
-Layer names are part of the metadata an AI agent reads. Descriptive, consistent names help the agent understand the hierarchy and purpose of elements, where Figma's default layer names (`Frame 47`, `Group 3`, `Rectangle 12`) provide no meaningful information.
-
-- Name frames and groups to reflect their purpose: `header`, `sidebar`, `form-section`, `empty-state`.
-- Component instances usually inherit a sensible name from the library; these can be left as is, or renamed to match the intent of the instance (e.g., `name-input` for a text input collecting a users name).
-- Flatten nested groups that don't serve a structural purpose.
-- Avoid nesting frames inside frames unless there's a layout or hierarchical reason.
-
-### Run Figma Check Designs as a pre-flight step
-
-Before handing off your designs to an engineer or AI agent, run Figma's **[Check Designs](https://help.figma.com/hc/en-us/articles/39592284074263-Check-designs-in-Figma)** feature. This scans your file to identify gaps that degrade the context an agent receives and improves the quality of its output by flagging:
-
-- Detached color variables, typography styles, and effects (and can auto-restore many of them)
-- Detached components (flagged, but cannot be auto-restored)
-- Spacing inconsistencies and where HDS spacing variables can be applied (though this is not required as spacing tokens are not used within HDS Ember components)
-
-![An example of Check Designs detecting detached variables in a Figma design file]()
-
-
 

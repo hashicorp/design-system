@@ -1,3 +1,39 @@
+## 7.0.0
+
+Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
+
+- `hds-advanced-table-sticky-column-offset` → `hds-var-advanced-table-sticky-column-offset`
+
+Added new value `secondary-muted` for the `@color` argument in `ThContextMenu`.
+
+- `secondary-muted` is identical to `secondary` for HDS themes, but differs for Carbon themes
+
+Removed `hds-typography-body-200` and `hds-font-weight-semibold` classes from `hds-advanced-table__th-content-text` element in `AdvancedTableTh`
+
+
+## 6.5.0
+
+Updated the resize column behavior to support cascading resizes while guaranteeing that columns will never inadvertently shrink below the size of their container.
+
+
+Added `.hds-advanced-table__tr--is-selected` class to table rows when they are selected.
+
+
+Fixed bug where the bottom scroll indicator was always present if reordering was enabled.
+
+
+Fixed issue where keyboard order did not match visual order after sorting the table.
+
+
+Fixed an issue where clicking a cell scrolled the page to center that cell
+
+
+Updated reorder handle to not be visible on resize handle hover / focus
+
+
+Fixed an issue where the table header tooltip was not visible with the table empty state
+
+
 ## 6.2.0
 
 Replaced custom keyboard navigation modifiers with the `Composite` utility component.

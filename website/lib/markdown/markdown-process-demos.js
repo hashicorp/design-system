@@ -20,7 +20,7 @@ const demoBlockRegex =
  * Example input path: "var/folders/68/g3fv_h7538xcqf6nd48jm8m40000gn/T/broccoli-59163KsQiVU7Es4GZ/out-158-funnel/components/accordion/partials/code/code-snippets/accordion-expand-all.classic"
  */
 const fileNameRegex =
-  /((?:getting-started|foundations|components|layouts|utilities|overrides|patterns|testing).*?)(?:\.hbs|\.gts)$/;
+  /((?:getting-started|foundations|components|layouts|utilities|overrides|patterns|tooling|testing).*?)(?:\.hbs|\.gts)$/;
 
 const SUPPORTED_FILE_EXTENSIONS = [
   '.classic.hbs',
@@ -32,6 +32,7 @@ const SUPPORTED_FILE_EXTENSIONS = [
   '.html',
   '.js',
   '.jsx',
+  '.json',
 ];
 
 // Helper to remove template-lint ignore comments
@@ -192,7 +193,8 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
                 ext === '.yaml' ||
                 ext === '.bash' ||
                 ext === '.html' ||
-                ext === '.jsx'
+                ext === '.jsx' ||
+                ext === '.json'
               ) {
                 codeSnippets.customSnippet = escapeCode(code);
                 codeSnippets.customLang = ext.substring(1); // remove the dot from the extension
@@ -235,6 +237,7 @@ module.exports = function (folder) {
       '**/*.bash',
       '**/*.html',
       '**/*.jsx',
+      '**/*.json',
     ],
   });
 

@@ -94,11 +94,14 @@ const CodeFragmentWithClusterData: TemplateOnlyComponent<CodeFragmentWithCluster
                 @hasChevron={{false}}
                 @size="small"
               />
+              <dd.Title @text="Dropdown title" />
+              <dd.Description @text="Description text." />
               <dd.Interactive
                 @route="page-components.table"
               >Create</dd.Interactive>
               <dd.Interactive
                 @route="page-components.table"
+                `
               >Read</dd.Interactive>
               <dd.Interactive
                 @route="page-components.table"

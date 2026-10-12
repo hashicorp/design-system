@@ -7,8 +7,7 @@ import prettier from 'prettier';
 const prettierConfig = { parser: 'css' as const, tabWidth: 4 };
 
 export const getCssForIconAnimation = async(): Promise<string> => {
-    let cssSource = '/**\n * Copyright IBM Corp. 2021, 2025\n * SPDX-License-Identifier: MPL-2.0\n */\n\n';
-    cssSource += `
+    const cssSource = `
         @keyframes hds-flight-icon-animation-rotation {
             to {transform: rotate(360deg);}
         }

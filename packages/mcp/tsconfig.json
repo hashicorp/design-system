@@ -4,14 +4,13 @@
     "lib": ["es2022"],
     "module": "NodeNext",
     "moduleResolution": "nodenext",
-    "rootDir": "./src",
-    "outDir": "./dist",
+    "noEmit": true,
     "types": ["node"],
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "./tests/**/*"],
   "exclude": ["node_modules", "dist"]
 }

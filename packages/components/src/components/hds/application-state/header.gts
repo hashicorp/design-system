@@ -39,14 +39,17 @@ export default class HdsApplicationStateHeader extends Component<HdsApplicationS
           @weight="medium"
           @color="faint"
         >
-          {{hdsT "hds.application-state.header.error" default="ERROR"}}
+          {{hdsT
+            "hds.components.application-state.header.error"
+            default="ERROR"
+          }}
           {{@errorCode}}
         </HdsTextBody>
       {{/if}}
       {{#if @icon}}
         <div class="hds-application-state__icon">
           <HdsIcon
-            @color="var(--token-color-foreground-strong)"
+            @color="var(--hds-foreground-color-strong)"
             @name={{@icon}}
             @size="24"
             @isInline={{true}}

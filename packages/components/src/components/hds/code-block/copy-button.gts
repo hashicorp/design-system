@@ -4,10 +4,12 @@
  */
 
 import Component from '@glimmer/component';
+import { service } from '@ember/service';
 
 import HdsCopyButton from '../copy/button/index.gts';
 
 import type { HdsCopyButtonSignature } from '../copy/button/index.gts';
+import type HdsIntlService from '../../../services/hds-intl.ts';
 
 export interface HdsCodeBlockCopyButtonSignature {
   Args: {
@@ -23,8 +25,14 @@ export interface HdsCodeBlockCopyButtonSignature {
 }
 
 export default class HdsCodeBlockCopyButton extends Component<HdsCodeBlockCopyButtonSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
+
   get text(): HdsCopyButtonSignature['Args']['text'] {
-    return this.args.text ? this.args.text : 'Copy';
+    return this.args.text
+      ? this.args.text
+      : this.hdsIntl.t('hds.components.code-block.copy-button', {
+          default: 'Copy',
+        });
   }
 
   <template>

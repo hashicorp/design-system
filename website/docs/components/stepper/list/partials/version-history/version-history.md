@@ -1,3 +1,8 @@
+## 6.5.0
+
+Added screen reader text for step number
+
+
 ## 6.3.0
 
 Fixed description and content contextual blocks to be hidden if conditionally empty

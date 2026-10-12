@@ -18,9 +18,6 @@ module.exports = function (environment) {
         // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
       },
     },
-    // enabled here to aid in testing this feature within our component library
-    flightIconsSpriteLazyEmbed: true,
-
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created

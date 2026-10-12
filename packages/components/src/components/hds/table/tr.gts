@@ -5,6 +5,7 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import { tracked } from '@glimmer/tracking';
 
 // import { HdsTableScopeValues } from './types.ts';
 import HdsTableThSelectable from './th-selectable.gts';
@@ -60,6 +61,8 @@ export type HdsTableTrSignature = BaseHdsTableTrSignature;
 // | SelectableHdsTableTrArgs;
 
 export default class HdsTableTr extends Component<HdsTableTrSignature> {
+  @tracked private isSelectedOverride?: boolean;
+
   get selectionKey(): string | undefined {
     if (this.args.isSelectable && this.args.selectionScope === 'row') {
       assert(
@@ -71,11 +74,38 @@ export default class HdsTableTr extends Component<HdsTableTrSignature> {
     return undefined;
   }
 
+  // Carbon applies styles to the entire row when it is selected, so we need a state to track the selection state to toggle the appropriate class.
+  get isSelected(): boolean {
+    return this.isSelectedOverride ?? this.args.isSelected ?? false;
+  }
+
+  get classNames(): string {
+    const classes = ['hds-table__tr'];
+
+    if (this.isSelected) {
+      classes.push(`hds-table__tr--is-selected`);
+    }
+
+    return classes.join(' ');
+  }
+
+  onSelectionChange = (
+    checkbox?: HdsFormCheckboxBaseSignature['Element'],
+    selectionKey?: string
+  ): void => {
+    this.isSelectedOverride = checkbox?.checked ?? false;
+
+    const { onSelectionChange } = this.args;
+    if (typeof onSelectionChange === 'function') {
+      onSelectionChange(checkbox, selectionKey);
+    }
+  };
+
   <template>
-    <tr class="hds-table__tr" ...attributes>
+    <tr class={{this.classNames}} ...attributes>
       {{#if @isSelectable}}
         <HdsTableThSelectable
-          @isSelected={{@isSelected}}
+          @isSelected={{this.isSelected}}
           @selectionScope={{@selectionScope}}
           @selectionKey={{this.selectionKey}}
           @selectionAriaLabelSuffix={{@selectionAriaLabelSuffix}}
@@ -83,7 +113,7 @@ export default class HdsTableTr extends Component<HdsTableTrSignature> {
           @didInsert={{@didInsert}}
           @willDestroy={{@willDestroy}}
           @onClickSortBySelected={{@onClickSortBySelected}}
-          @onSelectionChange={{@onSelectionChange}}
+          @onSelectionChange={{this.onSelectionChange}}
         />
       {{/if}}
 

@@ -6,10 +6,10 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { on } from '@ember/modifier';
+import { service } from '@ember/service';
 
 import {
   HdsAdvancedTableThSortOrderIconValues,
-  HdsAdvancedTableThSortOrderLabelValues,
   HdsAdvancedTableThSortOrderValues,
 } from './types.ts';
 import HdsIcon from '../icon/index.gts';
@@ -20,6 +20,7 @@ import type {
   HdsAdvancedTableThSortOrderIcons,
   HdsAdvancedTableThSortOrderLabels,
 } from './types.ts';
+import type HdsIntlService from '../../../services/hds-intl.ts';
 
 export interface HdsAdvancedTableThButtonSortSignature {
   Args: {
@@ -33,6 +34,7 @@ export interface HdsAdvancedTableThButtonSortSignature {
 const NOOP = () => {};
 
 export default class HdsAdvancedTableThButtonSort extends Component<HdsAdvancedTableThButtonSortSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
   // Generates a unique ID for the (hidden) "label prefix/suffix" <span> elements
   private _prefixLabelId = 'prefix-' + guidFor(this);
   private _suffixLabelId = 'suffix-' + guidFor(this);
@@ -51,9 +53,18 @@ export default class HdsAdvancedTableThButtonSort extends Component<HdsAdvancedT
   // Determines the label (suffix) to use in the `aria-labelledby` attribute of the button,
   // used to indicate what will happen if the user clicks on the button
   get sortOrderLabel(): HdsAdvancedTableThSortOrderLabels {
-    return this.args.sortOrder === HdsAdvancedTableThSortOrderValues.Asc
-      ? HdsAdvancedTableThSortOrderLabelValues.Desc
-      : HdsAdvancedTableThSortOrderLabelValues.Asc;
+    const { sortOrder } = this.args;
+
+    const translatedLabel =
+      sortOrder === HdsAdvancedTableThSortOrderValues.Asc
+        ? this.hdsIntl.t('hds.components.common.descending', {
+            default: 'descending',
+          })
+        : this.hdsIntl.t('hds.components.common.ascending', {
+            default: 'ascending',
+          });
+
+    return translatedLabel as HdsAdvancedTableThSortOrderLabels;
   }
 
   get onClick(): () => void {

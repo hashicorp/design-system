@@ -1,3 +1,17 @@
+## 7.0.0
+
+
+Added the `hds-form-control-border` and `hds-form-control-invalid-outline` sass mixins
+
+
+## 6.6.0
+
+
+`Form::VisibilityToggle` - Added `@ariaMessageTextWhenVisible` argument to set a message for the visible state.
+
+`Form::Fieldset` - Added missing `@id` argument to the component signature.
+
+
 ## 6.3.0
 
 

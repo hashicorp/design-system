@@ -12,6 +12,6 @@ You can display different text on the toggle button when the `Reveal` is open.
 
 ### Open
 
-Set `isOpen` to `true` to display the content on page load instead of initially hiding it.
+Set `@isOpen` to `true` to display the content on page load instead of initially hiding it.
 
 [[code-snippets/reveal-is-open]]

@@ -1,0 +1,14 @@
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// CARBONIZATION > BADGE / BADGE COUNT
+
+body.page-carbonization-components-badge,
+body.page-carbonization-components-badge-count {
+  .shw-component-badge-sample-color--neutral-dark-mode {
+    background: var(--shw-color-black);
+    outline: 2px solid var(--shw-color-black);
+  }
+}

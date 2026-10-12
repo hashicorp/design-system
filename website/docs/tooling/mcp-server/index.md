@@ -1,24 +1,26 @@
 ---
-title: Helios MCP Server
+title: MCP Server
 description: >-
-  An MCP server that provides AI tooling and agents with the context necessary to work with HDS assets.
-caption: An MCP server that provides AI tooling and agents with the context necessary to work with HDS assets.
-previewImage: assets/testing/small_cat.png
+  Connect AI assistants to Helios component APIs, documentation, design tokens, and icons.
+caption: Connect AI assistants to Helios components, documentation, design tokens, and icons.
+previewImage: assets/illustrations/tooling/mcp-server.jpg
 navigation:
-  hidden: false
-  order: 1
   keywords:
     - mcp
     - llm
     - ai
+    - components
+    - tokens
+    - icons
+    - documentation
 ---
 
 <section data-tab="Getting started">
   @include "partials/getting-started.md"
 </section>
 
-<section data-tab="Specifications">
-  @include "partials/specifications.md"
+<section data-tab="Resources">
+  @include "partials/resources.md"
 </section>
 
 <section data-tab="Designer considerations">

@@ -64,7 +64,7 @@ export default class HdsFilterBarFiltersDropdown extends Component<HdsFilterBarF
 
   get dropdownHeightStyle(): Record<string, string> {
     const heightStyle: { [key: string]: string } = {};
-    heightStyle['--filter-bar-filters-dropdown-height'] =
+    heightStyle['--hds-var-filter-bar-filters-dropdown-height'] =
       this.args.height ?? DEFAULT_DROPDOWN_HEIGHT;
     return heightStyle;
   }
@@ -100,7 +100,6 @@ export default class HdsFilterBarFiltersDropdown extends Component<HdsFilterBarF
     const newFilters = {} as HdsFilterBarFilters;
 
     // Note: Due to the filters being an Ember object, structuredClone cannot be used here.
-    // Further investigation will be done in a follow-up task: https://hashicorp.atlassian.net/browse/HDS-5907
     Object.keys(filters).forEach((k) => {
       newFilters[k] = JSON.parse(
         JSON.stringify(filters[k])
@@ -152,7 +151,7 @@ export default class HdsFilterBarFiltersDropdown extends Component<HdsFilterBarF
           "hds.components.filter-bar.filters-dropdown.toggle-button"
           default="Filters"
         }}
-        @color="secondary"
+        @color="secondary-muted"
         @size="small"
       />
       <D.Generic>

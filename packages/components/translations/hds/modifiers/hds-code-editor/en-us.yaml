@@ -1,1 +1,16 @@
 lint-panel-description: Press `Ctrl-Shift-m` (`Cmd-Shift-m` on macOS) while focus is on the textbox to open the linting panel
+json-linter:
+  line-message: "Line {lineNumber}: {message}"
+  errors:
+    invalid-syntax: Invalid syntax
+    key-expected: Key expected
+    key-must-be-double-quoted: Key must be double quoted
+    missing-comma: Missing comma
+    trailing-comma: Trailing comma
+    value-expected: Value expected
+phrases:
+  diagnostics: Diagnostics
+  no-diagnostics: No diagnostics
+  close: close
+  control-character: Control character
+  selection-deleted: Selection deleted

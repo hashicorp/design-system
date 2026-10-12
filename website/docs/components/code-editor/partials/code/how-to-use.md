@@ -34,37 +34,37 @@ The `@tag` argument changes the HTML element that wraps the `[CE].Title` content
 
 ### Language
 
-The `language` argument sets the syntax highlighting used. We support the following languages: `rego`, `ruby`, `sentinel`, `shell`, `go`, `hcl`, `javascript`, `json`, `markdown`, `sql`, and `yaml`. If you need additional languages, <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>.
+The `@language` argument sets the syntax highlighting used. We support the following languages: `rego`, `ruby`, `sentinel`, `shell`, `go`, `hcl`, `javascript`, `json`, `markdown`, `sql`, and `yaml`. If you need additional languages, <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>.
 
 [[code-snippets/code-editor-language]]
 
 ### Linting
 
-Set `isLintingEnabled` to `true` to enable linting within the editor. Linting is only available when `language` is set to `json`.
+Set `@isLintingEnabled` to `true` to enable linting within the editor. Linting is only available when `language` is set to `json`.
 
 [[code-snippets/code-editor-lint]]
 
 ### Copy button
 
-Set `hasCopyButton` to `true` to display a button for users to copy Code Editor content to their computer clipboard. Use `copyButtonText` to provide a meaningful and unique label for the copy button.
+Set `@hasCopyButton` to `true` to display a button for users to copy Code Editor content to their computer clipboard. Use `@copyButtonText` to provide a meaningful and unique label for the copy button.
 
 [[code-snippets/code-editor-copy-button]]
 
 ### Full screen mode
 
-Set `hasFullScreenButton` to `true` to display a button for users to toggle between a full screen view and normal placement within the page.
+Set `@hasFullScreenButton` to `true` to display a button for users to toggle between a full screen view and normal placement within the page.
 
 [[code-snippets/code-editor-full-screen]]
 
 ### Line wrapping
 
-Set `hasLineWrapping` to `true` to enable line wrapping within the editor.
+Set `@hasLineWrapping` to `true` to enable line wrapping within the editor.
 
 [[code-snippets/code-editor-line-wrap]]
 
 ### Custom extensions
 
-The Code Editor supports valid [CodeMirror 6 extensions](https://codemirror.net/docs/ref/#state.Extension) via the `@customExtensions` argument. This allows you to add custom keymaps, gutter markers, theme overrides, or advanced editor behavior.
+The Code Editor supports valid [CodeMirror 6 extensions](https://codemirror.net/docs/ref/#state.Extension) via the `@customExtensions` argument. This allows you to add gutter markers, theme overrides, or advanced editor behavior. Use `@extraKeys` to add custom [key bindings](https://codemirror.net/docs/ref/#view.KeyBinding).
 
 #### Importing CodeMirror modules
 

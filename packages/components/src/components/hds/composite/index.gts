@@ -193,6 +193,12 @@ export default class Composite extends Component<HdsCompositeSignature> {
     };
   }
 
+  private _resortRegisteredElements(): void {
+    this._groups = sortByDOMPosition(this._groups);
+    this._items = sortByDOMPosition(this._items);
+    this._reassociateGroups();
+  }
+
   private _registerItem(newItem: HdsCompositeItem): void {
     newItem.groupId = findGroupId(newItem.element, this._groups);
 
@@ -340,6 +346,8 @@ export default class Composite extends Component<HdsCompositeSignature> {
         if (managedKeys.includes(event.key)) {
           event.preventDefault();
         }
+
+        this._resortRegisteredElements();
 
         const target = handleKey(event, this._navigationSnapshot, this._config);
 

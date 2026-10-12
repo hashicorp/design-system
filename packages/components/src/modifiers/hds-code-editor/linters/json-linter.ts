@@ -6,6 +6,7 @@
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
 import type { HdsCodeEditorSignature } from '../../hds-code-editor';
 import type { Extension, Text } from '@codemirror/state';
+import type HdsIntlService from '../../../services/hds-intl.ts';
 
 export enum HdsCodeEditorJsonLintingError {
   InvalidSyntax = 'Invalid syntax',
@@ -15,6 +16,16 @@ export enum HdsCodeEditorJsonLintingError {
   TrailingComma = 'Trailing comma',
   ValueExpected = 'Value expected',
 }
+
+const JSON_LINTING_ERROR_KEYS: Record<HdsCodeEditorJsonLintingError, string> = {
+  [HdsCodeEditorJsonLintingError.InvalidSyntax]: 'invalid-syntax',
+  [HdsCodeEditorJsonLintingError.KeyExpected]: 'key-expected',
+  [HdsCodeEditorJsonLintingError.KeyMustBeDoubleQuoted]:
+    'key-must-be-double-quoted',
+  [HdsCodeEditorJsonLintingError.MissingComma]: 'missing-comma',
+  [HdsCodeEditorJsonLintingError.TrailingComma]: 'trailing-comma',
+  [HdsCodeEditorJsonLintingError.ValueExpected]: 'value-expected',
+};
 
 export function findNextToken(
   doc: Text,
@@ -76,8 +87,28 @@ export function determineErrorMessage({
 // this renders the error message for both the tooltip and the drawer item
 export function renderErrorMessage(
   message: string,
-  lineNumber: number
+  lineNumber: number,
+  hdsIntl?: HdsIntlService
 ): HTMLElement {
+  const errorKey =
+    JSON_LINTING_ERROR_KEYS[message as HdsCodeEditorJsonLintingError];
+
+  const displayMessage =
+    hdsIntl && errorKey
+      ? hdsIntl.t(
+          `hds.modifiers.hds-code-editor.json-linter.errors.${errorKey}`,
+          { default: message }
+        )
+      : message;
+
+  const textContent = hdsIntl
+    ? hdsIntl.t('hds.modifiers.hds-code-editor.json-linter.line-message', {
+        default: `Line ${lineNumber}: ${displayMessage}`,
+        lineNumber,
+        message: displayMessage,
+      })
+    : `Line ${lineNumber}: ${displayMessage}`;
+
   const wrapper = document.createElement('div');
   wrapper.classList.add('cm-diagnosticText-inner');
 
@@ -86,7 +117,7 @@ export function renderErrorMessage(
   icon.setAttribute('aria-hidden', 'true');
 
   const text = document.createElement('span');
-  text.textContent = `Line ${lineNumber}: ${message}`;
+  text.textContent = textContent;
 
   wrapper.append(icon, text);
 
@@ -97,7 +128,8 @@ export function renderErrorMessage(
 const errorNodeName = '⚠';
 
 export default async function jsonLinter(
-  onLint: HdsCodeEditorSignature['Args']['Named']['onLint']
+  onLint: HdsCodeEditorSignature['Args']['Named']['onLint'],
+  hdsIntl?: HdsIntlService
 ): Promise<Extension[]> {
   const [
     { EditorView, keymap },
@@ -134,7 +166,7 @@ export default async function jsonLinter(
           to: node.to,
           message,
           severity: 'error',
-          renderMessage: () => renderErrorMessage(message, lineNumber),
+          renderMessage: () => renderErrorMessage(message, lineNumber, hdsIntl),
         });
 
         seenLines.add(lineNumber);

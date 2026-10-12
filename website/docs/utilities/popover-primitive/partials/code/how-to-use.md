@@ -66,7 +66,7 @@ For details about how the collision detection works, refer to the [Floating UI >
 
 ### With an arrow
 
-It is possible to account for an arrow element in the positioning of the popover, if an `arrowSelector` (or directly an `arrowElement` reference) is provided to the `anchoredPositionOptions`:
+It is possible to account for an arrow element in the positioning of the popover, if an `arrowSelector` (or directly an `arrowElement` reference) is provided to the `@anchoredPositionOptions`:
 
 [[code-snippets/popover-primitive-arrow execute=false]]
 

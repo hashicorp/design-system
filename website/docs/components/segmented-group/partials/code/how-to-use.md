@@ -14,6 +14,14 @@ When used within a form we recommend using component composition, passing a `Seg
 
 [[code-snippets/segmented-group-form]]
 
+### Layout
+
+Use `@isFullWidth` to make the Segmented Group fill the width of its parent container. Use `@maxWidth` to limit how wide the group can grow.
+
+We recommend using `@isFullWidth` when placing a Super Select within the Segmented Group to prevent the Super Select from changing size as the user interacts with it.
+
+[[code-snippets/segmented-group-super-select-width]]
+
 ### Generic Segment
 
 Use the `Generic` block to pass custom Segments to the group. The predefined Segments adjust their styles automatically depending on their placement within the group. You will need to ensure similar styling for your custom Segment.

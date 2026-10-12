@@ -12,6 +12,14 @@
 </p>
 
 
+### August 18, 2026
+
+Resolved an issue that was causing icon instances to either revert to the "dynamic" color, or fail to persist colors applied to them in component instances.
+
+### August 11th, 2026
+
+`FilterBar` - Added wrapping to the "main" auto-layout container to ensure generic content wraps as expected.
+
 ### February 4th, 2026
 
 `FilterBar` - New component added.
@@ -75,43 +83,6 @@ This changelog corresponds with the [4.21](/whats-new/release-notes#4210) releas
 `AppHeader` - Added `text` property to the home link.
 
 `AdvancedTable` - Added support for resizing columns, restructured the component to support functions within a context menu.
-
-### June 4th, 2025
-
-This changelog corresponds with the [4.20](/whats-new/release-notes#4200) release.
-
-`CodeBlock` - Added height toggle for overflowing code.
-
-#### Breaking changes
-
-`AppHeader` - Multiple changes include:
-
-- Refactored the component to support a list coupled with the context switcher
-- Reorganized the local component dependencies
-- Updated the focus ring to use dark variables
-
-### May 7th, 2025
-
-This changelog corresponds with the [4.19](/whats-new/release-notes#4190) release.
-
-`AppHeader` and `AppSideNav` - Components added.
-
-`AdvancedTable` [Template] - Multi-select column added.
-
-`CodeBlock`, `CodeEditor`, `SideNav` - Updated styling for the focus ring.
-
-`SuperSelect / Multiple` - Multiple design improvements including:
-
-- Displaying a selected number in the trigger when not empty.
-- Correcting truncation of tags to maintain the trigger height.
-
-`Select`, `TextInput`, `TextArea`, and `MaskedInput` - Fixed the overflow to not extend beyond the container or wrap, which mirrors the overflow behavior in the browser.
-
-`RadioCard` - Fixed a bug in the border setting.
-
-`Dropdown` - Radio and Checkbox list items updated to match font weight.
-
-`SideNav` - **Deprecated** the component. Use the `AppHeader` and `AppSideNav` instead.
 
 
 ---

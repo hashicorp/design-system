@@ -20,19 +20,19 @@ export default class LocalComponent extends Component {
 
   get translations() {
     return {
-      artist: this.hdsIntl.t('components.table.headers.artist', {
+      artist: this.hdsIntl.t('hds.components.table.headers.artist', {
         default: 'Artist',
       }),
-      album: this.hdsIntl.t('components.table.headers.album', {
+      album: this.hdsIntl.t('hds.components.table.headers.album', {
         default: 'Album',
       }),
-      year: this.hdsIntl.t('components.table.headers.year', {
+      year: this.hdsIntl.t('hds.components.table.headers.year', {
         default: 'Year',
       }),
       other: this.hdsIntl.t('global.titles.other', {
         default: 'Other',
       }),
-      overflowOptions: this.hdsIntl.t('components.table.overflowOptions', {
+      overflowOptions: this.hdsIntl.t('hds.components.table.overflowOptions', {
         default: 'Overflow Options',
       }),
     };

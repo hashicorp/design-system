@@ -1,13 +1,8 @@
-/**
- * Copyright IBM Corp. 2021, 2026
- * SPDX-License-Identifier: MPL-2.0
- */
-
 .your-selector {
   // ...your CSS declarations
   &:focus,
   &:focus-visible {
     border-radius: inherit;
-    box-shadow: var(--token-focus-ring-action-box-shadow);
+    box-shadow: var(--hds-focus-ring-box-shadow-action);
   }
 }

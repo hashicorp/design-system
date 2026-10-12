@@ -123,7 +123,7 @@ If enabled, generic content will occupy this space.
 
 ### Positioning
 
-Lists can be positioned to the left or right, as well as above or below the trigger as necessary to fit within the UI. These options are only available when `matchTriggerWidth` is set to `false`. This effects the ember component only.
+Lists can be positioned to the left or right, as well as above or below the trigger as necessary to fit within the UI. These options are only available when `matchTriggerWidth` is set to `false`. This affects the ember component only.
 
 ![Showing the different list positions (left, right + top and bottom)](/assets/components/form/super-select/super-select-list-positioning.png)
 

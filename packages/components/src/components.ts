@@ -331,6 +331,9 @@ export { default as HdsTextCode } from './components/hds/text/code.gts';
 export { default as HdsTextDisplay } from './components/hds/text/display.gts';
 export * from './components/hds/text/types.ts';
 
+// Theme Context
+export { default as HdsThemeContext } from './components/hds/theme-context/index.gts';
+
 // Time
 export { default as HdsTime } from './components/hds/time/index.gts';
 export { default as HdsTimeSingle } from './components/hds/time/single.gts';
