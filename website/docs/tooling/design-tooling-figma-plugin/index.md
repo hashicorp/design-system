@@ -3,7 +3,7 @@ title: Design Tooling Figma Plugin
 description: >-
   A Figma plugin to help designers work more efficiently and effectively with HDS assets.
 caption: A Figma plugin to help designers work efficiently with HDS assets.
-previewImage: assets/tooling/hds-design-tooling-figma-plugin.jpg
+previewImage: assets/illustrations/tooling/design-tooling-figma-plugin.jpg
 navigation:
   hidden: false
   order: 2
