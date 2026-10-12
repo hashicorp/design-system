@@ -15,6 +15,6 @@ The [Helios Design Tooling Figma Plugin](https://www.figma.com/community/plugin/
 
 ## Feedback and requests
 
-Use **Submit Feedback** in the plugin to report an issue, share feedback, or request a workflow improvement. Include the feature you used, the Figma context, what you expected, and what happened to explain the issue.
+Use the **Submit Feedback** link in the plugin to report an issue, share feedback, suggest a workflow improvement, or request a new feature. Include the feature you used, the Figma context, what you expected, and what happened to explain the issue.
 
 For feature requests, describe the repeated task, the current friction, who benefits, and the desired outcome.
