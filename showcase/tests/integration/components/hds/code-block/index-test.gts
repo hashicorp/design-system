@@ -475,8 +475,8 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
       </template>,
     );
 
-    const startLabelRange = document.createRange();
-    const endLabelRange = document.createRange();
+    const startRange = document.createRange();
+    const endRange = document.createRange();
 
     const highlightLabels = findAll(
       '#test-code-block-highlight .hds-code-block__code .sr-only',
@@ -487,22 +487,19 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
     const codeElement = find('.hds-code-block__code code');
 
     if (codeElement && highlightStart && highlightEnd) {
-      startLabelRange.setStartBefore(codeElement);
-      startLabelRange.setEndAfter(highlightStart);
+      startRange.setStartBefore(codeElement);
+      startRange.setEndAfter(highlightStart);
 
-      endLabelRange.setStartBefore(codeElement);
-      endLabelRange.setEndAfter(highlightEnd);
+      endRange.setStartBefore(codeElement);
+      endRange.setEndAfter(highlightEnd);
     }
 
-    const linesBeforeStart = startLabelRange.toString().match(/\r?\n/g);
-    const linesBeforeEnd = endLabelRange.toString().match(/\r?\n/g);
+    // Note: We add 1 to the count of newlines because line numbers are 1-based
+    const startLine = (startRange.toString().match(/\r?\n/g)?.length ?? 0) + 1;
+    const endLine = (endRange.toString().match(/\r?\n/g)?.length ?? 0) + 1;
 
-    const numLinesBeforeStart = linesBeforeStart?.length ?? 0;
-    const numLinesBeforeEnd = linesBeforeEnd?.length ?? 0;
-
-    // Note: We add 1 because line numbers are 1-based
-    assert.strictEqual(numLinesBeforeStart + 1, 2);
-    assert.strictEqual(numLinesBeforeEnd + 1, 4);
+    assert.strictEqual(startLine, 2);
+    assert.strictEqual(endLine, 4);
   });
 
   test('it places the `sr-only` markers correctly for a multi-line highlight when `@lineNumberStart` is defined', async function (assert) {
@@ -535,8 +532,8 @@ end"
       </template>,
     );
 
-    const startLabelRange = document.createRange();
-    const endLabelRange = document.createRange();
+    const startRange = document.createRange();
+    const endRange = document.createRange();
 
     const highlightLabels = findAll(
       '#test-code-block-highlight .hds-code-block__code .sr-only',
@@ -547,22 +544,19 @@ end"
     const codeElement = find('.hds-code-block__code code');
 
     if (codeElement && highlightStart && highlightEnd) {
-      startLabelRange.setStartBefore(codeElement);
-      startLabelRange.setEndAfter(highlightStart);
+      startRange.setStartBefore(codeElement);
+      startRange.setEndAfter(highlightStart);
 
-      endLabelRange.setStartBefore(codeElement);
-      endLabelRange.setEndAfter(highlightEnd);
+      endRange.setStartBefore(codeElement);
+      endRange.setEndAfter(highlightEnd);
     }
 
-    const linesBeforeStart = startLabelRange.toString().match(/\r?\n/g);
-    const linesBeforeEnd = endLabelRange.toString().match(/\r?\n/g);
-
-    const numLinesBeforeStart = linesBeforeStart?.length ?? 0;
-    const numLinesBeforeEnd = linesBeforeEnd?.length ?? 0;
+    const startLine = (startRange.toString().match(/\r?\n/g)?.length ?? 0) + 1;
+    const endLine = (endRange.toString().match(/\r?\n/g)?.length ?? 0) + 1;
 
     // Note: Expected number of newlines have been subtracted by (lineNumberStart - 1)
-    assert.strictEqual(numLinesBeforeStart + 1, 13);
-    assert.strictEqual(numLinesBeforeEnd + 1, 16);
+    assert.strictEqual(startLine, 13);
+    assert.strictEqual(endLine, 16);
   });
 
   test('it places the `sr-only` markers correctly for a single line highlight when `@lineNumberStart` is defined', async function (assert) {
@@ -582,8 +576,8 @@ end"
       </template>,
     );
 
-    const startLabelRange = document.createRange();
-    const endLabelRange = document.createRange();
+    const startRange = document.createRange();
+    const endRange = document.createRange();
 
     const highlightLabels = findAll(
       '#test-code-block-highlight .hds-code-block__code .sr-only',
@@ -594,22 +588,19 @@ end"
     const codeElement = find('.hds-code-block__code code');
 
     if (codeElement && highlightStart && highlightEnd) {
-      startLabelRange.setStartBefore(codeElement);
-      startLabelRange.setEndAfter(highlightStart);
+      startRange.setStartBefore(codeElement);
+      startRange.setEndAfter(highlightStart);
 
-      endLabelRange.setStartBefore(codeElement);
-      endLabelRange.setEndAfter(highlightEnd);
+      endRange.setStartBefore(codeElement);
+      endRange.setEndAfter(highlightEnd);
     }
 
-    const linesBeforeStart = startLabelRange.toString().match(/\r?\n/g);
-    const linesBeforeEnd = endLabelRange.toString().match(/\r?\n/g);
-
-    const numLinesBeforeStart = linesBeforeStart?.length ?? 0;
-    const numLinesBeforeEnd = linesBeforeEnd?.length ?? 0;
+    const startLine = (startRange.toString().match(/\r?\n/g)?.length ?? 0) + 1;
+    const endLine = (endRange.toString().match(/\r?\n/g)?.length ?? 0) + 1;
 
     // Note: Expected number of newlines have been subtracted by (lineNumberStart - 1)
-    assert.strictEqual(numLinesBeforeStart + 1, 2);
-    assert.strictEqual(numLinesBeforeEnd + 1, 2);
+    assert.strictEqual(startLine, 2);
+    assert.strictEqual(endLine, 2);
   });
 
   // maxHeight
