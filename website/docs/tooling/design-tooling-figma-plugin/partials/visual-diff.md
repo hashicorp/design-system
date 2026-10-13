@@ -15,7 +15,7 @@ Visual Diff doesn't resize references before comparing them. Different dimension
 5. Review the similarity score. Drag the reference overlays onto the Figma canvas to more closely inspect the differences.
 6. Select **Refresh selection** after changing your Figma selection. Use **Clear comparison** to reset Reference B and the current results.
 
-![The Visual Diff plugin with Reference A and Reference B selected.](/assets/tooling/design-tooling-figma-plugin/visual-diff-reference-selection.png)
+![](/assets/tooling/design-tooling-figma-plugin/visual-diff-reference-selection.png)
 
 ## Interpret and share results
 
@@ -25,9 +25,9 @@ Use the onion skin and highlighted difference views to identify differences. Ins
 
 Drag either result preview onto the Figma canvas to create an image layer for review or discussion.
 
-![Placeholder: the Visual Diff result showing the similarity score, onion-skin mode, and highlighted-difference mode.](/assets/tooling/design-tooling-figma-plugin/visual-diff-comparison-results.png)
+![](/assets/tooling/design-tooling-figma-plugin/visual-diff-comparison-results.png)
 
-![isual Diff result preview from the plugin onto the Figma canvas.](/assets/tooling/design-tooling-figma-plugin/visual-diff-overlay.png)
+![](/assets/tooling/design-tooling-figma-plugin/visual-diff-overlay.png)
 
 ## Reference storage
 

@@ -15,7 +15,7 @@ Alternatively, open the Figma actions menu (`cmd/ctrl + k`) and search for "HDS 
 
 Enable the [HDS Foundations v2.0](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?m=auto&node-id=2916-4&t=CgmhOUsHyOKRtyaL-1), [HDS Components v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=2zYgbCFKY0ibOrWl-1), [HDS Patterns v2.0](https://www.figma.com/design/5Pv32j4QiOOD8lkFTD1dxC/HDS-Patterns-v2.0?m=auto&node-id=2-45&t=PbbBtIfzmCoSWglS-1), and [HDS Icons](https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=2SV6iizqmgRpPLZ8-1) libraries in your project before using the plugin.
 
-![The Figma plugins menu showing the Helios Design Tooling plugin.](/assets/tooling/design-tooling-figma-plugin/figma-plugin-menu.png)
+![](/assets/tooling/design-tooling-figma-plugin/figma-plugin-menu.png)
 
 ## Feedback and requests
 

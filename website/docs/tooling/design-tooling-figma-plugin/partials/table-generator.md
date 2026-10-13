@@ -11,9 +11,11 @@ Use Table Generator to create HDS tables without manually assembling repeated co
 
 Column cells can contain text, leading or trailing icons, or a generic placeholder for another HDS component. Supported components include Badge, Badge Count, Button, Link, and Tag. You can further customize cell content in Figma.
 
-![The Table Generator configuration with table type, dimensions, options, and column labels.](/assets/tooling/design-tooling-figma-plugin/table-generator-main.png)
+![](/assets/tooling/design-tooling-figma-plugin/table-generator-main.png)
 
-![The column settings screen with label,alignment, sortable, and cell content controls.](/assets/tooling/design-tooling-figma-plugin/table-generator-column-configuration.png)
+![](/assets/tooling/design-tooling-figma-plugin/table-generator-main-column-configuration.png)
+
+![](/assets/tooling/design-tooling-figma-plugin/table-generator-detail-column-configuration.png)
 
 ## Edit a generated table
 
@@ -23,7 +25,7 @@ Column cells can contain text, leading or trailing icons, or a generic placehold
 
 The plugin saves the configuration with each generated table. Sync the configuration before editing a table whose structure you changed manually.
 
-![A selected generated table and the Sync configuration action in the plugin.](/assets/tooling/design-tooling-figma-plugin/table-generator-sync-configuration.png)
+![](/assets/tooling/design-tooling-figma-plugin/table-generator-sync-configuration.png)
 
 !!! Info
 
