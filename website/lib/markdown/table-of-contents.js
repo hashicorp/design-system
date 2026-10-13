@@ -11,7 +11,6 @@ const { pick, set, isEqual } = require('lodash');
 const CATEGORIES = [
   'about',
   'getting-started',
-  'updates',
   'foundations',
   'components',
   'layouts',
