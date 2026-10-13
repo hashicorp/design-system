@@ -11,4 +11,4 @@ Project Solar's carbonization work requires color service icons to be replaced w
 
 The plugin finds HDS icon component instances whose names follow the color service icon pattern and ends in `-color`.
 
-![Placeholder: the Update Service Icon Colors plugin showing the page and selection scan controls, matching icon list, and selected icon instances on the Figma canvas.](/assets/tooling/design-tooling-figma-plugin/service-icon-finder-results.png)
+![The Update Service Icon Colors plugin showing the page and selection scan controls, matching icon list, and selected icon instances on the Figma canvas.](/assets/tooling/design-tooling-figma-plugin/update-service-icon-colors.png)
