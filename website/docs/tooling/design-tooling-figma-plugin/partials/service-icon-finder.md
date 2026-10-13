@@ -1,1 +1,0 @@
-Service icon finder feature

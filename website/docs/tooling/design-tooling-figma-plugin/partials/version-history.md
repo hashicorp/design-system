@@ -1,6 +1,6 @@
 !!! Insight
 
-The Helios Design Tooling Figma Plugin is in beta, and we're collecting feedback on its supported features. Do you have a Figma workflow gap that this plugin could address? Submit a [feedback request](https://forms.cloud.microsoft/pages/responsepage.aspx?id=V3D2_MlQ1EqY8__KZK3Z6UmWnqljt15Es3lf1vxCFuVUNjFMQTBPSFk1U05MMFA5NFU0R05EQzBOViQlQCN0PWcu&route=shorturl).
+The Helios Design Tooling Figma Plugin is in beta, and we're collecting feedback on its supported features. Do you have a Figma workflow gap that this plugin could address? Submit a [feedback request](https://forms.cloud.microsoft/r/Ka1D9i712k).
 
 !!!
 

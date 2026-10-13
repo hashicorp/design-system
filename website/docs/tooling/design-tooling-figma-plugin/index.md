@@ -28,8 +28,8 @@ navigation:
   @include "partials/visual-diff.md"
 </section>
 
-<section data-tab="Service Icon Finder">
-  @include "partials/service-icon-finder.md"
+<section data-tab="Update Service Icon Colors">
+  @include "partials/update-service-icon-colors.md"
 </section>
 
 <section data-tab="Version history">
