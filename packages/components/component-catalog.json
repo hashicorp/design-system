@@ -5390,17 +5390,17 @@
           "required": true
         },
         {
+          "name": "hasLiveSearch",
+          "type": "boolean",
+          "required": false
+        },
+        {
           "name": "hasSearch",
           "type": "boolean",
           "required": false
         },
         {
           "name": "isLiveFilter",
-          "type": "boolean",
-          "required": false
-        },
-        {
-          "name": "liveSearch",
           "type": "boolean",
           "required": false
         },

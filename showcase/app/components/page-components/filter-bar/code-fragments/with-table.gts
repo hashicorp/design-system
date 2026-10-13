@@ -39,7 +39,7 @@ const MUSIC_VALUES = {
 export interface CodeFragmentWithTableSignature {
   Args: {
     isLiveFilter?: boolean;
-    liveSearch?: boolean;
+    hasLiveSearch?: boolean;
   };
   Element: HTMLDivElement;
 }
@@ -132,7 +132,7 @@ export default class CodeFragmentWithTable extends Component<CodeFragmentWithTab
       @filters={{this.filters}}
       @isLiveFilter={{@isLiveFilter}}
       @hasSearch={{true}}
-      @liveSearch={{@liveSearch}}
+      @hasLiveSearch={{@hasLiveSearch}}
       @onFilter={{this.onFilter}}
       {{style marginBottom="24px"}}
       as |F|

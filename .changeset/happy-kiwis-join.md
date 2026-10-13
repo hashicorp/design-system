@@ -3,5 +3,5 @@
 ---
 
 <!-- START components/filter-bar -->
-`FilterBar` - Added new `@liveSearch` argument and set search input autocomplete to off
+`FilterBar` - Added new `@hasLiveSearch` argument and set search input autocomplete to off
 <!-- END -->

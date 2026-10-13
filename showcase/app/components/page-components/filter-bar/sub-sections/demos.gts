@@ -35,7 +35,7 @@ const SubSectionDemos: TemplateOnlyComponent = <template>
   <ShwTextBody>General search occurs on value change, rather than after
     submission.</ShwTextBody>
 
-  <CodeFragmentWithTable @liveSearch={{true}} />
+  <CodeFragmentWithTable @hasLiveSearch={{true}} />
 
   <ShwDivider @level={{2}} />
 

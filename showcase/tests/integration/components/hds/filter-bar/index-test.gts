@@ -240,7 +240,7 @@ const FILTERS: Record<string, HdsFilterBarFilters> = {
 
 const createBasicFilterBar = async (options: {
   hasSearch?: boolean;
-  liveSearch?: boolean;
+  hasLiveSearch?: boolean;
   searchPlaceholder?: string;
   searchAriaLabel?: string;
   isLiveFilter?: boolean;
@@ -257,7 +257,7 @@ const createBasicFilterBar = async (options: {
         id="test-filter-bar"
         @filters={{filters}}
         @hasSearch={{options.hasSearch}}
-        @liveSearch={{options.liveSearch}}
+        @hasLiveSearch={{options.hasLiveSearch}}
         @searchPlaceholder={{options.searchPlaceholder}}
         @searchAriaLabel={{options.searchAriaLabel}}
         @isLiveFilter={{options.isLiveFilter}}
@@ -363,7 +363,7 @@ module('Integration | Component | hds/filter-bar/index', function (hooks) {
       .hasAttribute('aria-label', 'Search by deployment name');
   });
 
-  // LIVESEARCH
+  // HASLIVESEARCH
 
   test('it should apply search on change by default', async function (assert) {
     let onFilterCalled = false;
@@ -386,11 +386,11 @@ module('Integration | Component | hds/filter-bar/index', function (hooks) {
     assert.true(onFilterCalled);
   });
 
-  test('it should apply search on input when @liveSearch is true', async function (assert) {
+  test('it should apply search on input when @hasLiveSearch is true', async function (assert) {
     let onFilterCalled = false;
     await createBasicFilterBar({
       hasSearch: true,
-      liveSearch: true,
+      hasLiveSearch: true,
       onFilter: () => {
         onFilterCalled = true;
       },
