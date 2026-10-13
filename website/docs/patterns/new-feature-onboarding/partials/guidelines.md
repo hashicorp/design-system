@@ -41,7 +41,7 @@ Highlighting new features is important, but it can be intrusive or disruptive to
 
 For more complex features, or if the feature touches multiple parts of the UI, consider breaking the experience into steps. This highlights the entry point of a new or updated feature and also allows for subsequent key aspects of the feature to be highlighted along the critical user journey (CUJ).
 
-Use [Button](/components/button) components with labels like "Next", "Back", and "Cancel" to navigate users through a multi-step onboarding sequence.
+Use [Button](/components/button) components labelled "Next", "Back", and "Cancel" for users to navigate through a multi-step onboarding sequence.
 
 Highlight the first step with a Beacon then move the Beacon and open RichTooltip to draw the user's attention through each step in the sequence. Repeat the pattern until all steps are completed or the user opts out of the flow.
 
