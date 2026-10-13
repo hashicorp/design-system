@@ -14,6 +14,8 @@
 
 ## 7.0.0
 
+[7.0.0 documentation](https://hds-website-7-0-0.vercel.app/)
+
 **Major changes**
 
 _Conducted a one-off mechanical rename in `@hashicorp/design-system-components` of internal component CSS variables. Consumers consuming or overriding HDS CSS variables will need to update `--hds-*` references to `--hds-var-*`._
