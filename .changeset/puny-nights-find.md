@@ -3,17 +3,17 @@
 ---
 
 <!-- START components/form/primitives -->
-`Form::Field` - Fixed the DOM order of the control and label elements for the `flag` layout to ensure the `<input>` appears before the `<label>` in the DOM, aligning with accessibility requirements for checkbox and radio controls.
+`Form::Field` - Fixed the DOM order of the `flag` layout (used by Checkbox, Radio, and Toggle) so the `<input>` appears before the `<label>`, matching the visual order for screen readers. The visual layout is unchanged.
 <!-- END -->
 
 <!-- START components/form/radio -->
-`Form::Radio::Field` - Fixed the DOM order of the control and label elements to ensure the `<input>` appears before the `<label>` in the DOM, aligning with accessibility requirements for radio controls.
+`Form::Radio::Field` - Fixed the DOM order so the `<input>` appears before the `<label>`, matching the visual order for screen readers.
 <!-- END -->
 
 <!-- START components/form/checkbox -->
-`Form::Checkbox::Field` - Fixed the DOM order of the control and label elements to ensure the `<input>` appears before the `<label>` in the DOM, aligning with accessibility requirements for checkbox controls.
+`Form::Checkbox::Field` - Fixed the DOM order so the `<input>` appears before the `<label>`, matching the visual order for screen readers.
 <!-- END -->
 
 <!-- START components/form/toggle -->
-`Form::Toggle::Field` - Fixed the DOM order of the control and label elements to ensure the `<input>` appears before the `<label>` in the DOM, aligning with accessibility requirements for checkbox controls.
+`Form::Toggle::Field` - Fixed the DOM order so the `<input>` appears before the `<label>`, matching the visual order for screen readers.
 <!-- END -->

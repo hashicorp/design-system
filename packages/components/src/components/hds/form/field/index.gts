@@ -118,13 +118,23 @@ export default class HdsFormField extends Component<HdsFormFieldSignature> {
   };
 
   /*
+    The "flag" layout is used by Checkbox, Radio, and Toggle, which display the
+    input (a native checkbox or radio) before its label. The DOM order is:
+    Control → Label → HelperText.
+
+    The DOM order follows the visual order so that the reading order for screen
+    readers matches what sighted users see.
+
+    All other field types display the label first, so they use the default order:
+    Label → HelperText → Control.
+
     Conditional logic & DOM structure of template code:
 
     if @layout === "flag":
       Control
       Label
       HelperText
-    
+
     else
       Label
       HelperText
