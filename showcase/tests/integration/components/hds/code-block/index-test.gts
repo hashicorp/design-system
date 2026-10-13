@@ -437,29 +437,7 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
   });
 
   // highlightLines
-  test('it highlights the passed in individual line numbers', async function (assert) {
-    await render(
-      <template>
-        <HdsCodeBlock
-          id="test-code-block-highlight"
-          @highlightLines="1"
-          @value="console.log('Hello world');"
-        />
-      </template>,
-    );
-    assert
-      .dom('#test-code-block-highlight [data-range="1"]')
-      .exists()
-      .hasClass('line-highlight');
-
-    const highlightLabels = findAll(
-      '#test-code-block-highlight .hds-code-block__code .sr-only',
-    );
-    assert.dom(highlightLabels[0]).hasText('highlight start');
-    assert.dom(highlightLabels[1]).hasText('highlight end');
-  });
-
-  test('it places the `sr-only` markers on the correct start and end lines', async function (assert) {
+  test('it highlights and places the `sr-only` markers on the correct lines', async function (assert) {
     await render(
       <template>
         <HdsCodeBlock
@@ -475,8 +453,10 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
       </template>,
     );
 
-    const startRange = document.createRange();
-    const endRange = document.createRange();
+    assert
+      .dom('#test-code-block-highlight [data-range="2-4"]')
+      .exists()
+      .hasClass('line-highlight');
 
     const highlightLabels = findAll(
       '#test-code-block-highlight .hds-code-block__code .sr-only',
@@ -484,6 +464,11 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
     const highlightStart = highlightLabels[0];
     const highlightEnd = highlightLabels[1];
 
+    assert.dom(highlightStart).hasText('highlight start');
+    assert.dom(highlightEnd).hasText('highlight end');
+
+    const startRange = document.createRange();
+    const endRange = document.createRange();
     const codeElement = find('.hds-code-block__code code');
 
     if (codeElement && highlightStart && highlightEnd) {
@@ -494,7 +479,7 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
       endRange.setEndAfter(highlightEnd);
     }
 
-    // Note: We add 1 to the count of newlines because line numbers are 1-based
+    // Note: We add 1 after counting the # of newlines because line numbers are 1-based
     const startLine = (startRange.toString().match(/\r?\n/g)?.length ?? 0) + 1;
     const endLine = (endRange.toString().match(/\r?\n/g)?.length ?? 0) + 1;
 
