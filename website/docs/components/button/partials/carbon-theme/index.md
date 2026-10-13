@@ -1,10 +1,12 @@
 ## Secondary muted color
 
-In HashiCorp applications the `secondary` button variant is used in many contexts that require less strong visual hierarchy than the Carbon theme `secondary` button variant provides.
+Both the Carbon and the HashiCorp design systems include a secondary variant for the Button component. However, the secondary variant in Carbon themes is much darker and more visually prominent than the secondary variant in the HDS classic theme. This difference in prominence was found to throw off the visual hierarchy when Carbon themes were used within HashiCorp applications.
 
-To help maintain this visual hierarch on Carbon themes, the `@color` argument of the Button supports a value `secondary-muted`. This variant is visually identical to the `secondary` color for HDS themes, but differs for Carbon themes. Use the `secondary-muted` color to have a secondary button on Carbon themes which is less visually dominant.
+To solve this issue, a lighter `secondary-muted` color option is available for the `@color` argument. When using one of the Carbon themes, `secondary-muted` can be used instead of `secondary` to preserve a consistent visual hierarchy. The `secondary` color can be used in cases where a stronger visual hierarchy is desired.
 
-Change the theme in the snippet below to a Carbon theme to see the difference between the `secondary` and `secondary-muted` variants.
+**Note:** When using the classic HDS theme, the `secondary-muted` color will be visually the same as `secondary`.
+
+Change the theme in the snippet below to a Carbon theme to see the difference between the `secondary` and `secondary-muted` color variants.
 
 [[code-snippets/button-secondary-muted]]
 
