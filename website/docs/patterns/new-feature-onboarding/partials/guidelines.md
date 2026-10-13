@@ -1,6 +1,6 @@
 !!! Info
 
-These guidelines are meant to assist teams in designing and building new feature onboarding workflows. Currently there aren't Ember components to support this pattern, but they can be composed using HDS components.
+These guidelines are meant to assist teams in designing and building new feature onboarding workflows. Currently there aren't dedicated Ember components to support this pattern, but they can be composed using HDS components.
 
 For now, reference our Figma [Patterns](#jory-insert-link) library and implementation in [Terraform/Atlas](#jory-insert-link).
 
@@ -19,7 +19,7 @@ Clicking on the beacon should toggle a [Rich Tooltip](/components/rich-tooltip) 
 
 ## Rich Tooltip
 
-Use the [Rich Tooltip](/components/rich-tooltip) to convey information about the new feature, support a multi-step flow, or link to additional documentation, release notes, or a changelogs.
+Use the [Rich Tooltip](/components/rich-tooltip) to convey information about the new feature, support a multi-step flow, or link to additional documentation, release notes, or changelogs.
 
 At a minimum, we recommend including text about the feature, but other common elements include:
 
@@ -31,28 +31,19 @@ At a minimum, we recommend including text about the feature, but other common el
 
 ## Persistence and display
 
-Highlighting new features is important, but it can be intrusive or disruptive to users' workflows. consider when best to display onboarding-focused components and how they should persist after users interact with them.
+Highlighting new features is important, but it can be intrusive or disruptive to users' workflows. Onboarding-focused components should balance feature visibility with user autonomy by following these behavior patterns:
 
-!!! Do
-
-- Show the Beacon adjacent to a new feature the first time a user sees it.
-- Provide the user with an escape hatch to dismiss the onboarding tooltip if necessary. This holds true for both single-step and multi-step onboarding flows.
-- Persist the status of whether the user has seen or interacted with the onboarding materials to prevent them from being displayed to the user repeatedly. Consider using `localStorage` or storing the viewed state in user preferences or settings.
-!!!
-
-!!! Dont
-
-- Don't display the Beacon or onboarding elements again _after_ a user has interacted with it, or dismissed it.
-- Don't open an onboarding RichTooltip by default, this can be intrusive and potentially annoy the user.
-!!!
+- **Initial display**: Position the beacon adjacent to a new feature the first time a user encounters it. Don't open the onboarding tooltip by default, as this can be intrusive and disrupt the user's focus.
+- **Dismissal**: Provide the user with a way to dismiss the onboarding tooltip, regardless of whether the experience is a single-step or multi-step flow.
+- **State tracking and visibility**: Track whether the user has seen or interacted with onboarding materials by saving the state to `localStorage` or user preferences. Don't display the beacon or onboarding elements again after a user has interacted with or dismissed them.
 
 ## Multi-step sequences
 
-To onboard users to more complex features, or if the feature touches multiple parts of the UI, consider breaking the experience into multiple steps. This can be helpful to highlight the initial entry point of a new or updated feature, and subsequently highlight key aspects of the feature as they relate to a critical user journey (CUJ).
+For more complex features, or if the feature touches multiple parts of the UI, consider breaking the experience into steps. This highlights the entry point of a new or updated feature and also allows for subsequent key aspects of the feature to be highlighted along the critical user journey (CUJ).
 
 Use [Button](/components/button) components with labels like "Next", "Back", and "Cancel" to navigate users through a multi-step onboarding sequence.
 
-In a multi-step sequence, use a beacon to highlight the first step. As the user progresses, the beacon (and open RichTooltip) should appear at the next step, repeating this pattern until all steps are completed or the user opts out of the flow. Moving the beacon to each step guides the user's attention through the sequence.
+Highlight the first step with a Beacon then move the Beacon and open RichTooltip to draw the user's attention through each step in the sequence. Repeat the pattern until all steps are completed or the user opts out of the flow.
 
 <video width="100%" controls loop>
   <source
