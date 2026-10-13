@@ -113,11 +113,15 @@ If your content for inputting filters can change dynamically, it's possible focu
 
 The Filter Bar provides a search input, which can be used for searching across multiple areas of a data set. If the `@hasSearch` argument is set to `true`, a search input will be shown next to the dropdown.
 
-When the search input's `input` event is triggered, a filter of type `search` will be included in the data object in the `@onFilter` callback.
+When the search input's `change` event is triggered, a filter of type `search` will be included in the data object in the `@onFilter` callback.
 
 [[code-snippets/filter-bar-search]]
 
 [[code-snippets/filter-bar-search-data execute=false]]
+
+If `@hasLiveSearch` is set to `true` the `@onFilter` callback is triggered on the search input's `input` event instead of `change`.
+
+[[code-snippets/filter-bar-search-live]]
 
 The search input’s `aria-label` and `placeholder` text values are both “Search” by default, but they can be customized with the `@searchAriaLabel` and `@searchPlaceholder` arguments respectively.
 
