@@ -1,6 +1,6 @@
 !!! Insight
 
-The Helios Design Tooling Figma Plugin is in beta, and we're collecting feedback on its supported features. Do you have a Figma workflow gap that this plugin could address? Submit a [feedback request](https://forms.cloud.microsoft/r/Ka1D9i712k).
+The plugin is in beta. Submit a [feedback request](https://forms.cloud.microsoft/r/Ka1D9i712k) to report an issue or suggest a workflow improvement.
 
 !!!
 
@@ -8,6 +8,6 @@ The Helios Design Tooling Figma Plugin is in beta, and we're collecting feedback
 
 Initial beta release of the plugin with support for these features:
 
-- Automated table generation
-- Visual regression testing (VRT) and diff generation for Figma
-- Helios Service Icon finder
+- Table Generator
+- Visual Diff
+- Update Service Icon Colors

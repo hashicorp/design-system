@@ -1,6 +1,6 @@
-Use **Update Service Icon Colors** to find HDS service icon color variants (e.g., `aws-color`, `azure-color`, etc). These icons use brand colors and don't transition between IBM Carbon light and dark themes.
+Use **Update Service Icon Colors** to find HDS service icon color variants, such as `aws-color` and `azure-color`. These icons use brand colors, so they don't transition between IBM Carbon light and dark themes.
 
-Project Solar and the Carbonization requires color service icons to be replaced with their dynamic/non-color variants, which accept semantic and core colors from HDS libraries. This replacement has been handled by the HDS team behind the scenes in the [HDS Icons](https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=2SV6iizqmgRpPLZ8-1) library, however, appying the relevant semantic variable is still required in design files.
+Project Solar's carbonization work requires color service icons to be replaced with dynamic, non-color variants. These variants accept semantic and core colors from HDS libraries. The HDS team has added these variants to the [HDS Icons](https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=2SV6iizqmgRpPLZ8-1) library. In design files, you still need to apply the appropriate semantic variable.
 
 ## Find color service icons
 

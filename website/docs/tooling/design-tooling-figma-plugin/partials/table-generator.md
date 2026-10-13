@@ -1,15 +1,15 @@
-Use the Table Generator to create HDS tables and avoid manually assembling repeated components. Save time by configuring the table structure, defining the specific properties for each column, and customizing the type of data being expressed in each cell.
+Use Table Generator to create HDS tables without manually assembling repeated components. Configure the table structure, column properties, and cell content before generating it.
 
 ## Create a table
 
 1. Open **Table Generator**.
 2. Choose a **Standard** or **Advanced** table type.
 3. Set the desired number of rows and columns.
-4. Select the high-level table options; size, multi-selection, row striping, and whether components should be grouped by columns or rows in Auto Layout containers.
-5. Customize the label of each column and what data will be contained in the cells. Customize a column further via the settings icon to configure its alignment, sorting, icons, and cell content.
+4. Select table options: size, multi-select, row striping, and whether Auto Layout groups components by row or column.
+5. Add a label for each column. Use the settings icon to configure alignment, sorting, icons, and cell content.
 6. Select **Generate Table**.
 
-Column cells can contain text, leading or trailing icons, or a generic placeholder that can be replaced by other HDS components. Supported instances include Badge, Badge Count, Button, Link, and Tag. Customize cell content further directly within the Figma UI.
+Column cells can contain text, leading or trailing icons, or a generic placeholder for another HDS component. Supported components include Badge, Badge Count, Button, Link, and Tag. You can further customize cell content in Figma.
 
 ![Placeholder: the Table Generator configuration form with table type, dimensions, options, and column labels.](/assets/tooling/design-tooling-figma-plugin/table-generator-configuration.png)
 
@@ -19,11 +19,11 @@ Column cells can contain text, leading or trailing icons, or a generic placehold
 
 ## Edit a generated table
 
-1. With the Table Generator open, select the generated table instance on the Figma canvas.
-2. Select **Sync configuration** to load the saved table configuration.
-3. Alter the settings of the table to meet your needs, then select **Regenerate Table** to apply it.
+1. Open **Table Generator** and select a generated table on the Figma canvas.
+2. Select **Sync configuration** to load its saved configuration.
+3. Update the settings, then select **Regenerate Table**.
 
-The plugin saves the configuration with the generated table. If you manually change the table structure, sync the configuration before editing so the plugin can read the current structure.
+The plugin saves the configuration with each generated table. Sync the configuration before editing a table whose structure you changed manually.
 
 ![Placeholder: a selected generated table and the Sync configuration action in the plugin.](/assets/tooling/design-tooling-figma-plugin/table-generator-sync-configuration.png)
 
