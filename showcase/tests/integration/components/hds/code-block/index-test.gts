@@ -437,26 +437,155 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
   });
 
   // highlightLines
-  test('it highlights the passed in individual line numbers', async function (assert) {
+  test('it highlights and places the `sr-only` markers on the correct lines', async function (assert) {
     await render(
       <template>
         <HdsCodeBlock
           id="test-code-block-highlight"
-          @highlightLines="1"
-          @value="console.log('Hello world');"
+          @language="go"
+          @highlightLines="2-4"
+          @value="package main
+  import 'fmt'
+  func main() {
+    fmt.Println('hello world')
+  }"
         />
       </template>,
     );
+
     assert
-      .dom('#test-code-block-highlight [data-range="1"]')
+      .dom('#test-code-block-highlight [data-range="2-4"]')
       .exists()
       .hasClass('line-highlight');
 
     const highlightLabels = findAll(
       '#test-code-block-highlight .hds-code-block__code .sr-only',
     );
-    assert.dom(highlightLabels[0]).hasText('highlight start');
-    assert.dom(highlightLabels[1]).hasText('highlight end');
+    const highlightStart = highlightLabels[0];
+    const highlightEnd = highlightLabels[1];
+
+    assert.dom(highlightStart).hasText('highlight start');
+    assert.dom(highlightEnd).hasText('highlight end');
+
+    const startRange = document.createRange();
+    const endRange = document.createRange();
+    const codeElement = find('.hds-code-block__code code');
+
+    if (codeElement && highlightStart && highlightEnd) {
+      startRange.setStartBefore(codeElement);
+      startRange.setEndAfter(highlightStart);
+
+      endRange.setStartBefore(codeElement);
+      endRange.setEndAfter(highlightEnd);
+    }
+
+    // Note: We add 1 after counting the # of newlines because line numbers are 1-based
+    const startLine = (startRange.toString().match(/\r?\n/g)?.length ?? 0) + 1;
+    const endLine = (endRange.toString().match(/\r?\n/g)?.length ?? 0) + 1;
+
+    assert.strictEqual(startLine, 2);
+    assert.strictEqual(endLine, 4);
+  });
+
+  test('it places the `sr-only` markers correctly for a multi-line highlight when `@lineNumberStart` is defined', async function (assert) {
+    await render(
+      <template>
+        <HdsCodeBlock
+          id="test-code-block-highlight"
+          @language="ruby"
+          @highlightLines="14-17"
+          @lineNumberStart={{2}}
+          @value="def convert_object_to_array(obj)
+  arr = obj.keys
+           .map { |key| [key, obj[key]] }
+           .flatten
+           .sort
+  return arr
+end
+
+def assert_objects_equal(actual, expected, test_name)
+  actual_str = convert_object_to_array(actual).to_s
+  expected_str = convert_object_to_array(expected).to_s
+  puts 'ACTUAL: #{actual_str}  EXPECTED: #{expected_str}'
+  if actual_str == expected_str
+    puts 'passed'
+  else
+    puts 'FAILED [#{test_name}] Expected #{expected}, but got #{actual}'
+  end
+end"
+        />
+      </template>,
+    );
+
+    const startRange = document.createRange();
+    const endRange = document.createRange();
+
+    const highlightLabels = findAll(
+      '#test-code-block-highlight .hds-code-block__code .sr-only',
+    );
+    const highlightStart = highlightLabels[0];
+    const highlightEnd = highlightLabels[1];
+
+    const codeElement = find('.hds-code-block__code code');
+
+    if (codeElement && highlightStart && highlightEnd) {
+      startRange.setStartBefore(codeElement);
+      startRange.setEndAfter(highlightStart);
+
+      endRange.setStartBefore(codeElement);
+      endRange.setEndAfter(highlightEnd);
+    }
+
+    const startLine = (startRange.toString().match(/\r?\n/g)?.length ?? 0) + 1;
+    const endLine = (endRange.toString().match(/\r?\n/g)?.length ?? 0) + 1;
+
+    // Note: Expected number of newlines have been subtracted by (lineNumberStart - 1)
+    assert.strictEqual(startLine, 13);
+    assert.strictEqual(endLine, 16);
+  });
+
+  test('it places the `sr-only` markers correctly for a single line highlight when `@lineNumberStart` is defined', async function (assert) {
+    await render(
+      <template>
+        <HdsCodeBlock
+          id="test-code-block-highlight"
+          @language="go"
+          @highlightLines="3"
+          @lineNumberStart={{2}}
+          @value="package main
+  import 'fmt'
+  func main() {
+    fmt.Println('hello world')
+  }"
+        />
+      </template>,
+    );
+
+    const startRange = document.createRange();
+    const endRange = document.createRange();
+
+    const highlightLabels = findAll(
+      '#test-code-block-highlight .hds-code-block__code .sr-only',
+    );
+    const highlightStart = highlightLabels[0];
+    const highlightEnd = highlightLabels[1];
+
+    const codeElement = find('.hds-code-block__code code');
+
+    if (codeElement && highlightStart && highlightEnd) {
+      startRange.setStartBefore(codeElement);
+      startRange.setEndAfter(highlightStart);
+
+      endRange.setStartBefore(codeElement);
+      endRange.setEndAfter(highlightEnd);
+    }
+
+    const startLine = (startRange.toString().match(/\r?\n/g)?.length ?? 0) + 1;
+    const endLine = (endRange.toString().match(/\r?\n/g)?.length ?? 0) + 1;
+
+    // Note: Expected number of newlines have been subtracted by (lineNumberStart - 1)
+    assert.strictEqual(startLine, 2);
+    assert.strictEqual(endLine, 2);
   });
 
   // maxHeight

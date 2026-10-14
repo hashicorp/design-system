@@ -278,9 +278,7 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
     const NEW_LINE_EXP = /\n(?!$)/g;
     const lines = code.split(NEW_LINE_EXP);
     const numLines = lines.length;
-    const lineOffset = this.args.lineNumberStart
-      ? this.args.lineNumberStart
-      : 0;
+    const lineOffset = (this.args.lineNumberStart ?? 1) - 1;
     const startText = this.hdsIntl.t(
       'hds.components.code-block.highlight-start',
       {
@@ -304,7 +302,7 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
       ranges.forEach((currentRange) => {
         const range = currentRange.split('-');
         const start = +range[0]! - lineOffset;
-        let end = +range[1]! || start - lineOffset;
+        let end = range[1] ? +range[1] - lineOffset : start;
         end = Math.min(numLines, end);
         highlightedLines.push({
           start: start,
