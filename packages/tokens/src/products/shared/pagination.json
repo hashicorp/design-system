@@ -81,7 +81,7 @@
         },
         "typography": {
           "font-size": {
-            "$type": "typography",
+            "$type": "font-size",
             "$value": "{typography.body-100.font-size}",
             "$modes": {
               "default": "{typography.body-100.font-size}",
@@ -144,7 +144,7 @@
     "info": {
       "typography": {
         "font-size": {
-          "$type": "typography",
+          "$type": "font-size",
           "$value": "{typography.body-100.font-size}",
           "$modes": {
             "default": "{typography.body-100.font-size}",
@@ -159,7 +159,7 @@
     "size-selector": {
       "typography": {
         "font-size": {
-          "$type": "typography",
+          "$type": "font-size",
           "$value": "{typography.body-100.font-size}",
           "$modes": {
             "default": "{typography.body-100.font-size}",
