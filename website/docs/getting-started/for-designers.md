@@ -107,7 +107,7 @@ Add Helios components to your design project by inserting them directly from the
 
 Open the [resources menu](https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances#quick-insert) (`shift`+`i`) in the toolbar to expose a list of recently used components, plugins, and widgets enabled in your project. Use this method to access your more commonly or recently used components quickly.
 
-![Inserting components from the resources menu](/assets/getting-started/designers/component-resources-panel.png =321x*)
+![Inserting components from the resources menu](/assets/getting-started/designers/component-resources-panel.png)
 
 #### Copying from the stickersheet
 
