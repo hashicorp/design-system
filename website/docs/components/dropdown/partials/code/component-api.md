@@ -96,6 +96,9 @@ The Dropdown component is composed of different child components each with their
     <br />
     _Notice: Focus can be lost if content inside the dropdown is removed dynamically. This callback should be used to set focus to another element if this occurs. Without this callback the dropdown will close automatically when focus is lost._
   </C.Property>
+  <C.Property @name="onOpen" @type="function">
+    Callback function invoked when the dropdown is open (if provided).
+  </C.Property>
   <C.Property @name="boundary" @type="Boundary | string">
     Provides an option to specify a parent or ancestor container element to act as the boundary for collision detection vs. the browser window boundaries which is the default. The value provided must be either a `Boundary` type as specified in the [Floating UI library documentation](https://floating-ui.com/docs/detectoverflow#options) or an id string for the boundary container element.
     <br />
