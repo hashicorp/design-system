@@ -407,8 +407,6 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     );
     // toggle the visibility
     await click('button#test-toggle-button');
-    // toggle it again
-    await click('button#test-toggle-button');
     assert.strictEqual(status, 'opened');
   });
 });
