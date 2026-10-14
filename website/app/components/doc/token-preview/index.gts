@@ -24,9 +24,10 @@ export default class DocTokenPreview extends Component<DocTokenPreviewSignature>
       // token values may be numbers
       typeof this.args.value === 'string' &&
       // check that is a known color format
+      this.args.type === 'color' &&
       (this.args.value.startsWith('#') || this.args.value.startsWith('rgb'))
     ) {
-      return `var(--${this.args.name})`;
+      return this.args.value;
     } else {
       return undefined;
     }
@@ -46,7 +47,7 @@ export default class DocTokenPreview extends Component<DocTokenPreviewSignature>
         backgroundColor = 'transparent';
       }
       return {
-        backgroundImage: `var(--${this.args.name})`,
+        backgroundImage: this.args.value,
         backgroundColor,
       };
     } else {
@@ -57,23 +58,19 @@ export default class DocTokenPreview extends Component<DocTokenPreviewSignature>
   get fontPreviewStyle() {
     if (this.args.type === 'font-size') {
       return {
-        fontSize: `var(--${this.args.name})`,
+        fontSize: this.args.value,
         fontFamily: undefined,
         fontWeight: undefined,
       };
-    } else if (
-      this.args.name.startsWith('hds-typography') &&
-      (this.args.name.includes('font-stack') ||
-        this.args.name.includes('font-family'))
-    ) {
+    } else if (this.args.type === 'font-family') {
       return {
-        fontFamily: `var(--${this.args.name})`,
+        fontFamily: this.args.value,
         fontSize: undefined,
         fontWeight: undefined,
       };
-    } else if (this.args.name.startsWith('hds-typography-font-weight')) {
+    } else if (this.args.type === 'font-weight') {
       return {
-        fontWeight: `var(--${this.args.name})`,
+        fontWeight: this.args.value,
         fontSize: undefined,
         fontFamily: undefined,
       };
@@ -88,17 +85,23 @@ export default class DocTokenPreview extends Component<DocTokenPreviewSignature>
       typeof this.args.value === 'string' &&
       // check that is a size (dimension)
       this.args.type === 'dimension' &&
-      (this.args.value.endsWith('px') || this.args.value === '0')
+      (this.args.value.endsWith('px') ||
+        this.args.value.endsWith('em') ||
+        this.args.value.endsWith('rem') ||
+        this.args.value === '0')
     ) {
-      return `var(--${this.args.name})`;
+      return this.args.value;
     } else {
       return undefined;
     }
   }
 
   get boxShadowPreviewStyle() {
-    const isBoxShadow = this.args.name.endsWith('box-shadow');
-    return isBoxShadow ? `var(--${this.args.name})` : undefined;
+    if (this.args.name.includes('box-shadow')) {
+      return this.args.value;
+    } else {
+      return undefined;
+    }
   }
 
   <template>
