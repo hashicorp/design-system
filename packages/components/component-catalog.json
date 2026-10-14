@@ -4818,6 +4818,11 @@
           "required": false
         },
         {
+          "name": "onOpen",
+          "type": "() => void",
+          "required": false
+        },
+        {
           "name": "preserveContentInDom",
           "type": "boolean",
           "required": false
