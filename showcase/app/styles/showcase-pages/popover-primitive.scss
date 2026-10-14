@@ -184,7 +184,7 @@ body.page-utilities-popover-primitive {
         & + li {
           margin-top: 8px;
           padding-top: 8px;
-          border-top: 1px dotted #ccc;
+          border-top: 1px dotted var(--shw-color-gray-400);
         }
       }
 

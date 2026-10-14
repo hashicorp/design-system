@@ -26,8 +26,8 @@ body.page-components-form-text-input {
       align-self: stretch;
       margin-left: -10px;
       padding: 0 10px;
-      background-color: #e4e4e4;
-      border: 1px solid #999;
+      background-color: var(--shw-color-gray-600);
+      border: 1px solid var(--shw-color-gray-400);
       border-radius: 0 5px 5px 0;
     }
   }

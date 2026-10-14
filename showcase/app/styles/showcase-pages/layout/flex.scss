@@ -34,6 +34,14 @@ body.page-layouts-flex {
   .shw-layout-flex-example-tint-flex-items {
     .hds-layout-flex > * {
       @include shw-tint-children();
+
+      color: #6b6b6b;
+    }
+
+    // Replicate the placeholder custom background settings since the background is set through the flex item tinting
+    .shw-placeholder {
+      color: #6b6b6b;
+      text-shadow: 0 0 5px #fff;
     }
   }
 
@@ -48,6 +56,10 @@ body.page-layouts-flex {
     .hds-layout-grid {
       .shw-placeholder {
         @include shw-tint-children();
+
+        // Replicate the placeholder custom background settings since the background is set through the flex item tinting
+        color: #6b6b6b;
+        text-shadow: 0 0 5px #fff;
       }
 
       outline: 1px dotted var(--shw-color-gray-400);

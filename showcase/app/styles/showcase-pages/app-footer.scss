@@ -13,21 +13,21 @@ body.page-components-app-footer {
     .hds-app-footer__list,
     .hds-app-footer__list-item,
     .hds-app-footer__copyright {
-      outline: 1px dashed #78909c;
+      outline: 1px dashed var(--shw-layout-highlight-border-color);
     }
 
     .shw-component-app-footer-desktop-view,
     .shw-component-app-footer-tablet-view,
     .shw-component-app-footer-mobile-large-view,
     .shw-component-app-footer-mobile-small-view {
-      .hds-app-footer__list-item { background: color.adjust(#006ae7, $lightness: 30%, $space: hsl); }
-      .hds-app-footer__legal-links { background: color.adjust(#006ae7, $lightness: 45%, $space: hsl); }
+      .hds-app-footer__list-item { background: oklch(from var(--hds-surface-color-action) calc(l + 0.10) c h); }
+      .hds-app-footer__legal-links { background: oklch(from var(--hds-surface-color-action) calc(l + 0.20) c h); }
       // using !important to override inline style:
-      .shw-app-footer-extra { background: #ff7575 !important; }
+      .shw-app-footer-extra { background: var(--hds-surface-color-critical) !important; }
 
       .hds-app-footer__copyright {
-        color: #fff;
-        background: #000;
+        color: var(--shw-color-white);
+        background: var(--shw-color-black);
 
         .hds-icon { fill: currentColor; }
       }

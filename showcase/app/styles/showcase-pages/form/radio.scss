@@ -7,7 +7,7 @@
 
 body.page-components-form-radio {
   .shw-component-form-radio-base-custom-layout {
-    border: 1px solid #999;
+    border: 1px solid var(--shw-color-gray-400);
 
     strong,
     span {
@@ -21,8 +21,8 @@ body.page-components-form-radio {
       display: flex;
       justify-content: center;
       padding: 10px;
-      background-color: #e4e4e4;
-      border-top: 1px solid #999;
+      background-color: var(--shw-color-gray-600);
+      border-top: 1px solid var(--shw-color-gray-400);
     }
   }
 }

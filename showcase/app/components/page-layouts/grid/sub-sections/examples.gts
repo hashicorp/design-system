@@ -89,9 +89,6 @@ const SubSectionExamples: TemplateOnlyComponent = <template>
             @level={{HdsCardLevelValues.Mid}}
             @hasBorder={{true}}
             {{style padding="24px"}}
-            {{style
-              background="radial-gradient(151.34% 168.34% at 0 0,#f6f9ff 0,#ebf2ff 100%)"
-            }}
           >
             <HdsLayoutGrid @columnMinWidth="100%" @gap="16">
               <div>

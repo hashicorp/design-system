@@ -16,7 +16,7 @@ body.page-components-tabs {
 
   .shw-component-tabs-layout-highlight {
     .hds-tabs__tab {
-      outline: 1px dashed #78909c;
+      outline: 1px dashed var(--shw-layout-highlight-border-color);
       outline-offset: -1px;
     }
   }

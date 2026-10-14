@@ -8,13 +8,13 @@
 body.page-components-breadcrumb {
   .shw-component-breadcrumb-sample-with-max-width {
     max-width: 900px;
-    outline: 1px dotted lightgray;
+    outline: 1px dotted var(--shw-color-gray-300);
   }
 
   .shw-component-breadcrumb-sample-truncation-dropdown {
     width: fit-content;
     min-height: 200px;
     padding-right: 50px;
-    outline: 1px dotted lightgray;
+    outline: 1px dotted var(--shw-color-gray-300);
   }
 }

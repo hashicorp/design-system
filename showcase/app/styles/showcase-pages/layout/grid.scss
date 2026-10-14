@@ -30,4 +30,10 @@ body.page-layouts-grid {
       outline: 1px dotted var(--shw-color-gray-400);
     }
   }
+
+  // Replicate the placeholder custom background settings since the background is set through the flex item tinting
+  .shw-placeholder {
+    color: #6b6b6b;
+    text-shadow: 0 0 5px #fff;
+  }
 }

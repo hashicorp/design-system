@@ -9,7 +9,7 @@
 
 body.page-components-form-layout {
   // increase contrast
-  .shw-placeholder {
+  .shw-placeholder__has-custom-background {
     color: #000;
   }
 
@@ -21,46 +21,46 @@ body.page-components-form-layout {
   .shw-component-form-layout-highlight-elements,
   .shw-component-form-layout-highlight-elements-and-placeholders {
     .hds-form {
-      background-color: #f6fcff;
-      outline: 1px dashed #78909c;
+      background-color: var(--shw-layout-highlight-level-1-background-color);
+      outline: 1px dashed var(--shw-layout-highlight-border-color);
     }
 
     .hds-form__header,
     .hds-form__section,
     .hds-button-set {
-      outline: 1px dashed #78909c;
+      outline: 1px dashed var(--shw-layout-highlight-border-color);
     }
 
     .hds-form__header,
     .hds-form__section,
     .hds-button-set {
-      background: #d2f4ff;
+      background: var(--shw-layout-highlight-level-2-background-color);
     }
 
     .hds-form__section-header {
-      background: #add8e6;
+      background: var(--shw-layout-highlight-level-4-background-color);
     }
 
     .hds-form__section {
-      background: #d2f4ff;
+      background: var(--shw-layout-highlight-level-2-background-color);
 
       > *[class*="hds-form"] {
-        background: #bfecfb;
+        background: var(--shw-layout-highlight-level-3-background-color);
       }
     }
 
     .hds-form__section-multi-field-group {
-      background: #bfecfb;
+      background: var(--shw-layout-highlight-level-3-background-color);
 
       > * {
-        background: #add8e6;
+        background: var(--shw-layout-highlight-level-4-background-color);
       }
     }
   }
 
   .shw-component-form-layout-highlight-elements-and-placeholders {
     .shw-placeholder {
-      background-color: #add8e6;
+      background-color: var(--shw-layout-highlight-level-4-background-color);
     }
   }
 
