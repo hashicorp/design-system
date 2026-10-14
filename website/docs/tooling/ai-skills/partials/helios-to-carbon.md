@@ -4,7 +4,7 @@
 
 **Experimental**
 
-This skill is experimental, there are limitations and may change as we learn from usage.
+This skill is experimental. It has limitations and may change as we learn from usage.
 
 !!!
 
