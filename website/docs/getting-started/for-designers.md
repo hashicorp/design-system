@@ -135,7 +135,7 @@ When you detach a component, it no longer receives updates from the library, whi
 
 #### Overriding component styles
 
-While you can technically override styles within a component without detaching it, we recommend against doing so without consulting the Design Systems Team first.
+While overriding styles within a component without detaching it is possible, we recommend against doing so without consulting the Design Systems Team first.
 
 Changing a component's color or font size may seem simple, but this can have trickle-down effects in code. Overriding styles forces engineers to create custom classes and styles to implement the changes. This may have unexpected long-term effects within the [CSS cascade](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade#:~:text=The%20cascade%20is%20an%20algorithm,a%20property%20on%20an%20element) and lead to tech debt. In addition to being difficult to scale, overrides nudge the design language of your product out of sync with Helios and the rest of the HashiCorp product suite.
 
@@ -158,7 +158,7 @@ Components and patterns unique to your product should be designed and built loca
 
 ![Local component patterns](/assets/getting-started/designers/local-component-patterns.png =706x*)
 
-It's helful to create local components for your product in a separate file from your main project files and house them in their own Figma library file. A dedicated library creates a consistent location for your product’s local components so other designers on your team can access and use them.
+Create local components for your product in a separate file from your main project files and house them in their own Figma library file. A dedicated library creates a consistent location for your product’s components so other designers on your team can access and use them.
 
 Consider using [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) methods when designing and building local components. Helios components generally correspond with `atoms` and `molecules`, while more complex components correspond to `organisms`.
 
