@@ -3,5 +3,5 @@
 ---
 
 <!-- START components/dropdown -->
-Dropdown - added `@onOpen` callback argument
+`Dropdown` - Added `@onOpen` callback argument
 <!-- END -->
