@@ -1,8 +1,6 @@
 !!! Info
 
-These guidelines are meant to assist teams in designing and building new feature onboarding workflows. Currently there aren't dedicated Ember components to support this pattern, but they can be composed using HDS components.
-
-For now, reference our Figma [Patterns](#jory-insert-link) library and implementation in [Terraform/Atlas](#jory-insert-link).
+At this time these guidelines consist of a **design-only** [pattern](#jory-insert-link) to support new feature onboarding workflows. Currently there aren't dedicated Ember components to support this pattern, but they can be composed using HDS components.
 
 If a dedicated component would help in your work, please [submit a request](/about/support).
 !!!
