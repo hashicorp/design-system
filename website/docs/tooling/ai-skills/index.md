@@ -1,7 +1,7 @@
 ---
 title: AI Skills
-description: Boost your LLM with Helios specific skills.
-caption: Boost your LLM with Helios specific skills.
+description: Boost your LLM with Helios-specific skills.
+caption: Boost your LLM with Helios-specific skills.
 previewImage: assets/illustrations/tooling/ai-skills.jpg
 navigation:
   keywords:
