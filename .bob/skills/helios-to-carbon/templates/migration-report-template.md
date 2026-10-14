@@ -110,8 +110,8 @@ The following candidates require manual review and migration:
 
 ## Artifacts
 
-- **Migration plan:** `migration-plan-{generatedAt}.json`
-- **Migration report:** `migration-report-{generatedAt}.md` (this file)
+- **Migration plan:** `migration-plan-{generatedAtFileSafe}.json`
+- **Migration report:** `migration-report-{generatedAtFileSafe}.md` (this file)
 - **Mapping table:** `{mapping_path}`
 - **Candidate schema:** `{schema_path}`
 - **Report template:** `{report_template_path}`

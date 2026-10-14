@@ -77,6 +77,8 @@ Every candidate record must validate against `migration-candidate.schema.json` a
 - `confidence`, `riskFlags[]`, `status`
 - `rationale`, `manualNotes[]`
 
+Use transform operation names from the mapping table directly in candidate records.
+
 Status policy:
 
 - `planned`: high confidence (`>= 0.90`) and safe to auto-apply
@@ -90,10 +92,11 @@ Status policy:
 1. Resolve `target` into scope paths.
 2. Resolve `mode` (default `safe-only`).
 3. Set `generatedAt` once using current UTC ISO 8601 timestamp (`YYYY-MM-DDTHH:MM:SSZ`).
-4. Resolve `outputDir` (default workspace root).
-5. Initialize run artifacts in `outputDir`:
-   - `migration-plan-{generatedAt}.json`
-   - `migration-report-{generatedAt}.md`
+4. Derive `generatedAtFileSafe` from `generatedAt` for filesystem use by replacing `:` with `-`.
+5. Resolve `outputDir` (default workspace root).
+6. Initialize run artifacts in `outputDir`:
+   - `migration-plan-{generatedAtFileSafe}.json`
+   - `migration-report-{generatedAtFileSafe}.md`
 
 ### Phase 1: Evaluate candidates
 
@@ -102,7 +105,7 @@ Status policy:
 3. Build candidate records with transform operations, confidence, risk flags, rationale, manual notes.
 4. Validate all candidate records against the candidate schema.
 5. Partition into high/medium/low confidence.
-6. Write complete plan to `migration-plan-{generatedAt}.json`.
+6. Write complete plan to `migration-plan-{generatedAtFileSafe}.json`.
 7. Render initial report from template.
 
 If mode is `dry-run`, stop here.
@@ -160,12 +163,15 @@ At completion, return:
 
 Artifacts produced per run:
 
-- `{outputDir}/migration-plan-{generatedAt}.json`
-- `{outputDir}/migration-report-{generatedAt}.md`
+- `{outputDir}/migration-plan-{generatedAtFileSafe}.json`
+- `{outputDir}/migration-report-{generatedAtFileSafe}.md`
+
+`generatedAt` remains the canonical ISO timestamp for report data and logs.
 
 ## Portability Requirements
 
 - Do not assume a specific monorepo layout.
 - Do not require `.bob/` to exist at workspace root.
 - Resolve defaults from `skillRoot` and write outputs to `outputDir`.
+- Use `generatedAtFileSafe` for artifact filenames to preserve Windows compatibility.
 - Keep all artifact and command paths explicit in logs and report.

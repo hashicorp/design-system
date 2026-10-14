@@ -91,9 +91,9 @@
                     "valueMap": {
                         "inline": "cds-inline-notification",
                         "compact": "cds-inline-notification + low-contrast",
-                        "page": "cds-inline-notification"
+                        "page": "cds-actionable-notification"
                     },
-                    "notes": "@type is the Helios display VARIANT — accepted values are 'page', 'inline', 'compact'. Choose the CWC tag based on this value: 'inline' → cds-inline-notification, 'compact' → cds-inline-notification with low-contrast boolean attribute, 'page' → cds-inline-notification. Do NOT map @type to kind."
+                    "notes": "@type is the Helios display VARIANT — accepted values are 'page', 'inline', 'compact'. Choose the CWC tag based on this value: 'inline' → cds-inline-notification, 'compact' → cds-inline-notification with low-contrast boolean attribute, 'page' → cds-actionable-notification. Do NOT map @type to kind."
                 },
                 "@color": {
                     "target": "kind",

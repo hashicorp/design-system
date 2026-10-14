@@ -52,20 +52,25 @@
         "type": "object",
         "required": ["type"],
         "properties": {
-          "type": {
-            "type": "string",
-            "enum": [
-              "replaceTag",
-              "renameAttribute",
-              "removeAttribute",
-              "addAttribute",
-              "moveToSlot",
-              "renameEvent",
-              "transformValue",
-              "manual"
-            ],
-            "description": "Type of transformation operation"
-          },
+            "type": {
+              "type": "string",
+              "enum": [
+                "replaceTag",
+                "rename",
+                "remove",
+                "addAttribute",
+                "moveToSlot",
+                "direct",
+                "conditional",
+                "invert",
+                "transformValue",
+                "namedBlockToSlot",
+                "namedBlockToAttribute",
+                "namedBlockToChildren",
+                "manual"
+              ],
+              "description": "Type of transformation operation"
+            },
           "from": {
             "type": "string",
             "description": "Source attribute, event, or tag name"
