@@ -46,5 +46,13 @@ module.exports = function (defaults) {
     },
   });
 
+  app.import(
+    'node_modules/@hashicorp/design-system-tokens/dist/products/css/themed-tokens/with-css-selectors--advanced/tokens.css',
+    {
+      outputFile:
+        'assets/styles/@hashicorp/themed-tokens/with-css-selectors--advanced/tokens.css',
+    },
+  );
+
   return app.toTree();
 };
