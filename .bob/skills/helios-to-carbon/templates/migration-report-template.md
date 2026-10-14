@@ -1,6 +1,6 @@
 # Helios → Carbon Web Components Migration Report
 
-**Generated:** {timestamp}  
+**Generated:** {generatedAt}  
 **Mode:** {mode}  
 **Scope:** {scope}
 
