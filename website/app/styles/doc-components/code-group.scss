@@ -31,8 +31,13 @@ $doc-code-group-footer-height: 48px; // 32px button height + 16px bottom padding
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border: 1px solid var(--doc-color-gray-400);
-  border-bottom: none;
+
+  // only add a border if there are child elements
+  &:has(> :first-child > *),
+  &:has(> :last-child > *) {
+    border: 1px solid var(--doc-color-gray-400);
+    border-bottom: none;
+  }
 }
 
 .doc-code-group__language-picker {
