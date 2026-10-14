@@ -8,7 +8,7 @@
                 "cds-header",
                 "cds-side-nav"
             ],
-            "outputRule": "If the migrated output contains cds-header or cds-side-nav, write the CWC output to showcase/public/sandbox-standalone.html only. The component-sandbox.gts file permanently renders a ShwFrame iframe pointing at /sandbox-standalone.html and must not be modified with inline CWC. If no UI Shell components are present, write CWC directly into component-sandbox.gts inline."
+            "outputRule": "If the migrated output contains cds-header or cds-side-nav, preserve the caller's configured output location and flag that UI Shell components may require an isolated document context; do not assume repository-specific showcase paths."
         },
         "confidenceLevels": {
             "high": "≥ 0.90 — auto-apply in safe-only and full mode. RULE: manual-migration-required must NOT appear in riskFlags at this level — move any manual-case notes into the notes field instead.",
