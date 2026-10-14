@@ -5390,6 +5390,11 @@
           "required": true
         },
         {
+          "name": "hasLiveSearch",
+          "type": "boolean",
+          "required": false
+        },
+        {
           "name": "hasSearch",
           "type": "boolean",
           "required": false

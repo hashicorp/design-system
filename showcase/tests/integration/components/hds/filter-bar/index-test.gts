@@ -5,7 +5,13 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render, click, fillIn, settled } from '@ember/test-helpers';
+import {
+  render,
+  click,
+  fillIn,
+  settled,
+  triggerEvent,
+} from '@ember/test-helpers';
 import { TrackedObject } from 'tracked-built-ins';
 
 import {
@@ -234,6 +240,7 @@ const FILTERS: Record<string, HdsFilterBarFilters> = {
 
 const createBasicFilterBar = async (options: {
   hasSearch?: boolean;
+  hasLiveSearch?: boolean;
   searchPlaceholder?: string;
   searchAriaLabel?: string;
   isLiveFilter?: boolean;
@@ -250,6 +257,7 @@ const createBasicFilterBar = async (options: {
         id="test-filter-bar"
         @filters={{filters}}
         @hasSearch={{options.hasSearch}}
+        @hasLiveSearch={{options.hasLiveSearch}}
         @searchPlaceholder={{options.searchPlaceholder}}
         @searchAriaLabel={{options.searchAriaLabel}}
         @isLiveFilter={{options.isLiveFilter}}
@@ -353,6 +361,52 @@ module('Integration | Component | hds/filter-bar/index', function (hooks) {
     assert
       .dom('.hds-filter-bar__search')
       .hasAttribute('aria-label', 'Search by deployment name');
+  });
+
+  // HASLIVESEARCH
+
+  test('it should apply search on change by default', async function (assert) {
+    let onFilterCalled = false;
+    await createBasicFilterBar({
+      hasSearch: true,
+      onFilter: () => {
+        onFilterCalled = true;
+      },
+    });
+
+    const input = document.querySelector(
+      '.hds-filter-bar__search',
+    ) as HTMLInputElement;
+    input.value = 'lorem ipsum';
+
+    await triggerEvent(input, 'input');
+    assert.false(onFilterCalled);
+
+    await triggerEvent(input, 'change');
+    assert.true(onFilterCalled);
+  });
+
+  test('it should apply search on input when @hasLiveSearch is true', async function (assert) {
+    let onFilterCalled = false;
+    await createBasicFilterBar({
+      hasSearch: true,
+      hasLiveSearch: true,
+      onFilter: () => {
+        onFilterCalled = true;
+      },
+    });
+
+    const input = document.querySelector(
+      '.hds-filter-bar__search',
+    ) as HTMLInputElement;
+    input.value = 'lorem ipsum';
+
+    await triggerEvent(input, 'input');
+    assert.true(onFilterCalled);
+
+    onFilterCalled = false;
+    await triggerEvent(input, 'change');
+    assert.false(onFilterCalled);
   });
 
   // CALLBACK - ONFILTER
