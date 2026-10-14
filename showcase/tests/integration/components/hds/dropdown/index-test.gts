@@ -391,4 +391,24 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     await click('#test-dropdown-demo-button');
     assert.strictEqual(context.status, 'focus-out');
   });
+
+  test('it should invoke the `onOpen` callback', async function (assert) {
+    let status;
+    const onOpen = () => {
+      status = 'opened';
+    };
+
+    await render(
+      <template>
+        <HdsDropdown @onOpen={{onOpen}} id="test-dropdown" as |D|>
+          <D.ToggleButton @text="toggle button" id="test-toggle-button" />
+        </HdsDropdown>
+      </template>,
+    );
+    // toggle the visibility
+    await click('button#test-toggle-button');
+    // toggle it again
+    await click('button#test-toggle-button');
+    assert.strictEqual(status, 'opened');
+  });
 });

@@ -51,6 +51,7 @@ export interface HdsDropdownSignature {
     enableCollisionDetection?: HdsAnchoredPositionOptions['enableCollisionDetection'];
     preserveContentInDom?: boolean;
     matchToggleWidth?: boolean;
+    onOpen?: HdsPopoverPrimitiveSignature['Args']['onOpen'];
     onClose?: HdsPopoverPrimitiveSignature['Args']['onClose'];
     onFocusOut?: HdsPopoverPrimitiveSignature['Args']['onFocusOut'];
     boundary?: HdsAnchoredPositionOptions['boundary'];
@@ -170,6 +171,7 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
   <template>
     <HdsPopoverPrimitive
       @isOpen={{@isOpen}}
+      @onOpen={{@onOpen}}
       @onClose={{@onClose}}
       @onFocusOut={{@onFocusOut}}
       @boundary={{@boundary}}
