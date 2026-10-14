@@ -1,6 +1,5 @@
 .your-selector {
   // ...your CSS declarations
-  &:focus,
   &:focus-visible {
     border-radius: inherit;
     box-shadow: var(--hds-focus-ring-box-shadow-action);
