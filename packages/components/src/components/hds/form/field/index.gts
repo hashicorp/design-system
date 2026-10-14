@@ -117,40 +117,55 @@ export default class HdsFormField extends Component<HdsFormFieldSignature> {
     unregisterAriaDescriptionElement(this as AriaDescribedByComponent, element);
   };
 
+  /*
+    The "flag" layout is used by Checkbox, Radio, and Toggle, which display the
+    input (a native checkbox or radio) before its label. The DOM order is:
+    Control → Label → HelperText.
+
+    The DOM order follows the visual order so that the reading order for screen
+    readers matches what sighted users see.
+
+    All other field types display the label first, so they use the default order:
+    Label → HelperText → Control.
+
+    Conditional logic & DOM structure of template code:
+
+    if @layout === "flag":
+      Control
+      Label
+      HelperText
+
+    else
+      Label
+      HelperText
+      Control
+    /if
+
+    CharacterCount
+    Error
+  */
   <template>
     <div class={{this.classNames}} ...attributes>
-      {{yield
-        (hash
-          Label=(component
-            HdsFormLabel
-            controlId=this.id
-            isRequired=this.isRequired
-            isOptional=this.isOptional
-            contextualClass="hds-form-field__label"
-          )
-        )
-      }}
-      {{#unless (eq @layout "flag")}}
-        {{yield
-          (hash
-            HelperText=(component
-              HdsFormHelperText
-              controlId=this.id
-              onInsert=this.appendDescriptor
-              contextualClass="hds-form-field__helper-text"
-            )
-          )
-        }}
-      {{/unless}}
-      {{! @glint-expect-error }}
-      {{#let this.ariaDescribedBy as |ariaDescribedBy|}}
-        <div class="hds-form-field__control">
-          {{yield
-            (hash Control=HdsYield id=this.id ariaDescribedBy=ariaDescribedBy)
-          }}
-        </div>
-      {{/let}}
       {{#if (eq @layout "flag")}}
+        {{! @glint-expect-error }}
+        {{#let this.ariaDescribedBy as |ariaDescribedBy|}}
+          <div class="hds-form-field__control">
+            {{yield
+              (hash Control=HdsYield id=this.id ariaDescribedBy=ariaDescribedBy)
+            }}
+          </div>
+        {{/let}}
+        {{yield
+          (hash
+            Label=(component
+              HdsFormLabel
+              controlId=this.id
+              isRequired=this.isRequired
+              isOptional=this.isOptional
+              contextualClass="hds-form-field__label"
+            )
+          )
+        }}
         {{yield
           (hash
             HelperText=(component
@@ -161,7 +176,39 @@ export default class HdsFormField extends Component<HdsFormFieldSignature> {
             )
           )
         }}
+
+      {{else}}
+        {{yield
+          (hash
+            Label=(component
+              HdsFormLabel
+              controlId=this.id
+              isRequired=this.isRequired
+              isOptional=this.isOptional
+              contextualClass="hds-form-field__label"
+            )
+          )
+        }}
+        {{yield
+          (hash
+            HelperText=(component
+              HdsFormHelperText
+              controlId=this.id
+              onInsert=this.appendDescriptor
+              contextualClass="hds-form-field__helper-text"
+            )
+          )
+        }}
+        {{! @glint-expect-error }}
+        {{#let this.ariaDescribedBy as |ariaDescribedBy|}}
+          <div class="hds-form-field__control">
+            {{yield
+              (hash Control=HdsYield id=this.id ariaDescribedBy=ariaDescribedBy)
+            }}
+          </div>
+        {{/let}}
       {{/if}}
+
       {{yield
         (hash
           CharacterCount=(component

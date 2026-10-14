@@ -37,7 +37,7 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
     assert.dom('#test-form-field').hasClass('hds-form-field--layout-vertical');
   });
 
-  test('it should render the correct DOM order when the @layout prop has value vertical', async function (assert) {
+  test('it should render the label before the control in the DOM when the @layout prop has value vertical', async function (assert) {
     await render(
       <template>
         <HdsFormField @layout="vertical" id="test-form-field" as |F|>
@@ -51,7 +51,7 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
     assert.equal(control?.previousElementSibling, helperText);
   });
 
-  test('it should render the correct DOM order when the @layout prop has value flag', async function (assert) {
+  test('it should render the control before the label in the DOM when the @layout prop has value flag', async function (assert) {
     await render(
       <template>
         <HdsFormField @layout="flag" id="test-form-field" as |F|>
@@ -61,8 +61,8 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
       </template>,
     );
     const control = find('#test-form-field .hds-form-field__control');
-    const helperText = find('#test-form-field .hds-form-field__helper-text');
-    assert.equal(control?.nextElementSibling, helperText);
+    const label = find('#test-form-field .hds-form-field__label');
+    assert.equal(control?.nextElementSibling, label);
   });
 
   // YIELDED (CONTEXTUAL) COMPONENTS
