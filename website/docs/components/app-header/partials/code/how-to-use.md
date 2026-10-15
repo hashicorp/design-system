@@ -50,6 +50,6 @@ Consumers should provide their own “context switcher” (e.g., “org switcher
 
 #### Utility actions
 
-Consumers should provide their own utility action controls yielded within the `<:utilityActions>` block. Recommended controls are a user menu and help menu. Other controls such as a search button can optionally be included.
+Consumers should provide their own utility action controls yielded within the `<:utilityActions>` block. Recommended controls are a user menu and help menu. Other controls such as a search button or [language selector](/patterns/language-selection) can optionally be included.
 
 [[code-snippets/app-header-utility-actions]]
