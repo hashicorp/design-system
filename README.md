@@ -41,6 +41,13 @@ Design tokens
 - website: [https://helios.hashicorp.design/foundations/tokens](https://helios.hashicorp.design/foundations/tokens)
 - more info: see [tokens/README](packages/tokens/README.md) and [tokens/CONTRIBUTING](packages/tokens/CONTRIBUTING.md) for details on how to update the design tokens.
 
+### `packages/mcp` [![npm version](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-mcp.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-mcp)
+
+Helios Design System MCP server for accessing component APIs, design tokens, icons, and usage guidance from MCP-capable clients.
+
+- npm package: `@hashicorp/design-system-mcp`
+- more info: see [mcp/README](packages/mcp/README.md) and [mcp/CONTRIBUTING](packages/mcp/CONTRIBUTING.md) for setup, usage, and development details.
+
 ## Contributing
 
 ### Workspaces
