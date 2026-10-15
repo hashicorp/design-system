@@ -52,6 +52,12 @@
   border: 1px solid var(--content-border-color);
 }
 
+// THEMING CONTENT
+
+.doc-carbonization-comparison-group__item-content .hds-theme-context {
+  color: var(--hds-foreground-color-primary); // Needed to set text color for the Carbon Dark theme
+}
+
 // HDS
 
 .doc-carbonization-comparison-group__item--context-default {
