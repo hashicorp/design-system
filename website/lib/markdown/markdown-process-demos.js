@@ -150,11 +150,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
         demoBlockRegex,
         (_match, fileName, shouldExecute, isExpanded, hasTheming) => {
           const shouldHidePreview = shouldExecute === 'false' ? true : false;
-<<<<<<< HEAD
           const shouldHideThemeSwitcher = hasTheming === 'false' ? true : false;
-=======
-          const shouldEnableTheming = hasTheming !== 'false';
->>>>>>> 8beca99718 (feat: add support to hide theme picker in code group)
 
           const codeSnippets = {
             hbsSnippet: '',

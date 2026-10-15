@@ -23,7 +23,6 @@ dialogprimitive
 dropdowm
 duplicative
 Erreur
-Español
 flexbox
 flyouts
 frontmatter

@@ -2,10 +2,10 @@
 title: Theme selection
 description: Guidelines for allowing users to select an application's visual theme.
 caption: Guidelines for allowing users to select an application's visual theme.
-related: ['components/app-header', 'components/dropdown']
+related: ['foundations/theming', 'components/app-header', 'components/dropdown']
 previewImage: assets/illustrations/patterns/theme-selection.jpg
 navigation:
-keywords: ['themes', 'modes', 'light', 'dark', 'system', 'preferences']
+keywords: ['theming', 'themes', 'modes', 'light', 'dark', 'system', 'preferences']
 ---
 
 <section data-tab="Guidelines">
