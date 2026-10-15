@@ -338,8 +338,88 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
     );
   });
 
-  test('it warns when sprite root is not available and icon remains unresolved', async function (assert) {
+  test('it adds the sprite root when it is missing', async function (assert) {
     removeRoot();
+
+    const definition = makeDefinition({ name: 'apps' as IconName });
+    const symbolId = makeSymbolIdFromDefinition(definition);
+    const loader = sinon
+      .stub()
+      .resolves({ default: `<symbol id="${symbolId}"></symbol>` });
+
+    stubResolveLoader(service, () => loader as HdsIconLoader);
+
+    service.requestLoad(definition);
+
+    await waitUntil(() => service.getSymbolId(definition) === symbolId);
+
+    const root = document.getElementById(ROOT_ID);
+
+    assert.strictEqual(
+      root?.parentElement?.id,
+      'ember-testing',
+      'adds the sprite root to #ember-testing',
+    );
+    assert.strictEqual(
+      document.getElementById(symbolId)?.parentElement,
+      root,
+      'injects the symbol in the added sprite root',
+    );
+  });
+
+  test('it adds the sprite root again when the cached one was removed', async function (assert) {
+    const firstDefinition = makeDefinition({ name: 'apps' as IconName });
+    const firstSymbolId = makeSymbolIdFromDefinition(firstDefinition);
+    const secondDefinition = makeDefinition({ name: 'airport' as IconName });
+    const secondSymbolId = makeSymbolIdFromDefinition(secondDefinition);
+
+    stubResolveLoader(service, (definition) => {
+      const symbolId = makeSymbolIdFromDefinition(definition);
+
+      return sinon.stub().resolves({
+        default: `<symbol id="${symbolId}"></symbol>`,
+      }) as HdsIconLoader;
+    });
+
+    service.requestLoad(firstDefinition);
+
+    await waitUntil(
+      () => service.getSymbolId(firstDefinition) === firstSymbolId,
+    );
+
+    removeRoot();
+
+    service.requestLoad(secondDefinition);
+
+    await waitUntil(
+      () => service.getSymbolId(secondDefinition) === secondSymbolId,
+    );
+
+    const root = document.getElementById(ROOT_ID);
+
+    assert.strictEqual(
+      root?.parentElement?.id,
+      'ember-testing',
+      'adds a new sprite root to #ember-testing',
+    );
+    assert.strictEqual(
+      document.getElementById(secondSymbolId)?.parentElement,
+      root,
+      'injects the symbol in the new sprite root',
+    );
+  });
+
+  test('it warns when sprite root cannot be added and icon remains unresolved', async function (assert) {
+    removeRoot();
+
+    // without `#ember-testing` there is nowhere to add the sprite root in tests
+    const getElementById = document.getElementById.bind(document);
+
+    sinon
+      .stub(document, 'getElementById')
+      .callsFake((id: string) =>
+        id === 'ember-testing' ? null : getElementById(id),
+      );
 
     const definition = makeDefinition({ name: 'apps' as IconName });
     const symbolId = makeSymbolIdFromDefinition(definition);
