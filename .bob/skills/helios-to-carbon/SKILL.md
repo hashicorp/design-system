@@ -114,7 +114,7 @@ If mode is `dry-run`, stop here.
 
 1. Build `approvedCandidateIds` by mode:
    - `safe-only`: high-confidence `planned` IDs.
-   - `full`: high-confidence IDs + user-approved medium IDs.
+   - `full`: high-confidence `planned` IDs + explicitly user-approved medium-confidence `manual` IDs. Exclude all `skipped` IDs.
 2. Apply only approved candidates.
 3. Update imports/usages/attributes/events/slots per mapping.
 4. Track `changedFiles`, `appliedCandidates`, `skippedCandidates`, and `blockers`.
