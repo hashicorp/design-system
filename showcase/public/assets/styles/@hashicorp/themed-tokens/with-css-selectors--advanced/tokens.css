@@ -2043,9 +2043,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-radio-card-surface-color-disabled: #f4f4f4;
     --hds-form-radio-card-surface-color-hover: #e8e8e8;
     --hds-form-radio-size: 18px;
-    --hds-form-radio-surface-color-checked-default: transparent;
-    --hds-form-radio-surface-color-checked-disabled: transparent;
-    --hds-form-radio-surface-color-checked-hover: transparent;
+    --hds-form-radio-surface-color-checked-default: rgba(0, 0, 0, 0);
+    --hds-form-radio-surface-color-checked-disabled: rgba(0, 0, 0, 0);
+    --hds-form-radio-surface-color-checked-hover: rgba(0, 0, 0, 0);
     --hds-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='rgba(22%2C 22%2C 22%2C 0.25)' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
     --hds-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23161616' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
     --hds-form-select-multiple-option-color-checked: #ffffff;
@@ -2984,9 +2984,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-radio-card-surface-color-disabled: #262626;
     --hds-form-radio-card-surface-color-hover: #333333;
     --hds-form-radio-size: 18px;
-    --hds-form-radio-surface-color-checked-default: transparent;
-    --hds-form-radio-surface-color-checked-disabled: transparent;
-    --hds-form-radio-surface-color-checked-hover: transparent;
+    --hds-form-radio-surface-color-checked-default: rgba(0, 0, 0, 0);
+    --hds-form-radio-surface-color-checked-disabled: rgba(0, 0, 0, 0);
+    --hds-form-radio-surface-color-checked-hover: rgba(0, 0, 0, 0);
     --hds-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='rgba(244%2C 244%2C 244%2C 0.25)' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
     --hds-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23f4f4f4' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
     --hds-form-select-multiple-option-color-checked: #ffffff;
@@ -3891,9 +3891,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-radio-card-surface-color-disabled: #f4f4f4;
   --hds-form-radio-card-surface-color-hover: #e8e8e8;
   --hds-form-radio-size: 18px;
-  --hds-form-radio-surface-color-checked-default: transparent;
-  --hds-form-radio-surface-color-checked-disabled: transparent;
-  --hds-form-radio-surface-color-checked-hover: transparent;
+  --hds-form-radio-surface-color-checked-default: rgba(0, 0, 0, 0);
+  --hds-form-radio-surface-color-checked-disabled: rgba(0, 0, 0, 0);
+  --hds-form-radio-surface-color-checked-hover: rgba(0, 0, 0, 0);
   --hds-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='rgba(22%2C 22%2C 22%2C 0.25)' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
   --hds-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23161616' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
   --hds-form-select-multiple-option-color-checked: #ffffff;
@@ -4810,9 +4810,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-radio-card-surface-color-disabled: #262626;
   --hds-form-radio-card-surface-color-hover: #333333;
   --hds-form-radio-size: 18px;
-  --hds-form-radio-surface-color-checked-default: transparent;
-  --hds-form-radio-surface-color-checked-disabled: transparent;
-  --hds-form-radio-surface-color-checked-hover: transparent;
+  --hds-form-radio-surface-color-checked-default: rgba(0, 0, 0, 0);
+  --hds-form-radio-surface-color-checked-disabled: rgba(0, 0, 0, 0);
+  --hds-form-radio-surface-color-checked-hover: rgba(0, 0, 0, 0);
   --hds-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='rgba(244%2C 244%2C 244%2C 0.25)' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
   --hds-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23f4f4f4' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
   --hds-form-select-multiple-option-color-checked: #ffffff;
@@ -5710,9 +5710,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-radio-card-surface-color-disabled: #ffffff;
   --hds-form-radio-card-surface-color-hover: #e8e8e8;
   --hds-form-radio-size: 18px;
-  --hds-form-radio-surface-color-checked-default: transparent;
-  --hds-form-radio-surface-color-checked-disabled: transparent;
-  --hds-form-radio-surface-color-checked-hover: transparent;
+  --hds-form-radio-surface-color-checked-default: rgba(0, 0, 0, 0);
+  --hds-form-radio-surface-color-checked-disabled: rgba(0, 0, 0, 0);
+  --hds-form-radio-surface-color-checked-hover: rgba(0, 0, 0, 0);
   --hds-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='rgba(22%2C 22%2C 22%2C 0.25)' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
   --hds-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23161616' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
   --hds-form-select-multiple-option-color-checked: #ffffff;
@@ -6628,9 +6628,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-radio-card-surface-color-disabled: #393939;
   --hds-form-radio-card-surface-color-hover: #474747;
   --hds-form-radio-size: 18px;
-  --hds-form-radio-surface-color-checked-default: transparent;
-  --hds-form-radio-surface-color-checked-disabled: transparent;
-  --hds-form-radio-surface-color-checked-hover: transparent;
+  --hds-form-radio-surface-color-checked-default: rgba(0, 0, 0, 0);
+  --hds-form-radio-surface-color-checked-disabled: rgba(0, 0, 0, 0);
+  --hds-form-radio-surface-color-checked-hover: rgba(0, 0, 0, 0);
   --hds-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='rgba(244%2C 244%2C 244%2C 0.25)' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
   --hds-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23f4f4f4' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
   --hds-form-select-multiple-option-color-checked: #ffffff;

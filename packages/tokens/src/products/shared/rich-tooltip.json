@@ -15,6 +15,7 @@
       },
       "border": {
         "color": {
+          "$type": "color",
           "$value": "{elevation.higher.border.color}",
           "$modes": {
             "default": "{elevation.higher.border.color}",
@@ -70,6 +71,7 @@
       "foreground": {
         "color": {
           "default": {
+            "$type": "color",
             "$value": "{foreground.color.strong}",
             "$modes": {
               "default": "{foreground.color.strong}",
@@ -80,9 +82,11 @@
             }
           },
           "hover": {
+            "$type": "color",
             "$value": "{foreground.color.primary}"
           },
           "active": {
+            "$type": "color",
             "$value": "{foreground.color.faint}"
           }
         }
