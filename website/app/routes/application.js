@@ -9,6 +9,7 @@ export default class ApplicationRoute extends Route {
   @service intl;
 
   beforeModel() {
+    // needed to set the initial locale for the language selection live demo. Without this, the service isn't correctly initialized and the demos do not work.
     this.intl.setLocale(['en-us']);
   }
 
