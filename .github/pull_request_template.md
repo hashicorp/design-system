@@ -12,6 +12,10 @@ This should be a short TL;DR that includes the purpose of the PR.
 
 <!-- Screenshots always help, especially if this PR will change what renders to the browser -->
 
+### :copilot: Copilot instructions
+
+<!-- Specific instructions for Copilot when reviewing the PR -->
+
 ### :link: External links
 
 <!-- Issues, RFC, etc. -->
