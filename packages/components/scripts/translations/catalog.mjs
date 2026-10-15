@@ -127,6 +127,7 @@ export function readCatalog(files) {
 
           records.push({
             key: fullKey,
+            value: loadedValue,
             locale,
             file: `translations/${file}`,
             ...lines.linePos(offset),
