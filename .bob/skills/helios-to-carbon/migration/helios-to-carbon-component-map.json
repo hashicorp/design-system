@@ -387,7 +387,7 @@
                 "@iconPosition": {
                     "target": null,
                     "transform": "manual",
-                    "notes": "IMPORTANT: cds-button in v2.60.0 has NO icon-position attribute. The shadow DOM template always renders <slot></slot><slot name='icon'></slot> — the icon is always trailing (after text). If @iconPosition='trailing' (the HDS default), no action needed — that is the natural CWC layout. If @iconPosition='leading', there is no direct CWC attribute equivalent, remove this attribute. Note: a tertiary button requires an icon per HDS WCAG guidance — ensure the icon slot is populated."
+                    "notes": "IMPORTANT: cds-button in v2.60.0 has NO icon-position attribute. The shadow DOM template always renders <slot></slot><slot name='icon'></slot> — the icon is always trailing (after text). If @iconPosition='trailing' is explicitly set, no layout change is needed. HDS defaults @iconPosition to 'leading', so when an icon is present, both an omitted @iconPosition and an explicit 'leading' value require manual layout review; do not silently accept a trailing icon as equivalent. Note: a tertiary button requires an icon per HDS WCAG guidance — ensure the icon slot is populated."
                 },
                 "@isIconOnly": {
                     "target": null,
