@@ -8,11 +8,9 @@ import style from 'ember-style-modifier';
 
 interface DocTokenPreviewSignature {
   Args: {
-    token: {
-      name: string;
-      $type: string;
-      $value: string | number;
-    };
+    name: string;
+    type: string;
+    value: string;
   };
   Blocks: {
     default: [];
@@ -21,24 +19,15 @@ interface DocTokenPreviewSignature {
 }
 
 export default class DocTokenPreview extends Component<DocTokenPreviewSignature> {
-  get token() {
-    const { token } = this.args;
-    return {
-      name: token.name,
-      // note: we prefix `type` and `value` with `$` because we're using the DTCG format
-      $type: token.$type,
-      $value: token.$value,
-    };
-  }
-
   get colorPreviewStyle() {
     if (
       // token values may be numbers
-      typeof this.token.$value === 'string' &&
+      typeof this.args.value === 'string' &&
       // check that is a known color format
-      (this.token.$value.startsWith('#') || this.token.$value.startsWith('rgb'))
+      this.args.type === 'color' &&
+      (this.args.value.startsWith('#') || this.args.value.startsWith('rgb'))
     ) {
-      return `var(--${this.token.name})`;
+      return this.args.value;
     } else {
       return undefined;
     }
@@ -47,77 +36,72 @@ export default class DocTokenPreview extends Component<DocTokenPreviewSignature>
   get backgroundImagePreviewStyle() {
     if (
       // token values may be numbers
-      typeof this.token.$value === 'string' &&
+      typeof this.args.value === 'string' &&
       // check that is a background image
-      this.token.$value.match(/url\("data:image\//)
+      this.args.value.match(/url\("data:image\//)
     ) {
       let backgroundColor;
-      if (this.token.$value.match(/fill='%23f{3,6}'/i)) {
+      if (this.args.value.match(/fill='%23f{3,6}'/i)) {
         backgroundColor = 'rgb(0 0 0 / 15%)';
       } else {
         backgroundColor = 'transparent';
       }
       return {
-        backgroundImage: `var(--${this.token.name})`,
+        backgroundImage: this.args.value,
         backgroundColor,
       };
     } else {
-      return {
-        backgroundImage: undefined,
-        backgroundColor: undefined,
-      };
+      return undefined;
     }
   }
 
   get fontPreviewStyle() {
-    if (this.token.$type === 'font-size') {
+    if (this.args.type === 'font-size') {
       return {
-        fontSize: `var(--${this.token.name})`,
+        fontSize: this.args.value,
         fontFamily: undefined,
         fontWeight: undefined,
       };
-    } else if (
-      this.token.name.startsWith('hds-typography') &&
-      (this.token.name.includes('font-stack') ||
-        this.token.name.includes('font-family'))
-    ) {
+    } else if (this.args.type === 'font-family') {
       return {
-        fontFamily: `var(--${this.token.name})`,
+        fontFamily: this.args.value,
         fontSize: undefined,
         fontWeight: undefined,
       };
-    } else if (this.token.name.startsWith('hds-typography-font-weight')) {
+    } else if (this.args.type === 'font-weight') {
       return {
-        fontWeight: `var(--${this.token.name})`,
+        fontWeight: this.args.value,
         fontSize: undefined,
         fontFamily: undefined,
       };
     } else {
-      return {
-        fontWeight: undefined,
-        fontSize: undefined,
-        fontFamily: undefined,
-      };
+      return undefined;
     }
   }
 
   get sizePreviewStyle() {
     if (
       // token values may be numbers
-      typeof this.token.$value === 'string' &&
+      typeof this.args.value === 'string' &&
       // check that is a size (dimension)
-      this.token.$type === 'dimension' &&
-      this.token.$value.endsWith('px')
+      this.args.type === 'dimension' &&
+      (this.args.value.endsWith('px') ||
+        this.args.value.endsWith('em') ||
+        this.args.value.endsWith('rem') ||
+        this.args.value === '0')
     ) {
-      return `var(--${this.token.name})`;
+      return this.args.value;
     } else {
       return undefined;
     }
   }
 
   get boxShadowPreviewStyle() {
-    const isBoxShadow = this.token.name.endsWith('box-shadow');
-    return isBoxShadow ? `var(--${this.token.name})` : undefined;
+    if (this.args.name.includes('box-shadow')) {
+      return this.args.value;
+    } else {
+      return undefined;
+    }
   }
 
   <template>
@@ -148,7 +132,7 @@ export default class DocTokenPreview extends Component<DocTokenPreviewSignature>
         class="doc-token-preview doc-token-preview--size"
         {{style --doc-token-preview-size=this.sizePreviewStyle}}
       >
-        <span class="doc-token-preview__value">{{this.token.$value}}</span>
+        <span class="doc-token-preview__value">{{@value}}</span>
       </div>
     {{else if this.boxShadowPreviewStyle}}
       <div
