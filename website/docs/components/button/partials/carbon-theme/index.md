@@ -19,10 +19,9 @@ When using the classic HDS theme, the `secondary-muted` color will be visually t
 
 ### When to use secondary
 
-- For buttons which are in their own context and not paired with others
-- Lorem ipsum dolor sit amet
+- For secondary buttons which are in their own context
+- For pairing with another Button of a different color
 
 ### When to use secondary-muted
 
-- For buttons part of a button set
-- Lorem ipsum dolor sit amet
+- For pairing with another Button of the same color (e.g. [FilterBar](/components/filter-bar), [Segmented Group](/components/segmented-group))
