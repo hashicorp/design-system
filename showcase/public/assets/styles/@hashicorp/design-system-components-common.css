@@ -3614,10 +3614,6 @@ button.hds-button[href]::after {
   box-shadow: var(--hds-surface-high-box-shadow);
 }
 
-.hds-card__container--level-elevation-base {
-  box-shadow: var(--hds-elevation-base-box-shadow);
-}
-
 .hds-card__container--level-elevation-mid {
   box-shadow: var(--hds-elevation-mid-box-shadow);
 }
@@ -3626,10 +3622,6 @@ button.hds-button[href]::after {
   box-shadow: var(--hds-elevation-high-box-shadow);
 }
 
-.hds-card__container--hover-level-elevation-base:hover,
-.hds-card__container--hover-level-elevation-base.mock-hover {
-  box-shadow: var(--hds-elevation-base-box-shadow);
-}
 .hds-theme-light .hds-card__container--hover-level-elevation-base:hover, .hds-theme-light .hds-card__container--hover-level-elevation-base.mock-hover,
 .hds-theme-dark .hds-card__container--hover-level-elevation-base:hover, .hds-theme-dark .hds-card__container--hover-level-elevation-base.mock-hover,
 .hds-theme-system .hds-card__container--hover-level-elevation-base:hover, .hds-theme-system .hds-card__container--hover-level-elevation-base.mock-hover {
@@ -3654,11 +3646,6 @@ button.hds-button[href]::after {
 .hds-theme-dark .hds-card__container--hover-level-elevation-high:hover, .hds-theme-dark .hds-card__container--hover-level-elevation-high.mock-hover,
 .hds-theme-system .hds-card__container--hover-level-elevation-high:hover, .hds-theme-system .hds-card__container--hover-level-elevation-high.mock-hover {
   background-color: var(--hds-surface-color-interactive-hover);
-}
-
-.hds-card__container--active-level-elevation-base:active,
-.hds-card__container--active-level-elevation-base.mock-active {
-  box-shadow: var(--hds-elevation-base-box-shadow);
 }
 
 .hds-card__container--active-level-elevation-mid:active,
