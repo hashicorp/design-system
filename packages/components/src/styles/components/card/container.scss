@@ -26,14 +26,18 @@ $hds-card-container-levels: ("base", "mid", "high");
   // so the order of the declaration matters, they need to be one group after another group
   @each $level in $hds-card-container-levels {
     .hds-card__container--level-#{$style}-#{$level} {
-      box-shadow: var(--hds-#{$style}-#{$level}-box-shadow);
+      @if not($style == "elevation" and $level == "base") {
+        box-shadow: var(--hds-#{$style}-#{$level}-box-shadow);
+      }
     }
   }
 
   @each $level in $hds-card-container-levels {
     .hds-card__container--hover-level-#{$style}-#{$level}:hover,
     .hds-card__container--hover-level-#{$style}-#{$level}.mock-hover {
-      box-shadow: var(--hds-#{$style}-#{$level}-box-shadow);
+      @if not($style == "elevation" and $level == "base") {
+        box-shadow: var(--hds-#{$style}-#{$level}-box-shadow);
+      }
 
       @include hds-apply-only-if-carbon() {
         background-color: var(--hds-surface-color-interactive-hover);
@@ -44,7 +48,9 @@ $hds-card-container-levels: ("base", "mid", "high");
   @each $level in $hds-card-container-levels {
     .hds-card__container--active-level-#{$style}-#{$level}:active,
     .hds-card__container--active-level-#{$style}-#{$level}.mock-active {
-      box-shadow: var(--hds-#{$style}-#{$level}-box-shadow);
+      @if not($style == "elevation" and $level == "base") {
+        box-shadow: var(--hds-#{$style}-#{$level}-box-shadow);
+      }
     }
   }
 }
