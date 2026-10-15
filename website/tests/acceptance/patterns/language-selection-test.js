@@ -24,4 +24,17 @@ module('Acceptance | patterns/language-selection', function (hooks) {
 
     assert.ok(true, 'a11y automation audit passed');
   });
+
+  test('leaving the language-selection page resets locale to english', async function (assert) {
+    const intl = this.owner.lookup('service:intl');
+
+    await visit('/patterns/language-selection');
+
+    intl.setLocale(['es-es']);
+    assert.strictEqual(intl.primaryLocale, 'es-es');
+
+    await visit('/about');
+
+    assert.strictEqual(intl.primaryLocale, 'en-us');
+  });
 });

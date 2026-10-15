@@ -1,6 +1,7 @@
 import Route from '@ember/routing/route';
 import fetch from 'fetch';
 import { service } from '@ember/service';
+import { action } from '@ember/object';
 
 import config from 'website/config/environment';
 
@@ -22,5 +23,18 @@ export default class ApplicationRoute extends Route {
         // we group the TOC under a specific "key", instead of spreading the content all over the model
         return { toc: res };
       });
+  }
+
+  @action
+  willTransition(transition) {
+    const fromPath = transition.from?.params?.path;
+    const toPath = transition.to?.params?.path;
+
+    if (
+      fromPath?.startsWith('patterns/language-selection') &&
+      !toPath?.startsWith('patterns/language-selection')
+    ) {
+      this.intl.setLocale(['en-us']);
+    }
   }
 }

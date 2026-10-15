@@ -5,7 +5,6 @@ import { on } from '@ember/modifier';
 import { eq } from 'ember-truth-helpers';
 import { t } from 'ember-intl';
 import { service } from '@ember/service';
-import { registerDestructor } from '@ember/destroyable';
 
 import type { IntlService } from 'ember-intl';
 import type Owner from '@ember/owner';
@@ -24,21 +23,10 @@ export default class LocalComponent extends Component {
   @service declare readonly intl: IntlService;
 
   @tracked selectedLanguage: IntlService['primaryLocale'] = undefined;
-  _localeOnEntry: IntlService['primaryLocale'] = undefined;
 
   constructor(owner: Owner, args: Record<string, never>) {
     super(owner, args);
-
-    // store the locale on entry so we can restore it on exit
-    this._localeOnEntry = this.intl.primaryLocale;
-    this.selectedLanguage = this._localeOnEntry;
-
-    registerDestructor(this, (): void => {
-      if (this._localeOnEntry) {
-        // reset the locale to the one we had on entry
-        this.intl.setLocale(this._localeOnEntry);
-      }
-    });
+    this.selectedLanguage = this.intl.primaryLocale;
   }
 
   selectLanguage = (
