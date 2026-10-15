@@ -324,7 +324,7 @@
                 "Error": {
                     "target": "validity-message",
                     "transform": "namedBlockToSlot",
-                    "notes": "<Field.Error>text</Field.Error> maps to the validity-message named slot: <span slot='validity-message'>text</span>. For plain strings, use the invalid-text attribute instead. Populating this slot or attribute is what triggers the invalid visual state — there is no separate invalid boolean. If Field.Error uses [E].Message to iterate multiple messages, concatenate them into a single validity-message slot."
+                    "notes": "<Field.Error>text</Field.Error> maps to the validity-message named slot: <span slot='validity-message'>text</span>. For plain strings, use the invalid-text attribute instead. The slot or attribute supplies the error message; preserve the separate @isInvalid → invalid boolean mapping to control invalid styling. If Field.Error uses [E].Message to iterate multiple messages, concatenate them into a single validity-message slot."
                 },
                 "CharacterCount": {
                     "target": "enable-counter",
