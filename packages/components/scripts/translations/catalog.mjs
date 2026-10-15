@@ -143,3 +143,20 @@ export function readCatalog(files) {
 
   return { records, diagnostics };
 }
+
+export function formatDiagnostic({ file, line, col, category, message }) {
+  return `${file}:${line}:${col} [${category}] ${message}`;
+}
+
+// for pipelines that must not proceed from a catalog that ember-intl would misread
+export function readValidCatalog(files) {
+  const { records, diagnostics } = readCatalog(files);
+
+  if (diagnostics.length > 0) {
+    throw new Error(
+      `Invalid translation catalog:\n${diagnostics.map(formatDiagnostic).join('\n')}`
+    );
+  }
+
+  return records;
+}
