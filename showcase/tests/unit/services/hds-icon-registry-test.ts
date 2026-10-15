@@ -407,6 +407,11 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
       root,
       'injects the symbol in the new sprite root',
     );
+    assert.strictEqual(
+      document.getElementById(firstSymbolId)?.parentElement,
+      root,
+      'moves the symbols loaded before to the new sprite root',
+    );
   });
 
   test('it warns when sprite root cannot be added and icon remains unresolved', async function (assert) {

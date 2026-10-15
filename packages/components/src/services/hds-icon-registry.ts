@@ -104,9 +104,21 @@ export default class HdsIconRegistryService extends Service {
       return this._spriteRoot;
     }
 
+    const previousRoot = this._spriteRoot;
+
     this._spriteRoot =
       (document.getElementById(ROOT_ID) as SVGSVGElement | null) ??
       insertSpriteRoot();
+
+    // the cached root was removed from the DOM: move its symbols to the new root,
+    // as their entries are already marked as loaded
+    if (previousRoot && this._spriteRoot) {
+      for (const symbol of Array.from(previousRoot.children)) {
+        if (document.getElementById(symbol.id) === null) {
+          this._spriteRoot.appendChild(symbol);
+        }
+      }
+    }
 
     if (this._spriteRoot === null) {
       console.warn(
