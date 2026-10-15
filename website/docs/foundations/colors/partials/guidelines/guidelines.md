@@ -2,15 +2,15 @@
 
 Color-naming syntax and usage can vary depending on context and tooling. Semantic naming conventions within our system allow us to implement consistent standards in our libraries.
 
-In Figma, we use Variables to define and organize color values. Variables allow us to create palettes that reference (or alias) each other. Our Core Palette is a collection of HEX values and their color ramps (`neutral-50`, `neutral-100`,...`neutral-700`). These values are then connected to Semantic Variables (`foreground-primary`, `surface-faint`, `border-critical`). This alias connection allows us to designate multiple token uses for individual HEX values that lead back to the same Core Palette token.
+In Figma, we use Variables to define and organize color values. Variables allow us to create palettes that reference (or alias) each other. Our Core palette is a collection of HEX values and their color ramps (`neutral-50`, `neutral-100`,...`neutral-700`). These values are then connected to Semantic Variables (`foreground-primary`, `surface-faint`, `border-critical`). This alias connection allows us to designate multiple token uses for individual HEX values that lead back to the same Core palette token.
 
-Tokens in code are generated from platform-agnostic files, in our case JSON, and create atomic colors regardless of what platform or framework is used. Core Palette values are directly referenced in Semantic Palette values in the same way that Figma variables alias one another.
+Tokens in code are generated from platform-agnostic files, in our case JSON, and create atomic colors regardless of what platform or framework is used. Core palette values are directly referenced in Semantic Palette values in the same way that Figma variables alias one another.
 
 ![Diagram of token color inheritance with the levels (from left to right): hex code, core palette token, semantic token](/assets/foundations/color/colors-what-are-semantic-tokens.png)
 
 ## What are semantic colors?
 
-The Semantic Palette embeds meaning into color names, making it easier to select correct consistent values across applications. These colors are designed to meet accessibility standards when used in combination with one another.
+The Semantic palette embeds meaning into color names, making it easier to select correct consistent values across applications. These colors are designed to meet accessibility standards when used in combination with one another.
 
 - Foreground colors are intended to be used with surface or page colors.
 - Status color values consist of "surface," "on-surface," and "high-contrast" options to meet accessibility standards when used together.
@@ -101,9 +101,9 @@ It is important to note that we [do not recommend the usage of disabled elements
 
 ### Using palette colors
 
-If the Semantic tokens do not meet your needs, the Core Palette has been published for general use. These values are usage-agnostic, which can introduce challenges in consistently scaling designs but also allows more freedom and flexibility in color pairing.
+If the Semantic tokens do not meet your needs, the Core palette has been published for general use. These values are usage-agnostic, which can introduce challenges in consistently scaling designs but also allows more freedom and flexibility in color pairing.
 
-When pairing colors from the Core Palette, check that adjacent colors meet accessible contrast ratios. To validate your color combinations, use free tools like the [WebAIM contrast checker](https://webaim.org/resources/contrastchecker/) or [Stark’s Figma plugin](https://www.figma.com/community/plugin/732603254453395948/stark-contrast-accessibility-checker).
+When pairing colors from the Core palette, check that adjacent colors meet accessible contrast ratios. To validate your color combinations, use free tools like the [WebAIM contrast checker](https://webaim.org/resources/contrastchecker/) or [Stark’s Figma plugin](https://www.figma.com/community/plugin/732603254453395948/stark-contrast-accessibility-checker).
 
 !!! Warning
 
