@@ -1,7 +1,10 @@
 import Service from '@ember/service';
 import { assert } from '@ember/debug';
 import { TrackedMap } from 'tracked-built-ins';
-import { ROOT_ID } from '../instance-initializers/load-sprite-empty.ts';
+import {
+  ROOT_ID,
+  insertSpriteRoot,
+} from '../instance-initializers/load-sprite-empty.ts';
 import { HdsIconLibraryValues } from '../components.ts';
 import { IconRegistry } from '@hashicorp/flight-icons/symbol-js/registry';
 
@@ -97,11 +100,13 @@ export default class HdsIconRegistryService extends Service {
       return null;
     }
 
-    if (this._spriteRoot) {
+    if (this._spriteRoot?.isConnected) {
       return this._spriteRoot;
     }
 
-    this._spriteRoot = document.getElementById(ROOT_ID) as SVGSVGElement | null;
+    this._spriteRoot =
+      (document.getElementById(ROOT_ID) as SVGSVGElement | null) ??
+      insertSpriteRoot();
 
     if (this._spriteRoot === null) {
       console.warn(
