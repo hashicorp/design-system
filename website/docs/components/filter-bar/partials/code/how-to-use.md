@@ -119,7 +119,7 @@ When the search input's `change` event is triggered, a filter of type `search` w
 
 [[code-snippets/filter-bar-search-data execute=false]]
 
-If `@hasLiveSearch` is set to `true` the `@onFilter` callback is triggered on the search input's `input` event instead of `change`.
+If the `@hasLiveSearch` argument is set to `true`, the `@onFilter` callback is triggered on the search input's `input` event instead of `change`.
 
 [[code-snippets/filter-bar-search-live]]
 
