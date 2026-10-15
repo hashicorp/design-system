@@ -1,0 +1,32 @@
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+
+ // PATTERNS > THEME-SELECTION
+
+@use '../layouts/app-frame.scss' as *;
+
+#show-content-patterns-theme-selection {
+  .doc-theme-selection-app-frame-mock-viewport {
+    @include doc-app-frame-mock-viewport();
+
+    .hds-app-frame {
+      .doc-theme-switcher-app-frame-main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        color: var(--hds-foreground-color-primary);
+        background-color: var(--hds-page-color-primary);
+      }
+
+      .doc-theme-switcher-app-frame-footer {
+        color: var(--hds-foreground-color-primary);
+        background-color: var(--hds-page-color-primary);
+      }
+    }
+  }
+}
