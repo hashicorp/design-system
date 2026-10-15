@@ -2,7 +2,7 @@
 
 Color-naming syntax and usage can vary depending on context and tooling. Semantic naming conventions within our system allow us to implement consistent standards in our libraries.
 
-In Figma, we use Variables to define and organize color values. Variables allow us to create palettes that reference (or alias) each other. Our Core palette is a collection of HEX values and their color ramps (`neutral-50`, `neutral-100`,...`neutral-700`). These values are then connected to Semantic Variables (`foreground-primary`, `surface-faint`, `border-critical`). This alias connection allows us to designate multiple token uses for individual HEX values that lead back to the same Core palette token.
+In Figma, we use Variables to define and organize color values. Variables allow us to create palettes that reference (or alias) each other. Our Core palette is a collection of HEX values and their color ramps (`neutral-50`, `neutral-100`,...`neutral-700`). These values are then connected to Semantic Variables (`foreground-color-primary`, `surface--color-faint`, `border-color-critical`). This alias connection allows us to designate multiple token uses for individual HEX values that lead back to the same Core palette token.
 
 Tokens in code are generated from platform-agnostic files, in our case JSON, and create atomic colors regardless of what platform or framework is used. Core palette values are directly referenced in Semantic Palette values in the same way that Figma variables alias one another.
 
