@@ -9,7 +9,7 @@ When using the classic HDS theme, the `secondary-muted` color will be visually t
 <Doc::Carbonization::ComparisonGroup @display="flex" as |CG|>
   {{#each (array "default" "light" "dark") as |context|}}
     <CG.Item @context={{context}}>
-      <Hds::Layout::Flex @gap="24">
+      <Hds::Layout::Flex @gap="12" @direction="column">
         <Hds::Button @text="Secondary" @color="secondary" />
         <Hds::Button @text="Secondary muted" @color="secondary-muted" />
       </Hds::Layout::Flex>
