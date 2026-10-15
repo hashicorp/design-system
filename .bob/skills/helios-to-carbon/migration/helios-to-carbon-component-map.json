@@ -445,8 +445,10 @@
                     "notes": "cds-button children are placed directly inside cds-button-set. IMPORTANT: cds-button-set auto-overrides the kind attribute on child cds-button elements on slotchange — first button is forced to 'secondary', all remaining buttons are forced to 'primary'. Do NOT rely on explicit kind values on the buttons to survive; the set overrides them. Use cds-modal-footer-button instead of cds-button when the set is inside a cds-modal-footer."
                 }
             },
-            "confidence": 0.92,
-            "riskFlags": [],
+            "confidence": 0.89,
+            "riskFlags": [
+                "behavioral-difference"
+            ]
             "notes": "High confidence — near-direct tag rename. HdsButtonSet has no args. CWC adds stacked (boolean, vertical layout) which has no HDS equivalent — omit unless vertical stacking is needed. IMPORTANT behavioral difference: cds-button-set forces kind on child buttons (first → secondary, rest → primary) — any explicit kind values on children will be overridden. Example: <cds-button-set><cds-button>Cancel</cds-button><cds-button>Save</cds-button></cds-button-set> — kind is auto-applied."
         }
     }
