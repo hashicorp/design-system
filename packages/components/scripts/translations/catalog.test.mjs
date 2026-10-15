@@ -22,8 +22,9 @@ describe('readCatalog', () => {
 
     assert.deepEqual(result.diagnostics, []);
     assert.deepEqual(
-      result.records.map(({ key, locale, file, line }) => ({
+      result.records.map(({ key, value, locale, file, line }) => ({
         key,
+        value,
         locale,
         file,
         line,
@@ -31,12 +32,14 @@ describe('readCatalog', () => {
       [
         {
           key: 'hds.components.tag.dismiss',
+          value: 'Dismiss',
           locale: 'en-us',
           file: 'translations/hds/components/tag/en-us.yaml',
           line: 1,
         },
         {
           key: 'hds.components.tag.labels.close',
+          value: 'Close',
           locale: 'en-us',
           file: 'translations/hds/components/tag/en-us.yaml',
           line: 3,
@@ -61,8 +64,31 @@ describe('readCatalog', () => {
 
     assert.deepEqual(result.diagnostics, []);
     assert.deepEqual(
-      result.records.map((record) => record.key),
-      ['hds.shared', 'hds.copy']
+      result.records.map(({ key, value }) => ({ key, value })),
+      [
+        { key: 'hds.shared', value: 'Hello' },
+        { key: 'hds.copy', value: 'Hello' },
+      ]
+    );
+  });
+
+  test('records loaded values for quoted and icu strings', () => {
+    const result = readCatalog([
+      {
+        file: 'hds/en-us.yaml',
+        source:
+          'pair: "{key}: {value}"\ncount: "{count, plural, one {# item} other {# items}}"\nsingle: \'It\'\'s\'\n',
+      },
+    ]);
+
+    assert.deepEqual(result.diagnostics, []);
+    assert.deepEqual(
+      result.records.map((record) => record.value),
+      [
+        '{key}: {value}',
+        '{count, plural, one {# item} other {# items}}',
+        "It's",
+      ]
     );
   });
 
