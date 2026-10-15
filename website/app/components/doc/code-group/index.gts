@@ -30,9 +30,9 @@ interface DocCodeGroupSignature {
     compactGtsSnippet?: string;
     customSnippet?: string;
     customLang?: string;
+    hideThemeSwitcher?: 'true' | 'false';
     hidePreview?: 'true' | 'false';
     isExpanded?: 'true' | 'false';
-    hasTheming?: 'true' | 'false';
   };
   Blocks: {
     default: [];
@@ -263,7 +263,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   }
 
   get hasTheming() {
-    return this.args.hasTheming !== 'false';
+    return this.args.hideThemeSwitcher !== 'true';
   }
 
   get shouldSyncLanguageSelection() {
@@ -414,18 +414,18 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   <template>
     <div class="doc-code-group">
       {{#if this.showPreview}}
-        <DocCodeGroupActionBar>
-          <:primary>
-            {{#if this.hasTheming}}
+        {{#if this.hasTheming}}
+          <DocCodeGroupActionBar>
+            <:primary>
               <DocCodeGroupThemePicker
                 @themeOptions={{this.themeOptions}}
                 @currentTheme={{this.currentTheme}}
                 @eventName={{this.themeEventName}}
                 @onThemeChange={{this.handleThemeChange}}
               />
-            {{/if}}
-          </:primary>
-        </DocCodeGroupActionBar>
+            </:primary>
+          </DocCodeGroupActionBar>
+        {{/if}}
         <div class="doc-code-group__preview {{this.previewThemeClass}}">
           <DynamicTemplate
             @templateString={{this.preview.templateString}}

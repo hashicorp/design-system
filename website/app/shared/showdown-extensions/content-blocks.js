@@ -53,7 +53,7 @@ export const contentBlocks = function () {
 
       // NOTE: this regex must match the output created in markdown-process-demos.js
       const demoRegex = new RegExp(
-        /<\?php start="demo-block" classicComponentId="(.*?)" gtsComponentId="(.*?)" hbs="(.*?)" js="(.*?)" gts="(.*?)" compactGts="(.*?)" custom="(.*?)" customLang="(.*?)" hidePreview="(.*?)" expanded="(.*?)" theming="(.*?)" \?>\n?/,
+        /<\?php start="demo-block" classicComponentId="(.*?)" gtsComponentId="(.*?)" hbs="(.*?)" js="(.*?)" gts="(.*?)" compactGts="(.*?)" custom="(.*?)" customLang="(.*?)" hideThemeSwitcher="(.*?)" hidePreview="(.*?)" isExpanded="(.*?)" \?>\n?/,
         'g',
       );
 
@@ -69,11 +69,11 @@ export const contentBlocks = function () {
           compactGtsSnippet,
           customSnippet,
           customLang,
+          hideThemeSwitcher,
           hidePreview,
-          expanded,
-          theming,
+          isExpanded,
         ) {
-          return `<Doc::CodeGroup @classicComponentId="${classicComponentId}" @gtsComponentId="${gtsComponentId}" @hbsSnippet="${hbsSnippet}" @jsSnippet="${jsSnippet}" @gtsSnippet="${gtsSnippet}" @compactGtsSnippet="${compactGtsSnippet}" @customSnippet="${customSnippet}" @customLang="${customLang}" @hidePreview="${hidePreview}" @isExpanded="${expanded}" @hasTheming="${theming}">\n`;
+          return `<Doc::CodeGroup @classicComponentId="${classicComponentId}" @gtsComponentId="${gtsComponentId}" @hbsSnippet="${hbsSnippet}" @jsSnippet="${jsSnippet}" @gtsSnippet="${gtsSnippet}" @compactGtsSnippet="${compactGtsSnippet}" @customSnippet="${customSnippet}" @customLang="${customLang}" @hideThemeSwitcher="${hideThemeSwitcher}" @hidePreview="${hidePreview}" @isExpanded="${isExpanded}">\n`;
         },
       );
 

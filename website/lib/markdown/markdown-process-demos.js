@@ -150,7 +150,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
         demoBlockRegex,
         (_match, fileName, shouldExecute, isExpanded, hasTheming) => {
           const shouldHidePreview = shouldExecute === 'false' ? true : false;
-          const shouldEnableTheming = hasTheming !== 'false';
+          const shouldHideThemeSwitcher = hasTheming === 'false' ? true : false;
 
           const codeSnippets = {
             hbsSnippet: '',
@@ -204,7 +204,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
           });
 
           // NOTE: if change this, also need to change the regex in content-blocks.js
-          return `\n<?php start="demo-block" classicComponentId="${classicComponentId}" gtsComponentId="${gtsComponentId}" hbs="${codeSnippets.hbsSnippet}" js="${codeSnippets.jsSnippet}" gts="${codeSnippets.gtsSnippet}" compactGts="${codeSnippets.compactGtsSnippet}" custom="${codeSnippets.customSnippet}" customLang="${codeSnippets.customLang}" hidePreview="${shouldHidePreview}" expanded="${isExpanded}" theming="${shouldEnableTheming}" ?><?php end="demo-block" ?>\n`;
+          return `\n<?php start="demo-block" classicComponentId="${classicComponentId}" gtsComponentId="${gtsComponentId}" hbs="${codeSnippets.hbsSnippet}" js="${codeSnippets.jsSnippet}" gts="${codeSnippets.gtsSnippet}" compactGts="${codeSnippets.compactGtsSnippet}" custom="${codeSnippets.customSnippet}" customLang="${codeSnippets.customLang}" hideThemeSwitcher="${shouldHideThemeSwitcher}" hidePreview="${shouldHidePreview}" isExpanded="${isExpanded}" ?><?php end="demo-block" ?>\n`;
         },
       );
 
