@@ -1,4 +1,4 @@
-Visual Diff compares two Figma layers pixel by pixel, calculates a similarity score, and generates onion-skin and highlighted-difference views for review. Use it to focus review on visual changes after an HDS-to-Carbon migration or library update. The result identifies differences; it doesn't determine whether a design is correct.
+Visual Diff compares two Figma layers at the pixel level to calculate a similarity score and generate onion-skin and highlighted-difference views for review. Use it to focus review on visual changes after an HDS-to-Carbon migration or library update. The result identifies differences; it doesn't determine whether a design is correct.
 
 ## Before you begin
 
@@ -8,14 +8,15 @@ Visual Diff doesn't resize references before comparing them. Different dimension
 
 ## Compare two references
 
-1. Open **Visual Diff** and select select a layer on the Figma canvas.
-2. Set selection as **Reference A**.
-3. Select the second layer on the canvas, then select **Use Selection** for **Reference B**.
-4. Select **Compare**.
+1. Open **Visual Diff** and select select a layer for comparison on the Figma canvas.
+2. Select "Use Selection" to set the selection as **Reference A**.
+3. Select a second layer on the canvas, then select **Use Selection** for **Reference B**.
+4. The **Compare** button will perform the comparison, generate a score based on pixel differences, and display thumbnails for onion skill and visual diff comparisons.
 5. Review the similarity score. Drag the reference overlays onto the Figma canvas to more closely inspect the differences.
-6. Select **Refresh selection** after changing your Figma selection. Use **Clear comparison** to reset Reference B and the current results.
+6. If Reference A has been updated use **Refresh selection** to reload it from the local plugin storage.
+7. Use **Clear comparison** to reset Reference B and the current results.
 
-![](/assets/tooling/design-tooling-figma-plugin/visual-diff-reference-selection.png)
+![](/assets/tooling/design-tooling-figma-plugin/visual-diff-comparison-results.png)
 
 ## Interpret and share results
 
@@ -25,13 +26,13 @@ Use the onion skin and highlighted difference views to identify differences. Ins
 
 Drag either result preview onto the Figma canvas to create an image layer for review or discussion.
 
-![](/assets/tooling/design-tooling-figma-plugin/visual-diff-comparison-results.png)
+![](/assets/tooling/design-tooling-figma-plugin/visual-diff-reference-selection.png)
 
 ![](/assets/tooling/design-tooling-figma-plugin/visual-diff-overlay.png)
 
 ## Reference storage
 
-Visual Diff works across Figma pages and files. It saves Reference A in the plugin's local storage and recalls it when you open the plugin in another file.
+Visual Diff works across Figma pages and files. It saves **Reference A** in the plugin's local storage and recalls it when you open the plugin in another file.
 
 !!! Info
 

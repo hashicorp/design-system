@@ -1,6 +1,6 @@
 !!! Info
 
-This plugin is in beta. [Provide feedback](https://forms.cloud.microsoft/r/Ka1D9i712k) about bugs or issues you encounter, or suggest features that would improve your design workflow.
+This plugin is in beta. [Provide feedback](https://forms.cloud.microsoft/r/Ka1D9i712k) on issues, report a bug, or suggest features that would improve your design workflow.
 !!!
 
 The [Helios Design Tooling Figma Plugin](https://www.figma.com/community/plugin/1572365910132690910) helps you create, assess, and work more efficiently with HDS Figma assets. Use it to automate repetitive design tasks, compare migration changes, and update service icon colors.
@@ -17,8 +17,29 @@ Enable the [HDS Foundations v2.0](https://www.figma.com/design/uX4OEaJQdWfzULADc
 
 ![](/assets/tooling/design-tooling-figma-plugin/figma-plugin-menu.png)
 
+<Doc::ImageCaption @text="Access the plugin from the Plugins menu" />
+
+![](/assets/tooling/design-tooling-figma-plugin/figma-actions-menu.png)
+
+<Doc::ImageCaption @text="Access the plugin from the actions menu" />
+
+![](/assets/tooling/design-tooling-figma-plugin/figma-tools-menu.png)
+
+<Doc::ImageCaption @text="Access the plugin from the tools menu" />
+
 ## Feedback and requests
 
-Use the **Submit Feedback** link in the plugin to report an issue, share feedback, suggest a workflow improvement, or request a new feature. Include the feature you used, the Figma context, what you expected, and what happened to explain the issue.
+Use the **[Submit Feedback](https://forms.cloud.microsoft/r/Ka1D9i712k)** link in the plugin to report an issue, share feedback, suggest a workflow improvement, or request a new feature.
 
-For feature requests, describe the repeated task, the current friction, who benefits, and the desired outcome.
+For feedback, please include:
+
+- which feature you used
+- the Figma context
+- what you expected versus what happened
+
+For feature requests, please include:
+
+- a description of the repeated task
+- current friction points in the process
+- the desired outcome of the feature
+- who benefits from the feature

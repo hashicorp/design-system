@@ -3,13 +3,13 @@ Use Table Generator to create HDS tables without manually assembling repeated co
 ## Create a table
 
 1. Open **Table Generator**.
-2. Choose a **Standard** or **Advanced** table type.
+2. Choose a **[Standard](/components/table/table)** or **[Advanced](/components/table/advanced-table)** table type.
 3. Set the desired number of rows and columns.
-4. Select table options: size, multi-select, row striping, and whether Auto Layout groups components by row or column.
+4. Select table options: size, multi-select, row striping, and whether the table uses Auto Layout by row or column.
 5. Add a label for each column. Use the settings icon to configure alignment, sorting, icons, and cell content.
 6. Select **Generate Table**.
 
-Column cells can contain text, leading or trailing icons, or a generic placeholder for another HDS component. Supported components include Badge, Badge Count, Button, Link, and Tag. You can further customize cell content in Figma.
+Column cells can contain text, leading or trailing icons, or a generic placeholder. The generic placeholder supports the use of the HDS components [Badge](/components/badge), [Badge Count](/components/badge-count), [Button](/components/button), [Link](/components/link/standalone), and [Tag](/components/tag). Additional customization for cell content is possible once the table is generated.
 
 ![](/assets/tooling/design-tooling-figma-plugin/table-generator-main.png)
 
@@ -23,7 +23,7 @@ Column cells can contain text, leading or trailing icons, or a generic placehold
 2. Select **Sync configuration** to load its saved configuration.
 3. Update the settings, then select **Regenerate Table**.
 
-The plugin saves the configuration with each generated table. Sync the configuration before editing a table whose structure you changed manually.
+The plugin saves the configuration from each table it generates. If manual changes have been made since the table was generated, sync the configuration before making edits within the plugin.
 
 ![](/assets/tooling/design-tooling-figma-plugin/table-generator-sync-configuration.png)
 
