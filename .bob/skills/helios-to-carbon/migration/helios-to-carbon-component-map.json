@@ -110,7 +110,7 @@
                 "@icon": {
                     "target": null,
                     "transform": "remove",
-                    "notes": "@icon accepts an HDS icon name string to override the default severity icon, or false to hide it. CWC notifications always show a fixed status icon matching the kind — there is no icon override attribute. If @icon={{false}}, add hide-close-button to suppress the close button but the status icon cannot be hidden."
+                    "notes": "@icon accepts an HDS icon name string to override the default severity icon, or false to hide it. CWC notifications always show a fixed status icon matching the kind — there is no icon override attribute. If @icon={{false}}, flag the status-icon difference for manual review. Do not add hide-close-button based on @icon; dismiss-button visibility must follow whether @onDismiss is provided."
                 },
                 "@onDismiss": {
                     "target": "cds-notification-beingclosed",
