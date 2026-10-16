@@ -14,7 +14,7 @@ This skill is for experimenting with the requirements and work required to chang
 
 Not all components have mappings because some components or arguments don't have direct equivalents. So far, the skill covers Accordion, Alert, Badge, Button, ButtonSet, and Text Input.
 
-[Download the `helios-to-carbon` skill (.zip)](/assets/tooling/ai-skills/helios-to-carbon-skill-v0.zip)
+[Download the `helios-to-carbon` skill (.zip)](/assets/tooling/ai-skills/helios-to-carbon-skill-v1.zip)
 
 ### What the skill does
 

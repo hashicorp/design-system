@@ -34,16 +34,16 @@
                 },
                 "@color": {
                     "target": "type",
-                    "transform": "rename",
+                    "transform": "conditional",
                     "valueMap": {
                         "neutral": "gray",
                         "neutral-dark-mode": "high-contrast",
                         "highlight": "purple",
                         "success": "green",
-                        "warning": "red",
+                        "warning": "manual",
                         "critical": "red"
                     },
-                    "notes": "HDS @color (semantic) maps to CWC type (palette color name). Confirmed CWC TAG_TYPE values include: gray, red, magenta, purple, blue, cyan, teal, green, cool-gray, warm-gray, high-contrast. Mapping: 'neutral' → 'gray', 'neutral-dark-mode' → 'high-contrast' (approximate), 'highlight' → 'purple', 'success' → 'green', 'warning' → 'red', 'critical' → 'red'. Default on both sides is neutral/gray."
+                    "notes": "HDS @color (semantic) maps to CWC type (palette color name). Confirmed CWC TAG_TYPE values include: gray, red, magenta, purple, blue, cyan, teal, green, cool-gray, warm-gray, high-contrast. Mapping: 'neutral' → 'gray', 'neutral-dark-mode' → 'high-contrast' (approximate), 'highlight' → 'purple', 'success' → 'green', 'critical' → 'red'. 'warning' has no equivalent TAG_TYPE and must be handled manually. Default on both sides is neutral/gray."
                 },
                 "@size": {
                     "target": "size",
@@ -91,9 +91,9 @@
                     "valueMap": {
                         "inline": "cds-inline-notification",
                         "compact": "cds-inline-notification + low-contrast",
-                        "page": "cds-actionable-notification"
+                        "page": "manual"
                     },
-                    "notes": "@type is the Helios display VARIANT — accepted values are 'page', 'inline', 'compact'. Choose the CWC tag based on this value: 'inline' → cds-inline-notification, 'compact' → cds-inline-notification with low-contrast boolean attribute, 'page' → cds-actionable-notification. Do NOT map @type to kind."
+                    "notes": "@type is the Helios display VARIANT — accepted values are 'page', 'inline', 'compact'. Choose the CWC tag based on this value: 'inline' → cds-inline-notification, 'compact' → cds-inline-notification with low-contrast boolean attribute. 'page' has no direct Carbon equivalent and must be handled manually; recommended fallback is cds-actionable-notification with manual review. Do NOT map @type to kind."
                 },
                 "@color": {
                     "target": "kind",
@@ -168,7 +168,7 @@
                 "slot-to-attribute",
                 "incomplete-mapping"
             ],
-            "notes": "Confidence lowered to 0.55. The CWC tag depends on HDS @type: 'inline' → cds-inline-notification, 'compact' → cds-inline-notification + low-contrast, 'page' → cds-actionable-notification. For action buttons use cds-actionable-notification (action-button-label attr) or cds-callout-notification (action slot). @color → kind maps cleanly (error|info|success|warning). Dismissal: wire @onDismiss to cds-notification-beingclosed (cancellable) not cds-notification-closed (post-close). hide-close-button suppresses the dismiss button. open=false programmatically closes. A.Title/@tag, A.Button/A.LinkStandalone/A.GenericContent/A.GenericFooter all require manual restructuring."
+            "notes": "Confidence lowered to 0.55. The CWC tag depends on HDS @type: 'inline' → cds-inline-notification, 'compact' → cds-inline-notification + low-contrast; 'page' has no direct Carbon equivalent and requires manual handling (recommended fallback: cds-actionable-notification with manual review). For action buttons use cds-actionable-notification (action-button-label attr) or cds-callout-notification (action slot). @color → kind maps cleanly (error|info|success|warning). Dismissal: wire @onDismiss to cds-notification-beingclosed (cancellable) not cds-notification-closed (post-close). hide-close-button suppresses the dismiss button. open=false programmatically closes. A.Title/@tag, A.Button/A.LinkStandalone/A.GenericContent/A.GenericFooter all require manual restructuring."
         },
         "Hds::Accordion": {
             "cwcComponent": "cds-accordion",
@@ -185,13 +185,13 @@
                     "notes": "HDS @size ('small' | 'medium' | 'large') maps to ACCORDION_SIZE on cds-accordion ('sm' | 'md' | 'lg'). CWC default is 'md', matching HDS default of 'medium'. Note: size is set on cds-accordion itself (not per-item)."
                 },
                 "@type": {
-                    "target": "isFlush",
-                    "transform": "conditional",
+                    "target": null,
+                    "transform": "remove",
                     "valueMap": {
-                        "flush": "isFlush",
+                        "flush": "remove",
                         "card": "remove"
                     },
-                    "notes": "HDS @type accepts 'card' (default) or 'flush' — NOT 'button'. 'flush' maps directly to the isFlush boolean attribute on cds-accordion. 'card' (default) → use cds-accordion without isFlush. Note: isFlush does not work when alignment='start' on cds-accordion."
+                    "notes": "HDS @type accepts 'card' (default) or 'flush' — NOT 'button'. Carbon migration uses default cds-accordion styling only; do not set isFlush for either value. Remove @type and render a standard cds-accordion."
                 },
                 "@forceState": {
                     "target": null,
@@ -238,7 +238,7 @@
                 "complex-transformation",
                 "styling-difference"
             ],
-            "notes": "Confidence adjusted to 0.70. Key corrections: (1) HDS @type is 'card' (default) | 'flush' — NOT 'button'/'card'. 'flush' maps to the isFlush boolean on cds-accordion. (2) cds-accordion has events: cds-accordion-item-beingtoggled (cancellable) and cds-accordion-item-toggled. (3) A.Item has several args with no CWC equivalent: @isStatic (static/non-interactive toggle), @containsInteractive, @ariaLabel — all must be dropped. (4) :toggle block content must be flattened to plain text for the title attribute — rich toggle content is not supported. (5) [C].close function has no CWC equivalent."
+            "notes": "Confidence adjusted to 0.70. Key corrections: (1) HDS @type is 'card' (default) | 'flush' — NOT 'button'/'card'. Carbon migration uses default cds-accordion styling only; remove @type and do not set isFlush. (2) cds-accordion has events: cds-accordion-item-beingtoggled (cancellable) and cds-accordion-item-toggled. (3) A.Item has several args with no CWC equivalent: @isStatic (static/non-interactive toggle), @containsInteractive, @ariaLabel — all must be dropped. (4) :toggle block content must be flattened to plain text for the title attribute — rich toggle content is not supported. (5) [C].close function has no CWC equivalent."
         },
         "Hds::Form::TextInput::Field": {
             "cwcComponent": "cds-text-input",
@@ -354,10 +354,11 @@
                     "valueMap": {
                         "primary": "primary",
                         "secondary": "secondary",
+                        "secondary-muted": "secondary",
                         "tertiary": "tertiary",
                         "critical": "danger"
                     },
-                    "notes": "HDS @color ('primary', 'secondary', 'tertiary', 'critical') maps to kind on cds-button. 'critical' → 'danger'. CWC also supports 'ghost', 'danger-tertiary', 'danger-ghost' which have no HDS equivalent."
+                    "notes": "HDS @color ('primary', 'secondary', 'secondary-muted', 'tertiary', 'critical') maps to kind on cds-button. 'critical' → 'danger'. CWC also supports 'ghost', 'danger-tertiary', 'danger-ghost' which have no HDS equivalent."
                 },
                 "@size": {
                     "target": "size",
@@ -448,7 +449,7 @@
             "confidence": 0.89,
             "riskFlags": [
                 "behavioral-difference"
-            ]
+            ],
             "notes": "High confidence — near-direct tag rename. HdsButtonSet has no args. CWC adds stacked (boolean, vertical layout) which has no HDS equivalent — omit unless vertical stacking is needed. IMPORTANT behavioral difference: cds-button-set forces kind on child buttons (first → secondary, rest → primary) — any explicit kind values on children will be overridden. Example: <cds-button-set><cds-button>Cancel</cds-button><cds-button>Save</cds-button></cds-button-set> — kind is auto-applied."
         }
     }
