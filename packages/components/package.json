@@ -37,6 +37,7 @@
     "test:translations": "node --test \"scripts/translations/*.test.mjs\"",
     "translations:export": "node scripts/export-translations.mjs",
     "translations:import": "node scripts/import-translations.mjs",
+    "translations:report": "node scripts/report-translations.mjs",
     "prepublishOnly": "pnpm build && pnpm test:dist-files"
   },
   "dependencies": {

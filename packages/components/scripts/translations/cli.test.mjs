@@ -271,6 +271,64 @@ describe('translation CLIs', () => {
     );
   });
 
+  test('report writes a body and a changeset only when translations changed', () => {
+    const before = path.join(directory, 'report-before.json');
+    const body = path.join(directory, 'report', 'body.md');
+    const changesets = path.join(directory, 'changesets');
+    const args = [
+      '--before',
+      before,
+      '--lang',
+      'fr',
+      '--body-out',
+      body,
+      '--changeset-dir',
+      changesets,
+      '--translations',
+      translations,
+    ];
+
+    writeFiles(directory, [
+      {
+        file: 'report-before.json',
+        source: serializeFlat({
+          'hds.components.alert.close': 'Fermer',
+          'hds.components.tag.dismiss-button.aria-label': 'Retirer {text}',
+        }),
+      },
+    ]);
+
+    const unchanged = run('report-translations.mjs', args);
+
+    assert.equal(unchanged.status, 0, unchanged.stderr);
+    assert.match(unchanged.stdout, /No fr-fr changes/);
+    assert.equal(
+      existsSync(path.join(changesets, 'hds-translations-sync.md')),
+      false
+    );
+    assert.match(
+      readFileSync(body, 'utf8'),
+      /2 of 2 English strings translated/
+    );
+
+    writeFiles(directory, [
+      {
+        file: 'report-before.json',
+        source: serializeFlat({ 'hds.components.alert.close': 'Clore' }),
+      },
+    ]);
+
+    const changed = run('report-translations.mjs', args);
+
+    assert.equal(changed.status, 0, changed.stderr);
+    assert.match(changed.stdout, /fr-fr translations changed/);
+    assert.match(
+      readFileSync(path.join(changesets, 'hds-translations-sync.md'), 'utf8'),
+      /"@hashicorp\/design-system-components": patch/
+    );
+    assert.match(readFileSync(body, 'utf8'), /### :new: Added \(1\)/);
+  });
+
   test('fail with a message when required arguments are missing', () => {
     const exportResult = run('export-translations.mjs', []);
     const importResult = run('import-translations.mjs', ['--lang', 'fr']);

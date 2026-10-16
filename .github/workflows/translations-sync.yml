@@ -1,0 +1,109 @@
+name: Translations - Globalization Pipeline Sync
+
+# runs on workflow_dispatch only until the shared action ships (FE-1299)
+# once it does, push runs on pushes to main touching packages/components/translations/**
+# and pull runs on a weekly schedule
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "push: upload translations to the Globalization Pipeline; pull: download machine translations and open the sync PR"
+        type: choice
+        options:
+          - push
+          - pull
+        required: true
+
+env:
+  NODE_VERSION: "24.x"
+  TARGET_LANGUAGE: fr
+
+concurrency:
+  group: translations-sync
+  cancel-in-progress: false
+
+jobs:
+  push:
+    name: Push translations
+    if: inputs.mode == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - name: Install PNPM
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+        with:
+          run_install: false
+      - name: Install Node
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Export translations
+        # english is the source catalog; committed target files carry reviewed corrections back
+        run: |
+          pnpm translations:export --out "$RUNNER_TEMP/gp/en.json"
+          pnpm translations:export --out "$RUNNER_TEMP/gp/$TARGET_LANGUAGE.json" --lang "$TARGET_LANGUAGE"
+        working-directory: packages/components
+      - name: Upload to the Globalization Pipeline
+        # replace with the shared action's push mode once FE-1299 ships
+        run: |
+          echo "::error::The shared Globalization Pipeline action is not available yet (FE-1299)"
+          exit 1
+
+  pull:
+    name: Pull translations
+    if: inputs.mode == 'pull'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - name: Install PNPM
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+        with:
+          run_install: false
+      - name: Install Node
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Export committed translations
+        run: pnpm translations:export --out "$RUNNER_TEMP/before.json" --lang "$TARGET_LANGUAGE"
+        working-directory: packages/components
+      - name: Download from the Globalization Pipeline
+        # replace with the shared action's pull mode once FE-1299 ships; it must write $RUNNER_TEMP/gp/$TARGET_LANGUAGE.json
+        run: |
+          echo "::error::The shared Globalization Pipeline action is not available yet (FE-1299)"
+          exit 1
+      - name: Import translations
+        run: pnpm translations:import --in "$RUNNER_TEMP/gp/$TARGET_LANGUAGE.json" --lang "$TARGET_LANGUAGE"
+        working-directory: packages/components
+      - name: Build the pull request body and changeset
+        run: >-
+          pnpm translations:report
+          --before "$RUNNER_TEMP/before.json"
+          --lang "$TARGET_LANGUAGE"
+          --body-out "$RUNNER_TEMP/pr-body.md"
+          --changeset-dir "$GITHUB_WORKSPACE/.changeset"
+        working-directory: packages/components
+      - name: Open or update the sync pull request
+        # no pull request is opened when the import changed nothing
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          branch: hds-translations-sync
+          commit-message: "chore: sync translations from the Globalization Pipeline"
+          title: "Sync translations from the Globalization Pipeline"
+          body-path: ${{ runner.temp }}/pr-body.md
+          draft: true
+          add-paths: |
+            packages/components/translations/**
+            .changeset/hds-translations-sync.md
+          # a personal access token so the pull request triggers CI - Components
+          token: ${{ secrets.PAT_TOKEN }}
