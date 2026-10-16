@@ -69,6 +69,7 @@ export function readCatalog(files) {
         locale,
         ...segments.flatMap((segment) => segment.split('.')),
       ]);
+      const previous = structures.get(identity);
 
       if (previous !== undefined && previous.kind !== kind) {
         // runtime merging would overwrite either the string or the namespace
