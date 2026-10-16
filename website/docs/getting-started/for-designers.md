@@ -16,7 +16,7 @@ The Design Systems Team maintains and publishes Figma libraries which contain fo
 
 1. Open the Library modal via one of the following methods:
 
-      - Click the `Assets` panel in the left sidebar, then click the `book` icon to open the modal.
+      - Click the `Assets` tab in the left navigation bar, then click the `book` icon to open the modal.
 
       ![Opening the library modal via the assets panel](/assets/getting-started/designers/enable-libraries-icon.png =295x*)
 
@@ -26,8 +26,8 @@ The Design Systems Team maintains and publishes Figma libraries which contain fo
 
       - Or use the keyboard shortcut:
 
-         - Mac: `⌥ option`+`3`
-         - Windows: `alt`+`3`
+         - Mac: `⌥ option`+`2`
+         - Windows: `alt`+`2`
 
 2. Enable the libraries by locating the **HDS Design System UI Kit** team and selecting "Add to file":
 
@@ -44,21 +44,21 @@ The Design Systems Team maintains and publishes Figma libraries which contain fo
 If you are not a member of the HDS Design System UI Kit team, you will need to look under the **Other teams** tab. If you’re having trouble finding these, search for "HDS" to find the Foundations, Components, Patterns, and Icon libraries.
 !!!
 
-Once the libraries are enabled, you can access the components from the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) or via the [resources menu](https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances#quick-insert) (`shift`+`i`) in the toolbar. In contrast, styles published by the Foundations library are available in the [design panel](https://help.figma.com/hc/en-us/articles/360039832014-Design-prototype-and-inspect-right-sidebar-#design) within the right sidebar.
+Once the libraries are enabled, components will be accessible in the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) or via the [resources menu](https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances#quick-insert) (`shift`+`i`) in the toolbar. Styles published in the Foundations library will be available in the [design panel](https://help.figma.com/hc/en-us/articles/360039832014-Design-prototype-and-inspect-right-sidebar-#design) in the right sidebar.
 
 ## Foundational styles
 
 Styles and variables, sometimes referred to as Tokens, allow consistent application of color (as a fill or stroke), typography, and effects within Figma. You can find these in the [Product Foundations v2.0 library](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?node-id=2916-4&t=z7hDCKFFuGUMDRYe-1).
 
-Because the usage of Helios Foundations reinforces consistency across the products, we don’t recommend detaching from these styles within your designs.
+The usage of Helios Foundations reinforces consistency across the products and provides access to theming. Themes will not be accessible if you detach from these styles within your designs.
 
-### Using styles in your project
+### Using styles and tokens in your project
 
 1. Select the object(s) to which you want to add a style (e.g., text layer, shape, or frame).
 
 2. In the properties panel, click the style icon (looks like four dots) next to the appropriate property (e.g., text, color, stroke, or effect).
 
-3. Select the style you wish to apply from the list of options. Ensure you choose styles within the **HDS - Product Foundations** library.
+3. Select the style or token you wish to apply from the list of options. Ensure you choose styles within the **HDS - Product Foundations** library.
 
 ![](/assets/getting-started/designers/apply-text-style.png =784x*)
 
@@ -72,7 +72,7 @@ To use icons within your project, first ensure the [Icons library](https://www.f
 
 1.  Open your project file within Figma.
 
-2.  Navigate to the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) by clicking "Assets" at the top of the left sidebar.
+2.  Navigate to the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) by clicking "Assets" on the left navigation bar.
 
 3.  Search or scroll to find the icon you need and drag it into your file.
 
@@ -89,7 +89,7 @@ A component inserted from a library into a project is called an [instance](https
 
 ### Adding components to your project
 
-Add Helios components to your design project by inserting them directly from the assets panel or resources menu or copying the component from the stickersheet and pasting it into your project.
+Add Helios components to your design project by inserting them directly from the assets panel or resources menu or copying the component from the stickersheet to paste into your project.
 
 #### Inserting from the assets panel
 
@@ -107,7 +107,7 @@ Add Helios components to your design project by inserting them directly from the
 
 Open the [resources menu](https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances#quick-insert) (`shift`+`i`) in the toolbar to expose a list of recently used components, plugins, and widgets enabled in your project. Use this method to access your more commonly or recently used components quickly.
 
-![Inserting components from the resources menu](/assets/getting-started/designers/component-resources-panel.png =321x*)
+![Inserting components from the resources menu](/assets/getting-started/designers/component-resources-panel.png)
 
 #### Copying from the stickersheet
 
@@ -131,13 +131,13 @@ Our Figma components are tightly coupled with their code counterparts to maintai
 
 When you detach a component, it no longer receives updates from the library, which can cause designs and production applications to drift out of sync quickly.
 
-[Contact the Design Systems Team](https://go.hashi.co/hds-support) for support or to request a new component if a component doesn’t meet your needs.
+[Contact the Design Systems Team](https://go.hashi.co/hds-support) for support or to request a new component.
 
 #### Overriding component styles
 
-While you can technically override the styles within a component without detaching it, we recommend against doing so without consulting the Design Systems Team first.
+While overriding styles within a component without detaching it is possible, we recommend against doing so without consulting the Design Systems Team first.
 
-Changing a component's color or font size may seem simple, but this can have trickle-down effects in code. Overriding styles forces engineers to create custom classes and styles to implement the changes. Overriding styles can have unexpected long-term effects within the [CSS cascade](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade#:~:text=The%20cascade%20is%20an%20algorithm,a%20property%20on%20an%20element) and lead to tech debt. In addition to being difficult to scale, overrides nudge the design language of your product out of sync with Helios and the rest of the HashiCorp product suite.
+Changing a component's color or font size may seem simple, but this can have trickle-down effects in code. Overriding styles forces engineers to create custom classes and styles to implement the changes. This may have unexpected long-term effects within the [CSS cascade](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade#:~:text=The%20cascade%20is%20an%20algorithm,a%20property%20on%20an%20element) and lead to tech debt. In addition to being difficult to scale, overrides nudge the design language of your product out of sync with Helios and the rest of the HashiCorp product suite.
 
 #### Resizing components
 
@@ -158,7 +158,7 @@ Components and patterns unique to your product should be designed and built loca
 
 ![Local component patterns](/assets/getting-started/designers/local-component-patterns.png =706x*)
 
-When creating local components for your product, it’s helpful to separate them from your main project files and house them in their own Figma library file. Using a dedicated library creates a consistent location for your product’s local components so that other designers on your team can access and use them.
+Create local components for your product in a separate file from your main project files and house them in their own Figma library file. A dedicated library creates a consistent location for your product’s components so other designers on your team can access and use them.
 
 Consider using [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) methods when designing and building local components. Helios components generally correspond with `atoms` and `molecules`, while more complex components correspond to `organisms`.
 
