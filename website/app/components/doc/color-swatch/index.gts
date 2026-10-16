@@ -4,7 +4,8 @@
  */
 
 import Component from '@glimmer/component';
-import { htmlSafe } from '@ember/template';
+import style from 'ember-style-modifier';
+import { eq } from 'ember-truth-helpers';
 
 import DocCopyButton from 'website/components/doc/copy-button';
 
@@ -15,6 +16,7 @@ interface DocColorSwatchSignature {
       cssVariable: string;
       cssHelper?: string;
       value: string;
+      modes: Record<string, string> | undefined;
     };
   };
   Blocks: {
@@ -36,21 +38,14 @@ export default class DocColorSwatch extends Component<DocColorSwatchSignature> {
     return this.args.color.cssHelper ?? false;
   }
 
-  get hexValue() {
-    return this.args.color.value;
+  get cdsModes() {
+    return this.args.color.modes;
   }
-
-  get cardStyle() {
-    let style = '';
-    style += `background-color: ${this.hexValue};`;
-    return htmlSafe(style);
-  }
-
   <template>
     <div class="doc-color-swatch">
       <div
-        class="doc-color-swatch__preview doc-color-swatch__preview-{{this.cssHelper}}"
-        style={{this.cardStyle}}
+        class="doc-color-swatch__color-preview"
+        {{style backgroundColor=@color.value}}
       ></div>
       <div class="doc-color-swatch__info">
         <h3 class="doc-color-swatch__name">{{this.colorName}}</h3>
@@ -72,8 +67,27 @@ export default class DocColorSwatch extends Component<DocColorSwatchSignature> {
           {{/if}}
           <li class="doc-color-swatch__listitem">
             <span class="doc-color-swatch__listitem--context">HEX</span>
-            <DocCopyButton @type="code" @textToCopy={{this.hexValue}} />
+            <DocCopyButton @type="code" @textToCopy={{@color.value}} />
           </li>
+          {{#if this.cdsModes}}
+            <li class="doc-color-swatch__listitem">
+              <span class="doc-color-swatch__listitem--context">Modes</span>
+              <div class="doc-color-swatch__modes">
+                {{#each-in this.cdsModes as |mode value|}}
+                  {{#unless (eq mode "default")}}
+                    <div class="doc-color-swatch__mode">
+                      <div
+                        class="doc-color-swatch__mode-preview"
+                        {{style backgroundColor=value}}
+                      ></div>
+                      <div class="doc-color-swatch__mode-name">{{mode}}</div>
+                      <DocCopyButton @type="code" @textToCopy={{value}} />
+                    </div>
+                  {{/unless}}
+                {{/each-in}}
+              </div>
+            </li>
+          {{/if}}
         </ul>
       </div>
     </div>
