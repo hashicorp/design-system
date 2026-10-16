@@ -1,12 +1,41 @@
-## Theming in HDS
+## How theming works in HDS
 
-Theming allows applications to switch between visual appearances at runtime, e.g., light vs dark theme. Introduced in HDS [v7.0](whats-new/release-notes#700), it supports our transition from the "classic" Helios visual language to [IBM's visual language](https://www.ibm.com/design/language/). 
+Theming allows applications to switch between visual appearances at runtime, e.g., light and dark. Introduced in HDS [v7.0](/whats-new/release-notes#700), it supports our transition from the "classic" Helios visual language to [IBM's visual language](https://www.ibm.com/design/language/).
 
 See [From Helios to Carbon](/carbonization/introduction) for more details about this process.
 
-We expect product teams to "carbonize" their applications at their own pace. This means that some applications will continue using the "classic" HDS visual language for some time, while others will start migrating and will need both visual languages to co-exist in the same application, and once fully migrated they will use only the "carbonized" HDS.
+We expect product teams to "carbonize" their applications at their own pace. Some applications will continue using the "classic" HDS visual language for some time. Others will start migrating and need both visual languages to coexist in the same application. Once fully migrated, they will use only the "carbonized" HDS visual language.
 
-This means that two visual languages need to be supported in HDS, at the same time:
+This means that two visual languages need to be supported in HDS at the same time:
 
-- **"classic" HDS** – the original, light-only visual language (doesn't have theming)
-- **"carbonized" HDS** – the IBM Carbon visual language applied to HDS, with support for both light and dark variants (more precisely, multiple color modes; see [Themes and modes](#themes-and-modes) below).
+- **"Classic" HDS** is the original, light-only visual language. It doesn't have theming.
+- **"Carbonized" HDS** is the IBM Carbon visual language applied to HDS. It supports light and dark variants, more precisely described as color modes.
+
+## Themes and modes
+
+We distinguish between two related concepts:
+
+- A **theme** is what an application exposes to its users: `default` (the "classic" HDS appearance), `system`, `light`, or `dark`.
+- A **mode** is the underlying IBM Carbon configuration that provides the values for a theme. Light themes use `cds-g0` or `cds-g10`; dark themes use `cds-g90` or `cds-g100`.
+
+The `system` theme follows the user's operating system preference. Applications can support different sets of themes and modes depending on their needs and stage of migration.
+
+Themes and modes are related but not interchangeable. A theme is a product-facing choice, while a mode is the underlying configuration used to render that choice. Most products should expose themes rather than individual modes.
+
+## Applying themes
+
+A theme applies a coordinated set of HDS values across an application. It is not limited to swapping individual colors. Components and foundations can change together to support the selected visual language and appearance.
+
+Use one theme for the application by default. A local theme can be applied to a bounded portion of the interface when it has a clear and durable purpose, such as application chrome. Avoid using local themes only to add decorative contrast or to compensate for unsupported styling.
+
+For implementation details, see the [Code](#code) tab. For guidance on the user interface and behavior of a theme switcher, see [Theme selection](/patterns/theme-selection).
+
+## Adopting theming
+
+Adopting theming is part of the broader process of [carbonizing an application](/carbonization/introduction). This process is typically gradual because it requires updating the visual language of an existing application. Before you begin, [contact the Design System Team](/about/support) to plan the migration.
+
+The migration of existing applications usually progresses through three stages.
+
+1. **Not yet migrated:** Applications can continue to use the "classic" visual language until they are ready to begin the migration.
+2. **Migrating:** Applications can support the "classic" and "carbonized" visual languages at the same time while product teams migrate their interfaces incrementally. Treat this as a temporary migration state. Coordinate the initial effort with the [Design System Team](/about/support).
+3. **Fully migrated:** Once an application is fully migrated, it uses the "carbonized" visual language and supports the themes that the product has chosen to expose.
