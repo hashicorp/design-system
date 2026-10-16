@@ -191,6 +191,86 @@ describe('translation CLIs', () => {
     );
   });
 
+  test('export with --lang flattens committed locale files for write-back', () => {
+    writeFiles(translations, [
+      {
+        file: 'hds/components/tag/fr-fr.yaml',
+        source: 'dismiss-button:\n  aria-label: Retirer {text}\n',
+      },
+    ]);
+
+    const out = path.join(directory, 'out', 'fr.json');
+    const result = run('export-translations.mjs', [
+      '--out',
+      out,
+      '--lang',
+      'fr',
+      '--translations',
+      translations,
+    ]);
+
+    assert.equal(result.status, 0, result.stderr);
+    assert.match(result.stdout, /Exported 2 fr-fr translations/);
+    assert.deepEqual(JSON.parse(readFileSync(out, 'utf8')), {
+      'hds.components.alert.close': 'Fermer',
+      'hds.components.tag.dismiss-button.aria-label': 'Retirer {text}',
+    });
+  });
+
+  test('a written-back correction survives the next sync', () => {
+    // gp returns the definitions uploaded on merge
+    const result = run('import-translations.mjs', [
+      '--in',
+      path.join(directory, 'out', 'fr.json'),
+      '--lang',
+      'fr',
+      '--translations',
+      translations,
+    ]);
+
+    assert.equal(result.status, 0, result.stderr);
+    assert.equal(
+      readFileSync(
+        path.join(translations, 'hds/components/tag/fr-fr.yaml'),
+        'utf8'
+      ),
+      'dismiss-button:\n  aria-label: Retirer {text}\n'
+    );
+  });
+
+  test('a key removed by a reviewer is proposed again on the next sync', () => {
+    writeFiles(translations, [
+      { file: 'hds/components/alert/fr-fr.yaml', source: null },
+    ]);
+    writeFiles(directory, [
+      {
+        file: 'mt.json',
+        source: serializeFlat({
+          'hds.components.alert.close': 'Fermer',
+          'hds.components.tag.dismiss-button.aria-label': 'Retirer {text}',
+        }),
+      },
+    ]);
+
+    const result = run('import-translations.mjs', [
+      '--in',
+      path.join(directory, 'mt.json'),
+      '--lang',
+      'fr',
+      '--translations',
+      translations,
+    ]);
+
+    assert.equal(result.status, 0, result.stderr);
+    assert.equal(
+      readFileSync(
+        path.join(translations, 'hds/components/alert/fr-fr.yaml'),
+        'utf8'
+      ),
+      'close: Fermer\n'
+    );
+  });
+
   test('fail with a message when required arguments are missing', () => {
     const exportResult = run('export-translations.mjs', []);
     const importResult = run('import-translations.mjs', ['--lang', 'fr']);
@@ -199,5 +279,19 @@ describe('translation CLIs', () => {
     assert.match(exportResult.stderr, /Missing required --out/);
     assert.equal(importResult.status, 1);
     assert.match(importResult.stderr, /Missing required --in/);
+  });
+
+  test('export rejects unsupported languages', () => {
+    const result = run('export-translations.mjs', [
+      '--out',
+      path.join(directory, 'out', 'de.json'),
+      '--lang',
+      'de',
+      '--translations',
+      translations,
+    ]);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stderr, /Unsupported language "de"/);
   });
 });
