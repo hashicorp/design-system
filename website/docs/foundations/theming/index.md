@@ -13,7 +13,7 @@ navigation:
 
 
 <section data-tab="Guidelines">
-  @include "partials/guidelines/todo.md"
+  @include "partials/guidelines/index.md"
 </section>
 
 <section data-tab="Code">
