@@ -3,8 +3,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-// the only module that knows the exchange format with the globalization pipeline
-
 export function serializeFlat(flat) {
   return `${JSON.stringify(flat, null, 2)}\n`;
 }
