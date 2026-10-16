@@ -13,7 +13,7 @@ A beacon can be used to highlight a new or updated feature, or draw attention to
 
 Clicking on the beacon should toggle a [Rich Tooltip](/components/rich-tooltip) containing information about the feature.
 
-![A Beacon attached to a button used to highlight a new function to analyzing your configuration using an AI agent](/assets/patterns/new-feature-onboarding/new-feature-onboarding-beacon-example.png)
+![A Beacon attached to a button used to highlight a new function to analyze your configuration using an AI agent](/assets/patterns/new-feature-onboarding/new-feature-onboarding-beacon-example.png)
 
 ## Rich Tooltip
 
