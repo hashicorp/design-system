@@ -117,7 +117,9 @@ The `Dropdown::Toggle::Button` component, yielded as contextual component.
   <C.Property @name="text" @required={{true}} @type="string">
     Text of the ToggleButton. If no text value is defined, an error will be thrown.
   </C.Property>
-  <C.Property @name="color" @type="enum" @values={{array "primary" "secondary" }} @default="primary"/>
+  <C.Property @name="color" @type="enum" @values={{array "primary" "secondary" "secondary-muted" }} @default="primary">
+    _Note: `secondary-muted` is visually identical to `secondary` for the HDS theme, but differs for Carbon themes._
+  </C.Property>
   <C.Property @name="size" @type="enum" @values={{array "medium" "small" }} @default="medium"/>
   <C.Property @name="isFullWidth" @type="boolean" @default="false">
     Indicates that a button should take up the full width of the parent container.
