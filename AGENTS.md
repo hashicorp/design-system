@@ -3,7 +3,7 @@
 ## Requirements
 
 - Node.js `24.X` (pinned via `.nvmrc` / `.tool-versions` for asdf/mise)
-- pnpm `12.11.2` (`>= 12.0.0` required)
+- pnpm `12.14.0` (`>= 12.0.0` required)
 
 ## Monorepo Structure
 
