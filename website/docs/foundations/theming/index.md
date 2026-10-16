@@ -1,7 +1,7 @@
 ---
 title: Theming
-caption: TODO theming caption
-description: TODO theming description
+caption: Theming supports the transition from the HDS visual language to IBM Carbon and Carbonized HDS.
+description: Theming supports the transition from the HDS visual language to IBM Carbon and Carbonized HDS.
 related:
   - carbonization/introduction
   - theming/theme-context

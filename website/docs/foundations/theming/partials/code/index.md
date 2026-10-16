@@ -1,36 +1,19 @@
-## How theming works in HDS
+## Implementing theming
 
-Theming allows applications to switch between visual appearances at runtime, e.g., light vs dark theme. Introduced in HDS [v7.0](whats-new/release-notes#700), it supports our transition from the "classic" Helios visual language to [IBM's visual language](https://www.ibm.com/design/language/). 
+!!! Info
 
-See [From Helios to Carbon](/carbonization/introduction) for more details about this process.
+For a general overview of theming, visual languages, themes, modes, and migration stages, see the [Guidelines](#guidelines) tab.
+!!!
 
-We expect product teams to "carbonize" their applications at their own pace. This means that some applications will continue using the "classic" HDS visual language for some time, while others will start migrating and will need both visual languages to co-exist in the same application, and once fully migrated they will use only the "carbonized" HDS.
-
-This means that two visual languages need to be supported in HDS, at the same time:
-
-- **"classic" HDS** – the original, light-only visual language (doesn't have theming)
-- **"carbonized" HDS** – the IBM Carbon visual language applied to HDS, with support for both light and dark variants (more precisely, multiple color modes; see [Themes and modes](#themes-and-modes) below).
-
-To support all of these scenarios, HDS provides several pre-built sets of themed tokens, so each application can import only the visual language(s) it needs. See [Themed tokens](#themed-tokens) below.
+HDS provides several pre-built sets of themed tokens, so each application can import only the visual language or languages it needs. See [Themed tokens](#themed-tokens) below.
 
 Each set of themed tokens declares its design tokens under `hds-theme-*`/`hds-mode-*` CSS selectors, one for each theme/mode it supports. Then, applying a theme is as simple as adding the corresponding class name to the `<html>` element of the page. This is what a dedicated [`hdsTheming` service](#hdstheming-service) does under the hood.
 
 It's also possible to apply local overrides of the global theme, scoping them to only a portion of the page using the [`ThemeContext`](#themecontext) component. This works by applying the same `hds-theme-*`/`hds-mode-*` classes to a DOM container, affecting how its content is themed.
 
-### Themes and modes
-
-We distinguish between two related concepts:
-
-- a **theme** is what an application exposes to its users: `default` (the "classic" HDS), `system`, `light`, or `dark`.
-- a **mode** is the underlying IBM Carbon mode that provides the token values for a theme: `cds-g0` or `cds-g10` for light themes, `cds-g90` or `cds-g100` for dark themes.
-
-The `system` theme follows the user's operating system preference via the `prefers-color-scheme` media query. This is handled entirely in CSS, so an application doesn't need to listen for changes.
-
-Which themes and modes are available to an application depends on the themed tokens file it imports.
-
 ### Themed tokens
 
-The design tokens package, `@hashicorp/design-system-tokens`, provides three pre-built CSS/Sass bundles of themed tokens, each aimed at a different stage of the "carbonization" journey described in the previous section.
+The design tokens package, `@hashicorp/design-system-tokens`, provides three pre-built CSS/Sass bundles of themed tokens, each aimed at a different stage of carbonization.
 
 | File                          | Themes supported                               | Carbon modes                                      |
 | ------------------------------ | ------------------------------------- | -------------------------------------------- |
@@ -70,9 +53,7 @@ _Note: this special mixin should be used sparingly, only during migration and on
 
 ## How to adopt theming in your application
 
-Adopting theming is part of the broader process of ["carbonization"](/carbonization/introduction) of an an application. This process is typically gradual because it requires updating the visual language of an existing application. Before you begin, [contact the Design System Team](/about/support) to plan the migration and get guidance on the appropriate themed tokens file.
-
-The migration of existing applications usually progresses through three stages.
+Before you begin, [contact the Design System Team](/about/support) to plan the migration and get guidance on the appropriate themed tokens file. The migration stages are described in the [Guidelines](#guidelines) tab.
 
 ### Not yet migrated
 
