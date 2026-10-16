@@ -1,0 +1,26 @@
+## Helios to Carbon
+
+!!! Warning
+
+**Experimental**
+
+This skill is experimental. It has limitations and may change as we learn from usage.
+
+!!!
+
+The `helios-to-carbon` skill helps you evaluate and migrate Helios component usage to Carbon Web Components.
+
+This skill is for experimenting with the requirements and work required to change a Helios component for a [Carbon Web Component](https://web-components.carbondesignsystem.com/?path=/docs/introduction-welcome--overview). 
+
+Not all components have mappings because some components or arguments don't have direct equivalents. So far, the skill covers Accordion, Alert, Badge, Button, ButtonSet, and Text Input.
+
+[Download the `helios-to-carbon` skill (.zip)](/assets/tooling/ai-skills/helios-to-carbon-skill-v1.zip)
+
+### What the skill does
+
+- Identify Helios component usage in a target file, directory, or glob
+- Propose direct Carbon Web Component replacements
+- Apply high-confidence swaps with auditable migration artifacts
+- Flag lower-confidence cases for manual review
+
+To get support or report an issue, visit the [support](/about/support) page.
