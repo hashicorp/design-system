@@ -8,7 +8,7 @@ import { describe, test } from 'node:test';
 import { fileURLToPath } from 'node:url';
 import { load } from 'js-yaml';
 
-import { collect, localeFilePattern } from './files.mjs';
+import { collect, isLocaleFile } from './files.mjs';
 import { flattenLocale } from './flatten.mjs';
 import { buildLocaleFiles } from './unflatten.mjs';
 
@@ -172,11 +172,79 @@ describe('buildLocaleFiles', () => {
     );
   });
 
+  test('double-quotes plain values that js-yaml would not load as strings', () => {
+    const { files } = build(
+      [{ file: 'hds/en-us.yaml', source: 'date: plain\nnumber: plain\n' }],
+      { 'hds.date': '2024-01-01', 'hds.number': '1_000' }
+    );
+
+    assert.equal(files[0]?.source, 'date: "2024-01-01"\nnumber: "1_000"\n');
+  });
+
+  test('throws instead of erasing translations when no input keys match', () => {
+    const sourceFiles = [{ file: 'hds/en-us.yaml', source: 'a: A\n' }];
+
+    for (const flat of [{}, { 'hds.removed': 'Supprimé' }, { 'hds.a': ' ' }]) {
+      assert.throws(
+        () =>
+          buildLocaleFiles({
+            sourceFiles,
+            flat,
+            locale: 'fr-fr',
+            previous: { 'hds.a': 'A fr' },
+          }),
+        /No input translations match the source catalog keys/
+      );
+    }
+  });
+
+  test('keeps previous translations for keys the input omits', () => {
+    const { files } = buildLocaleFiles({
+      sourceFiles: [{ file: 'hds/en-us.yaml', source: 'a: A\nb: B\nc: C\n' }],
+      flat: { 'hds.a': 'A nouveau' },
+      locale: 'fr-fr',
+      previous: {
+        'hds.a': 'A ancien',
+        'hds.b': 'B ancien',
+        'hds.removed': 'Supprimé',
+      },
+    });
+
+    assert.deepEqual(files, [
+      { file: 'hds/fr-fr.yaml', source: 'a: A nouveau\nb: B ancien\n' },
+    ]);
+  });
+
+  test('treats blank values as untranslated and reports them', () => {
+    const { files, blankKeys } = buildLocaleFiles({
+      sourceFiles: [{ file: 'hds/en-us.yaml', source: 'a: A\nb: B\nc: C\n' }],
+      flat: { 'hds.a': 'A fr', 'hds.b': '', 'hds.c': '  ' },
+      locale: 'fr-fr',
+      previous: { 'hds.c': 'C ancien' },
+    });
+
+    assert.deepEqual(files, [
+      { file: 'hds/fr-fr.yaml', source: 'a: A fr\nc: C ancien\n' },
+    ]);
+    assert.deepEqual(blankKeys, ['hds.b', 'hds.c']);
+  });
+
+  test('throws on invalid icu messages', () => {
+    assert.throws(
+      () =>
+        build([{ file: 'hds/en-us.yaml', source: 'a: A\nb: B\n' }], {
+          'hds.a': '{count, plural, one {#}',
+          'hds.b': 'Fermer {text',
+        }),
+      /^Error: Invalid ICU messages: hds\.a \(MISSING_OTHER_CLAUSE\), hds\.b \(/
+    );
+  });
+
   test('round-trips the library catalog exactly with an identity map', () => {
     const translations = fileURLToPath(
       new URL('../../translations', import.meta.url)
     );
-    const sourceFiles = collect(translations, localeFilePattern('en-us'));
+    const sourceFiles = collect(translations, isLocaleFile('en-us'));
     const flat = flattenLocale(sourceFiles, 'en-us');
 
     const { files, unknownKeys } = buildLocaleFiles({

@@ -246,6 +246,9 @@ importers:
       '@eslint/js':
         specifier: ^9.23.0
         version: 9.32.0
+      '@formatjs/icu-messageformat-parser':
+        specifier: 3.3.0
+        version: 3.3.0
       '@glimmer/component':
         specifier: ^2.0.0
         version: 2.0.0

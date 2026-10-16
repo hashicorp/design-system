@@ -10,11 +10,8 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 
-import {
-  collect,
-  localeFilePattern,
-  writeFiles,
-} from './translations/files.mjs';
+import { collect, isLocaleFile, writeFiles } from './translations/files.mjs';
+import { flattenLocale } from './translations/flatten.mjs';
 import { parseFlat } from './translations/serialize.mjs';
 import {
   SOURCE_LOCALE,
@@ -40,13 +37,13 @@ try {
   }
 
   const locale = toEmberLocale(values.lang);
-  const { files, unknownKeys } = buildLocaleFiles({
-    sourceFiles: collect(values.translations, localeFilePattern(SOURCE_LOCALE)),
+  const existing = collect(values.translations, isLocaleFile(locale));
+  const { files, unknownKeys, blankKeys } = buildLocaleFiles({
+    sourceFiles: collect(values.translations, isLocaleFile(SOURCE_LOCALE)),
     flat: parseFlat(readFileSync(values.in, 'utf8')),
     locale,
-    existingFiles: collect(values.translations, localeFilePattern(locale)).map(
-      ({ file }) => file
-    ),
+    previous: flattenLocale(existing, locale),
+    existingFiles: existing.map(({ file }) => file),
   });
 
   writeFiles(values.translations, files);
@@ -54,6 +51,10 @@ try {
   // stale keys are expected while the pipeline catches up with english changes
   for (const key of unknownKeys) {
     console.warn(`Skipped ${key}: not present in ${SOURCE_LOCALE}`);
+  }
+
+  for (const key of blankKeys) {
+    console.warn(`Skipped ${key}: blank translation`);
   }
 
   const written = files.filter(({ source }) => source !== null).length;

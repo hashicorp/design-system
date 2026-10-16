@@ -11,7 +11,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 
-import { collect, localeFilePattern } from './translations/files.mjs';
+import { collect, isLocaleFile } from './translations/files.mjs';
 import { flattenLocale } from './translations/flatten.mjs';
 import { serializeFlat } from './translations/serialize.mjs';
 import { SOURCE_LOCALE } from './translations/straker.config.mjs';
@@ -33,7 +33,7 @@ try {
   }
 
   const flat = flattenLocale(
-    collect(values.translations, localeFilePattern(SOURCE_LOCALE)),
+    collect(values.translations, isLocaleFile(SOURCE_LOCALE)),
     SOURCE_LOCALE
   );
 

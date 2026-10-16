@@ -8,17 +8,17 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { formatDiagnostic } from './translations/catalog.mjs';
-import { collect } from './translations/files.mjs';
+import { collect, isYamlFile } from './translations/files.mjs';
 import { validateTranslations } from './translations/validate.mjs';
 
 const packageRoot = fileURLToPath(new URL('..', import.meta.url));
 
 try {
   const result = validateTranslations({
-    catalogs: collect(path.join(packageRoot, 'translations'), /\.ya?ml$/),
+    catalogs: collect(path.join(packageRoot, 'translations'), isYamlFile),
     sources: collect(
       path.join(packageRoot, 'src'),
-      /(?<!\.d)\.(?:ts|gts)$/,
+      (file) => /(?<!\.d)\.(?:ts|gts)$/.test(file),
       'src/'
     ),
   });

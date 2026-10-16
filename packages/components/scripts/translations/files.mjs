@@ -12,25 +12,28 @@ import {
 } from 'node:fs';
 import path from 'node:path';
 
+import { localeOf } from './catalog.mjs';
+
 // returns { file, source } entries with posix paths relative to the directory
-export function collect(directory, pattern, prefix = '') {
+export function collect(directory, include, prefix = '') {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     const absolute = path.join(directory, entry.name);
     const file = `${prefix}${entry.name}`;
 
     if (entry.isDirectory()) {
-      return collect(absolute, pattern, `${file}/`);
+      return collect(absolute, include, `${file}/`);
     }
 
-    return pattern.test(file)
+    return include(file)
       ? [{ file, source: readFileSync(absolute, 'utf8') }]
       : [];
   });
 }
 
-export function localeFilePattern(locale) {
-  return new RegExp(`(?:^|/)${locale}\\.ya?ml$`);
-}
+export const isYamlFile = (file) => /\.ya?ml$/.test(file);
+
+export const isLocaleFile = (locale) => (file) =>
+  isYamlFile(file) && localeOf(file) === locale;
 
 // a null source deletes the file
 export function writeFiles(directory, files) {

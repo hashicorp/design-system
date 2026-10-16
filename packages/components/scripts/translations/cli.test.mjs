@@ -11,7 +11,7 @@ import path from 'node:path';
 import { after, describe, test } from 'node:test';
 import { fileURLToPath } from 'node:url';
 
-import { writeFiles } from './files.mjs';
+import { isLocaleFile, writeFiles } from './files.mjs';
 import { parseFlat, serializeFlat } from './serialize.mjs';
 import { toEmberLocale } from './straker.config.mjs';
 
@@ -30,6 +30,23 @@ describe('straker config', () => {
   test('rejects unsupported languages', () => {
     assert.throws(() => toEmberLocale('de'), /Unsupported language "de"/);
     assert.throws(() => toEmberLocale('toString'), /Unsupported language/);
+  });
+});
+
+describe('locale files', () => {
+  test('match locale filenames the same way as ember-intl', () => {
+    const isEnglish = isLocaleFile('en-us');
+
+    assert.deepEqual(
+      [
+        'hds/en-us.yaml',
+        'hds/en_US.yml',
+        'hds/EN-us.yaml',
+        'hds/fr-fr.yaml',
+        'hds/en-us.json',
+      ].map(isEnglish),
+      [true, true, true, false, false]
+    );
   });
 });
 
@@ -117,6 +134,60 @@ describe('translation CLIs', () => {
     assert.equal(
       existsSync(path.join(translations, 'hds/components/gone/fr-fr.yaml')),
       false
+    );
+  });
+
+  test('import keeps existing translations that the input omits', () => {
+    writeFiles(directory, [
+      {
+        file: 'fr.json',
+        source: serializeFlat({ 'hds.components.alert.close': 'Fermer' }),
+      },
+    ]);
+
+    const result = run('import-translations.mjs', [
+      '--in',
+      path.join(directory, 'fr.json'),
+      '--lang',
+      'fr',
+      '--translations',
+      translations,
+    ]);
+
+    assert.equal(result.status, 0, result.stderr);
+    assert.equal(
+      readFileSync(
+        path.join(translations, 'hds/components/tag/fr-fr.yaml'),
+        'utf8'
+      ),
+      'dismiss-button:\n  aria-label: Fermer {text}\n'
+    );
+    assert.equal(
+      readFileSync(
+        path.join(translations, 'hds/components/alert/fr-fr.yaml'),
+        'utf8'
+      ),
+      'close: Fermer\n'
+    );
+  });
+
+  test('import fails without touching files when the input is empty', () => {
+    writeFiles(directory, [{ file: 'empty.json', source: '{}\n' }]);
+
+    const result = run('import-translations.mjs', [
+      '--in',
+      path.join(directory, 'empty.json'),
+      '--lang',
+      'fr',
+      '--translations',
+      translations,
+    ]);
+
+    assert.equal(result.status, 1);
+    assert.match(result.stderr, /No input translations match/);
+    assert.equal(
+      existsSync(path.join(translations, 'hds/components/tag/fr-fr.yaml')),
+      true
     );
   });
 
