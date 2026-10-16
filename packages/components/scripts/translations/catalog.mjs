@@ -7,6 +7,16 @@ import path from 'node:path';
 import { load } from 'js-yaml';
 import { isMap, isScalar, LineCounter, parseDocument } from 'yaml';
 
+// matches ember-intl's filename and locale normalization
+export function localeOf(file) {
+  return path.posix
+    .basename(file)
+    .split('.')[0]
+    .replace(/_/g, '-')
+    .trim()
+    .toLowerCase();
+}
+
 export function readCatalog(files) {
   const records = [];
   const diagnostics = [];
@@ -16,14 +26,7 @@ export function readCatalog(files) {
   for (const { file, source } of files) {
     const lines = new LineCounter();
     const document = parseDocument(source, { lineCounter: lines });
-
-    // match ember-intl's filename and locale normalization before comparing records
-    const locale = path.posix
-      .basename(file)
-      .split('.')[0]
-      .replace(/_/g, '-')
-      .trim()
-      .toLowerCase();
+    const locale = localeOf(file);
     const directory = path.posix.dirname(file);
     const namespace = directory === '.' ? [] : directory.split('/');
 
@@ -127,6 +130,7 @@ export function readCatalog(files) {
 
           records.push({
             key: fullKey,
+            value: loadedValue,
             locale,
             file: `translations/${file}`,
             ...lines.linePos(offset),
@@ -141,4 +145,21 @@ export function readCatalog(files) {
   }
 
   return { records, diagnostics };
+}
+
+export function formatDiagnostic({ file, line, col, category, message }) {
+  return `${file}:${line}:${col} [${category}] ${message}`;
+}
+
+// for pipelines that must not proceed from a catalog that ember-intl would misread
+export function readValidCatalog(files) {
+  const { records, diagnostics } = readCatalog(files);
+
+  if (diagnostics.length > 0) {
+    throw new Error(
+      `Invalid translation catalog:\n${diagnostics.map(formatDiagnostic).join('\n')}`
+    );
+  }
+
+  return records;
 }

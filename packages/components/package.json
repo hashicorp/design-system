@@ -35,6 +35,8 @@
     "test:dist-files": "node scripts/check-dist-files.mjs",
     "test:component-catalog": "node scripts/check-component-catalog.mjs",
     "test:translations": "node --test \"scripts/translations/*.test.mjs\"",
+    "translations:export": "node scripts/export-translations.mjs",
+    "translations:import": "node scripts/import-translations.mjs",
     "prepublishOnly": "pnpm build && pnpm test:dist-files"
   },
   "dependencies": {
@@ -90,6 +92,7 @@
     "@ember/test-helpers": "^4.0.4",
     "@embroider/addon-dev": "^8.2.0",
     "@eslint/js": "^9.23.0",
+    "@formatjs/icu-messageformat-parser": "3.3.0",
     "@glimmer/component": "^2.0.0",
     "@glimmer/syntax": "0.95.0",
     "@glint/ember-tsc": "^1.5.0",

@@ -4,43 +4,27 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { formatDiagnostic } from './translations/catalog.mjs';
+import { collect, isYamlFile } from './translations/files.mjs';
 import { validateTranslations } from './translations/validate.mjs';
 
 const packageRoot = fileURLToPath(new URL('..', import.meta.url));
 
-function collect(directory, pattern, prefix = '') {
-  return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
-    const absolute = path.join(directory, entry.name);
-    const file = `${prefix}${entry.name}`;
-
-    if (entry.isDirectory()) {
-      return collect(absolute, pattern, `${file}/`);
-    }
-
-    return pattern.test(file)
-      ? [{ file, source: readFileSync(absolute, 'utf8') }]
-      : [];
-  });
-}
-
 try {
   const result = validateTranslations({
-    catalogs: collect(path.join(packageRoot, 'translations'), /\.ya?ml$/),
+    catalogs: collect(path.join(packageRoot, 'translations'), isYamlFile),
     sources: collect(
       path.join(packageRoot, 'src'),
-      /(?<!\.d)\.(?:ts|gts)$/,
+      (file) => /(?<!\.d)\.(?:ts|gts)$/.test(file),
       'src/'
     ),
   });
 
   for (const diagnostic of result.diagnostics) {
-    console.error(
-      `${diagnostic.file}:${diagnostic.line}:${diagnostic.col} [${diagnostic.category}] ${diagnostic.message}`
-    );
+    console.error(formatDiagnostic(diagnostic));
   }
 
   console.log(
