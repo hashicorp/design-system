@@ -21,7 +21,7 @@ This approach makes HashiCorp products *look and feel* like IBM products without
 You'll notice a few key updates in Figma:
 
 - Addition of component variables
-- Relocation of oundational variables into the Components v2.0 library
+- Relocation of foundational variables into the Components v2.0 library
 - Introduction of design modes
 
 ### Component variables
