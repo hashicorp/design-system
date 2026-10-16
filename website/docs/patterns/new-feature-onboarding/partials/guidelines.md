@@ -25,7 +25,7 @@ At a minimum, we recommend including text about the feature, but other common el
 - [Badge](/components/badge): to communicate the status of the new feature; e.g., "Alpha", "Beta", "New", "Updated".
 - Actions: use one or more [Buttons](/components/button) to navigate a multi-step onboarding flow.
 
-![Content within a Rich Tooltip explaining the value of the new feature](/assets/patterns/new-feature-onboarding/new-feature-onboarding-auto-configuration-example.png)
+![Rich tooltip with a "new" badge. The title is "Automatically configure your stack". There are next, back and skip buttons.](/assets/patterns/new-feature-onboarding/new-feature-onboarding-auto-configuration-example.png)
 
 ## Persistence and display
 
