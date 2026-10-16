@@ -65,9 +65,10 @@ export function readCatalog(files) {
     }
 
     function register(segments, kind, offset) {
-      // retain segment boundaries to distinguish dotted keys from nested mappings
-      const identity = JSON.stringify([locale, ...segments]);
-      const previous = structures.get(identity);
+      const identity = JSON.stringify([
+        locale,
+        ...segments.flatMap((segment) => segment.split('.')),
+      ]);
 
       if (previous !== undefined && previous.kind !== kind) {
         // runtime merging would overwrite either the string or the namespace
