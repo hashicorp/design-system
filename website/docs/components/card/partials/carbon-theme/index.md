@@ -4,7 +4,7 @@ The HDS classic theme uses changes in elevation level to indicate interactivity 
 
 On Carbon themes, the background color of the card changes on hover to indicate interaction. No visual changes occur on `active`.
 
-<Doc::Carbonization::ComparisonGroup @display="flex" as |CG|>
+<Doc::Carbonization::ComparisonGroup @display="grid" as |CG|>
   {{#each (array "default" "light" "dark") as |context|}}
     <CG.Item @context={{context}}>
       <div class="doc-card-interactive-demo">
@@ -22,10 +22,10 @@ On Carbon themes, the background color of the card changes on hover to indicate 
 
 In Carbon themes, cards do not contain borders so the `@hasBorder` argument has no effect.
 
-<Doc::Carbonization::ComparisonGroup @display="flex" as |CG|>
+<Doc::Carbonization::ComparisonGroup @display="grid" as |CG|>
   {{#each (array "default" "light" "dark") as |context|}}
     <CG.Item @context={{context}}>
-      <Hds::Layout::Flex @gap="16" class="doc-card-list-demo">
+      <Hds::Layout::Flex @gap="16" class="doc-card-list-demo" @direction="column">
         <Hds::Card::Container @hasBorder={{false}} class="doc-card-list-demo__item">
           Without border
         </Hds::Card::Container>
