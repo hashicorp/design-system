@@ -609,7 +609,7 @@ importers:
     dependencies:
       '@hashicorp/design-system-components':
         specifier: workspace:^7.0.0
-        version: file:packages/components(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1))(ember-intl@8.0.2(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.2))(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+        version: file:packages/components(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1))(ember-intl@8.0.2(@babel/core@7.28.0(supports-color@8.1.1))(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.2))(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
       '@hashicorp/design-system-tokens':
         specifier: workspace:^6.0.0
         version: link:../tokens
@@ -15128,8 +15128,8 @@ snapshots:
 
   '@handlebars/parser@2.2.2': {}
 
-  '@hashicorp/design-system-components@file:packages/components(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1))(ember-intl@8.0.2(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.2))(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)':
-    dependencies:
+  ? '@hashicorp/design-system-components@file:packages/components(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1))(ember-intl@8.0.2(@babel/core@7.28.0(supports-color@8.1.1))(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.2))(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)'
+  : dependencies:
       '@codemirror/autocomplete': 6.20.0
       '@codemirror/commands': 6.8.1
       '@codemirror/lang-go': 6.0.1
@@ -15175,7 +15175,7 @@ snapshots:
       tippy.js: 6.3.7
       tracked-built-ins: 4.0.0(@babel/core@7.28.0(supports-color@8.1.1))(supports-color@8.1.1)
     optionalDependencies:
-      ember-intl: 8.0.2(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.2)
+      ember-intl: 8.0.2(@babel/core@7.28.0(supports-color@8.1.1))(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.2)
     transitivePeerDependencies:
       - '@babel/core'
       - '@ember/test-helpers'
@@ -20825,7 +20825,7 @@ snapshots:
       - supports-color
       - typescript
 
-  ember-intl@8.0.2(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.2):
+  ember-intl@8.0.2(@babel/core@7.28.0(supports-color@8.1.1))(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.2):
     dependencies:
       '@embroider/addon-shim': 1.10.2(supports-color@8.1.1)
       '@formatjs/intl': 4.0.9(typescript@5.9.2)
