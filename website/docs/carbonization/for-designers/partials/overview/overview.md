@@ -30,8 +30,6 @@ While we have supported [variables](https://help.figma.com/hc/en-us/articles/145
 
 You can generally ignore these variables. However, if you build custom components or heavily modify existing ones, using component-level variables gives you built-in theming and consistency with HDS, saving you from defining custom tokens for every mode.
 
-[TODO: add example]
-
 See our [color guidelines](/foundations/colors) to learn more about HDS tokens.
 
 ### Foundational variables have moved
@@ -53,3 +51,5 @@ To support our shared design language, we introduced [modes](https://help.figma.
 `cds-10` and `cds-90` are secondary theme variants available within Carbon. While some teams are already exploring them, we recommend HashiCorp products use `cds-0` for light mode and `cds-100` for dark mode. We will update this guidance as details about Carbon v12 become public.
 
 !!!
+
+See our [guidelines on theming](heather-to-add-link) to learn how to use themes.
