@@ -23,7 +23,7 @@ Modes can be switched on layers, frames, components and component sets, sections
 To switch modes for an object:
 
 1. Select the layer, group, or other container object.
-2. Find to Appearance section of the right sidebar click the "Appy variable mode" icon.
+2. Find to Appearance section of the right sidebar click the "Apply variable mode" icon.
 3. Hover over the "Themes" collection and select a mode.
 
 ![](/assets/carbonization/designers/switch-modes-object.png)
