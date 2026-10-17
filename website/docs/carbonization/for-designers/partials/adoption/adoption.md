@@ -18,7 +18,29 @@ To minimize manual updates, ensure that:
 
 ### Switch modes in Figma
 
-[TODO: add instructions for how to switch modes]
+Modes can be switched on layers, frames, components and component sets, sections, groups, and even pages.
+
+To switch modes for an object:
+
+1. Select the layer, group, or other container object.
+2. Find to Appearance section of the right sidebar click the "Appy variable mode" icon.
+3. Hover over the "Themes" collection and select a mode.
+
+![](/assets/carbonization/designers/switch-modes-object.png)
+
+![](/assets/carbonization/designers/hds-cds-icon-comparison.png)
+
+Once you select a mode, a tag with the mode name will appear next to the layer name in the Layers panel.
+
+![](/assets/carbonization/designers/view-current-mode.png)
+
+To switch modes on a page:
+
+1. Click an empty spot on the canvas or deselect everything.
+2. Find the Page section in the right sidebar and click the "Apply variable mode" icon.
+3. Hover over the "Themes" collection and select a mode.
+
+![](/assets/carbonization/designers/switch-modes-page.png)
 
 ### Design with themes
 
@@ -27,21 +49,17 @@ Designing with themes introduces a few adjustments to your workflow:
 - **Default state**: Your files remain in HDS mode by default.
 - **After migration**: Once your team adopts Carbon, work exclusively in `cds-0` (light) or `cds-100` (dark).
 - **Testing themes**: Test all new designs in both light and dark modes, checking color contrast and hierarchy.
-- **Custom work**: Build custom components or patterns should in both light and dark modes.
-
-See [Carbon's color guidelines](https://www.carbondesignsystem.com/building-blocks/foundations/color/overview#themes) for more on Carbon themes.
+- **Custom work**: Build custom components or patterns in both light and dark modes.
 
 ### Update existing components
 
-Most changes apply automatically when you accept the library updates. Detached or custom elements require manual migration:
+Most changes apply automatically when you accept the library updates. Detached or custom elements require manual migration.
 
 | Component Type | Action Required |
 | -------------- | --------------- |
 | Standard HDS Components | Accept Figma UI Kit updates to automatically pull in changes. |
 | Detached components | Re-link to the HDS component or map to the appropriate HDS variable. |
 | Custom components | Manually map tokens and styles to HDS variables. If a variable is missing, create a local variable and map it to the appropriate Carbon tokens. |
-
-[TODO: Expand on this...what does it look like to make their own variables]
 
 ## Adoption checklist
 
