@@ -28,6 +28,8 @@ dedupePeerDependents: true
 injectWorkspacePackages: true
 syncInjectedDepsAfterScripts:
   - build
+lockfile:
+  includeResolutionSettings: true
 publicHoistPattern:
   - ember-source
 
