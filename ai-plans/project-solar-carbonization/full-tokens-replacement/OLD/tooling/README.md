@@ -1,5 +1,11 @@
 # HDS token "carbonization" migration tooling
 
+> [!WARNING]
+> **ARCHIVED — do not use for migrations.** Kept for history only (archived 2026-10-19).
+> Current entry point: [`README.md`](../../README.md). The canonical map is now [`tooling/token-map.json`](../../tooling/token-map.json)
+> (corrected — see [`REPORT-missed-tokens-mapping.md` §7](../REPORT-missed-tokens-mapping.md#7-resolution-applied-2026-10-19)); the maintained `migrate-tokens.mjs` is in the same top-level `tooling/` folder.
+> Paths in this document (e.g. `tooling/…`, `full-tokens-replacement/tooling/…`) refer to the pre-archive layout.
+
 Two-phase, dependency-free Node.js tooling to migrate CSS design-token usages
 from the **pre-carbonization** token set (`--token-*`, as on `main`) to the
 **post-carbonization** set (`--hds-*`). See the full rationale in

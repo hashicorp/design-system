@@ -1,16 +1,21 @@
 #!/usr/bin/env node
 // @ts-check
 /*
- * migrate-tokens.mjs — Phase B: token-usage migrator + verification
+ * migrate-tokens.mjs — token-usage migrator + verification
  *
- * Reusable, dependency-free applier. It takes the token map produced by Phase A
- * (`token-map.generated.json`) and mechanically rewrites every stale
- * pre-carbonization token usage in a target codebase to its new name.
+ * Reusable, dependency-free applier. It takes the canonical token map
+ * (`./token-map.json`) and mechanically rewrites every stale
+ * pre-carbonization token usage (`--token-*`, design-system-tokens < 6.0.0) in a
+ * target codebase to its new name (`--hds-*`, >= 6.0.0).
  *
  * This file is the REUSABLE CORE — do not edit it per repo. All repo-specific
- * inputs live in an external JSON config (see ./config/migrate.hds.config.json).
- * Retarget by copying this file unchanged, authoring a new config, and pointing
- * it at the `token-map.generated.json` from Phase A.
+ * inputs live in an external JSON config: copy
+ * `./migrate.TEMPLATE.config.json` and edit it. See `../README.md`.
+ *
+ * Defaults when omitted from the config (resolved relative to THIS script):
+ *   mapPath   → ./token-map.json
+ *   reportDir → ./migration-reports/
+ * When set in the config, both are resolved relative to the config file.
  *
  * What it does:
  *   - Loads the map; consumes every category array uniformly. Entries with a
@@ -81,8 +86,6 @@ function loadConfig(configPath) {
   } catch (e) {
     fail(`cannot read/parse config: ${path} (${e.message})`);
   }
-  cfg.mapPath ??= 'reports/hds/token-map.generated.json';
-  cfg.reportDir ??= 'reports/hds';
   cfg.prefix ??= '--token-';
   cfg.sassPrefixes ??= [];
   cfg.roots ??= ['.'];
@@ -321,7 +324,7 @@ function insertTodoMarkers(content, todos, ext, marker) {
 
 function renderMarkdown(data) {
   const L = [];
-  L.push('# Token Migration — Phase B');
+  L.push('# Token Migration');
   L.push('');
   L.push(`- Generated: ${data.generatedAt}`);
   L.push(`- Map: \`${data.mapPath}\``);
@@ -387,7 +390,9 @@ function main() {
   const { cfg, dir: configDir } = loadConfig(args.config);
   const root = args.root;
 
-  const mapAbs = resolve(configDir, cfg.mapPath);
+  const mapAbs = cfg.mapPath
+    ? resolve(configDir, cfg.mapPath)
+    : join(SCRIPT_DIR, 'token-map.json');
   const { rename, drop } = loadMap(mapAbs);
 
   const prefixes = [cfg.prefix, ...cfg.sassPrefixes].filter(Boolean);
@@ -471,13 +476,15 @@ function main() {
     staleRemaining,
   };
 
-  const reportDir = resolve(configDir, cfg.reportDir);
+  const reportDir = cfg.reportDir
+    ? resolve(configDir, cfg.reportDir)
+    : join(SCRIPT_DIR, 'migration-reports');
   mkdirSync(reportDir, { recursive: true });
   writeFileSync(join(reportDir, 'token-migration.md'), renderMarkdown(data));
   writeFileSync(join(reportDir, 'token-migration.json'), JSON.stringify(data, null, 2) + '\n');
 
   process.stdout.write(
-    `Phase B ${cfg.dryRun ? '(dry run) ' : ''}complete.\n` +
+    `Token migration ${cfg.dryRun ? '(dry run) ' : ''}complete.\n` +
       `  files scanned=${files.length} changed=${filesChanged} replacements=${totalReplacements}\n` +
       `  todos=${allTodos.length} interpolated=${allInterpolated.length} stale-remaining=${staleRemaining.length}\n` +
       `  reports: ${relative(process.cwd(), join(reportDir, 'token-migration.md'))}\n` +

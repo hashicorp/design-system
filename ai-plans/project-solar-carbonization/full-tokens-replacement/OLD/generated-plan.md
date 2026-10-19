@@ -1,5 +1,10 @@
 # Generated Plan — HDS Token "Carbonization" Migration Tooling
 
+> [!WARNING]
+> **ARCHIVED — do not use for migrations.** Kept for history only (archived 2026-10-19).
+> Current entry point: [`README.md`](../README.md). The canonical map is now [`tooling/token-map.json`](../tooling/token-map.json)
+> (corrected — see [`REPORT-missed-tokens-mapping.md` §7](./REPORT-missed-tokens-mapping.md#7-resolution-applied-2026-10-19)); the maintained `migrate-tokens.mjs` is in the same top-level `tooling/` folder.
+
 > Two-phase, config-driven, dependency-free tooling to migrate CSS design-token usages from the **pre-carbonization** token set to the **post-carbonization** token set.
 >
 > **Phase A** generates the old→new token map (an editable JSON that is the shared source of truth). **Phase B** applies that map to consumer code and verifies the result.

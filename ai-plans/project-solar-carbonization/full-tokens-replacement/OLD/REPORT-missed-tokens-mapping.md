@@ -1,11 +1,17 @@
 # Investigation report — missed / wrong tokens mappings in the carbonization token map
 
+> [!NOTE]
+> **ARCHIVED investigation record.** The fixes proposed in §6 were applied on 2026-10-19. See
+> [§7 Resolution](#7-resolution-applied-2026-10-19) for the final corrected rows, the validation of the corrected map,
+> and where the fixes were applied. The canonical map is [`../tooling/token-map.json`](../tooling/token-map.json).
+> Links to `token-map.generated.json` below point to the map **as shipped** (pre-correction).
+
 > Investigation date: 2026-10-15. Nothing has been changed in the repo as part of this
 > investigation. This document is the record of the findings.
 
 ## Starting question
 
-In [`token-map.generated.json`](../full-tokens-replacement/tooling/reports/hds/token-map.generated.json)
+In [`token-map.generated.json`](./tooling/reports/hds/token-map.generated.json)
 (line 1602) we have:
 
 ```json
@@ -42,15 +48,15 @@ Questions:
 - Separately, nothing ever flagged **many-to-one targets** (two `before` mapping to the same
   `after`). When the final-QA work noticed them, it described them as intentional "merges".
 - All the wrong rows **shipped in the tokens `6.0.0` release notes**:
-  - [`packages/tokens/CHANGELOG.md`](../../../packages/tokens/CHANGELOG.md)
-  - [`website/docs/whats-new/release-notes/partials/design-tokens.md`](../../../website/docs/whats-new/release-notes/partials/design-tokens.md)
+  - [`packages/tokens/CHANGELOG.md`](../../../../packages/tokens/CHANGELOG.md)
+  - [`website/docs/whats-new/release-notes/partials/design-tokens.md`](../../../../website/docs/whats-new/release-notes/partials/design-tokens.md)
 
 ---
 
 ## 1. Background: how the map is produced
 
-Tooling lives in [`../full-tokens-replacement/tooling`](../full-tokens-replacement/tooling).
-[`diff-tokens.mjs`](../full-tokens-replacement/tooling/diff-tokens.mjs) (Phase A) compares pre and post token names:
+Tooling lives in [`../full-tokens-replacement/tooling`](./tooling).
+[`diff-tokens.mjs`](./tooling/diff-tokens.mjs) (Phase A) compares pre and post token names:
 
 - **Pre:** `--token-*` from `git show main:packages/tokens/dist/products/css/tokens.css`. `main` was
   pre-carbonization at the time.
@@ -300,7 +306,7 @@ target in the map is still the correct one-to-one replacement.
 
 All rows shipped in the tokens `6.0.0` release notes.
 
-[`packages/tokens/CHANGELOG.md`](../../../packages/tokens/CHANGELOG.md):
+[`packages/tokens/CHANGELOG.md`](../../../../packages/tokens/CHANGELOG.md):
 
 | Line | Row |
 |---|---|
@@ -313,7 +319,7 @@ All rows shipped in the tokens `6.0.0` release notes.
 | 1091 | `--token-app-header-logo-size` listed as removed |
 | 1101 | `--token-form-control-base-surface-color-hover` listed as removed |
 
-[`website/docs/whats-new/release-notes/partials/design-tokens.md`](../../../website/docs/whats-new/release-notes/partials/design-tokens.md):
+[`website/docs/whats-new/release-notes/partials/design-tokens.md`](../../../../website/docs/whats-new/release-notes/partials/design-tokens.md):
 the same rows at lines 435, 436, 453, 455, 456, 457, 1103 and 1113.
 
 `packages/mcp/docs-catalog.json` is generated from the website docs, so it carries the same content.
@@ -326,7 +332,7 @@ It needs regenerating after any docs fix.
 ### Fixes
 
 - Fix the map rows in
-  [`token-map.generated.json`](../full-tokens-replacement/tooling/reports/hds/token-map.generated.json):
+  [`token-map.generated.json`](./tooling/reports/hds/token-map.generated.json):
   - line 1602: `after` → `--hds-form-control-placeholder-foreground-color-default`. Remove that
     token from `added`.
   - line 1674: `after` → `--hds-form-text-input-background-image-data-url-search-default`. Remove it
@@ -354,3 +360,81 @@ It needs regenerating after any docs fix.
 - Add a **value-equality check** (pre value vs post value in the default theme) and a
   **ground-truth check** against the hand-migrated HDS components. Both are cheap and would have
   caught most of these.
+
+---
+
+## 7. Resolution (applied 2026-10-19)
+
+### 7.1 Corrected rows
+
+All the fixes from §6, including the optional row 7, were applied to the canonical map
+[`../tooling/token-map.json`](../tooling/token-map.json). The as-shipped map is kept unchanged at
+[`./tooling/reports/hds/token-map.generated.json`](./tooling/reports/hds/token-map.generated.json).
+
+| # | `before` | As shipped in 6.0.0 | Corrected | Category change |
+|---|---|---|---|---|
+| 1 | `--token-form-control-base-foreground-placeholder-color` | `--hds-form-control-foreground-color-default` | `--hds-form-control-placeholder-foreground-color-default` | — (`__form-elements`) |
+| 2 | `--token-form-text-input-background-image-data-url-search` | `--hds-form-text-input-background-image-data-url-search-cancel` | `--hds-form-text-input-background-image-data-url-search-default` | — (`__form-elements`) |
+| 3 | `--token-app-side-nav-body-list-item-spacing-vertical` | `--hds-app-side-nav-body-list-margin-vertical` | `--hds-app-side-nav-body-list-item-margin-top` | — (`__other`) |
+| 4 | `--token-app-side-nav-body-list-item-content-spacing-horizontal` | `--hds-app-side-nav-body-list-item-padding-horizontal` | `--hds-app-side-nav-body-list-item-content-gap` | — (`__other`) |
+| 5 | `--token-app-header-home-link-size` | `--hds-app-header-home-link-logo-size` | `null` (no successor) | `__other` → `removed` |
+| 6 | `--token-app-header-logo-size` | `null` (listed as removed) | `--hds-app-header-home-link-logo-size` | `removed` → `__other` |
+| 7 | `--token-form-control-base-surface-color-hover` | `null` (listed as removed) | `--hds-form-control-boolean-surface-color-unchecked-hover` | `removed` → `__form-elements` |
+
+- The 5 newly targeted tokens (rows 1–4 and 7) were removed from `added`.
+- Category counts:
+  - `__form-elements` 22 → 23;
+  - `removed` 22 → 21;
+  - `added` 630 → 625;
+  - all others unchanged.
+- Row 7 was "likely" in §4.3; it's now confirmed. The `super-select.scss` usage is also an
+  unchecked-checkbox hover, and on `main` it uses the same new token as checkbox and radio.
+
+### 7.2 Validation of the corrected map
+
+The guard checks from §6 were **not** implemented as code, because the map generator is retired.
+The equivalent checks were run once on the corrected map:
+
+- pre token set = `packages/tokens/dist/products/css/tokens.css` at `21f84ccadc` (tokens 5.x);
+- post token set = the same file on `main` (tokens 6.x);
+- values compared after resolving `var()` aliases, in the default theme.
+
+| Check | Result |
+|---|---|
+| Duplicate `before` | 0 |
+| Duplicate `after` (many-to-one) | 0 |
+| Pre tokens covered exactly once | 442 / 442 |
+| Post tokens covered exactly once | 1046 / 1046 |
+| `after` not existing in the post set | 0 |
+| Value differences (pre vs post) | 12, all intentional (below) |
+
+Intentional value differences:
+
+- 10 × `--token-form-{checkbox,radio,select,toggle}-background-image-data-url*`: SVG markup
+  reformatted (same icon, same `fill` colour).
+- `--token-form-radio-background-image-size` 12px → 16px (radio SVG `viewBox` changed to 16).
+- `--token-app-side-nav-body-list-margin-vertical` 24px → 16px (design change).
+
+The 4 value mismatches flagged in §4.1 for rows 1–4 are gone: each corrected row now has identical
+values before and after.
+
+Dry-run of the migration script with the corrected map against a worktree of `21f84ccadc`:
+
+- 1150 replacements, 0 stale names remaining.
+- Each of the 6 corrected `before` tokens with usages in that source was rewritten to its corrected
+  target (15 usages in total). Row 5's token has no usages there.
+
+### 7.3 Where the fixes were applied
+
+- **Map:** `../tooling/token-map.json` (with a `$meta` header marking it canonical).
+- **`packages/tokens/CHANGELOG.md`, `## 6.0.0`:** "Renamed tokens", "Added tokens" and "Removed
+  tokens" tables regenerated from the corrected map. The diff was exactly the expected rows, which
+  confirms the tables otherwise mirrored the map.
+- **`website/docs/whats-new/release-notes/partials/design-tokens.md`:** regenerated from the CHANGELOG
+  (`pnpm -F website generate-changelog-markdown-files`).
+- **`packages/mcp/docs-catalog.json`:** no change needed. Release-notes partials aren't indexed, and the
+  catalog contained none of the wrong rows.
+- **Not changeable:** the CHANGELOG inside the already-published `6.0.0` npm tarball still contains
+  the original rows.
+- **Consumers:** the Atlas migration ([hashicorp/atlas#32035](https://github.com/hashicorp/atlas/pull/32035))
+  was run with the corrected map, so it isn't affected.
