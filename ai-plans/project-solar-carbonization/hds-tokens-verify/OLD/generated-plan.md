@@ -1,5 +1,10 @@
 # Plan — Audit `--hds-*` Custom-Property Usage Against the Official Token Set
 
+> [!WARNING]
+> **ARCHIVED — do not use to audit.** Kept for history only (archived 2026-10-19).
+> Current entry point: [`README.md`](../README.md). The maintained script is [`tooling/verify-tokens.mjs`](../tooling/verify-tokens.mjs)
+> (adds a legacy `--token-*` check). Paths in this document refer to the pre-archive layout.
+
 > **Status:** verification step of the HDS token naming-convention effort. After the
 > earlier steps rename/emit tokens (`--hds-*` from `packages/tokens`) and swap
 > consumption sites (`--token-*` → `--hds-*`, `--hds-*` → `--hds-var-*`), this step

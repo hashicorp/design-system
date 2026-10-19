@@ -3,7 +3,7 @@
 /*
  * verify-tokens.mjs
  *
- * Reusable, dependency-free auditor for the HDS token naming-convention effort.
+ * Reusable, dependency-free auditor for CSS custom-property token usages.
  *
  * It scans a target codebase for CSS custom-property token usages that match a
  * given prefix (e.g. `--hds-`) and reports any usage that is NOT part of the
@@ -14,8 +14,13 @@
  *   2. an inline `allowlist` of extra known tokens (same prefix, but not defined
  *      in the tokens package — e.g. internal `--hds-var-*` runtime variables).
  *
+ * It also reports leftover LEGACY usages (`legacyPrefix`, default `--token-*`,
+ * i.e. design-system-tokens < 6.0.0) that still need to be migrated with
+ * `../../full-tokens-replacement/tooling/migrate-tokens.mjs`.
+ *
  * This file is the REUSABLE CORE — do not edit it per repo. All repo-specific
- * inputs live in an external JSON config (see ./config/hds-pilot.config.json).
+ * inputs live in an external JSON config: copy `./verify.TEMPLATE.config.json`
+ * and edit it. See `../README.md`.
  *
  * The token source is resolved from the dependency (codebase-agnostic), so the
  * same script works in any repo that installs `@hashicorp/design-system-tokens`.
@@ -29,13 +34,13 @@
  *   node verify-tokens.mjs [options]
  *
  * Options:
- *   --config <path>       Config file (default: ./config/hds-pilot.config.json
- *                         resolved relative to this script).
+ *   --config <path>       Config file (required).
  *   --root <path>         Repo root to scan (default: current working directory).
  *   --tokens-css <path>   Explicit path to the official tokens.css (overrides the
  *                         dependency resolution and `tokensCssOverride`).
  *   --out <dir>           Output directory for report files
- *                         (default: ../reports relative to this script).
+ *                         (default: ./audit-reports[/<reportSubdir>] relative to
+ *                         this script).
  *   --json                Also print the machine-readable summary to stdout.
  *
  * Output:
@@ -89,6 +94,7 @@ function parseArgs(argv) {
         fail(`Unknown argument: ${a}`);
     }
   }
+  if (!args.config) fail('missing required --config <path>');
   return args;
 }
 
@@ -100,9 +106,7 @@ function fail(msg) {
 /* ---------------------------------------------------------------- config --- */
 
 function loadConfig(configPath) {
-  const path = configPath
-    ? resolve(configPath)
-    : join(SCRIPT_DIR, 'config', 'hds-pilot.config.json');
+  const path = resolve(configPath);
   let raw;
   try {
     raw = readFileSync(path, 'utf8');
@@ -120,6 +124,8 @@ function loadConfig(configPath) {
   cfg.tokensCssOverride ??= null;
   cfg.tokensResolveFrom ??= null;
   cfg.prefix ??= '--hds-';
+  // `null` disables the legacy check; `??=` would turn an explicit null back into the default.
+  if (cfg.legacyPrefix === undefined) cfg.legacyPrefix = '--token-';
   cfg.roots ??= ['.'];
   cfg.extensions ??= ['scss', 'css', 'gts', 'hbs', 'ts', 'js'];
   cfg.excludeGlobs ??= [
@@ -422,6 +428,7 @@ function extractUsages(src, prefix) {
 function scanTargets(cfg, root, validSet) {
   const files = collectFiles(cfg, root);
   const invalidByToken = new Map(); // token -> [{ file, line, column }]
+  const legacyByToken = new Map(); // token -> [{ file, line, column }]
   let totalUsages = 0;
   let interpolatedUsages = 0;
   let commentedUsages = 0;
@@ -435,6 +442,12 @@ function scanTargets(cfg, root, validSet) {
       commentedUsages += countMatches(raw, cfg.prefix) - countMatches(src, cfg.prefix);
     }
     const usages = extractUsages(src, cfg.prefix);
+    if (cfg.legacyPrefix) {
+      for (const u of extractUsages(src, cfg.legacyPrefix)) {
+        if (!legacyByToken.has(u.token)) legacyByToken.set(u.token, []);
+        legacyByToken.get(u.token).push({ file: rel, line: u.line, column: u.column });
+      }
+    }
     for (const u of usages) {
       totalUsages++;
       if (u.interpolated) {
@@ -453,6 +466,7 @@ function scanTargets(cfg, root, validSet) {
     interpolatedUsages,
     commentedUsages,
     invalidByToken,
+    legacyByToken,
   };
 }
 
@@ -467,24 +481,27 @@ function buildReportData({
   allowlistCount,
   scan,
 }) {
-  const invalidTokens = [...scan.invalidByToken.entries()]
-    .map(([token, locations]) => ({
-      token,
-      occurrences: locations.length,
-      locations,
-    }))
-    .sort((a, b) =>
-      a.token < b.token ? -1 : a.token > b.token ? 1 : 0,
-    );
+  const toTokenRows = (byToken) =>
+    [...byToken.entries()]
+      .map(([token, locations]) => ({
+        token,
+        occurrences: locations.length,
+        locations,
+      }))
+      .sort((a, b) =>
+        a.token < b.token ? -1 : a.token > b.token ? 1 : 0,
+      );
+  const sumOccurrences = (rows) => rows.reduce((sum, t) => sum + t.occurrences, 0);
 
-  const totalInvalidOccurrences = invalidTokens.reduce(
-    (sum, t) => sum + t.occurrences,
-    0,
-  );
+  const invalidTokens = toTokenRows(scan.invalidByToken);
+  const totalInvalidOccurrences = sumOccurrences(invalidTokens);
+  const legacyTokens = toTokenRows(scan.legacyByToken);
+  const totalLegacyOccurrences = sumOccurrences(legacyTokens);
 
   return {
     generatedAt: new Date().toISOString(),
     prefix: cfg.prefix,
+    legacyPrefix: cfg.legacyPrefix || null,
     tokenSource: {
       path: tokensCssRel,
       kind: tokenSourceKind,
@@ -504,8 +521,11 @@ function buildReportData({
       commentedUsages: scan.commentedUsages,
       distinctInvalidTokens: invalidTokens.length,
       totalInvalidOccurrences,
+      distinctLegacyTokens: legacyTokens.length,
+      totalLegacyOccurrences,
     },
     invalidTokens,
+    legacyTokens,
   };
 }
 
@@ -540,7 +560,26 @@ function renderMarkdown(data) {
   }
   lines.push(`| Distinct invalid tokens | ${s.distinctInvalidTokens} |`);
   lines.push(`| Total invalid occurrences | ${s.totalInvalidOccurrences} |`);
+  if (data.legacyPrefix) {
+    lines.push(`| Distinct legacy \`${data.legacyPrefix}*\` tokens | ${s.distinctLegacyTokens} |`);
+    lines.push(`| Total legacy \`${data.legacyPrefix}*\` occurrences | ${s.totalLegacyOccurrences} |`);
+  }
   lines.push('');
+  if (data.legacyPrefix) {
+    lines.push(`## Legacy \`${data.legacyPrefix}*\` usages`);
+    lines.push('');
+    if (data.legacyTokens.length === 0) {
+      lines.push(`No legacy \`${data.legacyPrefix}*\` usages found. ✅`);
+    } else {
+      lines.push(
+        'Migrate these usages before treating the audit as complete, using the token migration script ' +
+          '(`ai-plans/project-solar-carbonization/full-tokens-replacement/tooling/migrate-tokens.mjs` in the HDS repo).',
+      );
+      lines.push('');
+      lines.push(...renderTokenTable(data.legacyTokens));
+    }
+    lines.push('');
+  }
   lines.push('## Invalid tokens');
   lines.push('');
   if (data.invalidTokens.length === 0) {
@@ -624,6 +663,11 @@ function writeReports(outDir, data, jsonToStdout) {
     process.stdout.write(
       `token audit: ${s.distinctInvalidTokens} invalid token(s), ` +
         `${s.totalInvalidOccurrences} occurrence(s) across ${s.filesScanned} file(s).\n` +
+        (data.legacyPrefix
+          ? `  legacy ${data.legacyPrefix}*: ${s.distinctLegacyTokens} token(s), ${s.totalLegacyOccurrences} occurrence(s)` +
+            (s.totalLegacyOccurrences > 0 ? ' — WARNING: migrate these first (see report)' : '') +
+            '\n'
+          : '') +
         `  official=${s.officialTokens} allowlist=${s.allowlistTokens} ` +
         `(source: ${data.tokenSource.parseMode})\n` +
         `  reports: ${mdPath}\n           ${jsonPath}\n`,
@@ -668,7 +712,7 @@ async function main() {
 
   const outDir = args.out
     ? resolve(args.root, args.out)
-    : join(SCRIPT_DIR, 'reports', ...(cfg.reportSubdir ? [cfg.reportSubdir] : []));
+    : join(SCRIPT_DIR, 'audit-reports', ...(cfg.reportSubdir ? [cfg.reportSubdir] : []));
   writeReports(outDir, data, args.json);
 
   process.exit(0);

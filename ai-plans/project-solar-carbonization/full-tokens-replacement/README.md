@@ -43,7 +43,7 @@ What the PR did, in order. Use it as a checklist for the next codebase:
    `--hds-code-block-*` variables.
 4. Ported this tooling into the repo and adapted the config:
    - migration script + map + config in `frontend/atlas/carbonization/copilot-plans/tokens-full-migration/tooling/`;
-   - the token-usage auditor (`../hds-tokens-verify/`) in
+   - the token-usage auditor ([`../hds-tokens-verify/`](../hds-tokens-verify/README.md)) in
      `frontend/atlas/carbonization/copilot-plans/tokens-verify/tooling/`.
 
    Committing the tooling in the consumer repo lets it be re-run later, e.g. on open PRs after
@@ -83,8 +83,9 @@ differences) and the testing approach. Reuse it for the next consumer PR.
 5. **Resolve the TODO markers** (`🚧 TODO [HDS-TOKEN-CARBONIZATION]`) by hand, then lint, test and
    visually review the target app.
 6. *(Optional)* Audit the result with the token-usage auditor,
-   [`../hds-tokens-verify/tooling/verify-tokens.mjs`](../hds-tokens-verify/tooling/README.md). It
-   flags any `--hds-*` name that doesn't exist in the installed tokens package.
+   [`../hds-tokens-verify/tooling/verify-tokens.mjs`](../hds-tokens-verify/README.md). It
+   flags any leftover `--token-*` usage and any `--hds-*` name that doesn't exist in the installed
+   tokens package.
 
 ## What the map contains
 

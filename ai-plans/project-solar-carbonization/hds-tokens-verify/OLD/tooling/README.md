@@ -1,5 +1,10 @@
 # Tooling — Token Usage Auditor
 
+> [!WARNING]
+> **ARCHIVED — do not use to audit.** Kept for history only (archived 2026-10-19).
+> Current entry point: [`README.md`](../../README.md). The maintained script is [`tooling/verify-tokens.mjs`](../../tooling/verify-tokens.mjs)
+> (adds a legacy `--token-*` check). Paths in this document refer to the pre-archive layout.
+
 Reusable, dependency-free auditor that finds CSS custom-property token usages in a
 codebase that do **not** match the official Helios Design System token list.
 
