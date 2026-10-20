@@ -30,7 +30,6 @@ Router.map(function () {
     });
   });
   this.route('page-components', { path: 'components' }, function () {
-    this.route('accordion');
     this.route('advanced-table', function () {
       this.route('frameless', function () {
         this.route('demo-filtering');
@@ -170,7 +169,6 @@ Router.map(function () {
       this.route('focus-ring');
     });
     this.route('components', function () {
-      this.route('accordion');
       this.route('advanced-table');
       this.route('alert');
       this.route('application-state');

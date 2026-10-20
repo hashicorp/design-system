@@ -66,9 +66,6 @@ module('Acceptance | Percy test', function (hooks) {
     );
     await percySnapshot('Breakpoints');
 
-    await visit('/components/accordion');
-    await percySnapshot('Accordion');
-
     await visit('/components/advanced-table');
     await percySnapshot('AdvancedTable');
 
