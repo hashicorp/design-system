@@ -2,17 +2,25 @@
 
 Moving from the Helios visual language to IBM Carbon also involves updating the icons too. We had to go to great lengths, both in Figma and in code, to support switching an icon’s glyph (the SVG vector itself) depending on the theme applied. See below for details about how this has been made possible and how it will impact our consumers.
 
-### Flight-Carbon mapping
+### HDS to Carbon mapping
 
 Currently, about half of the Flight icons have a Carbon equivalent. If there is no equivalent, the Flight icon will be used instead. As a result, pages using a Carbon theme may show a mix of HDS and Carbon icons. See the [Icon library](/icons/library) for current mappings.
 
-#### Icon sizes
+### Service icons in Carbon themes
+
+Color versions of service icons (e.g., `aws-color`, `gitlab-color`, `azure-color`, etc) do not retain their brand colors in Carbon themes. Instead, they switch to the non-color version (e.g., `aws`, `gitlab`, `azure`).
+
+When switching to a Carbon theme, these icons do not have a semantic color set by default. We recommend using `foreground-color-primary` or another semantic foreground color token.
+
+In Figma, use [Update Service Icon Colors](/tooling/design-tooling-figma-plugin?tab=update%20service%20icon%20colors) in the [Design Tooling Figma Plugin](/tooling/design-tooling-figma-plugin) to find and update service icon colors in a design that uses a Carbon theme.
+
+### Icon sizes
 
 HDS and Carbon treat icon sizes differently. HDS provides icons at 16px and 24px, while Carbon provides a single icon that is scaled to the requested size. As a result, the visual weight of an icon may change when the theme is switched.
 
 ### For designers
 
-TODO add content
+In Figma, icons automatically switch to their Carbon glyph when a Carbon theme is active. If a Carbon equivalent is not available, the HDS icon is used instead. You do not need to replace icon instances when changing themes.
 
 ### For engineers
 
