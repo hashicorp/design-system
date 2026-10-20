@@ -22,8 +22,8 @@ overrides:
   handlebars: 4.7.9
   js-yaml@3: 3.14.2
   js-yaml@4: 4.1.1
-  linkify-it: 5.0.1
-  markdown-it: 14.1.1
+  linkify-it: 5.0.2
+  markdown-it: 14.3.1
   mdast-util-to-hast: 13.2.1
   minimatch@<3.0.5: 3.1.2
   path-to-regexp@0: 0.1.13
@@ -9205,8 +9205,8 @@ packages:
   lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
 
-  linkify-it@5.0.1:
-    resolution: {integrity: sha512-wVoTjP4Q6R0NW5hiZkVJaFZPWgtXfoGF+6LucL3/FtiNjmcHhYjEr5f1Kqjirc1nBW07J/ZuRFumqr2oqccEWg==}
+  linkify-it@5.0.2:
+    resolution: {integrity: sha512-ONTm2jCMAVZjgQa/Fy1kScXsuOoF5NPTsoFBdE1KVIZ2vAh/r9+Bqo+0jINCBYnavTPQZz38QzFTme79ENoN3Q==}
 
   livereload-js@3.4.1:
     resolution: {integrity: sha512-5MP0uUeVCec89ZbNOT/i97Mc+q3SxXmiUGhRFOTmhrGPn//uWVQdCvcLJDy64MSBR5MidFdOR7B9viumoavy6g==}
@@ -9421,10 +9421,10 @@ packages:
   markdown-it-terminal@0.4.0:
     resolution: {integrity: sha512-NeXtgpIK6jBciHTm9UhiPnyHDdqyVIdRPJ+KdQtZaf/wR74gvhCNbw5li4TYsxRp5u3ZoHEF4DwpECeZqyCw+w==}
     peerDependencies:
-      markdown-it: 14.1.1
+      markdown-it: 14.3.1
 
-  markdown-it@14.1.1:
-    resolution: {integrity: sha512-BuU2qnTti9YKgK5N+IeMubp14ZUKUUw7yeJbkjtosvHiP0AZ5c8IAgEMk79D0eC8F23r4Ac/q8cAIFdm2FtyoA==}
+  markdown-it@14.3.1:
+    resolution: {integrity: sha512-4Ej49aYTDFIQ+uBkfX8GBvJGccoARxxPep+7aWTs55ozbjQJpW9M26Fe53vnGgvLeVzva/amzjQQaQu9w0vMhA==}
     hasBin: true
 
   markdown-table@1.1.3:
@@ -20463,8 +20463,8 @@ snapshots:
       is-language-code: 3.1.0
       isbinaryfile: 5.0.4
       lodash: 4.18.1
-      markdown-it: 14.1.1
-      markdown-it-terminal: 0.4.0(markdown-it@14.1.1)
+      markdown-it: 14.3.1
+      markdown-it-terminal: 0.4.0(markdown-it@14.3.1)
       minimatch: 7.4.9
       morgan: 1.10.0
       nopt: 3.0.6
@@ -20604,8 +20604,8 @@ snapshots:
       is-language-code: 3.1.0
       isbinaryfile: 5.0.4
       lodash: 4.18.1
-      markdown-it: 14.1.1
-      markdown-it-terminal: 0.4.0(markdown-it@14.1.1)
+      markdown-it: 14.3.1
+      markdown-it-terminal: 0.4.0(markdown-it@14.3.1)
       minimatch: 7.4.9
       morgan: 1.10.0
       nopt: 3.0.6
@@ -24079,7 +24079,7 @@ snapshots:
 
   lines-and-columns@1.2.4: {}
 
-  linkify-it@5.0.1:
+  linkify-it@5.0.2:
     dependencies:
       uc.micro: 2.1.0
 
@@ -24273,19 +24273,19 @@ snapshots:
 
   markdown-escapes@1.0.4: {}
 
-  markdown-it-terminal@0.4.0(markdown-it@14.1.1):
+  markdown-it-terminal@0.4.0(markdown-it@14.3.1):
     dependencies:
       ansi-styles: 3.2.1
       cardinal: 1.0.0
       cli-table: 0.3.11
       lodash.merge: 4.6.2
-      markdown-it: 14.1.1
+      markdown-it: 14.3.1
 
-  markdown-it@14.1.1:
+  markdown-it@14.3.1:
     dependencies:
       argparse: 2.0.1
       entities: 4.5.0
-      linkify-it: 5.0.1
+      linkify-it: 5.0.2
       mdurl: 2.0.0
       punycode.js: 2.3.1
       uc.micro: 2.1.0
