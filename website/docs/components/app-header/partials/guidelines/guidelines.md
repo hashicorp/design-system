@@ -66,6 +66,12 @@ Avoid placing links to unrelated pages within the user dropdown menu.
 
 ![User dropdown in the App Header](/assets/components/app-header/app-header-user-dropdown.png)
 
+### Theme selection
+
+For guidance on adding theme selection to the User dropdown, refer to the [theme selection pattern](/patterns/theme-selection).
+
+![An example of theme selection in the user dropdown menu](/assets/patterns/theme-selection/theme-selection.png)
+
 ### Search
 
 Search within the App Header is triggered by a standard HDS [Button](/components/button) themed to match the App Header’s styles. The application teams are responsible for building search capabilities themselves, if and when needed.
