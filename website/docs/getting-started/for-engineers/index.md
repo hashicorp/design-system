@@ -107,13 +107,13 @@ Icons are loaded automatically and individually on demand. Only rendered icons a
 
 **Migrating from the SVG sprite**
 
-Before v7.0 icons were delivered as a single SVG sprite, injected either into your application’s `index.html` file or, when the `flightIconsSpriteLazyEmbed` flag was set to `true`, as part of your app bundle. The `Hds::Icon` component no longer relies on that sprite, so you can safely remove the obsolete `flightIconsSpriteLazyEmbed` setting from your app's `config/environment.js` file.
+Before v7.0, icons were delivered as a single SVG sprite, injected either into your application’s `index.html` file or, when the `flightIconsSpriteLazyEmbed` flag was set to `true`, as part of your app bundle. The `Hds::Icon` component no longer relies on that sprite, so you can safely remove the obsolete `flightIconsSpriteLazyEmbed` setting from your app's `config/environment.js` file.
 
 !!!
 
 #### Using the icons without importing the whole components package
 
-If you want to use the Flight icons without installing the whole `@hashicorp/design-system-components` package, you have to use the `@hashicorp/flight-icons` to import the SVG assets, and then you will have to build your own Ember component that renders the icons as an `<svg>` HTML element.
+If you want to use the Flight icons without installing the whole `@hashicorp/design-system-components` package, you have to use the `@hashicorp/flight-icons` package to import the SVG assets, and then you will have to build your own Ember component that renders the icons as an `<svg>` HTML element.
 
 ### React applications
 

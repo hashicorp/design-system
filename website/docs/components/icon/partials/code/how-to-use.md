@@ -12,7 +12,7 @@ It renders to this (where the `id` will be unique each time):
 
 **Icons are now asynchronous and theme-dependent**
 
-Before `v7.0`, icons were delivered as a single SVG sprite. Now each one is loaded individually and only when it’s displayed, which may introduce a small latency on an icons first render.
+Before `v7.0`, icons were delivered as a single SVG sprite. Now each one is loaded individually and only when it’s displayed, which may introduce a small latency on an icon’s first render.
 
 Which icon is rendered also depends on the [theme](/foundations/theming) applied to the application. When a Carbon theme is active, the equivalent [Carbon icon](https://carbondesignsystem.com/elements/icons/library/) is displayed in place of the Flight one (which acts as a fallback if no equivalent exists).
 
