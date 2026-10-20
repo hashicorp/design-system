@@ -28,7 +28,7 @@ A theme applies a coordinated set of HDS values across an application. It is not
 
 Use one theme for the application by default. A local theme can be applied to a bounded portion of the interface when it has a clear and durable purpose, such as application chrome. Avoid using local themes only to add decorative contrast or to compensate for unsupported styling.
 
-For implementation details, see the [Code](#code) tab. For guidance on the user interface and behavior of a theme switcher, see [Theme selection](/patterns/theme-selection).
+For implementation details, see the [Code](?tab=code) tab. For guidance on the user interface and behavior of a theme switcher, see [Theme selection](/patterns/theme-selection).
 
 ## Adopting theming
 
