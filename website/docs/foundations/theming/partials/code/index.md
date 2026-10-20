@@ -2,7 +2,7 @@
 
 !!! Info
 
-For a general overview of theming, visual languages, themes, modes, and migration stages, see the [Guidelines](#guidelines) tab.
+For a general overview of theming, visual languages, themes, modes, and migration stages, see the [Guidelines](?tab=guidelines) tab.
 !!!
 
 HDS provides several pre-built sets of themed tokens, so each application can import only the visual language or languages it needs. See [Themed tokens](#themed-tokens) below.
@@ -53,7 +53,7 @@ _Note: this special mixin should be used sparingly, only during migration and on
 
 ## How to adopt theming in your application
 
-Before you begin, [contact the Design System Team](/about/support) to plan the migration and get guidance on the appropriate themed tokens file. The migration stages are described in the [Guidelines](#guidelines) tab.
+Before you begin, [contact the Design System Team](/about/support) to plan the migration and get guidance on the appropriate themed tokens file. The migration stages are described in the [Guidelines](?tab=guidelines) tab.
 
 ### Not yet migrated
 
