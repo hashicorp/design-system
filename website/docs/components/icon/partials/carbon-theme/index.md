@@ -1,6 +1,6 @@
 ## Icons in Carbon
 
-Moving from the Helios visual language to IBM Carbon also involves updating the icons too. We had to go to great lengths, both in Figma and in code, to support switching an icon’s glyph (the SVG vector itself) depending on the theme applied. See below for details about how this has been made possible and how it will impact our consumers.
+Moving from the Helios visual language to IBM Carbon also involves updating icons. We went to great lengths, both in Figma and in code, to support switching an icon’s glyph (the SVG vector itself) depending on the theme applied. Refer to these details about how this works and the impact on consumers.
 
 ### HDS to Carbon mapping
 
