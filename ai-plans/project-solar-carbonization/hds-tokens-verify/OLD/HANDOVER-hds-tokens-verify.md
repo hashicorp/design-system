@@ -1,5 +1,10 @@
 # Handover — HDS Token-Usage Auditor Tooling
 
+> [!WARNING]
+> **ARCHIVED — do not use to audit.** Kept for history only (archived 2026-10-19).
+> Current entry point: [`README.md`](../README.md). The maintained script is [`tooling/verify-tokens.mjs`](../tooling/verify-tokens.mjs)
+> (adds a legacy `--token-*` check). Paths in this document refer to the pre-archive layout.
+
 > Context handover for the deterministic token-usage auditor built under
 > `ai-plans/project-solar-carbonization/hds-tokens-verify/`. Read this top-to-bottom before continuing
 > the work in a fresh session.

@@ -1,5 +1,10 @@
 # HANDOVER — HDS Token "Carbonization" Full Replacement
 
+> [!WARNING]
+> **ARCHIVED — do not use for migrations.** Kept for history only (archived 2026-10-19).
+> Current entry point: [`README.md`](../README.md). The canonical map is now [`tooling/token-map.json`](../tooling/token-map.json)
+> (corrected — see [`REPORT-missed-tokens-mapping.md` §7](./REPORT-missed-tokens-mapping.md#7-resolution-applied-2026-10-19)); the maintained `migrate-tokens.mjs` is in the same top-level `tooling/` folder.
+
 > Purpose: give a **fresh session** everything needed to continue this work without re-discovering context.
 > Last updated: 2026-09-15
 

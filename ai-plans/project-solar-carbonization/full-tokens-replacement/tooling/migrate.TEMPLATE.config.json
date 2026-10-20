@@ -1,0 +1,16 @@
+{
+  "$comment": "TEMPLATE — copy to `migrate.<repo>.config.json` next to this file and edit for each target codebase. Run with: node <this-folder>/migrate-tokens.mjs --config <this-folder>/migrate.<repo>.config.json --root /path/to/target-repo. `roots` are relative to --root. `mapPath`/`reportDir` are optional: omitted = token-map.json and migration-reports/ next to the script; if set, they are resolved relative to THIS config file. Keep `dryRun: true` for the first run, review the report, then set it to false to write changes. See ../README.md.",
+  "prefix": "--token-",
+  "sassPrefixes": [],
+  "roots": ["app", "addon", "src", "styles"],
+  "extensions": ["scss", "css", "gts", "gjs", "hbs", "ts", "js"],
+  "excludeGlobs": [
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/.git/**",
+    "**/*.map",
+    "**/*.md"
+  ],
+  "todoMarker": "🚧 TODO [HDS-TOKEN-CARBONIZATION]",
+  "dryRun": true
+}

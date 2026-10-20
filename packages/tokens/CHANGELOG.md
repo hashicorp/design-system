@@ -420,9 +420,10 @@ Renamed tokens:
 | `--token-form-radiocard-transition-duration`                             | `--hds-form-radio-card-transition-duration`                            |
 | `--token-form-control-base-border-color-default`                         | `--hds-form-control-border-color-default`                              |
 | `--token-form-control-base-border-color-hover`                           | `--hds-form-control-border-color-hover`                                |
-| `--token-form-control-base-foreground-placeholder-color`                 | `--hds-form-control-foreground-color-default`                          |
+| `--token-form-control-base-foreground-placeholder-color`                 | `--hds-form-control-placeholder-foreground-color-default`              |
 | `--token-form-control-base-foreground-value-color`                       | `--hds-form-control-foreground-color-default`                          |
 | `--token-form-control-base-surface-color-default`                        | `--hds-form-control-surface-color-default`                             |
+| `--token-form-control-base-surface-color-hover`                          | `--hds-form-control-boolean-surface-color-unchecked-hover`             |
 | `--token-form-control-checked-border-color-default`                      | `--hds-form-control-boolean-border-color-checked-default`              |
 | `--token-form-control-checked-border-color-hover`                        | `--hds-form-control-boolean-border-color-checked-hover`                |
 | `--token-form-control-checked-surface-color-default`                     | `--hds-form-control-boolean-surface-color-checked-default`             |
@@ -438,11 +439,11 @@ Renamed tokens:
 | `--token-form-control-readonly-surface-color`                            | `--hds-form-control-surface-color-readonly`                            |
 | `--token-form-indicator-optional-typography-font-size`                   | `--hds-form-indicator-typography-font-size`                            |
 | `--token-form-indicator-optional-typography-line-height`                 | `--hds-form-indicator-typography-line-height`                          |
-| `--token-form-text-input-background-image-data-url-search`               | `--hds-form-text-input-background-image-data-url-search-cancel`        |
+| `--token-form-text-input-background-image-data-url-search`               | `--hds-form-text-input-background-image-data-url-search-default`       |
 | `--token-form-toggle-base-surface-color-default`                         | `--hds-form-toggle-surface-color-unchecked-default`                    |
-| `--token-app-header-home-link-size`                                      | `--hds-app-header-home-link-logo-size`                                 |
-| `--token-app-side-nav-body-list-item-content-spacing-horizontal`         | `--hds-app-side-nav-body-list-item-padding-horizontal`                 |
-| `--token-app-side-nav-body-list-item-spacing-vertical`                   | `--hds-app-side-nav-body-list-margin-vertical`                         |
+| `--token-app-header-logo-size`                                           | `--hds-app-header-home-link-logo-size`                                 |
+| `--token-app-side-nav-body-list-item-content-spacing-horizontal`         | `--hds-app-side-nav-body-list-item-content-gap`                        |
+| `--token-app-side-nav-body-list-item-spacing-vertical`                   | `--hds-app-side-nav-body-list-item-margin-top`                         |
 | `--token-app-side-nav-color-surface-primary`                             | `--hds-app-side-nav-wrapper-surface-color`                             |
 
 ---
@@ -611,13 +612,11 @@ Added tokens:
 | `--hds-app-header-padding-right`                                                |
 | `--hds-app-header-padding-top`                                                  |
 | `--hds-app-header-surface-color`                                                |
-| `--hds-app-side-nav-body-list-item-content-gap`                                 |
 | `--hds-app-side-nav-body-list-item-foreground-color-default`                    |
 | `--hds-app-side-nav-body-list-item-foreground-color-hover`                      |
 | `--hds-app-side-nav-body-list-item-foreground-color-selected`                   |
 | `--hds-app-side-nav-body-list-item-indicator-border-radius`                     |
 | `--hds-app-side-nav-body-list-item-indicator-surface-color`                     |
-| `--hds-app-side-nav-body-list-item-margin-top`                                  |
 | `--hds-app-side-nav-body-list-item-surface-color-active`                        |
 | `--hds-app-side-nav-body-list-item-surface-color-hover`                         |
 | `--hds-app-side-nav-body-list-item-surface-color-selected`                      |
@@ -823,10 +822,8 @@ Added tokens:
 | `--hds-form-control-boolean-surface-color-checked-disabled`                     |
 | `--hds-form-control-boolean-surface-color-unchecked-default`                    |
 | `--hds-form-control-boolean-surface-color-unchecked-disabled`                   |
-| `--hds-form-control-boolean-surface-color-unchecked-hover`                      |
 | `--hds-form-control-height`                                                     |
 | `--hds-form-control-padding-horizontal`                                         |
-| `--hds-form-control-placeholder-foreground-color-default`                       |
 | `--hds-form-control-placeholder-foreground-color-disabled`                      |
 | `--hds-form-error-icon-color`                                                   |
 | `--hds-form-file-input-background-image-data-url-file-selector-button-default`  |
@@ -882,7 +879,6 @@ Added tokens:
 | `--hds-form-super-select-tag-foreground-color`                                  |
 | `--hds-form-super-select-tag-surface-color`                                     |
 | `--hds-form-text-input-background-image-data-url-search-cancel-disabled`        |
-| `--hds-form-text-input-background-image-data-url-search-default`                |
 | `--hds-form-text-input-background-image-data-url-search-disabled`               |
 | `--hds-form-text-input-search-cancel-button-width`                              |
 | `--hds-form-textarea-padding-vertical`                                          |
@@ -1088,7 +1084,7 @@ Removed tokens:
 
 | Token                                                       |
 | ----------------------------------------------------------- |
-| `--token-app-header-logo-size`                              |
+| `--token-app-header-home-link-size`                         |
 | `--token-app-side-nav-color-foreground-faint`               |
 | `--token-app-side-nav-color-foreground-primary`             |
 | `--token-app-side-nav-color-foreground-strong`              |
@@ -1098,7 +1094,6 @@ Removed tokens:
 | `--token-app-side-nav-header-home-link-logo-size`           |
 | `--token-app-side-nav-header-home-link-logo-size-minimized` |
 | `--token-app-side-nav-header-home-link-padding`             |
-| `--token-form-control-base-surface-color-hover`             |
 | `--token-form-control-checked-foreground-color`             |
 | `--token-form-radiocard-border-radius`                      |
 | `--token-form-radiocard-control-padding`                    |
