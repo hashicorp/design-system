@@ -30,7 +30,6 @@ Updated alias and group references to match the new structure. Updated build and
 
 Added new design tokens for components, according to needs in the carbonization process, and in some cases removed existing design tokens when not needed anymore (or replaced by other tokens).
 
----
 
 The full list of renamed, added, and removed tokens is available in the [6.0.0 migration guide](https://github.com/hashicorp/design-system/blob/main/packages/tokens/MIGRATION-6.0.0.md).
 
