@@ -18,7 +18,7 @@ The `showcase/tests` directory contains all of the acceptance, integration, and 
 - `integration/components/hds/<component-name>/index-test.gts` - Integration test for the component.
 - `integration/helpers/` - Integration tests for helpers.
 - `integration/modifiers/` - Integration tests for modifiers.
-- `acceptance/components/hds/<component-name>.js` - Acceptance test for the component.
+- `acceptance/components/hds/<component-name>-test.js` - Acceptance test for the component.
 - `acceptance/percy-test.js` - Percy visual regression testing for all `showcase/app` pages.
 - `unit/` - Unit tests for components, helpers, modifiers, and services.
 
@@ -48,7 +48,7 @@ Unit tests are used to test low-level logic in individual classes such as helper
 
 ### Acceptance tests
 
-Acceptance tests ensure that a component passes automated a11y checks. They should be defined in `acceptance/components/hds/<component-name>.js`.
+Acceptance tests ensure that a component passes automated a11y checks. They should be defined in `acceptance/components/hds/<component-name>-test.js`.
 
 ```js
 import { module, test } from 'qunit';
