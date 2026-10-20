@@ -5,14 +5,14 @@ description: "Instructions for how components should be displayed in the showcas
 
 ## Overview
 
-All components from the `packages/components` library must have a corresponding showcase page in the `showcase` app that demonstrates all arguments, blocks, and interactive states of the component.
+All components from the `packages/components` library must have a corresponding showcase page in the `showcase` app with representative examples of their supported visual differences, composition, and user-observable behavior. Follow `content.instructions.md` to select meaningful content without requiring a separate example for every argument or combination. Comprehensive automated test requirements remain defined by the test instructions.
 
 ## File structure
 
 For each HDS component the following files are required:
 
 - `showcase/app/components/page-components/<component-name>/index.gts` - Index file for the component's showcase page; combines all sub-section components into one template.
-- `showcase/app/components/page-components/<component-name>/code-fragments/<code-fragment-name>.gts` - (Optional) Reusable examples of the main HDS component. Used multiple times across examples in sub-sections.
+- `showcase/app/components/page-components/<component-name>/code-fragments/<code-fragment-name>.gts` - (Optional) Reusable examples or focused interactive demos that benefit from encapsulated state. Used by sub-sections; reuse is not required for every fragment.
 - `showcase/app/components/page-components/<component-name>/sub-sections/<sub-section-name>.gts` - Sub-sections of the main component's showcase page. Each major section should be its own sub-section component, generally each `ShwTextH2` heading and the content below it.
 - `showcase/app/styles/showcase-pages/<component-name>.scss` - (Optional) Custom styling for a showcase page. Used to force states, add background colors to sections, and style placeholder content.
 - `showcase/app/templates/page-components/<component-name>.gts` - Page template that renders the component's index component.

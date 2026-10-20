@@ -1,177 +1,206 @@
 ---
 applyTo: "showcase/app/components/page-components/**, showcase/app/styles/showcase-pages/**"
-description: "Instructions for the content structure and best practices for showcase pages of components"
+description: "Use when choosing content, examples, demos, and section structure for HDS component showcase pages"
 ---
 
-## Required showcase page content
+## Purpose and coverage
 
-For a given component, the following must be shown:
-- All relevant arguments, with every supported value demonstrated where practical
-  - Example: An `@isActive` boolean argument should show both `true` and `false` states
-  - Example: A `@color` argument should show all available color values
-  - IMPORTANT: Each argument should have its own demonstration section
-- Meaningful combinations of different argument values, especially when the combination changes behavior
-  - Example: Demonstrate all combinations of `@type` and `@color`
-  - DO NOT include irrelevant combinations that do not affect the component's behavior such as `@color` and `@size`
-- Meaningful combinations of content and arguments
-  - Example: Show representative `@color` options both with and without an optional icon
-- All sub-components and their arguments/blocks
-- All interactive states (hover, focus, active, disabled) for interactive components
+Showcase pages are working examples for manual exploration and visual regression review. Demonstrate representative, supported visual and behavioral differences, not an exhaustive API reference or a duplicate of the integration test suite.
 
-## Required showcase page layout and component usage
+## Content selection
 
-Follow the layout of other showcase pages as much as possible, including the following rules:
-- Use the `ShwTextH{2,3,4}` components for headings
-- Include a `ShwDivider` component at the end of each sub-section and in-between larger sections
-- Use `ShwGrid` and `ShwFlex` components to layout content within sub-sections
-  - Use the `@label` argument on `ShwGrid` and `ShwFlex` items to provide context for each example
-  - Set `@direction` to `row` for smaller components
-- Use `capitalize` from `@ember/string` to capitalize all type values in labels or text
-- Use `ShwPlaceholder` for generic yielded content blocks
+### Required content
 
-## Content structure
+- All arguments that affect the component's visual appearance or behavior
+- All yielded blocks
+- Visual states for all interactive elements
+- All sub-components
+  - Each sub-component should have the same content requirements as the root component, including arguments, blocks, and visual states.
+  - Each sub-component should have its own section with a clear heading and relevant content.
+- Combinations of arguments that produce distinct visual or behavioral outcomes
 
-To determine what content should be shown for a component:
-- Read all arguments listed in the `Args` of the component signature
-- Read all sub-component files in the same directory as the main `index.gts` file
-- Note any interactive elements in any component templates
+### Determining content to show
 
-Content sub-sections should be structured in the following order:
-- Content
-  - The most basic examples and (optionally) content variations
-- Variants
-  - The different variations of the component based on its arguments
-- Additional content
-  - Any additional content that is relevant to the component: Demos, usage examples, or edge cases
-- States
-  - Interactive states for the main component
-- Base elements / sub-components
-  - Examples of all sub-components in isolation
-  - Interactive states for any sub-components
+To determine which content should be shown for a component's showcase page, follow these guidelines:
 
-### Content
+- Inventory the complete component surface before choosing examples: inspect the public component exports, each related public sub-component's signature (`Args`, `Blocks`, yielded components/functions, and `Element`), and the main component's yielded API. Follow imported or inherited types and argument unions as needed. Do not stop at the root component signature.
+- Read the component templates and relevant implementations to understand how arguments, blocks, and yielded APIs work in practice. For stateful arguments, check whether a static setting is enough to show the behavior or whether a working demo must change the value.
+- Read the relevant implementation to confirm defaults, conditional rendering, and required argument combinations.
+- Inspect related base and field components, including those in nested directories.
+- Inspect relevant styles and selectors for supported hover, active, focus, expanded/collapsed, disabled, and other visual states, as well as layout dependencies and breakpoints. Identify the actual DOM element that receives each state.
+- Compare the existing page and a similar showcase page before adding content. Reuse examples that already demonstrate the intended outcome instead of duplicating them.
 
-Example file: `showcase/app/components/page-components/button/sub-sections/content.gts`
+### Coverage considerations
 
-A `content` sub-section should show boolean arguments, and varying types of content a component could contain. This could be text length, generic content blocks, or other types of content that the component can hold. It should be a general catch-all for the types of basic content that could be placed inside a component.
+| API or behavior                                                   | Representative coverage                                                                                                                                                                                                         |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A small finite set of visual values, such as color, size, or type | Show the distinct options in a labeled group. Loop over exported value lists, such as Button's `COLORS` and `SIZES`, when available.                                                                                            |
+| A boolean or optional argument                                    | Show the alternatives when they reveal different appearance or behavior. Place them by effect: content flags with content, disabled with states, collision detection with positioning.                                          |
+| Defaults and omitted arguments                                    | Let the baseline demonstrate defaults. Add omitted versus explicit examples only when the distinction matters.                                                                                                                  |
+| Arguments that interact                                           | Combine them when the interaction changes rendering, behavior, or exposes a meaningful regression risk. For example, Alert's type/color matrix is useful; no particular argument pair is universally required or irrelevant.    |
+| Optional blocks or contextual components                          | Show meaningful inclusion, omission, and composition. Avoid every permutation or a repeated absence example already covered by the baseline.                                                                                    |
+| Mutually exclusive or controlled/uncontrolled modes               | Respect required argument combinations and show workflows for modes with meaningfully different consumer interaction. Do not mix incompatible modes in one example.                                                             |
+| Interactive states | Demonstrate applicable hover, focus, active, and other user-interaction states for the actual interactive element, including controls nested inside a composite component. Include keyboard and pointer interactions when relevant. Do not omit states just because a control is nested or already shown in another section. |
+| Native attributes                                                 | Demonstrate relevant supported attributes, such as `disabled`, `readonly`, `placeholder`, or `multiple`, on the element that actually receives them. Do not assume every component forwards them to its control.                |
+| Callbacks and yielded actions                                     | Demonstrate their observable effect in a working workflow when useful, rather than adding a static grid or diagnostic log for every callback.                                                                                   |
+| Data-dependent rendering                                          | Select supported empty, minimal, overflow, selected, expanded, or boundary cases that expose distinct outcomes. Add loading/error examples only when the component supports them or they are clearly consumer-owned demo state. |
 
-### Variants
+## Page structure
 
-Example file: `showcase/app/components/page-components/button/sub-sections/variants.gts`
+### Page structure overview
 
-A `variants` sub-section should show arguments with multiple options, such as color, size, type, etc. It should also show examples of combinations of multiple arguments.
+The following main sections should exist on component pages. Include a header for each section of the major groups below.
 
-Commonly all available options for these kinds of arguments are exported from the components as constants. These can be looped over in the template to display available options.
+- "Content": Show the main content and its variations.
+- "Variants": Group finite visual options under descriptive headings.
+- "States": Demonstrate interactive states for the main control and relevant children.
+- "Demos": Include any meaningful usage scenarios beyond the basic content and variants.
+- "Base elements": Demonstrate any sub-components and their variations.
 
-Example: The `HdsButton` exports arrays `COLORS` and `SIZES` which list all possible values for the `@color` and `@size` arguments.
+### Content and variants
+
+Show a minimal valid example and meaningful content variations: text with and without icons, short and long text, or optional content blocks. Use enough content to make wrapping or truncation observable.
+
+Group finite visual options under `variants` or descriptive headings. Add content/argument combinations only when they reveal another useful outcome, such as size with icon-only content.
+
+References:
+
+- [Button content](../../../../../showcase/app/components/page-components/button/sub-sections/content.gts)
+- [Button variants](../../../../../showcase/app/components/page-components/button/sub-sections/variants.gts)
+- [Alert type/color combinations](../../../../../showcase/app/components/page-components/alert/sub-sections/color.gts)
 
 ### States
 
-A `states` sub-section should show all interactive states for the main component, such as `hover`, `active`, and `focus`.
+Show applicable visual states, such as default, hover, active, and focus, for the main control and relevant interactive children.
 
-#### Interactive states
+Use a labeled `ShwGrid` or `ShwFlex` group and loop over applicable states when useful. Match the grid columns to the comparison.
 
-For interactive elements, show all applicable interactive states such as `hover`, `active`, and `focus`.
+#### Visual state mocks
 
-The showcase application recognizes the custom `mock-state-value` attribute and adds the corresponding `mock-*` class to the element, which mocks states such as `hover`.
+The showcase application converts `mock-state-value` into `mock-*` classes. These demonstrate appearance only where the component's CSS supports those classes; they do not move focus, dispatch events, or reproduce component state transitions.
 
-All interactive states should be looped through and each displayed in a `ShwGrid`
+- Set `mock-state-value="hover"` on the styled element, or on a wrapper with `mock-state-selector` targeting the relevant descendants.
+- Use `mock-state-selector="input"`, for example, when the actual control is nested inside a field or showcase item. Ensure the selector does not unintentionally target unrelated controls.
+- Combine supported classes with `mock-state-value="hover+focus"` when that combination is meaningful.
+- Use `mock-state-delay` only when needed to wait for rendering, following an existing working example. A delay does not create or verify an interactive state.
+
+For example, this complete subsection shows the supported TextInput hover/focus appearances on its nested input:
 
 ```gts
-const STATES = ['default', 'hover', 'active', 'focus'];
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import { capitalize } from '@ember/string';
+import { HdsFormTextInputBase } from '@hashicorp/design-system-components/components';
+import ShwGrid from 'showcase/components/shw/grid';
 
-<template>
-  <ShwGrid @columns={{5}} as |SG|>
+const STATES = ['default', 'hover', 'focus'];
+
+const StateExamples: TemplateOnlyComponent = <template>
+  <ShwGrid @columns={{3}} as |SG|>
     {{#each STATES as |state|}}
-      <SG.Item @label="{{capitalize state}}">
-        <HdsComponentName mock-state-value={{state}} />
+      <SG.Item
+        @label={{capitalize state}}
+        mock-state-value={{state}}
+        mock-state-selector="input"
+      >
+        <HdsFormTextInputBase aria-label="Text input / {{state}}" />
       </SG.Item>
     {{/each}}
   </ShwGrid>
-</template>
+</template>;
+
+export default StateExamples;
 ```
 
-#### Disabled state
+#### Disabled, read-only, invalid, and other semantic states
 
-When applicable, show the `disabled` state separately. Include both the default and hover presentation when the component supports meaningful disabled hover styling.
+Use the component's supported argument or native attribute rather than only a mock class. For example, native `disabled` and `readonly` differ from an HDS argument such as `@isInvalid`.
 
-```gts
-const STATES = ['default', 'hover'];
+Keep these examples in the state matrix or separate them when easier to inspect. Include disabled hover styling only when meaningful and supported. Do not show impossible interactions, such as keyboard focus on a natively disabled control, or invent active styling for controls without it.
 
-<template>
-  <ShwGrid @columns={{5}} as |SG|>
-    {{#each STATES as |state|}}
-      <SG.Item @label="Disabled / {{capitalize state}}">
-        <HdsComponentName disabled mock-state-value={{state}} />
-      </SG.Item>
-    {{/each}}
-  </ShwGrid>
-</template>
-```
+Reference: [TextInput base control states](../../../../../showcase/app/components/page-components/form/text-input/sub-sections/base-element.gts).
 
-### Base elements / Sub-components
+### Demos and workflows
 
-Any available sub-components should be shown with all of their available arguments and blocks to the same extent as the main component.
+Add a working demo when a static example cannot reveal the behavior. Use minimal local state/data to drive the real component, not a visual imitation of its functionality.
 
-A `base elements` sub-section should be used to show all sub-components.
+- **State changes and progression:** advance a stepper, change tabs, select rows, or update pagination and its displayed data. Show externally controlled updates when they reveal a different workflow.
+- **Interacting arguments:** demonstrate effects such as changing `@isDismissDisabled` while an overlay is open.
+- **Overlays:** demonstrate supported open, close, and dismissal behavior. Add alternate triggers, such as a dropdown item opening a modal, when they reveal a distinct interaction or focus-return case; not every overlay needs every trigger type.
+- **Keyboard and focus:** support real keyboard interaction in relevant workflows, including focus return after dismissal where supported. CSS state mocks are not a substitute.
+- **DOM-dependent behavior:** make the component operable when demonstrating behavior such as `@preserveContentInDom`. If the difference is invisible, provide a concise inspection note or observable demo state.
+- **External elements:** render the referenced target or boundary with the DOM relationship the API requires. A target may be a sibling, while a boundary may need to be an ancestor. Verify supported selector/node types; add reference forms or target element types when they expose a meaningful difference, not as a universal matrix.
 
-Other component states such as `read-only` and `invalid` should also be shown separately when supported, using the same principle.
+### Base elements and sub-components
 
-### Additional content
+Demonstrate sub-components and yielded elements of the main component, including their content, variants, and states, using the same selection principles as the main component. Prefer a `Base elements` section when a component exposes separately useful parts; use a valid parent or semantic context when required. A composition example counts only when it clearly demonstrates the sub-component and its meaningful API, not merely because the sub-component appears inside the parent.
 
-#### Demos
+Reference: [Pagination base elements](../../../../../showcase/app/components/page-components/pagination/sub-sections/base-elements.gts).
 
-Add a `demos` sub-section when static argument grids can't cover the behavior. Trigger conditions:
+Reference: [StepperNav base elements](../../../../../showcase/app/components/page-components/stepper-nav/sub-sections/base-elements.gts).
 
-- **Component functionality** - when the component performs a specific action that cannot be tested from a default example, add a mock JS demo (e.g. stepper state progression or tab changes via JS)
-- **Connected elements** - when a component has arguments related to targets of other HTML elements outside the component add examples of the interaction between these two components with a variety of targets, both HDS components and native elements.
-- **Overlay open/close** (Modal, Flyout, Dropdown) — show opening from a `HdsButton` trigger and from a `HdsDropdown` item trigger.
-- **State progression** — components with phases (e.g. a stepper) need a working demo that advances through each phase.
-- **Interacting arguments** — when arguments must be combined to observe their effect (e.g. `@isDismissDisabled` toggled externally), add a working demo.
-- **DOM-dependent behavior** — e.g. `@preserveContentInDom` requires the dropdown to be openable to confirm the DOM state.
-- **Arguments that reference external DOM elements** — when an argument accepts a CSS selector or DOM node (e.g. `@target`), render the target element as a sibling so both are visible together. Cover each reference form (string selector, Node) and a representative range of target element types (`<input>`, `<textarea>`, `<select>`, HTML blocks).
+### Miscellaneous considerations
 
-#### Context / composition
+#### Context, composition, and layout
 
-Add a `context` sub-section (or `containers`, `display`) when:
+Use a section such as `context`, `containers`, `display`, or `layout` when the surrounding content or CSS changes the component's behavior or presentation. One section can cover several concerns.
 
-- The component is **designed to live inside specific containers** (e.g. a flush accordion inside a card or flyout)
-- The component **inherits CSS from its parent** (typography, color, `text-align`, `white-space`) — show it inside parents with those properties applied
-- The component is **inline and appears alongside text** — show it in a realistic paragraph
+- Show intended containers, such as a flush accordion inside a card, when the composition matters.
+- Put inline components in a realistic paragraph and show relevant inherited typography, color, alignment, or white-space behavior.
+- Demonstrate meaningful constrained widths, flex/grid participation, growth, wrapping, truncation, or scrolling. Do not reproduce every parent CSS combination.
+- Include nesting or sibling compositions only when supported and relevant to intended usage.
 
-#### Generated element
+#### Generated elements and navigation modes
 
-When a component renders different HTML elements depending on arguments (e.g. `<button>` by default, `<a>` with `@href`, `<LinkTo>` with `@route`), add a `generated-element` sub-section with a labeled example for each possible element.
+When arguments select different elements or navigation behavior, show labeled examples of the meaningful modes. For example, Button can render a native button, an anchor with `@href`, or an Ember `LinkTo` with `@route`; `LinkTo` also renders an anchor in the DOM.
 
-#### Layout and display behavior
-
-When layout or sizing depends on the parent CSS context, add a `display`, `layout`, or `containers` sub-section showing the component inside parents with varying CSS properties (e.g. `inline-block`, `inline-flex`, `flex-grow: 0`, `max-width: fit-content`, `overflow: auto`).
+A `generated-element` section is useful for comparing these modes, but related examples may be grouped elsewhere. Keep navigation examples local and valid, without accidental external navigation during exploration.
 
 #### Positioning and floating behavior
 
-When a component has `@listPosition`, `@placement`, or similar, add a `positions` sub-section showing every value in a labeled grid with enough surrounding space.
+When position is configurable, show supported finite values in a labeled group with enough space to inspect them. Reuse exported value lists where available.
 
-When the component has collision detection, add a dedicated section using `ShwAutoscrollable` so users can scroll and observe position adjustments.
+When collision detection is supported, use `ShwAutoscrollable` to make position adjustments observable while scrolling. Supply a valid boundary and meaningful space constraints. Keep clipping, placement, and open/close behavior distinguishable rather than combining every option.
 
 #### Responsiveness
 
-When a component adapts at specific breakpoints, add a `responsiveness` sub-section using `ShwFrame` to render the component at multiple simulated viewport widths.
+Add responsiveness examples when the component changes at relevant viewport breakpoints or container sizes. Choose sizes on either side of the actual transition rather than arbitrary device categories.
 
-### Edge cases
+For viewport-dependent behavior, use `ShwFrame` with its required `@src` pointing to a working frameless showcase route. Follow existing route/template wiring and supply an appropriate width, height, and label. Constraining a regular wrapper does not change the viewport for media queries. For container-dependent behavior, vary the parent container instead.
 
-Add edge case examples within the most relevant existing sub-section rather than in a standalone section.
+Reference: [Pagination responsiveness](../../../../../showcase/app/components/page-components/pagination/sub-sections/responsiveness.gts).
 
-Consider the following angles — not all apply to every component:
+#### Edge cases and data boundaries
 
-- **Text length** — very long text, multi-line wrapping, no spaces, minimal content
-- **Nested components** — component containing other HDS components; two instances of the same component nested; component placed alongside its intended sibling components
-- **Parent style interference** — constrained parents (`white-space: nowrap`, `max-width: fit-content`, `text-align`), unexpected CSS inheritance
-- **Known broken configurations** — argument combinations that produce an imperfect but valid result; show them with an explanatory notice rather than omitting them
+Prefer examples in the relevant existing section; use a dedicated section when a group of edge cases is clearer together. Select only cases the component supports:
 
-### Code fragments
+- Long, multiline, unbroken, or minimal text; constrained parents and relevant CSS inheritance.
+- Empty data, a single item, enough items to overflow, and first/last-page or selection boundaries.
+- Supported nesting, expansion, or composition with related HDS components.
+- Imperfect but supported configurations, clearly labeled with their limitation. Do not present invalid arguments, assertion failures, or inaccessible markup as recommended usage; keep hard failures in tests.
 
-Code fragments under the path `showcase/app/components/page-components/<component-name>/code-fragments/<code-fragment-name>.gts` are reusable code snippets or interactive examples used in sub-section examples for a given component.
+Reference: [AdvancedTable section organization](../../../../../showcase/app/components/page-components/advanced-table/index.gts).
 
-After completing all sub-sections, review any provided examples to see if they could be simplified and extracted into reusable code fragments.
+## Formatting rules
 
-Example: In the `HdsButton` a loading state button is used across multiple sub-sections. It has been extracted into a code fragment at `components/page-components/hds-button/code-fragments/loading-state.gts`.
+- Use `ShwTextH1` for the page title, `ShwTextH2` for major sections, and `ShwTextH3`/`ShwTextH4` for nested headings without skipping levels. Use `ShwTextBody` for concise explanatory text.
+- Use `ShwDivider` at logical boundaries, commonly `@level={{2}}` within subsections. Avoid duplicate separators where adjacent sections already provide separation.
+- Use `ShwGrid` for aligned comparisons and `ShwFlex` for flexible groups. `ShwGrid` requires `@columns`; `@direction` belongs to `ShwFlex` and defaults to `row`. Use `column` when examples need vertical stacking.
+- Give examples enough context through item `@label` or a yielded `Label` component for formatted labels. Use `capitalize` from `@ember/string` for human-readable enum captions when appropriate; preserve literal API values, code, and abbreviations.
+- Use `ShwPlaceholder` for generic content slots. Use real labels, options, rows, and other semantic content when behavior or accessibility depends on them.
+- Keep every example accessible: provide accessible names, unique IDs, valid label associations, and appropriate DOM semantics, including for standalone base controls.
+- Use deterministic local fixtures and enough content to reveal the intended behavior. Bound asynchronous demo work and clean it up on teardown; avoid unintended form submissions, network requests, or navigation.
+- Distinguish static snapshot examples from interactive exploration. Follow existing `data-test-percy` boundaries, and do not assume closed overlays, later demo states, or iframe contents are captured by the initial page snapshot. Verify relevant acceptance/Percy coverage when adding examples like these.
+
+## Code fragments
+
+Use `showcase/app/components/page-components/<component-name>/code-fragments/<code-fragment-name>.gts` for reusable examples or focused interactive demos that benefit from encapsulated state.
+
+Extract fragments during authoring when they reduce duplication or keep a subsection readable. A one-off stateful example may remain in its subsection; extraction is not mandatory merely because it uses JavaScript.
+
+Reference: [Button loading-state fragment](../../../../../showcase/app/components/page-components/button/code-fragments/with-loading-state.gts).
+
+## Completion check
+
+Before considering the content complete, revisit the component-surface inventory and confirm that every identified root component, distinct public sub-component/yielded element, meaningful stateful argument, and relevant interactive control/state is covered by a clearly labeled example or deliberately excluded. Confirm that the examples expose meaningful supported differences without redundant grids or invented APIs. Check defaults, relevant blocks/native attributes, valid child composition, actual interactive behavior, and workflows identified from the public contract. Omit categories with no meaningful outcome rather than adding filler, and explain non-obvious exclusions in the implementation summary when useful.
+
+Verify example labels, accessibility, referenced routes, snapshot boundaries, and any new fragment paths. Keep exhaustive behavioral assertions in the integration tests described by the companion test instructions.
