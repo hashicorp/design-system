@@ -50,7 +50,6 @@ Router.map(function () {
       });
     });
     this.route('application-state');
-    this.route('badge');
     this.route('badge-count');
     this.route('breadcrumb');
     this.route('button');
@@ -178,7 +177,6 @@ Router.map(function () {
       this.route('app-footer');
       this.route('app-header');
       this.route('app-side-nav');
-      this.route('badge');
       this.route('badge-count');
       this.route('breadcrumb');
       this.route('button');

@@ -87,9 +87,6 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/application-state');
     await percySnapshot('ApplicationState');
 
-    await visit('/components/badge');
-    await percySnapshot('Badge');
-
     await visit('components/badge-count');
     await percySnapshot('BadgeCount');
 
