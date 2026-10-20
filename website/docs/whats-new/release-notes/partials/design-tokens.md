@@ -30,10 +30,7 @@ Updated alias and group references to match the new structure. Updated build and
 
 Added new design tokens for components, according to needs in the carbonization process, and in some cases removed existing design tokens when not needed anymore (or replaced by other tokens).
 
-
-The full list of renamed, added, and removed tokens is available in the [6.0.0 migration guide](https://github.com/hashicorp/design-system/blob/main/packages/tokens/MIGRATION-6.0.0.md).
-
----
+👉 The full list of renamed, added, and removed tokens is available in the [6.0.0 migration guide](https://github.com/hashicorp/design-system/blob/main/packages/tokens/MIGRATION-6.0.0.md).
 
 CSS helper classes for the focus ring have been renamed to follow the same naming convention as renamed tokens:
 
@@ -43,8 +40,6 @@ CSS helper classes for the focus ring have been renamed to follow the same namin
 | `.hds-focus-ring-critical-box-shadow` | `.hds-focus-ring-box-shadow-critical` |
 
 Added CSS helper class `.hds-surface-high-contrast`.
-
----
 
 <small class="doc-whats-new-changelog-metadata">[#4035](https://github.com/hashicorp/design-system/pull/4035)</small>
 
