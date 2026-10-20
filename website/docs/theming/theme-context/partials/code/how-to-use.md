@@ -61,6 +61,6 @@ Internally, the component applies the same CSS class names that the `hdsTheming`
 
 However, a few components rely on the `hdsTheming` service to render differently depending on the global theme, which is applied at application/page level, so they don't respond to the `@context` applied locally.
 
-This is most noticeable with `Icon`: the icons inside the context always follow the global theme (Flight icons if the global theme is the "classic" HDS one, and IBM Carbon icons if it's the "carbonized" one), regardless of what `@context` is provided.
+This is most noticeable with [Icon](/components/icon): the icons inside the context always follow the global theme (Flight icons if the global theme is the "classic" HDS one, and IBM Carbon icons if it's the "carbonized" one), regardless of what `@context` is provided.
 
 In practice, this is rarely a problem: `ThemeContext` is meant to be used in applications that have adopted the "carbonized" tokens and styles, not to mix the "classic" and "carbonized" visual languages in the same page.
