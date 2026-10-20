@@ -1,13 +1,5 @@
 ## How to use this component
 
-The most basic invocation of the Icon component requires only the `@name` property to be passed with a value matching an existing name in [the Icon library](/icons/library):
-
-[[code-snippets/icon-basic]]
-
-It renders to this (where the `id` will be unique each time):
-
-[[code-snippets/icon-rendered execute=false]]
-
 !!! Insight
 
 **Icons are now asynchronous and theme-dependent**
@@ -18,6 +10,14 @@ Which icon is rendered also depends on the [theme](/foundations/theming) applied
 
 For more details, see [Carbonization/Introduction](/carbonization/introduction) and [Foundations/Theming](/foundations/theming).
 !!!
+
+The most basic invocation of the Icon component requires only the `@name` property to be passed with a value matching an existing name in [the Icon library](/icons/library):
+
+[[code-snippets/icon-basic]]
+
+It renders to this (where the `id` will be unique each time):
+
+[[code-snippets/icon-rendered execute=false]]
 
 Because the icons are hidden to assistive technology, they cannot be used on their own and must be used inside of an element with an accessible name. See the [Accessibility](/components/icon?tab=accessibility) section for more details on how to best use this component in different contexts.
 
