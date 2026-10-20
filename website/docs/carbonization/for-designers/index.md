@@ -6,13 +6,13 @@ navigation:
 ---
 
 <section data-tab="Overview">
-  @include "partials/overview/overview.md"
+  @include "partials/overview.md"
 </section>
 
 <section data-tab="Adoption in Figma">
-  @include "partials/adoption/adoption.md"
+  @include "partials/adoption.md"
 </section>
 
-<section data-tab="Distinct differences">
-  @include "partials/distinct-differences/distinct-differences.md"
+<section data-tab="Distinct styles">
+  @include "partials/distinct-styles.md"
 </section>
