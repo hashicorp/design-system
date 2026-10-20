@@ -34,13 +34,13 @@ Each component in HDS that sits above the main page has a visible elevation usin
 
 #### Secondary buttons
 
-Carbon's secondary button variant has much more prominence than the HDS secondary button. Across our applications, HDS secondary buttons are used repeatedly for most non-primary action. Given Carbon's version has more contrast, we've opted to introduce a new variant of the Button in HDS called `seconary-muted`, which in HDS is a duplicate of `secondary`, but in cds modes, is a more subtle option to use where needed. Teams will likely want to migrate to the new variant to keep consistent hierarchy with the current UI.
+Carbon's secondary button variant has much more prominence than the HDS secondary button. Across our applications, HDS secondary buttons are used repeatedly for most non-primary action. Given Carbon's version has more contrast, we've opted to introduce a new variant of the Button in HDS called `secondary-muted`, which in HDS is a duplicate of `secondary`, but in cds modes, is a more subtle option to use where needed. Teams will likely want to migrate to the new variant to keep consistent hierarchy with the current UI.
 
 ![](/assets/carbonization/designers/secondary-button.png)
 
 ### Badge and Tag
 
-In HDS, we differentiate between `Badge` and `Tag` where badges are used for non-interactive metadata and tags can be used when interaction is needed, such as in a list of filters. In Carbon, they only offer a `Tag` which can be both static and interactive. 
+In HDS, we differentiate between `Badge` and `Tag` where badges are used for non-interactive metadata and tags can be used when interaction is needed, such as in a list of filters. In Carbon, they only offer a `Tag` which can be both static and interactive.
 
 The following are where the overlap exists between the two systems:
 
