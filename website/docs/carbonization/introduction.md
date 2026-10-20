@@ -36,7 +36,7 @@ In practical terms:
 Your day-to-day workflow remains largely unchanged:
 
 - Helios is still the official design system for HashiCorp products built with Ember.
-- The Helios documentation website, Figma UI Kits, and npm packages remain our source of truth.
+- The Helios documentation website, Figma UI Kits, and `npm` packages remain our source of truth.
 - Support channels and processes stay the same.
 - Component APIs do not change, so your product code should not break.
 
