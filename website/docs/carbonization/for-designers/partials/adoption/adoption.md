@@ -42,15 +42,6 @@ To switch modes on a page:
 
 ![](/assets/carbonization/designers/switch-modes-page.png)
 
-### Design with themes
-
-Designing with themes introduces a few adjustments to your workflow:
-
-- **Default state**: Your files remain in HDS mode by default.
-- **After migration**: Once your team adopts Carbon, work exclusively in `cds-0` (light) or `cds-100` (dark).
-- **Testing themes**: Test all new designs in both light and dark modes, checking color contrast and hierarchy.
-- **Custom work**: Build custom components or patterns in both light and dark modes.
-
 ### Update existing components
 
 Most changes apply automatically when you accept the library updates. Detached or custom elements require manual migration.
@@ -61,13 +52,22 @@ Most changes apply automatically when you accept the library updates. Detached o
 | Detached components | Re-link to the HDS component or map to the appropriate HDS variable. |
 | Custom components | Manually map tokens and styles to HDS variables. If a variable is missing, create a local variable and map it to the appropriate Carbon tokens. |
 
+### Design with themes
+
+Designing with themes introduces a few adjustments to your workflow:
+
+- **Default state**: Your files remain in HDS mode by default.
+- **After migration**: Once your team adopts Carbon, work exclusively in `cds-0` (light) or `cds-100` (dark).
+- **Testing themes**: Test all new designs in both light and dark modes, checking color contrast and hierarchy.
+- **Custom work**: Build custom components or patterns in both light and dark modes.
+
 ## Adoption checklist
 
 1. Duplicate your design file to create a backup copy as a safeguard.
 2. Confirm your engineering and product teams are ready to support the Carbon modes in code.
 3. Audit your design file for detached components and re-link them to the main library component.
-4. Accept all pending Helios Design System UI Kit updates in Figma.
-5. Replace hardcoded local colors and styles with HDS variables or styles from the Components v2.0 library.
+4. Replace hardcoded local colors and styles with HDS variables or styles.
+5. Accept all pending Helios Design System UI Kit updates in Figma.
 6. Switch the top-level frame mode from `hds` to `cds-0` (light mode). For high-contrast touchpoints, switch the containing frame to `cds-100`.
 7. Duplicate the top-level frame and switch the mode to `cds-100` to test dark mode.
 8. Verify nested surfaces and sidebars inherit or apply the correct mode, e.g., high-contrast touchpoints.
