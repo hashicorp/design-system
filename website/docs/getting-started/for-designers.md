@@ -51,9 +51,11 @@ Once the libraries are enabled, components will be accessible in the [assets pan
 
 Tokens create consistency in the application of color (as a fill or stroke), typography, and effects within Figma. Using Helios tokens aligns the values used in design to corresponding values for engineers implementing the design.
 
-### Variables in Figma 
+### Variables in Figma
 
-Tokens are stored in Figma as "variables". Variables attach to designs as hex values, strings, or numerical values. The HDS team has created variable sets in Figma that match the naming and values of tokens used by our engineering teams. This means attaching variables and typography styles to your designs in Figma will link those elements to HDS tokens. Please note, themes will not be accessible if you detach variables within your design, as this breaks the token link.
+Tokens are stored in Figma as "variables". Variables attach to designs as hex values, strings, or numerical values. The HDS team has created variable sets in Figma that match the naming and values of tokens used by our engineering teams, making Figma variables equivalent in meaning to tokens. Attaching variables and typography styles to your design elementss in Figma will link any relevant property tothe corresponding HDS token. 
+
+Please note, themes are not accessible if you detach variables in your design, as this breaks the token link.
 
 For more details on what tokens are and how they're used, visit the [HDS Academy design tooling page](https://w3.ibm.com/w3publisher/helios-design-system/hds-academy/design-tooling) on w3 where styles, tokens, and variables are featured in explainer videos.
 
