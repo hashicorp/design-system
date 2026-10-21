@@ -51,7 +51,11 @@ Once the libraries are enabled, components will be accessible in the [assets pan
 
 Tokens create consistency in the application of color (as a fill or stroke), typography, and effects within Figma. Using Helios tokens aligns the values used in design to corresponding values for engineers implementing the design.
 
-Tokens enable theming within Figma. Themes will not be accessible if you detach tokens within your designs.
+### Variables in Figma
+
+Tokens are stored in Figma as "variables". Variables attach to designs as hex values, strings, or numerical values. The HDS team has created variable sets in Figma that match the naming and values of tokens used by our engineering teams. This means attaching variables and typography styles to your designs in Figma will link those elements to HDS tokens. Please note, themes will not be accessible if you detach variables within your design, as this breaks the token link.
+
+For more details on what tokens are and how they're used, visit the [HDS Academy design tooling page](https://w3.ibm.com/w3publisher/helios-design-system/hds-academy/design-tooling) on w3 where styles, tokens, and variables are featured in explainer videos.
 
 !!! Callout
 
@@ -60,7 +64,7 @@ As of v7.0 of the design system, the Foundations library has been deprecated. Al
 !!!
 
 
-### Using tokens in your project
+### Using tokens in your project, applying Figma variables
 
 1. Select the object(s) to which you want to add styling (e.g., text layer, shape, or frame).
 
@@ -70,7 +74,7 @@ As of v7.0 of the design system, the Foundations library has been deprecated. Al
 
 ![](/assets/getting-started/designers/apply-text-style.png =784x*)
 
-To learn more about HDS tokens and styles view [the Foundations section](/foundations/). For details on what tokens are and how they're used, visit the [HDS Academy design tooling page](https://w3.ibm.com/w3publisher/helios-design-system/hds-academy/design-tooling) on w3 where styles and variables are featured in explainer videos.
+To learn more about HDS tokens and styles view [the Foundations section](/foundations/). 
 
 ## Modes and theming
 Themes in Figma allow designers to view a frame in multiple visual languages. Typically this is used to view light or dark themes for a design. In our case, Figma modes will allow frames to be tranlsated from "classic" HDS (hds) to "carbonized" HDS (cds-0, cds-10, cds-90, cds-100).
