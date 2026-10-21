@@ -7,32 +7,33 @@ navigation:
 
 !!! Callout
 
-Many resources and links on this page are only available to HashiCorp employees.
+Many resources and links on this page are only available to IBM employees.
 !!!
 
 The Design Systems Team maintains and publishes Figma libraries which contain foundational styles, components, patterns, and icons.
+
+Please note, the release of v7.0 deprecates the Foundations library and consolidates tokens and styles into the Components library.
 
 ## Enabling Helios libraries
 
 1. Open the Library modal via one of the following methods:
 
-      - Click the `Assets` tab in the left navigation bar, then click the `book` icon to open the modal.
+      - Click the "Assets" tab in the left navigation bar, then click the book icon to open the modal.
 
       ![Opening the library modal via the assets panel](/assets/getting-started/designers/enable-libraries-icon.png =295x*)
 
-      - Click the `Figma` icon in the top toolbar, then click "Libraries".
+      - Click the Figma icon in the top toolbar, then select "Libraries."
 
       ![Opening the library modal via the menu](/assets/getting-started/designers/enable-libraries-menu.png =290x*)
 
       - Or use the keyboard shortcut:
 
-         - Mac: `⌥ option`+`2`
-         - Windows: `alt`+`2`
+         - Mac: `⌥ option`+`3`
+         - Windows: `alt`+`3`
 
 2. Enable the libraries by locating the **HDS Design System UI Kit** team and selecting "Add to file":
 
       - [HDS Product Components v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=2337-20575&t=gWdKy44MzTP4cTRo-1)
-      - [HDS Product Foundations v2.0](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?node-id=2916-4&t=z7hDCKFFuGUMDRYe-1)
       - [HDS Product Patterns v2.0](https://www.figma.com/design/5Pv32j4QiOOD8lkFTD1dxC/HDS-Patterns-v2.0?node-id=2-45&t=cpJowBg8aXp4qAG1-1)
       - [HDS Icons](https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=uqfJ7Wtjy9AfhBtY-1)
       - [Carbon Charts](https://www.figma.com/design/k34tT4poC2p1RBQxVwZhW5/-Alpha--Carbon-Charts-Library-Kit-%E2%80%93-Carbon-Design-System--Copy-?node-id=3984-105570&t=YIZdjDNDhgDMtXBd-1)
@@ -41,38 +42,63 @@ The Design Systems Team maintains and publishes Figma libraries which contain fo
 
 !!! Callout
 
-If you are not a member of the HDS Design System UI Kit team, you will need to look under the **Other teams** tab. If you’re having trouble finding these, search for "HDS" to find the Foundations, Components, Patterns, and Icon libraries.
+If you are not a member of the HDS Design System UI Kit team, you will need to look under the **Other teams** tab. If you’re having trouble finding these, search for "HDS" to find the Components, Patterns, and Icon libraries.
 !!!
 
 Once the libraries are enabled, components will be accessible in the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) or via the [resources menu](https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances#quick-insert) (`shift`+`i`) in the toolbar. Styles published in the Foundations library will be available in the [design panel](https://help.figma.com/hc/en-us/articles/360039832014-Design-prototype-and-inspect-right-sidebar-#design) in the right sidebar.
 
-## Foundational styles
+## Tokens and styles
 
-Styles and variables, sometimes referred to as Tokens, allow consistent application of color (as a fill or stroke), typography, and effects within Figma. You can find these in the [Product Foundations v2.0 library](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?node-id=2916-4&t=z7hDCKFFuGUMDRYe-1).
+Tokens create consistency in the application of color (as a fill or stroke), typography, and effects within Figma. Using Helios tokens aligns the values used in design to corresponding values for engineers implementing the design.
 
-The usage of Helios Foundations reinforces consistency across the products and provides access to theming. Themes will not be accessible if you detach from these styles within your designs.
+Tokens enable theming within Figma. Themes will not be accessible if you detach tokens within your designs.
 
-### Using styles and tokens in your project
+!!! Callout
 
-1. Select the object(s) to which you want to add a style (e.g., text layer, shape, or frame).
+As of v7.0 of the design system, the Foundations library has been deprecated. All tokens, styles, and components are located in the [HDS Product Components Library](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=2337-20575&t=gWdKy44MzTP4cTRo-1).
 
-2. In the properties panel, click the style icon (looks like four dots) next to the appropriate property (e.g., text, color, stroke, or effect).
+!!!
 
-3. Select the style or token you wish to apply from the list of options. Ensure you choose styles within the **HDS - Product Foundations** library.
+
+### Using tokens in your project
+
+1. Select the object(s) to which you want to add styling (e.g., text layer, shape, or frame).
+
+2. In the properties panel, click the "Apply styles and variables" icon (looks like four dots) next to the appropriate property (e.g., typography, fill, stroke, or effects).
+
+3. Apply the appropriate variable or style from the list of options. Ensure you choose styles within the **HDS Product Components** library. Typography and elevation are labelled styles while color, border radius, and numerical values are called variables within Figma. Each of these connects to named tokens created by the HDS team.
 
 ![](/assets/getting-started/designers/apply-text-style.png =784x*)
 
-To learn more about how to use the foundational styles, visit [the Foundations section](/foundations/).
+To learn more about HDS tokens and styles view [the Foundations section](/foundations/). For details on what tokens are and how they're used, visit the [HDS Academy design tooling page](https://w3.ibm.com/w3publisher/helios-design-system/hds-academy/design-tooling) on w3 where styles and variables are featured in explainer videos.
+
+## Modes and theming
+Themes in Figma allow designers to view a frame in multiple visual languages. Typically this is used to view light or dark themes for a design. In our case, Figma modes will allow frames to be tranlsated from "classic" HDS (hds) to "carbonized" HDS (cds-0, cds-10, cds-90, cds-100).
+
+During design migrations from the Helios Design System to Carbon, using theme swapping is the first step and will take care of translating properly linked variables and components to the desired Carbon themes. Selecting one of the "carbonized" HDS modes in the dropdown will trigger all properly linked tokens and components to swap to the IBM Carbon visual language.
+
+### Changing modes in Figma
+
+1. Select the frame(s) you want to swap.
+
+2. In the properties panel, click the "Apply variable modes" icon (looks like a color swatch).
+
+3. Choose the appropriate mode from the dropdown to apply the desired HDS or "carbonized" light or dark theme.
+
+![](/assets/getting-started/designers/swapping-modes.png)
+
 
 ## Icons
 
+In Figma, icons from the HDS Icons library are constructed to automatically swap along with the design tokens between the "classic" HDS theme to the "carbonized" theme. You will not need to manually replace icons from the Carbon Icon library when translating from HDS to Carbon. However, service icons using color variants will need to be updated to use dymanic values to support theme swapping. Check out the [Design Tooling Figma Plugin](/tooling/design-tooling-figma-plugin) for a quick and easy way to make this change in your files.
+
 ### Adding icons to your project
 
-To use icons within your project, first ensure the [Icons library](https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=uqfJ7Wtjy9AfhBtY-1) is enabled for your project (see [enabling Helios libraries](#enabling-helios-libraries)).
+To use icons in your designs, connect the [Icons library](https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=uqfJ7Wtjy9AfhBtY-1) to your project (see [enabling Helios libraries](#enabling-helios-libraries)).
 
-1.  Open your project file within Figma.
+1.  Open your project file in Figma.
 
-2.  Navigate to the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) by clicking "Assets" on the left navigation bar.
+2.  Navigate to the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) by clicking "Assets" in the left navigation bar.
 
 3.  Search or scroll to find the icon you need and drag it into your file.
 
@@ -89,7 +115,7 @@ A component inserted from a library into a project is called an [instance](https
 
 ### Adding components to your project
 
-Add Helios components to your design project by inserting them directly from the assets panel or resources menu or copying the component from the stickersheet to paste into your project.
+Add Helios components to your design project by inserting them directly from the assets panel, resources menu, or by copying the component from the stickersheet to paste into your project.
 
 #### Inserting from the assets panel
 
