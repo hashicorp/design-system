@@ -76,7 +76,7 @@ export default class CodeFragmentWithMultipleBaseElement extends Component<CodeF
   searchOptions = (term: string): string[] => {
     const searchTerm = term.toLowerCase();
     return this.options.filter((option) =>
-      option.toLowerCase().includes(searchTerm)
+      option.toLowerCase().includes(searchTerm),
     );
   };
 
