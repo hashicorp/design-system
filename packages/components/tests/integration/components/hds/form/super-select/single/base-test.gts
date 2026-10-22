@@ -1,0 +1,307 @@
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+import { module, test } from 'qunit';
+import { click, fillIn, render, settled } from '@ember/test-helpers';
+import { TrackedObject } from 'tracked-built-ins';
+import sinon from 'sinon';
+
+import { HdsFormSuperSelectSingleBase } from '#src/components.ts';
+
+import { setupRenderingTest } from '../../../../../../helpers/index.ts';
+import NOOP from '../../../../../../utils/noop.ts';
+
+const OPTIONS = ['Option 1', 'Option 2', 'Option 3'];
+
+module(
+  'Integration | Component | hds/form/super-select/single/base',
+  function (hooks) {
+    setupRenderingTest(hooks);
+
+    hooks.afterEach(function () {
+      sinon.restore();
+    });
+
+    test('it should render the component with a CSS class that matches the component name', async function (assert) {
+      await render(
+        <template>
+          <HdsFormSuperSelectSingleBase
+            @onChange={{NOOP}}
+            id="test-super-select-single"
+          />
+        </template>
+      );
+      assert
+        .dom('.hds-form-super-select-single #test-super-select-single')
+        .exists();
+    });
+
+    // MESSAGES
+
+    test('it renders the default no matches message', async function (assert) {
+      await render(
+        <template>
+          <HdsFormSuperSelectSingleBase
+            @onChange={{NOOP}}
+            @options={{OPTIONS}}
+            @searchEnabled={{true}}
+            as |option|
+          >{{option}}</HdsFormSuperSelectSingleBase>
+        </template>
+      );
+      await click('.hds-form-super-select .ember-basic-dropdown-trigger');
+      await fillIn('.ember-power-select-search-input', 'Option 4');
+      assert
+        .dom('.ember-power-select-option--no-matches-message')
+        .hasText('No results found');
+    });
+
+    test('it renders the default loading message', async function (assert) {
+      const loadingOptions = new Promise<string[]>(() => {});
+
+      await render(
+        <template>
+          <HdsFormSuperSelectSingleBase
+            @onChange={{NOOP}}
+            @options={{loadingOptions}}
+            as |option|
+          >{{option}}</HdsFormSuperSelectSingleBase>
+        </template>
+      );
+      await click('.hds-form-super-select .ember-basic-dropdown-trigger');
+      assert
+        .dom('.ember-power-select-option--loading-message')
+        .hasText('Loading options...');
+    });
+
+    test('it renders the default search message', async function (assert) {
+      const search = (term: string) =>
+        OPTIONS.filter((option) => option.includes(term));
+
+      await render(
+        <template>
+          <HdsFormSuperSelectSingleBase
+            @onChange={{NOOP}}
+            @search={{search}}
+            @searchEnabled={{true}}
+            as |option|
+          >{{option}}</HdsFormSuperSelectSingleBase>
+        </template>
+      );
+      await click('.hds-form-super-select .ember-basic-dropdown-trigger');
+      assert
+        .dom('.ember-power-select-option--search-message')
+        .hasText('Type to search');
+    });
+
+    test('it renders the default search placeholder', async function (assert) {
+      await render(
+        <template>
+          <HdsFormSuperSelectSingleBase
+            @onChange={{NOOP}}
+            @options={{OPTIONS}}
+            @searchEnabled={{true}}
+            as |option|
+          >{{option}}</HdsFormSuperSelectSingleBase>
+        </template>
+      );
+      await click('.hds-form-super-select .ember-basic-dropdown-trigger');
+      assert
+        .dom('.ember-power-select-search-input')
+        .hasAttribute('placeholder', 'Search');
+    });
+
+    // OPTIONS
+
+    test('it should render the options passed', async function (assert) {
+      await render(
+        <template>
+          <HdsFormSuperSelectSingleBase
+            @onChange={{NOOP}}
+            @options={{OPTIONS}}
+            as |option|
+          >{{option}}</HdsFormSuperSelectSingleBase>
+        </template>
+      );
+      await click('.hds-form-super-select .ember-basic-dropdown-trigger');
+      assert.dom('.ember-power-select-options').exists();
+      assert.dom('.hds-form-super-select__option-text').hasText('Option 1');
+    });
+
+    // AFTER OPTIONS
+
+    test('it should not render the after options block by default', async function (assert) {
+      await render(
+        <template>
+          <HdsFormSuperSelectSingleBase
+            @onChange={{NOOP}}
+            @options={{OPTIONS}}
+            as |option|
+          >{{option}}</HdsFormSuperSelectSingleBase>
+        </template>
+      );
+      await click('.hds-form-super-select .ember-basic-dropdown-trigger');
+      assert.dom('.hds-form-super-select__after-options').doesNotExist();
+    });
+
+    test('it should render the after options block when showAfterOptions is set to true', async function (assert) {
+      await render(
+        <template>
+          <HdsFormSuperSelectSingleBase
+            @onChange={{NOOP}}
+            @options={{OPTIONS}}
+            @showAfterOptions={{true}}
+            as |option|
+          >{{option}}</HdsFormSuperSelectSingleBase>
+        </template>
+      );
+      await click('.hds-form-super-select .ember-basic-dropdown-trigger');
+      assert
+        .dom(
+          '.hds-form-super-select__after-options .hds-form-super-select__result-count'
+        )
+        .hasText('3 total');
+    });
+
+    test('it should render custom content in the after options block when `@afterOptionsContent` exists', async function (assert) {
+      await render(
+        <template>
+          <HdsFormSuperSelectSingleBase
+            @afterOptionsContent="Custom content"
+            @onChange={{NOOP}}
+            @options={{OPTIONS}}
+            as |option|
+          >{{option}}</HdsFormSuperSelectSingleBase>
+        </template>
+      );
+      await click('.hds-form-super-select .ember-basic-dropdown-trigger');
+      assert.dom('.hds-form-super-select__result-count').doesNotExist();
+      assert
+        .dom('.hds-form-super-select__after-options')
+        .hasText('Custom content');
+    });
+
+    test('it should not render the after options block when `@showAfterOptions` is false', async function (assert) {
+      await render(
+        <template>
+          <HdsFormSuperSelectSingleBase
+            @showAfterOptions={{false}}
+            @onChange={{NOOP}}
+            @options={{OPTIONS}}
+            as |option|
+          >{{option}}</HdsFormSuperSelectSingleBase>
+        </template>
+      );
+      await click('.hds-form-super-select .ember-basic-dropdown-trigger');
+      assert.dom('.hds-form-super-select__after-options').doesNotExist();
+    });
+
+    // MATCH TRIGGER WIDTH
+
+    test('`@matchTriggerWidth` should be true by default', async function (assert) {
+      await render(
+        <template><HdsFormSuperSelectSingleBase @onChange={{NOOP}} /></template>
+      );
+      assert
+        .dom('.hds-form-super-select')
+        .doesNotHaveClass('hds-form-super-select--dropdown-content-auto-width');
+    });
+
+    test('it should render the correct CSS class when `@matchTriggerWidth` is false', async function (assert) {
+      await render(
+        <template>
+          <HdsFormSuperSelectSingleBase
+            @onChange={{NOOP}}
+            @matchTriggerWidth={{false}}
+          />
+        </template>
+      );
+      assert
+        .dom('.hds-form-super-select')
+        .hasClass('hds-form-super-select--dropdown-content-auto-width');
+    });
+
+    // DROPDOWN MAX WIDTH
+
+    test('it should set the correct CSS property value when `@dropdownMaxWidth` is set', async function (assert) {
+      await render(
+        <template>
+          <HdsFormSuperSelectSingleBase
+            @onChange={{NOOP}}
+            @dropdownMaxWidth="40em"
+          />
+        </template>
+      );
+
+      assert
+        .dom('.hds-form-super-select')
+        .hasClass('hds-form-super-select--dropdown-content-auto-width')
+        .hasAttribute(
+          'style',
+          '--hds-var-form-super-select-dropdown-max-width: 40em;'
+        );
+    });
+
+    // TEARDOWN
+
+    test('it should keep one set of anchored position listeners while open and remove them when destroyed', async function (assert) {
+      const addSpy = sinon.spy(window, 'addEventListener');
+      const removeSpy = sinon.spy(window, 'removeEventListener');
+      const countScrollCalls = (spy: sinon.SinonSpy) =>
+        spy.getCalls().filter((call) => call.args[0] === 'scroll').length;
+      const countActiveScrollListeners = () =>
+        countScrollCalls(addSpy) - countScrollCalls(removeSpy);
+      const context = new TrackedObject({ isRendered: true });
+
+      await render(
+        <template>
+          {{#if context.isRendered}}
+            <HdsFormSuperSelectSingleBase
+              @onChange={{NOOP}}
+              @options={{OPTIONS}}
+              as |option|
+            >{{option}}</HdsFormSuperSelectSingleBase>
+          {{/if}}
+        </template>,
+      );
+      await click('.hds-form-super-select .ember-basic-dropdown-trigger');
+      const activeWhenOpen = countActiveScrollListeners();
+      assert.true(activeWhenOpen > 0, 'scroll listeners are added');
+
+      // basic-dropdown repositions the content on window resize
+      window.dispatchEvent(new Event('resize'));
+      await settled();
+      assert.strictEqual(
+        countActiveScrollListeners(),
+        activeWhenOpen,
+        'repositioning does not add more scroll listeners',
+      );
+
+      context.isRendered = false;
+      await settled();
+      assert.strictEqual(
+        countActiveScrollListeners(),
+        0,
+        'scroll listeners are removed',
+      );
+    });
+
+    // INVALID
+
+    test('it should render the correct CSS class when `@isInvalid` is true', async function (assert) {
+      await render(
+        <template>
+          <HdsFormSuperSelectSingleBase
+            @onChange={{NOOP}}
+            @isInvalid={{true}}
+          />
+        </template>
+      );
+      assert
+        .dom('.hds-form-super-select')
+        .hasClass('hds-form-super-select--is-invalid');
+    });
+  }
+);

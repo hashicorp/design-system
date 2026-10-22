@@ -16,6 +16,14 @@ module.exports = {
     'no-bare-strings': true,
   },
   overrides: [
+    // test fixtures render plain strings and code samples
+    {
+      files: ['tests/**'],
+      rules: {
+        'no-bare-strings': false,
+        'no-whitespace-for-layout': false,
+      },
+    },
     // temporary fix until the prettier plugin works with `.gts/gjs` files
     // https://github.com/ember-template-lint/ember-template-lint-plugin-prettier/issues/268
     {
