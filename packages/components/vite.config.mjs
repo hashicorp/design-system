@@ -20,7 +20,9 @@ export default defineConfig({
       ? []
       : [
           // @embroider/util v1 addon packages used by ember-basic-dropdown@8 don't
-          // expose a standard package entry for Vite's resolver.
+          // expose a standard package entry for Vite's resolver. Drop this (and
+          // the `@embroider/util` devDependency) with power-select@9.
+          // Upgrade: https://github.com/hashicorp/design-system/pull/4275
           {
             find: /^@embroider\/util$/,
             replacement: '@embroider/util/addon/index.js',
