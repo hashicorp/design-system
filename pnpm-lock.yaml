@@ -298,9 +298,6 @@ importers:
       '@embroider/macros':
         specifier: ^1.18.1
         version: 1.19.6(@glint/template@1.7.7)(supports-color@8.1.1)
-      '@embroider/util':
-        specifier: ^1.13.4
-        version: 1.13.4(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
       '@floating-ui/dom':
         specifier: ^1.6.12
         version: 1.7.3
@@ -15156,7 +15153,6 @@ snapshots:
       '@ember/test-waiters': 4.1.1(@glint/template@1.7.7)(supports-color@8.1.1)
       '@embroider/addon-shim': 1.10.2(supports-color@8.1.1)
       '@embroider/macros': 1.19.6(@glint/template@1.7.7)(supports-color@8.1.1)
-      '@embroider/util': 1.13.4(@glint/template@1.7.7)(ember-source@6.4.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
       '@floating-ui/dom': 1.7.3
       '@hashicorp/design-system-tokens': file:packages/tokens
       '@hashicorp/flight-icons': file:packages/flight-icons
@@ -15213,7 +15209,6 @@ snapshots:
       '@ember/test-waiters': 4.1.1(@glint/template@1.7.7)(supports-color@8.1.1)
       '@embroider/addon-shim': 1.10.2(supports-color@8.1.1)
       '@embroider/macros': 1.19.6(@glint/template@1.7.7)(supports-color@8.1.1)
-      '@embroider/util': 1.13.4(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
       '@floating-ui/dom': 1.7.3
       '@hashicorp/design-system-tokens': file:packages/tokens
       '@hashicorp/flight-icons': file:packages/flight-icons
@@ -15270,7 +15265,6 @@ snapshots:
       '@ember/test-waiters': 4.1.1(@glint/template@1.7.7)(supports-color@8.1.1)
       '@embroider/addon-shim': 1.10.2(supports-color@8.1.1)
       '@embroider/macros': 1.19.6(@glint/template@1.7.7)(supports-color@8.1.1)
-      '@embroider/util': 1.13.4(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
       '@floating-ui/dom': 1.7.3
       '@hashicorp/design-system-tokens': file:packages/tokens
       '@hashicorp/flight-icons': file:packages/flight-icons
