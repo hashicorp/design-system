@@ -28,7 +28,7 @@ jobs:
         run: ./.github/scripts/filter_changed_files.sh "showcase/" "packages/components/" "packages/flight-icons/catalog.json" ".github/workflows/ci-showcase.yml" "packages/tokens/"
 
   lint:
-    name: "Showcase Lint"
+    name: "Lint"
     runs-on: ubuntu-latest
     needs: [conditional-skip]
     if: needs.conditional-skip.outputs.trigger-ci == 'true'
@@ -54,7 +54,7 @@ jobs:
         working-directory: showcase
 
   test:
-    name: "Showcase Tests"
+    name: "Tests"
     runs-on: ubuntu-latest
     needs: [conditional-skip]
     if: needs.conditional-skip.outputs.trigger-ci == 'true'
