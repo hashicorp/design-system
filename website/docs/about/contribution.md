@@ -11,7 +11,7 @@ We’re currently accepting collaborations only from HashiCorp employees. Some r
 
 !!!
 
-We think of contributions as an opportunity for **collaboration across teams** and are open to various forms of collaboration as long as they follow our [collaborative process](/about/contribution/#our-collaborative-process).
+We think of contributions as an opportunity for **collaboration** and are open to them as long as they follow our [collaborative process](/about/contribution/#our-collaborative-process).
 
 ## Direct contributions
 
@@ -23,9 +23,9 @@ To add a new icon to the [icon library](/icons/library), follow the steps in the
 
 ### Code contributions
 
-- Consult the `CONTRIBUTING.md` file for [Tokens](https://github.com/hashicorp/design-system/blob/main/packages/tokens/CONTRIBUTING.md) or [Components](https://github.com/hashicorp/design-system/blob/main/packages/components/CONTRIBUTING.md) corresponding to your contribution.
-- Review the [Engineering Checklist for new components](https://github.com/hashicorp/design-system/blob/main/packages/components/NEW-COMPONENT-CHECKLIST.md#engineering-checklist) if you’re working on a new component.
-- Test the component following the [instructions for testing a component in consumer repositories](https://hashicorp.atlassian.net/wiki/x/24Fx0Q) if needed.
+- See the `CONTRIBUTING.md` file for instructions specific to [Tokens](https://github.com/hashicorp/design-system/blob/main/packages/tokens/CONTRIBUTING.md) or [Components](https://github.com/hashicorp/design-system/blob/main/packages/components/CONTRIBUTING.md).
+- Review the [Engineering Checklist](https://github.com/hashicorp/design-system/blob/main/packages/components/NEW-COMPONENT-CHECKLIST.md#engineering-checklist) when building new components.
+- Follow the [instructions to test your component in consumer repositories](https://hashicorp.atlassian.net/wiki/x/24Fx0Q), if required.
 
 ## Our collaborative process
 
@@ -35,14 +35,14 @@ For larger initiatives, such as new components or multi-product patterns, we wor
 
 Check the [backlog](https://go.hashi.co/hds-rollout) to ensure the request doesn’t already exist, then submit an [intake form](https://go.hashi.co/hds-support).
 
-If you have questions before submitting or want to discuss an idea, reach out to us in [#team-design-systems](https://ibm.enterprise.slack.com/archives/C09L2MVUL5S).
+If you have questions before submitting or want to discuss an idea, contact us in [#team-design-systems](https://ibm.enterprise.slack.com/archives/C09L2MVUL5S).
 
 ### 2. Evaluation
 
 We evaluate incoming requests based on:
 
 - Reusability across products and alignment with the design system as a whole
-- Impact on existing components (e.g., breaking changes)
+- Impact on existing components, e.g., breaking changes
 - Implementation complexity, effort, and current team capacity
 
 If accepted, we will schedule a kickoff meeting. If we cannot take on the project immediately, we will help prioritize it for future cycles or provide alternative guidance.
