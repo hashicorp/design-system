@@ -168,13 +168,10 @@ settings:
   linkWorkspacePackages: false
 
 overrides:
-  '@babel/plugin-transform-modules-systemjs': 7.29.4
   '@glimmer/component': ^2.0.0
   '@xmldom/xmldom': 0.9.10
-  ajv@6: 6.14.0
   brace-expansion@1: 1.1.21
   brace-expansion@2: 2.1.7
-  brace-expansion@5: 5.0.12
   fast-uri: 3.1.2
   flatted: 3.4.4
   ember-composable-helpers: npm:@nullvoxpopuli/ember-composable-helpers@^5.2.11
@@ -4578,7 +4575,7 @@ packages:
   ajv-keywords@3.5.2:
     resolution: {integrity: sha512-5p6WTN0DdTGVQk6VjcEju19IgaHudalcfabD7yhDGeA6bcQnmL+CpveLJq/3hvfwd1aof6L386Ougkx6RfyMIQ==}
     peerDependencies:
-      ajv: 6.14.0
+      ajv: ^6.9.1
 
   ajv-keywords@5.1.0:
     resolution: {integrity: sha512-YCS/JNFAUyr5vAuhk1DWm1CBxRHW9LbJ2ozWeemrIqpbsqKjHVxYPyi5GC0rjZIT5JxJ3virVTS8wk4i/Z+krw==}
