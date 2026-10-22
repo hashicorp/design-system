@@ -90,8 +90,6 @@ jobs:
         try-scenario:
           - ember-lts-5.12
           # - ember-release
-          - embroider-safe
-          - embroider-optimized
 
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0

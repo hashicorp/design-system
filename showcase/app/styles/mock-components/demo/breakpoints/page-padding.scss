@@ -4,7 +4,7 @@
  */
 
 // from @hashicorp/design-system-components package
-@use "mixins/breakpoints" as *;
+@use "pkg:@hashicorp/design-system-components/styles/mixins/breakpoints" as *;
 
 .mock-demo-breakpoints-page-padding {
   padding: 9px 6px;
