@@ -18,7 +18,8 @@
 /ember-a11y-report*
 /src*
 /tmp*
-/babel.config.json
+/babel.config.cjs
+/babel.publish.config.cjs
 /rollup.config.mjs
 /testem.js
 *test-output*
