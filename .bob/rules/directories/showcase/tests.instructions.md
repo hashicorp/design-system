@@ -5,7 +5,7 @@ description: "Instructions for tests written for the HDS components package"
 
 ## Overview
 
-The `showcase/tests` directory contains the acceptance, unit, and Percy visual regression tests for the HDS components package. The integration tests live in `packages/components/tests` (see `.bob/rules/directories/components/integration-tests.instructions.md`).
+The `showcase/tests` directory contains the acceptance and Percy visual regression tests for the HDS components package. The integration and unit tests live in `packages/components/tests` (see `.bob/rules/directories/components/tests.instructions.md`).
 
 ## Infrastructure
 
@@ -17,7 +17,6 @@ The `showcase/tests` directory contains the acceptance, unit, and Percy visual r
 
 - `acceptance/components/hds/<component-name>.js` - Acceptance test for the component.
 - `acceptance/percy-test.js` - Percy visual regression testing for all `showcase/app` pages.
-- `unit/` - Unit tests for components, helpers, modifiers, and services.
 
 ## Testing commands
 
@@ -37,13 +36,9 @@ Run the integration tests with `pnpm test` inside `packages/components`.
 
 ## Test types
 
-### Integration tests
+### Integration and unit tests
 
-Read `.bob/rules/directories/components/integration-tests.instructions.md` for information on integration tests.
-
-### Unit tests
-
-Unit tests are used to test low-level logic in individual classes such as helpers, modifiers, and services. They should be defined under `unit/` in a folder structure matching the type being tested (e.g., `unit/helpers/`, `unit/modifiers/`, `unit/services/`).
+Read `.bob/rules/directories/components/tests.instructions.md` for information on integration and unit tests.
 
 ### Acceptance tests
 

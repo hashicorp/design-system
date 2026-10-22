@@ -4,7 +4,7 @@
  */
 
 import { module, test } from 'qunit';
-import { hdsLinkToQuery } from '@hashicorp/design-system-components/helpers/hds-link-to-query';
+import { hdsLinkToQuery } from '#src/helpers/hds-link-to-query.ts';
 
 module('Unit | Helper | hds-link-to-query', function () {
   test('returns the same object that is passed as argument', function (assert) {
