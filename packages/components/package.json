@@ -103,7 +103,7 @@
     "@types/qunit": "^2.19.12",
     "@types/sinon": "^17.0.4",
     "axe-core": "^4.10.0",
-    "babel-plugin-ember-template-compilation": "^2.4.1",
+    "babel-plugin-ember-template-compilation": "^4.0.0",
     "concurrently": "^9.2.3",
     "ember-a11y-testing": "^8.0.1",
     "ember-assign-helper": "^0.5.1",
