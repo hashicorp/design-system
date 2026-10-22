@@ -8,12 +8,12 @@ import { module, test } from 'qunit';
 import {
   getCSPNonceFromMeta,
   getErrorMessage,
-} from '@hashicorp/design-system-components/modifiers/hds-code-editor';
+} from '#src/modifiers/hds-code-editor.ts';
 
 module('Unit | Helper | hds-code-editor', function (hooks) {
   hooks.afterEach(() => {
     const meta = document.querySelector(
-      'meta[http-equiv="Content-Security-Policy"]',
+      'meta[http-equiv="Content-Security-Policy"]'
     );
 
     if (meta) {
@@ -23,7 +23,7 @@ module('Unit | Helper | hds-code-editor', function (hooks) {
 
   test('returns undefined when no meta tag is present', function (assert) {
     const existing = document.querySelector(
-      'meta[http-equiv="Content-Security-Policy"]',
+      'meta[http-equiv="Content-Security-Policy"]'
     );
 
     if (existing) {
@@ -33,7 +33,7 @@ module('Unit | Helper | hds-code-editor', function (hooks) {
     assert.strictEqual(
       getCSPNonceFromMeta(),
       undefined,
-      'Should return undefined if no meta tag is found',
+      'Should return undefined if no meta tag is found'
     );
   });
 
@@ -47,7 +47,7 @@ module('Unit | Helper | hds-code-editor', function (hooks) {
     assert.strictEqual(
       getCSPNonceFromMeta(),
       undefined,
-      'Should return undefined if content attribute is missing',
+      'Should return undefined if content attribute is missing'
     );
   });
 
@@ -57,7 +57,7 @@ module('Unit | Helper | hds-code-editor', function (hooks) {
     meta.setAttribute('http-equiv', 'Content-Security-Policy');
     meta.setAttribute(
       'content',
-      "default-src 'none'; style-src 'nonce-ABC123';",
+      "default-src 'none'; style-src 'nonce-ABC123';"
     );
 
     document.head.appendChild(meta);
@@ -65,7 +65,7 @@ module('Unit | Helper | hds-code-editor', function (hooks) {
     assert.strictEqual(
       getCSPNonceFromMeta(),
       'ABC123',
-      'Should extract nonce "ABC123" from style-src directive',
+      'Should extract nonce "ABC123" from style-src directive'
     );
   });
 
@@ -75,7 +75,7 @@ module('Unit | Helper | hds-code-editor', function (hooks) {
     meta.setAttribute('http-equiv', 'Content-Security-Policy');
     meta.setAttribute(
       'content',
-      "default-src 'none'; script-src 'nonce-XYZ789';",
+      "default-src 'none'; script-src 'nonce-XYZ789';"
     );
 
     document.head.appendChild(meta);
@@ -83,7 +83,7 @@ module('Unit | Helper | hds-code-editor', function (hooks) {
     assert.strictEqual(
       getCSPNonceFromMeta(),
       'XYZ789',
-      'Should extract nonce "XYZ789" from script-src directive',
+      'Should extract nonce "XYZ789" from script-src directive'
     );
   });
 
@@ -93,7 +93,7 @@ module('Unit | Helper | hds-code-editor', function (hooks) {
     meta.setAttribute('http-equiv', 'Content-Security-Policy');
     meta.setAttribute(
       'content',
-      "default-src 'none'; style-src 'unsafe-inline';",
+      "default-src 'none'; style-src 'unsafe-inline';"
     );
 
     document.head.appendChild(meta);
@@ -101,7 +101,7 @@ module('Unit | Helper | hds-code-editor', function (hooks) {
     assert.strictEqual(
       getCSPNonceFromMeta(),
       undefined,
-      'Should return undefined if nonce is not present',
+      'Should return undefined if nonce is not present'
     );
   });
 
@@ -117,7 +117,7 @@ module('Unit | Helper | hds-code-editor', function (hooks) {
     assert.strictEqual(getErrorMessage(42), '42');
     assert.strictEqual(
       getErrorMessage({ custom: 'object' }),
-      '{"custom":"object"}',
+      '{"custom":"object"}'
     );
     assert.strictEqual(getErrorMessage(null), 'null');
     assert.strictEqual(getErrorMessage(undefined), 'undefined');

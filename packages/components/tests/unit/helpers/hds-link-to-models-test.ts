@@ -4,14 +4,14 @@
  */
 
 import { module, test } from 'qunit';
-import { hdsLinkToModels } from '@hashicorp/design-system-components/helpers/hds-link-to-models';
+import { hdsLinkToModels } from '#src/helpers/hds-link-to-models.ts';
 
 // Note: helper arguments are positional, so need to pass undefined for unused args
 module('Unit | Helper | hds-link-to-models', function () {
   test('returns the same array of models that is passed as argument', function (assert) {
     assert.deepEqual(
       hdsLinkToModels([undefined, ['model-1', 'model-2', 'model-3']]),
-      ['model-1', 'model-2', 'model-3'],
+      ['model-1', 'model-2', 'model-3']
     );
   });
   test('returns an array containing the model if a single model is passed as argument', function (assert) {

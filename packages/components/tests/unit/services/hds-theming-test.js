@@ -12,7 +12,7 @@ import {
   HdsModesDarkValues,
   DEFAULT_THEMING_OPTION_LIGHT_THEME,
   DEFAULT_THEMING_OPTION_DARK_THEME,
-} from '@hashicorp/design-system-components/services/hds-theming';
+} from '#src/services/hds-theming.ts';
 
 module('Unit | Service | hds-theming', function (hooks) {
   setupTest(hooks);
@@ -32,22 +32,22 @@ module('Unit | Service | hds-theming', function (hooks) {
     assert.strictEqual(
       this.service.currentTheme,
       undefined,
-      'currentTheme is initially undefined',
+      'currentTheme is initially undefined'
     );
     assert.strictEqual(
       this.service.currentMode,
       undefined,
-      'currentMode is initially undefined',
+      'currentMode is initially undefined'
     );
     assert.strictEqual(
       this.service.currentLightTheme,
       DEFAULT_THEMING_OPTION_LIGHT_THEME,
-      'currentLightTheme has the correct default value',
+      'currentLightTheme has the correct default value'
     );
     assert.strictEqual(
       this.service.currentDarkTheme,
       DEFAULT_THEMING_OPTION_DARK_THEME,
-      'currentDarkTheme has the correct default value',
+      'currentDarkTheme has the correct default value'
     );
   });
 
@@ -56,16 +56,16 @@ module('Unit | Service | hds-theming', function (hooks) {
     assert.strictEqual(
       this.service.currentTheme,
       undefined,
-      'currentTheme is undefined',
+      'currentTheme is undefined'
     );
     assert.strictEqual(
       this.service.currentMode,
       undefined,
-      'currentMode is undefined',
+      'currentMode is undefined'
     );
     assert.notOk(
       /hds-theme-/.test(document.documentElement.className),
-      'no theme classes are applied',
+      'no theme classes are applied'
     );
   });
 
@@ -74,16 +74,16 @@ module('Unit | Service | hds-theming', function (hooks) {
     assert.strictEqual(
       this.service.currentTheme,
       HdsThemeValues.Default,
-      'currentTheme is Default',
+      'currentTheme is Default'
     );
     assert.strictEqual(
       this.service.currentMode,
       undefined,
-      'currentMode is undefined',
+      'currentMode is undefined'
     );
     assert.ok(
       document.documentElement.classList.contains('hds-theme-default'),
-      'hds-theme-default class is applied',
+      'hds-theme-default class is applied'
     );
   });
 
@@ -92,16 +92,16 @@ module('Unit | Service | hds-theming', function (hooks) {
     assert.strictEqual(
       this.service.currentTheme,
       HdsThemeValues.System,
-      'currentTheme is System',
+      'currentTheme is System'
     );
     assert.strictEqual(
       this.service.currentMode,
       undefined,
-      'currentMode is undefined',
+      'currentMode is undefined'
     );
     assert.ok(
       document.documentElement.classList.contains('hds-theme-system'),
-      'hds-theme-system class is applied',
+      'hds-theme-system class is applied'
     );
   });
 
@@ -110,22 +110,22 @@ module('Unit | Service | hds-theming', function (hooks) {
     assert.strictEqual(
       this.service.currentTheme,
       HdsThemeValues.Light,
-      'currentTheme is Light',
+      'currentTheme is Light'
     );
     assert.strictEqual(
       this.service.currentMode,
       DEFAULT_THEMING_OPTION_LIGHT_THEME,
-      'currentMode is the default light mode (cds-g0)',
+      'currentMode is the default light mode (cds-g0)'
     );
     assert.ok(
       document.documentElement.classList.contains('hds-theme-light'),
-      'hds-theme-light class is applied',
+      'hds-theme-light class is applied'
     );
     assert.ok(
       document.documentElement.classList.contains(
-        `hds-mode-${DEFAULT_THEMING_OPTION_LIGHT_THEME}`,
+        `hds-mode-${DEFAULT_THEMING_OPTION_LIGHT_THEME}`
       ),
-      'hds-mode-cds-g0 class is applied',
+      'hds-mode-cds-g0 class is applied'
     );
   });
 
@@ -134,22 +134,22 @@ module('Unit | Service | hds-theming', function (hooks) {
     assert.strictEqual(
       this.service.currentTheme,
       HdsThemeValues.Dark,
-      'currentTheme is Dark',
+      'currentTheme is Dark'
     );
     assert.strictEqual(
       this.service.currentMode,
       DEFAULT_THEMING_OPTION_DARK_THEME,
-      'currentMode is the default dark mode (cds-g100)',
+      'currentMode is the default dark mode (cds-g100)'
     );
     assert.ok(
       document.documentElement.classList.contains('hds-theme-dark'),
-      'hds-theme-dark class is applied',
+      'hds-theme-dark class is applied'
     );
     assert.ok(
       document.documentElement.classList.contains(
-        `hds-mode-${DEFAULT_THEMING_OPTION_DARK_THEME}`,
+        `hds-mode-${DEFAULT_THEMING_OPTION_DARK_THEME}`
       ),
-      'hds-mode-cds-g100 class is applied',
+      'hds-mode-cds-g100 class is applied'
     );
   });
 
@@ -162,42 +162,42 @@ module('Unit | Service | hds-theming', function (hooks) {
     assert.strictEqual(
       this.service.currentLightTheme,
       HdsModesLightValues.CdsG10,
-      'currentLightTheme is updated',
+      'currentLightTheme is updated'
     );
     assert.strictEqual(
       this.service.currentDarkTheme,
       HdsModesDarkValues.CdsG90,
-      'currentDarkTheme is updated',
+      'currentDarkTheme is updated'
     );
     assert.strictEqual(
       this.service.currentMode,
       HdsModesLightValues.CdsG10,
-      'currentMode reflects new light theme',
+      'currentMode reflects new light theme'
     );
 
     assert.ok(
       document.documentElement.classList.contains('hds-theme-light'),
-      'hds-theme-light class is applied',
+      'hds-theme-light class is applied'
     );
     assert.ok(
       document.documentElement.classList.contains(`hds-mode-cds-g10`),
-      'hds-mode-cds-g10 class is applied',
+      'hds-mode-cds-g10 class is applied'
     );
 
     this.service.setTheme({ theme: HdsThemeValues.Dark });
     assert.strictEqual(
       this.service.currentMode,
       HdsModesDarkValues.CdsG90,
-      'currentMode reflects new dark theme',
+      'currentMode reflects new dark theme'
     );
 
     assert.ok(
       document.documentElement.classList.contains('hds-theme-dark'),
-      'hds-theme-dark class is applied',
+      'hds-theme-dark class is applied'
     );
     assert.ok(
       document.documentElement.classList.contains(`hds-mode-cds-g90`),
-      'hds-mode-cds-g90 class is applied',
+      'hds-mode-cds-g90 class is applied'
     );
   });
 
@@ -206,16 +206,16 @@ module('Unit | Service | hds-theming', function (hooks) {
     assert.strictEqual(
       this.service.currentTheme,
       undefined,
-      'currentTheme is undefined',
+      'currentTheme is undefined'
     );
     assert.strictEqual(
       this.service.currentMode,
       undefined,
-      'currentMode is undefined',
+      'currentMode is undefined'
     );
     assert.notOk(
       /hds-(theme|mode)-/.test(document.documentElement.className),
-      'no theme or mode classes are applied',
+      'no theme or mode classes are applied'
     );
   });
 
@@ -229,12 +229,12 @@ module('Unit | Service | hds-theming', function (hooks) {
     assert.strictEqual(
       this.service.currentLightTheme,
       DEFAULT_THEMING_OPTION_LIGHT_THEME,
-      'currentLightTheme has the default value',
+      'currentLightTheme has the default value'
     );
     assert.strictEqual(
       this.service.currentDarkTheme,
       DEFAULT_THEMING_OPTION_DARK_THEME,
-      'currentDarkTheme has the default value',
+      'currentDarkTheme has the default value'
     );
   });
 
@@ -244,22 +244,22 @@ module('Unit | Service | hds-theming', function (hooks) {
     assert.strictEqual(
       this.service.currentTheme,
       HdsThemeValues.System,
-      'currentTheme is System',
+      'currentTheme is System'
     );
     assert.notOk(
       document.documentElement.classList.contains('hds-theme-light'),
-      'hds-theme-light class is removed',
+      'hds-theme-light class is removed'
     );
     assert.strictEqual(
       this.service.currentMode,
       undefined,
-      'currentMode is undefined',
+      'currentMode is undefined'
     );
     assert.notOk(
       document.documentElement.classList.contains(
-        `hds-mode-${DEFAULT_THEMING_OPTION_LIGHT_THEME}`,
+        `hds-mode-${DEFAULT_THEMING_OPTION_LIGHT_THEME}`
       ),
-      'hds-mode-cds-g0 class is removed',
+      'hds-mode-cds-g0 class is removed'
     );
   });
 
@@ -268,7 +268,7 @@ module('Unit | Service | hds-theming', function (hooks) {
     this.service.setTheme({ theme: HdsThemeValues.Light });
     assert.ok(
       document.documentElement.classList.contains('foo'),
-      'unrelated root element class is preserved',
+      'unrelated root element class is preserved'
     );
   });
 
@@ -284,7 +284,7 @@ module('Unit | Service | hds-theming', function (hooks) {
         currentTheme: HdsThemeValues.Light,
         currentMode: DEFAULT_THEMING_OPTION_LIGHT_THEME,
       }),
-      'onSetTheme callback received correct arguments',
+      'onSetTheme callback received correct arguments'
     );
   });
 
@@ -304,7 +304,7 @@ module('Unit | Service | hds-theming', function (hooks) {
       assert.strictEqual(
         this.service.isCarbonThemeEnabled,
         expected,
-        `isCarbonThemeEnabled is ${expected} for the ${theme} theme`,
+        `isCarbonThemeEnabled is ${expected} for the ${theme} theme`
       );
     });
   });

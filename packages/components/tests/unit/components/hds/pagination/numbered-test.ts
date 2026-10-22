@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import { module, test } from 'qunit';
-import { elliptize } from '@hashicorp/design-system-components/components/hds/pagination/numbered/index';
+import { elliptize } from '#src/components/hds/pagination/numbered/index.gts';
 
 const A10 = Array.from(Array(10), (_x, i) => i + 1);
 const A11 = Array.from(Array(11), (_x, i) => i + 1);
