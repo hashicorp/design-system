@@ -91,6 +91,7 @@
     "@embroider/addon-dev": "^8.2.0",
     "@embroider/compat": "^4.1.19",
     "@embroider/core": "^4.6.0",
+    "@embroider/util": "^1.13.4",
     "@embroider/vite": "^1.7.4",
     "@eslint/js": "^9.23.0",
     "@glimmer/component": "^2.0.0",
