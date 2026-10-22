@@ -47,10 +47,7 @@ $hds-button-sizes: ("small", "medium", "large");
 // Primary
 
 @mixin hds-button-color-primary() {
-  color: var(--hds-button-foreground-color-primary-default);
-  background-color: var(--hds-button-surface-color-primary-default);
-  border-color: var(--hds-button-border-color-primary-default);
-  box-shadow: var(--hds-elevation-low-box-shadow);
+  @include hds-button-color-primary-state-default();
 
   &:hover,
   &.mock-hover {
@@ -72,10 +69,23 @@ $hds-button-sizes: ("small", "medium", "large");
   &:active,
   &.mock-active {
     @include hds-button-color-primary-state-active();
+
+    &::before {
+      border-color: transparent;
+    }
   }
 }
 
 // Primary States
+// `form/file-input.scss` applies these to `::file-selector-button`, so they must not nest
+// selectors: a pseudo-element can't be followed by a class or another pseudo-element.
+@mixin hds-button-color-primary-state-default() {
+  color: var(--hds-button-foreground-color-primary-default);
+  background-color: var(--hds-button-surface-color-primary-default);
+  border-color: var(--hds-button-border-color-primary-default);
+  box-shadow: var(--hds-elevation-low-box-shadow);
+}
+
 @mixin hds-button-color-primary-state-hover() {
   color: var(--hds-button-foreground-color-primary-hover);
   background-color: var(--hds-button-surface-color-primary-hover);
@@ -93,19 +103,12 @@ $hds-button-sizes: ("small", "medium", "large");
   background-color: var(--hds-button-surface-color-primary-active);
   border-color: var(--hds-button-border-color-primary-active);
   box-shadow: none;
-
-  &::before {
-    border-color: transparent;
-  }
 }
 
 // Secondary
 
 @mixin hds-button-color-secondary() {
-  color: var(--hds-button-foreground-color-secondary-default);
-  background-color: var(--hds-button-surface-color-secondary-default);
-  border-color: var(--hds-button-border-color-secondary-default);
-  box-shadow: var(--hds-elevation-low-box-shadow);
+  @include hds-button-color-secondary-state-default();
 
   &:hover,
   &.mock-hover {
@@ -126,10 +129,23 @@ $hds-button-sizes: ("small", "medium", "large");
   &:active,
   &.mock-active {
     @include hds-button-color-secondary-state-active();
+
+    &::before {
+      border-color: transparent;
+    }
   }
 }
 
 // Secondary States
+// `form/file-input.scss` applies these to `::file-selector-button`, so they must not nest
+// selectors: a pseudo-element can't be followed by a class or another pseudo-element.
+@mixin hds-button-color-secondary-state-default() {
+  color: var(--hds-button-foreground-color-secondary-default);
+  background-color: var(--hds-button-surface-color-secondary-default);
+  border-color: var(--hds-button-border-color-secondary-default);
+  box-shadow: var(--hds-elevation-low-box-shadow);
+}
+
 @mixin hds-button-color-secondary-state-hover() {
   color: var(--hds-button-foreground-color-secondary-hover);
   background-color: var(--hds-button-surface-color-secondary-hover);
@@ -147,10 +163,6 @@ $hds-button-sizes: ("small", "medium", "large");
   background-color: var(--hds-button-surface-color-secondary-active);
   border-color: var(--hds-button-border-color-secondary-active);
   box-shadow: none;
-
-  &::before {
-    border-color: transparent;
-  }
 }
 
 // Secondary Muted
