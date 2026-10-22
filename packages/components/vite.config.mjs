@@ -15,20 +15,23 @@ export default defineConfig({
   // images the tests render, like `/assets/images/avatar.png`
   publicDir: 'tests/public',
   resolve: {
-    alias: [
-      // @embroider/util v1 addon packages used by ember-basic-dropdown@8 don't
-      // expose a standard package entry for Vite's resolver.
-      {
-        find: /^@embroider\/util$/,
-        replacement: '@embroider/util/addon/index.js',
-      },
-      // @ember/render-modifiers@3 is a v1 addon too. v4 is v2, but it breaks
-      // the classic showcase build until that moves to Vite.
-      {
-        find: /^@ember\/render-modifiers\/modifiers\/(.+)$/,
-        replacement: '@ember/render-modifiers/addon/modifiers/$1.js',
-      },
-    ],
+    // the compat build rewrites v1 addons itself, so it doesn't need these
+    alias: isCompat
+      ? []
+      : [
+          // @embroider/util v1 addon packages used by ember-basic-dropdown@8 don't
+          // expose a standard package entry for Vite's resolver.
+          {
+            find: /^@embroider\/util$/,
+            replacement: '@embroider/util/addon/index.js',
+          },
+          // @ember/render-modifiers@3 is a v1 addon too. v4 is v2, but it breaks
+          // the classic showcase build until that moves to Vite.
+          {
+            find: /^@ember\/render-modifiers\/modifiers\/(.+)$/,
+            replacement: '@ember/render-modifiers/addon/modifiers/$1.js',
+          },
+        ],
   },
   css: {
     preprocessorOptions: {
