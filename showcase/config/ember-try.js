@@ -11,7 +11,7 @@ const { embroiderSafe, embroiderOptimized } = require('@embroider/test-setup');
 module.exports = async function () {
   return {
     // Use TAP reporter so failing tests are printed as `not ok - <test name>` lines
-    command: 'ember test --filter="integration" --reporter tap',
+    command: 'ember test --reporter tap',
     packageManager: 'pnpm',
     scenarios: [
       {

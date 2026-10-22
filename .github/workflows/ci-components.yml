@@ -57,6 +57,9 @@ jobs:
       - name: Lint Components
         run: pnpm lint
         working-directory: packages/components
+      - name: Run Component Tests
+        run: pnpm test
+        working-directory: packages/components
       - name: Resolve Chrome for Percy (as Percy fails to do so)
         run: |
           set -euo pipefail
