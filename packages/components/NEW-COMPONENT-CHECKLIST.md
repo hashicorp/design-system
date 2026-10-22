@@ -149,7 +149,7 @@ The engineering checklist has six parts: creating the feature branch, component 
 Pre-review request checks:
 
 - [ ] run `pnpm lint` and fix any issues (`pnpm lint:hbs --fix` will resolve most issues)
-- [ ] make sure all tests pass (`ember s` then visit /tests; or `ember t -s`)
+- [ ] make sure all tests pass (`pnpm test` in `packages/components`, and `pnpm test` in `showcase`)
 - [ ] make sure the visual regression test pass
 - [ ] check for basic a11y on docs page:
   - keyboard navigation

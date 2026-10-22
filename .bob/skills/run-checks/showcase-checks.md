@@ -13,7 +13,7 @@ Run all of the checks listed below and ensure all pass as expected. Capture any 
 
 ## Test suite (optional)
 
-If changes have been made under `showcase/tests` those test cases should be checked by running their associated tests
+If changes have been made under `showcase/tests` (acceptance and unit tests) those test cases should be checked by running their associated tests. Component integration tests live in `packages/components/tests`, see `package-components-checks.md`.
 
-For each changed component, helper, modifier, or service test file. changed perform the following:
+For each changed test file perform the following:
 1. Under `showcase` run `ember t -f {component-name}`
