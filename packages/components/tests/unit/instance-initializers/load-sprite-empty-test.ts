@@ -9,7 +9,7 @@ import {
   initialize,
   insertSpriteRoot,
   ROOT_ID,
-} from '@hashicorp/design-system-components/instance-initializers/load-sprite-empty';
+} from '#src/instance-initializers/load-sprite-empty.ts';
 
 const getRoots = (): NodeListOf<Element> =>
   document.querySelectorAll(`#${ROOT_ID}`);
@@ -30,7 +30,7 @@ module('Unit | Instance Initializer | load-sprite-empty', function (hooks) {
     assert.strictEqual(
       roots[0]?.parentElement?.id,
       'ember-testing',
-      'the sprite root is inside #ember-testing, so Percy snapshots include it',
+      'the sprite root is inside #ember-testing, so Percy snapshots include it'
     );
   });
 
@@ -43,7 +43,7 @@ module('Unit | Instance Initializer | load-sprite-empty', function (hooks) {
     assert.strictEqual<Element | null | undefined>(
       root,
       getRoots()[0],
-      'returns the existing sprite root',
+      'returns the existing sprite root'
     );
   });
 });
