@@ -17,9 +17,10 @@ We think of contributions as an opportunity for **collaboration** and are open t
 
 We support a small number of coordinated direct contributions. These include bug fixes, new icons, documentation improvements, and small enhancements to existing components.
 
+<!-- NOTE: We aren't currently accepting icon contributions
 ### Icon contributions in Figma
 
-To add a new icon to the [icon library](/icons/library), follow the steps in the [Figma library README](https://www.figma.com/design/MYiw4kiVpunIMMw0sBkE1t/%E2%9C%8F%EF%B8%8F-HDS-Icons-%5BDevelopment%5D?m=auto&node-id=566-1129&t=JZNTtr27YcwT9LYb-1).
+To add a new icon to the [icon library](/icons/library), follow the steps in the [Figma library README](https://www.figma.com/design/MYiw4kiVpunIMMw0sBkE1t/%E2%9C%8F%EF%B8%8F-HDS-Icons-%5BDevelopment%5D?m=auto&node-id=566-1129&t=JZNTtr27YcwT9LYb-1). -->
 
 ### Code contributions
 
