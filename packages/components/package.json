@@ -479,6 +479,10 @@
     "dist",
     "translations"
   ],
+  "sideEffects": [
+    "**/*.css",
+    "**/*.scss"
+  ],
   "engines": {
     "node": ">= 18"
   }
