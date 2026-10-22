@@ -14,7 +14,9 @@
 //
 // DELETE this whole file (and its import in tests/test-helper.ts) once we
 // upgrade to ember-power-select@9 / ember-basic-dropdown@9, which are fully
-// strict-mode and need no manual registration. That upgrade means widening
+// strict-mode and need no manual registration. Then also drop the
+// `@embroider/util` devDependency and its alias in vite.config.mjs, which
+// are only here for this file and for those addons. That upgrade means widening
 // this package's `ember-basic-dropdown` peer range (^7.3.0 || ^8.6.1).
 // ---------------------------------------------------------------------------
 
