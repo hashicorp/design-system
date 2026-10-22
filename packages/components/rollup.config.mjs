@@ -138,8 +138,8 @@ const plugins = [
   // It exists only to provide development niceties for you, like automatic
   // template colocation.
   //
-  // By default, this will load the actual babel config from the file
-  // babel.config.json.
+  // It uses the publish babel config; babel.config.cjs is for the tests and
+  // local tooling.
   babel({
     extensions: ['.js', '.gjs', '.ts', '.gts'],
     babelHelpers: 'bundled',

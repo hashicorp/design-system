@@ -17,3 +17,11 @@ node_modules/
 .prettiercache
 # test build output
 /dist-tests/
+/tmp/
+
+# files written by `@embroider/try apply` for the compat scenarios
+/ember-cli-build.cjs
+/config/optional-features.json
+
+# local env files
+*.local
