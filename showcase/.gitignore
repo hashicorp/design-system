@@ -9,6 +9,8 @@
 
 # misc
 /.env*
+!/.env.development
+*.local
 /.pnp*
 /.eslintcache
 /coverage/
