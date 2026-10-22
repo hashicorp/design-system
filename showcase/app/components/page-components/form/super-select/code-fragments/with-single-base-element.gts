@@ -39,6 +39,7 @@ export interface CodeFragmentWithSingleBaseElementSignature {
     verticalPosition?: HdsFormSuperSelectSingleBaseSignature['Args']['verticalPosition'];
     horizontalPosition?: HdsFormSuperSelectSingleBaseSignature['Args']['horizontalPosition'];
     searchEnabled?: HdsFormSuperSelectSingleBaseSignature['Args']['searchEnabled'];
+    hasCustomSearch?: boolean;
     dropdownMaxWidth?: HdsFormSuperSelectSingleBaseSignature['Args']['dropdownMaxWidth'];
     showAfterOptions?: HdsFormSuperSelectSingleBaseSignature['Args']['showAfterOptions'];
     afterOptionsContent?: HdsFormSuperSelectSingleBaseSignature['Args']['afterOptionsContent'];
@@ -50,6 +51,7 @@ export default class CodeFragmentWithSingleBaseElement extends Component<CodeFra
   @tracked selectedOption;
 
   options = OPTIONS;
+  emptyOptions: string[] = [];
 
   constructor(
     owner: Owner,
@@ -69,10 +71,21 @@ export default class CodeFragmentWithSingleBaseElement extends Component<CodeFra
     return `Custom result count: ${this.options.length} options`;
   }
 
+  searchOptions = (term: string): string[] => {
+    const searchTerm = term.toLowerCase();
+    return this.options.filter((option) =>
+      option.toLowerCase().includes(searchTerm)
+    );
+  };
+
+  get search(): HdsFormSuperSelectSingleBaseSignature['Args']['search'] {
+    return this.args.hasCustomSearch ? this.searchOptions : undefined;
+  }
+
   <template>
     <HdsFormSuperSelectSingleBase
       @onChange={{fn (mut this.selectedOption)}}
-      @options={{this.options}}
+      @options={{if @hasCustomSearch this.emptyOptions this.options}}
       @selected={{this.selectedOption}}
       @beforeOptionsComponent={{if
         @hasBeforeOptionsComponent
@@ -90,6 +103,7 @@ export default class CodeFragmentWithSingleBaseElement extends Component<CodeFra
       @verticalPosition={{@verticalPosition}}
       @horizontalPosition={{@horizontalPosition}}
       @searchEnabled={{@searchEnabled}}
+      @search={{this.search}}
       @dropdownMaxWidth={{@dropdownMaxWidth}}
       @showAfterOptions={{@showAfterOptions}}
       @afterOptionsContent={{@afterOptionsContent}}

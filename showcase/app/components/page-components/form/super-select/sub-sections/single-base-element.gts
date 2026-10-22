@@ -87,6 +87,14 @@ const SubSectionSingleBaseElement: TemplateOnlyComponent = <template>
         @verticalPosition="below"
       />
     </SF.Item>
+    <SF.Item {{style flex="1"}} @label="Search enabled / Search message">
+      <CodeFragmentWithSingleBaseElement
+        @searchEnabled={{true}}
+        @hasCustomSearch={{true}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+      />
+    </SF.Item>
   </ShwFlex>
 
   <ShwTextH4>List position</ShwTextH4>
