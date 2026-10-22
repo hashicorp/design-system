@@ -8359,7 +8359,9 @@ button.hds-button[href]::after {
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-options .ember-power-select-options {
   padding: 0;
 }
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-option {
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-option,
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-option--no-matches-message,
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-option--loading-message {
   position: relative;
   min-height: var(--hds-form-control-height);
   padding: 7px 7px 7px 39px;
@@ -8370,13 +8372,14 @@ button.hds-button[href]::after {
   overflow-wrap: break-word;
   border: none;
 }
-.hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-option,
-.hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-option,
-.hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-option {
+.hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-option, .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-option--no-matches-message, .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-option--loading-message,
+.hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-option, .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-option--no-matches-message, .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-option--loading-message,
+.hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-option, .hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-option--no-matches-message, .hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-option--loading-message {
   padding: 0 16px;
 }
 
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-option::after {
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)::after {
   position: absolute;
   top: var(--hds-form-super-select-option-indicator-top);
   bottom: var(--hds-form-super-select-option-indicator-bottom);
@@ -8386,36 +8389,50 @@ button.hds-button[href]::after {
   content: "";
   pointer-events: none;
 }
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-option + .ember-power-select-option {
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message) + .ember-power-select-option {
   margin-top: var(--hds-form-super-select-option-margin-top);
 }
-.hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-option + .ember-power-select-option .hds-form-super-select__option-text,
-.hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-option + .ember-power-select-option .hds-form-super-select__option-text,
-.hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-option + .ember-power-select-option .hds-form-super-select__option-text {
+.hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message, .ember-power-select-option--loading-message) + .ember-power-select-option .hds-form-super-select__option-text,
+.hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message, .ember-power-select-option--loading-message) + .ember-power-select-option .hds-form-super-select__option-text,
+.hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message, .ember-power-select-option--loading-message) + .ember-power-select-option .hds-form-super-select__option-text {
   border-top: 1px solid var(--hds-form-super-select-option-border-color);
 }
 
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true] {
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-current=true] {
   color: var(--hds-form-control-foreground-color-default);
   background-color: var(--hds-form-super-select-option-surface-color-default);
 }
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-selected=true] {
-  background: transparent;
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-selected=true] {
+  background-color: transparent;
 }
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true], .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover {
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-current=true], .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message):hover, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message).mock-hover {
   background-color: var(--hds-form-super-select-option-surface-color-hover);
   border: none;
 }
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true]::after, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover::after, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover::after {
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-current=true]::after, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message):hover::after, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message).mock-hover::after {
   background-color: var(--hds-foreground-color-action-hover);
 }
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-option:active, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-active {
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message):active, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message).mock-active {
   background-color: var(--hds-form-super-select-option-surface-color-hover);
 }
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-option:active::after, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-active::after {
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message):active::after, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message).mock-active::after {
   background-color: var(--hds-foreground-color-action-active);
 }
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-disabled=true] {
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-disabled=true] {
   color: var(--hds-form-control-foreground-color-disabled);
 }
 .hds-form-super-select .ember-basic-dropdown .hds-form-super-select__option-group:first-child::before {
@@ -8730,6 +8747,11 @@ button.hds-button[href]::after {
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option--no-matches-message::after,
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option--loading-message::after {
   display: none;
+}
+.hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-option--no-matches-message, .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-option--loading-message,
+.hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-option--no-matches-message, .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-option--loading-message,
+.hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-option--no-matches-message, .hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-option--loading-message {
+  padding: 11px 0 11px 16px;
 }
 
 .hds-form-super-select__after-options {

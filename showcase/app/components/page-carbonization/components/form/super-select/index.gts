@@ -80,6 +80,16 @@ const FormSuperSelectCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
+    <ShwCarbonizationComparisonGrid @label="Search enabled">
+      <:theming>
+        <CodeFragmentWithSingleBaseElement
+          @isSelected={{true}}
+          @searchEnabled={{true}}
+          @verticalPosition="below"
+        />
+      </:theming>
+    </ShwCarbonizationComparisonGrid>
+
     <ShwDivider @level={{2}} />
 
     <ShwTextH3>States</ShwTextH3>
@@ -323,6 +333,19 @@ const FormSuperSelectCarbonizationIndex: TemplateOnlyComponent = <template>
           <cds-multi-select-item value="option-3">Option 3</cds-multi-select-item>
         </cds-multi-select>
       </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwCarbonizationComparisonGrid
+      @label="Search enabled"
+      @layout="column-stacked"
+    >
+      <:theming>
+        <CodeFragmentWithMultipleBaseElement
+          @isSelected={{true}}
+          @searchEnabled={{true}}
+          @verticalPosition="below"
+        />
+      </:theming>
     </ShwCarbonizationComparisonGrid>
 
     <ShwDivider @level={{2}} />
