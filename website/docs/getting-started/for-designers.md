@@ -103,7 +103,7 @@ In our case, Figma modes are used to translate frames from HDS (`hds`) to "carbo
 
 In Figma, icons from the [HDS Icons library](https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?t=d7Cb4wxMIkfUoB9Q-0) will automatically update when switching between the "classic" HDS theme and the "carbonized" themes. You will not need to manually replace icons from the Carbon Icon library.
 
-Colored service icons, however, will need to be updated to support theming since the brand colors are static and may not work on all theme backgrounds. Use the [HDS Design Tooling Figma Plugin](/tooling/design-tooling-figma-plugin) to automatically update these in your files.
+Colored service icons, however, will need to be updated to support theming since the brand colors are static and may not work on all theme backgrounds. Use the [HDS Design Tooling Figma Plugin](/tooling/design-tooling-figma-plugin) to automatically locate these icons and replace them automatically.
 
 ### Adding icons to your project
 
