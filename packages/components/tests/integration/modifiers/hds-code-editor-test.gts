@@ -13,6 +13,7 @@ import {
   settled,
   find,
 } from '@ember/test-helpers';
+import { getPendingWaiterState } from '@ember/test-waiters';
 import sinon from 'sinon';
 import { TrackedObject } from 'tracked-built-ins';
 import type { EditorView as EditorViewType } from '@codemirror/view';
@@ -88,6 +89,27 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
       'EditorView',
       'it attaches an EditorView instance to the element'
     );
+  });
+
+  test('it makes `render` wait for the editor setup', async function (assert) {
+    let isWaiterPendingDuringSetup = false;
+
+    await createCodeEditor({
+      ariaLabel: 'test',
+      onSetup: () => {
+        isWaiterPendingDuringSetup =
+          '@hashicorp/design-system-components:code-editor' in
+          getPendingWaiterState().waiters;
+      },
+    });
+
+    assert.true(
+      isWaiterPendingDuringSetup,
+      'a test waiter is pending until the setup finishes'
+    );
+    assert
+      .dom('#code-editor-wrapper .cm-editor')
+      .exists('the editor exists once render settles');
   });
 
   test('it returns the default CodeMirror phrases', async function (assert) {
@@ -410,6 +432,8 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
   // ASSERTIONS
 
   test('it should throw an assertion if both ariaLabel and ariaLabelledBy are ommitted', async function (assert) {
+    assert.expect(2);
+
     const errorMessage =
       '`hds-code-editor` modifier - Either `ariaLabel` or `ariaLabelledBy` must be provided';
     setupOnerror(function (error) {
