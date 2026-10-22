@@ -1063,10 +1063,10 @@ importers:
         specifier: ^5.2.1
         version: 5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1)
       '@embroider/macros':
-        specifier: ^1.20.3
+        specifier: ^1.18.1
         version: 1.21.4(@glint/template@1.7.7)(supports-color@8.1.1)
       '@embroider/util':
-        specifier: ^1.13.5
+        specifier: ^1.13.4
         version: 1.13.5(@glint/template@1.7.7)(ember-source@6.4.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
       '@eslint/js':
         specifier: ^9.27.0
