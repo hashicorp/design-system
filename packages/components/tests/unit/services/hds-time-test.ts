@@ -12,7 +12,7 @@ import HdsTimeService, {
   MINUTE_IN_MS,
   WEEK_IN_MS,
   HdsTimeRelativeUnitValues,
-} from '@hashicorp/design-system-components/services/hds-time';
+} from '#src/services/hds-time.ts';
 
 const table = [
   {
@@ -54,7 +54,7 @@ module('Unit | Service | time', function (hooks) {
 
       const selectTimeRelativeUnitSpy = sinon.spy(
         service,
-        'selectTimeRelativeUnit',
+        'selectTimeRelativeUnit'
       );
 
       const difference = {
@@ -66,31 +66,31 @@ module('Unit | Service | time', function (hooks) {
       assert.strictEqual(
         format.options,
         DEFAULT_DISPLAY_MAPPING[item.type],
-        `returns options`,
+        `returns options`
       );
       assert.strictEqual(
         format.difference.absValueInMs,
         difference.absValueInMs,
-        `returns difference value in ms: ${difference.absValueInMs}`,
+        `returns difference value in ms: ${difference.absValueInMs}`
       );
       assert.strictEqual(
         format.difference.valueInMs,
         difference.valueInMs,
-        `returns difference abs value in ms: ${difference.valueInMs}`,
+        `returns difference abs value in ms: ${difference.valueInMs}`
       );
       assert.ok(
         selectTimeRelativeUnitSpy.calledWith(difference),
-        'selects relative unit via fn',
+        'selects relative unit via fn'
       );
       assert.strictEqual(
         format.relative.value,
         item.relative.value,
-        `returns relative value: ${item.relative.value}`,
+        `returns relative value: ${item.relative.value}`
       );
       assert.strictEqual(
         format.relative.unit,
         item.relative.unit,
-        `returns relative unit: ${item.relative.unit}`,
+        `returns relative unit: ${item.relative.unit}`
       );
     });
   }
@@ -106,12 +106,12 @@ module('Unit | Service | time', function (hooks) {
     assert.strictEqual(
       relativeUnit.value,
       Math.trunc(value),
-      `truncates value sent in`,
+      `truncates value sent in`
     );
     assert.strictEqual(
       relativeUnit.unit,
       unit,
-      `passes along unit without a change`,
+      `passes along unit without a change`
     );
   });
 
@@ -122,11 +122,11 @@ module('Unit | Service | time', function (hooks) {
     assert.strictEqual(
       service.listeners.size,
       0,
-      'there no listeners right away',
+      'there no listeners right away'
     );
     assert.notOk(
       service.listeners.has(id),
-      'the registered id does not exist yet',
+      'the registered id does not exist yet'
     );
     const unregister = service.register(id);
     assert.ok(service.listeners.has(id), 'the registered id exists');
@@ -135,19 +135,19 @@ module('Unit | Service | time', function (hooks) {
     assert.strictEqual(
       service.listeners.size,
       0,
-      'a returned unregister curried function deletes the listener',
+      'a returned unregister curried function deletes the listener'
     );
     service.register(id);
     assert.strictEqual(
       service.listeners.size,
       1,
-      'register adds the listener again',
+      'register adds the listener again'
     );
     service.unregister(id);
     assert.strictEqual(
       service.listeners.size,
       0,
-      'a direct unregister with an id deletes the listener',
+      'a direct unregister with an id deletes the listener'
     );
   });
 });
