@@ -565,13 +565,20 @@ export default class HdsAdvancedTable<
       this.args.columns.find((column) => column.key === this.currentSortBy)
         ?.label ?? this.currentSortBy;
 
-    return this.hdsIntl.t(
-      `hds.components.advanced-table.sorted-message.${sortOrder}`,
-      {
-        default: `Sorted by ${columnLabel} ${sortOrder}`,
-        columnLabel,
-      }
-    );
+    const options = {
+      default: `Sorted by ${columnLabel} ${sortOrder}`,
+      columnLabel,
+    };
+
+    return sortOrder === 'ascending'
+      ? this.hdsIntl.t(
+          'hds.components.advanced-table.sorted-message.ascending',
+          options
+        )
+      : this.hdsIntl.t(
+          'hds.components.advanced-table.sorted-message.descending',
+          options
+        );
   }
 
   get isSelectable(): boolean {

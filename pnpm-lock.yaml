@@ -249,6 +249,9 @@ importers:
       '@glimmer/component':
         specifier: ^2.0.0
         version: 2.0.0
+      '@glimmer/syntax':
+        specifier: 0.95.0
+        version: 0.95.0
       '@glint/ember-tsc':
         specifier: ^1.5.0
         version: 1.5.0(typescript@5.9.2)
@@ -273,6 +276,9 @@ importers:
       concurrently:
         specifier: ^9.2.3
         version: 9.2.3
+      content-tag:
+        specifier: 4.1.1
+        version: 4.1.1
       ember-basic-dropdown:
         specifier: ^8.8.0
         version: 8.8.0(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@4.0.5(@babel/core@7.28.0)(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
@@ -306,6 +312,9 @@ importers:
       globals:
         specifier: ^16.0.0
         version: 16.3.0
+      js-yaml:
+        specifier: 4.1.1
+        version: 4.1.1
       postcss:
         specifier: ^8.5.10
         version: 8.5.16
@@ -345,6 +354,9 @@ importers:
       webpack:
         specifier: ^5.104.1
         version: 5.107.2(postcss@8.5.16)
+      yaml:
+        specifier: 2.9.0
+        version: 2.9.0
 
   packages/flight-icons:
     devDependencies:
