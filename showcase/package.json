@@ -124,8 +124,6 @@
     "stylelint": "^16.19.1",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^14.0.0",
-    "tabbable": "^6.2.0",
-    "tracked-built-ins": "^4.0.0",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.32.1",
     "webpack": "^5.104.1"

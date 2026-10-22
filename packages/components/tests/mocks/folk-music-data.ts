@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { HdsBadgeColors } from '@hashicorp/design-system-components/components/hds/badge/types';
-import type { HdsIconSignature } from '@hashicorp/design-system-components/components/hds/icon/index';
+import type { HdsBadgeColors } from '#src/components/hds/badge/types.ts';
+import type { HdsIconSignature } from '#src/components/hds/icon/index.gts';
 
 export interface FolkMusic {
   id: string;
