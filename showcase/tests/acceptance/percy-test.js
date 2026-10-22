@@ -7,15 +7,9 @@ import { module, test } from 'qunit';
 import { visit, click, fillIn, waitFor } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import percySnapshot from '@percy/ember';
-import config from 'showcase/config/environment';
 
 module('Acceptance | Percy test', function (hooks) {
   setupApplicationTest(hooks);
-
-  if (config.emberTryScenario) {
-    console.log('Not running percy in ember-try');
-    return;
-  }
 
   test('Take percy snapshots', async function (assert) {
     // we have a lot of tests to run and screenshots to take,
