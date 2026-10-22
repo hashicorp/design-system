@@ -1,9 +1,11 @@
 ---
-applyTo: "packages/components/tests/integration/**"
-description: "Instructions for integration tests written for the HDS components package"
+applyTo: "packages/components/tests/**"
+description: "Instructions for integration and unit tests written for the HDS components package"
 ---
 
 ## Overview
+
+The integration and unit tests for the HDS components package live in `packages/components/tests` and run in a Vite test app (`pnpm test`). Page-level acceptance and Percy tests live in the showcase.
 
 Integration tests are used to test the functionality of the HDS components. They test that all arguments, events, contextual components, and user interactions are operating as expected.
 
@@ -162,3 +164,7 @@ test('it should perform an action when the button is clicked', async function (a
   assert.dom('#test-component-name .new-element-rendered').exists();
 });
 ```
+
+## Unit tests
+
+Unit tests are used to test low-level logic in individual classes such as helpers, modifiers, and services. They should be defined under `tests/unit/` in a folder structure matching the type being tested (e.g., `tests/unit/helpers/`, `tests/unit/modifiers/`, `tests/unit/services/`), import the code under test from `#src/...`, and use `setupTest` from `tests/helpers/index.ts`.

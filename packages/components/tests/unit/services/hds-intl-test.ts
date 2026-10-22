@@ -4,9 +4,9 @@
  */
 
 import { module, test } from 'qunit';
-import { setupTest } from 'showcase/tests/helpers';
+import { setupTest } from '../../helpers/index.ts';
 
-import HdsIntlService from '@hashicorp/design-system-components/services/hds-intl';
+import HdsIntlService from '#src/services/hds-intl.ts';
 
 const defaultString = 'Default text';
 
@@ -28,7 +28,7 @@ module('Unit | Service | hds-intl', function (hooks) {
     assert.strictEqual(
       result,
       defaultString,
-      'returns default for non-existent key',
+      'returns default for non-existent key'
     );
   });
 
@@ -66,7 +66,7 @@ module('Unit | Service | hds-intl', function (hooks) {
     assert.strictEqual(
       result,
       'Goodbye Tester, aged 30!',
-      'interpolates parameters correctly',
+      'interpolates parameters correctly'
     );
   });
 
@@ -94,7 +94,7 @@ module('Unit | Service | hds-intl', function (hooks) {
     assert.strictEqual(
       result,
       '¡Hola!',
-      'uses specified locale for translation',
+      'uses specified locale for translation'
     );
   });
 

@@ -18,6 +18,7 @@
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
     "build": "rollup --config && pnpm catalog:components",
+    "build:watch": "rollup --config --watch --environment development",
     "catalog:components": "node ./scripts/build-component-catalog.mjs",
     "format": "prettier . --cache --write",
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
@@ -30,8 +31,7 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "lint:types": "ember-tsc --noEmit",
-    "start": "rollup --config --watch --environment development",
-    "start:tests": "vite dev",
+    "start": "vite dev",
     "test:dist-files": "node scripts/check-dist-files.mjs",
     "test:component-catalog": "node scripts/check-component-catalog.mjs",
     "test": "vite build --mode=development --out-dir dist-tests && testem --file testem.cjs ci --port 0",

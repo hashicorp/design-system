@@ -4,7 +4,7 @@ description: "Context for the HDS showcase application"
 ---
 
 ## Overview
-The `showcase` app is an Ember application used to develop, test, and visually validate all HDS components from the `packages/components` library. It serves as a live component playground, source for Percy visual regression snapshots, and houses the acceptance test suite (component integration tests live in `packages/components/tests`).
+The `showcase` app is an Ember application used to develop, test, and visually validate all HDS components from the `packages/components` library. It serves as a live component playground, source for Percy visual regression snapshots, and houses the acceptance test suite (component integration and unit tests live in `packages/components/tests`).
 
 ## Key files
 - `app/components/page-components/` - Showcase page components, one folder per HDS component
@@ -29,4 +29,4 @@ The `showcase` app is an Ember application used to develop, test, and visually v
 - `components-pages.instructions.md`
   Guidelines on how to build showcase pages, including file structure, code formatting, and best practices for demonstrating component features and states.
 - `tests.instructions.md`
-  Instructions for how to write and organize acceptance and unit tests
+  Instructions for how to write and organize acceptance and Percy tests
