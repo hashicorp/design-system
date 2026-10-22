@@ -358,12 +358,12 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
     assert.strictEqual(
       root?.parentElement?.id,
       'ember-testing',
-      'adds the sprite root to #ember-testing',
+      'adds the sprite root to #ember-testing'
     );
     assert.strictEqual(
       document.getElementById(symbolId)?.parentElement,
       root,
-      'injects the symbol in the added sprite root',
+      'injects the symbol in the added sprite root'
     );
   });
 
@@ -384,7 +384,7 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
     service.requestLoad(firstDefinition);
 
     await waitUntil(
-      () => service.getSymbolId(firstDefinition) === firstSymbolId,
+      () => service.getSymbolId(firstDefinition) === firstSymbolId
     );
 
     removeRoot();
@@ -392,7 +392,7 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
     service.requestLoad(secondDefinition);
 
     await waitUntil(
-      () => service.getSymbolId(secondDefinition) === secondSymbolId,
+      () => service.getSymbolId(secondDefinition) === secondSymbolId
     );
 
     const root = document.getElementById(ROOT_ID);
@@ -400,17 +400,17 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
     assert.strictEqual(
       root?.parentElement?.id,
       'ember-testing',
-      'adds a new sprite root to #ember-testing',
+      'adds a new sprite root to #ember-testing'
     );
     assert.strictEqual(
       document.getElementById(secondSymbolId)?.parentElement,
       root,
-      'injects the symbol in the new sprite root',
+      'injects the symbol in the new sprite root'
     );
     assert.strictEqual(
       document.getElementById(firstSymbolId)?.parentElement,
       root,
-      'moves the symbols loaded before to the new sprite root',
+      'moves the symbols loaded before to the new sprite root'
     );
   });
 
@@ -423,7 +423,7 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
     sinon
       .stub(document, 'getElementById')
       .callsFake((id: string) =>
-        id === 'ember-testing' ? null : getElementById(id),
+        id === 'ember-testing' ? null : getElementById(id)
       );
 
     const definition = makeDefinition({ name: 'apps' as IconName });
