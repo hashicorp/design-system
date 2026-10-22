@@ -45,19 +45,23 @@ Please note, the release of v7.0 deprecates the Foundations library and consolid
 If you are not a member of the HDS Design System UI Kit team, you will need to look under the **Other teams** tab. If you’re having trouble finding these, search for "HDS" to find the Components, Patterns, and Icon libraries.
 !!!
 
-Once the libraries are enabled, components will be accessible in the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) or via the [resources menu](https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances#quick-insert) (`shift`+`i`) in the toolbar. Styles published in the Foundations library will be available in the [design panel](https://help.figma.com/hc/en-us/articles/360039832014-Design-prototype-and-inspect-right-sidebar-#design) in the right sidebar.
+Once the libraries are enabled, components will be accessible in the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) or via the [resources menu](https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances#quick-insert) (`shift`+`i`) in the toolbar and styles will be available in the [design panel](https://help.figma.com/hc/en-us/articles/360039832014-Design-prototype-and-inspect-right-sidebar-#design) in the right sidebar.
 
 ## Tokens and styles
 
-Tokens create consistency in the application of color (as a fill or stroke), typography, and effects within Figma. Using Helios tokens aligns the values used in design to corresponding values for engineers implementing the design.
+Tokens create consistency in the application of color (as a fill or stroke), typography, and effects within Figma. Using [Helios tokens](https://helios.hashicorp.design/foundations/tokens) aligns the values used in design to those in code.
 
 ### Variables in Figma
 
-Tokens are stored in Figma as "variables". Variables attach to designs as hex values, strings, or numerical values. The HDS team has created variable sets in Figma that match the naming and values of tokens used by our engineering teams, making Figma variables equivalent in meaning to tokens. Attaching variables and typography styles to your design elementss in Figma will link any relevant property tothe corresponding HDS token. 
+Tokens are stored in Figma as [variables](https://help.figma.com/hc/en-us/articles/15339657135383-Guide-to-variables-in-Figma). Each variable connects a single hex value, string, or numerical value to an object or style. A [style](https://help.figma.com/hc/en-us/articles/360039238753-Guide-to-styles-in-Figma) is a collection of properties, often created using multiple variables.
+
+Typography and effects, such as elevation, can be found in Figma as styles, while colors, border radius, and other numerical values are variables.
+
+Attaching variables and styles to your design elements ensures the relevant properties correspond to the HDS token. 
 
 Please note, themes are not accessible if you detach variables in your design, as this breaks the token link.
 
-For more details on what tokens are and how they're used, visit the [HDS Academy design tooling page](https://w3.ibm.com/w3publisher/helios-design-system/hds-academy/design-tooling) on w3 where styles, tokens, and variables are featured in explainer videos.
+For more details on what tokens are and how they're used, visit the [HDS Academy design tooling page](https://w3.ibm.com/w3publisher/helios-design-system/hds-academy/design-tooling).
 
 !!! Callout
 
@@ -66,22 +70,23 @@ As of v7.0 of the design system, the Foundations library has been deprecated. Al
 !!!
 
 
-### Using tokens in your project, applying Figma variables
+### Using tokens in your project
 
-1. Select the object(s) to which you want to add styling (e.g., text layer, shape, or frame).
+1. Select the object(s) to which you want to add styling, e.g., text layer, shape, or frame.
 
-2. In the properties panel, click the "Apply styles and variables" icon (looks like four dots) next to the appropriate property (e.g., typography, fill, stroke, or effects).
+2. In the properties panel, click the "Apply styles and variables" icon (looks like four dots) next to the appropriate property, e.g., typography, fill, stroke, or effects.
 
-3. Apply the appropriate variable or style from the list of options. Ensure you choose styles within the **HDS Product Components** library. Typography and elevation are labelled styles while color, border radius, and numerical values are called variables within Figma. Each of these connects to named tokens created by the HDS team.
+3. Apply the appropriate variable or style from the list of options. Ensure you choose styles within the **HDS Product Components** library.
 
 ![](/assets/getting-started/designers/apply-text-style.png =784x*)
 
-To learn more about HDS tokens and styles view [the Foundations section](/foundations/). 
+See [Foundations] to learn about HDS tokens and styles.
 
 ## Modes and theming
-Themes in Figma allow designers to view a frame in multiple visual languages. Typically this is used to view light or dark themes for a design. In our case, Figma modes will allow frames to be tranlsated from "classic" HDS (hds) to "carbonized" HDS (cds-0, cds-10, cds-90, cds-100).
+In Figma, [modes](https://help.figma.com/hc/en-us/articles/15343816063383-Modes-for-variables) allow designers to view a frame in multiple visual languages. Typically this is used to view light or dark themes. 
 
-During design migrations from the Helios Design System to Carbon, using theme swapping is the first step and will take care of translating properly linked variables and components to the desired Carbon themes. Selecting one of the "carbonized" HDS modes in the dropdown will trigger all properly linked tokens and components to swap to the IBM Carbon visual language.
+In our case, Figma modes are used to translate frames from HDS (`hds`) to "carbonized" HDS (`cds-0`, `cds-10`,` cds-90`, `cds-100`). Switching to one of the "carbonized" HDS modes automatically displays the frame in the desired Carbon theme.
+
 
 ### Changing modes in Figma
 
@@ -96,13 +101,15 @@ During design migrations from the Helios Design System to Carbon, using theme sw
 
 ## Icons
 
-In Figma, icons from the HDS Icons library are constructed to automatically swap along with the design tokens between the "classic" HDS theme to the "carbonized" theme. You will not need to manually replace icons from the Carbon Icon library when translating from HDS to Carbon. However, service icons using color variants will need to be updated to use dymanic values to support theme swapping. Check out the [Design Tooling Figma Plugin](/tooling/design-tooling-figma-plugin) for a quick and easy way to make this change in your files.
+In Figma, icons from the [HDS Icons library](https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?t=d7Cb4wxMIkfUoB9Q-0) will automatically update when switching between the "classic" HDS theme and the "carbonized" themes. You will not need to manually replace icons from the Carbon Icon library.
+
+Colored service icons, however, will need to be updated to support theming since the brand colors are static and may not work on all theme backgrounds. Use the [HDS Design Tooling Figma Plugin](/tooling/design-tooling-figma-plugin) to automatically update these in your files.
 
 ### Adding icons to your project
 
 To use icons in your designs, connect the [Icons library](https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=uqfJ7Wtjy9AfhBtY-1) to your project (see [enabling Helios libraries](#enabling-helios-libraries)).
 
-1.  Open your project file in Figma.
+1.  Open your design file in Figma.
 
 2.  Navigate to the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) by clicking "Assets" in the left navigation bar.
 
