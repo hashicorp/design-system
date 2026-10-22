@@ -40,7 +40,7 @@ To switch modes for an **object**:
 
 ![](/assets/carbonization/designers/switch-modes-object.png)
 
-![](/assets/carbonization/designers/hds-cds-icon-comparison.png)
+![Example illustrating the visual difference between icons in hds and icons in cds](/assets/carbonization/designers/hds-cds-icon-comparison.png)
 
 Once you select a mode, a tag with the mode name will appear next to the layer name in the Layers panel.
 
@@ -67,12 +67,11 @@ Designing with themes introduces a few adjustments to your workflow:
 
 1. Duplicate your design file to create a backup copy.
 2. Confirm engineering and product teams are ready to support Carbon modes in code.
-3. Audit your design file for detached components and re-link them to the main library component.
-4. Run [Check designs](https://help.figma.com/hc/en-us/articles/39592284074263-Check-designs-in-Figma) in Figma and replace hardcoded local colors and styles with HDS variables or styles.
-5. Accept all pending HDS UI Kit updates in Figma.
-6. Switch the top-level frame mode from `hds` to `cds-0` (light mode). For high-contrast touchpoints, switch the containing frame to `cds-100`.
-7. Duplicate the top-level frame and switch the mode to `cds-100` to test dark mode.
-8. Verify nested surfaces and sidebars inherit or apply the correct mode.
-9. Review color contrast ratios, accessibility, and hierarchy across `cds-0` and `cds-100`.
-10. Collaborate with engineering to ensure consistency during implementation.
-11. Archive or delete the backup design file.
+3. Audit your design file for detached components and re-link them to the main library component. Run [Check designs](https://help.figma.com/hc/en-us/articles/39592284074263-Check-designs-in-Figma) in Figma and replace hardcoded local colors and styles with HDS variables or styles.
+4. Accept all pending HDS UI Kit updates in Figma.
+5. Switch the top-level frame mode from `hds` to `cds-0` (light mode). For high-contrast touchpoints, switch the containing frame to `cds-100`.
+6. Duplicate the top-level frame and switch the mode to `cds-100` to test dark mode.
+7. Verify nested surfaces and sidebars inherit or apply the correct mode.
+8. Review color contrast ratios, accessibility, and hierarchy across `cds-0` and `cds-100`.
+9. Collaborate with engineering to ensure consistency during implementation.
+10. Archive or delete the backup design file.
