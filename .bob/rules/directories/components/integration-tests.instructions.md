@@ -1,5 +1,5 @@
 ---
-applyTo: "showcase/tests/integration/**"
+applyTo: "packages/components/tests/integration/**"
 description: "Instructions for integration tests written for the HDS components package"
 ---
 
@@ -9,8 +9,9 @@ Integration tests are used to test the functionality of the HDS components. They
 
 ## File requirements
 
-- Every component must have an integration test file under `integration/components/hds/<component-name>/index-test.gts`
-- Any sub-components must have their own integration test files under `integration/components/hds/<component-name>/<sub-component>-test.gts`
+- Every component must have an integration test file under `tests/integration/components/hds/<component-name>/index-test.gts`
+- Any sub-components must have their own integration test files under `tests/integration/components/hds/<component-name>/<sub-component>-test.gts`
+- Test files must end in `-test.gts` (or `-test.ts`)
 
 ## Test set up
 
@@ -19,9 +20,9 @@ Use the following template for organizing the integration test files
 ```gts
 import { module, test } from 'qunit';
 
-import { HdsComponentName } from '@hashicorp/design-system-components/components';
+import { HdsComponentName } from '#src/components.ts';
 
-import { setupRenderingTest } from 'showcase/tests/helpers';
+import { setupRenderingTest } from '../../../../helpers/index.ts';
 
 module('Integration | Component | hds/component-name/index', function (hooks) {
   setupRenderingTest(hooks);

@@ -31,12 +31,13 @@ Notice: to have VSCode autofix the code on save, you have to:
 
 ## Running tests
 
-The associated test application is located at the root of the monorepo, in `showcase`
+The integration tests live in `tests/` and run in a Vite test app
 
-- `cd showcase`
-- `ember test` – Runs the test suite on the current Ember version
-- `ember test --server` – Runs the test suite in "watch mode"
-- `ember try:each` – Runs the test suite against multiple Ember versions
+- `pnpm test` – Runs the test suite on the current Ember version
+- `pnpm start:tests` – Starts the test app; visit `/tests/index.html` to run the tests in "watch mode"
+- `pnpm dlx @embroider/try apply <scenario>`, then `pnpm install` and `pnpm test` – Runs the test suite against another Ember version (see `.try.mjs`; set `ENABLE_COMPAT_BUILD=true` for `ember-lts-5.12`)
+
+The acceptance tests (one per showcase page) live in `showcase/tests`.
 
 ## Running the `showcase` application
 
