@@ -8,7 +8,8 @@
 if (typeof module !== 'undefined') {
   module.exports = {
     test_page: 'tests/index.html?hidepassed',
-    cwd: 'dist',
+    // `ember test` (a11y scripts, ember-try) builds into its own folder
+    cwd: process.env.EMBER_CLI_TEST_OUTPUT ?? 'dist',
     disable_watching: true,
     launch_in_ci: ['Chrome'],
     launch_in_dev: ['Chrome'],
