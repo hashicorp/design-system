@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import { extensions, classicEmberSupport, ember } from '@embroider/vite';
 import { babel } from '@rollup/plugin-babel';
+import { NodePackageImporter } from 'sass-embedded';
 
 export default defineConfig({
   plugins: [
@@ -12,4 +13,11 @@ export default defineConfig({
       extensions,
     }),
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        importers: [new NodePackageImporter()],
+      },
+    },
+  },
 });

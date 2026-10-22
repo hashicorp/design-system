@@ -6,7 +6,7 @@
 @use "sass:list";
 @use "sass:map";
 // from @hashicorp/design-system-components package
-@use "mixins/breakpoints" as *;
+@use "pkg:@hashicorp/design-system-components/styles/mixins/breakpoints" as *;
 @use "colors" as *;
 
 .mock-demo-breakpoints-visualization {
