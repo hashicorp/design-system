@@ -7,20 +7,22 @@ navigation:
 
 !!! Callout
 
-Many resources and links on this page are only available to HashiCorp employees.
+Many resources and links on this page are only available to IBM employees.
 !!!
 
 The Design Systems Team maintains and publishes Figma libraries which contain foundational styles, components, patterns, and icons.
+
+Please note, the release of v7.0 deprecates the Foundations library and consolidates tokens and styles into the Components library.
 
 ## Enabling Helios libraries
 
 1. Open the Library modal via one of the following methods:
 
-      - Click the `Assets` panel in the left sidebar, then click the `book` icon to open the modal.
+      - Click the "Assets" tab in the left navigation bar, then click the book icon to open the modal.
 
       ![Opening the library modal via the assets panel](/assets/getting-started/designers/enable-libraries-icon.png =295x*)
 
-      - Click the `Figma` icon in the top toolbar, then click "Libraries".
+      - Click the Figma icon in the top toolbar, then select "Libraries."
 
       ![Opening the library modal via the menu](/assets/getting-started/designers/enable-libraries-menu.png =290x*)
 
@@ -32,7 +34,6 @@ The Design Systems Team maintains and publishes Figma libraries which contain fo
 2. Enable the libraries by locating the **HDS Design System UI Kit** team and selecting "Add to file":
 
       - [HDS Product Components v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=2337-20575&t=gWdKy44MzTP4cTRo-1)
-      - [HDS Product Foundations v2.0](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?node-id=2916-4&t=z7hDCKFFuGUMDRYe-1)
       - [HDS Product Patterns v2.0](https://www.figma.com/design/5Pv32j4QiOOD8lkFTD1dxC/HDS-Patterns-v2.0?node-id=2-45&t=cpJowBg8aXp4qAG1-1)
       - [HDS Icons](https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=uqfJ7Wtjy9AfhBtY-1)
       - [Carbon Charts](https://www.figma.com/design/k34tT4poC2p1RBQxVwZhW5/-Alpha--Carbon-Charts-Library-Kit-%E2%80%93-Carbon-Design-System--Copy-?node-id=3984-105570&t=YIZdjDNDhgDMtXBd-1)
@@ -41,38 +42,76 @@ The Design Systems Team maintains and publishes Figma libraries which contain fo
 
 !!! Callout
 
-If you are not a member of the HDS Design System UI Kit team, you will need to look under the **Other teams** tab. If you’re having trouble finding these, search for "HDS" to find the Foundations, Components, Patterns, and Icon libraries.
+If you are not a member of the HDS Design System UI Kit team, you will need to look under the **Other teams** tab. If you’re having trouble finding these, search for "HDS" to find the Components, Patterns, and Icon libraries.
 !!!
 
-Once the libraries are enabled, you can access the components from the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) or via the [resources menu](https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances#quick-insert) (`shift`+`i`) in the toolbar. In contrast, styles published by the Foundations library are available in the [design panel](https://help.figma.com/hc/en-us/articles/360039832014-Design-prototype-and-inspect-right-sidebar-#design) within the right sidebar.
+Once the libraries are enabled, components will be accessible in the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) or via the [resources menu](https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances#quick-insert) (`shift`+`i`) in the toolbar and styles will be available in the [design panel](https://help.figma.com/hc/en-us/articles/360039832014-Design-prototype-and-inspect-right-sidebar-#design) in the right sidebar.
 
-## Foundational styles
+## Tokens and styles
 
-Styles and variables, sometimes referred to as Tokens, allow consistent application of color (as a fill or stroke), typography, and effects within Figma. You can find these in the [Product Foundations v2.0 library](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?node-id=2916-4&t=z7hDCKFFuGUMDRYe-1).
+Tokens create consistency in the application of color (as a fill or stroke), typography, and effects within Figma. Using [Helios tokens](https://helios.hashicorp.design/foundations/tokens) aligns the values used in design to those in code.
 
-Because the usage of Helios Foundations reinforces consistency across the products, we don’t recommend detaching from these styles within your designs.
+### Variables in Figma
 
-### Using styles in your project
+Tokens are stored in Figma as [variables](https://help.figma.com/hc/en-us/articles/15339657135383-Guide-to-variables-in-Figma). Each variable connects a single hex value, string, or numerical value to an object or style. A [style](https://help.figma.com/hc/en-us/articles/360039238753-Guide-to-styles-in-Figma) is a collection of properties, often created using multiple variables.
 
-1. Select the object(s) to which you want to add a style (e.g., text layer, shape, or frame).
+Typography and effects, such as elevation, can be found in Figma as styles, while colors, border radius, and other numerical values are variables.
 
-2. In the properties panel, click the style icon (looks like four dots) next to the appropriate property (e.g., text, color, stroke, or effect).
+Attaching variables and styles to your design elements ensures the relevant properties correspond to the HDS token. 
 
-3. Select the style you wish to apply from the list of options. Ensure you choose styles within the **HDS - Product Foundations** library.
+Please note, themes are not accessible if you detach variables in your design, as this breaks the token link.
+
+For more details on what tokens are and how they're used, visit the [HDS Academy design tooling page](https://w3.ibm.com/w3publisher/helios-design-system/hds-academy/design-tooling).
+
+!!! Callout
+
+As of v7.0 of the design system, the Foundations library has been deprecated. All tokens, styles, and components are located in the [HDS Product Components Library](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=2337-20575&t=gWdKy44MzTP4cTRo-1).
+
+!!!
+
+
+### Using tokens in your project
+
+1. Select the object(s) to which you want to add styling, e.g., text layer, shape, or frame.
+
+2. In the properties panel, click the "Apply styles and variables" icon (looks like four dots) next to the appropriate property, e.g., typography, fill, stroke, or effects.
+
+3. Apply the appropriate variable or style from the list of options. Ensure you choose styles within the **HDS Product Components** library.
 
 ![](/assets/getting-started/designers/apply-text-style.png =784x*)
 
-To learn more about how to use the foundational styles, visit [the Foundations section](/foundations/).
+See [Foundations] to learn about HDS tokens and styles.
+
+## Modes and theming
+In Figma, [modes](https://help.figma.com/hc/en-us/articles/15343816063383-Modes-for-variables) allow designers to view a frame in multiple visual languages. Typically this is used to view light or dark themes. 
+
+In our case, Figma modes are used to translate frames from HDS (`hds`) to "carbonized" HDS (`cds-0`, `cds-10`,` cds-90`, `cds-100`). Switching to one of the "carbonized" HDS modes automatically displays the frame in the desired Carbon theme.
+
+
+### Changing modes in Figma
+
+1. Select the frame(s) you want to swap.
+
+2. In the properties panel, click the "Apply variable modes" icon (looks like a color swatch).
+
+3. Choose the appropriate mode from the dropdown to apply the desired HDS or "carbonized" light or dark theme.
+
+![](/assets/getting-started/designers/swapping-modes.png)
+
 
 ## Icons
 
+In Figma, icons from the [HDS Icons library](https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?t=d7Cb4wxMIkfUoB9Q-0) will automatically update when switching between the "classic" HDS theme and the "carbonized" themes. You will not need to manually replace icons from the Carbon Icon library.
+
+Colored service icons, however, will need to be updated to support theming since the brand colors are static and may not work on all theme backgrounds. Use the [HDS Design Tooling Figma Plugin](/tooling/design-tooling-figma-plugin) to automatically locate these icons and replace them automatically.
+
 ### Adding icons to your project
 
-To use icons within your project, first ensure the [Icons library](https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=uqfJ7Wtjy9AfhBtY-1) is enabled for your project (see [enabling Helios libraries](#enabling-helios-libraries)).
+To use icons in your designs, connect the [Icons library](https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=uqfJ7Wtjy9AfhBtY-1) to your project (see [enabling Helios libraries](#enabling-helios-libraries)).
 
-1.  Open your project file within Figma.
+1.  Open your design file in Figma.
 
-2.  Navigate to the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) by clicking "Assets" at the top of the left sidebar.
+2.  Navigate to the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) by clicking "Assets" in the left navigation bar.
 
 3.  Search or scroll to find the icon you need and drag it into your file.
 
@@ -89,7 +128,7 @@ A component inserted from a library into a project is called an [instance](https
 
 ### Adding components to your project
 
-Add Helios components to your design project by inserting them directly from the assets panel or resources menu or copying the component from the stickersheet and pasting it into your project.
+Add Helios components to your design project by inserting them directly from the assets panel, resources menu, or by copying the component from the stickersheet to paste into your project.
 
 #### Inserting from the assets panel
 
@@ -107,7 +146,7 @@ Add Helios components to your design project by inserting them directly from the
 
 Open the [resources menu](https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances#quick-insert) (`shift`+`i`) in the toolbar to expose a list of recently used components, plugins, and widgets enabled in your project. Use this method to access your more commonly or recently used components quickly.
 
-![Inserting components from the resources menu](/assets/getting-started/designers/component-resources-panel.png =321x*)
+![Inserting components from the resources menu](/assets/getting-started/designers/component-resources-panel.png)
 
 #### Copying from the stickersheet
 
@@ -131,13 +170,13 @@ Our Figma components are tightly coupled with their code counterparts to maintai
 
 When you detach a component, it no longer receives updates from the library, which can cause designs and production applications to drift out of sync quickly.
 
-[Contact the Design Systems Team](https://go.hashi.co/hds-support) for support or to request a new component if a component doesn’t meet your needs.
+[Contact the Design Systems Team](https://go.hashi.co/hds-support) for support or to request a new component.
 
 #### Overriding component styles
 
-While you can technically override the styles within a component without detaching it, we recommend against doing so without consulting the Design Systems Team first.
+While overriding styles within a component without detaching it is possible, we recommend against doing so without consulting the Design Systems Team first.
 
-Changing a component's color or font size may seem simple, but this can have trickle-down effects in code. Overriding styles forces engineers to create custom classes and styles to implement the changes. Overriding styles can have unexpected long-term effects within the [CSS cascade](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade#:~:text=The%20cascade%20is%20an%20algorithm,a%20property%20on%20an%20element) and lead to tech debt. In addition to being difficult to scale, overrides nudge the design language of your product out of sync with Helios and the rest of the HashiCorp product suite.
+Changing a component's color or font size may seem simple, but this can have trickle-down effects in code. Overriding styles forces engineers to create custom classes and styles to implement the changes. This may have unexpected long-term effects within the [CSS cascade](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade#:~:text=The%20cascade%20is%20an%20algorithm,a%20property%20on%20an%20element) and lead to tech debt. In addition to being difficult to scale, overrides nudge the design language of your product out of sync with Helios and the rest of the HashiCorp product suite.
 
 #### Resizing components
 
@@ -158,7 +197,7 @@ Components and patterns unique to your product should be designed and built loca
 
 ![Local component patterns](/assets/getting-started/designers/local-component-patterns.png =706x*)
 
-When creating local components for your product, it’s helpful to separate them from your main project files and house them in their own Figma library file. Using a dedicated library creates a consistent location for your product’s local components so that other designers on your team can access and use them.
+Create local components for your product in a separate file from your main project files and house them in their own Figma library file. A dedicated library creates a consistent location for your product’s components so other designers on your team can access and use them.
 
 Consider using [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) methods when designing and building local components. Helios components generally correspond with `atoms` and `molecules`, while more complex components correspond to `organisms`.
 
@@ -169,7 +208,6 @@ Consider using [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design
 HashiCorp product teams can use the Helios libraries published under the [HDS Design System UI Kit](https://www.figma.com/files/817445202777874373/team/1030156573400567478) team within Figma.
 
 - [HDS Product Components v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&t=Rk02iW7PpBI5vhtJ-6): the set of components published in the Helios Design System
-- [HDS Product Foundations v2.0](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?m=auto&t=Rk02iW7PpBI5vhtJ-6): core styles including typography, color, and elevation that are consumed by Helios components for reuse in your projects
 - [HDS Product Patterns v2.0](https://www.figma.com/design/5Pv32j4QiOOD8lkFTD1dxC/HDS-Patterns-v2.0?m=auto&t=Rk02iW7PpBI5vhtJ-6): patterns composed of HDS components published as detachable templates.
 - [Icons](https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=uqfJ7Wtjy9AfhBtY-1): core icon set for reuse in your projects
 - [A11Y Helper Annotation Kit](https://www.figma.com/design/EEfM1jjqLfUv59eYLopn5x/HDS-A11Y-Helper-UI-Kit?m=auto&t=JLqmUYB9fZbdWaa2-6): an annotation toolkit designed to enhance collaboration between designers and engineers, ensuring the work meets accessibility (a11y) standards.
