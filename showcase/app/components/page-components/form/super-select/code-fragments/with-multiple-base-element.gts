@@ -39,6 +39,7 @@ export interface CodeFragmentWithMultipleBaseElementSignature {
     verticalPosition?: HdsFormSuperSelectMultipleBaseSignature['Args']['verticalPosition'];
     horizontalPosition?: HdsFormSuperSelectMultipleBaseSignature['Args']['horizontalPosition'];
     searchEnabled?: HdsFormSuperSelectMultipleBaseSignature['Args']['searchEnabled'];
+    hasCustomSearch?: boolean;
     dropdownMaxWidth?: HdsFormSuperSelectMultipleBaseSignature['Args']['dropdownMaxWidth'];
     showAfterOptions?: HdsFormSuperSelectMultipleBaseSignature['Args']['showAfterOptions'];
     afterOptionsContent?: HdsFormSuperSelectMultipleBaseSignature['Args']['afterOptionsContent'];
@@ -50,6 +51,7 @@ export default class CodeFragmentWithMultipleBaseElement extends Component<CodeF
   @tracked selectedOptions;
 
   options = OPTIONS;
+  emptyOptions: string[] = [];
 
   constructor(
     owner: Owner,
@@ -71,10 +73,21 @@ export default class CodeFragmentWithMultipleBaseElement extends Component<CodeF
     return `Custom result count: ${this.options.length} options`;
   }
 
+  searchOptions = (term: string): string[] => {
+    const searchTerm = term.toLowerCase();
+    return this.options.filter((option) =>
+      option.toLowerCase().includes(searchTerm),
+    );
+  };
+
+  get search(): HdsFormSuperSelectMultipleBaseSignature['Args']['search'] {
+    return this.args.hasCustomSearch ? this.searchOptions : undefined;
+  }
+
   <template>
     <HdsFormSuperSelectMultipleBase
       @onChange={{fn (mut this.selectedOptions)}}
-      @options={{this.options}}
+      @options={{if @hasCustomSearch this.emptyOptions this.options}}
       @selected={{this.selectedOptions}}
       @beforeOptionsComponent={{if
         @hasBeforeOptionsComponent
@@ -92,6 +105,7 @@ export default class CodeFragmentWithMultipleBaseElement extends Component<CodeF
       @verticalPosition={{@verticalPosition}}
       @horizontalPosition={{@horizontalPosition}}
       @searchEnabled={{@searchEnabled}}
+      @search={{this.search}}
       @dropdownMaxWidth={{@dropdownMaxWidth}}
       @showAfterOptions={{@showAfterOptions}}
       @afterOptionsContent={{@afterOptionsContent}}

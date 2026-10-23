@@ -200,7 +200,10 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 
   // OPTIONS ITEM
 
-  .ember-power-select-option {
+  .ember-power-select-option,
+  .ember-power-select-option--no-matches-message,
+  .ember-power-select-option--loading-message,
+  .ember-power-select-option--search-message {
     position: relative;
     min-height: var(--hds-form-control-height);
     padding: 7px 7px 7px 39px;
@@ -214,7 +217,13 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     @include hds-apply-only-if-carbon() {
       padding: 0 16px;
     }
+  }
 
+  .ember-power-select-option:not(
+    .ember-power-select-option--no-matches-message,
+    .ember-power-select-option--loading-message,
+    .ember-power-select-option--search-message
+  ) {
     // left border (option indicator)
     // (only visible in hover/active states)
     &::after {
@@ -253,7 +262,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 
     &[aria-selected="true"] {
       // overrides default component styles
-      background: transparent;
+      background-color: transparent;
     }
 
     // Hover
@@ -519,7 +528,8 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 
   .ember-power-select-option:not(
     .ember-power-select-option--no-matches-message,
-    .ember-power-select-option--loading-message
+    .ember-power-select-option--loading-message,
+    .ember-power-select-option--search-message
   ) {
     background-repeat: no-repeat;
     background-position: top 10px left 15px;
@@ -581,7 +591,8 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
   // We add a pseudo checkbox to each option except those that are for messages (no matches/loading)
   .ember-power-select-option:not(
     .ember-power-select-option--no-matches-message,
-    .ember-power-select-option--loading-message
+    .ember-power-select-option--loading-message,
+    .ember-power-select-option--search-message
   ) {
     position: relative;
 
@@ -676,12 +687,18 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 
 .hds-form-super-select .ember-basic-dropdown {
   .ember-power-select-option--no-matches-message,
-  .ember-power-select-option--loading-message {
+  .ember-power-select-option--loading-message,
+  .ember-power-select-option--search-message {
     padding-left: 12px;
     cursor: inherit;
+
     // hide the hover indicator on messages
     &::after {
       display: none;
+    }
+
+    @include hds-apply-only-if-carbon() {
+      padding: 11px 0 11px 16px;
     }
   }
 }
