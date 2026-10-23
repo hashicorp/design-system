@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = {
+export default {
   plugins: ['prettier-plugin-ember-template-tag'],
   overrides: [
     {
@@ -8,12 +6,6 @@ module.exports = {
       options: {
         singleQuote: true,
         templateSingleQuote: false,
-      },
-    },
-    {
-      files: '*.hbs',
-      options: {
-        printWidth: 120,
       },
     },
   ],

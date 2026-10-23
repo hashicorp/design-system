@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = {
+export default {
   extends: [
     'stylelint-config-standard-scss',
     'stylelint-config-rational-order', // https://github.com/constverum/stylelint-config-rational-order
