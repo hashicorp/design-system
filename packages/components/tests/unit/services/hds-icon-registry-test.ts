@@ -434,16 +434,19 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
 
     stubResolveLoader(service, () => loader as HdsIconLoader);
 
-    const consoleWarnStub = sinon.stub(console, 'warn');
+    // count only this warning, other code can warn too while the test runs
+    const spriteRootWarning = sinon
+      .stub(console, 'warn')
+      .withArgs(sinon.match(/Sprite root element/));
 
     service.requestLoad(definition);
 
     await waitUntil(() => loader.calledOnce);
-    await waitUntil(() => consoleWarnStub.calledOnce);
+    await waitUntil(() => spriteRootWarning.calledOnce);
 
     assert.ok(loader.calledOnce, 'loader still runs');
     assert.ok(
-      consoleWarnStub.calledOnce,
+      spriteRootWarning.calledOnce,
       'warns once when sprite root is missing'
     );
     assert.strictEqual(
