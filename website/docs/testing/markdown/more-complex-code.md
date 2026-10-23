@@ -56,3 +56,7 @@ Code group default expanded
 Code group with execute=false
 
 [[code-snippets/accordion-expand-all execute=false]]
+
+Code group with theming=false
+
+[[code-snippets/accordion-a11y-name theming=false]]
