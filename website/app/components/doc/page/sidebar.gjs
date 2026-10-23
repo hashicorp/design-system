@@ -168,11 +168,11 @@ export default class DocPageSidebarComponent extends Component {
     return Object.keys(subSectionTree).length > 0 ? subSectionTree : false;
   }
 
-  @restartableTask *filterPageTree(filterQuery) {
-    yield timeout(DEBOUNCE_MS);
+  filterPageTree = restartableTask(async (filterQuery) => {
+    await timeout(DEBOUNCE_MS);
 
     this.filterQuery = filterQuery.trim();
-  }
+  });
 
   onRouteDidChange = () => {
     if (this._currentTopRoute !== this.args.currentTopRoute) {

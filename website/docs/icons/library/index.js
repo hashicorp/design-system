@@ -159,16 +159,16 @@ export default class Index extends Component {
     );
   }
 
-  @restartableTask *trackSearchIcons(searchQuery) {
-    yield timeout(TRACKING_DEBOUNCE_MS);
+  trackSearchIcons = restartableTask(async (searchQuery) => {
+    await timeout(TRACKING_DEBOUNCE_MS);
 
     this.eventTracking.trackEvent(`Icon Library - Search - ${searchQuery}`);
-  }
+  });
 
-  @restartableTask *searchIcons(searchQuery) {
+  searchIcons = restartableTask(async (searchQuery) => {
     this.trackSearchIcons.perform(searchQuery);
 
-    yield timeout(DEBOUNCE_MS);
+    await timeout(DEBOUNCE_MS);
 
     this.router.transitionTo({
       queryParams: {
@@ -177,5 +177,5 @@ export default class Index extends Component {
         selectedIconSize: this.selectedIconSize,
       },
     });
-  }
+  });
 }
