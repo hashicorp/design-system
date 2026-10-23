@@ -15,12 +15,12 @@ This means that two visual languages need to be supported in HDS at the same tim
 
 We distinguish between two related concepts:
 
-- A **theme** is what an application exposes to its users: `default` (the "classic" HDS appearance), `system`, `light`, or `dark`.
-- A **mode** is the underlying IBM Carbon configuration that provides the values for a theme. Light themes use `cds-g0` or `cds-g10`; dark themes use `cds-g90` or `cds-g100`.
+- A **theme** is what an application exposes to its users: `default` (the "classic" HDS appearance), `light`/`dark` (the IBM Carbon-like appearance), and `system` (light or dark appearance based on the user's operating system preference).
+- A **mode** is the underlying IBM Carbon configuration that provides the values for a Carbon `light` or `dark` theme: `cds-g0` or `cds-g10` for `light`, `cds-g90` or `cds-g100` for `dark`.
 
-The `system` theme follows the user's operating system preference. Applications can support different sets of themes and modes depending on their needs and stage of migration.
+Themes and modes are related but not interchangeable. A theme is a product-facing choice, while a mode is the underlying configuration used to render that choice.
 
-Themes and modes are related but not interchangeable. A theme is a product-facing choice, while a mode is the underlying configuration used to render that choice. Most products should expose themes rather than individual modes.
+Applications can support different sets of themes and modes depending on their needs and stage of migration, but in general most products should expose themes rather than individual modes to their end users.
 
 ## Applying themes
 
