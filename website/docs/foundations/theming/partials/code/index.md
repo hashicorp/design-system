@@ -5,7 +5,7 @@
 For a general overview of theming, visual languages, themes, modes, and migration stages, see the [Guidelines](?tab=guidelines) tab.
 !!!
 
-HDS provides several pre-built sets of themed tokens, so each application can import only the visual language or languages it needs. See [Themed tokens](#themed-tokens) below.
+HDS provides several pre-built sets of themed tokens so each application can import only the visual language or languages it needs. See [Themed tokens](#themed-tokens) below.
 
 Each set of themed tokens declares its design tokens under `hds-theme-*`/`hds-mode-*` CSS selectors, one for each theme/mode it supports. Then, applying a theme is as simple as adding the corresponding class name to the `<html>` element of the page. This is what a dedicated [`hdsTheming` service](#hdstheming-service) does under the hood.
 
@@ -59,7 +59,7 @@ Before you begin, [contact the Design System Team](/about/support) to plan the m
 
 Applications can continue to use the "classic" token styles until they are ready to begin the migration.
 
-Applications can still upgrade to version `7.0` or later of the design system, (for example to receive bug fixes for HDS components). However, version `7.0` introduced systematic design token renaming, and some refactoring is required. [Contact the Design System Team](/about/support) for guidance and help automating this refactoring.
+Applications can still upgrade to version `7.0` or later of the design system, (for example to receive bug fixes for HDS components). However, [version `7.0`](whats-new/release-notes#700) introduced systematic design token renaming, and some refactoring is required. [Contact the Design System Team](/about/support) for guidance and help automating this refactoring.
 
 ### Migrating
 
@@ -85,10 +85,10 @@ First of all you have to use the "migration" file that provides both the "classi
 
 [[code-snippets/migration-scss-tokens-migration]]
 
-Then you have to import the shared styles for the HDS components (that consume these tokens):
+Then, import the shared styles for the HDS components (that consume these tokens):
 [[code-snippets/migration-scss-components-common]]
 
-Finally, you have to import the import the `@font-face` declarations for the IBM Plex fonts:
+Finally, import the `@font-face` declarations for the IBM Plex fonts:
 
 [[code-snippets/migration-scss-plex-fonts]]
 
@@ -126,7 +126,7 @@ To retain the selection between visits, persist and restore it early in the appl
 
 For more details about how to set and persist a theme in an application, see the [Theming service](/theming/hds-theming) documentation.
 
-For guidance around the switcher's user interface and behavior, see [Patterns/Theme selection](/patterns/theme-selection).
+For guidance around the switcher's user interface and behavior, see the [Theme selection pattern](/patterns/theme-selection).
 
 Also, some areas of the application may need to force a specific theme. In that case, the [`ThemeContext`](/theming/theme-context) component can be used to scope a theme to a portion of the page. For example, an application can wrap its `AppHeader` in a `ThemeContext` and select the `dark` context when a "carbonized" theme is active, while using `default` for the "classic" theme:
 
