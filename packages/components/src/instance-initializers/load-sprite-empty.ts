@@ -23,24 +23,35 @@ function buildHostMarkup(): string {
 `.trim();
 }
 
-export function initialize() {
+// Returns the sprite root, adding it first if it's missing. The icon registry also calls
+// this, as the root can be gone by the time icons load: with `@ember/test-helpers` 5.6+
+// on Ember 6.12.1+, rendering tests clear `#ember-testing` after this initializer runs.
+export function insertSpriteRoot(): SVGSVGElement | null {
   if (typeof window === 'undefined' || typeof document === 'undefined') {
-    return;
+    return null;
   }
 
-  if (isTesting()) {
-    const container = window.document?.getElementById('ember-testing');
+  // in tests, the root goes inside `#ember-testing` so Percy snapshots include it
+  const container = isTesting()
+    ? window.document?.getElementById('ember-testing')
+    : window.document?.body;
 
-    if (container && !container.querySelector(`#${ROOT_ID}`)) {
-      container.insertAdjacentHTML('afterbegin', buildHostMarkup());
-    }
-  } else {
-    const container = window.document?.body;
-
-    if (container && !container.querySelector(`#${ROOT_ID}`)) {
-      container.insertAdjacentHTML('beforeend', buildHostMarkup());
-    }
+  if (!container) {
+    return null;
   }
+
+  if (!container.querySelector(`#${ROOT_ID}`)) {
+    container.insertAdjacentHTML(
+      isTesting() ? 'afterbegin' : 'beforeend',
+      buildHostMarkup()
+    );
+  }
+
+  return container.querySelector<SVGSVGElement>(`#${ROOT_ID}`);
+}
+
+export function initialize() {
+  insertSpriteRoot();
 }
 
 export default {
