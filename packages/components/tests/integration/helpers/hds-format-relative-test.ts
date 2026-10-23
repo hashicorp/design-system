@@ -1,0 +1,38 @@
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+import { module, test } from 'qunit';
+
+import { hdsFormatRelative } from '#src/helpers/hds-format-relative.ts';
+
+import { setupRenderingTest } from '../../helpers/index.ts';
+
+module(
+  'Integration | Helper | hds-format-relative - hdsFormatRelative()',
+  function (hooks) {
+    setupRenderingTest(hooks);
+
+    test('it formats a relative time with the default options', function (assert) {
+      const value = -1;
+      const result = hdsFormatRelative([value]);
+
+      assert.strictEqual(
+        result,
+        new Intl.RelativeTimeFormat(navigator.language).format(value, 'day')
+      );
+    });
+
+    test('it formats a relative time with the provided options', function (assert) {
+      const value = -1;
+      const unit = 'day';
+      const result = hdsFormatRelative([value, unit]);
+
+      assert.strictEqual(
+        result,
+        new Intl.RelativeTimeFormat(navigator.language).format(value, unit)
+      );
+    });
+  }
+);

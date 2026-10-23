@@ -6,6 +6,7 @@
 import Modifier from 'ember-modifier';
 import { assert, warn } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
+import { buildWaiter } from '@ember/test-waiters';
 import { task } from 'ember-concurrency';
 import { macroCondition, isTesting } from '@embroider/macros';
 import { Compartment } from '@codemirror/state';
@@ -110,6 +111,8 @@ export function getCSPNonceFromMeta(): string | undefined {
 }
 
 const LOADER_HEIGHT = '164px';
+
+const waiter = buildWaiter('@hashicorp/design-system-components:code-editor');
 
 const LANGUAGES: Record<
   HdsCodeEditorLanguages,
@@ -623,74 +626,82 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       _positional: PositionalArgs<HdsCodeEditorSignature>,
       named: NamedArgs<HdsCodeEditorSignature>
     ) => {
-      const {
-        onBlur,
-        onInput,
-        onLint,
-        onSetup,
-        ariaDescribedBy,
-        ariaLabel,
-        ariaLabelledBy,
-        cspNonce,
-        extraKeys,
-        hasLineWrapping,
-        isLintingEnabled,
-        language,
-        value,
-        customExtensions,
-      } = named;
+      // `settled` doesn't track the dynamic imports in the setup, so tests
+      // could otherwise run before the editor exists
+      const token = waiter.beginAsync();
 
-      this.onInput = onInput;
-      this.onBlur = onBlur;
+      try {
+        const {
+          onBlur,
+          onInput,
+          onLint,
+          onSetup,
+          ariaDescribedBy,
+          ariaLabel,
+          ariaLabelledBy,
+          cspNonce,
+          extraKeys,
+          hasLineWrapping,
+          isLintingEnabled,
+          language,
+          value,
+          customExtensions,
+        } = named;
 
-      this.element = element;
-      this.element.id = isEmpty(this.element.id)
-        ? guidFor(this)
-        : this.element.id;
+        this.onInput = onInput;
+        this.onBlur = onBlur;
 
-      const editor = await this._createEditorTask.perform(element, {
-        onLint,
-        cspNonce,
-        hasLineWrapping,
-        isLintingEnabled,
-        extraKeys,
-        language,
-        value,
-        customExtensions,
-      });
+        this.element = element;
+        this.element.id = isEmpty(this.element.id)
+          ? guidFor(this)
+          : this.element.id;
 
-      if (editor === undefined) {
-        return;
+        const editor = await this._createEditorTask.perform(element, {
+          onLint,
+          cspNonce,
+          hasLineWrapping,
+          isLintingEnabled,
+          extraKeys,
+          language,
+          value,
+          customExtensions,
+        });
+
+        if (editor === undefined) {
+          return;
+        }
+
+        this.editor = editor;
+        element.editor = editor;
+
+        if (onBlur !== undefined) {
+          this._setupEditorBlurHandler(element, onBlur);
+        }
+
+        let lintingDescriptionElement: HTMLParagraphElement | null = null;
+
+        if (
+          isLintingEnabled &&
+          language !== undefined &&
+          LANGUAGES[language]?.loadLinter !== undefined
+        ) {
+          // insert a new dom element above the editor
+          lintingDescriptionElement = this._createLintingDescriptionElement();
+
+          this._setupEditorMutationObserver();
+        }
+
+        this._setupEditorAriaAttributes(editor, {
+          ariaDescribedBy,
+          ariaLabel,
+          ariaLabelledBy,
+          lintingDescriptionElement: lintingDescriptionElement ?? undefined,
+        });
+
+        onSetup?.(this.editor);
+      } finally {
+        waiter.endAsync(token);
       }
-
-      this.editor = editor;
-      element.editor = editor;
-
-      if (onBlur !== undefined) {
-        this._setupEditorBlurHandler(element, onBlur);
-      }
-
-      let lintingDescriptionElement: HTMLParagraphElement | null = null;
-
-      if (
-        isLintingEnabled &&
-        language !== undefined &&
-        LANGUAGES[language]?.loadLinter !== undefined
-      ) {
-        // insert a new dom element above the editor
-        lintingDescriptionElement = this._createLintingDescriptionElement();
-
-        this._setupEditorMutationObserver();
-      }
-
-      this._setupEditorAriaAttributes(editor, {
-        ariaDescribedBy,
-        ariaLabel,
-        ariaLabelledBy,
-        lintingDescriptionElement: lintingDescriptionElement ?? undefined,
-      });
-
-      onSetup?.(this.editor);
     }
   );
 }

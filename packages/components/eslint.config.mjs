@@ -17,7 +17,7 @@
  *     npx eslint --inspect-config
  *
  */
-import babelParser from '@babel/eslint-parser';
+import babelParser from '@babel/eslint-parser/experimental-worker';
 import js from '@eslint/js';
 import prettier from 'eslint-config-prettier';
 import ember from 'eslint-plugin-ember/recommended';
@@ -51,7 +51,14 @@ export default ts.config(
    * https://eslint.org/docs/latest/use/configure/ignore
    */
   {
-    ignores: ['dist/', 'declarations/', 'node_modules/', 'coverage/', '!**/.*'],
+    ignores: [
+      'dist/',
+      'dist-tests/',
+      'declarations/',
+      'node_modules/',
+      'coverage/',
+      '!**/.*',
+    ],
   },
   /**
    * https://eslint.org/docs/latest/use/configure/configuration-files#configuring-linter-options

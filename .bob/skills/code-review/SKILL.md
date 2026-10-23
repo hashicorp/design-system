@@ -37,7 +37,7 @@ Ignore reviewing the following files unless explicitly told to do so:
 - No misspelled words
 
 ### Testing standards
-- New component features or changes to the `components` library have appropriate test coverage in the `showcase/tests` directory
+- New component features or changes to the `components` library have appropriate integration test coverage in the `packages/components/tests` directory
 - Component tests cover all possible values for arguments, events, or component functionality
 - New component features are displayed under the `showcase/app` directory for manual testing and visual regression testing in Percy
 
@@ -102,8 +102,8 @@ A comment should include the following elements:
   - Determine the areas of the codebase affected by the changes and read relevant instructions around those directories in the `.bob/rules/directories` folder.
 2. **Gather context**
   - For changed files read related files that would help you understand the context of the changes.
-    - For a `packages/components` component file, review files from any imported types, functions, or components. Review the component's tests in the `showcase/tests` directory.
-    - For a `showcase/app`, `website`, or `showcase/tests` file, review the associated component file in the `packages/components`.
+    - For a `packages/components` component file, review files from any imported types, functions, or components. Review the component's tests in the `packages/components/tests` directory.
+    - For a `showcase/app`, `website`, `showcase/tests`, or `packages/components/tests` file, review the associated component file in the `packages/components`.
 3. **Run checks**
   - Use the `run-checks` skill to test the changed files for various errors such as linting, test failures, etc.
 4. **Review changes against review scope**
