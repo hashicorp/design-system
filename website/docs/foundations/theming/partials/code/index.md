@@ -1,11 +1,6 @@
 ## Implementing theming
 
-!!! Info
-
-For a general overview of theming, visual languages, themes, modes, and migration stages, see the [Guidelines](?tab=guidelines) tab.
-!!!
-
-HDS provides several pre-built sets of themed tokens so each application can import only the visual language or languages it needs. See [Themed tokens](#themed-tokens) below.
+HDS provides several pre-built sets of themed tokens so each application can import only the visual language or languages it needs.
 
 Each set of themed tokens declares its design tokens under `hds-theme-*`/`hds-mode-*` CSS selectors, one for each theme/mode it supports. Then, applying a theme is as simple as adding the corresponding class name to the `<html>` element of the page. This is what a dedicated [`hdsTheming` service](#hdstheming-service) does under the hood.
 
@@ -23,7 +18,7 @@ The design tokens package, `@hashicorp/design-system-tokens`, provides three pre
 
 - `with-css-selectors` (the "final" file) is what most applications should use once fully carbonized: it supports the `system`/`light`/`dark` themes.
 - `with-css-selectors--migration` additionally exposes the `default` theme, so the "classic" and "carbonized" visual languages can co-exist in the same application during an incremental migration.
-- `with-css-selectors--advanced` exposes all [four IBM Carbon modes](https://carbondesignsystem.com/elements/themes/overview/), in case an application needs to let users pick a specific mode rather than just a theme.
+- `with-css-selectors--advanced` exposes all [four IBM Carbon modes](https://carbondesignsystem.com/elements/themes/overview/), in case an application wants to customize the modes used for a light or dark theme.
 
 For complex use cases, the package also provides a Sass bundle with mixins that lets you combine multiple themes or modes in a single application. If your application requires this approach, [contact the Design System Team](/about/support) for assistance and guidance on implementation.
 
@@ -49,7 +44,7 @@ During migration, when classic and Carbon styles need to coexist, you can use th
 
 In your application's Sass entry point, import the `styles/mixins/carbonization` file from the `@hashicorp/design-system-components` package, and then include the mixin around the styles that should only apply when the `light`, `dark`, or `system` Carbon theme is active.
 
-_Note: this special mixin should be used sparingly, only during migration and only for very specific overrides that cannot be handled through themed design tokens or the standard component styles._
+_Note: This special mixin should be used sparingly, only during migration and only for very specific overrides that cannot be handled through themed design tokens or the standard component styles._
 
 ## How to adopt theming in your application
 
