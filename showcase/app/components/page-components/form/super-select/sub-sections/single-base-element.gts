@@ -184,21 +184,22 @@ const SubSectionSingleBaseElement: TemplateOnlyComponent = <template>
   <ShwTextH4>List search results messages</ShwTextH4>
 
   <ShwFlex as |SF|>
-    <SF.Item {{style min-width="10em"}} @label="Loading options message">
+    <SF.Item {{style flex="1"}} @label="Loading options message">
       <ShwOutliner>
         <div class="hds-form-super-select hds-form-super-select-single">
           <div class="ember-basic-dropdown">
             <ul class="ember-power-select-options">
               <li
                 class="ember-power-select-option ember-power-select-option--loading-message"
-              ><div class="hds-form-super-select__option-text">Loading
-                  options...</div></li>
+              >
+                Loading options...
+              </li>
             </ul>
           </div>
         </div>
       </ShwOutliner>
     </SF.Item>
-    <SF.Item {{style min-width="22em"}} @label="No results found message">
+    <SF.Item {{style flex="1"}} @label="No results found message">
       <ShwOutliner>
         <div class="hds-form-super-select hds-form-super-select-single">
           <div class="ember-basic-dropdown">
@@ -206,7 +207,22 @@ const SubSectionSingleBaseElement: TemplateOnlyComponent = <template>
               <li
                 class="ember-power-select-option ember-power-select-option--no-matches-message"
               >
-                <div class="hds-form-super-select__option-text">No results found</div>
+                No results found
+              </li>
+            </ul>
+          </div>
+        </div>
+      </ShwOutliner>
+    </SF.Item>
+    <SF.Item {{style flex="1"}} @label="Type to search message">
+      <ShwOutliner>
+        <div class="hds-form-super-select hds-form-super-select-single">
+          <div class="ember-basic-dropdown">
+            <ul class="ember-power-select-options">
+              <li
+                class="ember-power-select-option ember-power-select-option--search-message"
+              >
+                Type to search
               </li>
             </ul>
           </div>
