@@ -79,7 +79,7 @@
     "dotenv": "^16.4.7",
     "ember-a11y-refocus": "^5.1.0",
     "ember-a11y-testing": "^7.1.2",
-    "ember-auto-import": "^2.10.0",
+    "ember-auto-import": "^2.13.1",
     "ember-basic-dropdown": "^8.8.0",
     "ember-body-class": "^3.0.0",
     "ember-cli": "~6.4.0",
