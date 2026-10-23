@@ -141,7 +141,7 @@ const SubSectionContent: TemplateOnlyComponent<SubSectionContentSignature> =
           <A.Body
             @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
           />
-          <A.Footer @hasDivider={{true}} as |F|>
+          <A.Footer as |F|>
             <F.LinkStandalone
               @icon="arrow-left"
               @text="Go to previous page"
@@ -162,7 +162,7 @@ const SubSectionContent: TemplateOnlyComponent<SubSectionContentSignature> =
           <A.Body
             @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
           />
-          <A.Footer @hasDivider={{true}} as |F|>
+          <A.Footer as |F|>
             <F.Button @color="primary" @text="Primary action" />
             <F.Button @color="secondary" @text="Secondary action" />
           </A.Footer>
@@ -177,7 +177,7 @@ const SubSectionContent: TemplateOnlyComponent<SubSectionContentSignature> =
           <A.Body
             @text="Sorry, we couldn't find any results matching your search criteria. Please try again with different search terms or refine your filters."
           />
-          <A.Footer @hasDivider={{true}} as |F|>
+          <A.Footer as |F|>
             <F.Button @color="primary" @text="Primary action" />
             <F.LinkStandalone
               @icon="docs-link"
@@ -194,7 +194,7 @@ const SubSectionContent: TemplateOnlyComponent<SubSectionContentSignature> =
           <A.Body
             @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
           />
-          <A.Footer @hasDivider={{true}} as |F|>
+          <A.Footer as |F|>
             <F.Button @color="primary" @text="Primary action" />
             <F.Button @color="secondary" @text="Secondary action" />
             <F.LinkStandalone
@@ -212,7 +212,7 @@ const SubSectionContent: TemplateOnlyComponent<SubSectionContentSignature> =
           <A.Body
             @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
           />
-          <A.Footer @hasDivider={{true}} as |F|>
+          <A.Footer as |F|>
             <F.Dropdown @listPosition="bottom-right" as |dd|>
               <dd.ToggleButton @text="Choose an option" />
               <dd.Title @text="Categories" />
@@ -229,7 +229,7 @@ const SubSectionContent: TemplateOnlyComponent<SubSectionContentSignature> =
           <A.Body
             @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
           />
-          <A.Footer @hasDivider={{true}} as |F|>
+          <A.Footer as |F|>
             <F.Dropdown @listPosition="bottom-right" as |dd|>
               <dd.ToggleButton @text="Choose an option" />
               <dd.Title @text="Categories" />
@@ -247,7 +247,7 @@ const SubSectionContent: TemplateOnlyComponent<SubSectionContentSignature> =
           <A.Body
             @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
           />
-          <A.Footer @hasDivider={{true}} as |F|>
+          <A.Footer as |F|>
             <F.Dropdown @listPosition="bottom-right" as |dd|>
               <dd.ToggleButton @text="Choose an option" />
               <dd.Title @text="Categories" />
