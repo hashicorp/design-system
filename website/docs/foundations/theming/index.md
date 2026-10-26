@@ -1,7 +1,7 @@
 ---
 title: Theming
-caption: Theming supports the transition from the HDS visual language to IBM Carbon and Carbonized HDS.
-description: Theming supports the transition from the HDS visual language to IBM Carbon and Carbonized HDS.
+caption: Theming lets you apply different visual themes to the UI, including the IBM Carbon-aligned visual language.
+description: Theming lets you apply different visual themes to the UI, including the IBM Carbon-aligned visual language.
 related:
   - carbonization/introduction
   - theming/theme-context

@@ -40,15 +40,20 @@ For more details about this component, how to use it, and its APIs, see the [`Th
 
 #### `hds-apply-only-if-carbon` Sass mixin
 
-During migration, when classic and Carbon styles need to coexist, you can use the `hds-apply-only-if-carbon` Sass mixin for special cases where a Carbon style needs to override a classic style.
+Use the `hds-apply-only-if-carbon` Sass mixin **only for temporary migration overrides** when Carbon styles must override classic styles and standard design tokens or component styles are insufficient.
 
-In your application's Sass entry point, import the `styles/mixins/carbonization` file from the `@hashicorp/design-system-components` package, and then include the mixin around the styles that should only apply when the `light`, `dark`, or `system` Carbon theme is active.
+To apply this mixin:
 
-_Note: This special mixin should be used sparingly, only during migration and only for very specific overrides that cannot be handled through themed design tokens or the standard component styles._
+1. Import the `styles/mixins/carbonization` file from the `@hashicorp/design-system-components` package.
+2. Wrap the styles that should only apply when the `light`, `dark`, or `system` Carbon theme is active.
 
 ## How to adopt theming in your application
 
-Before you begin, [contact the Design System Team](/about/support) to plan the migration and get guidance on the appropriate themed tokens file. The migration stages are described in the [Guidelines](?tab=guidelines) tab.
+!!! Callout
+
+If you're upgrading to version `7.0` and/or adopting theming in your application, [contact the Design System Team](/about/support) for guidance and support. The team may be able to complete some important migration steps for you.
+
+!!!
 
 ### Not yet migrated
 
@@ -135,6 +140,6 @@ Once the application has been fully migrated, the tokens file `with-css-selector
 
 This file provides only the "carbonized" themes: `system`, `light`, and `dark`. The `default` theme is no longer needed.
 
-If you require to have specific modes available, use the `with-css-selectors--advanced` tokens file.
+If you need to customize which modes are used for the light and dark themes, use the `with-css-selectors--advanced` tokens file.
 
 Everything else can remain the same. Continue using the [`hdsTheming` service](#hdstheming-service) to apply a theme to the page, and the [`ThemeContext` component](/theming/theme-context) to apply a theme to a specific portion of it.
