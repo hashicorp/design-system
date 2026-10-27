@@ -1,6 +1,6 @@
 !!! Insight
 
-For more details about theming in HDS/Carbon, how it works, and how it could be used in your application, see [Carbonization/From Helios to Carbon](carbonization/introduction) and [Foundations/Theming](foundations/theming).
+For more details about theming in HDS/Carbon, how it works, and how it could be used in your application, see [Carbonization/From Helios to Carbon](/carbonization/introduction) and [Foundations/Theming](/foundations/theming).
 
 !!!
 
