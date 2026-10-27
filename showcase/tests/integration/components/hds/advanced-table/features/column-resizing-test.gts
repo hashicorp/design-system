@@ -914,6 +914,81 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       );
     });
 
+    test('dragging to the maximum keeps neighbors at their minimum width after release', async function (assert) {
+      await render(
+        <template>
+          <div {{style width="1000px"}}>
+            <HdsAdvancedTable
+              id="max-table"
+              @columns={{array
+                (hash key="a" label="A")
+                (hash key="b" label="B")
+                (hash key="c" label="C")
+              }}
+              @model={{array (hash a="a1" b="b1" c="c1")}}
+              @hasResizableColumns={{true}}
+            >
+              <:body as |B|>
+                <B.Tr>
+                  <B.Td>{{get B.data "a"}}</B.Td>
+                  <B.Td>{{get B.data "b"}}</B.Td>
+                  <B.Td>{{get B.data "c"}}</B.Td>
+                </B.Tr>
+              </:body>
+            </HdsAdvancedTable>
+          </div>
+        </template>,
+      );
+
+      await waitForLayout();
+
+      const handle = findOrThrow(
+        '#max-table .hds-advanced-table__th-resize-handle',
+      );
+
+      await simulatePointerDrag(handle, 5000);
+
+      const first = columnWidth('#max-table', 0);
+
+      await waitForLayout();
+
+      assert.ok(
+        Math.abs(columnWidth('#max-table', 0) - first) <= 1,
+        'dragged column keeps its width after release',
+      );
+      assert.ok(
+        columnWidth('#max-table', 1) >= 149,
+        `second column is not below its minimum (actual ${columnWidth('#max-table', 1)})`,
+      );
+      assert.ok(
+        columnWidth('#max-table', 2) >= 149,
+        `third column is not below its minimum (actual ${columnWidth('#max-table', 2)})`,
+      );
+    });
+
+    test('reversing a drag past the minimum width grows the column immediately', async function (assert) {
+      await createResizableTable({});
+
+      const handle = findOrThrow('.hds-advanced-table__th-resize-handle');
+
+      await triggerEvent(handle, 'pointerdown', {
+        clientX: POINTER_DRAG_START_X,
+        button: 0,
+      });
+      await triggerEvent(handle, 'pointermove', { clientX: 0, buttons: 1 });
+      await waitForLayout();
+      await triggerEvent(handle, 'pointermove', { clientX: 10, buttons: 1 });
+      await waitForLayout();
+
+      assert.ok(
+        columnWidth('#resize-test-table', 0) > 60,
+        `column grows right away after reversing (actual ${columnWidth('#resize-test-table', 0)})`,
+      );
+
+      await triggerEvent(window, 'pointerup', { button: 0 });
+      await waitForLayout();
+    });
+
     test('repeated keyboard resizes leave the untouched columns alone', async function (assert) {
       await render(
         <template>
