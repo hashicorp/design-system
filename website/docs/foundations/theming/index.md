@@ -1,7 +1,7 @@
 ---
 title: Theming
-caption: TODO theming caption
-description: TODO theming description
+caption: Theming lets you apply different visual themes to the UI, including the IBM Carbon-aligned visual language.
+description: Theming lets you apply different visual themes to the UI, including the IBM Carbon-aligned visual language.
 related:
   - carbonization/introduction
   - theming/theme-context
@@ -13,13 +13,9 @@ navigation:
 
 
 <section data-tab="Guidelines">
-  @include "partials/guidelines/todo.md"
+  @include "partials/guidelines/index.md"
 </section>
 
 <section data-tab="Code">
-  @include "partials/code/todo.md"
-</section>
-
-<section data-tab="Accessibility">
-  @include "partials/accessibility/todo.md"
+  @include "partials/code/index.md"
 </section>
