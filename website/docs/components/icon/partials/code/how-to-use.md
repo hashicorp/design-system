@@ -1,5 +1,16 @@
 ## How to use this component
 
+!!! Insight
+
+**Icons are now asynchronous and theme-dependent**
+
+Before `v7.0`, icons were delivered as a single SVG sprite. Now each one is loaded individually and only when it’s displayed, which may introduce a small latency on an icon’s first render.
+
+Which icon is rendered also depends on the [theme](/foundations/theming) applied to the application. When a Carbon theme is active, the equivalent [Carbon icon](https://carbondesignsystem.com/elements/icons/library/) is displayed in place of the Flight one (which acts as a fallback if no equivalent exists).
+
+For more details, see [Carbonization/Introduction](/carbonization/introduction) and [Foundations/Theming](/foundations/theming).
+!!!
+
 The most basic invocation of the Icon component requires only the `@name` property to be passed with a value matching an existing name in [the Icon library](/icons/library):
 
 [[code-snippets/icon-basic]]
@@ -77,3 +88,12 @@ A prefers-reduced-motion media query will automatically disable the animation if
 If you need the non-animated version of these icons, use the corresponding [loading-static](/icons/library?searchQuery=icon%3Aloading-static) and [running-static](/icons/library?searchQuery=icon%3Arunning-static):
 
 [[code-snippets/icon-loading-static]]
+
+### Ember test selectors
+
+The `Hds::Icon` component exposes the following `data` attributes:
+- `data-test-icon="[icon-name]"` - provides a simple way to get the icon name if needed for testing
+- `data-has-carbon-equivalent` - if the HDS Flight icon has an equivalent Carbon icon (used in [theming](/foundations/theming))
+- `data-is-carbon` - if a Carbon theme is enabled and the icon has a Carbon equivalent
+
+_Note: we recommend installing [`ember-test-selectors`](https://github.com/simplabs/ember-test-selectors) which strips out all `data-test-*` attributes for production builds._
