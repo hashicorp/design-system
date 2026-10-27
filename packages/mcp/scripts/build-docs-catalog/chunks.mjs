@@ -11,17 +11,18 @@ import { fail } from "./paths.mjs";
 const TAB_SECTION = /<section data-tab="(.*?)">([\s\S]*?)<\/section>/g;
 
 export function splitTabs(route, content) {
-  const units = [];
+  const sections = [...content.matchAll(TAB_SECTION)];
 
-  for (const [, tab, body] of content.matchAll(TAB_SECTION)) {
-    units.push({ tab: tab.trim(), content: body });
-  }
-
-  if (units.length === 0) {
+  if (sections.length === 0) {
     return [{ tab: undefined, content }];
   }
 
-  const outside = content.replace(TAB_SECTION, "").trim();
+  // content above the first tab (e.g. a page-wide banner) renders on every tab
+  const preamble = content.slice(0, sections[0].index).trim();
+  const outside = content
+    .slice(sections[0].index)
+    .replace(TAB_SECTION, "")
+    .trim();
 
   if (outside !== "") {
     fail(
@@ -29,7 +30,10 @@ export function splitTabs(route, content) {
     );
   }
 
-  return units;
+  return sections.map(([, tab, body]) => ({
+    tab: tab.trim(),
+    content: preamble === "" ? body : `\n${preamble}\n${body}`,
+  }));
 }
 
 export function splitHeadings(unitContent) {
