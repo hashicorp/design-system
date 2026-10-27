@@ -45,6 +45,7 @@ Println
 rabbitmq
 radiocard
 radiocards
+rearchitecting
 recertification
 recertify
 rgba
@@ -69,6 +70,7 @@ subnavigation
 subpages
 toggletip
 topbar
+touchpoints
 Venafi
 viewports
 wcag
