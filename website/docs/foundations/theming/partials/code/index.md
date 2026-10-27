@@ -59,7 +59,7 @@ If you're upgrading to version `7.0` and/or adopting theming in your application
 
 Applications can continue to use the "classic" token styles until they are ready to begin the migration.
 
-Applications can still upgrade to version `7.0` or later of the design system, (for example to receive bug fixes for HDS components). However, [version `7.0`](whats-new/release-notes#700) introduced systematic design token renaming, and some refactoring is required. [Contact the Design System Team](/about/support) for guidance and help automating this refactoring.
+Applications can still upgrade to version `7.0` or later of the design system, (for example to receive bug fixes for HDS components). However, [version `7.0`](/whats-new/release-notes#700) introduced systematic design token renaming, and some refactoring is required. [Contact the Design System Team](/about/support) for guidance and help automating this refactoring.
 
 ### Migrating
 
