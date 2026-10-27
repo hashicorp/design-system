@@ -6,6 +6,8 @@ export default class ApplicationRoute extends Route {
 
   async beforeModel() {
     // ...
+
+    // If you are using FastBoot, guard this browser-only restoration (including setTheme below) because localStorage and the DOM are unavailable.
     const storedTheme = localStorage.getItem('hds-theme');
     if (storedTheme) {
       this.hdsTheming.setTheme({ theme: storedTheme });
