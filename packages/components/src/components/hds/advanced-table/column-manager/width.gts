@@ -95,13 +95,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     let style = isSelectable ? 'min-content ' : '';
 
     for (const col of orderedColumns) {
-      const width = this.getAppliedWidth(col.key);
-
-      // an `fr` track defaults to a content-based minimum, which lets it grow past
-      // the clamped width on release and squeeze its neighbor
-      style += isPixelSize(width)
-        ? ` ${width}`
-        : ` minmax(${this._colMinPx(col)}px, ${width})`;
+      style += ` ${this.getAppliedWidth(col.key)}`;
     }
 
     return style;
