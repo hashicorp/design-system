@@ -85,4 +85,4 @@ This will likely be invoked inside an action/function associated with a "theme s
 
 [[code-snippets/hds-theming-on-click-theme-switcher execute=false]]
 
-For details on designing and implementing a "theme switcher" for your application, according to the HDS specifications and guidance, see [Patterns/ThemeSwitcher](/patterns/theme-switcher-pattern).
+For details on designing and implementing a "theme switcher" for your application, according to the HDS specifications and guidance, see [Patterns/Theme selection](/patterns/theme-selection).
