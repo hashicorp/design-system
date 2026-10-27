@@ -12,8 +12,6 @@ Many resources and links on this page are only available to IBM employees.
 
 The Design Systems Team maintains and publishes Figma libraries which contain foundational styles, components, patterns, and icons.
 
-Please note, the release of v7.0 deprecates the Foundations library and consolidates tokens and styles into the Components library.
-
 ## Enabling Helios libraries
 
 1. Open the Library modal via one of the following methods:
@@ -57,8 +55,6 @@ Tokens are stored in Figma as [variables](https://help.figma.com/hc/en-us/articl
 
 Attaching variables and styles to your design elements ensures the relevant properties correspond to the HDS token. 
 
-Please note, themes are not accessible if you detach variables in your design, as this breaks the token link.
-
 For more details on what tokens are and how they're used, visit the [HDS Academy design tooling page](https://w3.ibm.com/w3publisher/helios-design-system/hds-academy/design-tooling).
 
 !!! Callout
@@ -85,6 +81,7 @@ In Figma, [modes](https://help.figma.com/hc/en-us/articles/15343816063383-Modes-
 
 In our case, Figma modes are used to translate frames from HDS (`hds`) to "carbonized" HDS (`cds-0`, `cds-10`,` cds-90`, `cds-100`). Switching to one of the "carbonized" HDS modes automatically displays the frame in the desired Carbon theme.
 
+Please note, themes are not accessible if you detach variables in your design, as this breaks the token link.
 
 ### Changing modes in Figma
 
