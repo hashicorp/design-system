@@ -14,7 +14,7 @@ It's a consumer responsibility to implement the logic to [persist the user's cho
 
 ### Themed tokens
 
-The service relies on one of the [themed tokens files](/foundations/theming#themed-tokens) being imported first. Which themes and modes it can apply depends on the file imported by your application. For details, see [Foundations/Theming](/foundations/theming?tab=code#themed-tokens).
+The service relies on one of the [themed tokens files](/foundations/theming?tab=code#themed-tokens) being imported first. Which themes and modes it can apply depends on the file imported by your application. For details, see [Foundations/Theming](/foundations/theming?tab=code#themed-tokens).
 
 For example, this is the structure of the CSS file for the "migration" set of tokens:
 
