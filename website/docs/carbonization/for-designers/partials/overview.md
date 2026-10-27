@@ -34,4 +34,4 @@ Three major changes have been made in our Figma libraries to support Carbonizati
 
 !!!
 
-See our [guidelines on theming](heather-to-add-link) to learn how to use themes.
+See our [guidelines on theming](/foundations/theming) to learn how to use themes.
