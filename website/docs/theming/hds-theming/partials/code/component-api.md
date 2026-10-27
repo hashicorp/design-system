@@ -10,7 +10,7 @@ The service exposes a `setTheme` method to apply a theme:
         The theme to apply. Pass `undefined` to remove theming.
       </C.Property>
       <C.Property @name="options" @type="object">
-        An object with `lightTheme`/`darkTheme` keys, used to map the `light`/`dark` themes to specific Carbon modes (`cds-g0`/`cds-g10` for `lightTheme`, `cds-g90`/`cds-g100` for `darkTheme`). Defaults to `cds-g0` and `cds-g100`, and is relevant only if you import the ["advanced"](/foundations/theming/code#themed-tokens-files) tokens file.
+        An object with `lightTheme`/`darkTheme` keys, used to map the `light`/`dark` themes to specific Carbon modes (`cds-g0`/`cds-g10` for `lightTheme`, `cds-g90`/`cds-g100` for `darkTheme`). Defaults to `cds-g0` and `cds-g100`, and is relevant only if you import the ["advanced"](/foundations/theming?tab=code#themed-tokens) tokens file.
       </C.Property>
       <C.Property @name="onSetTheme" @type="function">
         A callback, invoked with the resolved `currentTheme` and `currentMode`, that you can use to run your own logic (eg. persisting the user's choice, analytics, logging/debugging, etc).
