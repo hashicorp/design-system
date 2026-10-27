@@ -12,7 +12,7 @@
 
 // "classic" HDS + "carbonized" HDS with support for "light/dark/system" (g0/g10/g90/g100 modes)
 // useful if all the IBM Carbon modes need to be available in the application, alongside the "classic" HDS
-@use "@hashicorp/design-system-tokens/dist/products/css/themed-tokens/with-css-selectors--advanced/hds-tokens.css";
+@use "@hashicorp/design-system-tokens/dist/products/css/themed-tokens/with-css-selectors--advanced/tokens.css";
 
 // Sass mixins `hds-theme-[theme]`/`hds-mode-[mode]` to build custom theming combinations
 @use "@hashicorp/design-system-tokens/dist/products/css/themed-tokens/with-scss-mixins/tokens.scss";
