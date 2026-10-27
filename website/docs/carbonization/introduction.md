@@ -62,15 +62,17 @@ Products are not required to migrate from Ember to React; framework decisions re
 
 !!!
 
-!!! Warning
+The three biggest changes at code level introduced with the "carbonization" of the design system are:
 
-TODO update this block
+- support for [multiple themes](/foundations/theming) for the HDS foundations and components ("classic" HDS + IBM Carbon "light/dark")
+- a new nomenclature for the [HDS design tokens](/foundations/tokens) (from `--token` to `--hds`, plus a reorganization of the names themselves)
+- asynchronous and theme-aware [icon loading](/components/icon?tab=carbon%20theme) (no more upfront injection of an SVG sprite)
 
-!!!
+These changes impact only the visual styling of the HDS components: their APIs and interaction behavior remain unchanged.
 
-Product Engineers will need to bump the version of any changed npm packages, as they would
-normally do for a new release. They will need to update any existing local or custom styles or
-components to adhere to the new visual language.
+That said, because these updates to the tokens introduce breaking changes, the HDS packages have been released as new major versions, and this requires specific [migration steps](/foundations/theming?tab=code#migrating).
+
+After migrating, developers will need to start testing their application across the different themes to catch theme-specific issues.
 
 For more details, see [Carbonization for engineers](/carbonization/for-engineers).
 
