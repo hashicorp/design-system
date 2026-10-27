@@ -14,7 +14,7 @@ The design tokens package, `@hashicorp/design-system-tokens`, provides three pre
 | ------------------------------ | ------------------------------------- | -------------------------------------------- |
 | `with-css-selectors`            | `system`, `light`, `dark`             | `cds-g0`, `cds-g100`                         |
 | `with-css-selectors--migration` | `default`, `system`, `light`, `dark`  | `cds-g0`, `cds-g100`                         |
-| `with-css-selectors--advanced`  | `system`, `light`, `dark`             | `cds-g0`, `cds-g10`, `cds-g90`, `cds-g100`   |
+| `with-css-selectors--advanced`  | `default`, `system`, `light`, `dark`  | `cds-g0`, `cds-g10`, `cds-g90`, `cds-g100`   |
 
 - `with-css-selectors` (the "final" file) is what most applications should use once fully carbonized: it supports the `system`/`light`/`dark` themes.
 - `with-css-selectors--migration` additionally exposes the `default` theme, so the "classic" and "carbonized" visual languages can co-exist in the same application during an incremental migration.
