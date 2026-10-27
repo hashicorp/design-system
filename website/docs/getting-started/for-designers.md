@@ -53,9 +53,7 @@ Tokens create consistency in the application of color (as a fill or stroke), typ
 
 ### Variables in Figma
 
-Tokens are stored in Figma as [variables](https://help.figma.com/hc/en-us/articles/15339657135383-Guide-to-variables-in-Figma). Each variable connects a single hex value, string, or numerical value to an object or style. A [style](https://help.figma.com/hc/en-us/articles/360039238753-Guide-to-styles-in-Figma) is a collection of properties, often created using multiple variables.
-
-Typography and effects, such as elevation, can be found in Figma as styles, while colors, border radius, and other numerical values are variables.
+Tokens are stored in Figma as [variables](https://help.figma.com/hc/en-us/articles/15339657135383-Guide-to-variables-in-Figma). Each variable connects a single hex value, string, or numerical value to an object or style. A [style](https://help.figma.com/hc/en-us/articles/360039238753-Guide-to-styles-in-Figma) is a collection of properties, often created using multiple variables. Typography and effects, such as elevation, can be found in Figma as styles, while colors, border radius, and other numerical values are variables.
 
 Attaching variables and styles to your design elements ensures the relevant properties correspond to the HDS token. 
 
@@ -80,7 +78,7 @@ As of v7.0 of the design system, the Foundations library has been deprecated. Al
 
 ![](/assets/getting-started/designers/apply-text-style.png =784x*)
 
-See [Foundations] to learn about HDS tokens and styles.
+See [Foundations](/foundations) to learn about HDS tokens and styles.
 
 ## Modes and theming
 In Figma, [modes](https://help.figma.com/hc/en-us/articles/15343816063383-Modes-for-variables) allow designers to view a frame in multiple visual languages. Typically this is used to view light or dark themes. 
