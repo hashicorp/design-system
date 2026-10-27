@@ -370,7 +370,11 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
       return;
     }
 
-    window.localStorage.setItem(CODE_GROUP_THEME_STORAGE_KEY, value);
+    try {
+      window.localStorage.setItem(CODE_GROUP_THEME_STORAGE_KEY, value);
+    } catch (err) {
+      console.warn('Failed to access localStorage:', err);
+    }
     window.dispatchEvent(
       new CustomEvent(CODE_GROUP_THEME_CHANGE_EVENT, {
         detail: value,
