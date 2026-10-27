@@ -30,7 +30,7 @@ To set a theme, inject the service and invoke the `setTheme` function with one o
 
 Calling `setTheme` updates the classes on the `<html>` element. For example, applying the `dark` theme adds `.hds-theme-dark` and its mapped mode class, `.hds-mode-cds-g100`, by default.
 
-To remove all HDS theming classes from the page, and with it restore the "classic" HDS visual appearance, pass `undefined` as the `theme` argument.
+To remove all HDS theming classes from the page, pass `undefined` as the `theme` argument. The appearance then falls back to the imported bundle's `:root` tokens: "classic" HDS for `with-css-selectors--migration` and `with-css-selectors--advanced`, or Carbon light (`cds-g0`) for `with-css-selectors`.
 
 #### Advanced mode options
 
