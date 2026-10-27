@@ -1,0 +1,32 @@
+:root,
+.hds-theme-default {
+  /* CSS variables (tokens) specific for the HDS "classic" theme */
+}
+
+@media (prefers-color-scheme: light) {
+  .hds-theme-system {
+    /* CSS variables (tokens) specific for the HDS `system` theme when the OS is set to `dark` */
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .hds-theme-system {
+    /* CSS variables (tokens) specific for the HDS `system` theme when the OS is set to `dark` */
+  }
+}
+
+.hds-theme-light {
+  /* CSS variables (tokens) specific for the HDS `light` theme */
+}
+
+.hds-theme-dark {
+  /* CSS variables (tokens) specific for the HDS `dark` theme */
+}
+
+:root,
+.hds-theme-default,
+.hds-theme-system,
+.hds-theme-light,
+.hds-theme-dark {
+  /* CSS variables (tokens) shared across themes */
+}
