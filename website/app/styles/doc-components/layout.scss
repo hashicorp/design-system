@@ -28,3 +28,8 @@
 .doc-layout--align-justify { justify-content: space-between; }
 .doc-layout--align-right { justify-content: flex-end; }
 .doc-layout--align-left { justify-content: flex-start; } // this is the browser default
+
+// Vertical align
+.doc-layout--v-align-start { align-items: flex-start; } // this is the browser default
+.doc-layout--v-align-center { align-items: center; }
+.doc-layout--v-align-end { align-items: flex-end; }
