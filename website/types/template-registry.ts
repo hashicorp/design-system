@@ -76,10 +76,10 @@ export default interface WebsiteTemplateRegistry {
   'doc/banner': typeof DocBanner;
 
   'Doc::Carbonization::ComparisonGroup': typeof DocCarbonizationComparisonGroup;
-  'doc/Carbonization/comparison-group': typeof DocCarbonizationComparisonGroup;
+  'doc/carbonization/comparison-group': typeof DocCarbonizationComparisonGroup;
 
   'Doc::Carbonization::ComparisonGroup::Item': typeof DocCarbonizationComparisonGroupItem;
-  'doc/Carbonization/comparison-group/item': typeof DocCarbonizationComparisonGroupItem;
+  'doc/carbonization/comparison-group/item': typeof DocCarbonizationComparisonGroupItem;
 
   'Doc::Cards::Card': typeof DocCardsCard;
   'doc/cards/card': typeof DocCardsCard;

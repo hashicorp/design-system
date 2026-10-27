@@ -12986,6 +12986,7 @@
     {
       "name": "Hds::ThemeContext",
       "modulePath": "hds/theme-context",
+      "docsPath": "theming/theme-context",
       "element": "HTMLDivElement",
       "args": [
         {
