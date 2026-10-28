@@ -110,10 +110,16 @@ jobs:
       # resolve only what the scenario changed, keep the rest of the workspace locked
       - name: Install Dependencies
         run: pnpm install --no-frozen-lockfile
-      # @embroider/vite's compat build reads our public-assets (the fonts) from dist
+      # Only ember-lts-5.12 sets ENABLE_COMPAT_BUILD: Ember 5 needs the classic compat
+      # build (classicEmberSupport), which treats this addon as an active addon, and
+      # @embroider/vite then lstats every public asset we declare. Ours (the IBM Plex
+      # fonts) only exist in dist once rollup has copied them, so build first.
+      # Plain rollup rather than `pnpm build`: pnpm's syncInjectedDepsAfterScripts
+      # fails after `build` once the scenario has changed our peers.
+      # Remove this step once https://github.com/embroider-build/embroider/pull/2849 is released.
       - name: Build Components
         if: matrix.env.ENABLE_COMPAT_BUILD
-        run: pnpm build
+        run: pnpm exec rollup --config
         working-directory: packages/components
       - name: Run Tests
         run: pnpm test
