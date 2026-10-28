@@ -6,6 +6,7 @@ navigation:
 related:
   - foundations/theming
   - patterns/theme-selection
+previewImage: assets/illustrations/carbonization/helios-to-carbon.jpg
 ---
 
 !!! Info
