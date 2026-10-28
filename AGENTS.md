@@ -54,8 +54,10 @@ The `packages/components` library is the core reusable Ember component library f
 
 #### Key commands
 ```bash
-pnpm build   # must run before running tests in showcase
-pnpm start   # watch mode
+pnpm build        # must run before running tests in showcase
+pnpm build:watch  # rebuild on changes, for the showcase and website
+pnpm test         # integration and unit tests (Vite test app in `tests/`)
+pnpm start        # test app dev server, visit /tests/index.html (filter with `?filter=component-name`)
 pnpm lint
 pnpm lint:fix
 pnpm format
@@ -122,7 +124,7 @@ Read through further context and guidance for this package at `.bob/rules/direct
 
 ### showcase
 
-The `showcase` app is an Ember application used to develop, test, and visually validate all HDS components from the `packages/components` library. It serves as a live component playground, source for Percy visual regression snapshots, and houses the component acceptance and integration test suite.
+The `showcase` app is an Ember application used to develop, test, and visually validate all HDS components from the `packages/components` library. It serves as a live component playground, source for Percy visual regression snapshots, and houses the acceptance test suite (component integration and unit tests live in `packages/components/tests`).
 
 #### Key commands
 
@@ -130,7 +132,7 @@ The `showcase` app is an Ember application used to develop, test, and visually v
 pnpm build
 pnpm start      # dev server at localhost:4200
 pnpm test       # runs the entire test suite
-ember t -f component-name # runs component tests for an individual component
+ember t -f component-name # runs the acceptance tests for an individual component page
 pnpm lint
 pnpm lint:fix
 pnpm format

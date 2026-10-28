@@ -1,0 +1,25 @@
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+import { module, test } from 'qunit';
+import { render } from '@ember/test-helpers';
+
+import { HdsPaginationNavEllipsis } from '#src/components.ts';
+
+import { setupRenderingTest } from '../../../../../helpers/index.ts';
+
+module(
+  'Integration | Component | hds/pagination/nav/ellipsis',
+  function (hooks) {
+    setupRenderingTest(hooks);
+
+    test('it should render the component with a CSS class that matches the component name', async function (assert) {
+      await render(
+        <template><HdsPaginationNavEllipsis id="test-nav-ellipsis" /></template>
+      );
+      assert.dom('#test-nav-ellipsis').hasClass('hds-pagination-nav__ellipsis');
+    });
+  }
+);
