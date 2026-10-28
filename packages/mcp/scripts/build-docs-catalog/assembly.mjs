@@ -11,6 +11,8 @@ import { CODE_FENCE } from "./markdown.mjs";
 import { fail, relativeToDocs } from "./paths.mjs";
 
 const INCLUDE_DIRECTIVE = /^[ \t]*@include "(.*\.md)"[ \t]*$/gm;
+// keep in sync with `demoBlockRegex` in website/lib/markdown/markdown-process-demos.js
+// so the catalog recognizes the same demo blocks the website renders
 export const DEMO_BLOCK =
   /\[\[(code-snippets\/[^\]\s]+)(?:\s+execute=(?:true|false))?(?:\s+expanded=(?:true|false))?(?:\s+theming=(?:true|false))?\s*\]\]/g;
 
