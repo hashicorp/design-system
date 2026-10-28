@@ -27,3 +27,7 @@ The tokens and helper class names used here refer to `v7.0` or above of the comp
 <section data-tab="Code">
   @include "partials/code/how-to-use.md"
 </section>
+
+<section data-tab="Carbon theme">
+  @include "partials/carbon-theme/index.md"
+</section>
