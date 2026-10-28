@@ -8,7 +8,7 @@ import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import { scheduleOnce } from '@ember/runloop';
+import { deferAfterRenderOnce } from '../../../utils/hds-defer.ts';
 import { focusable, type FocusableElement } from 'tabbable';
 import { modifier } from 'ember-modifier';
 import style from 'ember-style-modifier';
@@ -365,8 +365,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   }
 
   @action setElement(element: HTMLDivElement): void {
-    // eslint-disable-next-line ember/no-runloop, ember/no-incorrect-calls-with-inline-anonymous-functions
-    scheduleOnce('afterRender', () => {
+    deferAfterRenderOnce(this, () => {
       this._element = element;
     });
   }

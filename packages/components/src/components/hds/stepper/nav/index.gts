@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { schedule } from '@ember/runloop';
+import { deferAfterRender } from '../../../../utils/hds-defer.ts';
 import { assert } from '@ember/debug';
 import { modifier } from 'ember-modifier';
 import { hash } from '@ember/helper';
@@ -155,15 +155,13 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
   }
 
   didInsertStep = (): void => {
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
+    deferAfterRender(this, (): void => {
       this.updateSteps();
     });
   };
 
   willDestroyStep = (element: HTMLElement): void => {
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
+    deferAfterRender(this, (): void => {
       this._stepNodes = this._stepNodes.filter(
         (node): boolean => node.id !== element.id
       );
@@ -174,15 +172,13 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
   };
 
   didInsertPanel = (): void => {
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
+    deferAfterRender(this, (): void => {
       this.updatePanels();
     });
   };
 
   willDestroyPanel = (element: HTMLElement): void => {
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
+    deferAfterRender(this, (): void => {
       this._panelNodes = this._panelNodes.filter(
         (node): boolean => node.id !== element.id
       );

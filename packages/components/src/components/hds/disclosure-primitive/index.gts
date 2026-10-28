@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { schedule } from '@ember/runloop';
+import { deferAfterRender } from '../../../utils/hds-defer.ts';
 import { guidFor } from '@ember/object/internals';
 import { hash } from '@ember/helper';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
@@ -78,8 +78,7 @@ export default class HdsDisclosurePrimitive extends Component<HdsDisclosurePrimi
 
   close = (): void => {
     // we schedule this afterRender to avoid an error in tests caused by updating `isOpen` multiple times in the same computation
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
+    deferAfterRender(this, (): void => {
       this.isOpen = false;
       // we call the "onClose" callback if it exists (and is a function)
       if (this.args.onClose && typeof this.args.onClose === 'function') {

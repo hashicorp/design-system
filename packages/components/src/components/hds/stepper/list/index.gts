@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { schedule } from '@ember/runloop';
+import { deferAfterRender } from '../../../../utils/hds-defer.ts';
 import { hash } from '@ember/helper';
 
 import type { WithBoundArgs } from '@glint/template';
@@ -41,8 +41,7 @@ export default class HdsStepperList extends Component<HdsStepperListSignature> {
   }
 
   didInsertStep = (element: HTMLElement): void => {
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
+    deferAfterRender(this, (): void => {
       this._stepIds = [...this._stepIds, element.id];
     });
   };

@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { schedule } from '@ember/runloop';
+import { deferAfterRender } from '../../../../utils/hds-defer.ts';
 import { modifier } from 'ember-modifier';
 import { hash, concat } from '@ember/helper';
 import { guidFor } from '@ember/object/internals';
@@ -107,15 +107,13 @@ export default class HdsFormKeyValueInputs<T = unknown> extends Component<
   }
 
   _setUpColumn = (): void => {
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
+    deferAfterRender(this, (): void => {
       this._updateColumns();
     });
   };
 
   _removeColumn = (): void => {
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
+    deferAfterRender(this, (): void => {
       this._updateColumns();
     });
   };

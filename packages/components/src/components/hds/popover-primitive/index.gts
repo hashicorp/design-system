@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { assert, warn } from '@ember/debug';
-import { next } from '@ember/runloop';
+import { deferToNextTask } from '../../../utils/hds-defer.ts';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
 import { hash } from '@ember/helper';
@@ -190,12 +190,7 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
       this._toggleElement !== undefined &&
       this._popoverElement !== undefined
     ) {
-      // eslint-disable-next-line ember/no-runloop
-      next((): void => {
-        if (this.isDestroying || this.isDestroyed) {
-          return;
-        }
-
+      deferToNextTask(this, (): void => {
         // Called as a function, the modifier hands its teardown back to us
         // instead of Ember, so we have to run it before reapplying and on destroy
         this._cleanupAnchoredPosition?.();
