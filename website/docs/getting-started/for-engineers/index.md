@@ -121,15 +121,9 @@ For details about how this component should be used and its API, see [the compon
 
 #### Icon loading
 
-Icons are loaded automatically and individually on demand. Only rendered icons are fetched, downloaded once, and reused across the application—no extra configuration required.
+When using the `Hds::Icon` component, the icons' assets (glyphs) are loaded automatically and individually on demand. Only rendered icons are fetched, downloaded once, and reused across the application—no extra configuration required.
 
-!!! Info
-
-**Migrating from the SVG sprite**
-
-Before v7.0, icons were delivered as a single SVG sprite, injected either into your application’s `index.html` file or, when the `flightIconsSpriteLazyEmbed` flag was set to `true`, as part of your app bundle. The `Hds::Icon` component no longer relies on that sprite, so you can safely remove the obsolete `flightIconsSpriteLazyEmbed` setting from your app's `config/environment.js` file.
-
-!!!
+If you're upgrading from a version before `7.0`, you can remove the obsolete `flightIconsSpriteLazyEmbed` setting from your app's `config/environment.js` file. For details, see [what has changed under the hood](/components/icon?tab=carbon%20theme#what-has-changed-under-the-hood).
 
 #### Using the icons without importing the whole components package
 
