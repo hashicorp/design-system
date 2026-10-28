@@ -6,7 +6,7 @@
 
 The Helios Design System provides the building blocks to design and implement consistent, accessible, and delightful product experiences across HashiCorp.
 
-## Usage
+## Usages
 
 For guidelines on how to use Helios, see our [documentation website](https://helios.hashicorp.design).
 
