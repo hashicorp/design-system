@@ -105,7 +105,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
 
     assert.true(
       isWaiterPendingDuringSetup,
-      'a test waiter is pending until the setup finishes',
+      'a test waiter is pending until the setup finishes'
     );
     assert
       .dom('#code-editor-wrapper .cm-editor')
