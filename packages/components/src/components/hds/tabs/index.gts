@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { assert, warn } from '@ember/debug';
-import { next, schedule } from '@ember/runloop';
+import { deferAfterRender, deferToNextTask } from '../../../utils/hds-defer.ts';
 import { hash } from '@ember/helper';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
 import { didInsert, didUpdate } from '@ember/render-modifiers';
@@ -124,15 +124,13 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
       this.selectedTabIndex = this._tabIds.indexOf(this._selectedTabId);
     }
 
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
+    deferAfterRender(this, (): void => {
       this.setTabIndicator();
     });
   };
 
   didUpdateSelectedTabIndex = (): void => {
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
+    deferAfterRender(this, (): void => {
       this.setTabIndicator();
     });
   };
@@ -149,8 +147,7 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
   };
 
   didUpdateParentVisibility = (): void => {
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
+    deferAfterRender(this, (): void => {
       this.setTabIndicator();
     });
   };
@@ -237,8 +234,7 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
   };
 
   setTabIndicator = (): void => {
-    // eslint-disable-next-line ember/no-runloop
-    next((): void => {
+    deferToNextTask(this, (): void => {
       const tabElem = this._tabNodes[this.selectedTabIndex];
 
       if (tabElem != null) {

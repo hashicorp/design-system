@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { schedule } from '@ember/runloop';
+import { deferAfterRender } from '../../../../utils/hds-defer.ts';
 import { modifier } from 'ember-modifier';
 import { hash } from '@ember/helper';
 
@@ -66,16 +66,14 @@ export default class HdsFilterBarTabs extends Component<HdsFilterBarTabsSignatur
   });
 
   didInsertTab = (element: HTMLElement, tabId: string): void => {
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
+    deferAfterRender(this, (): void => {
       this._tabIds = [...this._tabIds, tabId];
       this._tabNodes = [...this._tabNodes, element];
     });
   };
 
   willDestroyTab = (element: HTMLElement): void => {
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
+    deferAfterRender(this, (): void => {
       this._tabNodes = this._tabNodes.filter(
         (node): boolean => node.id !== element.id
       );
@@ -86,16 +84,14 @@ export default class HdsFilterBarTabs extends Component<HdsFilterBarTabsSignatur
   };
 
   didInsertPanel = (element: HTMLElement, panelId: string): void => {
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
+    deferAfterRender(this, (): void => {
       this._panelIds = [...this._panelIds, panelId];
       this._panelNodes = [...this._panelNodes, element];
     });
   };
 
   willDestroyPanel = (element: HTMLElement): void => {
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
+    deferAfterRender(this, (): void => {
       this._panelNodes = this._panelNodes.filter(
         (node): boolean => node.id !== element.id
       );
