@@ -567,7 +567,7 @@ module(
               </div>
             </HdsPopoverPrimitive>
           {{/if}}
-        </template>,
+        </template>
       );
       assert.true(countScrollCalls(addSpy) > 0, 'scroll listeners are added');
 
@@ -576,7 +576,7 @@ module(
       assert.strictEqual(
         countScrollCalls(removeSpy),
         countScrollCalls(addSpy),
-        'scroll listeners are removed',
+        'scroll listeners are removed'
       );
     });
 
@@ -601,7 +601,7 @@ module(
               <div {{PP.setupPrimitivePopover}} />
             </div>
           </HdsPopoverPrimitive>
-        </template>,
+        </template>
       );
       const activeBeforeSwap = countActiveScrollListeners();
       assert.true(activeBeforeSwap > 0, 'scroll listeners are added');
@@ -611,7 +611,7 @@ module(
       assert.strictEqual(
         countActiveScrollListeners(),
         activeBeforeSwap,
-        'swapping the toggle does not add more scroll listeners',
+        'swapping the toggle does not add more scroll listeners'
       );
     });
 
