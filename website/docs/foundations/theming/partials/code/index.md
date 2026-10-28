@@ -4,7 +4,7 @@ HDS provides several pre-built sets of themed tokens so each application can imp
 
 Each set of themed tokens declares its design tokens under `hds-theme-*`/`hds-mode-*` CSS selectors, one for each theme/mode it supports. Then, applying a theme is as simple as adding the corresponding class name to the `<html>` element of the page. This is what a dedicated [`hdsTheming` service](#hdstheming-service) does under the hood.
 
-It's also possible to apply local overrides of the global theme, scoping them to only a portion of the page using the [`ThemeContext`](#themecontext) component. This works by applying the same `hds-theme-*`/`hds-mode-*` classes to a DOM container, affecting how its content is themed.
+It's also possible to apply local overrides of the global theme, scoping them to only a portion of the page using the [`ThemeContext`](#themecontext-component) component. This works by applying the same `hds-theme-*`/`hds-mode-*` classes to a DOM container, affecting how its content is themed.
 
 ### Themed tokens
 

@@ -44,7 +44,7 @@ Use a mode value when you need to select a specific IBM Carbon color mode within
 
 As noted in the [Requirements](#requirements) above, the mode values are supported only if your application imports the `themed-tokens/with-css-selectors--advanced` CSS/Sass file.
 
-For more information about the relationship between themes and modes, see [Foundations/Theming](foundations/theming).
+For more information about the relationship between themes and modes, see [Foundations/Theming](/foundations/theming).
 
 !!!
 
