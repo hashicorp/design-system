@@ -9,10 +9,6 @@ import fs from 'fs';
 
 const code_changelogs = [
   {
-    id: 'mcp',
-    relativePath: '../packages/mcp/CHANGELOG.md',
-  },
-  {
     id: 'design-tokens',
     relativePath: '../packages/tokens/CHANGELOG.md',
   },
