@@ -67,7 +67,7 @@ The catalog and documentation data are read locally. Documentation results inclu
 
 ## Telemetry
 
-Usage telemetry is off unless you opt in by setting `HDS_MCP_TELEMETRY=1` and `HDS_MCP_POSTHOG_API_KEY`. When enabled, the server reports which tools, resources, and prompts are used, their outcomes and timings, and the client and server versions. It never sends search queries, requested names, prompt arguments, or tool results. Setting `DO_NOT_TRACK=1` always disables it. See the package README for the full list of collected properties.
+Usage telemetry is off unless you opt in by setting `HDS_MCP_TELEMETRY=1` and `HDS_MCP_POSTHOG_API_KEY`. When enabled, the server reports which tools, resources, and prompts are used, their outcomes and timings, and the client and server versions. It never sends search queries, prompt arguments, or tool results; a requested component name is sent only when it is shaped like an HDS name, such as `Hds::Button`. Setting `DO_NOT_TRACK=1` always disables it. See the package README for the full list of collected properties.
 
 ## Inspect the server
 
