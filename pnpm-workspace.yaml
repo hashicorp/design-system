@@ -57,16 +57,10 @@ overrides:
   flatted: '3.4.4'
   ember-composable-helpers: 'npm:@nullvoxpopuli/ember-composable-helpers@^5.2.11'
   handlebars: '4.7.10'
-  'js-yaml@3': '3.14.2'
-  'js-yaml@4': '4.1.1'
-  linkify-it: '5.0.1'
-  markdown-it: '14.1.1'
-  mdast-util-to-hast: '13.2.1'
   "minimatch@<3.0.5": '3.1.2'
   'path-to-regexp@0': '0.1.13'
   tmp: '0.2.7'
   underscore: '1.13.8'
-  'yaml@1': '1.10.3'
 
 patchedDependencies:
   broccoli-asset-rewrite: patches/broccoli-asset-rewrite.patch
