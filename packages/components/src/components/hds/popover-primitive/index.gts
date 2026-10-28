@@ -75,10 +75,16 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
   // this will enable "click" events for the toggle
   enableClickEvents = this.args.enableClickEvents ?? false;
   private _timer?: ReturnType<typeof setTimeout> | null;
+  private _cleanupAnchoredPosition?: () => void;
 
   constructor(owner: Owner, args: HdsPopoverPrimitiveSignature['Args']) {
     super(owner, args);
     this._isOpen = this.args.isOpen ?? false;
+  }
+
+  willDestroy(): void {
+    super.willDestroy();
+    this._cleanupAnchoredPosition?.();
   }
 
   setupPrimitiveContainer = modifier<SetupPrimitiveContainerModifier>(
@@ -186,12 +192,19 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
     ) {
       // eslint-disable-next-line ember/no-runloop
       next((): void => {
+        if (this.isDestroying || this.isDestroyed) {
+          return;
+        }
+
+        // Called as a function, the modifier hands its teardown back to us
+        // instead of Ember, so we have to run it before reapplying and on destroy
+        this._cleanupAnchoredPosition?.();
         // @ts-expect-error: known issue with type of invocation
-        anchoredPositionModifier(
+        this._cleanupAnchoredPosition = anchoredPositionModifier(
           this._popoverElement, // element the modifier is attached to
           [this._toggleElement], // positional arguments
           this._anchoredPositionOptions // named arguments
-        );
+        ) as () => void;
       });
     }
   }

@@ -50,6 +50,7 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
   @tracked private _powerSelectAPI?: Select;
   @tracked private _showOnlySelected = false;
   @tracked private _showNoSelectedMessage = false;
+  private _cleanupAnchoredPosition?: () => void;
 
   get horizontalPosition(): HdsFormSuperSelectHorizontalPositions {
     const { horizontalPosition = DEFAULT_HORIZONTAL_POSITION } = this.args;
@@ -123,17 +124,29 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
     );
   }
 
+  willDestroy(): void {
+    super.willDestroy();
+    this._cleanupAnchoredPosition?.();
+  }
+
   calculatePosition = (
     trigger: Element,
     content: HTMLElement
   ): CalculatePositionResult => {
+    // basic-dropdown calls this on every reposition, and the modifier called as
+    // a function hands its teardown back to us, so we drop the previous one first
+    this._cleanupAnchoredPosition?.();
     // use `hds-anchored-position` to calculate and set position
     // @ts-expect-error: known issue with type of invocation
-    anchoredPositionModifier(content, [trigger], {
-      placement: HORIZONTAL_POSITION_MAPPING[this.horizontalPosition],
-      offsetOptions: 4,
-      enableCollisionDetection: true,
-    });
+    this._cleanupAnchoredPosition = anchoredPositionModifier(
+      content,
+      [trigger],
+      {
+        placement: HORIZONTAL_POSITION_MAPPING[this.horizontalPosition],
+        offsetOptions: 4,
+        enableCollisionDetection: true,
+      }
+    ) as () => void;
     // prevent PowerSelect from setting position
     return {
       horizontalPosition: 'auto',
