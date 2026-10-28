@@ -1,6 +1,6 @@
 ## Typography in Carbon
 
-When the Carbon HDS themes/modes are applied to the UI, typography is aligned with the [Carbon type system](https://carbondesignsystem.com/elements/typography/overview/). The main differences compared to HDS are:
+When a Carbon Theme is applied to the UI, typography is aligned with the [Carbon type system](https://carbondesignsystem.com/elements/typography/overview/). The main differences compared to HDS are:
 
 - **Font family**: display, text, and code font families are replaced by the IBM Plex typefaces.
 - **Font weight**: heavier font weights are consolidated, reducing the available weights from four to two.
