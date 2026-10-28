@@ -72,3 +72,20 @@ export function deferToNextTask(context: Context, callback: () => void): void {
   // eslint-disable-next-line @typescript-eslint/no-floating-promises
   waitForPromise(promise);
 }
+
+/**
+ * Runs the callback on the next animation frame. Use it for work triggered by
+ * a `ResizeObserver` that may alter layout, to avoid the
+ * "ResizeObserver loop completed with undelivered notifications" error.
+ */
+export function deferToAnimationFrame(
+  context: Context,
+  callback: () => void
+): void {
+  const promise = new Promise<void>((resolve) => {
+    requestAnimationFrame(() => resolve());
+  }).then(() => run(context, callback));
+
+  // eslint-disable-next-line @typescript-eslint/no-floating-promises
+  waitForPromise(promise);
+}
