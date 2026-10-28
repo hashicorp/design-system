@@ -22,7 +22,7 @@ Use a [Checkmark List Item](/components/dropdown#selection-listitems) with a lea
 
 | Option          | Leading icon | Notes                                                            |
 | --------------- | ------------ | ---------------------------------------------------------------- |
-| HashiCorp theme | <Doc::Layout @direction="horizontal" @vAlign="center" @spacing="0.5rem"><Hds::Icon @name="hashicorp" /> `hashicorp`</Doc::Layout>  | Sets the theme to the HashiCorp Helios theme |
+| HashiCorp theme | <Doc::Layout @direction="horizontal" @vAlign="center" @spacing="0.5rem"><Hds::Icon @name="hashicorp" /> `hashicorp`</Doc::Layout>  | Sets the theme to the "classic" HashiCorp Helios theme (`default` in code). Only available while the application is migrating to the "carbonized" HDS; remove it once the migration is complete. |
 | System theme | <Doc::Layout @direction="horizontal" @vAlign="center" @spacing="0.5rem"><Hds::Icon @name="monitor" /> `monitor`</Doc::Layout> | Reflects the operating system's current light or dark preference |
 | Light theme     | <Doc::Layout @direction="horizontal" @vAlign="center" @spacing="0.5rem"><Hds::Icon @name="sun" /> `sun`</Doc::Layout> | Sets light mode regardless of OS setting |
 | Dark theme      | <Doc::Layout @direction="horizontal" @vAlign="center" @spacing="0.5rem"><Hds::Icon @name="moon" /> `moon`</Doc::Layout> | Sets dark mode regardless of OS |

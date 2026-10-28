@@ -8,4 +8,6 @@ Connect each option to the theming service so selection updates the theme immedi
 
 For more information on theming, see [the Theming overview](/foundations/theming).
 
+This example shows an application that has fully migrated to the "carbonized" HDS, so it only offers the `system`, `light`, and `dark` themes. While an application is [still migrating](/foundations/theming?tab=code#migrating), it can also offer the "classic" HDS appearance by adding a `default` option (the "HashiCorp theme" in the [guidelines](?tab=guidelines#options)).
+
 [[code-snippets/theme-selector theming=false]]
