@@ -84,8 +84,9 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
 
     const element = find('#code-editor-wrapper') as ElementWithEditor;
 
-    assert.ok(
-      element.editor instanceof EditorView,
+    assert.strictEqual(
+      element.editor.constructor.name,
+      'EditorView',
       'it attaches an EditorView instance to the element',
     );
   });
