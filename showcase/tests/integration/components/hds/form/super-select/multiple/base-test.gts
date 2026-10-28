@@ -4,9 +4,10 @@
  */
 
 import { module, test } from 'qunit';
-import { click, fillIn, render } from '@ember/test-helpers';
+import { click, fillIn, render, settled } from '@ember/test-helpers';
 import { selectChoose } from 'ember-power-select/test-support';
 import { TrackedObject } from 'tracked-built-ins';
+import sinon from 'sinon';
 
 import { HdsFormSuperSelectMultipleBase } from '@hashicorp/design-system-components/components';
 
@@ -19,6 +20,10 @@ module(
   'Integration | Component | hds/form/super-select/multiple/base',
   function (hooks) {
     setupRenderingTest(hooks);
+
+    hooks.afterEach(function () {
+      sinon.restore();
+    });
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
@@ -356,6 +361,50 @@ module(
           'style',
           "--hds-var-form-super-select-dropdown-max-width: 40em; --hds-var-form-super-select-selected-text-display: none; --hds-var-form-super-select-selected-text: '0 selected';",
         );
+    });
+
+    // TEARDOWN
+
+    test('it should keep one set of anchored position listeners while open and remove them when destroyed', async function (assert) {
+      const addSpy = sinon.spy(window, 'addEventListener');
+      const removeSpy = sinon.spy(window, 'removeEventListener');
+      const countScrollCalls = (spy: sinon.SinonSpy) =>
+        spy.getCalls().filter((call) => call.args[0] === 'scroll').length;
+      const countActiveScrollListeners = () =>
+        countScrollCalls(addSpy) - countScrollCalls(removeSpy);
+      const context = new TrackedObject({ isRendered: true });
+
+      await render(
+        <template>
+          {{#if context.isRendered}}
+            <HdsFormSuperSelectMultipleBase
+              @onChange={{NOOP}}
+              @options={{OPTIONS}}
+              as |option|
+            >{{option}}</HdsFormSuperSelectMultipleBase>
+          {{/if}}
+        </template>,
+      );
+      await click('.hds-form-super-select .ember-basic-dropdown-trigger');
+      const activeWhenOpen = countActiveScrollListeners();
+      assert.true(activeWhenOpen > 0, 'scroll listeners are added');
+
+      // basic-dropdown repositions the content on window resize
+      window.dispatchEvent(new Event('resize'));
+      await settled();
+      assert.strictEqual(
+        countActiveScrollListeners(),
+        activeWhenOpen,
+        'repositioning does not add more scroll listeners',
+      );
+
+      context.isRendered = false;
+      await settled();
+      assert.strictEqual(
+        countActiveScrollListeners(),
+        0,
+        'scroll listeners are removed',
+      );
     });
 
     // INVALID

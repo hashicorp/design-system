@@ -15,6 +15,7 @@ import {
 } from '@ember/test-helpers';
 import { on } from '@ember/modifier';
 import { TrackedObject } from 'tracked-built-ins';
+import sinon from 'sinon';
 
 import { HdsPopoverPrimitive } from '@hashicorp/design-system-components/components';
 
@@ -24,6 +25,10 @@ module(
   'Integration | Component | hds/popover-primitive/index',
   function (hooks) {
     setupRenderingTest(hooks);
+
+    hooks.afterEach(function () {
+      sinon.restore();
+    });
 
     // NOTICE: the PopoverPrimitive is a headless component
 
@@ -541,6 +546,73 @@ module(
         </template>,
       );
       assert.dom('#test-popover-primitive-content').isVisible();
+    });
+
+    // TEARDOWN
+
+    test('it should remove the anchored position listeners when destroyed', async function (assert) {
+      const addSpy = sinon.spy(window, 'addEventListener');
+      const removeSpy = sinon.spy(window, 'removeEventListener');
+      const countScrollCalls = (spy: sinon.SinonSpy) =>
+        spy.getCalls().filter((call) => call.args[0] === 'scroll').length;
+      const context = new TrackedObject({ isRendered: true });
+
+      await render(
+        <template>
+          {{#if context.isRendered}}
+            <HdsPopoverPrimitive as |PP|>
+              <div {{PP.setupPrimitiveContainer}}>
+                <button {{PP.setupPrimitiveToggle}} type="button" />
+                <div {{PP.setupPrimitivePopover}} />
+              </div>
+            </HdsPopoverPrimitive>
+          {{/if}}
+        </template>,
+      );
+      assert.true(countScrollCalls(addSpy) > 0, 'scroll listeners are added');
+
+      context.isRendered = false;
+      await settled();
+      assert.strictEqual(
+        countScrollCalls(removeSpy),
+        countScrollCalls(addSpy),
+        'scroll listeners are removed',
+      );
+    });
+
+    test('it should replace the anchored position listeners when the toggle element is swapped', async function (assert) {
+      const addSpy = sinon.spy(window, 'addEventListener');
+      const removeSpy = sinon.spy(window, 'removeEventListener');
+      const countScrollCalls = (spy: sinon.SinonSpy) =>
+        spy.getCalls().filter((call) => call.args[0] === 'scroll').length;
+      const countActiveScrollListeners = () =>
+        countScrollCalls(addSpy) - countScrollCalls(removeSpy);
+      const context = new TrackedObject({ isSwapped: false });
+
+      await render(
+        <template>
+          <HdsPopoverPrimitive as |PP|>
+            <div {{PP.setupPrimitiveContainer}}>
+              {{#if context.isSwapped}}
+                <button {{PP.setupPrimitiveToggle}} type="button" />
+              {{else}}
+                <button {{PP.setupPrimitiveToggle}} type="button" />
+              {{/if}}
+              <div {{PP.setupPrimitivePopover}} />
+            </div>
+          </HdsPopoverPrimitive>
+        </template>,
+      );
+      const activeBeforeSwap = countActiveScrollListeners();
+      assert.true(activeBeforeSwap > 0, 'scroll listeners are added');
+
+      context.isSwapped = true;
+      await settled();
+      assert.strictEqual(
+        countActiveScrollListeners(),
+        activeBeforeSwap,
+        'swapping the toggle does not add more scroll listeners',
+      );
     });
 
     // ASSERTIONS
