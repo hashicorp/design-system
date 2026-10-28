@@ -447,7 +447,7 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
     assert.ok(loader.calledOnce, 'loader still runs');
     assert.ok(
       spriteRootWarning.calledOnce,
-      'warns once when sprite root is missing',
+      'warns once when sprite root is missing'
     );
     assert.strictEqual(
       service.getSymbolId(definition),
