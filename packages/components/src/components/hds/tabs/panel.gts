@@ -8,9 +8,7 @@ import { guidFor } from '@ember/object/internals';
 import { hash } from '@ember/helper';
 import { not } from 'ember-truth-helpers';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import willDestroy from '@ember/render-modifiers/modifiers/will-destroy';
+import { didInsert, willDestroy } from '@ember/render-modifiers';
 
 import type { HdsTabsTabSignature } from './tab.gts';
 import type { HdsTabsPanelIds, HdsTabsTabIds } from './types';
