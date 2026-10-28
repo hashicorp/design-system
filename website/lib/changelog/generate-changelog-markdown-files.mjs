@@ -45,6 +45,13 @@ const figma_changelogs = [
   },
 ];
 
+const tooling_changelogs = [
+  {
+    relativePath: '../packages/mcp/CHANGELOG.md',
+    outputPath: './docs/tooling/mcp-server/partials/version-history.md',
+  },
+];
+
 const addHeader = () => {
   let header = '';
   header +=
@@ -132,6 +139,14 @@ const appendExternalLinks = (sourceText, sourcePath) => {
   return sourceText + externalLinks;
 };
 
+const removePageTitle = (sourceText) => {
+  return sourceText.replace(/^# .*\r?\n\r?\n?/, '');
+};
+
+const removeLeadingHtmlComments = (sourceText) => {
+  return sourceText.replace(/^(?:<!--[^]*?-->\r?\n\r?\n?)*/, '');
+};
+
 // CODE CHANGELOGS
 
 code_changelogs.forEach((changelog) => {
@@ -177,6 +192,22 @@ figma_changelogs.forEach((changelog) => {
       content,
       'utf8',
     );
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+// TOOLING CHANGELOGS
+
+tooling_changelogs.forEach((changelog) => {
+  try {
+    const sourcePath = changelog.relativePath;
+    const changelogSource = fs.readFileSync(sourcePath, 'utf8');
+    let changelogModified = changelogSource;
+    changelogModified = removeLeadingHtmlComments(changelogModified);
+    changelogModified = removePageTitle(changelogModified);
+    changelogModified = keepOnlySubsetOfEntries(changelogModified, /^## /, 20);
+    fs.writeFileSync(changelog.outputPath, changelogModified, 'utf8');
   } catch (err) {
     console.error(err);
   }
