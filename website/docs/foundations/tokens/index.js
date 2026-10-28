@@ -84,8 +84,8 @@ export default class Index extends Component {
     return filteredGroupedTokens;
   }
 
-  @restartableTask *searchTokens(searchQuery) {
-    yield timeout(DEBOUNCE_MS);
+  searchTokens = restartableTask(async (searchQuery) => {
+    await timeout(DEBOUNCE_MS);
 
     // TODO later when we will have the tabs and sidecar parameters too, we have to preserve them
     this.router.transitionTo({
@@ -93,5 +93,5 @@ export default class Index extends Component {
         searchQuery: searchQuery !== '' ? searchQuery : null,
       },
     });
-  }
+  });
 }
