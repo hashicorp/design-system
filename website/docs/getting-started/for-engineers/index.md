@@ -30,7 +30,7 @@ Our component library assumes that a box-sizing reset is applied globally in you
 
 #### CSS
 
-Import one or more of the following lines to the `ember-cli-build.js` configuration file. Pick the lines that match your application's stage in the migration to the "carbonized" HDS.
+Import one or more of the following lines to the `ember-cli-build.js` configuration file. Pick the lines that match your application's [stage in the migration to the "carbonized" HDS](/carbonization/introduction).
 
 [[code-snippets/css-import-in-cli-build]]
 
