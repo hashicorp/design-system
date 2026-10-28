@@ -16,12 +16,12 @@ const SubSectionVisibilityToggle: TemplateOnlyComponent = <template>
   <ShwFlex as |SF|>
     <SF.Item @label="On">
       <ShwOutliner>
-        <HdsFormVisibilityToggle @isMasked={{true}} aria-label="is-visible" />
+        <HdsFormVisibilityToggle @isMasked={{true}} />
       </ShwOutliner>
     </SF.Item>
     <SF.Item @label="Off">
       <ShwOutliner>
-        <HdsFormVisibilityToggle @isMasked={{false}} aria-label="is-masked" />
+        <HdsFormVisibilityToggle @isMasked={{false}} />
       </ShwOutliner>
     </SF.Item>
   </ShwFlex>
