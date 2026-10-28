@@ -14,7 +14,7 @@ const walkSync = require('walk-sync');
 // keep in sync with `DEMO_BLOCK` in packages/mcp/scripts/build-docs-catalog/assembly.mjs
 // so the MCP docs catalog recognizes the same demo blocks the website renders
 const demoBlockRegex =
-  /\[\[(code-snippets\/[^\]\s]+)(?:\s+execute=(true|false))?(?:\s+expanded=(true|false))?\s*\]\]/g;
+  /\[\[(code-snippets\/[^\]\s]+)(?:\s+execute=(true|false))?(?:\s+expanded=(true|false))?(?:\s+theming=(true|false))?\s*\]\]/g;
 
 /*
  * NOTE: if need to add a code snippet to another section of the site, you need to update this regex
@@ -150,8 +150,9 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
       let dependencies = [fullInputPath];
       markdownFileContent = markdownFileContent.replace(
         demoBlockRegex,
-        (_match, fileName, shouldExecute, isExpanded) => {
+        (_match, fileName, shouldExecute, isExpanded, hasTheming) => {
           const shouldHidePreview = shouldExecute === 'false' ? true : false;
+          const shouldHideThemeSwitcher = hasTheming === 'false' ? true : false;
 
           const codeSnippets = {
             hbsSnippet: '',
@@ -205,7 +206,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
           });
 
           // NOTE: if change this, also need to change the regex in content-blocks.js
-          return `\n<?php start="demo-block" classicComponentId="${classicComponentId}" gtsComponentId="${gtsComponentId}" hbs="${codeSnippets.hbsSnippet}" js="${codeSnippets.jsSnippet}" gts="${codeSnippets.gtsSnippet}" compactGts="${codeSnippets.compactGtsSnippet}" custom="${codeSnippets.customSnippet}" customLang="${codeSnippets.customLang}" hidePreview="${shouldHidePreview}" expanded="${isExpanded}" ?><?php end="demo-block" ?>\n`;
+          return `\n<?php start="demo-block" classicComponentId="${classicComponentId}" gtsComponentId="${gtsComponentId}" hbs="${codeSnippets.hbsSnippet}" js="${codeSnippets.jsSnippet}" gts="${codeSnippets.gtsSnippet}" compactGts="${codeSnippets.compactGtsSnippet}" custom="${codeSnippets.customSnippet}" customLang="${codeSnippets.customLang}" hideThemeSwitcher="${shouldHideThemeSwitcher}" hidePreview="${shouldHidePreview}" isExpanded="${isExpanded}" ?><?php end="demo-block" ?>\n`;
         },
       );
 
