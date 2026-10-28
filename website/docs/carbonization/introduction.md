@@ -92,4 +92,4 @@ Absolutely. Send requests to the HDS team for triage. While we focus on the Carb
 
 ## Get in touch
 
-Contact us on Slack at `#proj-hds-carbon` or visit the [support page](/about/support) for other ways to get in touch with us.
+Contact us on Slack at [#proj-hds-carbon](https://ibm.enterprise.slack.com/archives/C09L3JNMG2G) or visit the [support page](/about/support) for other ways to get in touch with us.
