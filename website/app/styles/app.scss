@@ -91,6 +91,8 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  color: var(--doc-color-black);
+  background-color: var(--doc-color-white);
 }
 
 .doc-sr-only {
