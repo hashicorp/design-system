@@ -6,8 +6,6 @@
 import type { HdsInteractiveSignature } from '../interactive/index.gts';
 import type HdsIntlService from '../../../services/hds-intl.ts';
 
-type HdsIntlLike = Pick<HdsIntlService, 't'>;
-
 export enum HdsPaginationDirectionValues {
   Next = 'next',
   Prev = 'prev',
@@ -27,15 +25,21 @@ export const HDS_PAGINATION_DIRECTION_ARIA_LABEL_KEYS = {
 
 export function getHdsPaginationDirectionAriaLabel(
   direction: HdsPaginationDirections,
-  intl: HdsIntlLike
+  hdsIntl: HdsIntlService
 ): string {
   return direction === HdsPaginationDirectionValues.Prev
-    ? intl.t('hds.components.pagination.nav.arrow.aria-label.direction.prev', {
-        default: 'Previous page',
-      })
-    : intl.t('hds.components.pagination.nav.arrow.aria-label.direction.next', {
-        default: 'Next page',
-      });
+    ? hdsIntl.t(
+        'hds.components.pagination.nav.arrow.aria-label.direction.prev',
+        {
+          default: 'Previous page',
+        }
+      )
+    : hdsIntl.t(
+        'hds.components.pagination.nav.arrow.aria-label.direction.next',
+        {
+          default: 'Next page',
+        }
+      );
 }
 
 // Display "label" text for nav arrow buttons
@@ -48,13 +52,13 @@ export const HDS_PAGINATION_DIRECTION_LABEL_KEYS = {
 
 export function getHdsPaginationDirectionLabel(
   direction: HdsPaginationDirections,
-  intl: HdsIntlLike
+  hdsIntl: HdsIntlService
 ): string {
   return direction === HdsPaginationDirectionValues.Prev
-    ? intl.t('hds.components.pagination.nav.arrow.label.direction.prev', {
+    ? hdsIntl.t('hds.components.pagination.nav.arrow.label.direction.prev', {
         default: 'Previous',
       })
-    : intl.t('hds.components.pagination.nav.arrow.label.direction.next', {
+    : hdsIntl.t('hds.components.pagination.nav.arrow.label.direction.next', {
         default: 'Next',
       });
 }
