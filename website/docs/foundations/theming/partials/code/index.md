@@ -8,7 +8,7 @@ It's also possible to apply local overrides of the global theme, scoping them to
 
 ### Themed tokens
 
-The design tokens package, `@hashicorp/design-system-tokens`, provides three pre-built CSS/Sass bundles of themed tokens, each aimed at a different stage of carbonization.
+The design tokens package, `@hashicorp/design-system-tokens`, provides three pre-built CSS/Sass bundles of themed tokens, each aimed at a different stage of "carbonization".
 
 | File                          | Themes supported                               | Carbon modes                                      |
 | ------------------------------ | ------------------------------------- | -------------------------------------------- |
@@ -16,11 +16,11 @@ The design tokens package, `@hashicorp/design-system-tokens`, provides three pre
 | `with-css-selectors--migration` | `default`, `system`, `light`, `dark`  | `cds-g0`, `cds-g100`                         |
 | `with-css-selectors--advanced`  | `default`, `system`, `light`, `dark`  | `cds-g0`, `cds-g10`, `cds-g90`, `cds-g100`   |
 
-- `with-css-selectors` (the "final" file) is what most applications should use once fully carbonized: it supports the `system`/`light`/`dark` themes.
-- `with-css-selectors--migration` additionally exposes the `default` theme, so the "classic" and "carbonized" visual languages can co-exist in the same application during an incremental migration.
+- `with-css-selectors` (the "final" file) is what most applications should use once fully "carbonized": it supports the `system`/`light`/`dark` themes.
+- `with-css-selectors--migration` additionally exposes the `default` theme, so the "classic" and "carbonized" visual languages can coexist in the same application during an incremental migration.
 - `with-css-selectors--advanced` exposes all [four IBM Carbon modes](https://carbondesignsystem.com/elements/themes/overview/), in case an application wants to customize the modes used for a light or dark theme.
 
-For complex use cases, the package also provides a Sass bundle with mixins that lets you combine multiple themes or modes in a single application. If your application requires this approach, [contact the Design System Team](/about/support) for assistance and guidance on implementation.
+For complex use cases, the package also provides a Sass bundle with mixins that lets you combine multiple themes or modes in a single application. If your application requires this approach, [contact the Design Systems Team](/about/support) for assistance and guidance on implementation.
 
 ### Theming utilities
 
@@ -40,7 +40,7 @@ For more details about this component, how to use it, and its APIs, see the [`Th
 
 #### `hds-apply-only-if-carbon` Sass mixin
 
-Use the `hds-apply-only-if-carbon` Sass mixin **only for temporary migration overrides** when Carbon styles must override classic styles and standard design tokens or component styles are insufficient.
+Use the `hds-apply-only-if-carbon` Sass mixin **only for temporary migration overrides** when Carbon styles must override "classic" styles and standard design tokens or component styles are insufficient.
 
 To apply this mixin:
 
@@ -51,7 +51,7 @@ To apply this mixin:
 
 !!! Callout
 
-If you're upgrading to version `7.0` and/or adopting theming in your application, [contact the Design System Team](/about/support) for guidance and support. The team may be able to complete some important migration steps for you.
+If you're upgrading to version `7.0` and/or adopting theming in your application, [contact the Design Systems Team](/about/support) for guidance and support. The team may be able to complete some important migration steps for you.
 
 !!!
 
@@ -59,11 +59,11 @@ If you're upgrading to version `7.0` and/or adopting theming in your application
 
 Applications can continue to use the "classic" token styles until they are ready to begin the migration.
 
-Applications can still upgrade to version `7.0` or later of the design system, (for example to receive bug fixes for HDS components). However, [version `7.0`](/whats-new/release-notes#700) introduced systematic design token renaming, and some refactoring is required. [Contact the Design System Team](/about/support) for guidance and help automating this refactoring.
+Applications can still upgrade to version `7.0` or later of the design system (for example, to receive bug fixes for HDS components). However, [version `7.0`](/whats-new/release-notes#700) introduced systematic design token renaming, and some refactoring is required. [Contact the Design Systems Team](/about/support) for guidance and help automating this refactoring.
 
 ### Migrating
 
-If an application intends to migrate to the "carbonized" look and feel in their UI, the product team should [speak with the Design System Team](/about/support) to coordinate the initial effort.
+If an application intends to migrate to the "carbonized" look and feel in their UI, the product team should [speak with the Design Systems Team](/about/support) to coordinate the initial effort.
 
 However, for general knowledge, this is what the migration steps would look like.
 
@@ -73,7 +73,7 @@ In your `package.json`, update the HDS dependencies to the minimum theme-support
 
 [[code-snippets/migration-dependencies-bump-hds]]
 
-Add the [IBM Plex typefaces](https://carbondesignsystem.com/elements/typography/overview/#typeface:-ibm-plex) used by the Carbonized theme:
+Add the [IBM Plex typefaces](https://carbondesignsystem.com/elements/typography/overview/#typeface:-ibm-plex) used by the "carbonized" theme:
 
 [[code-snippets/migration-dependencies-add-plex-fonts]]
 
@@ -98,13 +98,13 @@ If your application serves fonts from a path other than `/assets` (e.g. `/app/as
 
 #### Design tokens migration
 
-The HDS `7.0` release introduced a corresponding `6.0` release of the design tokens package. As part of the carbonization work, we renamed and reorganized the [design tokens](/foundations/tokens) to follow a new naming convention.
+The HDS `7.0` release introduced a corresponding `6.0` release of the design tokens package. As part of the "carbonization" work, we renamed and reorganized the [design tokens](/foundations/tokens) to follow a new naming convention.
 
 Some changes are mechanical, such as changing the `--token-*` prefix to `--hds-*`. Others change the structure of the name, for example, `--token-color-border-primary` becomes `--hds-border-color-primary`.
 
-Token references throughout the consumer codebase therefore need to be updated to use the new names, including references in CSS/Scss files, Handlebars templates, and JavaScript/TypeScript code.
+Token references throughout the consumer codebase therefore need to be updated to use the new names, including references in CSS/Sass files, Handlebars templates, and JavaScript/TypeScript code.
 
-The HDS team can run an automated migration against your codebase using a validated map of the old and new token names. The process reports the files and references it changes, and identifies any removed, dynamic, or otherwise unmapped tokens for manual review. [Contact the Design System Team](/about/support) to coordinate this phase of the migration.
+The HDS team can run an automated migration against your codebase using a validated map of the old and new token names. The process reports the files and references it changes, and identifies any removed, dynamic, or otherwise unmapped tokens for manual review. [Contact the Design Systems Team](/about/support) to coordinate this phase of the migration.
 
 #### Icon loading
 
@@ -126,7 +126,7 @@ To retain the selection between visits, persist and restore it early in the appl
 
 For more details about how to set and persist a theme in an application, see the [Theming service](/theming/hds-theming) documentation.
 
-For guidance around the switcher's user interface and behavior, see the [Theme selection pattern](/patterns/theme-selection).
+For guidance around the switcher's user interface and behavior, see the [theme selection pattern](/patterns/theme-selection).
 
 Also, some areas of the application may need to force a specific theme. In that case, the [`ThemeContext`](/theming/theme-context) component can be used to scope a theme to a portion of the page. For example, an application can wrap its `AppHeader` in a `ThemeContext` and select the `dark` context when a "carbonized" theme is active, while using `default` for the "classic" theme:
 

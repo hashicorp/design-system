@@ -1,6 +1,6 @@
 !!! Insight
 
-For more details about theming in HDS/Carbon, how it works, and how it could be used in your application, see [Carbonization/From Helios to Carbon](/carbonization/introduction) and [Foundations/Theming](/foundations/theming).
+For more details about theming in HDS/Carbon, how it works, and how it could be used in your application, see [From Helios to Carbon](/carbonization/introduction) and [Foundations/Theming](/foundations/theming).
 
 !!!
 
@@ -18,7 +18,7 @@ Refer to the [Component API](#component-api) for details about the visual treatm
 
 ### Requirements
 
-`ThemeContext` works by overriding the design tokens declared for a theme/mode, so it has an effect only if your application imports the "themed" CSS/Sass files provided by HDS. For details about how to import them, see [Getting started/For engineers](/getting-started/for-engineers#import-component-styles) and [Foundations/Theming](/foundations/theming?tab=code).
+`ThemeContext` works by overriding the design tokens declared for a theme/mode, so it has an effect only if your application imports the "themed" CSS/Sass files provided by HDS. For details about how to import them, see [Getting started for engineers](/getting-started/for-engineers#import-component-styles) and [Foundations/Theming](/foundations/theming?tab=code).
 
 The file that you import also determines which `@context` values are supported:
 

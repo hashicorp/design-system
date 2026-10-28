@@ -29,13 +29,13 @@ Use a [Checkmark List Item](/components/dropdown#selection-listitems) with a lea
 
 ## Default theme
 
-During the transition period from HashiCorp visual language to IBM Carbon, set the application theme to `light` by default to make this transition less jarring. Otherwise, set the default theme to `system` to match the users operating system.
+During the transition period from HashiCorp visual language to IBM Carbon, set the application theme to `light` by default to make this transition less jarring. Otherwise, set the default theme to `system` to match the user's operating system.
 
 ## System theme detection
 
 The System theme should automatically match the user's operating system (OS) light or dark preference, therefore, if a user switches their OS preference from light to dark while the application is open, it should reflect the change immediately.
 
-The [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS media query is the standard mechanism for reading this preference and is what is used under the hood by the theme service provided by the design system.
+The [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS media query is the standard mechanism for reading this preference and is what is used under the hood by the theming logic provided by the design system.
 
 ## Persistence
 

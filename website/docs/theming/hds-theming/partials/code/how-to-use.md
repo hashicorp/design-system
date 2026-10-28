@@ -1,6 +1,6 @@
 !!! Insight
 
-For more details about theming in HDS/Carbon, how it works, and how it could be used in your application, see [Carbonization/From Helios to Carbon](/carbonization/introduction) and [Foundations/Theming](/foundations/theming).
+For more details about theming in HDS/Carbon, how it works, and how it could be used in your application, see [From Helios to Carbon](/carbonization/introduction) and [Foundations/Theming](/foundations/theming).
 
 !!!
 
@@ -52,7 +52,7 @@ Use the `onSetTheme` callback to run application-specific logic after the theme 
 
 The service exposes reactive properties you can use in components, templates, or other services.
 
-The `isCarbonThemeEnabled` property returns `true` when the active theme is `system`, `light`, or `dark`. You can use it to branch application logic when the carbonized visual language is active:
+The `isCarbonThemeEnabled` property returns `true` when the active theme is `system`, `light`, or `dark`. You can use it to branch application logic when the "carbonized" visual language is active:
 
 [[code-snippets/hds-theming-is-carbon-theme-enabled execute=false]]
 
@@ -85,4 +85,4 @@ This will likely be invoked inside an action/function associated with a "theme s
 
 [[code-snippets/hds-theming-on-click-theme-switcher execute=false]]
 
-For details on designing and implementing a "theme switcher" for your application, according to the HDS specifications and guidance, see [Patterns/Theme selection](/patterns/theme-selection).
+For details on designing and implementing a "theme switcher" for your application, according to the HDS specifications and guidance, see the [theme selection pattern](/patterns/theme-selection).

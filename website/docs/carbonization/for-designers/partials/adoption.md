@@ -26,7 +26,7 @@ Most changes apply automatically when you accept the library updates. Detached o
 | -------------- | --------------- |
 | Standard HDS components | Accept Figma UI Kit updates to automatically pull in changes. |
 | Detached components | Re-link to the HDS component or map to the appropriate HDS variable. |
-| Custom components | Manually map tokens and styles to HDS variables. Create a local variables and map them to Carbon tokens is a variable is missing. |
+| Custom components | Manually map tokens and styles to HDS variables. Create a local variable and map it to Carbon tokens if a variable is missing. |
 
 ### Switch modes in Figma
 

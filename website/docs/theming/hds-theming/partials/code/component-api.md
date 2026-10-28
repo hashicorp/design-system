@@ -13,7 +13,7 @@ The service exposes a `setTheme` method to apply a theme:
         An object with `lightTheme`/`darkTheme` keys, used to map the `light`/`dark` themes to specific Carbon modes (`cds-g0`/`cds-g10` for `lightTheme`, `cds-g90`/`cds-g100` for `darkTheme`). Defaults to `cds-g0` and `cds-g100`, and is relevant only if you import the ["advanced"](/foundations/theming?tab=code#themed-tokens) tokens file.
       </C.Property>
       <C.Property @name="onSetTheme" @type="function">
-        A callback, invoked with the resolved `currentTheme` and `currentMode`, that you can use to run your own logic (eg. persisting the user's choice, analytics, logging/debugging, etc).
+        A callback, invoked with the resolved `currentTheme` and `currentMode`, that you can use to run your own logic (e.g., persisting the user's choice, analytics, logging/debugging, etc.).
       </C.Property>
     </Doc::ComponentApi>
   </C.Property>
@@ -23,7 +23,7 @@ The service exposes a `setTheme` method to apply a theme:
 
 **Imported tokens and available themes**
 
-The `hdsTheming` service can apply any supported theme value, but the visual result depends on the themed tokens file imported by your application. For example, the `with-css-selectors` file doesn't include the `default` theme, so setting `theme: 'default'` won't restore the classic HDS visual language. For details about which token files support the different themes and modes, see [Foundations/Theming](/foundations/theming?tab=code#themed-tokens).
+The `hdsTheming` service can apply any supported theme value, but the visual result depends on the themed tokens file imported by your application. For example, the `with-css-selectors` file doesn't include the `default` theme, so setting `theme: 'default'` won't restore the "classic" HDS visual language. For details about which token files support the different themes and modes, see [Foundations/Theming](/foundations/theming?tab=code#themed-tokens).
 
 !!!
 
@@ -43,6 +43,6 @@ The service also exposes a set of reactive properties (getters) to read the curr
     The Carbon mode currently mapped to the `dark` theme (`cds-g90` or `cds-g100`).
   </C.Property>
   <C.Property @name="isCarbonThemeEnabled" @type="boolean">
-    Whether the currently applied theme is one of `system`, `light`, or `dark` (ie. the "carbonized" HDS is active).
+    Whether the currently applied theme is one of `system`, `light`, or `dark` (i.e., the "carbonized" HDS is active).
   </C.Property>
 </Doc::ComponentApi>

@@ -193,7 +193,7 @@ For more examples and guidelines read [the tokens documentation](/foundations/to
 
 ## Theming
 
-Theming was introduced in version 7.0 of the design system, is available only in the ["carbonized" HDS](/carbonization/introduction) and supports two visual languages at the same time:
+Theming was introduced in version 7.0 of the design system, as part of the ["carbonization" of HDS](/carbonization/introduction). It allows applications to support two visual languages at the same time:
 
 - **"classic" HDS** – the original, light-only visual language (doesn't support dark theming)
 - **"carbonized" HDS** – the IBM Carbon visual language applied to HDS (supports both light and dark variants).
@@ -208,7 +208,7 @@ To use theming in your application you need to:
 
 3. add a theme switcher, which follows our [theme selection pattern](/patterns/theme-selection), to your application and implement the logic associated with it (integration with the `hdsTheming` service and user's choice persistence)
 
-For more technical details about how theming is implemented in HDS, and theme switching in general, see [Foundations/Theming](/foundations/theming) and  [Patterns/Theme selection](/patterns/theme-selection).
+For more technical details about how theming is implemented in HDS, and theme switching in general, see [Foundations/Theming](/foundations/theming) and the [theme selection pattern](/patterns/theme-selection).
 
 ### Complex configurations
 

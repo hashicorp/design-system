@@ -27,7 +27,7 @@ HTML
 
 [[code-snippets/simple-code-block]]
 
-SCSS
+Sass
 
 [[code-snippets/sass-code-block]]
 

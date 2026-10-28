@@ -14,12 +14,12 @@ This is essentially a visual update: HDS components are still written in Ember, 
 There are, however, changes to the foundations and infrastructure that your application consumes that you should be aware of:
 
 - **Theming:** Foundations and components respond to the [selected theme](/foundations/theming). Applications can support the "classic" HDS appearance alongside Carbon "light" and "dark" themes during migration, then use only Carbon themes once fully migrated.
-- **Design tokens:** Token names have been renamed and reorganized. Themed token bundles are [provided as CSS/SCSS files](/getting-started/for-engineers#tokens) to be consumed in your application.
+- **Design tokens:** Tokens have been renamed and reorganized. Themed token bundles are [provided as CSS/Sass files](/getting-started/for-engineers#tokens) to be consumed in your application.
 - **Icons:** Icons now load individually and asynchronously. [`Hds::Icon`](/components/icon?tab=carbon%20theme) automatically selects a Carbon glyph when a Carbon theme is active and an equivalent is available.
 
 The token changes are breaking changes, which is why the packages have new major versions even though component APIs remain stable.
 
-If you're using an earlier version, your application continues to work as before. Use the version switcher in the top left of the application header to consult the documentation for your version. The guidance below applies when you're upgrading to, or already using, the carbonized versions.
+If you're using an earlier version, your application continues to work as before. Use the version switcher in the top left of the application header to consult the documentation for your version. The guidance below applies when you're upgrading to, or already using, the "carbonized" versions.
 
 ## Migrating to the carbonized HDS
 

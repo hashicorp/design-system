@@ -8,7 +8,7 @@ Currently, about half of the Flight icons have a Carbon equivalent. If there is 
 
 ### Service icons in Carbon themes
 
-Color versions of service icons (e.g., `aws-color`, `gitlab-color`, `azure-color`, etc) do not retain their brand colors in Carbon themes. Instead, they switch to the non-color version (e.g., `aws`, `gitlab`, `azure`).
+Color versions of service icons (e.g., `aws-color`, `gitlab-color`, `azure-color`, etc.) do not retain their brand colors in Carbon themes. Instead, they switch to the non-color version (e.g., `aws`, `gitlab`, `azure`).
 
 When switching to a Carbon theme, these icons do not have a semantic color set by default. We recommend using `foreground-color-primary` or another semantic foreground color token.
 
@@ -30,7 +30,7 @@ Making this possible required changing how icons are delivered and rendered.
 
 #### What has changed under the hood
 
-Before `v7.0`, icons were delivered as a single ~1MB SVG sprite injected in the page at load time. Now that two variants need to be supported per icon, this approach is unsustainable. 
+Before `v7.0`, icons were delivered as a single ~1MB SVG sprite injected in the page at load time. Now that two variants need to be supported per icon, this approach is unsustainable.
 
 To improve this, icon delivery and resolution now work as follows:
 
@@ -54,4 +54,4 @@ There are, however, a few changes and implications to be aware of:
 - Two more `data` attributes have been added (`data-has-carbon-equivalent` and `data-is-carbon`). See [Ember test selectors](/components/icon?tab=code#ember-test-selectors) for details.
 - The SVG sprite is not injected in the application’s `index.html` anymore, so the `flightIconsSpriteLazyEmbed` setting is obsolete. It is therefore safe to remove it from the `config/environment.js` file. See [Getting started for engineers](/getting-started/for-engineers).
 - The rendering is now asynchronous, so tests asserting on the content of an icon may need to wait for the loading to be completed.
-- The glyph switching is driven by the theme applied **at application level**. If you use [ThemeContext](/theming/theme-context) to apply a scoped theme to a portion of the page, the glyphs within it will not change.
+- The glyph switching is driven by the theme applied **at application level**. If you use [`ThemeContext`](/theming/theme-context) to apply a scoped theme to a portion of the page, the glyphs within it will not change.

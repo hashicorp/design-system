@@ -44,7 +44,7 @@ We continue to support and maintain HDS, prioritizing bug fixes and critical upd
 
 #### What changes for designers
 
-Product Designers currently using HDS will se minimal impact on day-to-day workflows, but keep a few key updates in mind:
+Product Designers currently using HDS will see minimal impact on day-to-day workflows, but keep a few key updates in mind:
 
 - Update your files to the latest release of HDS [Components v2.0 library](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto) to work with modes.
 - Five modes are available for designing and testing: 1 legacy HDS mode (default) and 4 themed Carbon modes.

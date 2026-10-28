@@ -27,7 +27,7 @@ The `@level`, `@levelHover`, and `@levelActive` arguments can be used to declare
 
 [[code-snippets/card-container-interactive]]
 
-Using SCSS, the `.doc-card-interactive-demo` class would look something like this:
+Using Sass, the `.doc-card-interactive-demo` class would look something like this:
 
 [[code-snippets/card-container-interactive-styles]]
 

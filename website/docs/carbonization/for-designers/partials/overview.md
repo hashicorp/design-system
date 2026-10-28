@@ -12,7 +12,7 @@ While our visual styling aligns with Carbon, our underlying components stay true
 
 ## What is changing in Figma
 
-Three major changes have been made in our Figma libraries to support Carbonization and theming:
+Three major changes have been made in our Figma libraries to support "carbonization" and theming:
 
 - **Foundational variables relocated:** Foundational variables, e.g., `surface-color`, `foreground-color`, have been moved into the [Components v2.0 library](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto) to support theming. The [Foundations v2.0 library](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?m=auto) is deprecated and will be sunset at a later date.
 - **Design modes introduced:** [Modes](https://help.figma.com/hc/en-us/articles/14506821864087-Overview-of-variables-collections-and-modes#variable_modes) control brand and color themes across HDS libraries.
