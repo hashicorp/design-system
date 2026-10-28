@@ -13,12 +13,11 @@ import {
 } from "../search.js";
 import {
   DEFAULT_SEARCH_LIMIT,
-  DOCS_TABS,
   MAX_QUERY_LENGTH,
   MAX_SEARCH_LIMIT,
   SEARCH_DOCS_TOOL_NAME,
-  VERSION_HISTORY_TAB,
 } from "./constants.js";
+import { VERSION_HISTORY_TAB } from "../../stores/docs/constants.js";
 import { getOrLoadDocsStore } from "../../stores/docs/index.js";
 import { toSerializableSearchResult } from "./utils.js";
 
@@ -48,7 +47,7 @@ export const searchDocsInputShape = {
     .max(MAX_FILTER_LENGTH)
     .optional()
     .describe(
-      "Restrict to one top-level docs section: about, components, content, foundations, getting-started, icons, layouts, overrides, patterns, utilities, whats-new.",
+      "Restrict to one top-level docs section, e.g. 'components', 'foundations', 'patterns' or 'getting-started'. A value the catalog does not use comes back in unknownFilters alongside the sections that exist.",
     ),
   tab: z
     .string()
@@ -56,7 +55,7 @@ export const searchDocsInputShape = {
     .max(MAX_FILTER_LENGTH)
     .optional()
     .describe(
-      `Restrict to one page tab. The corpus uses exactly these: ${DOCS_TABS.join(", ")}. Version and changelog questions must pass tab: '${VERSION_HISTORY_TAB}', which is otherwise down-ranked.`,
+      `Restrict to one page tab, e.g. 'Guidelines', 'Code', 'Accessibility' or 'Specifications'. A value the catalog does not use comes back in unknownFilters alongside the tabs that exist. Version and changelog questions must pass tab: '${VERSION_HISTORY_TAB}', which is otherwise down-ranked.`,
     ),
   docsPath: z
     .string()

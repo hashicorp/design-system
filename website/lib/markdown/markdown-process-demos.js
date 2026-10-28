@@ -11,6 +11,8 @@ const fs = require('fs-extra');
 const path = require('path');
 const walkSync = require('walk-sync');
 
+// keep in sync with `DEMO_BLOCK` in packages/mcp/scripts/build-docs-catalog/assembly.mjs
+// so the MCP docs catalog recognizes the same demo blocks the website renders
 const demoBlockRegex =
   /\[\[(code-snippets\/[^\]\s]+)(?:\s+execute=(true|false))?(?:\s+expanded=(true|false))?\s*\]\]/g;
 

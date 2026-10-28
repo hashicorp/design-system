@@ -3,18 +3,16 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { getMcpPackageDirectory } from "../../../src/catalog/project-root.js";
-import {
-  DEFAULT_READ_MAX_BYTES,
-  DOCS_TABS,
-} from "../../../src/tools/docs/constants.js";
+import { DEFAULT_READ_MAX_BYTES } from "../../../src/tools/docs/constants.js";
 import {
   DOCS_CATALOG_FILE_NAME,
   SITE_BASE_URL,
   SNIPPET_MAX_LENGTH,
+  VERSION_HISTORY_TAB,
 } from "../../../src/stores/docs/constants.js";
 import { readDoc } from "../../../src/tools/docs/read-doc.js";
 import { searchDocs } from "../../../src/tools/docs/search-docs.js";
@@ -29,6 +27,8 @@ import {
 } from "../../support/tool-content.js";
 
 const store = getOrLoadDocsStore();
+
+const DOCS_DIR = join(getMcpPackageDirectory(), "../../website/docs");
 
 // the store hands out one chunk at a time; these checks are about the corpus as a whole
 const catalog = parseDocsCatalog(
@@ -109,7 +109,7 @@ describe("generated docs catalog", () => {
   it("loads the committed corpus and reports its provenance", () => {
     const meta = store.getMeta();
 
-    expect(meta.totalPageCount).toBe(92);
+    expect(meta.totalPageCount).toBe(Object.keys(catalog.pages).length);
     expect(meta.totalChunkCount).toBeGreaterThan(2_000);
     expect(meta.siteBaseUrl).toBe("https://helios.hashicorp.design/");
     expect(Number.isNaN(Date.parse(meta.bundledAt))).toBe(false);
@@ -120,24 +120,29 @@ describe("generated docs catalog", () => {
     expect(loadDocsCatalog()).not.toBe(store);
   });
 
-  it("uses exactly the tabs the tool description advertises", () => {
-    expect(store.listTabs()).toStrictEqual([...DOCS_TABS]);
+  // ranking down-weights this tab by name, so a rename must fail loudly
+  it("includes the version history tab the ranking depends on", () => {
+    expect(store.listTabs()).toContain(VERSION_HISTORY_TAB);
   });
 
-  it("keeps every route inside the documented sections", () => {
-    expect(store.listSections()).toStrictEqual([
-      "about",
-      "components",
-      "content",
-      "foundations",
-      "getting-started",
-      "icons",
-      "layouts",
-      "overrides",
-      "patterns",
-      "utilities",
-      "whats-new",
-    ]);
+  it("keeps every route inside a published docs section", () => {
+    const docsSections = readdirSync(DOCS_DIR, { withFileTypes: true })
+      .filter((entry) => entry.isDirectory() && entry.name !== "testing")
+      .map((entry) => entry.name);
+
+    expect(docsSections).toEqual(expect.arrayContaining(store.listSections()));
+
+    for (const page of Object.values(catalog.pages)) {
+      expect(page.route.startsWith(`${page.section}/`)).toBe(true);
+    }
+  });
+
+  it("expands every demo marker into its code snippets", () => {
+    const unexpanded = allChunks.filter((chunk) =>
+      chunk.content.includes("[[code-snippets/"),
+    );
+
+    expect(unexpanded.map((chunk) => chunk.id)).toStrictEqual([]);
   });
 });
 
