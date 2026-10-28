@@ -1,0 +1,10 @@
+<Hds::Form::Textarea::Field @value={{this.value}} {{on "input" this.validate}} />
+<Hds::Form::Textarea::Field @value={{@arch.sha}} {{on "change" (fn @onChange @index "sha")}} />
+<Hds::Form::Textarea::Base @value={{this.value}} ...attributes />
+<Hds::Form::Textarea::Base @value={{@value}} />
+<Hds::Form::Textarea::Base @value={{concat this.value ""}} />
+<Hds::Form::Textarea::Base @value="literal" />
+<Hds::Form::Textarea::Base @value={{"literal"}} />
+<Hds::Form::Textarea::Base />
+<textarea value={{this.value}}></textarea>
+<Textarea @value={{this.value}} />

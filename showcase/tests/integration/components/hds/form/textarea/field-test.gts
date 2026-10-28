@@ -4,8 +4,18 @@
  */
 
 import { module, test } from 'qunit';
-import { render, resetOnerror, settled, find } from '@ember/test-helpers';
+import {
+  fillIn,
+  render,
+  resetOnerror,
+  settled,
+  find,
+  triggerEvent,
+} from '@ember/test-helpers';
+import { on } from '@ember/modifier';
 import { TrackedObject } from 'tracked-built-ins';
+import pick from '@nullvoxpopuli/ember-composable-helpers/helpers/pick';
+import set from 'ember-set-helper/helpers/set';
 
 import { HdsFormTextareaField } from '@hashicorp/design-system-components/components';
 
@@ -28,6 +38,93 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
   test('it should render the input with the value provided via @value argument', async function (assert) {
     await render(<template><HdsFormTextareaField @value="abc123" /></template>);
     assert.dom('textarea').hasValue('abc123');
+  });
+
+  test('it supports consumer-owned values and character counts while editing', async function (assert) {
+    const state = new TrackedObject({ value: 'initial' });
+    const updateValue = (event: Event) => {
+      const target = event.target;
+      if (target instanceof HTMLTextAreaElement) {
+        state.value = target.value;
+      }
+    };
+
+    await render(
+      <template>
+        <HdsFormTextareaField
+          @value={{state.value}}
+          {{on "input" updateValue}}
+          as |F|
+        >
+          <F.Label>Description</F.Label>
+          <F.CharacterCount @maxLength={{20}} />
+        </HdsFormTextareaField>
+      </template>,
+    );
+
+    await fillIn('textarea', 'new\nvalue');
+    assert.strictEqual(state.value, 'new\nvalue');
+    assert.dom('textarea').hasValue('new\nvalue');
+    assert.dom('.hds-form-field__character-count').includesText('11');
+
+    state.value = '';
+    await settled();
+    assert.dom('textarea').hasValue('');
+    assert.dom('.hds-form-field__character-count').includesText('20');
+  });
+
+  test('it does not update the caller value or character count without an input handler', async function (assert) {
+    const state = new TrackedObject({ value: 'initial' });
+
+    await render(
+      <template>
+        <HdsFormTextareaField @value={{state.value}} as |F|>
+          <F.Label>Description</F.Label>
+          <F.CharacterCount @maxLength={{20}} />
+        </HdsFormTextareaField>
+      </template>,
+    );
+
+    await fillIn('textarea', 'edited');
+    assert.strictEqual(state.value, 'initial');
+    assert.dom('textarea').hasValue('edited');
+    assert.dom('.hds-form-field__character-count').includesText('13');
+  });
+
+  test('it updates caller state and character count with the codemod handler pattern', async function (assert) {
+    const state = new TrackedObject({ description: 'initial' });
+
+    await render(
+      <template>
+        <HdsFormTextareaField
+          @value={{state.description}}
+          {{on "input" (pick "target.value" (set state "description"))}}
+          {{on "change" (pick "target.value" (set state "description"))}}
+          as |F|
+        >
+          <F.Label>Description</F.Label>
+          <F.CharacterCount @maxLength={{20}} />
+        </HdsFormTextareaField>
+      </template>,
+    );
+
+    await fillIn('textarea', 'edited');
+    assert.strictEqual(state.description, 'edited');
+    assert.dom('.hds-form-field__character-count').includesText('14');
+
+    const textarea = find('textarea');
+    if (!(textarea instanceof HTMLTextAreaElement)) {
+      throw new Error('Expected a native textarea');
+    }
+    textarea.value = 'change only';
+    await triggerEvent(textarea, 'change');
+    assert.strictEqual(state.description, 'change only');
+    assert.dom('.hds-form-field__character-count').includesText('9');
+
+    textarea.value = '';
+    await triggerEvent(textarea, 'input');
+    assert.strictEqual(state.description, '');
+    assert.dom('.hds-form-field__character-count').includesText('20');
   });
 
   // INVALID
