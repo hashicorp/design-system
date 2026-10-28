@@ -7,8 +7,10 @@ import componentsTools from "./components/index.js";
 import docsTools from "./docs/index.js";
 import hdsIconsTools from "./hds-icons/index.js";
 import tokensTools from "./tokens/index.js";
+import { NOOP_TELEMETRY } from "../telemetry/index.js";
 
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import type { Telemetry } from "../telemetry/index.js";
 import type { ToolRegistration } from "./define-tool.js";
 
 export const TOOLS: ToolRegistration[] = [
@@ -18,8 +20,11 @@ export const TOOLS: ToolRegistration[] = [
   ...tokensTools,
 ];
 
-export function registerTools(server: McpServer) {
+export function registerTools(
+  server: McpServer,
+  telemetry: Telemetry = NOOP_TELEMETRY,
+) {
   for (const tool of TOOLS) {
-    tool.register(server);
+    tool.register(server, telemetry);
   }
 }
