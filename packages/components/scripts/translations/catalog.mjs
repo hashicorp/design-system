@@ -27,14 +27,23 @@ export function readCatalog(files) {
     const directory = path.posix.dirname(file);
     const namespace = directory === '.' ? [] : directory.split('/');
 
-    const report = (offset, message) => {
+    const report = (offset, message, category = 'invalid-catalog') => {
       diagnostics.push({
         file: `translations/${file}`,
         ...lines.linePos(offset),
-        category: 'invalid-catalog',
+        category,
         message,
       });
     };
+
+    // keep validating .yml files so every problem surfaces in one run
+    if (path.posix.extname(file) === '.yml') {
+      report(
+        0,
+        'Translation files must use the .yaml extension; rename this file from .yml to .yaml',
+        'invalid-extension'
+      );
+    }
 
     if (document.errors.length > 0 || document.warnings.length > 0) {
       for (const error of [...document.errors, ...document.warnings]) {

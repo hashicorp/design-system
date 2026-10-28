@@ -16,6 +16,11 @@ export function validateTranslations({ catalogs, sources }) {
     ...usages.flatMap((usage) => usage.diagnostics),
   ];
 
+  // only invalid catalogs can hide keys; a wrong file extension still loads every key
+  const catalogComplete = catalog.diagnostics.every(
+    (diagnostic) => diagnostic.category !== 'invalid-catalog'
+  );
+
   // other locales cannot substitute for a missing source-locale definition
   const keys = new Set(
     catalog.records
@@ -35,7 +40,7 @@ export function validateTranslations({ catalogs, sources }) {
     });
   }
 
-  if (catalog.diagnostics.length === 0) {
+  if (catalogComplete) {
     for (const reference of references) {
       if (!keys.has(reference.key)) {
         diagnostics.push({
@@ -50,7 +55,7 @@ export function validateTranslations({ catalogs, sources }) {
   // incomplete extraction cannot establish that a catalog entry is unused
   if (
     usages.every((usage) => usage.diagnostics.length === 0) &&
-    catalog.diagnostics.length === 0
+    catalogComplete
   ) {
     for (const record of catalog.records) {
       if (!used.has(record.key)) {

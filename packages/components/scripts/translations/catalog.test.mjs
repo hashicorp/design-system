@@ -46,9 +46,43 @@ describe('readCatalog', () => {
   });
 
   test('normalizes locale filenames the same way as ember-intl', () => {
-    const result = readCatalog([{ file: 'hds/en_US.yml', source: 'a: A\n' }]);
+    const result = readCatalog([{ file: 'hds/en_US.yaml', source: 'a: A\n' }]);
 
     assert.equal(result.records[0]?.locale, 'en-us');
+  });
+
+  test('reports .yml files while still validating their keys', () => {
+    const result = readCatalog([
+      { file: 'hds/en-us.yml', source: 'valid: Valid\ncount: 1\n' },
+    ]);
+
+    assert.deepEqual(
+      result.diagnostics.map(({ file, line, category, message }) => ({
+        file,
+        line,
+        category,
+        message,
+      })),
+      [
+        {
+          file: 'translations/hds/en-us.yml',
+          line: 1,
+          category: 'invalid-extension',
+          message:
+            'Translation files must use the .yaml extension; rename this file from .yml to .yaml',
+        },
+        {
+          file: 'translations/hds/en-us.yml',
+          line: 2,
+          category: 'invalid-catalog',
+          message: 'Translation hds.count must have a string value',
+        },
+      ]
+    );
+    assert.deepEqual(
+      result.records.map((record) => record.key),
+      ['hds.valid']
+    );
   });
 
   test('accepts aliases that resolve to strings', () => {

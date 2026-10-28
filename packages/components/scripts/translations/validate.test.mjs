@@ -100,6 +100,19 @@ describe('validateTranslations', () => {
     ]);
   });
 
+  test('still reports missing and unused keys alongside a .yml extension', () => {
+    const result = validateTranslations({
+      catalogs: [catalog('a: A\nunused: Unused\n', 'hds/en-us.yml')],
+      sources: [source('hds.a', 'hds.missing')],
+    });
+
+    assert.deepEqual(summarize(result).sort(), [
+      'invalid-extension: Translation files must use the .yaml extension; rename this file from .yml to .yaml',
+      'missing-key: hds.missing',
+      'unused-key: hds.unused (en-us)',
+    ]);
+  });
+
   test('fails when no sources or en-us catalog are provided', () => {
     const empty = validateTranslations({ catalogs: [], sources: [] });
     const noSourceLocale = validateTranslations({
