@@ -397,8 +397,6 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
               field: {
                 'password-is-hidden': 'Overridden hidden message',
                 'password-is-visible': 'Overridden visible message',
-                // the pre-rename key must no longer be consulted
-                'toggle-password-is-hidden': 'Stale hidden message',
               },
             },
           },
