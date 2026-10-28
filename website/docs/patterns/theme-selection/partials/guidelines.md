@@ -29,7 +29,10 @@ Use a [Checkmark List Item](/components/dropdown#selection-listitems) with a lea
 
 ## Default theme
 
-During the transition period from HashiCorp visual language to IBM Carbon, set the application theme to `light` by default to make this transition less jarring. Otherwise, set the default theme to `system` to match the user's operating system.
+During the migration, applications usually roll out the "carbonized" HDS to users in cohorts (e.g., via feature flags), so the default depends on the cohort:
+
+- **Users not yet migrated:** use `default`, to keep the "classic" HDS visual language.
+- **Migrated users:** use `light`, to make the transition to IBM Carbon less jarring.
 
 ## System theme detection
 
