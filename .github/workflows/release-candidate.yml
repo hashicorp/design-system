@@ -75,7 +75,7 @@ jobs:
         # for packageList: use jq reduce to build up a string of markdown (ref: https://stedolan.github.io/jq/manual/#Reduce)
         run: |
           echo "::set-output name=count::$(echo ${{toJson(steps.changesets.outputs.publishedPackages)}} | jq '. | length')"
-          echo "::set-output name=packageList::$(echo ${{toJson(steps.changesets.outputs.publishedPackages)}} | jq 'reduce .[] as $item (""; . + "#### \($item.name)@\($item.version)\n```\nyarn up -C \($item.name)@rc\n```\n")')"
+          echo "::set-output name=packageList::$(echo ${{toJson(steps.changesets.outputs.publishedPackages)}} | jq 'reduce .[] as $item (""; . + "#### \($item.name)@\($item.version)\n```\npnpm up \($item.name)@rc\n```\n")')"
 
       - name: Comment
         uses: marocchino/sticky-pull-request-comment@0ea0beb66eb9baf113663a64ec522f60e49231c0 # v3.0.4
