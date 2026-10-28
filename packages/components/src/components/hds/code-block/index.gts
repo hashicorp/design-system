@@ -6,7 +6,11 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
-import { deferAfterRender, deferToNextTask } from '../../../utils/hds-defer.ts';
+import {
+  deferAfterRender,
+  deferToAnimationFrame,
+  deferToNextTask,
+} from '../../../utils/hds-defer.ts';
 import { htmlSafe } from '@ember/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
@@ -107,12 +111,13 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
       '.hds-code-block__code'
     ) as HTMLPreElement;
     this._observer = new ResizeObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.contentBoxSize) {
+      if (entries.some((entry) => entry.contentBoxSize)) {
+        // layout-affecting work is deferred to avoid ResizeObserver loop errors
+        deferToAnimationFrame(this, () => {
           this._updateCodeHeights();
           this._updatePrismPlugins();
-        }
-      });
+        });
+      }
     });
     this._observer.observe(element);
 
