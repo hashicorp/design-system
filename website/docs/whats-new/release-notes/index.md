@@ -26,3 +26,7 @@ navigation:
   <div class="doc-whats-new-changelog-figma-libraries-divider" />
   @include "partials/figma-library-utilities.md"
 </section>
+
+<section data-tab="MCP">
+  @include "partials/mcp.md"
+</section>
