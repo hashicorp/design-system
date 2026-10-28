@@ -32,6 +32,7 @@ description: "Instructions for how translation files should be structured and us
 - Use kebab case for translation string keys, and group them by component and subcomponent.
 - Use descriptive keys that indicate where the string is used in the component.
 - Pass a non-empty literal key directly to `hdsT` or `hdsIntl.t`. For conditional translations, use branches or exhaustive typed maps of functions containing literal-key calls. Do not interpolate keys or pass key variables.
-- Type service properties and parameters with the imported `HdsIntlService` (or a local `Pick<HdsIntlService, 't'>` alias) so the checker can identify translation calls.
-- Run `pnpm check:translations` in `packages/components` before submitting changes. CI checks for missing keys, unused catalog entries, invalid catalogs, and uncheckable calls.
+- Type service properties and parameters with the imported `HdsIntlService` so the checker can identify translation calls.
+- Name translation files with the `.yaml` extension, not `.yml`.
+- Run `pnpm check:translations` in `packages/components` before submitting changes. CI checks for missing keys, unused catalog entries, invalid catalogs, `.yml` file extensions, and uncheckable calls.
 - Only references in library source count as usage; Showcase, tests, and documentation do not keep a translation entry in use.
