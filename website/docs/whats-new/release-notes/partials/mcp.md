@@ -1,3 +1,10 @@
+<p class="doc-whats-new-changelog-npm-info">
+  <strong><code>npm package: @hashicorp/design-system-mcp</code></strong>
+  <a href="https://badge.fury.io/js/%40hashicorp%2Fdesign-system-mcp">
+    <img src="https://badge.fury.io/js/%40hashicorp%2Fdesign-system-mcp.svg" alt="npm version" height="20">
+  </a>
+</p>
+
 ## 0.2.2
 
 ### Patch Changes
