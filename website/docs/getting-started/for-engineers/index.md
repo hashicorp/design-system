@@ -208,11 +208,11 @@ To use theming in your application you need to:
 
 3. add a theme switcher, which follows our [theme selection pattern](/patterns/theme-selection), to your application and implement the logic associated with it (integration with the `hdsTheming` service and user's choice persistence)
 
-For more technical details about how theming is implemented in HDS, and theme switching in general, see [Foundations/Theming](/foundations/theming) and the [theme selection pattern](/patterns/theme-selection).
+For more technical details about how theming is implemented in HDS, and theme switching in general, see [implementing theming](/foundations/theming?tab=code) and the [theme selection pattern](/patterns/theme-selection).
 
 ### Complex configurations
 
-The steps above describe a basic setup. Depending on your application, you may need to adapt them to your codebase's folder structure, your front-end infrastructure and build system, and the theming experience you want to offer to your users. For guidance about these more advanced scenarios, see [Foundations/Theming](/foundations/theming).
+The steps above describe a basic setup. Depending on your application, you may need to adapt them to your codebase's folder structure, your front-end infrastructure and build system, and the theming experience you want to offer to your users. For guidance about these more advanced scenarios, see [implementing theming](/foundations/theming?tab=code).
 
 ## Internationalization
 

@@ -1,6 +1,6 @@
 !!! Insight
 
-For more details about theming in HDS/Carbon, how it works, and how it could be used in your application, see [From Helios to Carbon](/carbonization/introduction) and [Foundations/Theming](/foundations/theming).
+For more details about theming in HDS/Carbon, how it works, and how it could be used in your application, see [From Helios to Carbon](/carbonization/introduction) and [theming foundations](/foundations/theming).
 
 !!!
 
@@ -18,7 +18,7 @@ Refer to the [Component API](#component-api) for details about the visual treatm
 
 ### Requirements
 
-`ThemeContext` works by overriding the design tokens declared for a theme/mode, so it has an effect only if your application imports the "themed" CSS/Sass files provided by HDS. For details about how to import them, see [Getting started for engineers](/getting-started/for-engineers#import-component-styles) and [Foundations/Theming](/foundations/theming?tab=code).
+`ThemeContext` works by overriding the design tokens declared for a theme/mode, so it has an effect only if your application imports the "themed" CSS/Sass files provided by HDS. For details about how to import them, see [Getting started for engineers](/getting-started/for-engineers#import-component-styles) and [implementing theming](/foundations/theming?tab=code).
 
 The file that you import also determines which `@context` values are supported:
 
@@ -44,7 +44,7 @@ Use a mode value when you need to select a specific IBM Carbon color mode within
 
 As noted in the [Requirements](#requirements) above, the mode values are supported only if your application imports the `themed-tokens/with-css-selectors--advanced` CSS/Sass file.
 
-For more information about the relationship between themes and modes, see [Foundations/Theming](/foundations/theming).
+For more information about the relationship between themes and modes, see [themes and modes](/foundations/theming?tab=guidelines#themes-and-modes).
 
 !!!
 

@@ -31,7 +31,7 @@ At a high level, adopting this version involves three main steps:
 - **Migrating design tokens**: updating token references throughout the codebase to the new naming convention, including the prefix (`--token-*` becomes `--hds-*`) and changes to the structure of some token names.
 - **Adding a theme selector**: implementing a [theme selection pattern](/patterns/theme-selection) to let users switch between themes at runtime.
 
-Before starting, we recommend reaching out to the Design Systems Team to get guidance on the right approach for your application and to plan and coordinate the migration (the HDS team can run an automated migration against your codebase to handle the bulk of this). See [Foundations/Theming](/foundations/theming?tab=code) for more details.
+Before starting, we recommend reaching out to the Design Systems Team to get guidance on the right approach for your application and to plan and coordinate the migration (the HDS team can run an automated migration against your codebase to handle the bulk of this). See [how to adopt theming in your application](/foundations/theming?tab=code#how-to-adopt-theming-in-your-application) for more details.
 
 ## Developing and testing in multiple themes
 

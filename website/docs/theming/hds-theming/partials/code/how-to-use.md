@@ -1,6 +1,6 @@
 !!! Insight
 
-For more details about theming in HDS/Carbon, how it works, and how it could be used in your application, see [From Helios to Carbon](/carbonization/introduction) and [Foundations/Theming](/foundations/theming).
+For more details about theming in HDS/Carbon, how it works, and how it could be used in your application, see [From Helios to Carbon](/carbonization/introduction) and [theming foundations](/foundations/theming).
 
 !!!
 
@@ -14,7 +14,7 @@ It's a consumer responsibility to implement the logic to [persist the user's cho
 
 ### Themed tokens
 
-The service relies on one of the [themed tokens files](/foundations/theming?tab=code#themed-tokens) being imported first. Which themes and modes it can apply depends on the file imported by your application. For details, see [Foundations/Theming](/foundations/theming?tab=code#themed-tokens).
+The service relies on one of the [themed tokens files](/foundations/theming?tab=code#themed-tokens) being imported first. Which themes and modes it can apply depends on the file imported by your application.
 
 For example, this is the structure of the CSS file for the "migration" set of tokens:
 
@@ -38,7 +38,7 @@ By default, the `light` theme maps to `cds-g0` and the `dark` theme maps to `cds
 
 [[code-snippets/hds-theming-advanced-options execute=false]]
 
-These options are relevant only when your application imports the `with-css-selectors--advanced` themed tokens file. The standard `with-css-selectors` and `with-css-selectors--migration` files don't include the additional `cds-g10` and `cds-g90` modes. See [Foundations/Theming](/foundations/theming) for details.
+These options are relevant only when your application imports the `with-css-selectors--advanced` themed tokens file. The standard `with-css-selectors` and `with-css-selectors--migration` files don't include the additional `cds-g10` and `cds-g90` modes. See [themed tokens](/foundations/theming?tab=code#themed-tokens) for details.
 
 The `system` theme is handled in CSS through the `prefers-color-scheme` media query, so these options apply only when setting the `light` or `dark` themes directly.
 

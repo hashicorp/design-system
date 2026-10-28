@@ -23,7 +23,7 @@ The service exposes a `setTheme` method to apply a theme:
 
 **Imported tokens and available themes**
 
-The `hdsTheming` service can apply any supported theme value, but the visual result depends on the themed tokens file imported by your application. For example, the `with-css-selectors` file doesn't include the `default` theme, so setting `theme: 'default'` won't restore the "classic" HDS visual language. For details about which token files support the different themes and modes, see [Foundations/Theming](/foundations/theming?tab=code#themed-tokens).
+The `hdsTheming` service can apply any supported theme value, but the visual result depends on the themed tokens file imported by your application. For example, the `with-css-selectors` file doesn't include the `default` theme, so setting `theme: 'default'` won't restore the "classic" HDS visual language. For details about which token files support the different themes and modes, see [themed tokens](/foundations/theming?tab=code#themed-tokens).
 
 !!!
 

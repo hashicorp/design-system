@@ -8,7 +8,7 @@ Before `v7.0`, icons were delivered as a single SVG sprite. Now each one is load
 
 Which icon is rendered also depends on the [theme](/foundations/theming) applied to the application. When a Carbon theme is active, the equivalent [Carbon icon](https://carbondesignsystem.com/elements/icons/library/) is displayed in place of the Flight one (which acts as a fallback if no equivalent exists).
 
-For more details, see [From Helios to Carbon](/carbonization/introduction) and [Foundations/Theming](/foundations/theming).
+For more details, see [From Helios to Carbon](/carbonization/introduction) and [theming foundations](/foundations/theming).
 !!!
 
 The most basic invocation of the Icon component requires only the `@name` property to be passed with a value matching an existing name in [the Icon library](/icons/library):

@@ -1,6 +1,6 @@
 The theme selector provides users with a way to switch the application's visual theme between supported options. A user can change the theme via the existing User dropdown in the [App Header](/components/app-header)'s `utilityActions`.
 
-For more details about how theming is implemented in HDS, and how to use it for theme selection in an Ember application, see [Foundations/Theming](/foundations/theming?tab=code).
+For more details about how theming is implemented in HDS, and how to use it for theme selection in an Ember application, see [implementing theming](/foundations/theming?tab=code).
 
 ## Placement
 
