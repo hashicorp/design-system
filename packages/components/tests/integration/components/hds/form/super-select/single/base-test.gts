@@ -264,7 +264,7 @@ module(
               as |option|
             >{{option}}</HdsFormSuperSelectSingleBase>
           {{/if}}
-        </template>,
+        </template>
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       const activeWhenOpen = countActiveScrollListeners();
@@ -276,7 +276,7 @@ module(
       assert.strictEqual(
         countActiveScrollListeners(),
         activeWhenOpen,
-        'repositioning does not add more scroll listeners',
+        'repositioning does not add more scroll listeners'
       );
 
       context.isRendered = false;
@@ -284,7 +284,7 @@ module(
       assert.strictEqual(
         countActiveScrollListeners(),
         0,
-        'scroll listeners are removed',
+        'scroll listeners are removed'
       );
     });
 
