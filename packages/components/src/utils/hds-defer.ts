@@ -4,6 +4,7 @@
  */
 
 import { isDestroyed, isDestroying } from '@ember/destroyable';
+import { renderSettled } from '@ember/renderer';
 import { waitForPromise } from '@ember/test-waiters';
 
 type Context = object;
@@ -22,14 +23,13 @@ const run = (context: Context, callback: () => void): void => {
 };
 
 /**
- * Runs the callback once the current synchronous render has completed.
+ * Runs the callback once the pending render has completed (`renderSettled`).
  * Replacement for `schedule('afterRender', ...)`.
  * The callback is skipped if `context` has been destroyed in the meantime,
  * and the pending work is tracked so that test `settled()` waits for it.
  */
 export function deferAfterRender(context: Context, callback: () => void): void {
-  // eslint-disable-next-line @typescript-eslint/no-floating-promises
-  waitForPromise(Promise.resolve().then(() => run(context, callback)));
+  waitForPromise(renderSettled().then(() => run(context, callback)));
 }
 
 /**
