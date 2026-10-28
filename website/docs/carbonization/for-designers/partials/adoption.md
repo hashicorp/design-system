@@ -34,13 +34,15 @@ Modes can be switched on layers, frames, components and component sets, sections
 
 To switch modes for an **object**:
 
-1. Select the layer, group, or container.
+1. Select the layer, frame, group, or container.
 2. In the right sidebar Appearance section, click the "Apply variable mode" icon.
 3. Hover over the "Themes" collection and select a mode.
 
 ![](/assets/carbonization/designers/switch-modes-object.png)
 
-![Example illustrating the visual difference between icons in hds and icons in cds](/assets/carbonization/designers/hds-cds-icon-comparison.png)
+Switching modes will update the visual language of the selected object, including typography, colors, icons, etc.
+
+![Example illustrating the visual difference between icons in hds and icons in cds after switching modes](/assets/carbonization/designers/hds-cds-icon-comparison.png)
 
 Once you select a mode, a tag with the mode name will appear next to the layer name in the Layers panel.
 
