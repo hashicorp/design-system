@@ -110,6 +110,11 @@ jobs:
       # resolve only what the scenario changed, keep the rest of the workspace locked
       - name: Install Dependencies
         run: pnpm install --no-frozen-lockfile
+      # @embroider/vite's compat build reads our public-assets (the fonts) from dist
+      - name: Build Components
+        if: matrix.env.ENABLE_COMPAT_BUILD
+        run: pnpm build
+        working-directory: packages/components
       - name: Run Tests
         run: pnpm test
         working-directory: packages/components
