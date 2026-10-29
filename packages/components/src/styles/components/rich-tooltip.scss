@@ -163,7 +163,6 @@
   @include hds-apply-only-if-carbon() {
     border: 1px solid var(--hds-rich-tooltip-bubble-border-color);
     box-shadow: none;
-    transition: none;
   }
 
   // the "popover" attributes comes with pre-defined styling so we need to override it
