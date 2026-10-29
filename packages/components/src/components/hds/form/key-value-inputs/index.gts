@@ -107,15 +107,15 @@ export default class HdsFormKeyValueInputs<T = unknown> extends Component<
   }
 
   _setUpColumn = (): void => {
-    deferAfterRender(this, (): void => {
+    deferAfterRender((): void => {
       this._updateColumns();
-    });
+    }, this);
   };
 
   _removeColumn = (): void => {
-    deferAfterRender(this, (): void => {
+    deferAfterRender((): void => {
       this._updateColumns();
-    });
+    }, this);
   };
 
   appendDescriptor = (element: HTMLElement): void => {

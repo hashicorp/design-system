@@ -78,7 +78,8 @@ export default class HdsDisclosurePrimitive extends Component<HdsDisclosurePrimi
 
   close = (): void => {
     // we schedule this afterRender to avoid an error in tests caused by updating `isOpen` multiple times in the same computation
-    deferAfterRender(this, (): void => {
+    // no destroyable is passed so that `onClose` still fires if closing tears the component down
+    deferAfterRender((): void => {
       this.isOpen = false;
       // we call the "onClose" callback if it exists (and is a function)
       if (this.args.onClose && typeof this.args.onClose === 'function') {

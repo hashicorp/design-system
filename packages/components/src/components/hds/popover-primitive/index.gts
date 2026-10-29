@@ -190,7 +190,7 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
       this._toggleElement !== undefined &&
       this._popoverElement !== undefined
     ) {
-      deferToNextTask(this, (): void => {
+      deferToNextTask((): void => {
         // Called as a function, the modifier hands its teardown back to us
         // instead of Ember, so we have to run it before reapplying and on destroy
         this._cleanupAnchoredPosition?.();
@@ -200,7 +200,7 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
           [this._toggleElement], // positional arguments
           this._anchoredPositionOptions // named arguments
         ) as () => void;
-      });
+      }, this);
     }
   }
 

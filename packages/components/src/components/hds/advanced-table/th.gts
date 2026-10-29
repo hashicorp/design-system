@@ -8,7 +8,7 @@ import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import { deferAfterRenderOnce } from '../../../utils/hds-defer.ts';
+import { deferAfterRender } from '../../../utils/hds-defer.ts';
 import { focusable, type FocusableElement } from 'tabbable';
 import { modifier } from 'ember-modifier';
 import style from 'ember-style-modifier';
@@ -365,9 +365,9 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   }
 
   @action setElement(element: HTMLDivElement): void {
-    deferAfterRenderOnce(this, () => {
+    deferAfterRender(() => {
       this._element = element;
-    });
+    }, this);
   }
 
   private _registerReorderHandleElement = modifier(

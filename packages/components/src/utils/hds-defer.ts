@@ -7,85 +7,85 @@ import { isDestroyed, isDestroying } from '@ember/destroyable';
 import { renderSettled } from '@ember/renderer';
 import { waitForPromise } from '@ember/test-waiters';
 
-type Context = object;
+const pendingOnce = new WeakMap<object, Set<() => void>>();
 
-const pendingOnce = new WeakMap<Context, Set<() => void>>();
+const isTornDown = (destroyable: object): boolean =>
+  isDestroying(destroyable) || isDestroyed(destroyable);
 
-const isContextTornDown = (context: Context): boolean =>
-  isDestroying(context) || isDestroyed(context);
-
-const run = (context: Context, callback: () => void): void => {
-  if (isContextTornDown(context)) {
+const runUnlessTornDown = (
+  callback: () => void,
+  destroyable?: object
+): void => {
+  if (destroyable !== undefined && isTornDown(destroyable)) {
     return;
   }
 
   callback();
 };
 
+// accepts both native and RSVP promises (`renderSettled` returns the latter)
+const track = (promise: Parameters<typeof waitForPromise>[0]): void => {
+  // the returned promise is intentionally not awaited, errors still surface through the test waiter and `Ember.onerror`
+  // eslint-disable-next-line @typescript-eslint/no-floating-promises
+  waitForPromise(promise);
+};
+
 /**
- * Runs the callback once the pending render has completed (`renderSettled`).
+ * Runs the callback once Ember has finished rendering pending changes.
  * Replacement for `schedule('afterRender', ...)`.
- * The callback is skipped if `context` has been destroyed in the meantime,
- * and the pending work is tracked so that test `settled()` waits for it.
+ *
+ * When `destroyable` is provided, the callback is skipped if it has been
+ * destroyed in the meantime. Omit it when the callback must run during teardown
+ * (e.g. to notify a consumer).
  */
-export function deferAfterRender(context: Context, callback: () => void): void {
-  waitForPromise(renderSettled().then(() => run(context, callback)));
+export function deferAfterRender(
+  callback: () => void,
+  destroyable?: object
+): void {
+  track(renderSettled().then(() => runUnlessTornDown(callback, destroyable)));
 }
 
 /**
  * Same as `deferAfterRender`, but ignores further calls with the same callback
- * for the same `context` until the first one has run.
- * Replacement for `scheduleOnce('afterRender', context, callback)`.
+ * for the same `destroyable` until the first one has run.
+ * Replacement for `scheduleOnce('afterRender', target, method)`.
+ *
+ * The callback must have a stable identity (e.g. a class field or `@action`),
+ * an inline function never matches a pending one.
  */
 export function deferAfterRenderOnce(
-  context: Context,
-  callback: () => void
+  callback: () => void,
+  destroyable: object
 ): void {
-  let pending = pendingOnce.get(context);
-
-  if (!pending) {
-    pending = new Set();
-    pendingOnce.set(context, pending);
-  }
+  const pending = pendingOnce.get(destroyable) ?? new Set<() => void>();
 
   if (pending.has(callback)) {
     return;
   }
 
   pending.add(callback);
+  pendingOnce.set(destroyable, pending);
 
-  deferAfterRender(context, () => {
+  deferAfterRender(() => {
     pending.delete(callback);
     callback();
-  });
+  }, destroyable);
 }
 
 /**
- * Runs the callback in a later task, after the browser has had the chance to
- * process pending work. Replacement for `next(...)`.
+ * Runs the callback in a later macrotask, after the browser has had a chance
+ * to paint. Replacement for `next(...)`.
+ *
+ * When `destroyable` is provided, the callback is skipped if it has been
+ * destroyed in the meantime.
  */
-export function deferToNextTask(context: Context, callback: () => void): void {
-  const promise = new Promise<void>((resolve) => {
-    setTimeout(resolve, 0);
-  }).then(() => run(context, callback));
-
-  // eslint-disable-next-line @typescript-eslint/no-floating-promises
-  waitForPromise(promise);
-}
-
-/**
- * Runs the callback on the next animation frame. Use it for work triggered by
- * a `ResizeObserver` that may alter layout, to avoid the
- * "ResizeObserver loop completed with undelivered notifications" error.
- */
-export function deferToAnimationFrame(
-  context: Context,
-  callback: () => void
+export function deferToNextTask(
+  callback: () => void,
+  destroyable?: object
 ): void {
-  const promise = new Promise<void>((resolve) => {
-    requestAnimationFrame(() => resolve());
-  }).then(() => run(context, callback));
-
-  // eslint-disable-next-line @typescript-eslint/no-floating-promises
-  waitForPromise(promise);
+  track(
+    new Promise<void>((resolve) => {
+      setTimeout(resolve, 0);
+    }).then(() => runUnlessTornDown(callback, destroyable))
+  );
 }

@@ -155,37 +155,37 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
   }
 
   didInsertStep = (): void => {
-    deferAfterRender(this, (): void => {
+    deferAfterRender((): void => {
       this.updateSteps();
-    });
+    }, this);
   };
 
   willDestroyStep = (element: HTMLElement): void => {
-    deferAfterRender(this, (): void => {
+    deferAfterRender((): void => {
       this._stepNodes = this._stepNodes.filter(
         (node): boolean => node.id !== element.id
       );
       this._stepIds = this._stepIds.filter(
         (stepId): boolean => stepId !== element.id
       );
-    });
+    }, this);
   };
 
   didInsertPanel = (): void => {
-    deferAfterRender(this, (): void => {
+    deferAfterRender((): void => {
       this.updatePanels();
-    });
+    }, this);
   };
 
   willDestroyPanel = (element: HTMLElement): void => {
-    deferAfterRender(this, (): void => {
+    deferAfterRender((): void => {
       this._panelNodes = this._panelNodes.filter(
         (node): boolean => node.id !== element.id
       );
       this._panelIds = this._panelIds.filter(
         (panelId): boolean => panelId !== element.id
       );
-    });
+    }, this);
   };
 
   onKeyUp = (currentStepIndex: number, event: KeyboardEvent): void => {

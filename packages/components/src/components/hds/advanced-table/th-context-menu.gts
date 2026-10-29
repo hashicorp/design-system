@@ -253,7 +253,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
     const { onFocusReorderHandle } = this.args;
 
     if (typeof onFocusReorderHandle === 'function') {
-      deferAfterRenderOnce(this, onFocusReorderHandle);
+      deferAfterRenderOnce(onFocusReorderHandle, this);
     }
   }
 
