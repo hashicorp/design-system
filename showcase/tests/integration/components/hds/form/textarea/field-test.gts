@@ -13,6 +13,9 @@ import {
   triggerEvent,
 } from '@ember/test-helpers';
 import { on } from '@ember/modifier';
+import { fn } from '@ember/helper';
+import { set as setProperty } from '@ember/object';
+import Component from '@glimmer/component';
 import { TrackedObject } from 'tracked-built-ins';
 import pick from '@nullvoxpopuli/ember-composable-helpers/helpers/pick';
 import set from 'ember-set-helper/helpers/set';
@@ -91,7 +94,7 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
     assert.dom('.hds-form-field__character-count').includesText('13');
   });
 
-  test('it updates caller state and character count with the codemod handler pattern', async function (assert) {
+  test('it updates caller state and character count with the codemod helper fallback', async function (assert) {
     const state = new TrackedObject({ description: 'initial' });
 
     await render(
@@ -123,6 +126,54 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
 
     textarea.value = '';
     await triggerEvent(textarea, 'input');
+    assert.strictEqual(state.description, '');
+    assert.dom('.hds-form-field__character-count').includesText('20');
+  });
+
+  test('it updates caller state before validation with the codemod backing-class handler', async function (assert) {
+    const state = new TrackedObject({ description: 'initial' });
+    const observed: string[] = [];
+    const validate = () => observed.push(state.description);
+
+    class Consumer extends Component {
+      hdsTextareaValueChange = (object: object, key: string, event: Event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLTextAreaElement)) {
+          throw new TypeError('Expected a textarea event target');
+        }
+        setProperty(object, key, target.value);
+      };
+
+      <template>
+        <HdsFormTextareaField
+          @value={{state.description}}
+          {{on "input" (fn this.hdsTextareaValueChange state "description")}}
+          {{on "change" (fn this.hdsTextareaValueChange state "description")}}
+          {{on "input" validate}}
+          as |F|
+        >
+          <F.Label>Description</F.Label>
+          <F.CharacterCount @maxLength={{20}} />
+        </HdsFormTextareaField>
+      </template>
+    }
+
+    await render(<template><Consumer /></template>);
+    await fillIn('textarea', 'edited');
+    assert.strictEqual(state.description, 'edited');
+    assert.deepEqual(observed, ['edited']);
+    assert.dom('.hds-form-field__character-count').includesText('14');
+
+    const textarea = find('textarea');
+    if (!(textarea instanceof HTMLTextAreaElement)) {
+      throw new Error('Expected a native textarea');
+    }
+    textarea.value = 'change only';
+    await triggerEvent(textarea, 'change');
+    assert.strictEqual(state.description, 'change only');
+    assert.dom('.hds-form-field__character-count').includesText('9');
+
+    await fillIn('textarea', '');
     assert.strictEqual(state.description, '');
     assert.dom('.hds-form-field__character-count').includesText('20');
   });

@@ -26,7 +26,7 @@ function hasHelpers(filePath) {
   }
 }
 
-module.exports = function ({ source, path: filePath }, { parse, visit }) {
+module.exports = function ({ source, path: filePath }, { parse, visit, backing, location }) {
   const ast = parse(source);
   const options = getOptions();
   const helpersAvailable = options.helpers === true || hasHelpers(filePath);
@@ -37,7 +37,7 @@ module.exports = function ({ source, path: filePath }, { parse, visit }) {
     const { builders: b } = env.syntax;
     const report = (node, message) => {
       console.warn(
-        `[v8/textarea] ${filePath}:${node.loc.start.line}:${node.loc.start.column + 1}: ${message}`
+        `[v8/textarea] ${filePath}:${node.loc.start.line + (location?.line || 0)}:${node.loc.start.column + 1 + (node.loc.start.line === 1 ? location?.column || 0 : 0)}: ${message}`
       );
     };
     const pushScope = (blockParams, type = null) => {
@@ -71,6 +71,10 @@ module.exports = function ({ source, path: filePath }, { parse, visit }) {
           let type = contextualType(node.tag);
           if (node.tag === 'Hds::Form::KeyValueInputs') type = 'collection';
           if (node.tag === 'Hds::Form::KeyValueInputs::Field') type = 'field';
+          const shadowed = scopes.some((scope) => scope.has(node.tag.split('.')[0]));
+          if (backing?.components.has(node.tag) && !shadowed) {
+            type = backing.components.get(node.tag);
+          }
           if (node.tag === ':row' && elements[elements.length - 1] === 'collection') type = 'row';
           const isTextarea =
             ['Hds::Form::Textarea::Base', 'Hds::Form::Textarea::Field'].includes(node.tag) ||
@@ -111,8 +115,9 @@ module.exports = function ({ source, path: filePath }, { parse, visit }) {
           ) {
             return;
           }
+          if (backing && backing.isMigrated(node)) return;
           if (
-            node.modifiers.length ||
+            (!backing && node.modifiers.length) ||
             node.attributes.some((attribute) => attribute.name === '...attributes')
           ) {
             report(
@@ -133,6 +138,33 @@ module.exports = function ({ source, path: filePath }, { parse, visit }) {
             report(
               node,
               'Cannot infer a writable object/property from @value. Add an explicit value-update handler if caller state must change.'
+            );
+            return;
+          }
+          if (backing) {
+            if (
+              scopes.some((scope) =>
+                [backing.on, backing.fn, backing.handler].some((name) => scope.has(name))
+              )
+            ) {
+              report(node, 'A block parameter shadows a migration helper. No handlers were added.');
+              return;
+            }
+            const parts = value.path.original.split('.');
+            const property = parts.pop();
+            const object = parts.join('.');
+            if (!backing.register(object, property, node, report)) return;
+            node.modifiers.unshift(
+              ...['input', 'change'].map((event) =>
+                b.elementModifier(backing.on, [
+                  b.string(event),
+                  b.sexpr(backing.fn, [
+                    b.path(backing.handler),
+                    b.path(object),
+                    b.string(property),
+                  ]),
+                ])
+              )
             );
             return;
           }
