@@ -90,7 +90,7 @@ export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvanc
         onStepColumn(direction);
 
         // we need to wait for the next run loop to ensure that the element has been registered with the column after moving
-        deferAfterRenderOnce(this, this.args.onFocusReorderHandle);
+        deferAfterRenderOnce(this.args.onFocusReorderHandle, this);
         break;
       }
 

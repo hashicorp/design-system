@@ -124,15 +124,15 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
       this.selectedTabIndex = this._tabIds.indexOf(this._selectedTabId);
     }
 
-    deferAfterRender(this, (): void => {
+    deferAfterRender((): void => {
       this.setTabIndicator();
-    });
+    }, this);
   };
 
   didUpdateSelectedTabIndex = (): void => {
-    deferAfterRender(this, (): void => {
+    deferAfterRender((): void => {
       this.setTabIndicator();
-    });
+    }, this);
   };
 
   didUpdateSelectedTabId = (): void => {
@@ -147,9 +147,9 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
   };
 
   didUpdateParentVisibility = (): void => {
-    deferAfterRender(this, (): void => {
+    deferAfterRender((): void => {
       this.setTabIndicator();
-    });
+    }, this);
   };
 
   didInsertTab = (element: HTMLButtonElement, isSelected?: boolean): void => {
@@ -234,7 +234,7 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
   };
 
   setTabIndicator = (): void => {
-    deferToNextTask(this, (): void => {
+    deferToNextTask((): void => {
       const tabElem = this._tabNodes[this.selectedTabIndex];
 
       if (tabElem != null) {
@@ -277,7 +277,7 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
           id: 'hds-debug.tabs.setTabIndicator-tabElem-not-available',
         });
       }
-    });
+    }, this);
   };
 
   <template>

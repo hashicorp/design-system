@@ -41,9 +41,9 @@ export default class HdsStepperList extends Component<HdsStepperListSignature> {
   }
 
   didInsertStep = (element: HTMLElement): void => {
-    deferAfterRender(this, (): void => {
+    deferAfterRender((): void => {
       this._stepIds = [...this._stepIds, element.id];
-    });
+    }, this);
   };
 
   willDestroyStep = (element: HTMLElement): void => {

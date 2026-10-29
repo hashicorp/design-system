@@ -6,11 +6,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
-import {
-  deferAfterRender,
-  deferToAnimationFrame,
-  deferToNextTask,
-} from '../../../utils/hds-defer.ts';
+import { deferAfterRender, deferToNextTask } from '../../../utils/hds-defer.ts';
 import { htmlSafe } from '@ember/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
@@ -111,13 +107,12 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
       '.hds-code-block__code'
     ) as HTMLPreElement;
     this._observer = new ResizeObserver((entries) => {
-      if (entries.some((entry) => entry.contentBoxSize)) {
-        // layout-affecting work is deferred to avoid ResizeObserver loop errors
-        deferToAnimationFrame(this, () => {
+      entries.forEach((entry) => {
+        if (entry.contentBoxSize) {
           this._updateCodeHeights();
           this._updatePrismPlugins();
-        });
-      }
+        }
+      });
     });
     this._observer.observe(element);
 
@@ -211,7 +206,7 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
     const grammar = language ? Prism.languages[language] : undefined;
 
     if (code) {
-      deferToNextTask(this, (): void => {
+      deferToNextTask((): void => {
         if (language && grammar) {
           this._prismCode = htmlSafe(Prism.highlight(code, grammar, language));
         } else {
@@ -240,12 +235,12 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
           element,
         });
 
-        deferAfterRender(this, (): void => {
+        deferAfterRender((): void => {
           this._updateCodeHeights();
           // we need to delay re-evaluating the context for prism plugins for as much as possible, and `afterRender` is the 'latest' we can use in the component lifecycle
           this._updatePrismPlugins();
-        });
-      });
+        }, this);
+      }, this);
     }
   };
 

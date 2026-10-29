@@ -90,15 +90,21 @@ function synchronizeDescriptors(component: AriaDescribedByComponent): void {
 // the callback needs a stable identity per component for the "once" de-duplication to work
 const synchronizers = new WeakMap<AriaDescribedByComponent, () => void>();
 
-function scheduleSynchronization(component: AriaDescribedByComponent): void {
-  let synchronize = synchronizers.get(component);
+function getSynchronizer(component: AriaDescribedByComponent): () => void {
+  const existing = synchronizers.get(component);
 
-  if (!synchronize) {
-    synchronize = (): void => synchronizeDescriptors(component);
-    synchronizers.set(component, synchronize);
+  if (existing !== undefined) {
+    return existing;
   }
 
-  deferAfterRenderOnce(component, synchronize);
+  const synchronize = (): void => synchronizeDescriptors(component);
+  synchronizers.set(component, synchronize);
+
+  return synchronize;
+}
+
+function scheduleSynchronization(component: AriaDescribedByComponent): void {
+  deferAfterRenderOnce(getSynchronizer(component), component);
 }
 
 export function registerAriaDescriptionElement(
