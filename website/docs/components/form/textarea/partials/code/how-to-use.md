@@ -35,7 +35,7 @@ In HDS 8, Textarea uses a native element instead of Ember's built-in component. 
 
 If you relied on `@value={{this.description}}` updating `this.description` as you typed, add an explicit handler as shown in [Events handling](#events-handling). Review existing handlers too: a handler that only validates, or only updates state on `change`, doesn't update your state on every keystroke. Listen to `change` as well if your application needs to handle change events without an input event.
 
-The [`v8/textarea` codemod](https://github.com/hashicorp/design-system/tree/main/packages/codemods/transforms/v8/textarea) can migrate straightforward `.hbs` bindings. It reports existing modifiers and complex bindings for manual review. It doesn't rewrite `.gts` or `.gjs` files; add a class handler in those files.
+The [`v8/textarea` codemod](https://github.com/hashicorp/design-system/tree/main/packages/codemods/transforms/v8/textarea) migrates straightforward bindings in `.hbs`, `.gts`, and `.gjs` files. It updates paired backing JavaScript or TypeScript classes, adds explicit value-update handlers, and manages imports in strict-mode components. Existing event handlers are preserved. It reports complex bindings, forwarded attributes, and other cases requiring manual review.
 
 The native element also no longer adds the `ember-text-area` and `ember-view` classes. Use `hds-form-textarea` or your own class for selectors.
 
