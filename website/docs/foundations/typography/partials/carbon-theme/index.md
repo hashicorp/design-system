@@ -1,12 +1,12 @@
 ## Typography in Carbon
 
-When a Carbon Theme is applied to the UI, typography is aligned with the [Carbon type system](https://carbondesignsystem.com/elements/typography/overview/). The main differences compared to HDS are:
+When using a Carbon theme, typography is aligned with [Carbon's type system](https://carbondesignsystem.com/elements/typography/overview/). The main differences to HDS are:
 
 - **Font family**: display, text, and code font families are replaced by the IBM Plex typefaces.
 - **Font weight**: heavier font weights are consolidated, reducing the available weights from four to two.
-- **Font size**: HDS type styles are roughly mapped to the closest equivalent in the Carbon type set.
+- **Font size**: HDS font sizes are roughly mapped to the closest equivalent in the Carbon type set.
 
-The names of the tokens and helper classes don't change, so no code updates are needed beyond [loading the IBM Plex fonts](/foundations/theming?tab=code).
+The token and helper class names remain the same, so you only need to [load the IBM Plex fonts](/foundations/theming?tab=code).
 
 ## Font family
 
