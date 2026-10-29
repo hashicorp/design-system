@@ -9870,7 +9870,6 @@ button.hds-button[href]::after {
 .hds-theme-system .hds-rich-tooltip__bubble {
   border: 1px solid var(--hds-rich-tooltip-bubble-border-color);
   box-shadow: none;
-  transition: none;
 }
 
 :where(.hds-rich-tooltip__bubble[popover]) {
