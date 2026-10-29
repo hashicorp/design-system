@@ -92,6 +92,8 @@ Note: If you want to ignore a changeset bump in terminal (e.g. major bump for se
 
 See the [release docs](https://hashicorp.atlassian.net/wiki/x/HIBT0Q) for the process we follow to publish a new package version.
 
+The smoke-test CLI is documented in [`scripts/smoke-test`](scripts/smoke-test/README.md).
+
 ## License
 
 This project is licensed under the [Mozilla Public License 2.0](LICENSE).
