@@ -28,17 +28,54 @@ Building or changing this skill is not authorization to run a live smoke test.
   and changes before committing, pushing, or opening draft PRs. Ask separately
   before closing PRs or deleting local checkouts. Respect a user-specified stopping
   point even if later steps would be useful.
-- Never publish packages, merge PRs, enable auto-merge, force-push, edit the candidate
-  PR, or change CI configuration as part of this skill.
+- Never publish packages directly, merge PRs, enable auto-merge, force-push, edit an
+  existing candidate PR, or change CI configuration as part of this skill. The only
+  publication path is the `release-candidate` label workflow in step 0.
 - Keep consumer inventory, private repository links, workflow details, and
   diagnostics local or in the relevant private consumer PR. Do not copy them to
   a public candidate PR. Public reporting is not implemented; do not post it.
 
+## 0. Create a candidate PR (only when asked)
+
+Skip this step when the engineer supplies an existing candidate PR. Run it only
+when they explicitly ask for a new candidate PR to be created.
+
+1. Confirm `gh auth status` shows the engineer's account. If not, ask them to run
+   `gh auth login`; do not request tokens.
+2. Branch from the latest `main` (e.g. `smoke-test/<version>-readme-edit`). Do not
+   reuse an existing branch or touch unrelated work.
+3. Make a small, harmless edit to `packages/components/README.md`, such as a
+   one-line wording tweak. Do not change facts such as supported versions.
+4. Add a patch changeset for `@hashicorp/design-system-components` in `.changeset/`
+   following the `add-changeset` skill. The RC workflow only publishes packages with
+   a changeset, so without one no candidate is published. If the engineer declines
+   the changeset, warn that no RC will be published.
+5. Commit and push the branch (non-force).
+6. Open a **draft** PR against `main` using `.github/pull_request_template.md`. Title
+   it `DO NOT MERGE: <summary>`, state **DO NOT MERGE** and the target version in the
+   summary, and keep it free of private consumer details.
+7. Add the `release-candidate` label to the draft PR:
+
+   ```sh
+   gh pr edit <candidate> --add-label "release-candidate"
+   ```
+
+   The `Release Candidate` workflow (`.github/workflows/release-candidate.yml`) runs
+   on `opened`, `synchronize`, `reopened`, and `labeled` events, and only when the
+   label is present. Labeling triggers publication of RC packages to npm, so confirm
+   the engineer wants that before adding it.
+8. Report the PR URL, then wait for the workflow's `rc-release` comment listing the
+   published RC packages. Do not proceed to step 1 until that comment exists for the
+   current head SHA. Do not rerun or dispatch the workflow without approval.
+
+Pushing, opening the PR, and labeling follow the approval rules above.
+
 ## 1. Establish the request
 
 Use the candidate PR number and project scope from the engineer's request.
-If the candidate is missing, ask for it; do not assume the previous test PR or
-select the Changesets Version Packages PR. Do not create a release candidate.
+If the candidate is missing, ask for it (or offer step 0); do not assume the
+previous test PR or select the Changesets Version Packages PR. Do not create a
+release candidate outside step 0.
 
 Read `smoke-test.local.json` at the repository root unless an override was supplied.
 Do not ask for a config path when the default exists. If it is missing, explain
