@@ -19,10 +19,10 @@ export default class Index extends Component {
       test: [
         {
           name: 'hds-core-color-blue-500',
-          value: '#1c345f',
-          type: 'color',
+          $value: '#1c345f',
+          $type: 'color',
           original: {
-            value: '#1c345f',
+            $value: '#1c345f',
           },
           attributes: {
             category: 'color',

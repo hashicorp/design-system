@@ -231,23 +231,35 @@ export default class DocAlgoliaSearchComponent extends Component {
       },
     });
 
+    // removes the listeners below when the element goes away
+    const listeners = new AbortController();
+    const { signal } = listeners;
+
     const alternativeTriggers = document.querySelectorAll(
       'button[data-doc-algolia-search-autocomplete-secondary-trigger]',
     );
     if (alternativeTriggers) {
       alternativeTriggers.forEach((alternativeTrigger) => {
-        alternativeTrigger.addEventListener('click', () => {
-          autocompleteInstance.setIsOpen(true);
-        });
+        alternativeTrigger.addEventListener(
+          'click',
+          () => {
+            autocompleteInstance.setIsOpen(true);
+          },
+          { signal },
+        );
       });
     }
 
     // add event listener to open/close the modal via `command-K` hot-key
-    document.addEventListener('keydown', (event) => {
-      if (event.metaKey && event.key === 'k') {
-        autocompleteInstance.setIsOpen(!this.isModalOpen);
-      }
-    });
+    document.addEventListener(
+      'keydown',
+      (event) => {
+        if (event.metaKey && event.key === 'k') {
+          autocompleteInstance.setIsOpen(!this.isModalOpen);
+        }
+      },
+      { signal },
+    );
 
     // add event listener to prevent links (within the modal dialog) from re-loading the page
     document.addEventListener(
@@ -270,8 +282,13 @@ export default class DocAlgoliaSearchComponent extends Component {
           autocompleteInstance.setQuery('');
         }
       },
-      true,
+      { capture: true, signal },
     );
+
+    return () => {
+      listeners.abort();
+      autocompleteInstance.destroy();
+    };
   });
 
   <template>
