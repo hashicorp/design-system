@@ -5,8 +5,7 @@ description: "Guide an engineer through HDS release-candidate consumer smoke tes
 
 # HDS consumer smoke testing
 
-Use this skill when an engineer asks to smoke-test an HDS release candidate in
-consumer applications, prepare or inspect its consumer PRs, or close those PRs.
+Use this skill when an engineer asks to smoke-test an HDS release candidate in consumer applications, prepare or inspect its consumer PRs, or close those PRs.
 This skill is the engineer-facing workflow; the tested helpers under
 `scripts/smoke-test/` provide deterministic operations. Read
 `scripts/smoke-test/README.md` before using them.
@@ -42,19 +41,13 @@ when they explicitly ask for a new candidate PR to be created.
 
 1. Confirm `gh auth status` shows the engineer's account. If not, ask them to run
    `gh auth login`; do not request tokens.
-2. Branch from the latest `main` (e.g. `smoke-test/<version>-readme-edit`). Do not
-   reuse an existing branch or touch unrelated work.
-3. Make a small, harmless edit to `packages/components/README.md`, such as a
-   one-line wording tweak. Do not change facts such as supported versions.
-4. Add a patch changeset for `@hashicorp/design-system-components` in `.changeset/`
-   following the `add-changeset` skill. The RC workflow only publishes packages with
-   a changeset, so without one no candidate is published. If the engineer declines
-   the changeset, warn that no RC will be published.
-5. Commit and push the branch (non-force).
-6. Open a **draft** PR against `main` using `.github/pull_request_template.md`. Title
-   it `DO NOT MERGE: <summary>`, state **DO NOT MERGE** and the target version in the
-   summary, and keep it free of private consumer details.
-7. Add the `release-candidate` label to the draft PR:
+2. Branch from the latest `main` and name the branch `smoke-test/<target version>`
+   (e.g. `smoke-test/7.1.0`). Do not reuse an existing branch or touch unrelated work.
+3. Make a small edit to the first line of `packages/components/README.md` (e.g. `design-system-components - SMOKE TEST`). Do not change facts such as supported versions.
+4. Commit and push the branch (non-force).
+5. Open a **draft** PR against `main` using `.github/pull_request_template.md`. Title
+   it `DO NOT MERGE: Smoke testing HDS <target version>`, state **DO NOT MERGE** and the target version in the title, and keep it free of private consumer details.
+6. Add the `release-candidate` label to the draft PR:
 
    ```sh
    gh pr edit <candidate> --add-label "release-candidate"
@@ -64,7 +57,7 @@ when they explicitly ask for a new candidate PR to be created.
    on `opened`, `synchronize`, `reopened`, and `labeled` events, and only when the
    label is present. Labeling triggers publication of RC packages to npm, so confirm
    the engineer wants that before adding it.
-8. Report the PR URL, then wait for the workflow's `rc-release` comment listing the
+7. Report the PR URL, then wait for the workflow's `rc-release` comment listing the
    published RC packages. Do not proceed to step 1 until that comment exists for the
    current head SHA. Do not rerun or dispatch the workflow without approval.
 
@@ -148,6 +141,66 @@ Existing checkouts may be reused only when the helper's resume checks pass.
 On a mismatch, report the reason and ask before replacing or deleting anything.
 Do not reset, clean, or overwrite unrelated work.
 
+### Package-age exclusion in `pnpm-workspace.yaml`
+
+A new RC is usually younger than the consumer's pnpm `minimumReleaseAge`. pnpm may
+then add a versioned RC entry to `minimumReleaseAgeExclude` in the root
+`pnpm-workspace.yaml`, and the helper fails with `Preparation changed unexpected
+files`. Do not loosen the helper or rerun it on that checkout. Confirm with
+`git diff pnpm-workspace.yaml` that this is the only extra change.
+
+A committed exclusion is a per-consumer policy decision. Apply it only if the
+engineer confirmed it for that consumer this session; otherwise revert the file and
+report that CI may reject the RC. If confirmed, replace pnpm's versioned entry with
+the package name as the **first** list entry:
+
+```yaml
+minimumReleaseAgeExclude:
+  - '@hashicorp/design-system-components'
+  # ...existing entries unchanged
+```
+
+Keep any existing entries, add the key if absent, and do not touch other settings.
+After editing, confirm the policy check passes with no overrides before submitting:
+`corepack pnpm@<pinned> install --lockfile-only --frozen-lockfile --ignore-scripts`
+should print `Lockfile passes supply-chain policies`.
+Then finish verification manually, since the helper's checks did not complete:
+`git status` shows only the expected manifests, `pnpm-lock.yaml`, and
+`pnpm-workspace.yaml`; each manifest and lockfile importer specifier/version equals
+the exact candidate version; and `git diff --check` is clean. Record the policy
+change in the draft PR body so reviewers see it. Keep the consumer's name out of
+public candidate PRs.
+
+### Sibling package roots in the same repository
+
+The helper handles one configured `packageRoot` per consumer, but a repository can
+hold several apps in one pnpm workspace that use the same HDS package. Treat the
+repository as the unit under test: every app that declares a configured HDS
+dependency gets the RC in the **same single smoke-test PR**. Never add a second config
+entry for a sibling root; that would create a second branch, marker, and PR for the
+same repository.
+
+After the configured root is handled, find siblings in the checkout's root
+`pnpm-lock.yaml`: `importers:` entries other than the configured `packageRoot` that
+list one of the consumer's `hdsDependencies` in `dependencies`, `devDependencies`,
+or `optionalDependencies` (skip `workspace:`/`link:` specifiers). List them in the
+preparation report. For each sibling root:
+
+1. Confirm its `package.json` declares the package in exactly one dependency field,
+   and note the previous range (it may be a different major).
+2. Set it to the exact candidate version.
+3. Refresh the shared lockfile once, lockfile-only with scripts disabled, using the
+   consumer's pinned pnpm. If the policy check still rejects the RC despite the
+   exclusion, override it for that command only with `--config.minimumReleaseAge=0`
+   (the environment variable is ignored when the workspace file sets the age).
+4. Verify every updated importer has the exact candidate specifier and version, and
+   that old resolutions only disappear because nothing references them. Surface any
+   other lockfile churn.
+5. Record each sibling root and its previous range in the draft PR body.
+
+Siblings are outside the helper's planning checks, so report them as manually
+prepared. Ask the engineer before extending the helper or editing the config.
+
 Report the local path, changed files, suggested draft PR identity, and remaining
 steps. A successful preparation is **prepared, not submitted**, not a smoke-test
 pass. If asked to stop before PR creation, leave the checkout intact and stop.
@@ -167,7 +220,15 @@ Read each consumer's contribution instructions and PR template, including
 `.github/pull_request_template.md` and `.github/PULL_REQUEST_TEMPLATE/`. Preserve
 the template's structure and accurately record what was and was not run.
 
-Use the helper's branch, suggested title, and exact body marker from its output.
+Use the helper's branch and exact body marker from its output. Do not use the
+helper's suggested title; name every consumer PR exactly:
+
+```
+[DO NOT MERGE] Smoke testing HDS <target version>
+```
+
+`<target version>` is the stable version the release is staged to (the candidate
+plan's `releaseVersion`/`stagedVersion`, e.g. `7.1.0`), not the RC suffix.
 The branch must be in the same consumer repository, target `main`, remain a draft,
 and clearly say **DO NOT MERGE**. Include the tested package versions, candidate
 SHA, purpose, and evidence still pending. Do not mark visual approval complete.
