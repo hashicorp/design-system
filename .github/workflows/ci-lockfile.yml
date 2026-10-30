@@ -1,0 +1,30 @@
+name: CI - Lockfile
+
+on:
+  push:
+    branches:
+      - main
+  pull_request: {}
+
+concurrency:
+  group: ci-lockfile-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  single-document:
+    runs-on: ubuntu-latest
+    name: Check pnpm-lock.yaml is a single YAML document
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      # the security scanner only reads the first YAML document in
+      # pnpm-lock.yaml, so a second document silently hides every project
+      # dependency from it (see HDS-6841 and `pmOnFail` in pnpm-workspace.yaml)
+      - name: Check for YAML document separators
+        run: |
+          if grep -nx -- '---' pnpm-lock.yaml; then
+            echo "::error file=pnpm-lock.yaml::pnpm-lock.yaml contains multiple YAML documents, which the security scanner can't read. Check that pnpm-workspace.yaml still sets 'pmOnFail: ignore' and doesn't declare configDependencies, then regenerate the lockfile."
+            exit 1
+          fi
