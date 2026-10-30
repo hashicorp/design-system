@@ -2,6 +2,7 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { selectConsumers } from './plan.mjs';
 import { smokeTestIdentity } from './cleanup.mjs';
+import { consumerTargetRef } from './target-ref.mjs';
 import { parsePublishedCandidateComment, parsePnpmImporter } from './github.mjs';
 
 const execute = promisify(execFile);
@@ -166,8 +167,9 @@ async function previewEvidence(get, consumer, headSha) {
 
 async function consumerReport(get, consumer, candidateNumber) {
   const identity = smokeTestIdentity(candidateNumber, consumer.id);
+  const targetRef = consumerTargetRef(consumer);
   const discovery = await evidence(() => pages(get,
-    `repos/${consumer.repository}/pulls?state=open&base=main&head=${encodeURIComponent(`${consumer.repository.split('/')[0]}:${identity.branch}`)}`));
+    `repos/${consumer.repository}/pulls?state=open&base=${encodeURIComponent(targetRef)}&head=${encodeURIComponent(`${consumer.repository.split('/')[0]}:${identity.branch}`)}`));
   const result = {
     project: consumer.id, publicName: consumer.publicName ?? null,
     repository: consumer.repository, discovery: { ...discovery, value: undefined }, pullRequests: [],
@@ -177,7 +179,7 @@ async function consumerReport(get, consumer, candidateNumber) {
     const row = { number: pr.number, url: pr.html_url, headSha: pr.head?.sha, draft: pr.draft };
     if (!Number.isSafeInteger(pr.number) || pr.number < 1 ||
         pr.head?.ref !== identity.branch || pr.head?.repo?.full_name !== consumer.repository ||
-        pr.base?.ref !== 'main' || pr.base?.repo?.full_name !== consumer.repository ||
+        pr.base?.ref !== targetRef || pr.base?.repo?.full_name !== consumer.repository ||
         typeof pr.body !== 'string' || !pr.body.split(/\r?\n/).includes(identity.marker) ||
         pr.draft !== true) {
       return { ...row, state: 'identity-mismatch', error: 'PR does not match the smoke-test identity.' };

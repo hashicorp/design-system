@@ -147,6 +147,28 @@ test('identity mismatch is reported without fetching evidence for the wrong PR',
   assert.equal(f.calls.some((p) => p.includes('/check-runs')), false);
 });
 
+test('report discovers and accepts PRs only against the consumer target ref', async () => {
+  const master = { ...consumer, targetRef: 'master' };
+  const masterBase = { ref: 'master', repo: { full_name: consumer.repository } };
+  const accepted = fixture({ pr: { base: masterBase } });
+  const report = await buildReport({
+    pullRequestNumber: 42, config: { consumers: [master] }, request: accepted.request,
+  });
+  assert.equal(report.projects[0].pullRequests[0].state, 'current');
+  assert.ok(accepted.calls.some((p) => p.includes('/pulls?state=open&base=master&head=')));
+  assert.ok(accepted.calls.every((p) => !p.includes('base=main')));
+
+  for (const consumers of [[master], [consumer]]) {
+    const base = consumers[0] === master ? { ref: 'main', repo: masterBase.repo } : masterBase;
+    const rejected = fixture({ pr: { base } });
+    const mismatch = await buildReport({
+      pullRequestNumber: 42, config: { consumers }, request: rejected.request,
+    });
+    assert.equal(mismatch.projects[0].pullRequests[0].state, 'identity-mismatch');
+    assert.equal(rejected.calls.some((p) => p.includes('/check-runs')), false);
+  }
+});
+
 test('all configured repositories are discovered with at most four concurrent requests', async () => {
   let active = 0;
   let peak = 0;
