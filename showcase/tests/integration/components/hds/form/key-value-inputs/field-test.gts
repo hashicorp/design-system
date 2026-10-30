@@ -5,7 +5,8 @@
 
 import { module, test } from 'qunit';
 import { eq } from 'ember-truth-helpers';
-import { render, find, settled } from '@ember/test-helpers';
+import { fillIn, render, find, settled } from '@ember/test-helpers';
+import { on } from '@ember/modifier';
 import { TrackedObject } from 'tracked-built-ins';
 
 import { HdsFormKeyValueInputsField } from '@hashicorp/design-system-components/components';
@@ -89,6 +90,33 @@ module(
   'Integration | Component | hds/form/key-value-inputs/field',
   function (hooks) {
     setupRenderingTest(hooks);
+
+    test('it supports editing and replacing a contextual Textarea value', async function (assert) {
+      const state = new TrackedObject({ value: 'initial' });
+      const updateValue = (event: Event) => {
+        const target = event.target;
+        if (target instanceof HTMLTextAreaElement) {
+          state.value = target.value;
+        }
+      };
+
+      await render(
+        <template>
+          <HdsFormKeyValueInputsField @rowIndex={{0}} as |F|>
+            <F.Label>Description</F.Label>
+            <F.Textarea @value={{state.value}} {{on "input" updateValue}} />
+          </HdsFormKeyValueInputsField>
+        </template>,
+      );
+
+      await fillIn('textarea', 'edited');
+      assert.strictEqual(state.value, 'edited');
+      assert.dom('textarea').hasValue('edited');
+
+      state.value = 'replacement';
+      await settled();
+      assert.dom('textarea').hasValue('replacement');
+    });
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(

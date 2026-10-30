@@ -1,0 +1,22 @@
+<Hds::Form::Textarea::Base @value={{this.description}} {{on "input" (pick "target.value" (set this "description"))}} {{on "change" (pick "target.value" (set this "description"))}} />
+<Hds::Form::Textarea::Field @value={{@model.description}} {{on "input" (pick "target.value" (set @model "description"))}} {{on "change" (pick "target.value" (set @model "description"))}} as |F|>
+  <F.Label>Description</F.Label>
+  <F.CharacterCount @maxLength={{100}} />
+</Hds::Form::Textarea::Field>
+<Hds::Form::Textarea::Field @value={{this.model.samlSettings.certificate}} {{on "input" (pick "target.value" (set this.model.samlSettings "certificate"))}} {{on "change" (pick "target.value" (set this.model.samlSettings "certificate"))}} />
+<Hds::Form::KeyValueInputs::Field @rowIndex={{0}} as |F|>
+  <F.Textarea @value={{this.value}} {{on "input" (pick "target.value" (set this "value"))}} {{on "change" (pick "target.value" (set this "value"))}} />
+  {{#each this.rows as |F|}}
+    <F.Textarea @value={{this.unrelated}} />
+  {{/each}}
+</Hds::Form::KeyValueInputs::Field>
+<OtherComponent as |F|>
+  <F.Textarea @value={{this.unrelated}} />
+</OtherComponent>
+<Hds::Form::KeyValueInputs @data={{this.rows}}>
+  <:row as |R|>
+    <R.Field as |F|>
+      <F.Textarea @value={{R.rowData.value}} {{on "input" (pick "target.value" (set R.rowData "value"))}} {{on "change" (pick "target.value" (set R.rowData "value"))}} />
+    </R.Field>
+  </:row>
+</Hds::Form::KeyValueInputs>
