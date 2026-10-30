@@ -274,6 +274,131 @@ URL/build/readiness evidence, human approval, blockers, and next action.
 Keep unknowns explicit. Never infer compatibility for untested packages or
 unselected projects, or claim the release is approved from a successful helper.
 
+### Maintain an ongoing status report
+
+Build a candidate-scoped report after PR submission and refresh it whenever the
+engineer asks for smoke-test status or new evidence is collected. Do not schedule
+background polling or post GitHub comments merely to keep the report updated.
+
+Discover consumer PRs read-only using the generated branch and exact body marker
+for this candidate, not PR titles. Inspect the configured scope; a status request
+without project selectors may inspect all configured consumers without preparing
+or changing them. Do not claim coverage beyond that inventory. Preserve previously
+discovered PRs in the report if they close or become inaccessible; label their
+state or access error instead of silently dropping them.
+
+#### Fast status refresh
+
+Use the dedicated read-only report helper as the default collection path:
+
+```sh
+node scripts/smoke-test/index.mjs report --pr <candidate>
+```
+
+Carry any config override and project selectors through as with planning.
+Render its JSON into the table above; do not make a second round of ad hoc
+check/deployment calls for the same refresh. Exit `2` means partial or stale
+evidence: still render available rows and their errors. `state: complete` only
+means the reads completed, not that CI passed or compatibility was approved.
+For a row that is not `current`, do not present its preview or CI as current.
+The helper verifies the configured manifest and lockfile, not sibling roots,
+production build settings, reachability, human approval, or product logos.
+Enrich those fields only with separately verified evidence, preserving their
+original observation times. Merge previously known PRs from the conversation
+when a current discovery omits them; the helper does not persist report history.
+
+Separate a status refresh from planning and failure investigation. Do not run
+`plan`, read consumer `main` snapshots, traverse repository trees, or download
+full workflow logs just to populate the table.
+
+- Fetch independent repositories concurrently with bounded concurrency (up to
+  four requests at a time), not a sequential loop of synchronous `gh` calls.
+  Use parallel tool calls or an asynchronous runner. Do not spawn agents for
+  routine API reads.
+- In the first batch, refresh the candidate head/publication evidence and inspect
+  consumer PRs. For known PRs, fetch identity, state, head SHA, and check rollup
+  together (for example, `gh pr view --json`); avoid fetching the same checks again
+  through REST. Discover not-yet-known PRs by their exact reserved branch in
+  parallel, then validate their marker. A full status request must still discover
+  newly opened PRs across the requested inventory; do not cache "no PR" results
+  indefinitely or silently narrow the scope to previously known PRs.
+- In the second batch, resolve head-specific deployments only for discovered PRs
+  with configured preview selectors. Query the configured environment and SHA,
+  then fetch only the relevant deployment's latest status. Handle pagination
+  whenever needed; a truncated check or discovery result is not complete evidence.
+- Reuse manifest/lockfile verification, production-build evidence, and official
+  logo assets already verified for the same immutable consumer head SHA and
+  candidate versions. Invalidate that evidence when either changes. The report
+  helper currently rereads two dependency files per PR rather than persisting a
+  cross-session cache; do not claim that such a cache exists. Do not
+  repeatedly research logos, read unchanged workflows, or reverify unchanged
+  files. Never cache live CI/deployment state as if it were freshly fetched.
+- Recheck consumer heads after collecting head-bound evidence; invalidate a row
+  if its head changed during collection. Recheck the candidate head before
+  presenting the report. Keep these final checks concurrent rather than serial.
+- Use one fresh check snapshot per report. Show a failed check immediately;
+  investigate logs only for newly failed checks after the table is available,
+  or when the engineer asks why. Reuse an existing diagnosis for the same job/run
+  attempt. A rerun needs fresh results even when its commit SHA is unchanged.
+- Bound individual network calls and retries. If a repository or endpoint times
+  out, return the other rows with an explicit unavailable/stale label and the
+  last successful observation time. Do not hold the entire table for slow logs,
+  preview browsing, asset lookup, or repeated polling.
+
+Report data as a timestamped snapshot, not an atomic or continuously live view.
+If partial results require a later update, distinguish that update from the
+original fetch rather than presenting old evidence as newly verified.
+
+Lead with the candidate PR link, exact RC versions, candidate head SHA, and the
+time the evidence was fetched (including timezone). Present one row per discovered
+smoke-test PR in this format:
+
+| Smoke-test PR | CI status | Preview |
+|---|---|---|
+| [example/consumer-a#123](https://github.com/example/consumer-a/pull/123) — draft | Failed: required example-tests; passed: preview build/deploy | [Open preview](https://preview.example.com) — deployed; reachability and human approval unverified |
+
+Include the product logo alongside the PR link in the first column when a verified
+official asset and an explicitly approved product mapping are available. Prefer
+existing repository assets or official public product assets; use meaningful alt
+text and a compact image if the renderer supports sizing. Do not invent a logo
+URL, infer product identity from a private repository name, or use third-party
+image/proxy services. Never put private repository identifiers or URLs in an
+external image request. If the logo cannot be verified or rendered, keep the
+text-only row; logos must not block or obscure the status report.
+
+Use actual verified URLs, never constructed preview URLs. Resolve deployments
+and their latest statuses for the current PR head and configured selector.
+If there is no matching deployment or access fails, put "Not available" or
+"Unverified: access denied" in the preview cell rather than showing an old link
+as current. Show multiple relevant previews with clear labels when present.
+Link failures to the relevant checks when practical.
+
+Summarize required CI separately from additional failing checks. Missing or
+skipped required checks are not passes; if required checks are not configured,
+say so even if observed checks are green. Distinguish deployed, production-build
+verified, reachable, and human-approved evidence rather than reducing preview
+status to a single green indicator.
+
+Below the table, list selected consumers with no discovered PR, evidence gaps,
+and changes since the previous report. Record each row's observed consumer head
+SHA there (or in the retained report) so results remain attributable. If the
+candidate head or RC versions change, mark existing consumer evidence stale until
+the manifests/lockfile at each current consumer head are verified against the new
+candidate. Do not assume the PR body alone proves which version is installed.
+
+For failure investigation, inspect relevant logs read-only when available and add
+a short, evidence-backed explanation without delaying the initial status table.
+Distinguish confirmed cause, suspected cause, and
+unknown. Do not call a failure pre-existing or unrelated without comparison
+evidence; if log retrieval fails, report that limitation rather than guessing.
+Never include credentials or raw sensitive logs.
+
+Keep the report in the engineer's private conversation. If a durable copy is
+needed across sessions, use a private session artifact or an explicitly requested
+gitignored local file, update that same report, and retain its scope and timestamp.
+Never commit private reports or attach them to public HDS PRs/issues. A refresh
+does not authorize PR edits, reruns, fixes, cleanup, or human approval.
+
 ## 6. Close PRs and remove checkouts only on request
 
 Preview candidate-scoped PR cleanup first:

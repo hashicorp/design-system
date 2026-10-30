@@ -7,19 +7,20 @@ import { createGitHubClient } from './github.mjs';
 import { buildPlan } from './plan.mjs';
 import { cleanupSmokeTests } from './cleanup.mjs';
 import { prepareSmokeTest } from './prepare.mjs';
+import { buildReport } from './report.mjs';
 
 function parseArgs(args) {
   const [command, ...options] = args;
   const parsed = {
     command,
-    dryRun: command === 'plan' || command === 'cleanup',
+    dryRun: ['plan', 'cleanup', 'report'].includes(command),
     projectIds: [],
     configPath: 'smoke-test.local.json',
   };
 
-  if (!['plan', 'run', 'cleanup', 'prepare'].includes(command)) {
+  if (!['plan', 'run', 'cleanup', 'prepare', 'report'].includes(command)) {
     throw new Error(
-      'Supported commands are `plan`, `run --dry-run`, `prepare`, and `cleanup`.'
+      'Supported commands are `plan`, `run --dry-run`, `prepare`, `report`, and `cleanup`.'
     );
   }
 
@@ -109,6 +110,7 @@ export async function runCli(
     stdout = process.stdout,
     stderr = process.stderr,
     github = createGitHubClient(),
+    reportRequest,
     readConfig = (configPath) =>
       readFile(configPath, 'utf8').then((text) => JSON.parse(text)),
   } = {}
@@ -124,7 +126,9 @@ export async function runCli(
         ? cleanupSmokeTests
         : parsed.command === 'prepare'
           ? prepareSmokeTest
-          : buildPlan;
+          : parsed.command === 'report'
+            ? buildReport
+            : buildPlan;
     const plan = await operation({
       pullRequestNumber: parsed.pullRequestNumber,
       config,
@@ -132,9 +136,15 @@ export async function runCli(
       projectIds: parsed.projectIds,
       dryRun: parsed.dryRun,
       outputDir: parsed.outputDir,
+      request: reportRequest,
     });
 
     stdout.write(`${JSON.stringify(plan, null, 2)}\n`);
+
+    if (parsed.command === 'report' && plan.state !== 'complete') {
+      stderr.write('Report contains unavailable or stale evidence; no mutations were performed.\n');
+      return 2;
+    }
 
     if (plan.blockers?.length > 0) {
       stderr.write(

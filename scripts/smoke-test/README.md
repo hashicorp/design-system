@@ -48,6 +48,30 @@ The `consumers` array in the private config is the source of scope for each invo
 
 ## Commands
 
+For an ongoing CI/preview report, the skill uses:
+
+```sh
+node scripts/smoke-test/index.mjs report --pr <release-candidate-pr-number>
+```
+
+`report` performs read-only asynchronous GitHub requests with at most four in
+flight and a 15-second timeout per request. It discovers all selected consumer
+PRs by exact branch/marker, paginates checks and legacy statuses, finds the
+configured environment's latest deployment for each PR head, and verifies the
+configured app's manifest/lockfile at that head. It rechecks consumer and candidate
+heads before returning timestamped JSON. Unavailable evidence is explicit and
+does not discard successful reads from other projects. It does not read consumer
+`main` snapshots, install packages, download logs, browse previews, or post reports.
+
+Exit `2` means partial or stale evidence; exit `1` means invalid input or an
+operation-level error. A complete report is not a compatibility pass: inspect
+required checks, exact version matches, and preview evidence independently.
+The helper does not persist history/cache, include closed PRs in discovery, or
+verify sibling app roots, production build settings, reachability, logos, or
+human approval. The skill retains previous observations and renders the table
+with these limitations visible. Report output contains private consumer details:
+keep it in the private conversation or an approved ignored local file.
+
 ```sh
 pnpm smoke-test plan --pr <release-candidate-pr-number>
 pnpm smoke-test run --pr <release-candidate-pr-number> --dry-run
