@@ -29,7 +29,7 @@
 // Button
 .hds-form-file-input::file-selector-button {
   @include hds-button();
-  @include hds-button-color-secondary();
+  @include hds-button-color-secondary-state-default();
 
   $hds-form-file-input-background-position-x: 15px;
 
@@ -50,7 +50,7 @@
   background-size: var(--hds-form-text-input-background-image-size);
 
   @include hds-apply-only-if-carbon() {
-    @include hds-button-color-primary();
+    @include hds-button-color-primary-state-default();
   }
 }
 
