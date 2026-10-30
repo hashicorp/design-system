@@ -44,6 +44,11 @@ resolutionMode: highest
 # Misc
 ################
 verifyDepsBeforeRun: install # always verify deps before running any scripts
+# NOTE: with the default (`download`), pnpm writes a second YAML document to
+# pnpm-lock.yaml that locks its own binaries. The security scanner only reads
+# the first document, so it silently stops seeing project dependencies. The
+# pnpm version is pinned by CI (packageManager), .tool-versions and corepack.
+pmOnFail: ignore
 
 overrides:
   '@babel/plugin-transform-modules-systemjs': '7.29.4'
