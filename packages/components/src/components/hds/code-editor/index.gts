@@ -10,8 +10,7 @@ import { modifier } from 'ember-modifier';
 import { or } from 'ember-truth-helpers';
 import { tracked } from '@glimmer/tracking';
 import { service } from '@ember/service';
-// @ts-expect-error: missing types https://github.com/josemarluedke/ember-focus-trap/issues/86
-import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
+import { focusTrap } from 'ember-focus-trap';
 
 import type { EditorView } from '@codemirror/view';
 import type { WithBoundArgs } from '@glint/template';
