@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { assert, warn } from '@ember/debug';
-import { next, schedule } from '@ember/runloop';
+import { deferAfterRender, deferToNextTask } from '../../../utils/hds-defer.ts';
 import { hash } from '@ember/helper';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
 import { didInsert, didUpdate } from '@ember/render-modifiers';
@@ -124,17 +124,15 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
       this.selectedTabIndex = this._tabIds.indexOf(this._selectedTabId);
     }
 
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
+    deferAfterRender((): void => {
       this.setTabIndicator();
-    });
+    }, this);
   };
 
   didUpdateSelectedTabIndex = (): void => {
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
+    deferAfterRender((): void => {
       this.setTabIndicator();
-    });
+    }, this);
   };
 
   didUpdateSelectedTabId = (): void => {
@@ -149,10 +147,9 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
   };
 
   didUpdateParentVisibility = (): void => {
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
+    deferAfterRender((): void => {
       this.setTabIndicator();
-    });
+    }, this);
   };
 
   didInsertTab = (element: HTMLButtonElement, isSelected?: boolean): void => {
@@ -237,8 +234,7 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
   };
 
   setTabIndicator = (): void => {
-    // eslint-disable-next-line ember/no-runloop
-    next((): void => {
+    deferToNextTask((): void => {
       const tabElem = this._tabNodes[this.selectedTabIndex];
 
       if (tabElem != null) {
@@ -281,7 +277,7 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
           id: 'hds-debug.tabs.setTabIndicator-tabElem-not-available',
         });
       }
-    });
+    }, this);
   };
 
   <template>

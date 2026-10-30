@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { scheduleOnce } from '@ember/runloop';
+import { deferAfterRenderOnce } from '../../../utils/hds-defer.ts';
 import { concat, fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 
@@ -90,8 +90,7 @@ export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvanc
         onStepColumn(direction);
 
         // we need to wait for the next run loop to ensure that the element has been registered with the column after moving
-        // eslint-disable-next-line ember/no-runloop
-        scheduleOnce('afterRender', this, this.args.onFocusReorderHandle);
+        deferAfterRenderOnce(this.args.onFocusReorderHandle, this);
         break;
       }
 
