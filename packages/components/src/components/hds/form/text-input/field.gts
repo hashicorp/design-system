@@ -137,7 +137,7 @@ export default class HdsFormTextInputField extends Component<HdsFormTextInputFie
           />
           {{#if this.showVisibilityToggle}}
             <HdsFormVisibilityToggle
-              @isVisible={{this._isPasswordMasked}}
+              @isMasked={{this._isPasswordMasked}}
               @ariaLabel={{this.visibilityToggleAriaLabel}}
               @ariaMessageText={{this.visibilityToggleAriaMessageText}}
               @ariaMessageTextWhenVisible={{this.visibilityToggleAriaMessageTextWhenVisible}}

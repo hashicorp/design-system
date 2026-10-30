@@ -10165,7 +10165,7 @@
           "required": false
         },
         {
-          "name": "isVisible",
+          "name": "isMasked",
           "type": "boolean",
           "required": false
         }
