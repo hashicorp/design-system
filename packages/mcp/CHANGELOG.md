@@ -1,5 +1,23 @@
 # @hashicorp/design-system-mcp
 
+## 0.2.3
+
+### Patch Changes
+
+Updated the bundled documentation catalog with the latest documentation, including the Tooling pages.
+
+Changed the `search_hds_docs` `section` and `tab` filter descriptions to give examples instead of a fixed list. The sections and tabs that exist are returned in `availableSections` and `availableTabs` when a filter doesn't match.
+
+Fixed the documentation catalog build to expand code snippets that use the `theming` option or JSON files, and to include page-level banners on every tab.
+
+<small class="doc-whats-new-changelog-metadata">[#4247](https://github.com/hashicorp/design-system/pull/4247)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/design-system-components@7.1.0
+
 ## 0.2.2
 
 ### Patch Changes
