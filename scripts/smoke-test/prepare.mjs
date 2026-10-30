@@ -91,6 +91,7 @@ export async function prepareLocalWorkspace({
   baseSha,
   branch,
   outputDir,
+  runCommand = run,
 }) {
   const destination = path.resolve(outputDir);
   const manifestRelativePath = path.posix.join(
@@ -104,7 +105,7 @@ export async function prepareLocalWorkspace({
   if (!existing) {
     await mkdir(path.dirname(destination), { recursive: true });
 
-    run(
+    runCommand(
       'gh',
       [
         'repo',
@@ -123,7 +124,7 @@ export async function prepareLocalWorkspace({
   }
 
   const managerVersion = packageManagerVersion(packageManager);
-  const clonedSha = run('git', ['rev-parse', 'HEAD'], { cwd: destination });
+  const clonedSha = runCommand('git', ['rev-parse', 'HEAD'], { cwd: destination });
 
   if (clonedSha !== baseSha) {
     throw new Error(
@@ -131,7 +132,7 @@ export async function prepareLocalWorkspace({
     );
   }
 
-  const remoteUrl = run('git', ['remote', 'get-url', 'origin'], {
+  const remoteUrl = runCommand('git', ['remote', 'get-url', 'origin'], {
     cwd: destination,
   });
   const acceptedRemoteUrls = [
@@ -146,10 +147,10 @@ export async function prepareLocalWorkspace({
     );
   }
 
-  const currentBranch = run('git', ['branch', '--show-current'], {
+  const currentBranch = runCommand('git', ['branch', '--show-current'], {
     cwd: destination,
   });
-  const baseManifest = run(
+  const baseManifest = runCommand(
     'git',
     ['show', `HEAD:${manifestRelativePath}`],
     { cwd: destination }
@@ -167,12 +168,12 @@ export async function prepareLocalWorkspace({
       );
     }
 
-    const changedFiles = run('git', ['diff', '--name-only'], {
+    const changedFiles = runCommand('git', ['diff', 'HEAD', '--name-only'], {
       cwd: destination,
     })
       .split(/\r?\n/)
       .filter(Boolean);
-    const untrackedFiles = run(
+    const untrackedFiles = runCommand(
       'git',
       ['ls-files', '--others', '--exclude-standard'],
       { cwd: destination }
@@ -194,6 +195,7 @@ export async function prepareLocalWorkspace({
 
     if (
       currentManifest !== baseManifest &&
+      currentManifest !== `${baseManifest}\n` &&
       currentManifest !== expectedManifest
     ) {
       throw new Error(
@@ -201,7 +203,7 @@ export async function prepareLocalWorkspace({
       );
     }
   } else {
-    run('git', ['switch', '--create', branch], { cwd: destination });
+    runCommand('git', ['switch', '--create', branch], { cwd: destination });
   }
 
   const currentManifest = await readFile(manifestPath, 'utf8');
@@ -209,7 +211,7 @@ export async function prepareLocalWorkspace({
     await writeFile(manifestPath, expectedManifest);
   }
 
-  run(
+  runCommand(
     'corepack',
     [
       `pnpm@${managerVersion}`,
@@ -248,22 +250,30 @@ export async function prepareLocalWorkspace({
     }
   }
 
-  const changedFiles = run('git', ['diff', '--name-only'], {
+  const changedFiles = runCommand('git', ['diff', 'HEAD', '--name-only'], {
     cwd: destination,
   })
     .split(/\r?\n/)
     .filter(Boolean)
     .sort();
+  const untrackedFiles = runCommand(
+    'git',
+    ['ls-files', '--others', '--exclude-standard'],
+    { cwd: destination }
+  )
+    .split(/\r?\n/)
+    .filter(Boolean);
   if (
+    untrackedFiles.length > 0 ||
     changedFiles.length !== expectedFiles.length ||
     changedFiles.some((file, index) => file !== expectedFiles[index])
   ) {
     throw new Error(
-      `Preparation changed unexpected files: ${changedFiles.join(', ') || '(none)'}.`
+      `Preparation changed unexpected files: ${[...changedFiles, ...untrackedFiles].join(', ') || '(none)'}.`
     );
   }
 
-  run('git', ['diff', '--check'], { cwd: destination });
+  runCommand('git', ['diff', '--check'], { cwd: destination });
 
   return { workspacePath: destination, changedFiles };
 }

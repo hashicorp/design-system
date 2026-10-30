@@ -4,6 +4,22 @@ The engineer-facing entry point is the repository's [`smoke-test` skill](../../.
 
 The helpers support inspecting a release-candidate PR's successful publication comment, producing a local preflight plan, preparing a local consumer smoke-test branch, and closing identified smoke-test PRs. Automated PR creation, CI polling, visual approvals, public reporting, and end-to-end resume are not implemented in the helpers. The skill can guide approved PR submission and read-only evidence inspection using GitHub tools; it does not turn those into unattended operations. Live `run` execution is deliberately rejected; only `cleanup --execute` can mutate GitHub through these helpers.
 
+## Testing and CI
+
+Run `node --test scripts/smoke-test/*.test.mjs` (or `pnpm test:smoke-test`).
+The suite checks candidate parsing, project scoping, public-summary filtering,
+guarded PR cleanup, local preparation using temporary Git repositories, and CI
+change detection. GitHub responses and clone/pnpm operations are simulated; no
+consumer access, private config, dependency installation, or credentials are
+required. These tests do not validate real consumer builds, live GitHub behavior,
+preview readiness, or agent compliance with the skill.
+
+The `CI - Smoke-test helpers` workflow uses the shared changed-file filter.
+It runs for helper, skill, discovery-adapter, and workflow changes, plus the
+shared global triggers (including root dependency/toolchain configuration and
+the filter itself). Unrelated PRs skip its test job; pushes to `main` always run.
+The workflow invokes Node directly without pnpm or an install step.
+
 ## Setup
 
 Use Node.js 24 and pnpm 12.14.0. Authenticate `gh` for read access to `hashicorp/design-system`, then create `smoke-test.local.json` at the repository root (this filename is gitignored):
