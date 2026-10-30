@@ -165,6 +165,29 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     });
   }
 
+  // `scrollIntoView` also scrolls vertically (the handle spans the table height),
+  // which toggles the scrollbars and makes the layout jump
+  private _scrollHandleIntoViewHorizontally(): void {
+    let scroller: HTMLElement | null = this._handleElement.parentElement;
+
+    while (scroller && scroller.scrollWidth <= scroller.clientWidth) {
+      scroller = scroller.parentElement;
+    }
+
+    if (!scroller) {
+      return;
+    }
+
+    const handleRect = this._handleElement.getBoundingClientRect();
+    const scrollerRect = scroller.getBoundingClientRect();
+
+    if (handleRect.right > scrollerRect.right) {
+      scroller.scrollBy({ left: handleRect.right - scrollerRect.right });
+    } else if (handleRect.left < scrollerRect.left) {
+      scroller.scrollBy({ left: handleRect.left - scrollerRect.left });
+    }
+  }
+
   @action
   handleKeydown(event: KeyboardEvent): void {
     const validKeys = ['ArrowLeft', 'ArrowRight'];
@@ -202,11 +225,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     this._transientDelta = onResizeColumnByDelta(column.key, deltaX);
 
     // ensure the resize handle remains visible during keyboard navigation.
-    this._handleElement.scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'nearest',
-    });
+    this._scrollHandleIntoViewHorizontally();
 
     // use a microtask to commit the final state after the render pass.
     queueMicrotask(() => this._finishColumnResize(column.key));
@@ -261,6 +280,9 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
         const deltaX = event.clientX - this.resizing.startX;
 
         this._transientDelta = onResizeColumnByDelta(column.key, deltaX);
+
+        // re-anchor when clamped so reversing direction responds immediately
+        this.resizing = { startX: event.clientX - this._transientDelta };
       }
 
       this._isUpdateQueued = false;
