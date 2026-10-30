@@ -41,7 +41,7 @@ function validateSha(value, label) {
   return value;
 }
 
-function parsePublishedCandidateComment(comments, expectedHeadSha) {
+export function parsePublishedCandidateComment(comments, expectedHeadSha) {
   const comment = comments.find(
     ({ body }) =>
       typeof body === 'string' &&

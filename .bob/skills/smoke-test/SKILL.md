@@ -289,6 +289,24 @@ state or access error instead of silently dropping them.
 
 #### Fast status refresh
 
+Use the dedicated read-only report helper as the default collection path:
+
+```sh
+node scripts/smoke-test/index.mjs report --pr <candidate>
+```
+
+Carry any config override and project selectors through as with planning.
+Render its JSON into the table above; do not make a second round of ad hoc
+check/deployment calls for the same refresh. Exit `2` means partial or stale
+evidence: still render available rows and their errors. `state: complete` only
+means the reads completed, not that CI passed or compatibility was approved.
+For a row that is not `current`, do not present its preview or CI as current.
+The helper verifies the configured manifest and lockfile, not sibling roots,
+production build settings, reachability, human approval, or product logos.
+Enrich those fields only with separately verified evidence, preserving their
+original observation times. Merge previously known PRs from the conversation
+when a current discovery omits them; the helper does not persist report history.
+
 Separate a status refresh from planning and failure investigation. Do not run
 `plan`, read consumer `main` snapshots, traverse repository trees, or download
 full workflow logs just to populate the table.
@@ -310,7 +328,9 @@ full workflow logs just to populate the table.
   whenever needed; a truncated check or discovery result is not complete evidence.
 - Reuse manifest/lockfile verification, production-build evidence, and official
   logo assets already verified for the same immutable consumer head SHA and
-  candidate versions. Invalidate that evidence when either changes. Do not
+  candidate versions. Invalidate that evidence when either changes. The report
+  helper currently rereads two dependency files per PR rather than persisting a
+  cross-session cache; do not claim that such a cache exists. Do not
   repeatedly research logos, read unchanged workflows, or reverify unchanged
   files. Never cache live CI/deployment state as if it were freshly fetched.
 - Recheck consumer heads after collecting head-bound evidence; invalidate a row
