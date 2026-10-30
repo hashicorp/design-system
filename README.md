@@ -92,7 +92,7 @@ Note: If you want to ignore a changeset bump in terminal (e.g. major bump for se
 
 See the [release docs](https://hashicorp.atlassian.net/wiki/x/HIBT0Q) for the process we follow to publish a new package version.
 
-The smoke-test CLI is documented in [`scripts/smoke-test`](scripts/smoke-test/README.md).
+Use the repository's [`smoke-test` skill](.bob/skills/smoke-test/SKILL.md) to guide consumer release-candidate testing, from planning through approved draft PRs and cleanup. Its deterministic helpers are documented in [`scripts/smoke-test`](scripts/smoke-test/README.md).
 
 ## License
 

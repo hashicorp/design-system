@@ -1,6 +1,8 @@
-# HDS smoke-test CLI
+# HDS smoke-test helpers
 
-The smoke-test CLI supports inspecting a release-candidate PR's successful publication comment, producing a local preflight plan, preparing a local consumer smoke-test branch, and closing identified smoke-test PRs. Opening consumer PRs, CI polling, visual approvals, public reporting, and resume are not implemented. Live `run` execution is deliberately rejected; only `cleanup --execute` can mutate GitHub.
+The engineer-facing entry point is the repository's [`smoke-test` skill](../../.bob/skills/smoke-test/SKILL.md). Ask the agent to use it with a candidate PR and project scope, for example: "Use the smoke-test skill to prepare candidate PR #4251 for Example Product A; stop before committing, pushing, or opening a PR." The skill handles scope, approval boundaries, and explaining evidence; the commands below are its deterministic implementation helpers and remain available for direct use.
+
+The helpers support inspecting a release-candidate PR's successful publication comment, producing a local preflight plan, preparing a local consumer smoke-test branch, and closing identified smoke-test PRs. Automated PR creation, CI polling, visual approvals, public reporting, and end-to-end resume are not implemented in the helpers. The skill can guide approved PR submission and read-only evidence inspection using GitHub tools; it does not turn those into unattended operations. Live `run` execution is deliberately rejected; only `cleanup --execute` can mutate GitHub through these helpers.
 
 ## Setup
 
