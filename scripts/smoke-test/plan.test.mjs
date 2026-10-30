@@ -193,6 +193,49 @@ test('preview configuration only needs workflow and selector metadata', async ()
   }
 });
 
+test('plans against a configured non-main target ref and rejects invalid refs before reads', async () => {
+  const seen = [];
+  const github = fakeGitHub({
+    async getConsumerSnapshot(repository, packageRoot, dependencyNames, targetRef) {
+      seen.push(targetRef);
+      return {
+        repository,
+        ref: targetRef,
+        commitSha: 'c'.repeat(40),
+        manifestPath: `${packageRoot}/package.json`,
+        lockfile: 'pnpm-lock.yaml',
+        packageManager: 'pnpm@11.1.3',
+        dependencies: Object.fromEntries(dependencyNames.map((name) => [name, {
+          declaredVersion: '7.0.0',
+          lockfile: { specifier: '7.0.0', resolvedVersion: '7.0.0' },
+        }])),
+      };
+    },
+  });
+  const plan = await buildPlan({
+    pullRequestNumber: 4251,
+    config: { consumers: [{ ...consumer, targetRef: 'master' }, { ...consumer, id: 'consumer-b' }] },
+    github,
+  });
+
+  assert.deepEqual(seen, ['master', 'main']);
+  assert.deepEqual(plan.consumers.map(({ targetRef }) => targetRef), ['master', 'main']);
+  assert.equal(plan.candidateSource.baseRef, 'main');
+
+  for (const targetRef of ['', '-x', 'a..b', 'a b', 5, null]) {
+    const rejecting = fakeGitHub();
+    await assert.rejects(
+      buildPlan({
+        pullRequestNumber: 4251,
+        config: { consumers: [{ ...consumer, targetRef }] },
+        github: rejecting,
+      }),
+      /Invalid targetRef/
+    );
+    assert.deepEqual(rejecting.calls, []);
+  }
+});
+
 test('rejects invalid preview metadata before GitHub reads', async () => {
   for (const preview of [
     { workflow: 123 },

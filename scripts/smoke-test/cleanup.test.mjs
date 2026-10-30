@@ -153,6 +153,51 @@ test('bulk cleanup closes smoke-test PRs across all configured projects', async 
   assert.deepEqual(closed, [[consumer.repository, 12], [second.repository, 13]]);
 });
 
+test('cleanup matches the consumer target ref exactly, never any base', async () => {
+  const master = { ...consumer, targetRef: 'master' };
+  const calls = [];
+  const masterPr = (baseRef) => pullRequest({
+    base: { ref: baseRef, repo: { full_name: consumer.repository } },
+  });
+  const github = (prs) => ({
+    getSmokeTestPullRequests(repository, branch, baseRef) {
+      calls.push([repository, branch, baseRef]);
+      return prs;
+    },
+    getConsumerPullRequest: () => masterPr('master'),
+    closeConsumerPullRequest() {},
+  });
+
+  const result = await cleanupSmokeTests({
+    pullRequestNumber: 4251,
+    config: { consumers: [master] },
+    github: github([masterPr('master')]),
+  });
+  assert.equal(result.pullRequests[0].action, 'would-close');
+  assert.deepEqual(calls, [[consumer.repository, identity.branch, 'master']]);
+
+  for (const base of ['main', 'other']) {
+    await assert.rejects(
+      cleanupSmokeTests({
+        pullRequestNumber: 4251,
+        config: { consumers: [master] },
+        github: github([masterPr(base)]),
+        dryRun: false,
+      }),
+      /refusing cleanup/
+    );
+  }
+
+  await assert.rejects(
+    cleanupSmokeTests({
+      pullRequestNumber: 4251,
+      config,
+      github: github([masterPr('master')]),
+    }),
+    /refusing cleanup/
+  );
+});
+
 test('cleanup propagates closure failures and stops before further mutations', async () => {
   const github = fakeGitHub({ prs: [pullRequest(), pullRequest({ number: 13 })] });
   let closeCount = 0;

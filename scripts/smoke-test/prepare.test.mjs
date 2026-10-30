@@ -160,7 +160,7 @@ function git(cwd, args) {
   }).trim();
 }
 
-async function localFixture(t) {
+async function localFixture(t, targetRef = 'main') {
   const root = await mkdtemp(path.join(tmpdir(), 'hds-smoke-test-'));
   t.after(() => rm(root, { recursive: true, force: true }));
   const source = path.join(root, 'source');
@@ -174,7 +174,7 @@ async function localFixture(t) {
   await writeFile(path.join(source, manifestPath), originalManifest);
   await writeFile(path.join(source, 'pnpm-lock.yaml'), lockfile('7.0.0'));
   await writeFile(path.join(source, 'pnpm-workspace.yaml'), 'packages:\n  - frontend/app\n');
-  git(source, ['init', '--initial-branch=main']);
+  git(source, ['init', `--initial-branch=${targetRef}`]);
   git(source, ['add', '.']);
   git(source, ['commit', '-m', 'fixture']);
   const baseSha = git(source, ['rev-parse', 'HEAD']);
@@ -183,7 +183,7 @@ async function localFixture(t) {
   let installChange;
   let failInstall = false;
   const options = {
-    consumer,
+    consumer: targetRef === 'main' ? consumer : { ...consumer, targetRef },
     dependencies: [{ name: dependencyName, candidateVersion }],
     packageManager: 'pnpm@11.1.3',
     baseSha,
@@ -194,7 +194,7 @@ async function localFixture(t) {
       if (command === 'gh') {
         assert.deepEqual(args, [
           'repo', 'clone', consumer.repository, destination, '--',
-          '--depth', '1', '--branch', 'main', '--single-branch', '--filter=blob:none',
+          '--depth', '1', '--branch', targetRef, '--single-branch', '--filter=blob:none',
         ]);
         git(root, ['clone', source, destination]);
         git(destination, ['remote', 'set-url', 'origin', `https://github.com/${consumer.repository}.git`]);
@@ -238,6 +238,16 @@ test('local preparation writes exact versions, uses pinned pnpm safely, and resu
   assert.equal(git(fixture.destination, ['diff', '--cached', '--name-only']), '');
   assert.deepEqual(await prepareLocalWorkspace(fixture.options), result);
   assert.equal(fixture.calls.filter(({ command }) => command === 'gh').length, 1);
+});
+
+test('local preparation clones and checks the consumer target ref when it is not main', async (t) => {
+  const fixture = await localFixture(t, 'master');
+  const result = await prepareLocalWorkspace(fixture.options);
+  assert.deepEqual(result.changedFiles, ['frontend/app/package.json', 'pnpm-lock.yaml']);
+  assert.equal(git(fixture.destination, ['rev-parse', 'HEAD']), fixture.options.baseSha);
+  await assert.rejects(prepareLocalWorkspace({
+    ...(await localFixture(t, 'master')).options, baseSha: '0'.repeat(40),
+  }), /master branch changed/);
 });
 
 test('local preparation rejects a stale base before changing the manifest or running pnpm', async (t) => {

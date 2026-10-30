@@ -1,3 +1,5 @@
+import { consumerTargetRef, isValidTargetRef } from './target-ref.mjs';
+
 function validateConsumer(consumer) {
   if (!consumer || typeof consumer !== 'object' || Array.isArray(consumer)) {
     throw new Error('Each consumer config entry must be an object.');
@@ -17,6 +19,10 @@ function validateConsumer(consumer) {
 
   if (!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(consumer.repository)) {
     throw new Error(`Invalid consumer repository for ${consumer.id}.`);
+  }
+
+  if (consumer.targetRef !== undefined && !isValidTargetRef(consumer.targetRef)) {
+    throw new Error(`Invalid targetRef for ${consumer.id}.`);
   }
 
   if (
@@ -173,7 +179,8 @@ export async function buildPlan({
       github.getConsumerSnapshot(
         consumer.repository,
         consumer.packageRoot,
-        consumer.hdsDependencies
+        consumer.hdsDependencies,
+        consumerTargetRef(consumer)
       )
     )
   );
@@ -238,7 +245,7 @@ export async function buildPlan({
       id: consumer.id,
       publicName: consumer.publicName,
       repository: consumer.repository,
-      targetRef: 'main',
+      targetRef: consumerTargetRef(consumer),
       baseSha: snapshot.commitSha,
       packageRoot: consumer.packageRoot,
       packageManager: snapshot.packageManager,

@@ -213,7 +213,7 @@ permission. Do not widen a partial approval.
 
 Immediately before submission, rerun read-only planning and confirm the candidate
 head SHA and exact RC versions still match the prepared result. Confirm the
-consumer main SHA is still the prepared base. If either changed, stop and replan;
+consumer target branch SHA is still the prepared base. If either changed, stop and replan;
 do not submit stale changes or overwrite the old checkout.
 
 Read each consumer's contribution instructions and PR template, including
@@ -229,7 +229,7 @@ helper's suggested title; name every consumer PR exactly:
 
 `<target version>` is the stable version the release is staged to (the candidate
 plan's `releaseVersion`/`stagedVersion`, e.g. `7.1.0`), not the RC suffix.
-The branch must be in the same consumer repository, target `main`, remain a draft,
+The branch must be in the same consumer repository, target the plan's `targetRef` (`main` unless the config sets another branch), remain a draft,
 and clearly say **DO NOT MERGE**. Include the tested package versions, candidate
 SHA, purpose, and evidence still pending. Do not mark visual approval complete.
 

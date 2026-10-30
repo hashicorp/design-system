@@ -1,4 +1,5 @@
 import { selectConsumers } from './plan.mjs';
+import { consumerTargetRef } from './target-ref.mjs';
 
 export function smokeTestIdentity(pullRequestNumber, consumerId) {
   if (
@@ -22,7 +23,7 @@ function isSmokeTest(pr, consumer, identity) {
     pr.state === 'open' &&
     !pr.merged_at &&
     pr.draft === true &&
-    pr.base?.ref === 'main' &&
+    pr.base?.ref === consumerTargetRef(consumer) &&
     pr.base?.repo?.full_name === consumer.repository &&
     pr.head?.repo?.full_name === consumer.repository &&
     pr.head?.ref === identity.branch &&
@@ -49,7 +50,8 @@ export async function cleanupSmokeTests({
     const identity = smokeTestIdentity(pullRequestNumber, consumer.id);
     const prs = await github.getSmokeTestPullRequests(
       consumer.repository,
-      identity.branch
+      identity.branch,
+      consumerTargetRef(consumer)
     );
 
     for (const pr of prs) {

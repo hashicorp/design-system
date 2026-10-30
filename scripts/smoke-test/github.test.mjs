@@ -236,10 +236,13 @@ test('inspects consumer manifest and pnpm locked resolution at the exact main SH
   const request = (path) => {
     requests.push(path);
 
-    if (path === 'repos/example/consumer-a/commits/main') {
+    if (path === 'repos/example/consumer-a/branches/main') {
       return {
-        sha: consumerCommitSha,
-        commit: { tree: { sha: consumerTreeSha } },
+        name: 'main',
+        commit: {
+          sha: consumerCommitSha,
+          commit: { tree: { sha: consumerTreeSha } },
+        },
       };
     }
 
@@ -340,6 +343,59 @@ test('rejects consumer repository and package-root traversal before reads', () =
   assert.deepEqual(requests, []);
 });
 
+test('reads a non-main consumer target ref through the branch endpoint', () => {
+  const sha = 'f'.repeat(40);
+  const treeSha = '1'.repeat(40);
+  const manifestSha = '2'.repeat(40);
+  const requests = [];
+  const client = createGitHubClient((path) => {
+    requests.push(path);
+
+    if (path === 'repos/example/consumer-a/branches/release%2F2.x') {
+      return { name: 'release/2.x', commit: { sha, commit: { tree: { sha: treeSha } } } };
+    }
+
+    if (path === `repos/example/consumer-a/git/trees/${treeSha}`) {
+      return { truncated: false, tree: [{ path: 'package.json', type: 'blob', sha: manifestSha }] };
+    }
+
+    if (path === `repos/example/consumer-a/git/blobs/${manifestSha}`) {
+      return textBlob(JSON.stringify({ devDependencies: { '@hashicorp/design-system-components': '7.0.0' } }));
+    }
+
+    throw new Error(`Unexpected request: ${path}`);
+  });
+  const snapshot = client.getConsumerSnapshot(
+    'example/consumer-a', '.', ['@hashicorp/design-system-components'], 'release/2.x'
+  );
+
+  assert.equal(snapshot.ref, 'release/2.x');
+  assert.equal(snapshot.commitSha, sha);
+  assert.ok(requests.every((path) => !path.includes('/commits/main')));
+});
+
+test('rejects invalid target refs and branch lookups that return another name', () => {
+  const requests = [];
+  const client = createGitHubClient((path) => {
+    requests.push(path);
+    return { name: 'something-else', commit: { sha: 'f'.repeat(40) } };
+  });
+
+  for (const ref of ['', '-x', '--upload-pack=x', 'a..b', 'a//b', 'a/', 'a.lock', 'a b', 'a~1', 'a^', 'a:b', '/a', 'v1.', 'x'.repeat(101)]) {
+    assert.throws(
+      () => client.getConsumerSnapshot('example/consumer-a', '.', [], ref),
+      /Invalid consumer target ref/,
+      `ref ${JSON.stringify(ref)}`
+    );
+  }
+
+  assert.deepEqual(requests, []);
+  assert.throws(
+    () => client.getConsumerSnapshot('example/consumer-a', '.', [], 'master'),
+    /no branch named master/
+  );
+});
+
 test('lists all matching open smoke-test PR pages with read-only requests', () => {
   const calls = [];
   const client = createGitHubClient((path, options) => {
@@ -359,6 +415,26 @@ test('lists all matching open smoke-test PR pages with read-only requests', () =
     path.startsWith('repos/example/consumer/pulls?state=open&base=main&head=example%3A') &&
     options === undefined
   ));
+});
+
+test('lists smoke-test PRs against the configured base ref and rejects unsafe ones', () => {
+  const calls = [];
+  const client = createGitHubClient((path) => {
+    calls.push(path);
+    return [];
+  });
+
+  client.getSmokeTestPullRequests('example/consumer', 'hds-smoke-test/pr-4251/example', 'master');
+  assert.ok(calls[0].startsWith('repos/example/consumer/pulls?state=open&base=master&head='));
+
+  for (const baseRef of ['', '-x', 'a..b', 'a b']) {
+    assert.throws(
+      () => client.getSmokeTestPullRequests('example/consumer', 'hds-smoke-test/pr-4251/example', baseRef),
+      /Invalid smoke-test repository, branch, or base ref/
+    );
+  }
+
+  assert.equal(calls.length, 1);
 });
 
 test('consumer PR closure uses an explicit REST PATCH and checks the result', () => {

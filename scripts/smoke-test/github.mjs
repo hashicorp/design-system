@@ -1,4 +1,5 @@
 import { execFileSync } from 'node:child_process';
+import { DEFAULT_TARGET_REF, isValidTargetRef } from './target-ref.mjs';
 
 const REPOSITORY = 'hashicorp/design-system';
 const CONSUMER_REPOSITORY_PATTERN =
@@ -172,10 +173,20 @@ function packageDependencies(manifest, path) {
   return dependencies;
 }
 
-function readRepositoryCommit(request, repository, ref) {
-  const commit = request(`repos/${repository}/commits/${encodeURIComponent(ref)}`);
-  const commitSha = validateSha(commit.sha, 'consumer commit SHA');
-  const treeSha = validateSha(commit.commit?.tree?.sha, 'consumer tree SHA');
+function readRepositoryBranch(request, repository, ref) {
+  const branch = request(
+    `repos/${repository}/branches/${encodeURIComponent(ref)}`
+  );
+
+  if (branch.name !== ref) {
+    throw new Error(`${repository} has no branch named ${ref}.`);
+  }
+
+  const commitSha = validateSha(branch.commit?.sha, 'consumer commit SHA');
+  const treeSha = validateSha(
+    branch.commit?.commit?.tree?.sha,
+    'consumer tree SHA'
+  );
 
   return { commitSha, treeSha };
 }
@@ -352,12 +363,13 @@ export function createGitHubClient(request = api) {
       return request(`repos/${REPOSITORY}/pulls/${number}`);
     },
 
-    getSmokeTestPullRequests(repository, branch) {
+    getSmokeTestPullRequests(repository, branch, baseRef = DEFAULT_TARGET_REF) {
       if (
         !CONSUMER_REPOSITORY_PATTERN.test(repository) ||
-        !/^hds-smoke-test\/pr-[1-9]\d*\/[a-z0-9-]+$/.test(branch)
+        !/^hds-smoke-test\/pr-[1-9]\d*\/[a-z0-9-]+$/.test(branch) ||
+        !isValidTargetRef(baseRef)
       ) {
-        throw new Error('Invalid smoke-test repository or branch.');
+        throw new Error('Invalid smoke-test repository, branch, or base ref.');
       }
 
       const result = [];
@@ -365,7 +377,7 @@ export function createGitHubClient(request = api) {
       for (let page = 1; ; page += 1) {
         const head = encodeURIComponent(`${repository.split('/')[0]}:${branch}`);
         const prs = request(
-          `repos/${repository}/pulls?state=open&base=main&head=${head}&per_page=100&page=${page}`
+          `repos/${repository}/pulls?state=open&base=${encodeURIComponent(baseRef)}&head=${head}&per_page=100&page=${page}`
         );
 
         if (!Array.isArray(prs)) {
@@ -467,9 +479,18 @@ export function createGitHubClient(request = api) {
       return packages.sort((a, b) => a.name.localeCompare(b.name));
     },
 
-    getConsumerSnapshot(repository, packageRoot, dependencyNames) {
+    getConsumerSnapshot(
+      repository,
+      packageRoot,
+      dependencyNames,
+      targetRef = DEFAULT_TARGET_REF
+    ) {
       if (!CONSUMER_REPOSITORY_PATTERN.test(repository)) {
         throw new Error('Invalid consumer repository.');
+      }
+
+      if (!isValidTargetRef(targetRef)) {
+        throw new Error('Invalid consumer target ref.');
       }
 
       if (
@@ -482,10 +503,10 @@ export function createGitHubClient(request = api) {
         throw new Error('Invalid consumer package root.');
       }
 
-      const { commitSha, treeSha } = readRepositoryCommit(
+      const { commitSha, treeSha } = readRepositoryBranch(
         request,
         repository,
-        'main'
+        targetRef
       );
       const treeCache = new Map();
       const manifestPath =
@@ -561,7 +582,7 @@ export function createGitHubClient(request = api) {
 
       return {
         repository,
-        ref: 'main',
+        ref: targetRef,
         commitSha,
         manifestPath,
         lockfile,

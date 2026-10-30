@@ -4,6 +4,7 @@ import path from 'node:path';
 import { createGitHubClient, parsePnpmImporter } from './github.mjs';
 import { buildPlan } from './plan.mjs';
 import { smokeTestIdentity } from './cleanup.mjs';
+import { consumerTargetRef } from './target-ref.mjs';
 
 function run(command, args, options = {}) {
   try {
@@ -94,6 +95,7 @@ export async function prepareLocalWorkspace({
   runCommand = run,
 }) {
   const destination = path.resolve(outputDir);
+  const targetRef = consumerTargetRef(consumer);
   const manifestRelativePath = path.posix.join(
     consumer.packageRoot,
     'package.json'
@@ -116,7 +118,7 @@ export async function prepareLocalWorkspace({
         '--depth',
         '1',
         '--branch',
-        'main',
+        targetRef,
         '--single-branch',
         '--filter=blob:none',
       ]
@@ -128,7 +130,7 @@ export async function prepareLocalWorkspace({
 
   if (clonedSha !== baseSha) {
     throw new Error(
-      `The ${consumer.repository} main branch changed during preparation; expected ${baseSha}, got ${clonedSha}. Retry the plan.`
+      `The ${consumer.repository} ${targetRef} branch changed during preparation; expected ${baseSha}, got ${clonedSha}. Retry the plan.`
     );
   }
 
