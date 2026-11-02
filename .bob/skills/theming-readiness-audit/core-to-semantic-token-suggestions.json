@@ -1,0 +1,56 @@
+{
+  "--hds-core-color-neutral-400": {
+    "semantic": "--hds-foreground-color-faint"
+  },
+  "--hds-core-color-neutral-300": {
+    "semantic": "--hds-foreground-color-faint"
+  },
+  "--hds-core-color-neutral-200": {
+    "semantic": "--hds-foreground-color-faint"
+  },
+  "--hds-core-color-blue-400": {
+    "semantic": "--hds-foreground-color-action"
+  },
+  "--hds-core-color-blue-300": {
+    "semantic": "--hds-foreground-color-action"
+  },
+  "--hds-core-color-blue-100": {
+    "semantic": "--hds-surface-color-action"
+  },
+  "--hds-core-color-purple-400": {
+    "semantic": "--hds-foreground-color-highlight"
+  },
+  "--hds-core-color-purple-300": {
+    "semantic": "--hds-foreground-color-highlight"
+  },
+  "--hds-core-color-purple-100": {
+    "semantic": "--hds-surface-color-highlight"
+  },
+  "--hds-core-color-green-400": {
+    "semantic": "--hds-foreground-color-success"
+  },
+  "--hds-core-color-green-300": {
+    "semantic": "--hds-foreground-color-success"
+  },
+  "--hds-core-color-green-100": {
+    "semantic": "--hds-surface-color-success"
+  },
+  "--hds-core-color-amber-400": {
+    "semantic": "--hds-foreground-color-warning"
+  },
+  "--hds-core-color-amber-300": {
+    "semantic": "--hds-foreground-color-warning"
+  },
+  "--hds-core-color-amber-100": {
+    "semantic": "--hds-surface-color-warning"
+  },
+  "--hds-core-color-red-400": {
+    "semantic": "--hds-foreground-color-critical"
+  },
+  "--hds-core-color-red-300": {
+    "semantic": "--hds-foreground-color-critical"
+  },
+  "--hds-core-color-red-100": {
+    "semantic": "--hds-surface-color-critical"
+  }
+}
