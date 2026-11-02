@@ -4,10 +4,7 @@
  */
 
 import type { HdsInteractiveSignature } from '../interactive/index.gts';
-
-type HdsIntlLike = {
-  t(key: string, options: { default: string; [key: string]: unknown }): string;
-};
+import type HdsIntlService from '../../../services/hds-intl.ts';
 
 export enum HdsPaginationDirectionValues {
   Next = 'next',
@@ -28,20 +25,21 @@ export const HDS_PAGINATION_DIRECTION_ARIA_LABEL_KEYS = {
 
 export function getHdsPaginationDirectionAriaLabel(
   direction: HdsPaginationDirections,
-  intl: HdsIntlLike
+  hdsIntl: HdsIntlService
 ): string {
-  const key =
-    HDS_PAGINATION_DIRECTION_ARIA_LABEL_KEYS[
-      direction as HdsPaginationDirectionValues
-    ];
-  const defaults = {
-    [HdsPaginationDirectionValues.Prev]: 'Previous page',
-    [HdsPaginationDirectionValues.Next]: 'Next page',
-  } as const;
-
-  return intl.t(key, {
-    default: defaults[direction as HdsPaginationDirectionValues],
-  });
+  return direction === HdsPaginationDirectionValues.Prev
+    ? hdsIntl.t(
+        'hds.components.pagination.nav.arrow.aria-label.direction.prev',
+        {
+          default: 'Previous page',
+        }
+      )
+    : hdsIntl.t(
+        'hds.components.pagination.nav.arrow.aria-label.direction.next',
+        {
+          default: 'Next page',
+        }
+      );
 }
 
 // Display "label" text for nav arrow buttons
@@ -54,20 +52,15 @@ export const HDS_PAGINATION_DIRECTION_LABEL_KEYS = {
 
 export function getHdsPaginationDirectionLabel(
   direction: HdsPaginationDirections,
-  intl: HdsIntlLike
+  hdsIntl: HdsIntlService
 ): string {
-  const key =
-    HDS_PAGINATION_DIRECTION_LABEL_KEYS[
-      direction as HdsPaginationDirectionValues
-    ];
-  const defaults = {
-    [HdsPaginationDirectionValues.Prev]: 'Previous',
-    [HdsPaginationDirectionValues.Next]: 'Next',
-  } as const;
-
-  return intl.t(key, {
-    default: defaults[direction as HdsPaginationDirectionValues],
-  });
+  return direction === HdsPaginationDirectionValues.Prev
+    ? hdsIntl.t('hds.components.pagination.nav.arrow.label.direction.prev', {
+        default: 'Previous',
+      })
+    : hdsIntl.t('hds.components.pagination.nav.arrow.label.direction.next', {
+        default: 'Next',
+      });
 }
 
 export type HdsPaginationElliptizedPageArrayItem = string | number;

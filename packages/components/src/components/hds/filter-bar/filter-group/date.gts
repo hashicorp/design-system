@@ -137,33 +137,99 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
   }
 
   get selectorLabelText(): string {
-    return this.hdsIntl.t(
-      `hds.components.filter-bar.filter-group.date.${this.type}.label`,
-      {
-        default: DATE_TYPE_DEFAULT_TEXT[this.type].label,
-      }
-    );
+    const options = { default: DATE_TYPE_DEFAULT_TEXT[this.type].label };
+
+    switch (this.type) {
+      case 'date':
+        return this.hdsIntl.t(
+          'hds.components.filter-bar.filter-group.date.date.label',
+          options
+        );
+
+      case 'datetime':
+        return this.hdsIntl.t(
+          'hds.components.filter-bar.filter-group.date.datetime.label',
+          options
+        );
+
+      case 'time':
+        return this.hdsIntl.t(
+          'hds.components.filter-bar.filter-group.date.time.label',
+          options
+        );
+    }
   }
 
   get valueInputAriaLabel(): string {
-    return this.hdsIntl.t(
-      `hds.components.filter-bar.filter-group.date.${this.type}.value-input.aria-label`,
-      { default: DATE_TYPE_DEFAULT_TEXT[this.type].value }
-    );
+    const options = { default: DATE_TYPE_DEFAULT_TEXT[this.type].value };
+
+    switch (this.type) {
+      case 'date':
+        return this.hdsIntl.t(
+          'hds.components.filter-bar.filter-group.date.date.value-input.aria-label',
+          options
+        );
+
+      case 'datetime':
+        return this.hdsIntl.t(
+          'hds.components.filter-bar.filter-group.date.datetime.value-input.aria-label',
+          options
+        );
+
+      case 'time':
+        return this.hdsIntl.t(
+          'hds.components.filter-bar.filter-group.date.time.value-input.aria-label',
+          options
+        );
+    }
   }
 
   get betweenStartInputAriaLabel(): string {
-    return this.hdsIntl.t(
-      `hds.components.filter-bar.filter-group.date.${this.type}.between-value-inputs.start.aria-label`,
-      { default: DATE_TYPE_DEFAULT_TEXT[this.type].start }
-    );
+    const options = { default: DATE_TYPE_DEFAULT_TEXT[this.type].start };
+
+    switch (this.type) {
+      case 'date':
+        return this.hdsIntl.t(
+          'hds.components.filter-bar.filter-group.date.date.between-value-inputs.start.aria-label',
+          options
+        );
+
+      case 'datetime':
+        return this.hdsIntl.t(
+          'hds.components.filter-bar.filter-group.date.datetime.between-value-inputs.start.aria-label',
+          options
+        );
+
+      case 'time':
+        return this.hdsIntl.t(
+          'hds.components.filter-bar.filter-group.date.time.between-value-inputs.start.aria-label',
+          options
+        );
+    }
   }
 
   get betweenEndInputAriaLabel(): string {
-    return this.hdsIntl.t(
-      `hds.components.filter-bar.filter-group.date.${this.type}.between-value-inputs.end.aria-label`,
-      { default: DATE_TYPE_DEFAULT_TEXT[this.type].end }
-    );
+    const options = { default: DATE_TYPE_DEFAULT_TEXT[this.type].end };
+
+    switch (this.type) {
+      case 'date':
+        return this.hdsIntl.t(
+          'hds.components.filter-bar.filter-group.date.date.between-value-inputs.end.aria-label',
+          options
+        );
+
+      case 'datetime':
+        return this.hdsIntl.t(
+          'hds.components.filter-bar.filter-group.date.datetime.between-value-inputs.end.aria-label',
+          options
+        );
+
+      case 'time':
+        return this.hdsIntl.t(
+          'hds.components.filter-bar.filter-group.date.time.between-value-inputs.end.aria-label',
+          options
+        );
+    }
   }
 
   get keyFilterData(): HdsFilterBarDateFilterData | undefined {
@@ -316,12 +382,33 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
   private _getSelectorText = (
     selector: HdsFilterBarDateFilterSelector
   ): string => {
-    return this.hdsIntl.t(
-      `hds.components.filter-bar.filter-group.date.selector-input.${selector}`,
-      {
-        default: DATE_SELECTORS_INPUT_TEXT[selector],
-      }
-    );
+    const options = { default: DATE_SELECTORS_INPUT_TEXT[selector] };
+
+    switch (selector) {
+      case 'before':
+        return this.hdsIntl.t(
+          'hds.components.filter-bar.filter-group.date.selector-input.before',
+          options
+        );
+
+      case 'exactly':
+        return this.hdsIntl.t(
+          'hds.components.filter-bar.filter-group.date.selector-input.exactly',
+          options
+        );
+
+      case 'after':
+        return this.hdsIntl.t(
+          'hds.components.filter-bar.filter-group.date.selector-input.after',
+          options
+        );
+
+      case 'between':
+        return this.hdsIntl.t(
+          'hds.components.filter-bar.filter-group.date.selector-input.between',
+          options
+        );
+    }
   };
 
   <template>
