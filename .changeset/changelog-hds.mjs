@@ -7,13 +7,11 @@
 //
 // Notice:
 // - the file needs to live at the same level as the config file and `***.md` changeset files, otherwise it triggers an error "[Error: ENOENT: no such file or directory, open '/PATH/TO/hashicorp/design-system/.changeset/SUBFOLDER/changes.md']"
-// - the file needs to be in "cjs" (`require()`) format, otherwise it doesn't work (at least, we weren't able to get it working) - [we have used the `node_modules/@changesets/changelog-github/dist/changelog-github.cjs.prod.js` compiled file in the NPM package as reference of what is the expected code syntax]
+// - @changesets/cli v3 and @changesets/get-github-info v1 are ESM-only, so this file is an ES module
+// - `@changesets/get-github-info` reads `GITHUB_TOKEN` from the environment or from a `.env` file in the working directory
 //
 
-const dotenv = require("dotenv");
-const getGithubInfo = require("@changesets/get-github-info");
-
-dotenv.config();
+import { getCommitInfo, getPullRequestInfo } from "@changesets/get-github-info";
 
 const SKIP_USERS = [
   // HDS users
@@ -90,27 +88,26 @@ const changelogFunctions = {
       .split("\n")
       .map((l) => l.trimRight());
 
-    const links = await (async () => {
+    const info = await (async () => {
       if (prFromSummary !== undefined) {
-        let { links } = await getGithubInfo.getInfoFromPullRequest({
+        return await getPullRequestInfo({
           repo: options.repo,
           pull: prFromSummary,
         });
-        return links;
       }
       const commitToFetchFrom = commitFromSummary || changeset.commit;
       if (commitToFetchFrom) {
-        let { links } = await getGithubInfo.getInfo({
+        return await getCommitInfo({
           repo: options.repo,
           commit: commitToFetchFrom,
         });
-        return links;
       }
-      return {
-        pull: null,
-        user: null,
-      };
+      return undefined;
     })();
+
+    // the info may be `undefined` if the PR/commit can't be found
+    const pullLink = info?.pull?.markdownLink;
+    const userLink = info?.author?.markdownLink;
 
     let contributors = null;
     if (usersFromSummary.length) {
@@ -118,23 +115,22 @@ const changelogFunctions = {
         .filter((user) => !SKIP_USERS.includes(user))
         .map((user) => `[@${user}](https://github.com/${user})`)
         .join(", ");
-    } else if (links.user) {
-      // this user is coming from the `getInfoFromPullRequest` method that returns a string in the format `[@USER](https://github.com/USER)` / `[@${user.login}](${user.url})`
-      // see: https://github.com/changesets/changesets/blob/main/packages/get-github-info/src/index.ts#L215
-      const match = links.user.match(/^\[@(.*)\]/);
+    } else if (userLink) {
+      // the markdown link has the format `[@USER](https://github.com/USER)`
+      const match = userLink.match(/^\[@(.*)\]/);
       if (match) {
         const user = match[1];
         if (SKIP_USERS.includes(user)) {
-          console.log(`skipped contributor: ${user} = ${links.user}`);
+          console.log(`skipped contributor: ${user} = ${userLink}`);
         } else {
-          contributors = links.user;
+          contributors = userLink;
         }
       }
     }
 
     const metadata = [];
-    if (links.pull) {
-      metadata.push(links.pull);
+    if (pullLink) {
+      metadata.push(pullLink);
     }
     if (contributors) {
       metadata.push(`Thanks ${contributors} for the contribution! 🙏`);
@@ -152,4 +148,4 @@ const changelogFunctions = {
   },
 };
 
-exports.default = changelogFunctions;
+export default changelogFunctions;
