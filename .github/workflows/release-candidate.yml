@@ -40,6 +40,8 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
+          # Required so that NODE_AUTH_TOKEN is used to authenticate to the npm registry
+          registry-url: "https://registry.npmjs.org"
 
       - name: Install Dependencies
         run: pnpm install
@@ -48,8 +50,20 @@ jobs:
         run: pnpm build
         working-directory: packages/components
 
+      - name: Check for pending changesets
+        id: pending
+        # `changeset version` exits with an error when there are no changesets, so we skip the release steps instead
+        run: |
+          if find .changeset -maxdepth 1 -name '*.md' ! -name 'README.md' | grep -q .; then
+            echo "has_changesets=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changesets=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::No changesets found, so no release candidate packages were published."
+          fi
+
       - name: Version RC Packages
         id: version
+        if: steps.pending.outputs.has_changesets == 'true'
         run: pnpm version-candidate-packages
         env:
           # Token setup in hashibot-hds' account
@@ -57,25 +71,27 @@ jobs:
 
       - name: Publish RC Packages
         id: changesets
-        uses: changesets/action@a45c4d594aa4e2c509dc14a9f2b3b67ba3780d0d # v1.9.0
+        if: steps.pending.outputs.has_changesets == 'true'
+        uses: changesets/action@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
         with:
-          publish: pnpm release-candidate-packages
-          createGithubReleases: false
+          publish-script: pnpm release-candidate-packages
+          create-github-releases: false
+          push-git-tags: false
         env:
           # Token setup in hashibot-hds' account
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-          # Token setup in hashibot-hds' account
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Compute new packages info
         id: packagesData
         if: success() && steps.changesets.outputs.published == 'true'
-        # We're using the special GH Actions syntax to add step outputs (ref: https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter)
+        # We're using the GITHUB_OUTPUT file to add step outputs (ref: https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter)
         # for count: use jq to determine the length of the array
         # for packageList: use jq reduce to build up a string of markdown (ref: https://stedolan.github.io/jq/manual/#Reduce)
+        env:
+          PUBLISHED_PACKAGES: ${{ steps.changesets.outputs.published-packages }}
         run: |
-          echo "::set-output name=count::$(echo ${{toJson(steps.changesets.outputs.publishedPackages)}} | jq '. | length')"
-          echo "::set-output name=packageList::$(echo ${{toJson(steps.changesets.outputs.publishedPackages)}} | jq 'reduce .[] as $item (""; . + "#### \($item.name)@\($item.version)\n```\npnpm up \($item.name)@rc\n```\n")')"
+          echo "count=$(echo "$PUBLISHED_PACKAGES" | jq '. | length')" >> "$GITHUB_OUTPUT"
+          echo "packageList=$(echo "$PUBLISHED_PACKAGES" | jq -c 'reduce .[] as $item (""; . + "#### \($item.name)@\($item.version)\n```\npnpm up \($item.name)@rc\n```\n")')" >> "$GITHUB_OUTPUT"
 
       - name: Comment
         uses: marocchino/sticky-pull-request-comment@0ea0beb66eb9baf113663a64ec522f60e49231c0 # v3.0.4
@@ -92,3 +108,13 @@ jobs:
             ${{ fromJSON(steps.packagesData.outputs.packageList) }}
 
             </details>
+
+      - name: Comment (no changesets)
+        uses: marocchino/sticky-pull-request-comment@0ea0beb66eb9baf113663a64ec522f60e49231c0 # v3.0.4
+        if: steps.pending.outputs.has_changesets == 'false'
+        with:
+          header: "rc-release"
+          message: |
+            ### :package: No RC Packages Published
+
+            No changesets were found, so nothing was published.
