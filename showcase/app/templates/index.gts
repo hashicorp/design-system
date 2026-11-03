@@ -54,6 +54,11 @@ const Index: TemplateOnlyComponent = <template>
       <ShwTextH2>Components</ShwTextH2>
       <ol class="shw-text-body">
         <li>
+          <LinkTo @route="page-components.accordion">
+            Accordion
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="page-components.advanced-table">
             AdvancedTable
           </LinkTo>
