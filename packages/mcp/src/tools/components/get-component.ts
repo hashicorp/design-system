@@ -20,6 +20,7 @@ import {
 import { SEARCH_ICONS_TOOL_NAME } from "../hds-icons/constants.js";
 import { getOrLoadComponentStore } from "../../stores/components/index.js";
 import { toSerializableComponentApi } from "./utils.js";
+import { toGetComponentTelemetry } from "./telemetry.js";
 
 import type { ToolRegistration } from "../define-tool.js";
 import type { ComponentCatalogStore } from "../../stores/components/index.js";
@@ -141,6 +142,7 @@ export const createGetComponentTool = (
       annotations: CATALOG_TOOL_ANNOTATIONS,
     },
     executeCallback,
+    toTelemetryProperties: toGetComponentTelemetry,
   });
 };
 
