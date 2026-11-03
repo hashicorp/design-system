@@ -6,6 +6,7 @@
 import { PostHog } from "posthog-node";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { createTelemetry } from "../../../src/telemetry/index.js";
+import { watchStdout } from "../../support/stdout.js";
 
 import type { TelemetryConfig } from "../../../src/telemetry/config.js";
 import type { MockInstance } from "vitest";
@@ -27,7 +28,7 @@ const getErrorListener = (): ((error: unknown) => void) =>
   client.on.mock.calls[0][1];
 
 let consoleErrorSpy: MockInstance;
-let stdoutSpies: MockInstance[];
+let expectNoStdoutWrites: () => void;
 
 beforeEach(() => {
   vi.resetAllMocks();
@@ -40,19 +41,11 @@ beforeEach(() => {
   });
 
   consoleErrorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
-  stdoutSpies = [
-    vi.spyOn(process.stdout, "write"),
-    vi.spyOn(console, "log"),
-    vi.spyOn(console, "info"),
-    vi.spyOn(console, "debug"),
-  ];
+  expectNoStdoutWrites = watchStdout();
 });
 
 afterEach(() => {
-  // stdout is the mcp transport, so telemetry must never write to it
-  for (const spy of stdoutSpies) {
-    expect(spy).not.toHaveBeenCalled();
-  }
+  expectNoStdoutWrites();
 
   vi.restoreAllMocks();
 });
