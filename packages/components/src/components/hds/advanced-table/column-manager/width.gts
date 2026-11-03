@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { modifier } from 'ember-modifier';
-import { TrackedMap } from 'tracked-built-ins';
+import { TrackedMap, TrackedSet } from 'tracked-built-ins';
 import { hash } from '@ember/helper';
 import { isPixelSize, measureColumnWidth, pixelToNumber } from '../utils.ts';
 
@@ -79,6 +79,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     HdsAdvancedTablePixelString
   >();
   private _resizeStartWidths = new TrackedMap<string, number>();
+  private _resizedColumnKeys = new TrackedSet<string>();
 
   syncWidthValues = modifier<HdsAdvancedTableSyncWidthValuesSignature>(() => {
     const { columns } = this.args;
@@ -86,6 +87,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     for (const column of columns) {
       this._columnWidths.set(column.key, column.width ?? DEFAULT_WIDTH);
       this._originalColumnWidths.set(column.key, column.width ?? DEFAULT_WIDTH);
+      this._resizedColumnKeys.delete(column.key);
     }
   });
 
@@ -95,10 +97,28 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     let style = isSelectable ? 'min-content ' : '';
 
     for (const col of orderedColumns) {
-      style += ` ${this.getAppliedWidth(col.key)}`;
+      style += ` ${this._getGridTrack(col)}`;
     }
 
     return style;
+  }
+
+  // a plain `fr` track can't shrink below its content, so a resized column
+  // would snap back on release; resized columns use the same floor as the drag
+  private _getGridTrack(
+    column: HdsAdvancedTableNormalizedColumn
+  ): HdsAdvancedTableColumnWidth {
+    const width = this.getAppliedWidth(column.key);
+
+    if (
+      width === undefined ||
+      isPixelSize(width) ||
+      !this._resizedColumnKeys.has(column.key)
+    ) {
+      return width;
+    }
+
+    return `minmax(${this._colMinPx(column)}px, ${width})`;
   }
 
   getAppliedWidth = (
@@ -299,6 +319,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
           entry.key,
           `${Math.round(weight * 1e6) / 1e6}fr`
         );
+        this._resizedColumnKeys.add(entry.key);
       } else {
         this._columnWidths.set(entry.key, `${Math.round(entry.pixelWidth)}px`);
       }
@@ -338,6 +359,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
       this._originalColumnWidths.get(columnKey) ?? DEFAULT_WIDTH;
 
     this._transientColumnWidths.delete(columnKey);
+    this._resizedColumnKeys.delete(columnKey);
     this._columnWidths.set(columnKey, originalWidth);
   };
 

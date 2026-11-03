@@ -914,7 +914,9 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       );
     });
 
-    test('dragging to the maximum keeps neighbors at their minimum width after release', async function (assert) {
+    test('dragging to the maximum does not snap back on release when neighbors have wide content', async function (assert) {
+      // the neighbors' content is wider than the 150px minimum, so the drag
+      // squeezes them below their content width
       await render(
         <template>
           <div {{style width="1000px"}}>
@@ -925,7 +927,13 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
                 (hash key="b" label="B")
                 (hash key="c" label="C")
               }}
-              @model={{array (hash a="a1" b="b1" c="c1")}}
+              @model={{array
+                (hash
+                  a="a1"
+                  b="/var/log/boundary_session.log"
+                  c="/var/log/boundary_session.log"
+                )
+              }}
               @hasResizableColumns={{true}}
             >
               <:body as |B|>
@@ -946,23 +954,110 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         '#max-table .hds-advanced-table__th-resize-handle',
       );
 
-      await simulatePointerDrag(handle, 5000);
+      await triggerEvent(handle, 'pointerdown', {
+        clientX: POINTER_DRAG_START_X,
+        button: 0,
+      });
+      await triggerEvent(handle, 'pointermove', {
+        clientX: 5000,
+        buttons: 1,
+      });
+      await waitForLayout();
 
-      const first = columnWidth('#max-table', 0);
+      const duringDrag = [0, 1, 2].map((index) =>
+        columnWidth('#max-table', index),
+      );
+
+      await triggerEvent(window, 'pointerup', { button: 0 });
+      await waitForLayout();
+
+      const afterRelease = [0, 1, 2].map((index) =>
+        columnWidth('#max-table', index),
+      );
+
+      const summary = `during ${duringDrag.join(', ')}, after ${afterRelease.join(', ')}`;
+
+      assert.ok(
+        Math.abs((duringDrag[1] ?? 0) - 150) <= 1 &&
+          Math.abs((duringDrag[2] ?? 0) - 150) <= 1,
+        `neighbors are squeezed to their minimum during the drag (${summary})`,
+      );
+      // the flexible tracks may fill a few subpixels the pixel widths left over,
+      // but the dragged column must not jump back down
+      assert.ok(
+        (afterRelease[0] ?? 0) >= (duringDrag[0] ?? 0) - 1,
+        `dragged column does not shrink on release (${summary})`,
+      );
+      [1, 2].forEach((index) => {
+        assert.ok(
+          Math.abs((afterRelease[index] ?? 0) - 150) <= 1,
+          `column ${index} stays at its minimum after release (${summary})`,
+        );
+      });
+    });
+
+    test('only resized flexible columns get the resize minimum, and restoring a column removes it', async function (assert) {
+      await render(
+        <template>
+          <div {{style width="1000px"}}>
+            <HdsAdvancedTable
+              id="restore-table"
+              @columns={{array
+                (hash key="a" label="A")
+                (hash key="b" label="B")
+              }}
+              @model={{array (hash a="a1" b="/var/log/boundary_session.log")}}
+              @hasResizableColumns={{true}}
+            >
+              <:body as |B|>
+                <B.Tr>
+                  <B.Td>{{get B.data "a"}}</B.Td>
+                  <B.Td>{{get B.data "b"}}</B.Td>
+                </B.Tr>
+              </:body>
+            </HdsAdvancedTable>
+          </div>
+        </template>,
+      );
 
       await waitForLayout();
 
-      assert.ok(
-        Math.abs(columnWidth('#max-table', 0) - first) <= 1,
-        'dragged column keeps its width after release',
+      const grid = findOrThrow('#restore-table .hds-advanced-table');
+      const minmaxTrackCount = () =>
+        (grid.style.gridTemplateColumns.match(/minmax\(150px,/g) ?? []).length;
+
+      assert.strictEqual(
+        minmaxTrackCount(),
+        0,
+        'untouched columns keep their content-based minimum',
+      );
+
+      await simulatePointerDrag(
+        findOrThrow('#restore-table .hds-advanced-table__th-resize-handle'),
+        5000,
+      );
+      await waitForLayout();
+
+      assert.strictEqual(
+        minmaxTrackCount(),
+        2,
+        `both resized columns use the resize minimum (${grid.style.gridTemplateColumns})`,
       );
       assert.ok(
-        columnWidth('#max-table', 1) >= 149,
-        `second column is not below its minimum (actual ${columnWidth('#max-table', 1)})`,
+        Math.abs(columnWidth('#restore-table', 1) - 150) <= 1,
+        `the squeezed column stays at its minimum (actual ${columnWidth('#restore-table', 1)})`,
       );
-      assert.ok(
-        columnWidth('#max-table', 2) >= 149,
-        `third column is not below its minimum (actual ${columnWidth('#max-table', 2)})`,
+
+      await performContextMenuAction(
+        findAtOrThrow('#restore-table .hds-advanced-table__th', 1),
+        'reset-column-width',
+      );
+      await waitForLayout();
+
+      assert.strictEqual(
+        minmaxTrackCount(),
+        1,
+        `the restored column no longer uses the resize minimum (${grid.style.gridTemplateColumns})`,
       );
     });
 
