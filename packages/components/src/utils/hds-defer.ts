@@ -5,7 +5,7 @@
 
 import { isDestroyed, isDestroying } from '@ember/destroyable';
 import { renderSettled } from '@ember/renderer';
-import { waitForPromise } from '@ember/test-waiters';
+import { buildWaiter, waitForPromise } from '@ember/test-waiters';
 
 const pendingOnce = new WeakMap<object, Set<() => void>>();
 
@@ -23,7 +23,6 @@ const runUnlessTornDown = (
   callback();
 };
 
-// accepts both native and RSVP promises (`renderSettled` returns the latter)
 const track = (promise: Parameters<typeof waitForPromise>[0]): void => {
   // the returned promise is intentionally not awaited, errors still surface through the test waiter and `Ember.onerror`
   // eslint-disable-next-line @typescript-eslint/no-floating-promises
@@ -72,6 +71,10 @@ export function deferAfterRenderOnce(
   }, destroyable);
 }
 
+const nextTaskWaiter = buildWaiter(
+  '@hashicorp/design-system-components:defer-to-next-task'
+);
+
 /**
  * Runs the callback in a later macrotask, after the browser has had a chance
  * to paint. Replacement for `next(...)`.
@@ -83,9 +86,14 @@ export function deferToNextTask(
   callback: () => void,
   destroyable?: object
 ): void {
-  track(
-    new Promise<void>((resolve) => {
-      setTimeout(resolve, 0);
-    }).then(() => runUnlessTornDown(callback, destroyable))
-  );
+  const token = nextTaskWaiter.beginAsync();
+
+  // called directly (not through a promise) so errors surface as uncaught errors, not unhandled rejections
+  setTimeout(() => {
+    try {
+      runUnlessTornDown(callback, destroyable);
+    } finally {
+      nextTaskWaiter.endAsync(token);
+    }
+  }, 0);
 }

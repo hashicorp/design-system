@@ -4,6 +4,7 @@
  */
 
 import { module, test } from 'qunit';
+import sinon from 'sinon';
 import { destroy } from '@ember/destroyable';
 import { tracked } from '@glimmer/tracking';
 import {
@@ -174,6 +175,34 @@ module('Integration | Utility | hds-defer', function (hooks) {
       await settled();
 
       assert.strictEqual(calls, 0);
+    });
+
+    test('it throws errors from the callback directly and still releases the test waiter', async function (assert) {
+      const setTimeoutStub = sinon.stub(window, 'setTimeout');
+
+      try {
+        deferToNextTask(() => {
+          throw new Error('boom');
+        });
+      } finally {
+        setTimeoutStub.restore();
+      }
+
+      const scheduled: unknown = setTimeoutStub.firstCall.args[0];
+
+      assert.strictEqual(typeof scheduled, 'function');
+      assert.throws(
+        () => (scheduled as () => void)(),
+        /boom/,
+        'the error is thrown from the timer callback instead of becoming an unhandled rejection',
+      );
+
+      await settled();
+
+      assert.ok(
+        true,
+        'the test waiter is released even though the callback threw',
+      );
     });
   });
 });

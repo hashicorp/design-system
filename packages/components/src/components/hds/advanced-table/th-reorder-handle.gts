@@ -89,7 +89,7 @@ export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvanc
         const direction = event.key === 'ArrowLeft' ? -1 : 1;
         onStepColumn(direction);
 
-        // we need to wait for the next run loop to ensure that the element has been registered with the column after moving
+        // wait for the re-render so the handle element has been registered with the column after moving
         deferAfterRenderOnce(this.args.onFocusReorderHandle, this);
         break;
       }
