@@ -84,6 +84,11 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
+          <LinkTo @route="page-components.badge">
+            Badge
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="page-components.badge-count">
             BadgeCount
           </LinkTo>
