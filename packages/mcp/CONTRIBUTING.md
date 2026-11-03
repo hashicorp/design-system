@@ -55,6 +55,8 @@ The server uses stdio, so application diagnostics must be written to stderr. Do 
 
 To test a local build in a real MCP client, run `pnpm build`, then configure a stdio server that uses `node` as the command and the absolute path to `packages/mcp/dist/index.js` as its argument. Set `HDS_MCP_PROJECT_ROOT` in the server's `env` to query a separate application's installed catalogs. Restart the server after rebuilding.
 
+Set `HDS_MCP_TELEMETRY=debug` and `HDS_MCP_POSTHOG_DEV_API_KEY` in the server's `env` to send telemetry to the development PostHog project and log each event to stderr.
+
 ### Linting and type checking
 
 ```bash
