@@ -7,7 +7,12 @@ import Component from '@glimmer/component';
 import { modifier } from 'ember-modifier';
 import { TrackedMap } from 'tracked-built-ins';
 import { hash } from '@ember/helper';
-import { isPixelSize, measureColumnWidth, pixelToNumber } from '../utils.ts';
+import {
+  isPixelSize,
+  measureColumnWidth,
+  parsePixel,
+  pixelToNumber,
+} from '../utils.ts';
 
 import type {
   HdsAdvancedTableNormalizedColumn,
@@ -20,6 +25,12 @@ export const DEFAULT_MIN_WIDTH = '150px';
 export const SUBPIXEL_TOLERANCE = 0.5;
 // layout is measured in whole pixels (`offsetWidth`, `scrollWidth`)
 const MEASUREMENT_TOLERANCE = 1;
+// Chromium and WebKit lay out in 1/64px units, but serialize computed sizes
+// with fewer digits, so measured track sizes are snapped back onto that grid
+const LAYOUT_UNITS_PER_PX = 64;
+
+const snapToLayoutUnit = (px: number): number =>
+  Math.round(px * LAYOUT_UNITS_PER_PX) / LAYOUT_UNITS_PER_PX;
 
 type HdsAdvancedTableColumnWidth = HdsAdvancedTableNormalizedColumn['width'];
 
@@ -190,13 +201,55 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
   beginColumnResize = (): void => {
     this._resizeStartWidths.clear();
 
+    const trackWidths = this._measureTrackWidths();
+
     for (const key of this.args.columnOrder) {
-      const pixelWidth = this._getPxWidth(key);
+      const pixelWidth = trackWidths.get(key) ?? this._getPxWidth(key);
 
       this._resizeStartWidths.set(key, pixelWidth);
       this._transientColumnWidths.set(key, `${pixelWidth}px`);
     }
   };
+
+  // `offsetWidth` rounds to whole pixels, so freezing flexible tracks at it
+  // would shift every column when a resize starts and again when it ends;
+  // resolved track sizes are exact and unaffected by transforms
+  private _measureTrackWidths(): Map<string, number> {
+    const grid = this._getGridElement();
+    const { columnOrder } = this.args;
+
+    if (grid === undefined) {
+      return new Map();
+    }
+
+    const tracks = window
+      .getComputedStyle(grid)
+      .gridTemplateColumns.split(' ')
+      .map((track) => parsePixel(track));
+    // a selectable table has an extra leading track for the checkboxes
+    const columnTracks = tracks.slice(tracks.length - columnOrder.length);
+
+    if (columnTracks.length !== columnOrder.length) {
+      return new Map();
+    }
+
+    return new Map(
+      columnOrder.flatMap((key, index) => {
+        const width = columnTracks[index];
+
+        return width === undefined
+          ? []
+          : [[key, snapToLayoutUnit(width)] as const];
+      })
+    );
+  }
+
+  private _getGridElement(): HTMLElement | undefined {
+    const [thElement] = this.args.thElements.values();
+    const grid = thElement?.closest('.hds-advanced-table');
+
+    return grid instanceof HTMLElement ? grid : undefined;
+  }
 
   private _distributeWidthChange(keys: string[], amount: number): void {
     let remaining = amount;
@@ -375,11 +428,11 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
   // spans every track, unlike `scrollWidth`, which also counts cell content
   // spilling past the last column
   private _isTableOverflowing(): boolean {
+    const scroller = this._getGridElement();
     const [thElement] = this.args.thElements.values();
-    const scroller = thElement?.closest('.hds-advanced-table');
     const thead = thElement?.closest('.hds-advanced-table__thead');
 
-    if (!(scroller instanceof HTMLElement) || !(thead instanceof HTMLElement)) {
+    if (scroller === undefined || !(thead instanceof HTMLElement)) {
       return false;
     }
 

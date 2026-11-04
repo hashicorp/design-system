@@ -1170,6 +1170,94 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       );
     });
 
+    test('resizing does not shift columns outside the resized pair by sub-pixel amounts', async function (assert) {
+      // 1003px makes the 1fr tracks fractional
+      await render(
+        <template>
+          <div {{style width="1003px"}}>
+            <HdsAdvancedTable
+              id="jitter-table"
+              @columns={{array
+                (hash key="a" label="A")
+                (hash key="b" label="B")
+                (hash key="c" label="C")
+                (hash key="d" label="D")
+              }}
+              @model={{array (hash a="a1" b="b1" c="c1" d="d1")}}
+              @hasResizableColumns={{true}}
+            >
+              <:body as |B|>
+                <B.Tr>
+                  <B.Td>{{get B.data "a"}}</B.Td>
+                  <B.Td>{{get B.data "b"}}</B.Td>
+                  <B.Td>{{get B.data "c"}}</B.Td>
+                  <B.Td>{{get B.data "d"}}</B.Td>
+                </B.Tr>
+              </:body>
+            </HdsAdvancedTable>
+          </div>
+        </template>,
+      );
+
+      await waitForInitialTableLayout('#jitter-table');
+
+      // exact rects, unlike `offsetWidth`, expose sub-pixel movement
+      const rects = () =>
+        findAll(
+          '#jitter-table .hds-advanced-table__thead .hds-advanced-table__th',
+        ).map((th) => {
+          const { left, width } = th.getBoundingClientRect();
+
+          return { left, width };
+        });
+      const assertUnchanged = (
+        expected: { left: number; width: number }[],
+        indexes: number[],
+        label: string,
+      ) => {
+        const actual = rects();
+
+        indexes.forEach((index) => {
+          assert.deepEqual(
+            actual[index],
+            expected[index],
+            `${label}: column ${index} did not move`,
+          );
+        });
+      };
+
+      const initial = rects();
+      const handle = findAtOrThrow(
+        '#jitter-table .hds-advanced-table__th-resize-handle',
+        1,
+      );
+
+      await triggerEvent(handle, 'pointerdown', {
+        clientX: POINTER_DRAG_START_X,
+        button: 0,
+      });
+      await waitForLayout();
+
+      assertUnchanged(initial, [0, 1, 2, 3], 'on pointerdown');
+
+      // fractional coordinates, as reported on high-density displays
+      for (const clientX of [100.4, 100.9, 101.3, 102.7]) {
+        await triggerEvent(handle, 'pointermove', { clientX, buttons: 1 });
+        await waitForLayout();
+
+        assertUnchanged(initial, [0, 3], `at clientX ${clientX}`);
+      }
+
+      await triggerEvent(handle, 'pointermove', {
+        clientX: POINTER_DRAG_START_X,
+        buttons: 1,
+      });
+      await triggerEvent(window, 'pointerup', { button: 0 });
+      await waitForLayout();
+
+      assertUnchanged(initial, [0, 1, 2, 3], 'after releasing at the start');
+    });
+
     test('reversing a drag past the minimum width grows the column immediately', async function (assert) {
       await createResizableTable({});
 

@@ -289,12 +289,17 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       const { column, onResizeColumnByDelta } = this.args;
 
       if (column !== undefined && onResizeColumnByDelta !== undefined) {
-        const deltaX = event.clientX - this.resizing.startX;
+        // pointer coordinates can be fractional; a whole-pixel delta keeps the
+        // columns' widths summing exactly, so the columns past them stay still
+        const deltaX = Math.round(event.clientX - this.resizing.startX);
 
         this._transientDelta = onResizeColumnByDelta(column.key, deltaX);
 
-        // re-anchor when clamped so reversing direction responds immediately
-        this.resizing = { startX: event.clientX - this._transientDelta };
+        // re-anchor when clamped so reversing direction responds immediately;
+        // only then, or the rounding remainder would drift the anchor each move
+        if (this._transientDelta !== deltaX) {
+          this.resizing = { startX: event.clientX - this._transientDelta };
+        }
       }
 
       this._isUpdateQueued = false;
