@@ -9,7 +9,7 @@ export default class LocalComponent extends Component {
     { groupName: 'Others', options: ['CloudWise', 'SWA', 'Other'] },
   ];
 
-  SELECTED_OPTIONS = [this.OPTIONS[0]?.options[0], this.OPTIONS[1]?.options[0]];
+  SELECTED_OPTIONS = ['Kubernetes', 'CloudWise'];
 
   <template>
     <HdsFormSuperSelectMultipleField
@@ -19,7 +19,6 @@ export default class LocalComponent extends Component {
       as |F|
     >
       <F.Label>Grouped options</F.Label>
-      {{! @glint-expect-error }}
       <F.Options>{{F.options}}</F.Options>
     </HdsFormSuperSelectMultipleField>
   </template>

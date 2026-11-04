@@ -11,7 +11,7 @@ import style from 'ember-style-modifier';
 import PowerSelect from 'ember-power-select/components/power-select';
 
 import type { PowerSelectSignature } from 'ember-power-select/components/power-select';
-import type { Select } from 'ember-power-select/components/power-select';
+import type { Select } from 'ember-power-select/types';
 import type { CalculatePositionResult } from 'ember-basic-dropdown/utils/calculate-position';
 import type HdsIntlService from '../../../../../services/hds-intl.ts';
 
@@ -25,31 +25,34 @@ import HdsFormSuperSelectOptionGroup from '../option-group.gts';
 import HdsFormSuperSelectPlaceholder from '../placeholder.gts';
 import HdsFormSuperSelectAfterOptions from '../after-options.gts';
 
-import type { HdsFormSuperSelectHorizontalPositions } from '../types.ts';
+import type {
+  HdsFormSuperSelectBaseArgs,
+  HdsFormSuperSelectHorizontalPositions,
+} from '../types.ts';
 
 export const DEFAULT_HORIZONTAL_POSITION: string =
   HdsFormSuperSelectHorizontalPositionValues.Left;
 export const HORIZONTAL_POSITION_MAPPING =
   HdsFormSuperSelectHorizontalPositionToPlacementValues;
 
-export interface HdsFormSuperSelectSingleBaseSignature {
-  Args: Omit<PowerSelectSignature['Args'], 'resultCountMessage'> & {
-    showAfterOptions?: boolean;
-    afterOptionsContent?: string;
-    resultCountMessage?:
-      | string
-      | PowerSelectSignature['Args']['resultCountMessage'];
-    dropdownMaxWidth?: string;
-    matchTriggerWidth?: boolean;
-    isInvalid?: boolean;
-  };
-  Blocks: PowerSelectSignature['Blocks'];
-  Element: PowerSelectSignature['Element'];
+type HdsFormSuperSelectSinglePowerSelectSignature<T, TExtra> =
+  PowerSelectSignature<T, false, TExtra>;
+
+export interface HdsFormSuperSelectSingleBaseSignature<
+  T = unknown,
+  TExtra = unknown,
+> {
+  Args: HdsFormSuperSelectBaseArgs<T, false, TExtra>;
+  Blocks: HdsFormSuperSelectSinglePowerSelectSignature<T, TExtra>['Blocks'];
+  Element: HdsFormSuperSelectSinglePowerSelectSignature<T, TExtra>['Element'];
 }
 
-export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuperSelectSingleBaseSignature> {
+export default class HdsFormSuperSelectSingleBase<
+  T = unknown,
+  TExtra = unknown,
+> extends Component<HdsFormSuperSelectSingleBaseSignature<T, TExtra>> {
   @service declare readonly hdsIntl: HdsIntlService;
-  @tracked powerSelectAPI?: Select;
+  @tracked powerSelectAPI?: Select<T>;
   private _cleanupAnchoredPosition?: () => void;
 
   get horizontalPosition(): HdsFormSuperSelectHorizontalPositions {
@@ -72,7 +75,10 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
     );
   }
 
-  get resultCountMessageFunction(): PowerSelectSignature['Args']['resultCountMessage'] {
+  get resultCountMessageFunction(): HdsFormSuperSelectSinglePowerSelectSignature<
+    T,
+    TExtra
+  >['Args']['resultCountMessage'] {
     if (typeof this.args.resultCountMessage === 'function') {
       return this.args.resultCountMessage;
     }
@@ -124,7 +130,7 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
    *
    * The `powerSelectAPI` is also stored on the component instance and used in `clearSelected`
    */
-  setPowerSelectAPI = (powerSelectAPI: Select): void => {
+  setPowerSelectAPI = (powerSelectAPI: Select<T>): void => {
     if (typeof this.args.registerAPI === 'function') {
       this.args.registerAPI(powerSelectAPI);
     }

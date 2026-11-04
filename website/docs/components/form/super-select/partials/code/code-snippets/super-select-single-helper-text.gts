@@ -21,7 +21,6 @@ export default class LocalComponent extends Component {
       <F.Label>Target infrastructure</F.Label>
       <F.HelperText>The target infrastructure is where you want to deploy your
         apps.</F.HelperText>
-      {{! @glint-expect-error }}
       <F.Options>{{F.options}}</F.Options>
     </HdsFormSuperSelectSingleField>
   </template>

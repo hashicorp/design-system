@@ -1,18 +1,18 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import type { PowerSelectSelectedItemSignature } from 'ember-power-select/types';
 
-interface ExampleSelectedItemComponentSignature {
-  Args: {
-    option: {
-      size: string;
-    };
-  };
+interface ClusterSizeOption {
+  size: string;
+  description: string;
+  price: string;
 }
 
-const ExampleSelectedItemComponent: TemplateOnlyComponent<ExampleSelectedItemComponentSignature> =
-  <template>
-    <span>
-      {{@option.size}}
-    </span>
-  </template>;
+const ExampleSelectedItemComponent: TemplateOnlyComponent<
+  PowerSelectSelectedItemSignature<ClusterSizeOption>
+> = <template>
+  <span>
+    {{@selected.size}}
+  </span>
+</template>;
 
 export default ExampleSelectedItemComponent;

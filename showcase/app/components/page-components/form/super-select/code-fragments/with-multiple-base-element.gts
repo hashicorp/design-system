@@ -48,7 +48,7 @@ export interface CodeFragmentWithMultipleBaseElementSignature {
 }
 
 export default class CodeFragmentWithMultipleBaseElement extends Component<CodeFragmentWithMultipleBaseElementSignature> {
-  @tracked selectedOptions;
+  @tracked selectedOptions: string[] = [];
 
   options = OPTIONS;
   emptyOptions: string[] = [];
@@ -61,8 +61,8 @@ export default class CodeFragmentWithMultipleBaseElement extends Component<CodeF
     if (args.isSelected) {
       this.selectedOptions =
         args.options === 'places'
-          ? [PLACES_OPTIONS[0], PLACES_OPTIONS[1]]
-          : [OPTIONS[0], OPTIONS[1]];
+          ? PLACES_OPTIONS.slice(0, 2)
+          : OPTIONS.slice(0, 2);
     }
     if (args.options === 'places') {
       this.options = PLACES_OPTIONS;
@@ -80,7 +80,7 @@ export default class CodeFragmentWithMultipleBaseElement extends Component<CodeF
     );
   };
 
-  get search(): HdsFormSuperSelectMultipleBaseSignature['Args']['search'] {
+  get search(): HdsFormSuperSelectMultipleBaseSignature<string>['Args']['search'] {
     return this.args.hasCustomSearch ? this.searchOptions : undefined;
   }
 

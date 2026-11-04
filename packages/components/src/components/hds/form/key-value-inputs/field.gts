@@ -70,14 +70,9 @@ export interface HdsFormKeyValueInputsFieldSignature {
           typeof HdsFormSelectBase,
           'ariaDescribedBy' | 'id' | 'isInvalid'
         >;
-        SuperSelectSingle?: WithBoundArgs<
-          typeof HdsFormSuperSelectSingleBase,
-          'ariaDescribedBy' | 'ariaLabelledBy' | 'isInvalid' | 'triggerId'
-        >;
-        SuperSelectMultiple?: WithBoundArgs<
-          typeof HdsFormSuperSelectMultipleBase,
-          'ariaDescribedBy' | 'ariaLabelledBy' | 'isInvalid' | 'triggerId'
-        >;
+        // not optional and not `WithBoundArgs`, because Glint drops the generic types of both (all the bound args are optional in the Base components)
+        SuperSelectSingle: typeof HdsFormSuperSelectSingleBase;
+        SuperSelectMultiple: typeof HdsFormSuperSelectMultipleBase;
         TextInput?: WithBoundArgs<
           typeof HdsFormTextInputBase,
           'ariaDescribedBy' | 'id' | 'isInvalid'
@@ -140,6 +135,18 @@ export default class HdsFormKeyValueInputsField extends Component<HdsFormKeyValu
     unregisterAriaDescriptionElement(this as AriaDescribedByComponent, element);
   };
 
+  // the `component` helper drops the generic types of the SuperSelect Base components,
+  // so these restore them and let consumers' `@options` type the yielded options
+  private _asSuperSelectSingle = (
+    component: unknown
+  ): typeof HdsFormSuperSelectSingleBase =>
+    component as typeof HdsFormSuperSelectSingleBase;
+
+  private _asSuperSelectMultiple = (
+    component: unknown
+  ): typeof HdsFormSuperSelectMultipleBase =>
+    component as typeof HdsFormSuperSelectMultipleBase;
+
   <template>
     <div
       class="hds-form-key-value-inputs__field"
@@ -191,19 +198,23 @@ export default class HdsFormKeyValueInputsField extends Component<HdsFormKeyValu
                 id=this.id
                 isInvalid=@isInvalid
               )
-              SuperSelectSingle=(component
-                HdsFormSuperSelectSingleBase
-                ariaDescribedBy=ariaDescribedBy
-                ariaLabelledBy=(concat this.labelIdPrefix this.id)
-                isInvalid=@isInvalid
-                triggerId=this.id
+              SuperSelectSingle=(this._asSuperSelectSingle
+                (component
+                  HdsFormSuperSelectSingleBase
+                  ariaDescribedBy=ariaDescribedBy
+                  ariaLabelledBy=(concat this.labelIdPrefix this.id)
+                  isInvalid=@isInvalid
+                  triggerId=this.id
+                )
               )
-              SuperSelectMultiple=(component
-                HdsFormSuperSelectMultipleBase
-                ariaDescribedBy=ariaDescribedBy
-                ariaLabelledBy=(concat this.labelIdPrefix this.id)
-                isInvalid=@isInvalid
-                triggerId=this.id
+              SuperSelectMultiple=(this._asSuperSelectMultiple
+                (component
+                  HdsFormSuperSelectMultipleBase
+                  ariaDescribedBy=ariaDescribedBy
+                  ariaLabelledBy=(concat this.labelIdPrefix this.id)
+                  isInvalid=@isInvalid
+                  triggerId=this.id
+                )
               )
               TextInput=(component
                 HdsFormTextInputBase

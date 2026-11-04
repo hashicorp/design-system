@@ -31,7 +31,7 @@ export default class CodeFragmentWithSuperSelect extends Component<CodeFragmentW
   @tracked selectedValue: string | undefined = undefined;
   @tracked selectedValues: string[] = [];
 
-  setSelectedValue = (value: string): void => {
+  setSelectedValue = (value: string | undefined): void => {
     this.selectedValue = value;
   };
 

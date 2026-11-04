@@ -7003,11 +7003,11 @@
             },
             {
               "name": "SuperSelectSingle",
-              "type": "WithBoundArgs<typeof HdsFormSuperSelectSingleBase, 'ariaDescribedBy' | 'ariaLabelledBy' | 'isInvalid' | 'triggerId'>"
+              "type": "typeof HdsFormSuperSelectSingleBase"
             },
             {
               "name": "SuperSelectMultiple",
-              "type": "WithBoundArgs<typeof HdsFormSuperSelectMultipleBase, 'ariaDescribedBy' | 'ariaLabelledBy' | 'isInvalid' | 'triggerId'>"
+              "type": "typeof HdsFormSuperSelectMultipleBase"
             },
             {
               "name": "TextInput",
@@ -7887,11 +7887,12 @@
       "name": "Hds::Form::SuperSelect::AfterOptions",
       "modulePath": "hds/form/super-select/after-options",
       "docsPath": "components/form/super-select",
+      "element": "HTMLDivElement",
       "args": [
         {
           "name": "clearSelected",
           "type": "() => void",
-          "required": true
+          "required": false
         },
         {
           "name": "content",
@@ -7911,7 +7912,7 @@
         {
           "name": "showAll",
           "type": "() => void",
-          "required": true
+          "required": false
         },
         {
           "name": "showNoSelectedMessage",
@@ -7926,26 +7927,32 @@
         {
           "name": "showSelected",
           "type": "() => void",
-          "required": true
+          "required": false
         }
       ],
-      "blocks": []
+      "blocks": [
+        {
+          "name": "default",
+          "yields": []
+        }
+      ]
     },
     {
       "name": "Hds::Form::SuperSelect::Multiple::Base",
       "modulePath": "hds/form/super-select/multiple/base",
       "docsPath": "components/form/super-select",
-      "element": "HTMLElement",
+      "element": "Element",
       "args": [
         {
           "name": "afterOptionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectAfterOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectAfterOptionsSignature<NoInfer<T>, TExtra, true>>",
           "required": false
         },
         {
           "name": "afterOptionsContent",
           "type": "string",
-          "required": false
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "allowClear",
@@ -7979,12 +7986,12 @@
         },
         {
           "name": "beforeOptionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectBeforeOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectBeforeOptionsSignature<NoInfer<T>, TExtra, true>>",
           "required": false
         },
         {
           "name": "buildSelection",
-          "type": "(selected: any, select: Select) => any",
+          "type": "(selected: Option<T>, select: Select<T, true>) => Option<T>[]",
           "required": false
         },
         {
@@ -7999,7 +8006,7 @@
         },
         {
           "name": "defaultHighlighted",
-          "type": "any",
+          "type": "((params: DefaultHighlightedParams<T>) => Option<T> | undefined) | NonNullable<Option<T>>",
           "required": false
         },
         {
@@ -8025,31 +8032,34 @@
         {
           "name": "dropdownMaxWidth",
           "type": "string",
-          "required": false
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "ebdContentComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<BasicDropdownContentSignature<\"div\">>",
           "required": false
         },
         {
           "name": "ebdTriggerComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<BasicDropdownTriggerSignature<\"div\">>",
           "required": false
         },
         {
           "name": "eventType",
-          "type": "string",
-          "required": false
+          "type": "\"click\" | \"mousedown\"",
+          "required": false,
+          "values": ["click", "mousedown"]
         },
         {
           "name": "extra",
-          "type": "any",
-          "required": false
+          "type": "TExtra",
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "groupComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectPowerSelectGroupSignature<unknown, unknown, false>> | ComponentLike<PowerSelectPowerSelectGroupSignature<NoInfer<T>, TExtra, true>>",
           "required": false
         },
         {
@@ -8059,8 +8069,16 @@
         },
         {
           "name": "horizontalPosition",
-          "type": "string",
-          "required": false
+          "type": "HorizontalPosition",
+          "required": false,
+          "values": [
+            "auto",
+            "auto-right",
+            "auto-left",
+            "left",
+            "right",
+            "center"
+          ]
         },
         {
           "name": "initiallyOpened",
@@ -8070,7 +8088,8 @@
         {
           "name": "isInvalid",
           "type": "boolean",
-          "required": false
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "labelClass",
@@ -8085,7 +8104,7 @@
         },
         {
           "name": "labelComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectLabelSignature<unknown, unknown, false>> | ComponentLike<PowerSelectLabelSignature<NoInfer<T>, TExtra, true>>",
           "required": false
         },
         {
@@ -8100,29 +8119,20 @@
           "required": false
         },
         {
-          "name": "legacyMultiple",
-          "type": "boolean",
-          "required": false
-        },
-        {
           "name": "loadingMessage",
           "type": "string",
           "required": false
         },
         {
           "name": "matcher",
-          "type": "MatcherFn",
+          "type": "MatcherFn<T>",
           "required": false
         },
         {
           "name": "matchTriggerWidth",
           "type": "boolean",
-          "required": false
-        },
-        {
-          "name": "multiple",
-          "type": "boolean",
-          "required": false
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "noMatchesMessage",
@@ -8131,52 +8141,54 @@
         },
         {
           "name": "noMatchesMessageComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectNoMatchesMessageSignature<unknown, unknown, false>> | ComponentLike<PowerSelectNoMatchesMessageSignature<NoInfer<T>, TExtra, true>>",
           "required": false
         },
         {
           "name": "onBlur",
-          "type": "(select: Select, event: FocusEvent) => void",
+          "type": "(select: Select<T, true>, event: FocusEvent) => void",
           "required": false
         },
         {
           "name": "onChange",
-          "type": "(selection: any, select: Select, event?: Event | undefined) => void",
-          "required": true
+          "type": "(selection: Option<T>[], select: Select<T, true>, event?: Event | undefined) => void",
+          "required": true,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "onClose",
-          "type": "(select: Select, e: Event) => boolean | void | undefined",
+          "type": "(select: Select<T, true>, e: Event | undefined) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "onFocus",
-          "type": "(select: Select, event: FocusEvent) => void",
+          "type": "(select: Select<T, true>, event: FocusEvent) => void",
           "required": false
         },
         {
           "name": "onInput",
-          "type": "(term: string, select: Select, e: Event) => string | boolean | void",
+          "type": "(term: string, select: Select<T, true>, e: Event) => string | false | void | PromiseLike<void>",
           "required": false
         },
         {
           "name": "onKeydown",
-          "type": "(select: Select, e: KeyboardEvent) => boolean | void | undefined",
+          "type": "(select: Select<T, true>, e: KeyboardEvent) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "onOpen",
-          "type": "(select: Select, e: Event) => boolean | void | undefined",
+          "type": "(select: Select<T, true>, e: Event | undefined) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "options",
-          "type": "readonly any[] | Promise<readonly any[]>",
-          "required": false
+          "type": "readonly T[] | Promise<readonly T[]>",
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "optionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectOptionsSignature<NoInfer<T>, TExtra, true>>",
           "required": false
         },
         {
@@ -8186,7 +8198,7 @@
         },
         {
           "name": "placeholderComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectPlaceholderSignature<unknown, unknown, false>> | ComponentLike<PowerSelectPlaceholderSignature<NoInfer<T>, TExtra, true>>",
           "required": false
         },
         {
@@ -8196,7 +8208,7 @@
         },
         {
           "name": "registerAPI",
-          "type": "(select: Select) => void",
+          "type": "(select: Select<T, true>) => void",
           "required": false
         },
         {
@@ -8212,7 +8224,8 @@
         {
           "name": "resultCountMessage",
           "type": "string | ((resultCount: number) => string)",
-          "required": false
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "rootEventType",
@@ -8222,12 +8235,12 @@
         },
         {
           "name": "scrollTo",
-          "type": "(option: any, select: Select) => void",
+          "type": "(option: Option<T> | undefined, select: Select<T, true>) => void",
           "required": false
         },
         {
           "name": "search",
-          "type": "(term: string, select: Select) => readonly any[] | Promise<readonly any[]>",
+          "type": "(term: string, select: Select<T, true>) => void | Promise<void> | readonly T[] | Promise<readonly T[]>",
           "required": false
         },
         {
@@ -8253,7 +8266,7 @@
         },
         {
           "name": "searchMessageComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectSearchMessageSignature<unknown, unknown, false>> | ComponentLike<PowerSelectSearchMessageSignature<NoInfer<T>, TExtra, true>>",
           "required": false
         },
         {
@@ -8263,18 +8276,20 @@
         },
         {
           "name": "selected",
-          "type": "any",
-          "required": false
+          "type": "Option<T>[] | Promise<Option<T>[]>",
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "selectedItemComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectSelectedItemSignature<unknown, unknown, false>> | ComponentLike<PowerSelectSelectedItemSignature<NoInfer<T>, TExtra, true>>",
           "required": false
         },
         {
           "name": "showAfterOptions",
           "type": "boolean",
-          "required": false
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "tabindex",
@@ -8293,7 +8308,7 @@
         },
         {
           "name": "triggerComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectTriggerSignature<unknown, unknown, false>> | ComponentLike<PowerSelectTriggerSignature<NoInfer<T>, TExtra, true>>",
           "required": false
         },
         {
@@ -8308,13 +8323,14 @@
         },
         {
           "name": "typeAheadOptionMatcher",
-          "type": "MatcherFn",
+          "type": "MatcherFn<T>",
           "required": false
         },
         {
           "name": "verticalPosition",
-          "type": "string",
-          "required": false
+          "type": "VerticalPosition",
+          "required": false,
+          "values": ["auto", "above", "below"]
         }
       ],
       "blocks": [
@@ -8323,11 +8339,11 @@
           "yields": [
             {
               "name": "option",
-              "type": "any"
+              "type": "Option<T>"
             },
             {
               "name": "select",
-              "type": "Select"
+              "type": "Select<T, true>"
             }
           ]
         }
@@ -8337,18 +8353,18 @@
       "name": "Hds::Form::SuperSelect::Multiple::Field",
       "modulePath": "hds/form/super-select/multiple/field",
       "docsPath": "components/form/super-select",
-      "element": "HTMLElement",
+      "element": "Element",
       "args": [
         {
           "name": "afterOptionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectAfterOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectAfterOptionsSignature<NoInfer<T>, TExtra, true>>",
           "required": false
         },
         {
           "name": "afterOptionsContent",
           "type": "string",
           "required": false,
-          "inheritedFrom": "hds/form/super-select/multiple/base"
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "allowClear",
@@ -8382,12 +8398,12 @@
         },
         {
           "name": "beforeOptionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectBeforeOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectBeforeOptionsSignature<NoInfer<T>, TExtra, true>>",
           "required": false
         },
         {
           "name": "buildSelection",
-          "type": "(selected: any, select: Select) => any",
+          "type": "(selected: Option<T>, select: Select<T, true>) => Option<T>[]",
           "required": false
         },
         {
@@ -8408,7 +8424,7 @@
         },
         {
           "name": "defaultHighlighted",
-          "type": "any",
+          "type": "((params: DefaultHighlightedParams<T>) => Option<T> | undefined) | NonNullable<Option<T>>",
           "required": false
         },
         {
@@ -8435,27 +8451,29 @@
           "name": "dropdownMaxWidth",
           "type": "string",
           "required": false,
-          "inheritedFrom": "hds/form/super-select/multiple/base"
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "ebdContentComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<BasicDropdownContentSignature<\"div\">>",
           "required": false
         },
         {
           "name": "ebdTriggerComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<BasicDropdownTriggerSignature<\"div\">>",
           "required": false
         },
         {
           "name": "eventType",
-          "type": "string",
-          "required": false
+          "type": "\"click\" | \"mousedown\"",
+          "required": false,
+          "values": ["click", "mousedown"]
         },
         {
           "name": "extra",
-          "type": "any",
-          "required": false
+          "type": "TExtra",
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "extraAriaDescribedBy",
@@ -8465,7 +8483,7 @@
         },
         {
           "name": "groupComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectPowerSelectGroupSignature<unknown, unknown, false>> | ComponentLike<PowerSelectPowerSelectGroupSignature<NoInfer<T>, TExtra, true>>",
           "required": false
         },
         {
@@ -8475,8 +8493,16 @@
         },
         {
           "name": "horizontalPosition",
-          "type": "string",
-          "required": false
+          "type": "HorizontalPosition",
+          "required": false,
+          "values": [
+            "auto",
+            "auto-right",
+            "auto-left",
+            "left",
+            "right",
+            "center"
+          ]
         },
         {
           "name": "id",
@@ -8493,7 +8519,7 @@
           "name": "isInvalid",
           "type": "boolean",
           "required": false,
-          "inheritedFrom": "hds/form/super-select/multiple/base"
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "isOptional",
@@ -8520,7 +8546,7 @@
         },
         {
           "name": "labelComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectLabelSignature<unknown, unknown, false>> | ComponentLike<PowerSelectLabelSignature<NoInfer<T>, TExtra, true>>",
           "required": false
         },
         {
@@ -8542,30 +8568,20 @@
           "inheritedFrom": "hds/form/field"
         },
         {
-          "name": "legacyMultiple",
-          "type": "boolean",
-          "required": false
-        },
-        {
           "name": "loadingMessage",
           "type": "string",
           "required": false
         },
         {
           "name": "matcher",
-          "type": "MatcherFn",
+          "type": "MatcherFn<T>",
           "required": false
         },
         {
           "name": "matchTriggerWidth",
           "type": "boolean",
           "required": false,
-          "inheritedFrom": "hds/form/super-select/multiple/base"
-        },
-        {
-          "name": "multiple",
-          "type": "boolean",
-          "required": false
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "noMatchesMessage",
@@ -8574,52 +8590,54 @@
         },
         {
           "name": "noMatchesMessageComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectNoMatchesMessageSignature<unknown, unknown, false>> | ComponentLike<PowerSelectNoMatchesMessageSignature<NoInfer<T>, TExtra, true>>",
           "required": false
         },
         {
           "name": "onBlur",
-          "type": "(select: Select, event: FocusEvent) => void",
+          "type": "(select: Select<T, true>, event: FocusEvent) => void",
           "required": false
         },
         {
           "name": "onChange",
-          "type": "(selection: any, select: Select, event?: Event | undefined) => void",
-          "required": true
+          "type": "(selection: Option<T>[], select: Select<T, true>, event?: Event | undefined) => void",
+          "required": true,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "onClose",
-          "type": "(select: Select, e: Event) => boolean | void | undefined",
+          "type": "(select: Select<T, true>, e: Event | undefined) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "onFocus",
-          "type": "(select: Select, event: FocusEvent) => void",
+          "type": "(select: Select<T, true>, event: FocusEvent) => void",
           "required": false
         },
         {
           "name": "onInput",
-          "type": "(term: string, select: Select, e: Event) => string | boolean | void",
+          "type": "(term: string, select: Select<T, true>, e: Event) => string | false | void | PromiseLike<void>",
           "required": false
         },
         {
           "name": "onKeydown",
-          "type": "(select: Select, e: KeyboardEvent) => boolean | void | undefined",
+          "type": "(select: Select<T, true>, e: KeyboardEvent) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "onOpen",
-          "type": "(select: Select, e: Event) => boolean | void | undefined",
+          "type": "(select: Select<T, true>, e: Event | undefined) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "options",
-          "type": "readonly any[] | Promise<readonly any[]>",
-          "required": false
+          "type": "readonly T[] | Promise<readonly T[]>",
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "optionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectOptionsSignature<NoInfer<T>, TExtra, true>>",
           "required": false
         },
         {
@@ -8629,7 +8647,7 @@
         },
         {
           "name": "placeholderComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectPlaceholderSignature<unknown, unknown, false>> | ComponentLike<PowerSelectPlaceholderSignature<NoInfer<T>, TExtra, true>>",
           "required": false
         },
         {
@@ -8639,7 +8657,7 @@
         },
         {
           "name": "registerAPI",
-          "type": "(select: Select) => void",
+          "type": "(select: Select<T, true>) => void",
           "required": false
         },
         {
@@ -8656,7 +8674,7 @@
           "name": "resultCountMessage",
           "type": "string | ((resultCount: number) => string)",
           "required": false,
-          "inheritedFrom": "hds/form/super-select/multiple/base"
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "rootEventType",
@@ -8666,12 +8684,12 @@
         },
         {
           "name": "scrollTo",
-          "type": "(option: any, select: Select) => void",
+          "type": "(option: Option<T> | undefined, select: Select<T, true>) => void",
           "required": false
         },
         {
           "name": "search",
-          "type": "(term: string, select: Select) => readonly any[] | Promise<readonly any[]>",
+          "type": "(term: string, select: Select<T, true>) => void | Promise<void> | readonly T[] | Promise<readonly T[]>",
           "required": false
         },
         {
@@ -8697,7 +8715,7 @@
         },
         {
           "name": "searchMessageComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectSearchMessageSignature<unknown, unknown, false>> | ComponentLike<PowerSelectSearchMessageSignature<NoInfer<T>, TExtra, true>>",
           "required": false
         },
         {
@@ -8707,19 +8725,20 @@
         },
         {
           "name": "selected",
-          "type": "any",
-          "required": false
+          "type": "Option<T>[] | Promise<Option<T>[]>",
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "selectedItemComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectSelectedItemSignature<unknown, unknown, false>> | ComponentLike<PowerSelectSelectedItemSignature<NoInfer<T>, TExtra, true>>",
           "required": false
         },
         {
           "name": "showAfterOptions",
           "type": "boolean",
           "required": false,
-          "inheritedFrom": "hds/form/super-select/multiple/base"
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "tabindex",
@@ -8738,7 +8757,7 @@
         },
         {
           "name": "triggerComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectTriggerSignature<unknown, unknown, false>> | ComponentLike<PowerSelectTriggerSignature<NoInfer<T>, TExtra, true>>",
           "required": false
         },
         {
@@ -8753,13 +8772,14 @@
         },
         {
           "name": "typeAheadOptionMatcher",
-          "type": "MatcherFn",
+          "type": "MatcherFn<T>",
           "required": false
         },
         {
           "name": "verticalPosition",
-          "type": "string",
-          "required": false
+          "type": "VerticalPosition",
+          "required": false,
+          "values": ["auto", "above", "below"]
         }
       ],
       "blocks": [
@@ -8784,11 +8804,11 @@
             },
             {
               "name": "options",
-              "type": "unknown"
+              "type": "Option<T>"
             },
             {
               "name": "select",
-              "type": "Select"
+              "type": "Select<T, true>"
             }
           ]
         }
@@ -8798,6 +8818,7 @@
       "name": "Hds::Form::SuperSelect::OptionGroup",
       "modulePath": "hds/form/super-select/option-group",
       "docsPath": "components/form/super-select",
+      "element": "HTMLLIElement",
       "args": [
         {
           "name": "group",
@@ -8816,6 +8837,7 @@
       "name": "Hds::Form::SuperSelect::Placeholder",
       "modulePath": "hds/form/super-select/placeholder",
       "docsPath": "components/form/super-select",
+      "element": "HTMLSpanElement",
       "args": [
         {
           "name": "placeholder",
@@ -8829,17 +8851,18 @@
       "name": "Hds::Form::SuperSelect::Single::Base",
       "modulePath": "hds/form/super-select/single/base",
       "docsPath": "components/form/super-select",
-      "element": "HTMLElement",
+      "element": "Element",
       "args": [
         {
           "name": "afterOptionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectAfterOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectAfterOptionsSignature<NoInfer<T>, TExtra, false>>",
           "required": false
         },
         {
           "name": "afterOptionsContent",
           "type": "string",
-          "required": false
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "allowClear",
@@ -8873,12 +8896,12 @@
         },
         {
           "name": "beforeOptionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectBeforeOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectBeforeOptionsSignature<NoInfer<T>, TExtra, false>>",
           "required": false
         },
         {
           "name": "buildSelection",
-          "type": "(selected: any, select: Select) => any",
+          "type": "(selected: Option<T>, select: Select<T, false>) => Option<T> | undefined",
           "required": false
         },
         {
@@ -8893,7 +8916,7 @@
         },
         {
           "name": "defaultHighlighted",
-          "type": "any",
+          "type": "NonNullable<Option<T>> | ((params: DefaultHighlightedParams<T>) => Option<T> | undefined)",
           "required": false
         },
         {
@@ -8919,31 +8942,34 @@
         {
           "name": "dropdownMaxWidth",
           "type": "string",
-          "required": false
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "ebdContentComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<BasicDropdownContentSignature<\"div\">>",
           "required": false
         },
         {
           "name": "ebdTriggerComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<BasicDropdownTriggerSignature<\"div\">>",
           "required": false
         },
         {
           "name": "eventType",
-          "type": "string",
-          "required": false
+          "type": "\"click\" | \"mousedown\"",
+          "required": false,
+          "values": ["click", "mousedown"]
         },
         {
           "name": "extra",
-          "type": "any",
-          "required": false
+          "type": "TExtra",
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "groupComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectPowerSelectGroupSignature<unknown, unknown, false>> | ComponentLike<PowerSelectPowerSelectGroupSignature<NoInfer<T>, TExtra, false>>",
           "required": false
         },
         {
@@ -8953,8 +8979,16 @@
         },
         {
           "name": "horizontalPosition",
-          "type": "string",
-          "required": false
+          "type": "HorizontalPosition",
+          "required": false,
+          "values": [
+            "auto",
+            "auto-right",
+            "auto-left",
+            "left",
+            "right",
+            "center"
+          ]
         },
         {
           "name": "initiallyOpened",
@@ -8964,7 +8998,8 @@
         {
           "name": "isInvalid",
           "type": "boolean",
-          "required": false
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "labelClass",
@@ -8979,7 +9014,7 @@
         },
         {
           "name": "labelComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectLabelSignature<unknown, unknown, false>> | ComponentLike<PowerSelectLabelSignature<NoInfer<T>, TExtra, false>>",
           "required": false
         },
         {
@@ -8994,29 +9029,20 @@
           "required": false
         },
         {
-          "name": "legacyMultiple",
-          "type": "boolean",
-          "required": false
-        },
-        {
           "name": "loadingMessage",
           "type": "string",
           "required": false
         },
         {
           "name": "matcher",
-          "type": "MatcherFn",
+          "type": "MatcherFn<T>",
           "required": false
         },
         {
           "name": "matchTriggerWidth",
           "type": "boolean",
-          "required": false
-        },
-        {
-          "name": "multiple",
-          "type": "boolean",
-          "required": false
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "noMatchesMessage",
@@ -9025,52 +9051,54 @@
         },
         {
           "name": "noMatchesMessageComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectNoMatchesMessageSignature<unknown, unknown, false>> | ComponentLike<PowerSelectNoMatchesMessageSignature<NoInfer<T>, TExtra, false>>",
           "required": false
         },
         {
           "name": "onBlur",
-          "type": "(select: Select, event: FocusEvent) => void",
+          "type": "(select: Select<T, false>, event: FocusEvent) => void",
           "required": false
         },
         {
           "name": "onChange",
-          "type": "(selection: any, select: Select, event?: Event | undefined) => void",
-          "required": true
+          "type": "(selection: Option<T> | undefined, select: Select<T, false>, event?: Event | undefined) => void",
+          "required": true,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "onClose",
-          "type": "(select: Select, e: Event) => boolean | void | undefined",
+          "type": "(select: Select<T, false>, e: Event | undefined) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "onFocus",
-          "type": "(select: Select, event: FocusEvent) => void",
+          "type": "(select: Select<T, false>, event: FocusEvent) => void",
           "required": false
         },
         {
           "name": "onInput",
-          "type": "(term: string, select: Select, e: Event) => string | boolean | void",
+          "type": "(term: string, select: Select<T, false>, e: Event) => string | false | void | PromiseLike<void>",
           "required": false
         },
         {
           "name": "onKeydown",
-          "type": "(select: Select, e: KeyboardEvent) => boolean | void | undefined",
+          "type": "(select: Select<T, false>, e: KeyboardEvent) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "onOpen",
-          "type": "(select: Select, e: Event) => boolean | void | undefined",
+          "type": "(select: Select<T, false>, e: Event | undefined) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "options",
-          "type": "readonly any[] | Promise<readonly any[]>",
-          "required": false
+          "type": "readonly T[] | Promise<readonly T[]>",
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "optionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectOptionsSignature<NoInfer<T>, TExtra, false>>",
           "required": false
         },
         {
@@ -9080,7 +9108,7 @@
         },
         {
           "name": "placeholderComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectPlaceholderSignature<unknown, unknown, false>> | ComponentLike<PowerSelectPlaceholderSignature<NoInfer<T>, TExtra, false>>",
           "required": false
         },
         {
@@ -9090,7 +9118,7 @@
         },
         {
           "name": "registerAPI",
-          "type": "(select: Select) => void",
+          "type": "(select: Select<T, false>) => void",
           "required": false
         },
         {
@@ -9106,7 +9134,8 @@
         {
           "name": "resultCountMessage",
           "type": "string | ((resultCount: number) => string)",
-          "required": false
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "rootEventType",
@@ -9116,12 +9145,12 @@
         },
         {
           "name": "scrollTo",
-          "type": "(option: any, select: Select) => void",
+          "type": "(option: Option<T> | undefined, select: Select<T, false>) => void",
           "required": false
         },
         {
           "name": "search",
-          "type": "(term: string, select: Select) => readonly any[] | Promise<readonly any[]>",
+          "type": "(term: string, select: Select<T, false>) => void | Promise<void> | readonly T[] | Promise<readonly T[]>",
           "required": false
         },
         {
@@ -9147,7 +9176,7 @@
         },
         {
           "name": "searchMessageComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectSearchMessageSignature<unknown, unknown, false>> | ComponentLike<PowerSelectSearchMessageSignature<NoInfer<T>, TExtra, false>>",
           "required": false
         },
         {
@@ -9157,18 +9186,20 @@
         },
         {
           "name": "selected",
-          "type": "any",
-          "required": false
+          "type": "Promise<Option<T> | undefined> | NonNullable<Option<T>>",
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "selectedItemComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectSelectedItemSignature<unknown, unknown, false>> | ComponentLike<PowerSelectSelectedItemSignature<NoInfer<T>, TExtra, false>>",
           "required": false
         },
         {
           "name": "showAfterOptions",
           "type": "boolean",
-          "required": false
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "tabindex",
@@ -9187,7 +9218,7 @@
         },
         {
           "name": "triggerComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectTriggerSignature<unknown, unknown, false>> | ComponentLike<PowerSelectTriggerSignature<NoInfer<T>, TExtra, false>>",
           "required": false
         },
         {
@@ -9202,13 +9233,14 @@
         },
         {
           "name": "typeAheadOptionMatcher",
-          "type": "MatcherFn",
+          "type": "MatcherFn<T>",
           "required": false
         },
         {
           "name": "verticalPosition",
-          "type": "string",
-          "required": false
+          "type": "VerticalPosition",
+          "required": false,
+          "values": ["auto", "above", "below"]
         }
       ],
       "blocks": [
@@ -9217,11 +9249,11 @@
           "yields": [
             {
               "name": "option",
-              "type": "any"
+              "type": "Option<T>"
             },
             {
               "name": "select",
-              "type": "Select"
+              "type": "Select<T, false>"
             }
           ]
         }
@@ -9231,18 +9263,18 @@
       "name": "Hds::Form::SuperSelect::Single::Field",
       "modulePath": "hds/form/super-select/single/field",
       "docsPath": "components/form/super-select",
-      "element": "HTMLElement",
+      "element": "Element",
       "args": [
         {
           "name": "afterOptionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectAfterOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectAfterOptionsSignature<NoInfer<T>, TExtra, false>>",
           "required": false
         },
         {
           "name": "afterOptionsContent",
           "type": "string",
           "required": false,
-          "inheritedFrom": "hds/form/super-select/single/base"
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "allowClear",
@@ -9276,12 +9308,12 @@
         },
         {
           "name": "beforeOptionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectBeforeOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectBeforeOptionsSignature<NoInfer<T>, TExtra, false>>",
           "required": false
         },
         {
           "name": "buildSelection",
-          "type": "(selected: any, select: Select) => any",
+          "type": "(selected: Option<T>, select: Select<T, false>) => Option<T> | undefined",
           "required": false
         },
         {
@@ -9302,7 +9334,7 @@
         },
         {
           "name": "defaultHighlighted",
-          "type": "any",
+          "type": "NonNullable<Option<T>> | ((params: DefaultHighlightedParams<T>) => Option<T> | undefined)",
           "required": false
         },
         {
@@ -9329,27 +9361,29 @@
           "name": "dropdownMaxWidth",
           "type": "string",
           "required": false,
-          "inheritedFrom": "hds/form/super-select/single/base"
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "ebdContentComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<BasicDropdownContentSignature<\"div\">>",
           "required": false
         },
         {
           "name": "ebdTriggerComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<BasicDropdownTriggerSignature<\"div\">>",
           "required": false
         },
         {
           "name": "eventType",
-          "type": "string",
-          "required": false
+          "type": "\"click\" | \"mousedown\"",
+          "required": false,
+          "values": ["click", "mousedown"]
         },
         {
           "name": "extra",
-          "type": "any",
-          "required": false
+          "type": "TExtra",
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "extraAriaDescribedBy",
@@ -9359,7 +9393,7 @@
         },
         {
           "name": "groupComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectPowerSelectGroupSignature<unknown, unknown, false>> | ComponentLike<PowerSelectPowerSelectGroupSignature<NoInfer<T>, TExtra, false>>",
           "required": false
         },
         {
@@ -9369,8 +9403,16 @@
         },
         {
           "name": "horizontalPosition",
-          "type": "string",
-          "required": false
+          "type": "HorizontalPosition",
+          "required": false,
+          "values": [
+            "auto",
+            "auto-right",
+            "auto-left",
+            "left",
+            "right",
+            "center"
+          ]
         },
         {
           "name": "id",
@@ -9387,7 +9429,7 @@
           "name": "isInvalid",
           "type": "boolean",
           "required": false,
-          "inheritedFrom": "hds/form/super-select/single/base"
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "isOptional",
@@ -9414,7 +9456,7 @@
         },
         {
           "name": "labelComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectLabelSignature<unknown, unknown, false>> | ComponentLike<PowerSelectLabelSignature<NoInfer<T>, TExtra, false>>",
           "required": false
         },
         {
@@ -9436,30 +9478,20 @@
           "inheritedFrom": "hds/form/field"
         },
         {
-          "name": "legacyMultiple",
-          "type": "boolean",
-          "required": false
-        },
-        {
           "name": "loadingMessage",
           "type": "string",
           "required": false
         },
         {
           "name": "matcher",
-          "type": "MatcherFn",
+          "type": "MatcherFn<T>",
           "required": false
         },
         {
           "name": "matchTriggerWidth",
           "type": "boolean",
           "required": false,
-          "inheritedFrom": "hds/form/super-select/single/base"
-        },
-        {
-          "name": "multiple",
-          "type": "boolean",
-          "required": false
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "noMatchesMessage",
@@ -9468,52 +9500,54 @@
         },
         {
           "name": "noMatchesMessageComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectNoMatchesMessageSignature<unknown, unknown, false>> | ComponentLike<PowerSelectNoMatchesMessageSignature<NoInfer<T>, TExtra, false>>",
           "required": false
         },
         {
           "name": "onBlur",
-          "type": "(select: Select, event: FocusEvent) => void",
+          "type": "(select: Select<T, false>, event: FocusEvent) => void",
           "required": false
         },
         {
           "name": "onChange",
-          "type": "(selection: any, select: Select, event?: Event | undefined) => void",
-          "required": true
+          "type": "(selection: Option<T> | undefined, select: Select<T, false>, event?: Event | undefined) => void",
+          "required": true,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "onClose",
-          "type": "(select: Select, e: Event) => boolean | void | undefined",
+          "type": "(select: Select<T, false>, e: Event | undefined) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "onFocus",
-          "type": "(select: Select, event: FocusEvent) => void",
+          "type": "(select: Select<T, false>, event: FocusEvent) => void",
           "required": false
         },
         {
           "name": "onInput",
-          "type": "(term: string, select: Select, e: Event) => string | boolean | void",
+          "type": "(term: string, select: Select<T, false>, e: Event) => string | false | void | PromiseLike<void>",
           "required": false
         },
         {
           "name": "onKeydown",
-          "type": "(select: Select, e: KeyboardEvent) => boolean | void | undefined",
+          "type": "(select: Select<T, false>, e: KeyboardEvent) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "onOpen",
-          "type": "(select: Select, e: Event) => boolean | void | undefined",
+          "type": "(select: Select<T, false>, e: Event | undefined) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "options",
-          "type": "readonly any[] | Promise<readonly any[]>",
-          "required": false
+          "type": "readonly T[] | Promise<readonly T[]>",
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "optionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectOptionsSignature<NoInfer<T>, TExtra, false>>",
           "required": false
         },
         {
@@ -9523,7 +9557,7 @@
         },
         {
           "name": "placeholderComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectPlaceholderSignature<unknown, unknown, false>> | ComponentLike<PowerSelectPlaceholderSignature<NoInfer<T>, TExtra, false>>",
           "required": false
         },
         {
@@ -9533,7 +9567,7 @@
         },
         {
           "name": "registerAPI",
-          "type": "(select: Select) => void",
+          "type": "(select: Select<T, false>) => void",
           "required": false
         },
         {
@@ -9550,7 +9584,7 @@
           "name": "resultCountMessage",
           "type": "string | ((resultCount: number) => string)",
           "required": false,
-          "inheritedFrom": "hds/form/super-select/single/base"
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "rootEventType",
@@ -9560,12 +9594,12 @@
         },
         {
           "name": "scrollTo",
-          "type": "(option: any, select: Select) => void",
+          "type": "(option: Option<T> | undefined, select: Select<T, false>) => void",
           "required": false
         },
         {
           "name": "search",
-          "type": "(term: string, select: Select) => readonly any[] | Promise<readonly any[]>",
+          "type": "(term: string, select: Select<T, false>) => void | Promise<void> | readonly T[] | Promise<readonly T[]>",
           "required": false
         },
         {
@@ -9591,7 +9625,7 @@
         },
         {
           "name": "searchMessageComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectSearchMessageSignature<unknown, unknown, false>> | ComponentLike<PowerSelectSearchMessageSignature<NoInfer<T>, TExtra, false>>",
           "required": false
         },
         {
@@ -9601,19 +9635,20 @@
         },
         {
           "name": "selected",
-          "type": "any",
-          "required": false
+          "type": "Promise<Option<T> | undefined> | NonNullable<Option<T>>",
+          "required": false,
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "selectedItemComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectSelectedItemSignature<unknown, unknown, false>> | ComponentLike<PowerSelectSelectedItemSignature<NoInfer<T>, TExtra, false>>",
           "required": false
         },
         {
           "name": "showAfterOptions",
           "type": "boolean",
           "required": false,
-          "inheritedFrom": "hds/form/super-select/single/base"
+          "inheritedFrom": "hds/form/super-select/types"
         },
         {
           "name": "tabindex",
@@ -9632,7 +9667,7 @@
         },
         {
           "name": "triggerComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectTriggerSignature<unknown, unknown, false>> | ComponentLike<PowerSelectTriggerSignature<NoInfer<T>, TExtra, false>>",
           "required": false
         },
         {
@@ -9647,13 +9682,14 @@
         },
         {
           "name": "typeAheadOptionMatcher",
-          "type": "MatcherFn",
+          "type": "MatcherFn<T>",
           "required": false
         },
         {
           "name": "verticalPosition",
-          "type": "string",
-          "required": false
+          "type": "VerticalPosition",
+          "required": false,
+          "values": ["auto", "above", "below"]
         }
       ],
       "blocks": [
@@ -9678,11 +9714,11 @@
             },
             {
               "name": "options",
-              "type": "unknown"
+              "type": "Option<T>"
             },
             {
               "name": "select",
-              "type": "Select"
+              "type": "Select<T, false>"
             }
           ]
         }
