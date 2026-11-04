@@ -62,6 +62,7 @@
 @use "pages/utilities/dialog-primitive" as utilities-dialog-primitive;
 
 // Third-party declarations
+@use "ember-basic-dropdown";
 @use "ember-power-select";
 @use "navigation-narrator";
 
