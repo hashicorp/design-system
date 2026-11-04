@@ -22,7 +22,6 @@ import {
   HdsAdvancedTableDensityValues,
   HdsAdvancedTableVerticalAlignmentValues,
 } from './types.ts';
-import { requestAnimationFrameWaiter } from './utils.ts';
 import HdsFilterBar from '../filter-bar/index.gts';
 import HdsApplicationState from '../application-state/index.gts';
 import HdsComposite from '../composite/index.gts';
@@ -395,7 +394,7 @@ export default class HdsAdvancedTable<
         }
       };
 
-      requestAnimationFrameWaiter(setUpdatedMeasurements);
+      window.requestAnimationFrame(setUpdatedMeasurements);
     };
 
     this._resizeObserver = new ResizeObserver((entries) => {
