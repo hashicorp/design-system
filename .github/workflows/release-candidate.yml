@@ -52,7 +52,7 @@ jobs:
 
       - name: Check for pending changesets
         id: pending
-        # `changeset version` exits with an error when there are no changesets, so we skip the release steps instead
+        # `changeset version` exits with an error when there are no changesets, so the release steps only run when there are some
         run: |
           if find .changeset -maxdepth 1 -name '*.md' ! -name 'README.md' | grep -q .; then
             echo "has_changesets=true" >> "$GITHUB_OUTPUT"

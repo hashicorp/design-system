@@ -7,7 +7,6 @@
 //
 // Notice:
 // - the file needs to live at the same level as the config file and `***.md` changeset files, otherwise it triggers an error "[Error: ENOENT: no such file or directory, open '/PATH/TO/hashicorp/design-system/.changeset/SUBFOLDER/changes.md']"
-// - @changesets/cli v3 and @changesets/get-github-info v1 are ESM-only, so this file is an ES module
 // - `@changesets/get-github-info` reads `GITHUB_TOKEN` from the environment or from a `.env` file in the working directory
 //
 
