@@ -18,8 +18,8 @@ import type { ModifierLike } from '@glint/template';
 export const DEFAULT_WIDTH = '1fr'; // default to '1fr' to allow flexible width
 export const DEFAULT_MIN_WIDTH = '150px';
 export const SUBPIXEL_TOLERANCE = 0.5;
-// widths are measured with `offsetWidth`, which rounds to whole pixels
-const PROPORTIONAL_TOLERANCE = 1;
+// layout is measured in whole pixels (`offsetWidth`, `scrollWidth`)
+const MEASUREMENT_TOLERANCE = 1;
 
 type HdsAdvancedTableColumnWidth = HdsAdvancedTableNormalizedColumn['width'];
 
@@ -106,7 +106,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
   }
 
   // a plain `fr` track can't shrink below its content, so a resized column
-  // would snap back on release; resized columns use the same floor as the drag
+  // would snap back on release; resized columns get an explicit floor instead
   private _getGridTrack(
     column: HdsAdvancedTableNormalizedColumn
   ): HdsAdvancedTableColumnWidth {
@@ -305,6 +305,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     }
 
     const pxPerFrUnit = this._resolvePxPerFrUnit(entries);
+    const isOverflowing = this._isTableOverflowing();
 
     for (const {
       column,
@@ -332,10 +333,16 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
       }
 
       if (isFlexible) {
-        // a column that started below its minimum keeps its resized width
+        const committedPx = Math.floor(pixelWidth);
+
+        // an overflowing table leaves no free space for `fr` tracks, so they
+        // render at their floor; otherwise a column that started below its
+        // minimum keeps its resized width
         this._resizedColumnFloors.set(
           column.key,
-          Math.min(this._colMinPx(column), Math.floor(pixelWidth))
+          isOverflowing
+            ? committedPx
+            : Math.min(this._colMinPx(column), committedPx)
         );
       } else {
         this._columnWidths.set(column.key, `${Math.round(pixelWidth)}px`);
@@ -355,12 +362,28 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
   ): HdsAdvancedTableColumnWidth {
     const isProportional =
       Math.abs(frMultiplier * pxPerFrUnit - startPixelWidth) <=
-      PROPORTIONAL_TOLERANCE;
+      MEASUREMENT_TOLERANCE;
     const weight = isProportional
       ? frMultiplier + (pixelWidth - startPixelWidth) / pxPerFrUnit
       : pixelWidth / pxPerFrUnit;
 
     return `${Math.round(Math.max(0, weight) * 1e6) / 1e6}fr`;
+  }
+
+  // a resize moves width between columns without changing the total, so the
+  // table overflows after the commit exactly when it did before; the header
+  // spans every track, unlike `scrollWidth`, which also counts cell content
+  // spilling past the last column
+  private _isTableOverflowing(): boolean {
+    const [thElement] = this.args.thElements.values();
+    const scroller = thElement?.closest('.hds-advanced-table');
+    const thead = thElement?.closest('.hds-advanced-table__thead');
+
+    if (!(scroller instanceof HTMLElement) || !(thead instanceof HTMLElement)) {
+      return false;
+    }
+
+    return thead.offsetWidth - scroller.clientWidth > MEASUREMENT_TOLERANCE;
   }
 
   private _resolvePxPerFrUnit(
