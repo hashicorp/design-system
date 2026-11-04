@@ -168,23 +168,31 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
   // `scrollIntoView` also scrolls vertically (the handle spans the table height),
   // which toggles the scrollbars and makes the layout jump
   private _scrollHandleIntoViewHorizontally(): void {
-    let scroller: HTMLElement | null = this._handleElement.parentElement;
+    const scroller = this._handleElement.closest('.hds-advanced-table');
 
-    while (scroller && scroller.scrollWidth <= scroller.clientWidth) {
-      scroller = scroller.parentElement;
-    }
-
-    if (!scroller) {
+    if (!(scroller instanceof HTMLElement)) {
       return;
     }
 
+    const handleStyle = window.getComputedStyle(this._handleElement);
+    const marginLeft = parsePixel(handleStyle.scrollMarginLeft) ?? 0;
+    const marginRight = parsePixel(handleStyle.scrollMarginRight) ?? 0;
     const handleRect = this._handleElement.getBoundingClientRect();
     const scrollerRect = scroller.getBoundingClientRect();
+    // rects are in transformed (e.g. scaled) pixels, `scrollBy` takes CSS pixels
+    const scale =
+      scroller.offsetWidth > 0 ? scrollerRect.width / scroller.offsetWidth : 1;
+    const handleLeft =
+      (handleRect.left - scrollerRect.left) / scale - scroller.clientLeft;
+    const handleRight =
+      (handleRect.right - scrollerRect.left) / scale - scroller.clientLeft;
+    const overflowRight = handleRight + marginRight - scroller.clientWidth;
+    const overflowLeft = handleLeft - marginLeft;
 
-    if (handleRect.right > scrollerRect.right) {
-      scroller.scrollBy({ left: handleRect.right - scrollerRect.right });
-    } else if (handleRect.left < scrollerRect.left) {
-      scroller.scrollBy({ left: handleRect.left - scrollerRect.left });
+    if (overflowRight > 0) {
+      scroller.scrollBy({ left: overflowRight });
+    } else if (overflowLeft < 0) {
+      scroller.scrollBy({ left: overflowLeft });
     }
   }
 
@@ -224,11 +232,15 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
     this._transientDelta = onResizeColumnByDelta(column.key, deltaX);
 
-    // ensure the resize handle remains visible during keyboard navigation.
-    this._scrollHandleIntoViewHorizontally();
-
     // use a microtask to commit the final state after the render pass.
-    queueMicrotask(() => this._finishColumnResize(column.key));
+    queueMicrotask(() => {
+      this._finishColumnResize(column.key);
+
+      // measure once the new widths have rendered, so the handle stays visible
+      requestAnimationFrameWaiter(() =>
+        this._scrollHandleIntoViewHorizontally()
+      );
+    });
   }
 
   @action

@@ -1084,6 +1084,257 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       await waitForLayout();
     });
 
+    test('a column whose content pushed it past its share keeps the dragged widths on release', async function (assert) {
+      await render(
+        <template>
+          <div {{style width="1000px"}}>
+            <HdsAdvancedTable
+              id="share-table"
+              @columns={{array
+                (hash key="a" label="A")
+                (hash key="b" label="B")
+              }}
+              @model={{array
+                (hash
+                  a="a1"
+                  b="/var/log/boundary_sessions_2026_11_04_worker_0001_session_0123456789abcdef.log"
+                )
+              }}
+              @hasResizableColumns={{true}}
+            >
+              <:body as |B|>
+                <B.Tr>
+                  <B.Td>{{get B.data "a"}}</B.Td>
+                  <B.Td>{{get B.data "b"}}</B.Td>
+                </B.Tr>
+              </:body>
+            </HdsAdvancedTable>
+          </div>
+        </template>,
+      );
+
+      await waitForLayout();
+
+      const startWidths = [0, 1].map((index) =>
+        columnWidth('#share-table', index),
+      );
+
+      assert.ok(
+        (startWidths[1] ?? 0) - (startWidths[0] ?? 0) > 100,
+        `precondition: the content makes the 1fr columns unequal (${startWidths.join(', ')})`,
+      );
+
+      const handle = findOrThrow(
+        '#share-table .hds-advanced-table__th-resize-handle',
+      );
+
+      await triggerEvent(handle, 'pointerdown', {
+        clientX: POINTER_DRAG_START_X,
+        button: 0,
+      });
+      await triggerEvent(handle, 'pointermove', {
+        clientX: POINTER_DRAG_START_X + 10,
+        buttons: 1,
+      });
+      await waitForLayout();
+
+      const duringDrag = [0, 1].map((index) =>
+        columnWidth('#share-table', index),
+      );
+
+      await triggerEvent(window, 'pointerup', { button: 0 });
+      await waitForLayout();
+
+      const afterRelease = [0, 1].map((index) =>
+        columnWidth('#share-table', index),
+      );
+
+      [0, 1].forEach((index) => {
+        assert.ok(
+          Math.abs((afterRelease[index] ?? 0) - (duringDrag[index] ?? 0)) <= 1,
+          `column ${index} keeps its dragged width (during ${duringDrag.join(', ')}, after ${afterRelease.join(', ')})`,
+        );
+      });
+    });
+
+    test('resizing again after the container shrinks moves the columns by the resized amount', async function (assert) {
+      const context = new TrackedObject({ width: '1000px' });
+
+      await render(
+        <template>
+          <div {{style width=context.width}}>
+            <HdsAdvancedTable
+              id="reshrink-table"
+              @columns={{array
+                (hash key="a" label="A")
+                (hash key="b" label="B")
+                (hash key="c" label="C")
+              }}
+              @model={{array (hash a="a1" b="b1" c="c1")}}
+              @hasResizableColumns={{true}}
+            >
+              <:body as |B|>
+                <B.Tr>
+                  <B.Td>{{get B.data "a"}}</B.Td>
+                  <B.Td>{{get B.data "b"}}</B.Td>
+                  <B.Td>{{get B.data "c"}}</B.Td>
+                </B.Tr>
+              </:body>
+            </HdsAdvancedTable>
+          </div>
+        </template>,
+      );
+
+      await waitForLayout();
+
+      const handle = findOrThrow(
+        '#reshrink-table .hds-advanced-table__th-resize-handle',
+      );
+
+      // squeeze the other two columns close to their minimum
+      await simulatePointerDrag(handle, POINTER_DRAG_START_X + 300);
+
+      // the remaining columns' shares now fall below their minimum, so they
+      // are held at it and the first column takes up the slack
+      context.width = '600px';
+      await settled();
+      await waitForLayout();
+
+      const before = [0, 1, 2].map((index) =>
+        columnWidth('#reshrink-table', index),
+      );
+
+      await focus(handle);
+      await triggerKeyEvent(handle, 'keydown', 'ArrowLeft');
+      await waitForLayout();
+
+      const after = [0, 1, 2].map((index) =>
+        columnWidth('#reshrink-table', index),
+      );
+      const summary = `before ${before.join(', ')}, after ${after.join(', ')}`;
+
+      assert.ok(
+        Math.abs((before[0] ?? 0) - (after[0] ?? 0) - 10) <= 1,
+        `the first column shrank by one step (${summary})`,
+      );
+      assert.ok(
+        Math.abs((after[1] ?? 0) - (before[1] ?? 0) - 10) <= 1,
+        `its neighbor grew by one step (${summary})`,
+      );
+      assert.ok(
+        Math.abs((after[2] ?? 0) - (before[2] ?? 0)) <= 1,
+        `the last column did not move (${summary})`,
+      );
+    });
+
+    test('a flexible column that starts below its minimum keeps its resized width', async function (assert) {
+      await render(
+        <template>
+          <div {{style width="300px"}}>
+            <HdsAdvancedTable
+              id="narrow-table"
+              @columns={{array
+                (hash key="a" label="A" width="200px")
+                (hash key="b" label="B")
+              }}
+              @model={{array (hash a="a1" b="b1")}}
+              @hasResizableColumns={{true}}
+            >
+              <:body as |B|>
+                <B.Tr>
+                  <B.Td>{{get B.data "a"}}</B.Td>
+                  <B.Td>{{get B.data "b"}}</B.Td>
+                </B.Tr>
+              </:body>
+            </HdsAdvancedTable>
+          </div>
+        </template>,
+      );
+
+      await waitForLayout();
+
+      const table = findOrThrow('#narrow-table .hds-advanced-table');
+      const startFlexible = columnWidth('#narrow-table', 1);
+
+      assert.ok(
+        startFlexible < 140,
+        `precondition: the flexible column starts below its 150px minimum (actual ${startFlexible})`,
+      );
+
+      await simulatePointerDrag(
+        findOrThrow('#narrow-table .hds-advanced-table__th-resize-handle'),
+        POINTER_DRAG_START_X - 10,
+      );
+      await waitForLayout();
+
+      const flexible = columnWidth('#narrow-table', 1);
+
+      assert.ok(
+        Math.abs(flexible - (startFlexible + 10)) <= 1,
+        `the flexible column grew by the dragged amount instead of jumping to its minimum (start ${startFlexible}, actual ${flexible})`,
+      );
+      assert.ok(
+        table.scrollWidth <= table.clientWidth + 1,
+        `the table does not overflow (scrollWidth ${table.scrollWidth}, clientWidth ${table.clientWidth})`,
+      );
+    });
+
+    test('keyboard resizing scrolls the table to keep the handle visible', async function (assert) {
+      await render(
+        <template>
+          <div {{style width="400px"}}>
+            <HdsAdvancedTable
+              id="scroll-table"
+              @columns={{array
+                (hash key="a" label="A" width="300px")
+                (hash key="b" label="B" width="300px")
+                (hash key="c" label="C" width="300px")
+              }}
+              @model={{array (hash a="a1" b="b1" c="c1")}}
+              @hasResizableColumns={{true}}
+            >
+              <:body as |B|>
+                <B.Tr>
+                  <B.Td>{{get B.data "a"}}</B.Td>
+                  <B.Td>{{get B.data "b"}}</B.Td>
+                  <B.Td>{{get B.data "c"}}</B.Td>
+                </B.Tr>
+              </:body>
+            </HdsAdvancedTable>
+          </div>
+        </template>,
+      );
+
+      await waitForLayout();
+
+      const table = findOrThrow('#scroll-table .hds-advanced-table');
+      const handle = findAtOrThrow(
+        '#scroll-table .hds-advanced-table__th-resize-handle',
+        1,
+      );
+
+      await focus(handle);
+
+      // focusing may scroll on its own, so start from the left edge
+      table.scrollLeft = 0;
+      await waitForLayout();
+
+      await triggerKeyEvent(handle, 'keydown', 'ArrowRight');
+      await waitForLayout();
+
+      const handleRect = handle.getBoundingClientRect();
+      const tableRect = table.getBoundingClientRect();
+
+      assert.ok(
+        table.scrollLeft > 0,
+        `the table scrolled horizontally (scrollLeft ${table.scrollLeft})`,
+      );
+      assert.ok(
+        handleRect.right <= tableRect.right + 1,
+        `the handle is within the table's visible area (handle right ${handleRect.right}, table right ${tableRect.right})`,
+      );
+    });
+
     test('repeated keyboard resizes leave the untouched columns alone', async function (assert) {
       await render(
         <template>

@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { modifier } from 'ember-modifier';
-import { TrackedMap, TrackedSet } from 'tracked-built-ins';
+import { TrackedMap } from 'tracked-built-ins';
 import { hash } from '@ember/helper';
 import { isPixelSize, measureColumnWidth, pixelToNumber } from '../utils.ts';
 
@@ -18,6 +18,8 @@ import type { ModifierLike } from '@glint/template';
 export const DEFAULT_WIDTH = '1fr'; // default to '1fr' to allow flexible width
 export const DEFAULT_MIN_WIDTH = '150px';
 export const SUBPIXEL_TOLERANCE = 0.5;
+// widths are measured with `offsetWidth`, which rounds to whole pixels
+const PROPORTIONAL_TOLERANCE = 1;
 
 type HdsAdvancedTableColumnWidth = HdsAdvancedTableNormalizedColumn['width'];
 
@@ -79,7 +81,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     HdsAdvancedTablePixelString
   >();
   private _resizeStartWidths = new TrackedMap<string, number>();
-  private _resizedColumnKeys = new TrackedSet<string>();
+  private _resizedColumnFloors = new TrackedMap<string, number>();
 
   syncWidthValues = modifier<HdsAdvancedTableSyncWidthValuesSignature>(() => {
     const { columns } = this.args;
@@ -87,7 +89,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     for (const column of columns) {
       this._columnWidths.set(column.key, column.width ?? DEFAULT_WIDTH);
       this._originalColumnWidths.set(column.key, column.width ?? DEFAULT_WIDTH);
-      this._resizedColumnKeys.delete(column.key);
+      this._resizedColumnFloors.delete(column.key);
     }
   });
 
@@ -109,16 +111,13 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     column: HdsAdvancedTableNormalizedColumn
   ): HdsAdvancedTableColumnWidth {
     const width = this.getAppliedWidth(column.key);
+    const floor = this._resizedColumnFloors.get(column.key);
 
-    if (
-      width === undefined ||
-      isPixelSize(width) ||
-      !this._resizedColumnKeys.has(column.key)
-    ) {
+    if (width === undefined || isPixelSize(width) || floor === undefined) {
       return width;
     }
 
-    return `minmax(${this._colMinPx(column)}px, ${width})`;
+    return `minmax(${floor}px, ${width})`;
   }
 
   getAppliedWidth = (
@@ -289,7 +288,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
           : this._getPxWidth(column.key);
 
       return {
-        key: column.key,
+        column,
         pixelWidth,
         startPixelWidth: startPixelWidth ?? pixelWidth,
         frMultiplier: this._parseFrMultiplier(
@@ -301,30 +300,68 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
       };
     });
 
+    if (!entries.some((entry) => entry.hasMoved)) {
+      return;
+    }
+
     const pxPerFrUnit = this._resolvePxPerFrUnit(entries);
 
-    for (const entry of entries) {
-      if (!entry.hasMoved) {
+    for (const {
+      column,
+      pixelWidth,
+      startPixelWidth,
+      frMultiplier,
+      hasMoved,
+    } of entries) {
+      const isFlexible = frMultiplier !== undefined && pxPerFrUnit > 0;
+
+      if (isFlexible) {
+        this._columnWidths.set(
+          column.key,
+          this._commitFrWidth(
+            frMultiplier,
+            startPixelWidth,
+            pixelWidth,
+            pxPerFrUnit
+          )
+        );
+      }
+
+      if (!hasMoved) {
         continue;
       }
 
-      if (entry.frMultiplier !== undefined && pxPerFrUnit > 0) {
-        const weight = Math.max(
-          0,
-          entry.frMultiplier +
-            (entry.pixelWidth - entry.startPixelWidth) / pxPerFrUnit
+      if (isFlexible) {
+        // a column that started below its minimum keeps its resized width
+        this._resizedColumnFloors.set(
+          column.key,
+          Math.min(this._colMinPx(column), Math.floor(pixelWidth))
         );
-
-        this._columnWidths.set(
-          entry.key,
-          `${Math.round(weight * 1e6) / 1e6}fr`
-        );
-        this._resizedColumnKeys.add(entry.key);
       } else {
-        this._columnWidths.set(entry.key, `${Math.round(entry.pixelWidth)}px`);
+        this._columnWidths.set(column.key, `${Math.round(pixelWidth)}px`);
       }
     }
   };
+
+  // a weight that matches its rendered width is shifted by the delta, so
+  // measurement rounding can't drift untouched columns; a column pushed past
+  // its share by its content is rederived from its width, or the grid would
+  // redistribute it by weight and jump on release
+  private _commitFrWidth(
+    frMultiplier: number,
+    startPixelWidth: number,
+    pixelWidth: number,
+    pxPerFrUnit: number
+  ): HdsAdvancedTableColumnWidth {
+    const isProportional =
+      Math.abs(frMultiplier * pxPerFrUnit - startPixelWidth) <=
+      PROPORTIONAL_TOLERANCE;
+    const weight = isProportional
+      ? frMultiplier + (pixelWidth - startPixelWidth) / pxPerFrUnit
+      : pixelWidth / pxPerFrUnit;
+
+    return `${Math.round(Math.max(0, weight) * 1e6) / 1e6}fr`;
+  }
 
   private _resolvePxPerFrUnit(
     entries: {
@@ -359,7 +396,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
       this._originalColumnWidths.get(columnKey) ?? DEFAULT_WIDTH;
 
     this._transientColumnWidths.delete(columnKey);
-    this._resizedColumnKeys.delete(columnKey);
+    this._resizedColumnFloors.delete(columnKey);
     this._columnWidths.set(columnKey, originalWidth);
   };
 
