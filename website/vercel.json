@@ -37,6 +37,11 @@
       "source": "/support",
       "destination": "/about/support",
       "permanent": false
+    },
+    {
+      "source": "/overrides/power-select",
+      "destination": "/components/form/super-select",
+      "permanent": true
     }
   ]
 }

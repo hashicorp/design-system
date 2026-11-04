@@ -111,10 +111,6 @@ const plugins = [
         ],
       },
       {
-        inputFile: 'design-system-power-select-overrides.scss',
-        outputFile: 'design-system-power-select-overrides.css',
-      },
-      {
         inputFile: 'design-system-plex-fonts.scss',
         outputFile: 'design-system-plex-fonts.css',
         loadPaths: ['node_modules/@ibm'],
