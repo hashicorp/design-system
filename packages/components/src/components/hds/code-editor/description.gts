@@ -25,9 +25,11 @@ export interface HdsCodeEditorDescriptionSignature {
 export default class HdsCodeEditorDescription extends Component<HdsCodeEditorDescriptionSignature> {
   private _id = `${this.args.editorId}-description`;
 
-  private _setUpDescription = modifier((element: HdsCodeEditorDescriptionElement) => {
-    this.args.onInsert(element);
-  });
+  private _setUpDescription = modifier(
+    (element: HdsCodeEditorDescriptionElement) => {
+      this.args.onInsert(element);
+    }
+  );
 
   <template>
     <HdsTextBody
