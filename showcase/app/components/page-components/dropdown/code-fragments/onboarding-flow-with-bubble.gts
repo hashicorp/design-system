@@ -79,6 +79,7 @@ export default class CodeFragmentOnboardingFlowWithBubble extends Component {
         as |PP|
       >
         <D.Interactive
+          {{! @ts-expect-error - D.Interactive element type is a union, but PopoverPrimitive's toggle modifier expects button }}
           {{PP.setupPrimitiveToggle}}
           aria-describedby={{this.popoverId}}
           aria-expanded={{if PP.isOpen "true" "false"}}

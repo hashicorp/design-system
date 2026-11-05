@@ -30,7 +30,6 @@ export default class CodeFragmentOnboardingFlow extends Component {
     this.dropdownState = 'open';
   };
 
-  // the tooltip is destroyed with the dropdown content, so its state is reset here
   onDropdownClose = () => {
     this.dropdownState = 'close';
     this.tooltipState = 'close';
