@@ -206,54 +206,6 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
     }
   );
 
-  // applyForceState = (
-  //   element: HTMLElement,
-  //   forceState: HdsDropdownForceStates | undefined,
-  //   showPopover: () => void,
-  //   hidePopover: (event?: Event) => void): void => {
-  //     if (forceState === undefined) {
-  //       return
-  //     };
-
-  //     // use :popover-open to get current state, since @isOpen is only for initial state
-  //     const isOpen = element.matches(':popover-open');
-
-  //     if (forceState === 'open' && !isOpen) {
-  //       showPopover()
-  //       };
-  //     if (forceState === 'close' && isOpen) {
-  //       hidePopover()
-  //       };
-  //   };
-
-  // didInsertForceState = (
-  //   element: HTMLElement,
-  //   [isOpen, forceState, showPopover, hidePopover]: [
-  //     boolean | undefined,
-  //     HdsDropdownForceStates | undefined,
-  //     () => void,
-  //     (event?: Event) => void,
-  //   ]
-  // ): void => {
-  //   // use @isOpen as initial value if defined
-  //   if (isOpen !== undefined) {
-  //     return
-  //   };
-
-  //   this.applyForceState(element, forceState, showPopover, hidePopover);
-  // };
-
-  // didUpdateForceState = (
-  //   element: HTMLElement,
-  //   [forceState, showPopover, hidePopover]: [
-  //     HdsDropdownForceStates | undefined,
-  //     () => void,
-  //     (event?: Event) => void,
-  //   ]
-  // ): void => {
-  //   this.applyForceState(element, forceState, showPopover, hidePopover);
-  // };
-
   <template>
     <HdsPopoverPrimitive
       @isOpen={{@isOpen}}
@@ -292,12 +244,6 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
             anchoredPositionOptions=this.anchoredPositionOptions
           }}
           {{this._applyForceState @forceState PP.showPopover PP.hidePopover}}
-          {{!-- {{didInsert this.didInsertForceState
-            @isOpen @forceState PP.showPopover PP.hidePopover
-          }}
-          {{didUpdate this.didUpdateForceState
-            @forceState PP.showPopover PP.hidePopover
-          }} --}}
         >
           {{#if (or PP.isOpen @preserveContentInDom)}}
             {{yield (hash Header=HdsDropdownHeader close=PP.hidePopover)}}
