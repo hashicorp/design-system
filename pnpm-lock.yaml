@@ -730,9 +730,6 @@ importers:
       ember-cli-sri:
         specifier: ^2.1.1
         version: 2.1.1(supports-color@8.1.1)
-      ember-cli-string-helpers:
-        specifier: ^8.0.1
-        version: 8.0.1(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(supports-color@8.1.1)
       ember-cli-string-utils:
         specifier: ^1.1.0
         version: 1.1.0
@@ -1033,9 +1030,6 @@ importers:
       ember-cli-sri:
         specifier: ^2.1.1
         version: 2.1.1(supports-color@8.1.1)
-      ember-cli-string-helpers:
-        specifier: ^8.0.1
-        version: 8.0.1(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(supports-color@8.1.1)
       ember-cli-string-utils:
         specifier: ^1.1.0
         version: 1.1.0
@@ -6725,12 +6719,6 @@ packages:
   ember-cli-sri@2.1.1:
     resolution: {integrity: sha512-YG/lojDxkur9Bnskt7xB6gUOtJ6aPl/+JyGYm9HNDk3GECVHB3SMN3rlGhDKHa1ndS5NK2W2TSLb9bzRbGlMdg==}
     engines: {node: '>= 0.10.0'}
-
-  ember-cli-string-helpers@8.0.1:
-    resolution: {integrity: sha512-uS7lSb+PgGVQbJBHiZBHUsti6wcGQ2nJHWxxrWBUgTpTONcn8oQ2HZBFhVbt0y289rryi+QFMWhsW0lutXUf4A==}
-    engines: {node: '>= 20', pnpm: '>= 10'}
-    peerDependencies:
-      '@ember/string': '>= 3.1.1'
 
   ember-cli-string-utils@1.1.0:
     resolution: {integrity: sha512-PlJt4fUDyBrC/0X+4cOpaGCiMawaaB//qD85AXmDRikxhxVzfVdpuoec02HSiTGTTB85qCIzWBIh8lDOiMyyFg==}
@@ -20105,15 +20093,6 @@ snapshots:
     dependencies:
       broccoli-sri-hash: 2.1.2(supports-color@8.1.1)
     transitivePeerDependencies:
-      - supports-color
-
-  ember-cli-string-helpers@8.0.1(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(supports-color@8.1.1):
-    dependencies:
-      '@ember/string': 4.0.1
-      '@embroider/addon-shim': 1.10.2(supports-color@8.1.1)
-      decorator-transforms: 2.3.1(@babel/core@7.28.0(supports-color@8.1.1))
-    transitivePeerDependencies:
-      - '@babel/core'
       - supports-color
 
   ember-cli-string-utils@1.1.0: {}
