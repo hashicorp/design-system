@@ -46,7 +46,7 @@
           "faint": {
             "start": {
               "$type": "color",
-              "$value": "#F3FCFF",
+              "$value": "#f3fcff",
               "group": "branding",
               "comment": "this is the 'packer-50' value at 25% opacity on white"
             },
