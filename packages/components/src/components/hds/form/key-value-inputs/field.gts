@@ -70,8 +70,8 @@ export interface HdsFormKeyValueInputsFieldSignature {
           typeof HdsFormSelectBase,
           'ariaDescribedBy' | 'id' | 'isInvalid'
         >;
-        // required and typed as the plain Base components, so Glint keeps their generic types and `@options` types the yielded options
-        // (the args bound below are all optional in the Base components, so the plain type still fits)
+        // required and typed as the plain Base components, so Glint infers their generic types from `@options`, which type the yielded options
+        // (the plain Base types fit, because the args bound below are all optional in the Base components)
         SuperSelectSingle: typeof HdsFormSuperSelectSingleBase;
         SuperSelectMultiple: typeof HdsFormSuperSelectMultipleBase;
         TextInput?: WithBoundArgs<
@@ -136,8 +136,8 @@ export default class HdsFormKeyValueInputsField extends Component<HdsFormKeyValu
     unregisterAriaDescriptionElement(this as AriaDescribedByComponent, element);
   };
 
-  // the `component` helper drops the generic types of the SuperSelect Base components,
-  // so these restore them and let consumers' `@options` type the yielded options
+  // the `component` helper returns a type without the generic types of the SuperSelect Base components,
+  // so these type the curried components as the Base components, and consumers' `@options` type the yielded options
   private _asSuperSelectSingle = (
     component: unknown
   ): typeof HdsFormSuperSelectSingleBase =>
