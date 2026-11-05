@@ -3,5 +3,5 @@
 ---
 
 <!-- START components/pagination -->
-`Pagination` - Reduce spacing between `Select` icon and text when used within `Pagination` component
+`Pagination` - Reduced spacing between `Select` icon and text within `Pagination` component for Carbon themes
 <!-- END -->
