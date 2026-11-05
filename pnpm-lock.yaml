@@ -2941,7 +2941,6 @@ packages:
     engines: {node: '>= 18'}
     peerDependencies:
       '@ember/string': ^3.1.1 || ^4.0.0
-      '@ember/test-helpers': ^5.7.0
       '@glimmer/component': ^2.1.1
       ember-basic-dropdown: ^9.0.1
       ember-intl: ^8.0.0 || ^7.3.0
@@ -14983,7 +14982,6 @@ snapshots:
       '@codemirror/view': 6.38.1
       '@ember/render-modifiers': 4.0.0
       '@ember/string': 4.0.1
-      '@ember/test-helpers': 5.8.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1)
       '@ember/test-waiters': 4.1.1(@glint/template@1.7.7)(supports-color@8.1.1)
       '@embroider/addon-shim': 1.11.0
       '@embroider/macros': 1.21.4(@glint/template@1.7.7)(supports-color@8.1.1)
@@ -15017,6 +15015,7 @@ snapshots:
       ember-intl: 7.3.1(@ember/test-helpers@5.8.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1)(typescript@5.9.2)(webpack@5.107.2(clean-css@5.3.3)(csso@5.0.5)(esbuild@0.25.8)(lightningcss@1.33.0)(postcss@8.5.31)(uglify-js@3.19.3))
     transitivePeerDependencies:
       - '@babel/core'
+      - '@ember/test-helpers'
       - '@glint/template'
       - ember-source
       - supports-color
@@ -15038,7 +15037,6 @@ snapshots:
       '@codemirror/view': 6.38.1
       '@ember/render-modifiers': 4.0.0
       '@ember/string': 4.0.1
-      '@ember/test-helpers': 5.8.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1)
       '@ember/test-waiters': 4.1.1(@glint/template@1.7.7)(supports-color@8.1.1)
       '@embroider/addon-shim': 1.11.0
       '@embroider/macros': 1.21.4(@glint/template@1.7.7)(supports-color@8.1.1)
@@ -15072,6 +15070,7 @@ snapshots:
       ember-intl: 7.3.1(@ember/test-helpers@5.8.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1)(typescript@5.9.2)(webpack@5.107.2(clean-css@5.3.3)(csso@5.0.5)(esbuild@0.25.8)(lightningcss@1.33.0)(postcss@8.5.31)(uglify-js@3.19.3))
     transitivePeerDependencies:
       - '@babel/core'
+      - '@ember/test-helpers'
       - '@glint/template'
       - ember-source
       - supports-color

@@ -6,7 +6,8 @@
 `SuperSelect` - Upgraded `ember-power-select` from 8.12.0 to 9.0.3, which requires `ember-basic-dropdown` 9.
 
 To migrate:
-- Install `ember-basic-dropdown` `^9.0.1`, `@ember/test-helpers` `^5.7.0` and `@glimmer/component` `^2.1.1`. All three are now peer dependencies.
+- Install `ember-basic-dropdown` `^9.0.1` and `@glimmer/component` `^2.1.1`, which are peer dependencies.
+- Upgrade `@ember/test-helpers` to `^5.7.0`, which `ember-power-select` and `ember-basic-dropdown` 9 require as a peer dependency.
 - Import the `ember-basic-dropdown` styles before the `ember-power-select` styles, because `ember-power-select` no longer includes them. With Sass, add `@use "ember-basic-dropdown";` before `@use "ember-power-select";`. With CSS, import `node_modules/ember-basic-dropdown/dist/vendor/ember-basic-dropdown.css`, and change the `ember-power-select` path to `node_modules/ember-power-select/dist/vendor/ember-power-select.css`.
 - Components passed to `@selectedItemComponent` now receive the selected option as `@selected` instead of `@option`. A component that still reads `@option` renders nothing.
 - Components can no longer be passed by name as strings to `@selectedItemComponent`, `@placeholderComponent`, `@beforeOptionsComponent`, `@afterOptionsComponent`, `@optionsComponent` or `@triggerComponent`. Pass the component itself.
