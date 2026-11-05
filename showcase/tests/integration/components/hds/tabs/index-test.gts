@@ -232,6 +232,45 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .doesNotHaveClass('hds-tabs__tab--is-selected');
   });
 
+  test('it should select a tab rendered with @isSelected after the first render, and link it to its panel', async function (assert) {
+    const context = new TrackedObject({ hasThirdTab: false });
+
+    await render(
+      <template>
+        <HdsTabs id="test-tabs" as |T|>
+          <T.Tab data-test="tab-1">One</T.Tab>
+          <T.Tab data-test="tab-2">Two</T.Tab>
+          {{#if context.hasThirdTab}}
+            <T.Tab data-test="tab-3" @isSelected={{true}}>Three</T.Tab>
+          {{/if}}
+          <T.Panel data-test="panel-1">Content 1</T.Panel>
+          <T.Panel data-test="panel-2">Content 2</T.Panel>
+          {{#if context.hasThirdTab}}
+            <T.Panel data-test="panel-3">Content 3</T.Panel>
+          {{/if}}
+        </HdsTabs>
+      </template>,
+    );
+
+    assert.dom('[data-test="tab-1"]').hasClass('hds-tabs__tab--is-selected');
+
+    context.hasThirdTab = true;
+    await settled();
+
+    assert.dom('[data-test="tab-3"]').hasClass('hds-tabs__tab--is-selected');
+    assert
+      .dom('[data-test="tab-1"]')
+      .doesNotHaveClass('hds-tabs__tab--is-selected');
+    assert.dom('[data-test="panel-3"]').isVisible();
+
+    const panelId = find('[data-test="panel-3"]')?.id ?? '';
+    const tabId = find('[data-test="tab-3"] .hds-tabs__tab-button')?.id ?? '';
+    assert
+      .dom('[data-test="tab-3"] .hds-tabs__tab-button')
+      .hasAttribute('aria-controls', panelId);
+    assert.dom('[data-test="panel-3"]').hasAttribute('aria-labelledby', tabId);
+  });
+
   test('it should dynamically select the specified tab when @selectedIndex changes', async function (assert) {
     const context = new TrackedObject({
       selectedTabIndex: 1,
