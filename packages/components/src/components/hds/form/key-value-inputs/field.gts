@@ -70,7 +70,8 @@ export interface HdsFormKeyValueInputsFieldSignature {
           typeof HdsFormSelectBase,
           'ariaDescribedBy' | 'id' | 'isInvalid'
         >;
-        // not optional and not `WithBoundArgs`, because Glint drops the generic types of both (all the bound args are optional in the Base components)
+        // required and typed as the plain Base components, so Glint keeps their generic types and `@options` types the yielded options
+        // (the args bound below are all optional in the Base components, so the plain type still fits)
         SuperSelectSingle: typeof HdsFormSuperSelectSingleBase;
         SuperSelectMultiple: typeof HdsFormSuperSelectMultipleBase;
         TextInput?: WithBoundArgs<

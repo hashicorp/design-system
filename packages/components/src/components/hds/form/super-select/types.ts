@@ -41,7 +41,7 @@ export interface HdsFormSuperSelectBaseArgs<
     PowerSelectArgs<T, IsMultiple, TExtra>,
     'resultCountMessage' | 'multiple' | HdsFormSuperSelectInferenceArgs
   > {
-  // declared here rather than inherited through `Omit`, which TypeScript can't infer `T` and `TExtra` through
+  // `T` and `TExtra` are inferred from these args, and TypeScript can't infer type parameters through `Omit`, so they're declared directly
   options?: PowerSelectArgs<T, IsMultiple, TExtra>['options'];
   selected?: PowerSelectArgs<T, IsMultiple, TExtra>['selected'];
   onChange: PowerSelectArgs<T, IsMultiple, TExtra>['onChange'];
