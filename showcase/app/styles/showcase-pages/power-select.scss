@@ -8,4 +8,4 @@
 // this needs to be manually imported to apply the standard
 // "ember-power-select" styling to the element
 // (the file is inside the `node_modules`)
-@use "ember-power-select";
+@use "pkg:ember-power-select/vendor/ember-power-select";
