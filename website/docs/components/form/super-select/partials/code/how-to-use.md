@@ -2,7 +2,7 @@
 
 Super Select is a custom select-like component aiming to overcome some limitations of the HTML `<select>` element.
 
-It’s primarily a wrapper for [ember-power-select](https://ember-power-select.com) and uses the 8.12.0 version with specific accessibility and styling choices that best fit our design system.
+It’s primarily a wrapper for [ember-power-select](https://ember-power-select.com) and uses version 9 with specific accessibility and styling choices that best fit our design system.
 
 !!! Warning
 
@@ -11,7 +11,7 @@ It’s primarily a wrapper for [ember-power-select](https://ember-power-select.c
 `ember-power-select` requires `ember-basic-dropdown` as a peer dependency. Make sure that:
 
 - `ember-basic-dropdown` is installed in your application
-- `ember-power-select` styles are included in your CSS compilation
+- both the `ember-basic-dropdown` and `ember-power-select` styles are included in your CSS compilation (see the [getting started guide](/getting-started/for-engineers#css))
 
 See the [ember-power-select installation documentation](https://ember-power-select.com/docs/installation) for additional setup requirements.
 
@@ -82,6 +82,8 @@ By default, all content of selected options displays in the “trigger”. Visua
 ### Selected item component
 
 To simplify the content displayed in the selected options, use `@selectedItemComponent` to specify a custom component with only the content you wish to display.
+
+The custom component receives the selected option as `@selected`. To type it, use `PowerSelectSelectedItemSignature` from `ember-power-select/types` with the same option type passed to `@options`.
 
 An example of a custom `@selectedItemComponent`:
 

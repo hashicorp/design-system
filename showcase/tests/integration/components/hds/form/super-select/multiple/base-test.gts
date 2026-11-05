@@ -14,6 +14,9 @@ import { HdsFormSuperSelectMultipleBase } from '@hashicorp/design-system-compone
 import { setupRenderingTest } from 'showcase/tests/helpers';
 import NOOP from 'showcase/utils/noop';
 
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import type { PowerSelectSelectedItemSignature } from 'ember-power-select/types';
+
 const OPTIONS = ['Option 1', 'Option 2', 'Option 3'];
 
 module(
@@ -240,6 +243,57 @@ module(
       assert
         .dom('.hds-form-super-select__no-options-selected')
         .hasText('No options selected');
+    });
+
+    test('it should call `@onChange` with an empty array when "Clear selected" is activated', async function (assert) {
+      const context = new TrackedObject({
+        selectedOptions: ['Option 1', 'Option 2'],
+      });
+      const onChange = sinon.spy((selection: string[]) => {
+        context.selectedOptions = selection;
+      });
+
+      await render(
+        <template>
+          <HdsFormSuperSelectMultipleBase
+            @onChange={{onChange}}
+            @selected={{context.selectedOptions}}
+            @options={{OPTIONS}}
+            as |option|
+          >{{option}}</HdsFormSuperSelectMultipleBase>
+        </template>,
+      );
+      await click('.hds-form-super-select .ember-basic-dropdown-trigger');
+      await click(
+        '.hds-form-super-select__after-options .hds-button:nth-child(2)',
+      );
+      assert.true(onChange.calledOnce);
+      assert.deepEqual(onChange.firstCall.args[0], []);
+    });
+
+    // SELECTED ITEM COMPONENT
+
+    test('it should pass each selected option to `@selectedItemComponent` as `@selected`', async function (assert) {
+      const SelectedItem: TemplateOnlyComponent<
+        PowerSelectSelectedItemSignature<string, unknown, true>
+      > = <template>
+        <span class="test-selected-item">Selected: {{@selected}}</span>
+      </template>;
+      const selected = ['Option 1', 'Option 3'];
+
+      await render(
+        <template>
+          <HdsFormSuperSelectMultipleBase
+            @onChange={{NOOP}}
+            @options={{OPTIONS}}
+            @selected={{selected}}
+            @selectedItemComponent={{SelectedItem}}
+            as |option|
+          >{{option}}</HdsFormSuperSelectMultipleBase>
+        </template>,
+      );
+      assert.dom('.test-selected-item').exists({ count: 2 });
+      assert.dom('.test-selected-item').hasText('Selected: Option 1');
     });
 
     test('it should not render the after options block when showAfterOptions is set to false', async function (assert) {

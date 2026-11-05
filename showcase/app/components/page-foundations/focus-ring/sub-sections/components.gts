@@ -7,7 +7,6 @@ import style from 'ember-style-modifier';
 import { capitalize } from '@ember/string';
 import { eq } from 'ember-truth-helpers';
 import { array, hash } from '@ember/helper';
-import PowerSelect from 'ember-power-select/components/power-select';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
@@ -123,10 +122,6 @@ func main() {
   res = 'Lorem ipsum dolor sit amet'
   fmt.Println(res)
 }`;
-
-const POWERSELECT_OPTIONS: string[] = ['foo', 'bar', 'baz', 'abc', 'xyz'];
-const POWERSELECT_SINGLE_SELECTED: string[] = ['foo'];
-const POWERSELECT_MULTIPLE_SELECTED: string[] = ['foo', 'baz', 'xyz'];
 
 const SubSectionComponents: TemplateOnlyComponent = <template>
   <ShwTextH2>Components with focus ring</ShwTextH2>
@@ -934,41 +929,6 @@ const SubSectionComponents: TemplateOnlyComponent = <template>
     </SF.Item>
     <SF.Item>
       <HdsFormToggleBase checked="checked" aria-label="Checked toggle" />
-    </SF.Item>
-  </ShwFlex>
-
-  <ShwTextBody>PowerSelect overrides</ShwTextBody>
-  <ShwFlex as |SF|>
-    <SF.Item @label="Single selection">
-      <div class="hds-power-select">
-        <PowerSelect
-          @options={{POWERSELECT_OPTIONS}}
-          @selected={{POWERSELECT_SINGLE_SELECTED}}
-          @onChange={{NOOP}}
-          @renderInPlace={{true}}
-          {{! special case, we apply directly the mock classname }}
-          class="mock-focus"
-          as |option|
-        >
-          {{option}}
-        </PowerSelect>
-      </div>
-    </SF.Item>
-    <SF.Item @label="Multiple selection">
-      <div class="hds-power-select">
-        <PowerSelect
-          @multiple={{true}}
-          @options={{POWERSELECT_OPTIONS}}
-          @selected={{POWERSELECT_MULTIPLE_SELECTED}}
-          @onChange={{NOOP}}
-          @renderInPlace={{true}}
-          {{! special case, we apply directly the mock classname }}
-          class="mock-focus"
-          as |option|
-        >
-          {{option}}
-        </PowerSelect>
-      </div>
     </SF.Item>
   </ShwFlex>
 

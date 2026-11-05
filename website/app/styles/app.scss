@@ -6,7 +6,6 @@
 // HDS COMPONENTS
 
 @use "@hashicorp/design-system-components";
-@use "@hashicorp/design-system-power-select-overrides";
 
 // Tokens (CSS props)
 @use "tokens";
@@ -62,6 +61,7 @@
 @use "pages/utilities/dialog-primitive" as utilities-dialog-primitive;
 
 // Third-party declarations
+@use "ember-basic-dropdown";
 @use "ember-power-select";
 @use "navigation-narrator";
 

@@ -13,6 +13,9 @@ import { HdsFormSuperSelectSingleBase } from '@hashicorp/design-system-component
 import { setupRenderingTest } from 'showcase/tests/helpers';
 import NOOP from 'showcase/utils/noop';
 
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import type { PowerSelectSelectedItemSignature } from 'ember-power-select/types';
+
 const OPTIONS = ['Option 1', 'Option 2', 'Option 3'];
 
 module(
@@ -130,6 +133,69 @@ module(
       assert.dom('.hds-form-super-select__option-text').hasText('Option 1');
     });
 
+    test('it should render the options resolved from a promise', async function (assert) {
+      const optionsPromise = Promise.resolve(OPTIONS);
+
+      await render(
+        <template>
+          <HdsFormSuperSelectSingleBase
+            @onChange={{NOOP}}
+            @options={{optionsPromise}}
+            as |option|
+          >{{option}}</HdsFormSuperSelectSingleBase>
+        </template>,
+      );
+      await click('.hds-form-super-select .ember-basic-dropdown-trigger');
+      assert.dom('.hds-form-super-select__option-text').exists({ count: 3 });
+    });
+
+    test('it should render the options list and the after options block inside the options wrapper', async function (assert) {
+      await render(
+        <template>
+          <HdsFormSuperSelectSingleBase
+            @onChange={{NOOP}}
+            @options={{OPTIONS}}
+            @showAfterOptions={{true}}
+            as |option|
+          >{{option}}</HdsFormSuperSelectSingleBase>
+        </template>,
+      );
+      await click('.hds-form-super-select .ember-basic-dropdown-trigger');
+      assert
+        .dom(
+          '.ember-basic-dropdown-content > .ember-power-select-options-wrapper > .ember-power-select-options',
+        )
+        .exists();
+      assert
+        .dom(
+          '.ember-power-select-options-wrapper > .hds-form-super-select__after-options',
+        )
+        .exists();
+    });
+
+    // SELECTED ITEM COMPONENT
+
+    test('it should pass the selected option to `@selectedItemComponent` as `@selected`', async function (assert) {
+      const SelectedItem: TemplateOnlyComponent<
+        PowerSelectSelectedItemSignature<string>
+      > = <template>
+        <span id="test-selected-item">Selected: {{@selected}}</span>
+      </template>;
+
+      await render(
+        <template>
+          <HdsFormSuperSelectSingleBase
+            @onChange={{NOOP}}
+            @options={{OPTIONS}}
+            @selected="Option 2"
+            @selectedItemComponent={{SelectedItem}}
+            as |option|
+          >{{option}}</HdsFormSuperSelectSingleBase>
+        </template>,
+      );
+      assert.dom('#test-selected-item').hasText('Selected: Option 2');
+    });
+
     // AFTER OPTIONS
 
     test('it should not render the after options block by default', async function (assert) {
@@ -163,6 +229,9 @@ module(
           '.hds-form-super-select__after-options .hds-form-super-select__result-count',
         )
         .hasText('3 total');
+      assert
+        .dom('.hds-form-super-select__after-options .hds-button')
+        .doesNotExist();
     });
 
     test('it should render custom content in the after options block when `@afterOptionsContent` exists', async function (assert) {

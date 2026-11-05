@@ -92,7 +92,7 @@ export interface CodeFragmentWithMultipleFieldElementSignature {
 }
 
 export default class CodeFragmentWithMultipleFieldElement extends Component<CodeFragmentWithMultipleFieldElementSignature> {
-  @tracked selectedOptions;
+  @tracked selectedOptions: unknown[] = [];
 
   constructor(
     owner: Owner,
@@ -110,12 +110,12 @@ export default class CodeFragmentWithMultipleFieldElement extends Component<Code
             | string,
         ];
       } else {
-        this.selectedOptions = [this.options[0], this.options[1]];
+        this.selectedOptions = this.options.slice(0, 2);
       }
     }
   }
 
-  get options() {
+  get options(): unknown[] {
     const { options } = this.args;
 
     if (options === 'cluster-size') {
@@ -132,6 +132,7 @@ export default class CodeFragmentWithMultipleFieldElement extends Component<Code
       @onChange={{fn (mut this.selectedOptions)}}
       @options={{this.options}}
       @selected={{this.selectedOptions}}
+      {{! @glint-expect-error - the options mix shapes in this demo, so their type can't match the selected item component's }}
       @selectedItemComponent={{if
         @hasSelectedItemComponent
         CodeFragmentWithSelectedComponent

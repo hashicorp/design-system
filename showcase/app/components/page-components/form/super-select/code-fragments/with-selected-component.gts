@@ -8,7 +8,7 @@ import { HdsTextBody } from '@hashicorp/design-system-components/components';
 
 export interface CodeFragmentWithSelectedComponentSignature {
   Args: {
-    option: {
+    selected: {
       size: string;
     };
   };
@@ -17,7 +17,7 @@ export interface CodeFragmentWithSelectedComponentSignature {
 
 const CodeFragmentWithSelectedComponent: TemplateOnlyComponent<CodeFragmentWithSelectedComponentSignature> =
   <template>
-    <HdsTextBody @tag="span" @size="200">{{@option.size}}</HdsTextBody>
+    <HdsTextBody @tag="span" @size="200">{{@selected.size}}</HdsTextBody>
   </template>;
 
 export default CodeFragmentWithSelectedComponent;

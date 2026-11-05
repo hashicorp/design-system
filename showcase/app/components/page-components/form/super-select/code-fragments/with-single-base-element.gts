@@ -48,7 +48,7 @@ export interface CodeFragmentWithSingleBaseElementSignature {
 }
 
 export default class CodeFragmentWithSingleBaseElement extends Component<CodeFragmentWithSingleBaseElementSignature> {
-  @tracked selectedOption;
+  @tracked selectedOption: string | undefined;
 
   options = OPTIONS;
   emptyOptions: string[] = [];
@@ -78,7 +78,7 @@ export default class CodeFragmentWithSingleBaseElement extends Component<CodeFra
     );
   };
 
-  get search(): HdsFormSuperSelectSingleBaseSignature['Args']['search'] {
+  get search(): HdsFormSuperSelectSingleBaseSignature<string>['Args']['search'] {
     return this.args.hasCustomSearch ? this.searchOptions : undefined;
   }
 

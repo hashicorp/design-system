@@ -9,7 +9,6 @@ import { existsSync } from 'node:fs';
 const FILES_TO_CHECK = [
   'dist/styles/@hashicorp/design-system-components.css',
   'dist/styles/@hashicorp/design-system-components-common.css',
-  'dist/styles/@hashicorp/design-system-power-select-overrides.css',
   'dist/styles/@hashicorp/design-system-plex-fonts.css',
 ];
 

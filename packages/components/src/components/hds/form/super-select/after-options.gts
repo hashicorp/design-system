@@ -11,17 +11,22 @@ import hdsT from '../../../../helpers/hds-t.ts';
 import HdsTextBody from '../../text/body.gts';
 import HdsButton from '../../button/index.gts';
 
+// `Blocks` and `Element` match the contract ember-power-select expects from an `afterOptionsComponent`
 export interface HdsFormSuperSelectAfterOptionsSignature {
   Args: {
-    clearSelected: () => void;
+    clearSelected?: () => void;
     content?: string;
     resultCountMessage?: string;
     selectedCount?: string;
-    showAll: () => void;
+    showAll?: () => void;
     showNoSelectedMessage?: boolean;
     showOnlySelected?: boolean;
-    showSelected: () => void;
+    showSelected?: () => void;
   };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLDivElement;
 }
 
 const HdsFormSuperSelectAfterOptions: TemplateOnlyComponent<HdsFormSuperSelectAfterOptionsSignature> =
@@ -38,7 +43,7 @@ const HdsFormSuperSelectAfterOptions: TemplateOnlyComponent<HdsFormSuperSelectAf
         }}
       </HdsTextBody>
     {{/if}}
-    <div class="hds-form-super-select__after-options">
+    <div class="hds-form-super-select__after-options" ...attributes>
       {{#if @content}}
         <HdsTextBody @tag="div" @size="100" class="hds-foreground-strong">
           {{@content}}
@@ -46,16 +51,18 @@ const HdsFormSuperSelectAfterOptions: TemplateOnlyComponent<HdsFormSuperSelectAf
       {{else}}
         {{#if (or @showAll @showSelected @clearSelected)}}
           {{#if @showOnlySelected}}
-            <HdsButton
-              @text={{hdsT
-                "hds.components.form.super-select.after-options.show-all"
-                default="Show all"
-              }}
-              @size="small"
-              @color="secondary-muted"
-              {{on "click" @showAll}}
-            />
-          {{else}}
+            {{#if @showAll}}
+              <HdsButton
+                @text={{hdsT
+                  "hds.components.form.super-select.after-options.show-all"
+                  default="Show all"
+                }}
+                @size="small"
+                @color="secondary-muted"
+                {{on "click" @showAll}}
+              />
+            {{/if}}
+          {{else if @showSelected}}
             <HdsButton
               @text={{hdsT
                 "hds.components.form.super-select.after-options.show-selected"
@@ -66,16 +73,18 @@ const HdsFormSuperSelectAfterOptions: TemplateOnlyComponent<HdsFormSuperSelectAf
               {{on "click" @showSelected}}
             />
           {{/if}}
-          {{#if (notEq @selectedCount "0")}}
-            <HdsButton
-              @text={{hdsT
-                "hds.components.form.super-select.after-options.clear-selected"
-                default="Clear selected"
-              }}
-              @size="small"
-              @color="secondary-muted"
-              {{on "click" @clearSelected}}
-            />
+          {{#if @clearSelected}}
+            {{#if (notEq @selectedCount "0")}}
+              <HdsButton
+                @text={{hdsT
+                  "hds.components.form.super-select.after-options.clear-selected"
+                  default="Clear selected"
+                }}
+                @size="small"
+                @color="secondary-muted"
+                {{on "click" @clearSelected}}
+              />
+            {{/if}}
           {{/if}}
         {{/if}}
         <HdsTextBody

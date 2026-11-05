@@ -36,13 +36,9 @@ Import one or more of the following lines to the `ember-cli-build.js` configurat
 
 Note: the `design-system-plex-fonts.css` file assumes that the application serves fonts from `/assets`; if that's not the case you will need to follow the [Sass-based approach](#sass).
 
-If your application uses [`SuperSelect`](/components/form/super-select), make sure `ember-basic-dropdown` is installed and the `ember-power-select` styles are imported:
+If your application uses [`SuperSelect`](/components/form/super-select), make sure `ember-basic-dropdown` is installed and both the `ember-basic-dropdown` and `ember-power-select` styles are imported, in this order:
 
 [[code-snippets/css-import-ember-power-select-in-cli-build]]
-
-If your application uses the Ember `PowerSelect` component directly, import the HDS style overrides for it:
-
-[[code-snippets/css-import-power-select-overrides-in-cli-build]]
 
 #### Sass
 
@@ -76,13 +72,9 @@ If your application serves fonts from a path other than `/assets` (e.g. `/app/as
 
 [[code-snippets/use-plex-fonts-custom-assets-path]]
 
-If your application uses [`SuperSelect`](/components/form/super-select), make sure `ember-basic-dropdown` is installed and the `ember-power-select` styles are imported:
+If your application uses [`SuperSelect`](/components/form/super-select), make sure `ember-basic-dropdown` is installed and both the `ember-basic-dropdown` and `ember-power-select` styles are imported, in this order:
 
 [[code-snippets/use-ember-power-select]]
-
-If your application uses the Ember `PowerSelect` component directly, import the HDS style overrides for it:
-
-[[code-snippets/use-power-select-overrides]]
 
 ### Single file components
 
