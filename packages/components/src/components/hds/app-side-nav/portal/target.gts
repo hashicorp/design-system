@@ -8,8 +8,7 @@ import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { macroCondition, isTesting } from '@embroider/macros';
 import PortalTarget from 'ember-stargate/components/portal-target';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import { didUpdate } from '@ember/render-modifiers';
+import { modifier } from 'ember-modifier';
 
 import type { Registry as Services } from '@ember/service';
 
@@ -26,7 +25,9 @@ export default class HdsAppSideNavPortalTarget extends Component<HdsAppSideNavPo
   @service declare readonly router: Services['router'];
 
   @tracked private _numSubnavs = 0;
-  @tracked private _lastPanelEl: Element | undefined;
+  // not tracked: it's read and updated while animating, which runs inside a modifier
+  private _lastPanelEl: Element | undefined;
+  private _hasSetUpSubnavAnimation = false;
 
   static get prefersReducedMotionOverride(): boolean {
     return macroCondition(isTesting()) ? true : false;
@@ -47,9 +48,17 @@ export default class HdsAppSideNavPortalTarget extends Component<HdsAppSideNavPo
     this._numSubnavs = portalCount;
   };
 
-  didUpdateSubnav = (element: HTMLElement, [count]: [number]): void => {
-    this.animateSubnav(element, [count]);
-  };
+  private _animateSubnavOnChange = modifier(
+    (element: HTMLElement, [count]: [number]) => {
+      // the panels only slide when the number of subnavs changes, not when they are first rendered
+      if (!this._hasSetUpSubnavAnimation) {
+        this._hasSetUpSubnavAnimation = true;
+        return;
+      }
+
+      this.animateSubnav(element, [count]);
+    }
+  );
 
   animateSubnav = (element: HTMLElement, [count]: [number]): void => {
     /*
@@ -184,7 +193,7 @@ export default class HdsAppSideNavPortalTarget extends Component<HdsAppSideNavPo
         @onChange={{this.panelsChanged}}
         @name={{if @targetName @targetName "hds-app-side-nav-portal-target"}}
         class="hds-app-side-nav__content-panels"
-        {{didUpdate this.didUpdateSubnav this._numSubnavs}}
+        {{this._animateSubnavOnChange this._numSubnavs}}
       />
     </div>
   </template>

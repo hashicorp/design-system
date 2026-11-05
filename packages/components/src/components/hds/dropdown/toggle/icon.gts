@@ -8,8 +8,6 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import { didUpdate } from '@ember/render-modifiers';
 
 import type { ModifierLike } from '@glint/template';
 import type Owner from '@ember/owner';
@@ -56,7 +54,7 @@ export interface HdsDropdownToggleIconSignature {
 }
 
 export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIconSignature> {
-  @tracked private _hasImage = true;
+  @tracked private _failedImageSrc?: string;
 
   constructor(owner: Owner, args: HdsDropdownToggleIconSignature['Args']) {
     super(owner, args);
@@ -67,14 +65,14 @@ export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIc
     }
   }
 
-  @action
-  onDidUpdateImageSrc(): void {
-    this._hasImage = true;
+  // a new `@imageSrc` is tried again, even after a previous image failed to load
+  get hasImage(): boolean {
+    return this._failedImageSrc !== this.args.imageSrc;
   }
 
   @action
   onImageLoadError(): void {
-    this._hasImage = false;
+    this._failedImageSrc = this.args.imageSrc;
   }
 
   get text(): string {
@@ -169,12 +167,11 @@ export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIc
       ...attributes
       aria-expanded={{if @isOpen "true" "false"}}
       {{@setupPrimitiveToggle}}
-      {{didUpdate this.onDidUpdateImageSrc @imageSrc}}
       type="button"
     >
       <div class="hds-dropdown-toggle-icon__wrapper">
         {{#if @imageSrc}}
-          {{#if this._hasImage}}
+          {{#if this.hasImage}}
             <img
               src={{@imageSrc}}
               alt=""

@@ -171,6 +171,38 @@ module(
       assert.dom('a#test-disclosure-primitive-link').exists();
     });
 
+    test('it should allow @isOpen to take control back when it is set again to the same value', async function (assert) {
+      const context = new TrackedObject<Record<'isOpen', boolean | undefined>>({
+        isOpen: false,
+      });
+
+      await render(
+        <template>
+          <HdsDisclosurePrimitive
+            @isOpen={{context.isOpen}}
+            id="test-disclosure-primitive"
+          >
+            <:toggle as |t|>
+              <button
+                type="button"
+                id="test-toggle-button"
+                {{on "click" t.onClickToggle}}
+              />
+            </:toggle>
+            <:content>
+              <a id="test-disclosure-primitive-link" href="#">test</a>
+            </:content>
+          </HdsDisclosurePrimitive>
+        </template>,
+      );
+      await click('button#test-toggle-button');
+      assert.dom('a#test-disclosure-primitive-link').exists();
+
+      context.isOpen = false;
+      await settled();
+      assert.dom('a#test-disclosure-primitive-link').doesNotExist();
+    });
+
     test('it should allow the internal _isOpen to override @isOpen=true', async function (assert) {
       await render(
         <template>

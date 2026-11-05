@@ -7,9 +7,11 @@ import { module, test } from 'qunit';
 import {
   render,
   resetOnerror,
+  settled,
   setupOnerror,
   waitFor,
 } from '@ember/test-helpers';
+import { TrackedObject } from 'tracked-built-ins';
 
 import { HdsDropdownToggleIcon } from '@hashicorp/design-system-components/components';
 
@@ -85,6 +87,34 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
 
     assert.dom('img').doesNotExist();
     assert.dom('#test-toggle-icon .hds-icon.hds-icon-user').exists();
+  });
+
+  test('if the image fails to load, it should try again when @imageSrc changes', async function (assert) {
+    const state = new TrackedObject({
+      imageSrc: '/assets/images/avatar-broken.png',
+    });
+
+    await render(
+      <template>
+        <HdsDropdownToggleIcon
+          @icon="user"
+          @text="user menu"
+          @imageSrc={{state.imageSrc}}
+          id="test-toggle-icon"
+        />
+      </template>,
+    );
+
+    await waitFor('.hds-icon.hds-icon-user');
+    assert.dom('#test-toggle-icon img').doesNotExist();
+
+    state.imageSrc = '/assets/images/avatar.png';
+    await settled();
+
+    assert
+      .dom('#test-toggle-icon img')
+      .hasAttribute('src', '/assets/images/avatar.png');
+    assert.dom('#test-toggle-icon .hds-icon.hds-icon-user').doesNotExist();
   });
 
   // CHEVRON
