@@ -4,8 +4,7 @@
  */
 
 import Component from '@glimmer/component';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import { didInsert } from '@ember/render-modifiers';
+import { modifier } from 'ember-modifier';
 
 import HdsTextBody from '../text/body.gts';
 
@@ -26,13 +25,17 @@ export interface HdsCodeEditorDescriptionSignature {
 export default class HdsCodeEditorDescription extends Component<HdsCodeEditorDescriptionSignature> {
   private _id = `${this.args.editorId}-description`;
 
+  private _setUpDescription = modifier((element: HdsCodeEditorDescriptionElement) => {
+    this.args.onInsert(element);
+  });
+
   <template>
     <HdsTextBody
       id={{this._id}}
       class="hds-code-editor__description"
       @tag="p"
       @size="100"
-      {{didInsert @onInsert}}
+      {{this._setUpDescription}}
       ...attributes
     >
       {{yield}}

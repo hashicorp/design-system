@@ -4,7 +4,14 @@
  */
 
 import { module, test } from 'qunit';
-import { render, resetOnerror, setupOnerror, find } from '@ember/test-helpers';
+import {
+  render,
+  settled,
+  resetOnerror,
+  setupOnerror,
+  find,
+} from '@ember/test-helpers';
+import { TrackedObject } from 'tracked-built-ins';
 
 import { HdsFormField } from '@hashicorp/design-system-components/components';
 
@@ -209,6 +216,47 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
     assert
       .dom('.hds-form-field__error')
       .hasAttribute('id', `error-${controlId}`);
+  });
+
+  test('it updates the `aria-describedby` relations when the error is added or removed', async function (assert) {
+    const state = new TrackedObject({ hasError: false });
+
+    await render(
+      <template>
+        <HdsFormField @layout="vertical" @id="my-custom-id" as |F|>
+          <F.Label>This is the label</F.Label>
+          <F.HelperText>This is the helper text</F.HelperText>
+          <F.Control><pre
+              id={{F.id}}
+              aria-describedby={{F.ariaDescribedBy}}
+            >This is a mock control</pre></F.Control>
+          {{#if state.hasError}}
+            <F.Error>This is the error</F.Error>
+          {{/if}}
+        </HdsFormField>
+      </template>,
+    );
+
+    assert
+      .dom('.hds-form-field__control pre')
+      .hasAttribute('aria-describedby', 'helper-text-my-custom-id');
+
+    state.hasError = true;
+    await settled();
+
+    assert
+      .dom('.hds-form-field__control pre')
+      .hasAttribute(
+        'aria-describedby',
+        'helper-text-my-custom-id error-my-custom-id',
+      );
+
+    state.hasError = false;
+    await settled();
+
+    assert
+      .dom('.hds-form-field__control pre')
+      .hasAttribute('aria-describedby', 'helper-text-my-custom-id');
   });
 
   // REQUIRED AND OPTIONAL

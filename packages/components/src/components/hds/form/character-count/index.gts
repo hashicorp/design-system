@@ -5,15 +5,13 @@
 import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
 import { service } from '@ember/service';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import { didInsert } from '@ember/render-modifiers';
+import { modifier } from 'ember-modifier';
 
 import type { HdsTextBodySignature } from '../../text/body.gts';
 import type HdsIntlService from '../../../../services/hds-intl';
 import type { HdsIntlTOptions } from '../../../../services/hds-intl';
 
 const ID_PREFIX = 'character-count-';
-const NOOP = (): void => {};
 
 export interface HdsFormCharacterCountSignature {
   Args: {
@@ -158,16 +156,14 @@ export default class HdsFormCharacterCount extends Component<HdsFormCharacterCou
     return null;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  get onInsert(): (element: HTMLElement, ...args: any[]) => void {
+  private _setUpCharacterCount = modifier((element: HTMLDivElement) => {
     const { onInsert } = this.args;
+
     // notice: this is a guard used to prevent triggering an error when the component is used as standalone element
     if (typeof onInsert === 'function') {
-      return onInsert;
-    } else {
-      return NOOP;
+      onInsert(element);
     }
-  }
+  });
 
   get classNames(): string {
     const classes = ['hds-form-character-count'];
@@ -186,7 +182,7 @@ export default class HdsFormCharacterCount extends Component<HdsFormCharacterCou
     <div
       class={{this.classNames}}
       id={{this.id}}
-      {{didInsert this.onInsert}}
+      {{this._setUpCharacterCount}}
       ...attributes
       aria-live="polite"
     >

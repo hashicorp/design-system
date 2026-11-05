@@ -3,14 +3,11 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import { didInsert } from '@ember/render-modifiers';
+import { modifier } from 'ember-modifier';
 
 import type { HdsTextBodySignature } from '../../text/body.gts';
 
 export const ID_PREFIX = 'helper-text-';
-
-const NOOP = (): void => {};
 
 export interface HdsFormHelperTextSignature {
   Args: {
@@ -34,17 +31,14 @@ export default class HdsFormHelperText extends Component<HdsFormHelperTextSignat
     return null;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  get onInsert(): (element: HTMLElement, ...args: any[]) => void {
+  private _setUpHelperText = modifier((element: HTMLElement) => {
     const { onInsert } = this.args;
 
     // notice: this is a guard used to prevent triggering an error when the component is used as standalone element
     if (typeof onInsert === 'function') {
-      return onInsert;
-    } else {
-      return NOOP;
+      onInsert(element);
     }
-  }
+  });
 
   get classNames(): string {
     const classes = ['hds-form-helper-text'];
@@ -63,7 +57,7 @@ export default class HdsFormHelperText extends Component<HdsFormHelperTextSignat
     <div
       class={{this.classNames}}
       id={{this.id}}
-      {{didInsert this.onInsert}}
+      {{this._setUpHelperText}}
       ...attributes
     >
       {{yield}}

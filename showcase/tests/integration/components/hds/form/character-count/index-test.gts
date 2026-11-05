@@ -5,7 +5,8 @@
 
 import { module, test } from 'qunit';
 import { on } from '@ember/modifier';
-import { render, typeIn } from '@ember/test-helpers';
+import { find, render, settled, typeIn } from '@ember/test-helpers';
+import sinon from 'sinon';
 import { TrackedObject } from 'tracked-built-ins';
 
 import { HdsFormCharacterCount } from '@hashicorp/design-system-components/components';
@@ -254,6 +255,35 @@ module(
       assert
         .dom('#test-form-character-count')
         .hasAttribute('aria-live', 'polite');
+    });
+
+    // ON INSERT
+
+    test('it calls the @onInsert callback once with the element, and not again when the value changes', async function (assert) {
+      const state = new TrackedObject({ value: 'abc' });
+      const onInsert = sinon.spy();
+
+      await render(
+        <template>
+          <HdsFormCharacterCount
+            @maxLength={{40}}
+            @value={{state.value}}
+            @onInsert={{onInsert}}
+            id="test-form-character-count"
+          />
+        </template>,
+      );
+
+      assert.true(onInsert.calledOnce);
+      assert.strictEqual(
+        onInsert.firstCall.args[0],
+        find('#test-form-character-count'),
+      );
+
+      state.value = 'abcdef';
+      await settled();
+
+      assert.true(onInsert.calledOnce);
     });
   },
 );
