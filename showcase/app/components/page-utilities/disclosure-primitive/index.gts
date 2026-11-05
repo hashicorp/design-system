@@ -13,7 +13,7 @@ import SubSectionExternalControl from 'showcase/components/page-utilities/disclo
 const DisclosurePrimitveIndex: TemplateOnlyComponent = <template>
   {{pageTitle "DisclosurePrimitve Component"}}
 
-  <ShwTextH1>DisclosurePrimitve</ShwTextH1>
+  <ShwTextH1>DisclosurePrimitive</ShwTextH1>
 
   <section data-test-percy>
     <SubSectionContent />

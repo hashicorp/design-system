@@ -24,3 +24,9 @@ export const HdsDropdownPositionToPlacementValues: Record<
   [HdsDropdownPositionValues.TopLeft]: 'top-start',
   [HdsDropdownPositionValues.TopRight]: 'top-end',
 };
+
+export enum HdsDropdownForceStateValues {
+  Open = 'open',
+  Close = 'close',
+}
+export type HdsDropdownForceStates = `${HdsDropdownForceStateValues}`;
