@@ -1,0 +1,16 @@
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+/* The box-sizing reset most apps (and the showcase) have. Some components
+   rely on it, e.g. the CodeBlock line numbers' height. */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}

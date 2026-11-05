@@ -5,7 +5,7 @@ description: "Instructions for tests written for the HDS components package"
 
 ## Overview
 
-The `showcase/tests` directory contains all of the acceptance, integration, and Percy visual regression tests for the HDS components package.
+The `showcase/tests` directory contains the acceptance and Percy visual regression tests for the HDS components package. The integration and unit tests live in `packages/components/tests` (see `.bob/rules/directories/components/tests.instructions.md`).
 
 ## Infrastructure
 
@@ -15,36 +15,30 @@ The `showcase/tests` directory contains all of the acceptance, integration, and 
 
 ## File structure
 
-- `integration/components/hds/<component-name>/index-test.gts` - Integration test for the component.
-- `integration/helpers/` - Integration tests for helpers.
-- `integration/modifiers/` - Integration tests for modifiers.
 - `acceptance/components/hds/<component-name>.js` - Acceptance test for the component.
 - `acceptance/percy-test.js` - Percy visual regression testing for all `showcase/app` pages.
-- `unit/` - Unit tests for components, helpers, modifiers, and services.
 
 ## Testing commands
 
 The following commands are used to run the test suite. All commands should be run inside the `showcase` directory.
 
 - `pnpm test` - Runs the entire test suite
-- `ember t -f component-name` - Runs all tests for a specific component, including acceptance and integration tests
+- `ember t -f component-name` - Runs the acceptance tests for a specific component
+
+Run the integration tests with `pnpm test` inside `packages/components`.
 
 ## Requirements
 
-- All components from the `packages/components` library must have corresponding acceptance, integration, and Percy visual regression tests in the `showcase` app to ensure all arguments, blocks, and interactive states are covered.
+- All components from the `packages/components` library must have corresponding acceptance and Percy visual regression tests in the `showcase` app, and integration tests in `packages/components/tests`, to ensure all arguments, blocks, and interactive states are covered.
   - Required files
-    - `acceptance/components/hds/<component-name>.js`
-    - `integration/components/hds/<component-name>/index-test.gts`
+    - `showcase/tests/acceptance/components/hds/<component-name>.js`
+    - `packages/components/tests/integration/components/hds/<component-name>/index-test.gts`
 
 ## Test types
 
-### Integration tests
+### Integration and unit tests
 
-Read `integration-tests.instructions.md` for information on integration tests.
-
-### Unit tests
-
-Unit tests are used to test low-level logic in individual classes such as helpers, modifiers, and services. They should be defined under `unit/` in a folder structure matching the type being tested (e.g., `unit/helpers/`, `unit/modifiers/`, `unit/services/`).
+Read `.bob/rules/directories/components/tests.instructions.md` for information on integration and unit tests.
 
 ### Acceptance tests
 
