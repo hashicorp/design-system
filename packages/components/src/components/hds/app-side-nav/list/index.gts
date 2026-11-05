@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { hash } from '@ember/helper';
+import { deferAfterRender } from '../../../../utils/hds-defer.ts';
 
 import type { WithBoundArgs } from '@glint/template';
 
@@ -40,7 +41,10 @@ export default class HdsAppSideNavList extends Component<HdsAppSideNavListSignat
   }
 
   didInsertTitle = (titleId: string): void => {
-    this._titleIds = [...this._titleIds, titleId];
+    // deferred so the title's modifier doesn't consume `_titleIds`, which it would then update and re-run in a loop
+    deferAfterRender((): void => {
+      this._titleIds = [...this._titleIds, titleId];
+    }, this);
   };
 
   <template>

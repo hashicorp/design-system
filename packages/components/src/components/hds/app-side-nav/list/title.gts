@@ -5,8 +5,7 @@
 
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import { didInsert } from '@ember/render-modifiers';
+import { modifier } from 'ember-modifier';
 
 import HdsAppSideNavListItem from './item.gts';
 
@@ -24,20 +23,20 @@ export default class HdsAppSideNavListTitle extends Component<HdsAppSideNavListT
   /*  Generate a unique ID for each Title */
   private _titleId = 'title-' + guidFor(this);
 
-  didInsertTitle = (element: HTMLElement): void => {
+  private _setUpTitle = modifier((element: HTMLDivElement) => {
     const { didInsertTitle } = this.args;
 
     if (typeof didInsertTitle === 'function') {
       didInsertTitle(element.id);
     }
-  };
+  });
 
   <template>
     <HdsAppSideNavListItem>
       <div
         class="hds-app-side-nav__list-title hds-typography-body-100 hds-font-weight-semibold"
         id={{this._titleId}}
-        {{didInsert this.didInsertTitle}}
+        {{this._setUpTitle}}
         ...attributes
       >{{~yield~}}</div>
     </HdsAppSideNavListItem>

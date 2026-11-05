@@ -16,7 +16,7 @@ The Breadcrumb component is composed of three different parts, each with their o
     Accepts a string.
   </C.Property>
   <C.Property @name="didInsert" @type="function">
-    This hook method is called when the component is inserted in the DOM. Internally we use the `did-insert` modifier from `@ember/render-modifiers`.
+    This hook method is called once when the component is inserted in the DOM. It receives the list element (`<ol>`) as its argument.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).<br/>

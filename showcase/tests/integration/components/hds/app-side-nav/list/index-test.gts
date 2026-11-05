@@ -4,7 +4,7 @@
  */
 
 import { module, test } from 'qunit';
-import { render } from '@ember/test-helpers';
+import { findAll, render } from '@ember/test-helpers';
 
 import { HdsAppSideNavList } from '@hashicorp/design-system-components/components';
 
@@ -48,6 +48,27 @@ module(
       assert.dom('#test-app-side-nav-list-content-backlink').exists();
       assert.dom('#test-app-side-nav-list-content-title').exists();
       assert.dom('#test-app-side-nav-list-content-link').exists();
+    });
+
+    test('it labels the list with the IDs of the yielded titles', async function (assert) {
+      await render(
+        <template>
+          <HdsAppSideNavList as |L|>
+            <L.Title>First title</L.Title>
+            <L.Link @text="Link" />
+            <L.Title>Second title</L.Title>
+          </HdsAppSideNavList>
+        </template>,
+      );
+
+      const titleIds = findAll('.hds-app-side-nav__list-title').map(
+        (title) => title.id,
+      );
+
+      assert.strictEqual(titleIds.length, 2);
+      assert
+        .dom('.hds-app-side-nav__list')
+        .hasAttribute('aria-labelledby', titleIds.join(' '));
     });
 
     // Accessibilty feature

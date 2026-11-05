@@ -4,7 +4,8 @@
  */
 
 import { module, test } from 'qunit';
-import { render } from '@ember/test-helpers';
+import { render, settled } from '@ember/test-helpers';
+import { TrackedObject } from 'tracked-built-ins';
 
 import HdsTimeService, {
   HdsDisplayKeyValues,
@@ -506,5 +507,54 @@ module('Integration | Component | hds/time/index', function (hooks) {
     const endDate = new Date('20 January 2025 02:07:32');
     const expectedTooltipContent = `${startDate.toISOString()}–${endDate.toISOString()}`;
     assert.dom('.tippy-content').hasText(expectedTooltipContent);
+  });
+
+  // REGISTRATION
+
+  test('it registers its date with the time service when rendered and unregisters it when removed', async function (assert) {
+    const hdsTime = this.owner.lookup('service:hds-time') as HdsTimeService;
+    const state = new TrackedObject({ isVisible: true });
+
+    await render(
+      <template>
+        {{#if state.isVisible}}
+          <HdsTime @date="05 September 2018 14:48" @hasTooltip={{false}} />
+        {{/if}}
+      </template>,
+    );
+
+    assert.strictEqual(hdsTime.listeners.size, 1);
+
+    state.isVisible = false;
+    await settled();
+
+    assert.strictEqual(hdsTime.listeners.size, 0);
+  });
+
+  test('it replaces the registered date when the @date argument changes', async function (assert) {
+    const hdsTime = this.owner.lookup('service:hds-time') as HdsTimeService;
+    const firstDate = new Date('05 September 2018 14:48');
+    const secondDate = new Date('06 September 2018 14:48');
+    const state = new TrackedObject({ date: firstDate, isVisible: true });
+
+    await render(
+      <template>
+        {{#if state.isVisible}}
+          <HdsTime @date={{state.date}} @hasTooltip={{false}} />
+        {{/if}}
+      </template>,
+    );
+
+    assert.deepEqual([...hdsTime.listeners], [firstDate]);
+
+    state.date = secondDate;
+    await settled();
+
+    assert.deepEqual([...hdsTime.listeners], [secondDate]);
+
+    state.isVisible = false;
+    await settled();
+
+    assert.strictEqual(hdsTime.listeners.size, 0);
   });
 });

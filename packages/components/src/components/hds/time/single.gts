@@ -4,8 +4,7 @@
  */
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import { didInsert, willDestroy } from '@ember/render-modifiers';
+import { modifier } from 'ember-modifier';
 
 import hdsFormatDate from '../../../helpers/hds-format-date.ts';
 import hdsFormatRelative from '../../../helpers/hds-format-relative.ts';
@@ -23,6 +22,19 @@ export interface HdsTimeSingleSignature {
   Element: HTMLTimeElement;
 }
 
+const registerTime = modifier(
+  (
+    _element: HTMLTimeElement,
+    [register, unregister]: [() => void, () => void]
+  ) => {
+    register();
+
+    return () => {
+      unregister();
+    };
+  }
+);
+
 const HdsTimeSingleComponent: TemplateOnlyComponent<HdsTimeSingleSignature> =
   <template>
     {{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember causes extra space around the time element - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
@@ -30,8 +42,7 @@ const HdsTimeSingleComponent: TemplateOnlyComponent<HdsTimeSingleSignature> =
       class="hds-time hds-time--single"
       datetime={{@isoUtcString}}
       ...attributes
-      {{didInsert @register}}
-      {{willDestroy @unregister}}
+      {{registerTime @register @unregister}}
     >
       {{~#if @display.options.showFriendly~}}
         {{~#if @display.options.displayFormat~}}

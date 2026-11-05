@@ -3627,7 +3627,7 @@
         },
         {
           "name": "didInsert",
-          "type": "() => void",
+          "type": "(element: HTMLOListElement) => void",
           "required": false
         },
         {

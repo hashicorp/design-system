@@ -4,7 +4,7 @@
  */
 
 import { module, test } from 'qunit';
-import { render } from '@ember/test-helpers';
+import { find, render } from '@ember/test-helpers';
 import { TrackedObject } from 'tracked-built-ins';
 
 import { HdsBreadcrumb } from '@hashicorp/design-system-components/components';
@@ -44,6 +44,31 @@ module('Integration | Component | hds/breadcrumb/index', function (hooks) {
     );
 
     assert.ok(context.isInserted);
+  });
+
+  test('it should call @didInsert once with the list element, even when the callback reads and updates tracked state', async function (assert) {
+    const context = new TrackedObject({ count: 0 });
+    const elements: HTMLOListElement[] = [];
+
+    const onInsertCallback = (element: HTMLOListElement) => {
+      elements.push(element);
+      context.count = context.count + 1;
+    };
+
+    await render(
+      <template>
+        <HdsBreadcrumb id="test-breadcrumb" @didInsert={{onInsertCallback}} />
+        <span id="test-breadcrumb-count">{{context.count}}</span>
+      </template>,
+    );
+
+    assert.strictEqual(context.count, 1);
+    assert.dom('#test-breadcrumb-count').hasText('1');
+    assert.strictEqual(elements.length, 1);
+    assert.strictEqual(
+      elements[0],
+      find('#test-breadcrumb .hds-breadcrumb__list'),
+    );
   });
 
   // A11Y

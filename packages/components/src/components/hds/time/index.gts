@@ -39,6 +39,8 @@ const dateIsValid = (date?: Date | string): date is Date =>
 export default class HdsTime extends Component<HdsTimeSignature> {
   @service declare readonly hdsTime: TimeService;
 
+  private _registeredDate?: Date;
+
   get date(): Date | undefined {
     const { date } = this.args;
 
@@ -136,15 +138,16 @@ export default class HdsTime extends Component<HdsTimeSignature> {
     const date = this.date;
 
     if (dateIsValid(date)) {
+      this._registeredDate = date;
       this.hdsTime.register(date);
     }
   };
 
   willDestroyNode = (): void => {
-    const date = this.date;
-
-    if (dateIsValid(date)) {
-      this.hdsTime.unregister(date);
+    // unregister the instance that was registered, `this.date` can be a new instance (or a different date) by now
+    if (this._registeredDate !== undefined) {
+      this.hdsTime.unregister(this._registeredDate);
+      this._registeredDate = undefined;
     }
   };
 
