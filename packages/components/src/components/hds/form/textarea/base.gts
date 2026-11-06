@@ -5,7 +5,6 @@
 
 import Component from '@glimmer/component';
 import style from 'ember-style-modifier';
-import { Textarea } from '@ember/component';
 
 export interface HdsFormTextareaBaseSignature {
   Args: {
@@ -35,15 +34,14 @@ export default class HdsFormTextareaBase extends Component<HdsFormTextareaBaseSi
   }
 
   <template>
-    {{! Notice: this is not the native HTML <textarea> but the Ember component <Textarea> }}
-    <Textarea
+    <textarea
       class={{this.classNames}}
       {{style width=@width height=@height}}
       rows="4"
       id={{@id}}
       aria-describedby={{@ariaDescribedBy}}
       ...attributes
-      @value={{@value}}
-    />
+      value={{@value}}
+    ></textarea>
   </template>
 }
