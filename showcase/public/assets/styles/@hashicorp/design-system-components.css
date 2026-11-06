@@ -10619,6 +10619,7 @@ button.hds-button[href]::after {
 .hds-theme-dark .hds-pagination-size-selector > .hds-form-select,
 .hds-theme-system .hds-pagination-size-selector > .hds-form-select {
   margin-left: 0;
+  padding-right: 24px;
   background-color: transparent;
   border: 0;
 }
