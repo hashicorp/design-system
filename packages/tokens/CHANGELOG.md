@@ -1,5 +1,15 @@
 # @hashicorp/design-system-tokens
 
+## 6.0.1
+
+### Patch Changes
+
+Updated the `--hds-border-radius-rounded` token to use a smaller value with the same visual result
+
+<small class="doc-whats-new-changelog-metadata">[#4274](https://github.com/hashicorp/design-system/pull/4274)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 6.0.0
 
 ### Major Changes
