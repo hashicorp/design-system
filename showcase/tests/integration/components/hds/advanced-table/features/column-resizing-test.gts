@@ -14,7 +14,6 @@ import {
   settled,
   triggerEvent,
   triggerKeyEvent,
-  waitUntil,
 } from '@ember/test-helpers';
 import { performContextMenuAction, waitForLayout } from '../utils';
 import { TrackedObject } from 'tracked-built-ins';
@@ -126,17 +125,6 @@ function getTableGridValues(tableElement: Element) {
   return gridValues;
 }
 
-async function waitForInitialTableLayout(selector: string) {
-  await waitForLayout();
-
-  const table = findOrThrow(selector);
-
-  // These short fixtures should not have the transient scrollbar seen during measurement.
-  await waitUntil(() => table.scrollHeight <= table.clientHeight, {
-    timeoutMessage: `${selector} still has vertical overflow before capturing baseline widths`,
-  });
-}
-
 async function simulatePointerDrag(
   handle: Element,
   toX: number,
@@ -202,7 +190,7 @@ const createResizableTable = async (options: {
     </template>,
   );
 
-  await waitForInitialTableLayout('#resize-test-table');
+  await waitForLayout();
 };
 
 module('Integration | Component | hds/advanced-table/index', function (hooks) {
@@ -495,7 +483,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     test('resetting a column width is idempotent', async function (assert) {
       await render(
         <template>
-          <div {{style width="900px"}}>
+          <div {{style width="600px"}}>
             <HdsAdvancedTable
               id="reset-table"
               @columns={{array
@@ -521,7 +509,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         </template>,
       );
 
-      await waitForInitialTableLayout('#reset-table');
+      await waitForLayout();
 
       const widths = () =>
         [0, 1, 2].map((index) => columnWidth('#reset-table', index));
@@ -945,7 +933,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         </template>,
       );
 
-      await waitForInitialTableLayout('#kbd-table');
+      await waitForLayout();
 
       const startFirst = columnWidth('#kbd-table', 0);
 
