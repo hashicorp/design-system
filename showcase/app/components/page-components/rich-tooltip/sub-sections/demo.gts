@@ -33,6 +33,8 @@ import {
 import type { HdsBadgeColors } from '@hashicorp/design-system-components/components/hds/badge/types';
 import type { HdsIconSignature } from '@hashicorp/design-system-components/components/hds/icon/index';
 
+import CodeFragmentWithExternalControl from 'showcase/components/page-components/rich-tooltip/code-fragments/with-external-control';
+
 interface DEMO_TABLE_DATA_ITEM {
   id: number;
   'peer-name': string;
@@ -625,6 +627,14 @@ export default class SubSectionDemo extends Component {
             </div>
           </RT.Bubble>
         </HdsRichTooltip>
+      </SF.Item>
+    </ShwFlex>
+
+    <ShwDivider @level={{2}} />
+
+    <ShwFlex as |SF|>
+      <SF.Item @label="Using @isOpen to externally control the rich tooltip">
+        <CodeFragmentWithExternalControl />
       </SF.Item>
     </ShwFlex>
 
