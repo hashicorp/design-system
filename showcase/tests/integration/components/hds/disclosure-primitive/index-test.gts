@@ -309,5 +309,72 @@ module(
       assert.false(context.isOpen);
       assert.dom('a#test-disclosure-primitive-link').doesNotExist();
     });
+
+    test('it should invoke the `onClose` callback when `close` is triggered', async function (assert) {
+      let onCloseCalls = 0;
+      const onClose = () => onCloseCalls++;
+
+      await render(
+        <template>
+          <HdsDisclosurePrimitive @onClose={{onClose}}>
+            <:toggle as |t|>
+              <button
+                type="button"
+                id="test-toggle-button"
+                {{on "click" t.onClickToggle}}
+              />
+            </:toggle>
+            <:content as |c|>
+              <button
+                id="test-content-button"
+                type="button"
+                {{on "click" c.close}}
+              >test</button>
+            </:content>
+          </HdsDisclosurePrimitive>
+        </template>,
+      );
+      await click('button#test-toggle-button');
+      await click('button#test-content-button');
+      assert.strictEqual(onCloseCalls, 1);
+    });
+
+    test('it should invoke the `onClose` callback even if closing tears the component down', async function (assert) {
+      const context = new TrackedObject({ isRendered: true });
+      let onCloseCalls = 0;
+      const onClose = () => onCloseCalls++;
+      // simulates a consumer that removes the disclosure as a result of an action in its content (e.g. navigation)
+      const unrender = () => {
+        context.isRendered = false;
+      };
+
+      await render(
+        <template>
+          {{#if context.isRendered}}
+            <HdsDisclosurePrimitive @onClose={{onClose}}>
+              <:toggle as |t|>
+                <button
+                  type="button"
+                  id="test-toggle-button"
+                  {{on "click" t.onClickToggle}}
+                />
+              </:toggle>
+              <:content as |c|>
+                <button
+                  id="test-content-button"
+                  type="button"
+                  {{on "click" c.close}}
+                  {{on "click" unrender}}
+                >test</button>
+              </:content>
+            </HdsDisclosurePrimitive>
+          {{/if}}
+        </template>,
+      );
+      await click('button#test-toggle-button');
+      await click('button#test-content-button');
+      assert.dom('button#test-toggle-button').doesNotExist();
+      assert.strictEqual(onCloseCalls, 1);
+    });
   },
 );
