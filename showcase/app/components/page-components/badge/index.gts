@@ -8,7 +8,6 @@ import { pageTitle } from 'ember-page-title';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 
-import SubSectionContainers from 'showcase/components/page-components/badge/sub-sections/containers';
 import SubSectionContent from 'showcase/components/page-components/badge/sub-sections/content';
 import SubSectionVariants from 'showcase/components/page-components/badge/sub-sections/variants';
 
@@ -20,7 +19,6 @@ const BadgeIndex: TemplateOnlyComponent = <template>
   <section data-test-percy>
     <SubSectionContent />
     <SubSectionVariants />
-    <SubSectionContainers />
   </section>
 </template>;
 

@@ -12,7 +12,7 @@ Integration tests are used to test the functionality of the HDS components. They
 - Every component must have an integration test file under `integration/components/hds/<component-name>/index-test.gts`
 - Any sub-components must have their own integration test files under `integration/components/hds/<component-name>/<sub-component>-test.gts`
 
-## Test set up
+## Test setup
 
 Use the following template for organizing the integration test files
 
@@ -26,8 +26,8 @@ import { setupRenderingTest } from 'showcase/tests/helpers';
 module('Integration | Component | hds/component-name/index', function (hooks) {
   setupRenderingTest(hooks);
 
-  <!-- Write test cases here -->
-  test('TEST CASES GO HERE', async function (assert) {
+  // Write test cases here
+  test('it should ...', async function (assert) {
   });
 })
 ```
@@ -79,7 +79,7 @@ All contextual components in the component signature and any default yielded blo
 Any interaction a user takes which can alter the component template or functionality should be tested. Examples include:
 
 - Clicking a button which alters the elements rendered
-- An interaction which causes other callbacks to be thrown or other js functionality to be ran
+- An interaction which causes other callbacks to be called or other js functionality to be run
 - An `aria` argument changing based on a user interaction
 
 ## Example tests

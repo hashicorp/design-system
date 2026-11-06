@@ -4,10 +4,9 @@
  */
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
-import style from 'ember-style-modifier';
 
-import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwFlex from 'showcase/components/shw/flex';
+import ShwTextH2 from 'showcase/components/shw/text/h2';
 
 import { HdsBadge } from '@hashicorp/design-system-components/components';
 
@@ -15,26 +14,17 @@ const SubSectionContent: TemplateOnlyComponent = <template>
   <ShwTextH2>Content</ShwTextH2>
 
   <ShwFlex as |SF|>
-    <SF.Item>
-      <HdsBadge @text="Only text" />
+    <SF.Item @label="Text">
+      <HdsBadge @text="In progress" />
     </SF.Item>
-    <SF.Item>
-      <HdsBadge @icon="activity" @text="Text + icon" />
+    <SF.Item @label="Numeric text">
+      <HdsBadge @text={{3}} />
     </SF.Item>
-    <SF.Item>
-      <HdsBadge @icon="activity" @text="Only icon" @isIconOnly={{true}} />
+    <SF.Item @label="With icon">
+      <HdsBadge @text="Active" @icon="check" />
     </SF.Item>
-    <SF.Item {{style width="200px"}}>
-      <HdsBadge
-        @icon="activity"
-        @text="This is a very long text that should go on two lines"
-      />
-    </SF.Item>
-  </ShwFlex>
-  <ShwFlex as |SF|>
-    <SF.Item>
-      <p>This is a paragraph:
-        <HdsBadge @icon="activity" @text="Lorem ipsum" /></p>
+    <SF.Item @label="Icon only">
+      <HdsBadge @text="Active" @icon="check" @isIconOnly={{true}} />
     </SF.Item>
   </ShwFlex>
 </template>;
