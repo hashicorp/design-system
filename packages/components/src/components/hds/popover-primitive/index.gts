@@ -76,6 +76,10 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
   enableClickEvents = this.args.enableClickEvents ?? false;
   private _timer?: ReturnType<typeof setTimeout> | null;
   private _cleanupAnchoredPosition?: () => void;
+  // `@isOpen` is applied once when the popover is set up, and afterwards only when it changes
+  private _isInitiallyOpen = this.args.isOpen ?? false;
+  private _hasAppliedInitialState = false;
+  private _isFirstSync = true;
 
   constructor(owner: Owner, args: HdsPopoverPrimitiveSignature['Args']) {
     super(owner, args);
@@ -111,6 +115,8 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
       // we always want the focusOut event
       // @ts-expect-error: known issue with type of invocation
       registerEvent(this._containerElement, ['focusout', this.onFocusOut]);
+
+      this._syncIsOpen();
     }
   );
 
@@ -149,14 +155,16 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
         this._popoverElement.id = guidFor(this);
       }
 
-      // this should be an extremely edge case, but in the case the popover needs to be initially forced to be open
-      // we need to use the "manual" state to support the case of multiple "menus" opened at the same time
-      // IMPORTANT! if a "popover" is set to "open" with a "manual" state, then it can't be closed via `esc` and `click outside`
-      if (this.args.isOpen) {
-        this._popoverElement.popover = 'manual';
-        this._popoverElement.showPopover();
-      } else {
-        this._popoverElement.popover = 'auto';
+      // popover is now always `auto`
+      this._popoverElement.popover = 'auto';
+
+      // initial state must be applied only once
+      if (!this._hasAppliedInitialState) {
+        this._hasAppliedInitialState = true;
+
+        if (this._isInitiallyOpen) {
+          this.showPopover();
+        }
       }
 
       // Register "onBeforeToggle" + "onToggle" callback functions to be called when a native 'toggle' event is dispatched
@@ -228,6 +236,31 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
     }
 
     this._applyAnchoredPositionModifier();
+  }
+
+  private _syncIsOpen(): void {
+    // modifier reruns whenever @isOpen value changes
+    const { isOpen } = this.args;
+
+    // do nothing if initial state, since handled already in setupPrimitivePopover
+    if (this._isFirstSync) {
+      this._isFirstSync = false;
+      return;
+    }
+
+    if (isOpen === undefined || this._popoverElement === undefined) {
+      return;
+    }
+
+    // using :popover-open to get current state, since this._isOpen is updated async after toggle event fires
+    const isPopoverOpen = this._popoverElement.matches(':popover-open');
+
+    // sync states to the user supplied value to @isOpen
+    if (isOpen && !isPopoverOpen) {
+      this.showPopover();
+    } else if (!isOpen && isPopoverOpen) {
+      this.hidePopover();
+    }
   }
 
   showPopover = (): void => {
@@ -308,13 +341,6 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
 
       // reset the "isClosing" flag (the `toggle` event is fired _after_ the popover is closed)
       this._isClosing = false;
-
-      // if the popover was initially forced to be open (using the "manual" state) then revert its status to `auto` once the user interacts with it
-      if (this.args.isOpen) {
-        if (this._popoverElement) {
-          this._popoverElement.popover = 'auto';
-        }
-      }
 
       // we call the "onClose" callback if it exists (and is a function)
       const { onClose } = this.args;

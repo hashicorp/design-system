@@ -12,6 +12,7 @@ import {
   render,
   settled,
   setupOnerror,
+  waitUntil,
 } from '@ember/test-helpers';
 import { on } from '@ember/modifier';
 import { TrackedObject } from 'tracked-built-ins';
@@ -457,7 +458,7 @@ module(
         .dom('#test-popover-primitive-content')
         .hasAttribute('popover', 'auto');
     });
-    test('the popover has a `popover` attribute set to `manual` if `@isOpen` is `true` and it reverts to `auto` after "soft" interacting with it', async function (assert) {
+    test('the popover has a `popover` attribute set to `auto` and is open if `@isOpen` is `true`', async function (assert) {
       await render(
         <template>
           <HdsPopoverPrimitive
@@ -482,17 +483,9 @@ module(
       assert
         .dom('#test-popover-primitive-content')
         .isVisible()
-        .hasAttribute('popover', 'manual');
-      // focus the toggle to show the popover
-      await focus('#test-popover-primitive-toggle');
-      // unfocus the toggle to hide the popover
-      await blur('#test-popover-primitive-toggle');
-      assert
-        .dom('#test-popover-primitive-content')
-        .isNotVisible()
         .hasAttribute('popover', 'auto');
     });
-    test('the popover has a `popover` attribute set to `manual` if `@isOpen` is `true` and it reverts to `auto` after "click" interacting with it', async function (assert) {
+    test('the popover keeps the `popover` attribute set to `auto` after the user closes it if `@isOpen` is `true`', async function (assert) {
       await render(
         <template>
           <HdsPopoverPrimitive
@@ -514,14 +507,126 @@ module(
           </HdsPopoverPrimitive>
         </template>,
       );
-      assert
-        .dom('#test-popover-primitive-content')
-        .hasAttribute('popover', 'manual');
-      // this will change back the `popover` attribute to `auto`
       await click('#test-popover-primitive-toggle');
       assert
         .dom('#test-popover-primitive-content')
+        .isNotVisible()
         .hasAttribute('popover', 'auto');
+    });
+    test('it should open and close the popover when `@isOpen` is changed externally', async function (assert) {
+      const context = new TrackedObject({ isOpen: false });
+
+      await render(
+        <template>
+          <HdsPopoverPrimitive
+            @enableClickEvents={{true}}
+            @isOpen={{context.isOpen}}
+            as |PP|
+          >
+            <div {{PP.setupPrimitiveContainer}}>
+              <button
+                {{PP.setupPrimitiveToggle}}
+                id="test-popover-primitive-toggle"
+                type="button"
+              />
+              <div
+                {{PP.setupPrimitivePopover}}
+                id="test-popover-primitive-content"
+              />
+            </div>
+          </HdsPopoverPrimitive>
+        </template>,
+      );
+      assert.dom('#test-popover-primitive-content').isNotVisible();
+
+      context.isOpen = true;
+      await settled();
+      assert.dom('#test-popover-primitive-content').isVisible();
+
+      context.isOpen = false;
+      await settled();
+      assert.dom('#test-popover-primitive-content').isNotVisible();
+    });
+    test('it should not re-open a popover closed by the user until `@isOpen` changes again', async function (assert) {
+      const context = new TrackedObject({ isOpen: true });
+
+      await render(
+        <template>
+          <HdsPopoverPrimitive
+            @enableClickEvents={{true}}
+            @isOpen={{context.isOpen}}
+            as |PP|
+          >
+            <div {{PP.setupPrimitiveContainer}}>
+              <button
+                {{PP.setupPrimitiveToggle}}
+                id="test-popover-primitive-toggle"
+                type="button"
+              />
+              <div
+                {{PP.setupPrimitivePopover}}
+                id="test-popover-primitive-content"
+              />
+            </div>
+          </HdsPopoverPrimitive>
+        </template>,
+      );
+      assert.dom('#test-popover-primitive-content').isVisible();
+
+      // the user closes the popover
+      await click('#test-popover-primitive-toggle');
+      assert.dom('#test-popover-primitive-content').isNotVisible();
+
+      context.isOpen = false;
+      await settled();
+      assert.dom('#test-popover-primitive-content').isNotVisible();
+
+      context.isOpen = true;
+      await settled();
+      assert.dom('#test-popover-primitive-content').isVisible();
+    });
+    test('it should invoke the `onOpen/onClose` callbacks when `@isOpen` changes', async function (assert) {
+      const context = new TrackedObject({ isOpen: false });
+      const events: string[] = [];
+
+      const onOpen = () => {
+        events.push('opened');
+      };
+
+      const onClose = () => {
+        events.push('closed');
+      };
+
+      await render(
+        <template>
+          <HdsPopoverPrimitive
+            @isOpen={{context.isOpen}}
+            @onOpen={{onOpen}}
+            @onClose={{onClose}}
+            as |PP|
+          >
+            <div {{PP.setupPrimitiveContainer}}>
+              <button
+                {{PP.setupPrimitiveToggle}}
+                id="test-popover-primitive-toggle"
+                type="button"
+              />
+              <div {{PP.setupPrimitivePopover}} />
+            </div>
+          </HdsPopoverPrimitive>
+        </template>,
+      );
+
+      context.isOpen = true;
+      await settled();
+      // the native `toggle` event is dispatched asynchronously
+      await waitUntil(() => events.includes('opened'));
+
+      context.isOpen = false;
+      await settled();
+      await waitUntil(() => events.includes('closed'));
+
+      assert.deepEqual(events, ['opened', 'closed']);
     });
     test('the popover is open when `isOpen` is true', async function (assert) {
       await render(
