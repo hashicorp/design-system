@@ -484,7 +484,7 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
           <SF.Item @label="On">
             <ShwOutliner>
               <HdsFormVisibilityToggle
-                @isVisible={{true}}
+                @isMasked={{true}}
                 aria-label="is-visible"
               />
             </ShwOutliner>
@@ -492,7 +492,7 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
           <SF.Item @label="Off">
             <ShwOutliner>
               <HdsFormVisibilityToggle
-                @isVisible={{false}}
+                @isMasked={{false}}
                 aria-label="is-not-visible"
               />
             </ShwOutliner>
