@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 6.0.1
+
+**Patch changes**
+
+Updated the `--hds-border-radius-rounded` token to use a smaller value with the same visual result
+
+<small class="doc-whats-new-changelog-metadata">[#4274](https://github.com/hashicorp/design-system/pull/4274)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 6.0.0
 
 **Major changes**
@@ -240,15 +250,6 @@ Added JSON output format for `marketing` target (and in the process refactored i
 Added design token for loading state icon on search input
 
 <small class="doc-whats-new-changelog-metadata">[#1452](https://github.com/hashicorp/design-system/pull/1452)</small>
-
-## 1.5.0
-
-**Minor changes**
-
-- Added new `TooltipButton` component and `hds-tooltip` modifier
-- Added design tokens for `Tooltip`
-
-<small class="doc-whats-new-changelog-metadata">[#1283](https://github.com/hashicorp/design-system/pull/1283)</small>
 
 
 ---
