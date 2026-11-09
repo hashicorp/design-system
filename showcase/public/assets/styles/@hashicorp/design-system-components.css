@@ -11,7 +11,7 @@
   --hds-border-radius-small: 5px;
   --hds-border-radius-medium: 6px;
   --hds-border-radius-large: 8px;
-  --hds-border-radius-rounded: 1000000000px;
+  --hds-border-radius-rounded: 9999px;
   --hds-border-color-primary: #656a7633;
   --hds-border-color-faint: #656a761a;
   --hds-border-color-strong: #3b3d4566;

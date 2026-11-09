@@ -2461,7 +2461,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-app-header-button-foreground-color-default: #c6c6c6;
     --hds-app-header-button-foreground-color-hover: #f4f4f4;
     --hds-app-header-button-surface-color-active: rgba(141, 141, 141, 0.4);
-    --hds-app-header-button-surface-color-default: carbon.themes.g100.backgroundHover;
+    --hds-app-header-button-surface-color-default: rgba(0, 0, 0, 0);
     --hds-app-header-button-surface-color-disabled: #525252;
     --hds-app-header-button-surface-color-hover: rgba(141, 141, 141, 0.16);
     --hds-app-header-foreground-color: #f4f4f4;
@@ -4306,7 +4306,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-app-header-button-foreground-color-default: #c6c6c6;
   --hds-app-header-button-foreground-color-hover: #f4f4f4;
   --hds-app-header-button-surface-color-active: rgba(141, 141, 141, 0.4);
-  --hds-app-header-button-surface-color-default: carbon.themes.g100.backgroundHover;
+  --hds-app-header-button-surface-color-default: rgba(0, 0, 0, 0);
   --hds-app-header-button-surface-color-disabled: #525252;
   --hds-app-header-button-surface-color-hover: rgba(141, 141, 141, 0.16);
   --hds-app-header-foreground-color: #f4f4f4;
