@@ -1594,5 +1594,217 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       );
       assert.dom(handle).hasAttribute('aria-valuetext', `${valueNow}px`);
     });
+
+    test('resizing follows the rendered column order after `@columns` is replaced in a different order', async function (assert) {
+      const columnA: HdsAdvancedTableColumn = {
+        key: 'a',
+        label: 'A',
+        width: '200px',
+        minWidth: '50px',
+      };
+      const columnB: HdsAdvancedTableColumn = {
+        key: 'b',
+        label: 'B',
+        width: '250px',
+        minWidth: '50px',
+      };
+      const columnC: HdsAdvancedTableColumn = {
+        key: 'c',
+        label: 'C',
+        width: '300px',
+        minWidth: '50px',
+      };
+      const context = new TrackedObject({
+        columns: [columnA, columnB, columnC],
+      });
+
+      await render(
+        <template>
+          <div {{style width="1000px"}}>
+            <HdsAdvancedTable
+              id="replaced-order-table"
+              @columns={{context.columns}}
+              @model={{array (hash id="1" a="A" b="B" c="C")}}
+              @hasResizableColumns={{true}}
+              @isSelectable={{true}}
+            >
+              <:body as |B|>
+                <B.Tr @selectionKey={{get B.data "id"}}>
+                  <B.Td>{{get B.data "a"}}</B.Td>
+                  <B.Td>{{get B.data "b"}}</B.Td>
+                  <B.Td>{{get B.data "c"}}</B.Td>
+                </B.Tr>
+              </:body>
+            </HdsAdvancedTable>
+          </div>
+        </template>,
+      );
+
+      await waitForLayout();
+
+      context.columns = [columnC, columnA, columnB];
+      await settled();
+      await waitForLayout();
+
+      // the first header cell holds the checkboxes
+      const headers = ['C', 'A', 'B'].map((label, index) => {
+        const th = findAtOrThrow(
+          '#replaced-order-table .hds-advanced-table__thead .hds-advanced-table__th',
+          index + 1,
+        );
+
+        assert
+          .dom(th)
+          .hasText(
+            label,
+            `precondition: column ${label} renders at position ${index + 1}`,
+          );
+
+        return th;
+      });
+
+      await simulatePointerDrag(
+        findAtOrThrow(
+          '#replaced-order-table .hds-advanced-table__th-resize-handle',
+          0,
+        ),
+        POINTER_DRAG_START_X + 30,
+      );
+
+      const [widthC, widthA, widthB] = headers.map((th) => th.offsetWidth);
+
+      assert.ok(
+        Math.abs((widthC ?? 0) - 330) <= 1,
+        `the dragged column C grows by the drag (got ${widthC}px)`,
+      );
+      assert.ok(
+        Math.abs((widthA ?? 0) - 170) <= 1,
+        `its rendered neighbor A gives up the width (got ${widthA}px)`,
+      );
+      assert.ok(
+        Math.abs((widthB ?? 0) - 250) <= 1,
+        `column B keeps its width (got ${widthB}px)`,
+      );
+    });
+
+    test('resized columns keep their widths on release in an overflowing table after its first column is removed', async function (assert) {
+      const longText = '/var/log/boundary_session.log';
+      const allColumns: HdsAdvancedTableColumn[] = [
+        { key: 'a', label: 'A' },
+        { key: 'b', label: 'B' },
+        { key: 'c', label: 'C' },
+        { key: 'd', label: 'D' },
+      ];
+      const context = new TrackedObject({ columns: allColumns });
+
+      await render(
+        <template>
+          <div {{style width="400px"}}>
+            <HdsAdvancedTable
+              id="removed-first-table"
+              @columns={{context.columns}}
+              @model={{array
+                (hash a=longText b=longText c=longText d=longText)
+              }}
+              @hasResizableColumns={{true}}
+            >
+              <:body as |B|>
+                <B.Tr>
+                  {{#each context.columns}}
+                    <B.Td>{{longText}}</B.Td>
+                  {{/each}}
+                </B.Tr>
+              </:body>
+            </HdsAdvancedTable>
+          </div>
+        </template>,
+      );
+
+      await waitForLayout();
+
+      context.columns = allColumns.slice(1);
+      await settled();
+      await waitForLayout();
+
+      const table = findOrThrow('#removed-first-table .hds-advanced-table');
+      const thead = findOrThrow(
+        '#removed-first-table .hds-advanced-table__thead',
+      );
+
+      assert.dom('#removed-first-table .hds-advanced-table__th').exists({
+        count: 3,
+      });
+      assert.ok(
+        thead.offsetWidth > table.clientWidth,
+        `precondition: the columns make the table overflow (columns ${thead.offsetWidth}, clientWidth ${table.clientWidth})`,
+      );
+
+      assertWidthsKeptOnRelease(
+        assert,
+        await measureDragAndRelease('#removed-first-table', 0, 10),
+      );
+    });
+
+    test('resizing only fixed columns keeps the weights of the flexible columns', async function (assert) {
+      const context = new TrackedObject({ width: '700px' });
+
+      await render(
+        <template>
+          <div {{style width=context.width}}>
+            <HdsAdvancedTable
+              id="fixed-pair-table"
+              @columns={{array
+                (hash key="a" label="A" width="200px")
+                (hash key="b" label="B" width="200px")
+                (hash key="c" label="C")
+                (hash key="d" label="D")
+              }}
+              @model={{array
+                (hash a="A" b="B" c="/var/log/boundary_session.log" d="D")
+              }}
+              @hasResizableColumns={{true}}
+            >
+              <:body as |B|>
+                <B.Tr>
+                  <B.Td>{{get B.data "a"}}</B.Td>
+                  <B.Td>{{get B.data "b"}}</B.Td>
+                  <B.Td>{{get B.data "c"}}</B.Td>
+                  <B.Td>{{get B.data "d"}}</B.Td>
+                </B.Tr>
+              </:body>
+            </HdsAdvancedTable>
+          </div>
+        </template>,
+      );
+
+      await waitForLayout();
+
+      assert.ok(
+        columnWidth('#fixed-pair-table', 2) -
+          columnWidth('#fixed-pair-table', 3) >
+          10,
+        `precondition: content makes the flexible columns unequal (c ${columnWidth('#fixed-pair-table', 2)}px, d ${columnWidth('#fixed-pair-table', 3)}px)`,
+      );
+
+      await simulatePointerDrag(
+        findAtOrThrow(
+          '#fixed-pair-table .hds-advanced-table__th-resize-handle',
+          0,
+        ),
+        POINTER_DRAG_START_X + 20,
+      );
+
+      context.width = '1400px';
+      await settled();
+      await waitForLayout();
+
+      const widthC = columnWidth('#fixed-pair-table', 2);
+      const widthD = columnWidth('#fixed-pair-table', 3);
+
+      assert.ok(
+        Math.abs(widthC - widthD) <= 1,
+        `the flexible columns share the extra space equally again (c ${widthC}px, d ${widthD}px)`,
+      );
+    });
   });
 });

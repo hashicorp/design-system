@@ -40,7 +40,6 @@ export interface HdsAdvancedTableSyncWidthValuesSignature {
 
 interface HdsAdvancedTableColumnManagerWidthSignature {
   Args: {
-    columnOrder: string[];
     columns: HdsAdvancedTableNormalizedColumn[];
     orderedColumns: HdsAdvancedTableNormalizedColumn[];
     thElements: TrackedMap<string, HTMLDivElement>;
@@ -104,6 +103,12 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     }
   });
 
+  // the grid lays out its tracks in this order, which can differ from the
+  // stored column order until it syncs (or for tables that can't reorder)
+  private get _renderedColumnKeys(): string[] {
+    return this.args.orderedColumns.map((column) => column.key);
+  }
+
   get gridTemplateColumns(): string {
     const { isSelectable, orderedColumns } = this.args;
 
@@ -154,19 +159,16 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
       return {};
     }
 
-    const columnIndex = this.args.columnOrder.indexOf(columnKey);
+    const keys = this._renderedColumnKeys;
+    const columnIndex = keys.indexOf(columnKey);
 
     if (columnIndex === -1) {
       return {};
     }
 
     return {
-      previous:
-        columnIndex === 0 ? undefined : this.args.columnOrder[columnIndex - 1],
-      next:
-        columnIndex === this.args.columnOrder.length - 1
-          ? undefined
-          : this.args.columnOrder[columnIndex + 1],
+      previous: columnIndex === 0 ? undefined : keys[columnIndex - 1],
+      next: columnIndex === keys.length - 1 ? undefined : keys[columnIndex + 1],
     };
   };
 
@@ -203,7 +205,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
 
     const trackWidths = this._measureTrackWidths();
 
-    for (const key of this.args.columnOrder) {
+    for (const key of this._renderedColumnKeys) {
       const pixelWidth = trackWidths.get(key) ?? this._getPxWidth(key);
 
       this._resizeStartWidths.set(key, pixelWidth);
@@ -216,7 +218,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
   // resolved track sizes are exact and unaffected by transforms
   private _measureTrackWidths(): Map<string, number> {
     const grid = this._getGridElement();
-    const { columnOrder } = this.args;
+    const columnKeys = this._renderedColumnKeys;
 
     if (grid === undefined) {
       return new Map();
@@ -227,14 +229,14 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
       .gridTemplateColumns.split(' ')
       .map((track) => parsePixel(track));
     // a selectable table has an extra leading track for the checkboxes
-    const columnTracks = tracks.slice(tracks.length - columnOrder.length);
+    const columnTracks = tracks.slice(tracks.length - columnKeys.length);
 
-    if (columnTracks.length !== columnOrder.length) {
+    if (columnTracks.length !== columnKeys.length) {
       return new Map();
     }
 
     return new Map(
-      columnOrder.flatMap((key, index) => {
+      columnKeys.flatMap((key, index) => {
         const width = columnTracks[index];
 
         return width === undefined
@@ -294,7 +296,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     columnKey: HdsAdvancedTableNormalizedColumn['key'],
     deltaPx: number
   ): number => {
-    const order = this.args.columnOrder;
+    const order = this._renderedColumnKeys;
     const index = order.indexOf(columnKey);
 
     if (index === -1) {
@@ -359,6 +361,11 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
 
     const pxPerFrUnit = this._resolvePxPerFrUnit(entries);
     const isOverflowing = this._isTableOverflowing();
+    // when only fixed columns moved, the space left for `fr` tracks is
+    // unchanged, so the flexible columns keep their weights (and proportions)
+    const hasFlexibleColumnMoved = entries.some(
+      (entry) => entry.hasMoved && entry.frMultiplier !== undefined
+    );
 
     for (const {
       column,
@@ -369,7 +376,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     } of entries) {
       const isFlexible = frMultiplier !== undefined && pxPerFrUnit > 0;
 
-      if (isFlexible) {
+      if (isFlexible && hasFlexibleColumnMoved) {
         this._columnWidths.set(
           column.key,
           this._commitFrWidth(
