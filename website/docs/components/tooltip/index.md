@@ -21,8 +21,6 @@ navigation:
     - tip
     - popover
     - popup
-status:
-  updated: 7.0.0
 ---
 
 <section data-tab="Guidelines">

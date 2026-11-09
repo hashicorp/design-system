@@ -17,8 +17,6 @@ navigation:
   keywords:
     - modal
     - flyout
-status:
-  updated: 7.0.0
 ---
 
 <section data-tab="Guidelines">

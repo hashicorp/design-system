@@ -1,3 +1,8 @@
+## 7.1.0
+
+Corrected translation key for the error code in `Header`.
+
+
 ## 6.1.0
 
 Converted component to gts format.

@@ -1,3 +1,8 @@
+## 7.1.0
+
+Refactored styles for the `base` elevation level to fix broken CSS variables.
+
+
 ## 6.1.0
 
 Converted component to gts format.

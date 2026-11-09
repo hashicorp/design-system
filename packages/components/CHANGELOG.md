@@ -6,11 +6,9 @@
 
 ### Minor Changes
 
-<!-- START components/dropdown -->
 
 `Dropdown` - Added `@onOpen` callback argument.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4205](https://github.com/hashicorp/design-system/pull/4205)</small>
 
@@ -22,11 +20,9 @@ Upgraded `ember-concurrency` from `4.0.4` to `5.3.0`. Version 4 imports the `emb
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/filter-bar -->
 
 `FilterBar` - Added new `@hasLiveSearch` argument and set search input autocomplete to off.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4168](https://github.com/hashicorp/design-system/pull/4168)</small>
 
@@ -34,95 +30,73 @@ Upgraded `ember-concurrency` from `4.0.4` to `5.3.0`. Version 4 imports the `emb
 
 ### Patch Changes
 
-<!-- START components/rich-tooltip -->
 
 `RichTooltip` - Reverted removal of bubble opening transition on Carbon themes.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4257](https://github.com/hashicorp/design-system/pull/4257)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/form/super-select -->
 
 `SuperSelect` - Fixed style bug in no matches message for Carbon themes.
 
-<!-- END -->
 
-<!-- START components/form/super-select -->
 
 `SuperSelect` - Fixed style bug in search message.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4237](https://github.com/hashicorp/design-system/pull/4237)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/code-block -->
 
 `CodeBlock` - Fixed incorrect placement of `sr-only` highlight markers when `@lineNumberStart` is defined.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4199](https://github.com/hashicorp/design-system/pull/4199)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/form/primitives -->
 
 `Form::Field` - Fixed the DOM order of the `flag` layout (used by Checkbox, Radio, and Toggle) so the `<input>` appears before the `<label>`, matching the visual order for screen readers. The visual layout is unchanged.
 
-<!-- END -->
 
-<!-- START components/form/radio -->
 
 `Form::Radio::Field` - Fixed the DOM order so the `<input>` appears before the `<label>`, matching the visual order for screen readers.
 
-<!-- END -->
 
-<!-- START components/form/checkbox -->
 
 `Form::Checkbox::Field` - Fixed the DOM order so the `<input>` appears before the `<label>`, matching the visual order for screen readers.
 
-<!-- END -->
 
-<!-- START components/form/toggle -->
 
 `Form::Toggle::Field` - Fixed the DOM order so the `<input>` appears before the `<label>`, matching the visual order for screen readers.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4196](https://github.com/hashicorp/design-system/pull/4196)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/card -->
 
 `Card` - Refactored styles for the `base` elevation level to fix broken CSS variables.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4216](https://github.com/hashicorp/design-system/pull/4216)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/table/advanced-table -->
 
 `AdvancedTable` - Fixed a race condition where the table's internal measurement pass was not tracked by Ember's test waiters, so `settled()` could resolve before the layout reached its steady state.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4183](https://github.com/hashicorp/design-system/pull/4183)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/icon -->
 
 `Icon` - Fixed icons not loading in rendering tests on Ember 6.12.1 and later with `@ember/test-helpers` 5.6 and later. The icon registry now adds the sprite root when it's missing.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4211](https://github.com/hashicorp/design-system/pull/4211) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
 
@@ -134,145 +108,102 @@ Removed the unused `@embroider/util` dependency.
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/code-editor -->
 
 `CodeEditor` - Fixed a race condition where the editor setup was not tracked by Ember's test waiters, so `render()` and `settled()` could resolve before the editor existed.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4233](https://github.com/hashicorp/design-system/pull/4233) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/table/advanced-table -->
 
 `AdvancedTable` - Added translations for sort announcements in `AdvancedTable`, `ariaLabel` suffix in `ThSelectable`, and the sort order label in `ThButtonSort`. Corrected translation keys for labels in `ThContextMenu`.
-<!-- END -->
 
-<!-- START components/app-footer -->
 
 `AppFooter` - Added translation for `@ariaLabel` in `LegalLinks`.
 
-<!-- END -->
 
-<!-- START components/application-state -->
 
 `ApplicationState` - Corrected translation key for the error code in `Header`.
 
-<!-- END -->
 
-<!-- START components/breadcrumb -->
 
-`Breadcrumb` - Added translation for `@ariaLabel` in `Breadcrumb` and `Breadcrumb::Truncation`
+`Breadcrumb` - Added translation for `@ariaLabel` in `Breadcrumb` and `Breadcrumb::Truncation`.
 
-<!-- END -->
 
-<!-- START components/code-block -->
 
 `CodeBlock` - Added translations for `@copyButtonText` and the screen-reader markers for the start and end of highlighted lines.
 
-<!-- END -->
 
-<!-- START components/code-editor -->
 
 `CodeEditor` - Added translations for the `@copyButtonText`, JSON lint messages, and CodeMirror diagnostic messages.
 
-<!-- END -->
 
-<!-- START components/filter-bar -->
 
-`FilterBar` - Updated the following for internationalization:
-- Added translations to the applied search filter label and type-specific `aria-label`s for value, start, and end inputs in `Date`.
-- Localized translations for the date and numerical filters in the applied filter list.
-- Corrected translation keys in `AppliedFilters` and `Numerical`.
-<!-- END -->
+`FilterBar` - Added translations to the applied search filter label and type-specific `aria-label`s for value, start, and end inputs in `Date`. Localized translations for the date and numerical filters in the applied filter list. Corrected translation keys in `AppliedFilters` and `Numerical`.
 
-<!-- START components/form/primitives -->
 
-`Form::CharacterCount` - Localized translations for status messagess for required, allowed, remaining, exceeded, and entered character counts.
+`Form::CharacterCount` - Localized translations for status messages for required, allowed, remaining, exceeded, and entered character counts.
 
-<!-- END -->
 
-<!-- START components/form/primitives -->
 
 `Form::Indicator` - Corrected translation keys for optional and required labels.
 
-<!-- END -->
 
-<!-- START components/form/key-value-inputs -->
 
 `Form::KeyValueInputs` - Refactored translation code for `Field` hidden label and `DeleteRowButton` text.
 
-<!-- END -->
 
-<!-- START components/form/super-select -->
 
-`Form::SuperSelect` - Added translations for `@searchPlaceholder`, `@resultCountMessage`, `@noMatchesMessage`, `@loadingMessage`, and `@searchMessage` in `Single::Base` and `Multiple::Base`. Add translation for the selected count in `Multiple::Base`.
+`Form::SuperSelect` - Added translations for `@searchPlaceholder`, `@resultCountMessage`, `@noMatchesMessage`, `@loadingMessage`, and `@searchMessage` in `Single::Base` and `Multiple::Base`. Added translation for the selected count in `Multiple::Base`.
 
-<!-- END -->
 
-<!-- START components/pagination -->
 
 `Pagination` - Added translation for `@label` in `SizeSelector`. Corrected translation keys for item range in `Info`.
 
-<!-- END -->
 
-<!-- START components/table/table -->
 
 `Table` - Added translations for sort announcements and `ariaLabel` suffix in `Table` and `ThSelectable`.
-<!-- END -->
 
-<!-- START components/tag -->
 
 `Tag` - Added translation for `ariaLabel`.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4172](https://github.com/hashicorp/design-system/pull/4172)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/form/text-input -->
 
 `Form::TextInput` - Corrected translation key for the password-hidden announcement in `TextInput::Field`.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4185](https://github.com/hashicorp/design-system/pull/4185)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START utilities/popover-primitive -->
 
 `PopoverPrimitive` - Fixed a memory leak where the positioning listeners on `window`, `visualViewport`, and scrollable ancestors were never removed, keeping destroyed popovers and their owners in memory. This also affects `Dropdown`, `RichTooltip`, and `Breadcrumb` truncation.
 
-<!-- END -->
 
-<!-- START components/form/super-select -->
 
 `SuperSelect` - Fixed a memory leak where every reposition added another set of positioning listeners that were never removed.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4249](https://github.com/hashicorp/design-system/pull/4249) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/form/file-input -->
 
 `FileInput` - Removed invalid selectors from the file selector button styles, such as `::file-selector-button.mock-hover` and `::file-selector-button:focus-visible::before`. Browsers ignored these rules, and CSS tools like Lightning CSS (used by Vite) reject them and fail the build.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4212](https://github.com/hashicorp/design-system/pull/4212) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/pagination -->
 
 `Pagination` - Reduced spacing between `Select` icon and text within `Pagination` component for Carbon themes.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#4278](https://github.com/hashicorp/design-system/pull/4278)</small>
 
