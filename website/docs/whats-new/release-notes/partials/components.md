@@ -140,7 +140,7 @@ Removed the unused `@embroider/util` dependency.
 
 
 
-`Breadcrumb` - Added translation for `@ariaLabel` in `Breadcrumb` and `Breadcrumb::Truncation`
+`Breadcrumb` - Added translation for `@ariaLabel` in `Breadcrumb` and `Breadcrumb::Truncation`.
 
 
 
@@ -152,13 +152,10 @@ Removed the unused `@embroider/util` dependency.
 
 
 
-`FilterBar` - Updated the following for internationalization:
-- Added translations to the applied search filter label and type-specific `aria-label`s for value, start, and end inputs in `Date`.
-- Localized translations for the date and numerical filters in the applied filter list.
-- Corrected translation keys in `AppliedFilters` and `Numerical`.
+`FilterBar` - Added translations to the applied search filter label and type-specific `aria-label`s for value, start, and end inputs in `Date`. Localized translations for the date and numerical filters in the applied filter list. Corrected translation keys in `AppliedFilters` and `Numerical`.
 
 
-`Form::CharacterCount` - Localized translations for status messagess for required, allowed, remaining, exceeded, and entered character counts.
+`Form::CharacterCount` - Localized translations for status messages for required, allowed, remaining, exceeded, and entered character counts.
 
 
 
@@ -170,7 +167,7 @@ Removed the unused `@embroider/util` dependency.
 
 
 
-`Form::SuperSelect` - Added translations for `@searchPlaceholder`, `@resultCountMessage`, `@noMatchesMessage`, `@loadingMessage`, and `@searchMessage` in `Single::Base` and `Multiple::Base`. Add translation for the selected count in `Multiple::Base`.
+`Form::SuperSelect` - Added translations for `@searchPlaceholder`, `@resultCountMessage`, `@noMatchesMessage`, `@loadingMessage`, and `@searchMessage` in `Single::Base` and `Multiple::Base`. Added translation for the selected count in `Multiple::Base`.
 
 
 
