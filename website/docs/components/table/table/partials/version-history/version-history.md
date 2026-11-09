@@ -1,6 +1,6 @@
 ## 7.1.0
 
-Added translations for sort announcements and `ariaLabel` suffix in `Table` and `ThSelectable`.
+Added translations for sort announcements and `@selectionAriaLabelSuffix` in `Table` and `ThSelectable`.
 
 ## 7.0.0
 

@@ -3,7 +3,7 @@
 Fixed a race condition where the table's internal measurement pass was not tracked by Ember's test waiters, so `settled()` could resolve before the layout reached its steady state.
 
 
-Added translations for sort announcements in `AdvancedTable`, `ariaLabel` suffix in `ThSelectable`, and the sort order label in `ThButtonSort`. Corrected translation keys for labels in `ThContextMenu`.
+Added translations for sort announcements in `AdvancedTable`, `@selectionAriaLabelSuffix` in `ThSelectable`, and the sort order label in `ThButtonSort`. Corrected translation keys for labels in `ThContextMenu`.
 
 ## 7.0.0
 

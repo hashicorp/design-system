@@ -117,7 +117,7 @@ Removed the unused `@embroider/util` dependency.
 <div class="doc-whats-new-changelog-separator"></div>
 
 
-`AdvancedTable` - Added translations for sort announcements in `AdvancedTable`, `ariaLabel` suffix in `ThSelectable`, and the sort order label in `ThButtonSort`. Corrected translation keys for labels in `ThContextMenu`.
+`AdvancedTable` - Added translations for sort announcements in `AdvancedTable`, `@selectionAriaLabelSuffix` in `ThSelectable`, and the sort order label in `ThButtonSort`. Corrected translation keys for labels in `ThContextMenu`.
 
 
 `AppFooter` - Added translation for `@ariaLabel` in `LegalLinks`.
@@ -163,7 +163,7 @@ Removed the unused `@embroider/util` dependency.
 
 
 
-`Table` - Added translations for sort announcements and `ariaLabel` suffix in `Table` and `ThSelectable`.
+`Table` - Added translations for sort announcements and `@selectionAriaLabelSuffix` in `Table` and `ThSelectable`.
 
 
 `Tag` - Added translation for `ariaLabel`.

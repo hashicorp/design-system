@@ -14,7 +14,7 @@
 
 ## 0.2.3
 
-### Patch Changes
+**Patch changes**
 
 Updated the bundled documentation catalog with the latest documentation, including the Tooling pages.
 
