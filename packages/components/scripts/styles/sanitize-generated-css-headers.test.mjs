@@ -155,8 +155,8 @@ describe('sanitizeGeneratedCssHeaders', () => {
     });
 
     assert.ok(colorDeclaration);
-    const originalPosition = colorDeclaration.source.input
-      .map.consumer()
+    const originalPosition = colorDeclaration.source.input.map
+      .consumer()
       .originalPositionFor({
         line: colorDeclaration.source.start.line,
         column: colorDeclaration.source.start.column - 1,
@@ -231,8 +231,8 @@ describe('sanitizeGeneratedCssHeaders', () => {
     const declarationPositions = new Map();
 
     remapped.root.walkDecls((node) => {
-      const originalPosition = node.source.input
-        .map.consumer()
+      const originalPosition = node.source.input.map
+        .consumer()
         .originalPositionFor({
           line: node.source.start.line,
           column: node.source.start.column - 1,
