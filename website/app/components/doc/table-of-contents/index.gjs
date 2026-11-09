@@ -5,12 +5,12 @@
 
 import { LinkTo } from '@ember/routing';
 import { hash } from '@ember/helper';
-import { humanize } from 'ember-cli-string-helpers';
 import { add } from 'ember-math-helpers';
 import { eq } from 'ember-truth-helpers';
 
 import DocBadge from 'website/components/doc/badge';
 import DocTableOfContentsCollapsibleItem from 'website/components/doc/table-of-contents/collapsible-item';
+import humanize from 'website/helpers/humanize';
 
 const DocTableOfContents = <template>
   <ul class="doc-table-of-contents" role="list" ...attributes>
