@@ -368,7 +368,7 @@ export default class PageFoundationsThemingFramelessDemoApplicationWithThemeSwit
               <A.Body
                 @text="Sorry, we couldn't find any results matching your search criteria. Please try again with different search terms or refine your filters."
               />
-              <A.Footer @hasDivider={{true}} as |F|>
+              <A.Footer as |F|>
                 <F.Button @color="primary" @text="Primary action" />
                 <F.LinkStandalone
                   @icon="docs-link"
