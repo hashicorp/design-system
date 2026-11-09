@@ -1,3 +1,8 @@
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 export interface DesignToken {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value?: any;
