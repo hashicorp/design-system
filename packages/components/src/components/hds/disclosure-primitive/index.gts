@@ -8,8 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import { deferAfterRender } from '../../../utils/hds-defer.ts';
 import { guidFor } from '@ember/object/internals';
 import { hash } from '@ember/helper';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import { didUpdate } from '@ember/render-modifiers';
+import { modifier } from 'ember-modifier';
 
 export interface HdsDisclosurePrimitiveSignature {
   Args: {
@@ -42,6 +41,7 @@ export default class HdsDisclosurePrimitive extends Component<HdsDisclosurePrimi
   @tracked private _isOpen = false;
   @tracked private _isControlled = this.args.isOpen !== undefined;
   private _contentId = 'content-' + guidFor(this);
+  private _hasSetUpStateSync = false;
 
   get isOpen(): boolean {
     if (this._isControlled) {
@@ -69,12 +69,21 @@ export default class HdsDisclosurePrimitive extends Component<HdsDisclosurePrimi
     }
   };
 
-  onStateChange = () => {
-    if (this.args.isOpen !== undefined) {
-      this.isOpen = this.args.isOpen;
+  // a change of `@isOpen` gives the control back to the argument, even if the state was changed internally since
+  private _syncStateWithArgs = modifier(
+    (_element: HTMLDivElement, [isOpen]: [boolean | undefined]) => {
+      // only changes are synchronized, the initial state is set when the component is created
+      if (!this._hasSetUpStateSync) {
+        this._hasSetUpStateSync = true;
+        return;
+      }
+
+      if (isOpen !== undefined) {
+        this.isOpen = isOpen;
+      }
+      this._isControlled = true;
     }
-    this._isControlled = true;
-  };
+  );
 
   close = (): void => {
     // we schedule this afterRender to avoid an error in tests caused by updating `isOpen` multiple times in the same computation
@@ -91,7 +100,7 @@ export default class HdsDisclosurePrimitive extends Component<HdsDisclosurePrimi
   <template>
     <div
       class="hds-disclosure-primitive"
-      {{didUpdate this.onStateChange @isOpen}}
+      {{this._syncStateWithArgs @isOpen}}
       ...attributes
     >
       <div class="hds-disclosure-primitive__toggle">
