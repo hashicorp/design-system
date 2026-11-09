@@ -11,8 +11,7 @@ import { eq } from 'ember-truth-helpers';
 import { hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { service } from '@ember/service';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import { didInsert } from '@ember/render-modifiers';
+import { modifier } from 'ember-modifier';
 
 import type { WithBoundArgs } from '@glint/template';
 import type Owner from '@ember/owner';
@@ -191,7 +190,7 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
     return classes.join(' ');
   }
 
-  didInsert = (element: HTMLDivElement): void => {
+  private _setUpAlert = modifier((element: HTMLDivElement) => {
     const actions = element.querySelectorAll(
       `${CONTENT_ELEMENT_SELECTOR} button, ${CONTENT_ELEMENT_SELECTOR} a`
     );
@@ -206,6 +205,8 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
       this._role = 'alertdialog';
     } else if (isSemanticAlert) {
       this._role = 'alert';
+    } else {
+      this._role = undefined;
     }
 
     // `alertdialog` must have an accessible name so we use either the
@@ -218,7 +219,7 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
       label.setAttribute('id', labelId);
       this._ariaLabelledBy = labelId;
     }
-  };
+  });
 
   <template>
     <div
@@ -226,7 +227,7 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
       role={{this._role}}
       aria-live={{if this._role "polite"}}
       aria-labelledby={{this._ariaLabelledBy}}
-      {{didInsert this.didInsert}}
+      {{this._setUpAlert}}
       ...attributes
     >
       {{#if this.icon}}

@@ -7,9 +7,8 @@ import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import { didInsert, willDestroy } from '@ember/render-modifiers';
 import { service } from '@ember/service';
+import { modifier } from 'ember-modifier';
 
 import type HdsIntlService from '../../../services/hds-intl';
 
@@ -94,20 +93,31 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
     }
   }
 
-  didInsert = (checkbox: HdsFormCheckboxBaseSignature['Element']): void => {
-    const { didInsert } = this.args;
-    if (typeof didInsert === 'function') {
-      didInsert(checkbox, this.args.selectionKey);
-    }
-  };
+  private _manageCheckbox = modifier(
+    (checkbox: HdsFormCheckboxBaseSignature['Element']) => {
+      const { didInsert, willDestroy } = this.args;
 
-  willDestroyNode = (): void => {
-    super.willDestroy();
-    const { willDestroy } = this.args;
-    if (typeof willDestroy === 'function') {
-      willDestroy(this.args.selectionKey);
+      if (
+        typeof didInsert !== 'function' &&
+        typeof willDestroy !== 'function'
+      ) {
+        return;
+      }
+
+      // read only when a callback needs it, `Table::Tr` asserts when the key is missing
+      const { selectionKey } = this.args;
+
+      if (typeof didInsert === 'function') {
+        didInsert(checkbox, selectionKey);
+      }
+
+      return () => {
+        if (typeof willDestroy === 'function') {
+          willDestroy(selectionKey);
+        }
+      };
     }
-  };
+  );
 
   onSelectionChange = (event: Event): void => {
     // Assert event.target as HdsFormCheckboxBaseSignature['Element'] to access the 'checked' property
@@ -132,8 +142,7 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
           class="hds-table__checkbox"
           checked={{@isSelected}}
           aria-label={{this.ariaLabel}}
-          {{didInsert this.didInsert}}
-          {{willDestroy this.willDestroyNode}}
+          {{this._manageCheckbox}}
           {{on "change" this.onSelectionChange}}
         />
         {{#if this.isSortable}}

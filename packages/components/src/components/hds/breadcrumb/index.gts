@@ -5,15 +5,17 @@
 
 import Component from '@glimmer/component';
 import { service } from '@ember/service';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import { didInsert } from '@ember/render-modifiers';
+import { modifier } from 'ember-modifier';
+
+import { deferAfterRender } from '../../../utils/hds-defer.ts';
+
 import type HdsIntlService from '../../../services/hds-intl';
 
 export interface HdsBreadcrumbSignature {
   Args: {
     ariaLabel?: string;
     itemsCanWrap?: boolean;
-    didInsert?: () => void;
+    didInsert?: (element: HTMLOListElement) => void;
   };
   Blocks: {
     default: [];
@@ -21,20 +23,26 @@ export interface HdsBreadcrumbSignature {
   Element: HTMLElement;
 }
 
-const NOOP = () => {};
-
 export default class HdsBreadcrumb extends Component<HdsBreadcrumbSignature> {
   @service declare readonly hdsIntl: HdsIntlService;
 
-  get didInsert(): () => void {
+  private _hasCalledDidInsert = false;
+
+  private _setUpList = modifier((element: HTMLOListElement) => {
+    // a new `@didInsert` function re-runs this modifier, `@didInsert` is still called only once
+    if (this._hasCalledDidInsert) {
+      return;
+    }
+
+    this._hasCalledDidInsert = true;
+
     const { didInsert } = this.args;
 
     if (typeof didInsert === 'function') {
-      return didInsert;
-    } else {
-      return NOOP;
+      // deferred so the consumer callback runs outside of rendering, where it can read and update tracked state
+      deferAfterRender((): void => didInsert(element), this);
     }
-  }
+  });
 
   get itemsCanWrap(): boolean {
     return this.args.itemsCanWrap ?? true;
@@ -62,7 +70,7 @@ export default class HdsBreadcrumb extends Component<HdsBreadcrumbSignature> {
 
   <template>
     <nav class={{this.classNames}} aria-label={{this.ariaLabel}} ...attributes>
-      <ol class="hds-breadcrumb__list" {{didInsert this.didInsert}}>
+      <ol class="hds-breadcrumb__list" {{this._setUpList}}>
         {{yield}}
       </ol>
     </nav>

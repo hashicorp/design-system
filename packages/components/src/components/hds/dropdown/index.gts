@@ -8,8 +8,7 @@ import { assert } from '@ember/debug';
 import { hash } from '@ember/helper';
 import { or } from 'ember-truth-helpers';
 import style from 'ember-style-modifier';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import { didInsert } from '@ember/render-modifiers';
+import { modifier } from 'ember-modifier';
 
 import type { WithBoundArgs } from '@glint/template';
 
@@ -152,7 +151,7 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
     return classes.join(' ');
   }
 
-  didInsertList = (element: HTMLUListElement): void => {
+  private _setUpList = modifier((element: HTMLUListElement) => {
     const checkmarkItems = element.querySelectorAll(`[role="option"]`);
     if (checkmarkItems.length) {
       const toggleButtonId = element
@@ -166,7 +165,7 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
         element.setAttribute('aria-labelledby', toggleButtonId);
       }
     }
-  };
+  });
 
   <template>
     <HdsPopoverPrimitive
@@ -208,7 +207,7 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
         >
           {{#if (or PP.isOpen @preserveContentInDom)}}
             {{yield (hash Header=HdsDropdownHeader close=PP.hidePopover)}}
-            <ul class="hds-dropdown__list" {{didInsert this.didInsertList}}>
+            <ul class="hds-dropdown__list" {{this._setUpList}}>
               {{yield
                 (hash
                   close=PP.hidePopover

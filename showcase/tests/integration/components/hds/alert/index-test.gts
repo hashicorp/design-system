@@ -4,7 +4,14 @@
  */
 
 import { module, test } from 'qunit';
-import { render, resetOnerror, setupOnerror, find } from '@ember/test-helpers';
+import {
+  render,
+  resetOnerror,
+  setupOnerror,
+  find,
+  settled,
+} from '@ember/test-helpers';
+import { TrackedObject } from 'tracked-built-ins';
 import { registerDeprecationHandler } from '@ember/debug';
 
 import { HdsAlert } from '@hashicorp/design-system-components/components';
@@ -289,6 +296,32 @@ module('Integration | Component | hds/alert/index', function (hooks) {
     );
     assert.dom('#test-alert').doesNotHaveAttribute('role', 'alert');
     assert.dom('#test-alert').doesNotHaveAttribute('aria-live', 'polite');
+  });
+
+  test('it should update the role and aria-live attributes when the @color argument changes', async function (assert) {
+    const state = new TrackedObject<{ color: 'neutral' | 'critical' }>({
+      color: 'neutral',
+    });
+
+    await render(
+      <template>
+        <HdsAlert @type="inline" @color={{state.color}} id="test-alert" />
+      </template>,
+    );
+    assert.dom('#test-alert').doesNotHaveAttribute('role');
+    assert.dom('#test-alert').doesNotHaveAttribute('aria-live');
+
+    state.color = 'critical';
+    await settled();
+
+    assert.dom('#test-alert').hasAttribute('role', 'alert');
+    assert.dom('#test-alert').hasAttribute('aria-live', 'polite');
+
+    state.color = 'neutral';
+    await settled();
+
+    assert.dom('#test-alert').doesNotHaveAttribute('role');
+    assert.dom('#test-alert').doesNotHaveAttribute('aria-live');
   });
 
   // aria-labelledby
