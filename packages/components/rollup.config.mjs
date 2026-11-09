@@ -10,6 +10,7 @@ import copy from 'rollup-plugin-copy';
 import process from 'process';
 import path from 'node:path';
 import * as sass from 'sass';
+import { sanitizeGeneratedCssHeaders } from './scripts/styles/sanitize-generated-css-headers.mjs';
 
 const addon = new Addon({
   srcDir: 'src',
@@ -37,11 +38,13 @@ function addScssCompilationPlugins(options) {
           }
         }
 
+        const cssWithSingleHeader = sanitizeGeneratedCssHeaders(result.css);
+
         // Emit the compiled CSS
         this.emitFile({
           type: 'asset',
           fileName: outputFileFullPath,
-          source: result.css,
+          source: cssWithSingleHeader,
         });
 
         // Emit the source map
