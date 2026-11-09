@@ -216,9 +216,18 @@ tooling_changelogs.forEach((changelog) => {
 
     if (changelog.id) {
       let releaseNotesChangesModified = changesModified;
-      releaseNotesChangesModified = replacePageTitleWithNpmInfo(releaseNotesChangesModified);
-      releaseNotesChangesModified = keepOnlySubsetOfEntries(releaseNotesChangesModified, /^## /, 20);
-      releaseNotesChangesModified = appendExternalLinks(releaseNotesChangesModified, sourcePath);
+      releaseNotesChangesModified = replacePageTitleWithNpmInfo(
+        releaseNotesChangesModified,
+      );
+      releaseNotesChangesModified = keepOnlySubsetOfEntries(
+        releaseNotesChangesModified,
+        /^## /,
+        20,
+      );
+      releaseNotesChangesModified = appendExternalLinks(
+        releaseNotesChangesModified,
+        sourcePath,
+      );
       const content = addHeader() + releaseNotesChangesModified;
       fs.writeFileSync(
         `./docs/whats-new/release-notes/partials/${changelog.id}.md`,
