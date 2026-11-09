@@ -5,7 +5,9 @@
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
-import { didInsert, willDestroy } from '@ember/render-modifiers';
+import didInsert from '@ember/render-modifiers/modifiers/did-insert';
+// eslint-disable-next-line ember/no-at-ember-render-modifiers
+import willDestroy from '@ember/render-modifiers/modifiers/will-destroy';
 
 import hdsFormatDate from '../../../helpers/hds-format-date.ts';
 import hdsFormatRelative from '../../../helpers/hds-format-relative.ts';
