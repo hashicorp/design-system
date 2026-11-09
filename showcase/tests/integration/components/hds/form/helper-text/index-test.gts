@@ -4,7 +4,8 @@
  */
 
 import { module, test } from 'qunit';
-import { render } from '@ember/test-helpers';
+import { find, render } from '@ember/test-helpers';
+import sinon from 'sinon';
 
 import { HdsFormHelperText } from '@hashicorp/design-system-components/components';
 
@@ -65,6 +66,27 @@ module(
         </template>,
       );
       assert.dom('#helper-text-my-control-id').exists();
+    });
+
+    // ON INSERT
+
+    test('it calls the @onInsert callback once with the element when it is inserted', async function (assert) {
+      const onInsert = sinon.spy();
+
+      await render(
+        <template>
+          <HdsFormHelperText
+            id="test-form-helper-text"
+            @onInsert={{onInsert}}
+          >This is the helper text</HdsFormHelperText>
+        </template>,
+      );
+
+      assert.true(onInsert.calledOnce);
+      assert.strictEqual(
+        onInsert.firstCall.args[0],
+        find('#test-form-helper-text'),
+      );
     });
   },
 );

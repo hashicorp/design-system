@@ -4,7 +4,9 @@
  */
 
 import { module, test } from 'qunit';
-import { render } from '@ember/test-helpers';
+import { find, render, settled } from '@ember/test-helpers';
+import sinon from 'sinon';
+import { TrackedObject } from 'tracked-built-ins';
 
 import { HdsFormError } from '@hashicorp/design-system-components/components';
 
@@ -72,5 +74,49 @@ module('Integration | Component | hds/form/error/index', function (hooks) {
       </template>,
     );
     assert.dom('#error-my-control-id').exists();
+  });
+
+  // ON INSERT / ON REMOVE
+
+  test('it calls the @onInsert callback once with the element when it is inserted', async function (assert) {
+    const onInsert = sinon.spy();
+
+    await render(
+      <template>
+        <HdsFormError id="test-form-error" @onInsert={{onInsert}}>This is the
+          error</HdsFormError>
+      </template>,
+    );
+
+    assert.true(onInsert.calledOnce);
+    assert.strictEqual(onInsert.firstCall.args[0], find('#test-form-error'));
+  });
+
+  test('it calls the @onRemove callback with the element when it is removed', async function (assert) {
+    const state = new TrackedObject({ isVisible: true });
+    const onInsert = sinon.spy();
+    const onRemove = sinon.spy();
+
+    await render(
+      <template>
+        {{#if state.isVisible}}
+          <HdsFormError
+            id="test-form-error"
+            @onInsert={{onInsert}}
+            @onRemove={{onRemove}}
+          >This is the error</HdsFormError>
+        {{/if}}
+      </template>,
+    );
+
+    const element = find('#test-form-error');
+    assert.true(onRemove.notCalled);
+
+    state.isVisible = false;
+    await settled();
+
+    assert.true(onInsert.calledOnce);
+    assert.true(onRemove.calledOnce);
+    assert.strictEqual(onRemove.firstCall.args[0], element);
   });
 });

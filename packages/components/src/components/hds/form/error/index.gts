@@ -5,15 +5,12 @@
 
 import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import { didInsert, willDestroy } from '@ember/render-modifiers';
+import { modifier } from 'ember-modifier';
 
 import HdsIcon from '../../icon/index.gts';
 import HdsFormErrorMessage from './message.gts';
 
 export const ID_PREFIX = 'error-';
-
-const NOOP = (): void => {};
 
 export interface HdsFormErrorSignature {
   Args: {
@@ -43,29 +40,20 @@ export default class HdsFormError extends Component<HdsFormErrorSignature> {
     return null;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  get onInsert(): (element: HTMLElement, ...args: any[]) => void {
-    const { onInsert } = this.args;
+  private _setUpError = modifier((element: HTMLDivElement) => {
+    const { onInsert, onRemove } = this.args;
 
-    // notice: this is a guard used to prevent triggering an error when the component is used as standalone element
+    // notice: these are guards used to prevent triggering an error when the component is used as standalone element
     if (typeof onInsert === 'function') {
-      return onInsert;
-    } else {
-      return NOOP;
+      onInsert(element);
     }
-  }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  get onRemove(): (element: HTMLElement, ...args: any[]) => void {
-    const { onRemove } = this.args;
-
-    // notice: this is a guard used to prevent triggering an error when the component is used as standalone element
-    if (typeof onRemove === 'function') {
-      return onRemove;
-    } else {
-      return NOOP;
-    }
-  }
+    return () => {
+      if (typeof onRemove === 'function') {
+        onRemove(element);
+      }
+    };
+  });
 
   get classNames(): string {
     const classes = ['hds-form-error'];
@@ -84,8 +72,7 @@ export default class HdsFormError extends Component<HdsFormErrorSignature> {
     <div
       class={{this.classNames}}
       id={{this.id}}
-      {{didInsert this.onInsert}}
-      {{willDestroy this.onRemove}}
+      {{this._setUpError}}
       ...attributes
     >
       <HdsIcon class="hds-form-error__icon" @name="alert-diamond-fill" />
