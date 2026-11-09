@@ -21,25 +21,19 @@ node ./packages/codemods/bin/cli.js v3/dropdown path/to/some/glob/**/*.hbs
 ## Transforms
 
 ### v3
-<!--TRANSFORMS_START-->
 * [v3/dropdown](transforms/v3/dropdown/README.md)
 * [v3/masked-input](transforms/v3/masked-input/README.md)
 * [v3/radio-card](transforms/v3/radio-card/README.md)
 * [v3/side-nav](transforms/v3/side-nav/README.md)
-<!--TRANSFORMS_END-->
 
 ### v4
-<!--TRANSFORMS_START-->
 * [v4/contextual-components](transforms/v4/contextual-components/README.md)
 * [v4/dropdown-list-item-interactive](transforms/v4/dropdown-list-item-interactive/README.md)
 * [v4/table](transforms/v4/table/README.md)
 * [v4/icon](transforms/v4/icon/README.md)
-<!--TRANSFORMS_END-->
 
 ### v8
-<!--TRANSFORMS_START-->
 * [v8/application-state-footer](transforms/v8/application-state-footer/README.md)
-<!--TRANSFORMS_END-->
 
 ## Contributing
 
