@@ -1,0 +1,16 @@
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+import { module, test } from 'qunit';
+import { hdsLinkToQuery } from '#src/helpers/hds-link-to-query.ts';
+
+module('Unit | Helper | hds-link-to-query', function () {
+  test('returns the same object that is passed as argument', function (assert) {
+    assert.deepEqual(hdsLinkToQuery([{ value: 'test' }]), { value: 'test' });
+  });
+  test('returns an empty object if no argument is passed', function (assert) {
+    assert.deepEqual(hdsLinkToQuery([undefined]), {});
+  });
+});
