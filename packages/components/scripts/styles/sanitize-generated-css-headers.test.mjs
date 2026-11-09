@@ -231,10 +231,12 @@ describe('sanitizeGeneratedCssHeaders', () => {
     const declarationPositions = new Map();
 
     remapped.root.walkDecls((node) => {
-      const originalPosition = node.source.input.map.consumer().originalPositionFor({
-        line: node.source.start.line,
-        column: node.source.start.column - 1,
-      });
+      const originalPosition = node.source.input
+        .map.consumer()
+        .originalPositionFor({
+          line: node.source.start.line,
+          column: node.source.start.column - 1,
+        });
 
       declarationPositions.set(node.prop, originalPosition);
     });
