@@ -3160,7 +3160,6 @@
     --hds-var-app-side-nav-animation-duration: 0;
   }
 }
-
 .hds-app-side-nav {
   position: relative;
   width: var(--hds-var-app-side-nav-width-fixed);
@@ -10318,7 +10317,6 @@ button.hds-button[href]::after {
 }
 
 /* clean-css ignore:end */
-
 .hds-segmented-group {
   display: inline-flex;
   gap: var(--hds-segmented-group-gap);
@@ -11302,7 +11300,6 @@ button.hds-button[href]::after {
     transition: none;
   }
 }
-
 .hds-stepper-indicator-task {
   position: relative;
   display: flex;
