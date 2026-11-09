@@ -47,6 +47,7 @@ const figma_changelogs = [
 
 const tooling_changelogs = [
   {
+    id: 'mcp',
     relativePath: '../packages/mcp/CHANGELOG.md',
     outputPath: './docs/tooling/mcp-server/partials/version-history.md',
   },
@@ -203,11 +204,28 @@ tooling_changelogs.forEach((changelog) => {
   try {
     const sourcePath = changelog.relativePath;
     const changelogSource = fs.readFileSync(sourcePath, 'utf8');
-    let changelogModified = changelogSource;
-    changelogModified = removeLeadingHtmlComments(changelogModified);
-    changelogModified = removePageTitle(changelogModified);
-    changelogModified = keepOnlySubsetOfEntries(changelogModified, /^## /, 20);
-    fs.writeFileSync(changelog.outputPath, changelogModified, 'utf8');
+
+    // The MCP changelog lives both in the release notes and under the tooling section, so we write it to both locations.
+    let changesModified = changelogSource;
+    changesModified = removeLeadingHtmlComments(changesModified);
+    changesModified = replaceMajorMinorPatchHeadings(changesModified);
+
+    let toolingDocsChangesModified = changesModified;
+    toolingDocsChangesModified = removePageTitle(toolingDocsChangesModified);
+    fs.writeFileSync(changelog.outputPath, toolingDocsChangesModified, 'utf8');
+
+    if (changelog.id) {
+      let releaseNotesChangesModified = changesModified;
+      releaseNotesChangesModified = replacePageTitleWithNpmInfo(releaseNotesChangesModified);
+      releaseNotesChangesModified = keepOnlySubsetOfEntries(releaseNotesChangesModified, /^## /, 20);
+      releaseNotesChangesModified = appendExternalLinks(releaseNotesChangesModified, sourcePath);
+      const content = addHeader() + releaseNotesChangesModified;
+      fs.writeFileSync(
+        `./docs/whats-new/release-notes/partials/${changelog.id}.md`,
+        content,
+        'utf8',
+      );
+    }
   } catch (err) {
     console.error(err);
   }
