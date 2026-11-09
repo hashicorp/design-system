@@ -108,7 +108,7 @@ Upgraded `ember-concurrency` from `4.0.4` to `5.3.0`. Version 4 imports the `emb
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/advanced-table -->
+<!-- START components/table/advanced-table -->
 
 `AdvancedTable` - Fixed a race condition where the table's internal measurement pass was not tracked by Ember's test waiters, so `settled()` could resolve before the layout reached its steady state.
 
