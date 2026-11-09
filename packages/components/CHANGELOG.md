@@ -2,11 +2,13 @@
 
 ## 7.1.0
 
+[7.1.0 documentation](https://hds-website-7-1-0.vercel.app/)
+
 ### Minor Changes
 
 <!-- START components/dropdown -->
 
-`Dropdown` - Added `@onOpen` callback argument
+`Dropdown` - Added `@onOpen` callback argument.
 
 <!-- END -->
 
@@ -22,7 +24,7 @@ Upgraded `ember-concurrency` from `4.0.4` to `5.3.0`. Version 4 imports the `emb
 
 <!-- START components/filter-bar -->
 
-`FilterBar` - Added new `@hasLiveSearch` argument and set search input autocomplete to off
+`FilterBar` - Added new `@hasLiveSearch` argument and set search input autocomplete to off.
 
 <!-- END -->
 
@@ -34,7 +36,7 @@ Upgraded `ember-concurrency` from `4.0.4` to `5.3.0`. Version 4 imports the `emb
 
 <!-- START components/rich-tooltip -->
 
-`RichTooltip` - Reverted removal of bubble opening transition on Carbon themes
+`RichTooltip` - Reverted removal of bubble opening transition on Carbon themes.
 
 <!-- END -->
 
@@ -44,13 +46,13 @@ Upgraded `ember-concurrency` from `4.0.4` to `5.3.0`. Version 4 imports the `emb
 
 <!-- START components/form/super-select -->
 
-`SuperSelect` - Fixed style bug in no matches message for Carbon themes
+`SuperSelect` - Fixed style bug in no matches message for Carbon themes.
 
 <!-- END -->
 
 <!-- START components/form/super-select -->
 
-`SuperSelect` - Fixed style bug in search message
+`SuperSelect` - Fixed style bug in search message.
 
 <!-- END -->
 
@@ -98,7 +100,7 @@ Upgraded `ember-concurrency` from `4.0.4` to `5.3.0`. Version 4 imports the `emb
 
 <!-- START components/card -->
 
-`Card` - Refactored styles for the `base` elevation level to fix broken CSS variables
+`Card` - Refactored styles for the `base` elevation level to fix broken CSS variables.
 
 <!-- END -->
 
@@ -144,95 +146,85 @@ Removed the unused `@embroider/util` dependency.
 
 <!-- START components/table/advanced-table -->
 
-`AdvancedTable` - Updated the following for i18n:
-
-- Added translations for sort announcements in `AdvancedTable` and refactored code to better support localization
-- Added translation for `ariaLabel` suffix in `ThSelectable`
-- Added translations for the screen reader sort order label in `ThButtonSort`
-- Corrected translation keys in `ThContextMenu`
+`AdvancedTable` - Added translations for sort announcements in `AdvancedTable`, `ariaLabel` suffix in `ThSelectable`, and the sort order label in `ThButtonSort`. Corrected translation keys for labels in `ThContextMenu`.
 <!-- END -->
 
 <!-- START components/app-footer -->
 
-`AppFooter` - Added missing `ariaLabel` translation in `LegalLinks`
+`AppFooter` - Added translation for `@ariaLabel` in `LegalLinks`.
 
 <!-- END -->
 
 <!-- START components/application-state -->
 
-`ApplicationState` - Corrected translation key for error in `Header`
+`ApplicationState` - Corrected translation key for the error code in `Header`.
 
 <!-- END -->
 
 <!-- START components/breadcrumb -->
 
-`Breadcrumb` - Added translation for `ariaLabel` in `Breadcrumb` and `Breadcrumb::Truncation`
+`Breadcrumb` - Added translation for `@ariaLabel` in `Breadcrumb` and `Breadcrumb::Truncation`
 
 <!-- END -->
 
 <!-- START components/code-block -->
 
-`CodeBlock` - Added translations for copy button and screen-reader highlight markers
+`CodeBlock` - Added translations for `@copyButtonText` and the screen-reader markers for the start and end of highlighted lines.
 
 <!-- END -->
 
 <!-- START components/code-editor -->
 
-`CodeEditor` - Added translations for copy button, linting, and diagnostic messages.
+`CodeEditor` - Added translations for the `@copyButtonText`, JSON lint messages, and CodeMirror diagnostic messages.
 
 <!-- END -->
 
 <!-- START components/filter-bar -->
 
-`FilterBar` - Updated the following for i18n:
-
-- Added translation to applied search filter label
-- Added type assertion in `Date` to guard against invalid types and translations for each type of filter to better support localization for aria labels
-- Added missing translations in applied filters and refactored date filter code to better support localization
-- Corrected translation keys in `AppliedFilters` and `Numerical`
+`FilterBar` - Updated the following for internationalization:
+- Added translations to the applied search filter label and type-specific `aria-label`s for value, start, and end inputs in `Date`.
+- Localized translations for the date and numerical filters in the applied filter list.
+- Corrected translation keys in `AppliedFilters` and `Numerical`.
 <!-- END -->
 
 <!-- START components/form/primitives -->
 
-`Form::CharacterCount` - Refactored status message code to better support localization
+`Form::CharacterCount` - Localized translations for status messagess for required, allowed, remaining, exceeded, and entered character counts.
 
 <!-- END -->
 
 <!-- START components/form/primitives -->
 
-`Form::Indicator` - Corrected translation keys for optional and required
+`Form::Indicator` - Corrected translation keys for optional and required labels.
 
 <!-- END -->
 
 <!-- START components/form/key-value-inputs -->
 
-`Form::KeyValueInputs` - Fixed row number interpolation for English i18n default strings in `Field` hidden label and `DeleteRowButton` text
+`Form::KeyValueInputs` - Refactored translation code for `Field` hidden label and `DeleteRowButton` text.
 
 <!-- END -->
 
 <!-- START components/form/super-select -->
 
-`Form::SuperSelect` - Added translations for search placeholders, result count, selected count, no matches message, loading message, and search message in `Single::Base` and `Multiple::Base`
+`Form::SuperSelect` - Added translations for `@searchPlaceholder`, `@resultCountMessage`, `@noMatchesMessage`, `@loadingMessage`, and `@searchMessage` in `Single::Base` and `Multiple::Base`. Add translation for the selected count in `Multiple::Base`.
 
 <!-- END -->
 
 <!-- START components/pagination -->
 
-`Pagination` - Added translation for label in `SizeSelector`. Corrected translation keys for item range in `Info`
+`Pagination` - Added translation for `@label` in `SizeSelector`. Corrected translation keys for item range in `Info`.
 
 <!-- END -->
 
 <!-- START components/table/table -->
 
-`Table` - Updated the following for i18n:
-
-- Added translations for `ariaLabel` suffix in `Table` and `ThSelectable`
-- Refactored sort announcement code in `Table` to better support localization
+`Table` - Added translations for sort announcements and `ariaLabel` suffix in `Table` and `ThSelectable`.
 <!-- END -->
 
 <!-- START components/tag -->
 
-`Tag` - Added translation for `ariaLabel`
+`Tag` - Added translation for `ariaLabel`.
 
 <!-- END -->
 
@@ -242,7 +234,7 @@ Removed the unused `@embroider/util` dependency.
 
 <!-- START components/form/text-input -->
 
-`Form::TextInput` - Corrected translation key for the password-hidden announcement.
+`Form::TextInput` - Corrected translation key for the password-hidden announcement in `TextInput::Field`.
 
 <!-- END -->
 
@@ -278,7 +270,7 @@ Removed the unused `@embroider/util` dependency.
 
 <!-- START components/pagination -->
 
-`Pagination` - Reduced spacing between `Select` icon and text within `Pagination` component for Carbon themes
+`Pagination` - Reduced spacing between `Select` icon and text within `Pagination` component for Carbon themes.
 
 <!-- END -->
 
