@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { tabbable } from 'tabbable';
+import { isFocusable, tabbable } from 'tabbable';
 
 export const onFocusTrapDeactivate = (cell: HTMLDivElement) => {
   const cellTabbableChildren = tabbable(cell);
@@ -13,6 +13,21 @@ export const onFocusTrapDeactivate = (cell: HTMLDivElement) => {
   }
 
   cell.setAttribute('tabindex', '0');
+};
+
+// whether a click on `target` moves focus, to it or to its closest focusable ancestor
+export const isInFocusableElement = (target: EventTarget | null): boolean => {
+  for (
+    let node = target instanceof Element ? target : null;
+    node;
+    node = node.parentElement
+  ) {
+    if (isFocusable(node)) {
+      return true;
+    }
+  }
+
+  return false;
 };
 
 export const updateTabbableChildren = (

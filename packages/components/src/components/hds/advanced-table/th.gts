@@ -27,7 +27,10 @@ import HdsAdvancedTableThReorderHandle from './th-reorder-handle.gts';
 import HdsAdvancedTableThResizeHandle from './th-resize-handle.gts';
 import HdsAdvancedTableThReorderDropTarget from './th-reorder-drop-target.gts';
 
-import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
+import {
+  isInFocusableElement,
+  onFocusTrapDeactivate,
+} from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
 import {
   HdsAdvancedTableHorizontalAlignmentValues,
   HdsAdvancedTableThSortOrderLabelValues,
@@ -142,6 +145,8 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
   @tracked private _element!: HTMLDivElement;
   @tracked private _shouldTrapFocus = false;
+  // whether the click that deactivated the focus trap moved focus elsewhere
+  private _outsideClickTakesFocus = false;
   @tracked
   private _reorderHandleElement?: HdsAdvancedTableThReorderHandleSignature['Element'];
   @tracked
@@ -317,6 +322,25 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     this._shouldTrapFocus = true;
   }
 
+  @action onClickOutside(event: MouseEvent | TouchEvent): boolean {
+    // `composedPath` reaches into shadow roots and only exists while the event
+    // is dispatched, so decide now instead of when focus-trap returns focus
+    this._outsideClickTakesFocus = isInFocusableElement(
+      event.composedPath()[0] ?? event.target
+    );
+    return true;
+  }
+
+  // focus-trap returns focus to the cell after every outside click. Leave it on
+  // what was clicked when that takes focus, so typing goes where the user expects.
+  @action getReturnFocus(
+    nodeFocusedBeforeActivation: HTMLElement | SVGElement
+  ): HTMLElement | SVGElement | false {
+    const takesFocus = this._outsideClickTakesFocus;
+    this._outsideClickTakesFocus = false;
+    return takesFocus ? false : nodeFocusedBeforeActivation;
+  }
+
   @action getInitialFocus(): FocusableElement | undefined {
     const cellFocusableElements = focusable(this._element);
 
@@ -419,7 +443,8 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
         focusTrapOptions=(hash
           onDeactivate=this.onFocusTrapDeactivate
           initialFocus=this.getInitialFocus
-          clickOutsideDeactivates=true
+          clickOutsideDeactivates=this.onClickOutside
+          setReturnFocus=this.getReturnFocus
         )
       }}
       {{@compositeItem disabled=@isCompositeItemDisabled}}
