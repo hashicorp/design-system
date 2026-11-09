@@ -1,3 +1,11 @@
+## 7.1.0
+
+Added translation for `@label` in `SizeSelector`. Corrected translation keys for item range in `Info`.
+
+
+Reduced spacing between `Select` icon and text within `Pagination` component for Carbon themes.
+
+
 ## 6.3.0
 
 Added keyboard focus management at the beginning and end of pagination. When an arrow button becomes disabled after clicking because a boundary has been reached, focus moves to the opposite arrow button.

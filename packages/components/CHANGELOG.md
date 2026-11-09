@@ -1,5 +1,218 @@
 # @hashicorp/design-system-components
 
+## 7.1.0
+
+[7.1.0 documentation](https://hds-website-7-1-0.vercel.app/)
+
+### Minor Changes
+
+
+`Dropdown` - Added `@onOpen` callback argument.
+
+
+<small class="doc-whats-new-changelog-metadata">[#4205](https://github.com/hashicorp/design-system/pull/4205)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Upgraded `ember-concurrency` from `4.0.4` to `5.3.0`. Version 4 imports the `ember` module, which `ember-source` 7 removed. Apps still on `ember-concurrency` 4 will bundle both versions until they upgrade.
+
+<small class="doc-whats-new-changelog-metadata">[#4241](https://github.com/hashicorp/design-system/pull/4241) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`FilterBar` - Added new `@hasLiveSearch` argument and set search input autocomplete to off.
+
+
+<small class="doc-whats-new-changelog-metadata">[#4168](https://github.com/hashicorp/design-system/pull/4168)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+
+`RichTooltip` - Reverted removal of bubble opening transition on Carbon themes.
+
+
+<small class="doc-whats-new-changelog-metadata">[#4257](https://github.com/hashicorp/design-system/pull/4257)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`SuperSelect` - Fixed style bug in no matches message for Carbon themes.
+
+
+
+`SuperSelect` - Fixed style bug in search message.
+
+
+<small class="doc-whats-new-changelog-metadata">[#4237](https://github.com/hashicorp/design-system/pull/4237)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`CodeBlock` - Fixed incorrect placement of `sr-only` highlight markers when `@lineNumberStart` is defined.
+
+
+<small class="doc-whats-new-changelog-metadata">[#4199](https://github.com/hashicorp/design-system/pull/4199)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Form::Field` - Fixed the DOM order of the `flag` layout (used by Checkbox, Radio, and Toggle) so the `<input>` appears before the `<label>`, matching the visual order for screen readers. The visual layout is unchanged.
+
+
+
+`Form::Radio::Field` - Fixed the DOM order so the `<input>` appears before the `<label>`, matching the visual order for screen readers.
+
+
+
+`Form::Checkbox::Field` - Fixed the DOM order so the `<input>` appears before the `<label>`, matching the visual order for screen readers.
+
+
+
+`Form::Toggle::Field` - Fixed the DOM order so the `<input>` appears before the `<label>`, matching the visual order for screen readers.
+
+
+<small class="doc-whats-new-changelog-metadata">[#4196](https://github.com/hashicorp/design-system/pull/4196)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Card` - Refactored styles for the `base` elevation level to fix broken CSS variables.
+
+
+<small class="doc-whats-new-changelog-metadata">[#4216](https://github.com/hashicorp/design-system/pull/4216)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`AdvancedTable` - Fixed a race condition where the table's internal measurement pass was not tracked by Ember's test waiters, so `settled()` could resolve before the layout reached its steady state.
+
+
+<small class="doc-whats-new-changelog-metadata">[#4183](https://github.com/hashicorp/design-system/pull/4183)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Icon` - Fixed icons not loading in rendering tests on Ember 6.12.1 and later with `@ember/test-helpers` 5.6 and later. The icon registry now adds the sprite root when it's missing.
+
+
+<small class="doc-whats-new-changelog-metadata">[#4211](https://github.com/hashicorp/design-system/pull/4211) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Removed the unused `@embroider/util` dependency.
+
+<small class="doc-whats-new-changelog-metadata">[#4243](https://github.com/hashicorp/design-system/pull/4243) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`CodeEditor` - Fixed a race condition where the editor setup was not tracked by Ember's test waiters, so `render()` and `settled()` could resolve before the editor existed.
+
+
+<small class="doc-whats-new-changelog-metadata">[#4233](https://github.com/hashicorp/design-system/pull/4233) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`AdvancedTable` - Added translations for sort announcements in `AdvancedTable`, `@selectionAriaLabelSuffix` in `ThSelectable`, and the sort order label in `ThButtonSort`. Corrected translation keys for labels in `ThContextMenu`.
+
+
+`AppFooter` - Added translation for `@ariaLabel` in `LegalLinks`.
+
+
+
+`ApplicationState` - Corrected translation key for the error code in `Header`.
+
+
+
+`Breadcrumb` - Added translation for `@ariaLabel` in `Breadcrumb` and `Breadcrumb::Truncation`.
+
+
+
+`CodeBlock` - Added translations for `@copyButtonText` and the screen-reader markers for the start and end of highlighted lines.
+
+
+
+`CodeEditor` - Added translations for the `@copyButtonText`, JSON lint messages, and CodeMirror diagnostic messages.
+
+
+
+`FilterBar` - Added translations to the applied search filter label and type-specific `aria-label`s for value, start, and end inputs in `Date`. Localized translations for the date and numerical filters in the applied filter list. Corrected translation keys in `AppliedFilters` and `Numerical`.
+
+
+`Form::CharacterCount` - Localized translations for status messages for required, allowed, remaining, exceeded, and entered character counts.
+
+
+
+`Form::Indicator` - Corrected translation keys for optional and required labels.
+
+
+
+`Form::KeyValueInputs` - Refactored translation code for `Field` hidden label and `DeleteRowButton` text.
+
+
+
+`Form::SuperSelect` - Added translations for `@searchPlaceholder`, `@resultCountMessage`, `@noMatchesMessage`, `@loadingMessage`, and `@searchMessage` in `Single::Base` and `Multiple::Base`. Added translation for the selected count in `Multiple::Base`.
+
+
+
+`Pagination` - Added translation for `@label` in `SizeSelector`. Corrected translation keys for item range in `Info`.
+
+
+
+`Table` - Added translations for sort announcements and `@selectionAriaLabelSuffix` in `Table` and `ThSelectable`.
+
+
+`Tag` - Added translation for `ariaLabel`.
+
+
+<small class="doc-whats-new-changelog-metadata">[#4172](https://github.com/hashicorp/design-system/pull/4172)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Form::TextInput` - Corrected translation key for the password-hidden announcement in `TextInput::Field`.
+
+
+<small class="doc-whats-new-changelog-metadata">[#4185](https://github.com/hashicorp/design-system/pull/4185)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`PopoverPrimitive` - Fixed a memory leak where the positioning listeners on `window`, `visualViewport`, and scrollable ancestors were never removed, keeping destroyed popovers and their owners in memory. This also affects `Dropdown`, `RichTooltip`, and `Breadcrumb` truncation.
+
+
+
+`SuperSelect` - Fixed a memory leak where every reposition added another set of positioning listeners that were never removed.
+
+
+<small class="doc-whats-new-changelog-metadata">[#4249](https://github.com/hashicorp/design-system/pull/4249) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`FileInput` - Removed invalid selectors from the file selector button styles, such as `::file-selector-button.mock-hover` and `::file-selector-button:focus-visible::before`. Browsers ignored these rules, and CSS tools like Lightning CSS (used by Vite) reject them and fail the build.
+
+
+<small class="doc-whats-new-changelog-metadata">[#4212](https://github.com/hashicorp/design-system/pull/4212) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Pagination` - Reduced spacing between `Select` icon and text within `Pagination` component for Carbon themes.
+
+
+<small class="doc-whats-new-changelog-metadata">[#4278](https://github.com/hashicorp/design-system/pull/4278)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/design-system-tokens@6.0.1
+
 ## 7.0.0
 
 [7.0.0 documentation](https://hds-website-7-0-0.vercel.app/)
@@ -8,11 +221,9 @@
 
 _Conducted a one-off mechanical rename in `@hashicorp/design-system-components` of internal component CSS variables. Consumers consuming or overriding HDS CSS variables will need to update `--hds-*` references to `--hds-var-*`._
 
-
 `AdvancedTable` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
 - `hds-advanced-table-sticky-column-offset` → `hds-var-advanced-table-sticky-column-offset`
-
 
 `Accordion` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
@@ -28,11 +239,9 @@ _Conducted a one-off mechanical rename in `@hashicorp/design-system-components` 
 - `hds-accordion-item-toggle-padding-right` → `hds-var-accordion-item-toggle-padding-right`
 - `hds-accordion-item-toggle-padding-top` → `hds-var-accordion-item-toggle-padding-top`
 
-
 `AppFooter` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
 - `hds-app-footer-status-icon-color` → `hds-var-app-footer-status-icon-color`
-
 
 `AppSideNav` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
@@ -44,33 +253,27 @@ _Conducted a one-off mechanical rename in `@hashicorp/design-system-components` 
 - `hds-app-side-nav-width-fixed` → `hds-var-app-side-nav-width-fixed`
 - `hds-app-side-nav-width-minimized` → `hds-var-app-side-nav-width-minimized`
 
-
 `CodeBlock` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
 - `hds-code-block-color-{property}` → `hds-var-code-block-color-{property}`
-
 
 `FilterBar` - Changed the component CSS custom property prefix from `--filter-bar` to `--hds-var-filter-bar`.
 
 - `--filter-bar-filters-dropdown-height` → `--hds-var-filter-bar-filters-dropdown-height`
 
-
 `Flyout` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
 - `hds-app-side-nav-width-minimized` → `hds-var-app-side-nav-width-minimized`
-
 
 `Form` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
 - `hds-form-section-max-width` → `hds-var-form-section-max-width`
 - `hds-form-section-multi-field-group-item-width` → `hds-var-form-section-multi-field-group-item-width`
 
-
 `KeyValueInputs` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
 - `hds-key-value-inputs-column-index` → `hds-var-key-value-inputs-column-index`
 - `hds-key-value-inputs-columns` → `hds-var-key-value-inputs-columns`
-
 
 `SuperSelect` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
@@ -78,33 +281,27 @@ _Conducted a one-off mechanical rename in `@hashicorp/design-system-components` 
 - `hds-form-super-select-selected-text` → `hds-var-form-super-select-selected-text`
 - `hds-form-super-select-selected-text-display` → `hds-var-form-super-select-selected-text-display`
 
-
 `SegmentedGroup` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
 - `hds-segmented-group-max-width` → `hds-var-segmented-group-max-width`
 
-
 `Stepper Nav` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
 - `hds-stepper-nav-progress-bar-width` → `hds-var-stepper-nav-progress-bar-width`
-
 
 `Tag` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
 - `hds-tag-focus-ring-inset-left-cds` → `hds-var-tag-focus-ring-inset-left-cds`
 - `hds-tag-focus-ring-inset-right-cds` → `hds-var-tag-focus-ring-inset-right-cds`
 
-
 `Tooltip` - Changed the component CSS custom property prefix from `--token-*` to `--hds-var-*`.
 
 - `token-tooltip-max-width` → `hds-tooltip-max-width`
-
 
 `Flex` - Changed the layout CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
 - `hds-layout-flex-column-gap` → `hds-var-layout-flex-column-gap`
 - `hds-layout-flex-row-gap` → `hds-var-layout-flex-row-gap`
-
 
 `Grid` - Changed the layout CSS custom property prefix from `--hds-*` to `--hds-var-*`.
 
@@ -134,68 +331,40 @@ _Conducted a one-off mechanical rename in `@hashicorp/design-system-components` 
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable` - Added new value `secondary-muted` for the `@color` argument in `ThContextMenu`.
 
 - `secondary-muted` is identical to `secondary` for HDS themes, but differs for Carbon themes
 
-
 `Button` - Added new value `secondary-muted` for the `@color` argument
-
-
 
 `CodeBlock` - Updated footer button `@color` from `secondary` to `secondary-muted`
 
-
-
 `Dropdown` - Added new value `secondary-muted` for the `@color` argument in `ToggleButton` and `ToggleIcon`
-
-
 
 `FilterBar` - Updated toggle `@color` from `secondary` to `secondary-muted` in `ActionsDropdown` and `FiltersDropdown` and applied filters button
 
-
-
 `SuperSelect` - Updated `AfterOptions` show and clear button `@color` from `secondary` to `secondary-muted`
-
-
 
 `CodeEditor` - Removed dark theme modifiers and replaced them with theme agnostic versions
 
 - Removed the `hdsDarkHighlightStyle` style modifier and replaced it with a theme-agnostic `hdsHighlightStyle` modifier
 - Removed the `hdsDark` style modifier and replaced it with a theme-agnostic `hdsTheme` modifier
 
-
 Added the `hds-form-control-border` and `hds-form-control-invalid-outline` sass mixins
-
-
 
 `RadioCard` - Updated `RadioCardDescription` element from `HdsTextBody` to a `HTMLSpanElement`
 
-
-
 `RadioCard` - Updated `RadioCardLabel` element from `HdsTextDisplay` to a `HTMLSpanElement`
-
-
 
 `AdvancedTable` - Removed `hds-typography-body-200` and `hds-font-weight-semibold` classes from `hds-advanced-table__th-content-text` element in `AdvancedTableTh`
 
-
-
 `Table` - Removed `hds-typography-body-200` and `hds-font-weight-regular` classes from `hds-table__td` element in `TableTd`
-
-
 
 `Table` - Removed `hds-typography-body-200` and `hds-font-weight-semibold` classes from `hds-table__td` element in `TableTh` and `TableThSort`
 
-
-
 `Tooltip` - Replaced custom arrow with `hds-tooltip-pointer` class with native popover arrow
 
-
-
 `DialogPrimitive` - Updated internal text element from `HdsTextBody` to a `HTMLDivElement`
-
 
 Removed the `hds-interactive-dark-theme` mixin
 
@@ -219,7 +388,6 @@ Included subset of IBM Plex fonts to the `dist/public` folder of the addon
 Added a `hds-apply-only-if-carbon` sass mixin to apply styles only for Carbon themes
 
 `ThemeContext` - Added headless component
-
 
 `Icon` - Made significant changes to icon loading and available icons to support Carbon themes
 

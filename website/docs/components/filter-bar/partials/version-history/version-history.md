@@ -1,3 +1,10 @@
+## 7.1.0
+
+Added new `@hasLiveSearch` argument and set search input autocomplete to off.
+
+
+Added translations to the applied search filter label and type-specific `aria-label`s for value, start, and end inputs in `Date`. Localized translations for the date and numerical filters in the applied filter list. Corrected translation keys in `AppliedFilters` and `Numerical`.
+
 ## 7.0.0
 
 Changed the component CSS custom property prefix from `--filter-bar` to `--hds-var-filter-bar`.
