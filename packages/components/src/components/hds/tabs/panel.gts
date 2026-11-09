@@ -7,8 +7,9 @@ import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { hash } from '@ember/helper';
 import { not } from 'ember-truth-helpers';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import { didInsert, willDestroy } from '@ember/render-modifiers';
+import { modifier } from 'ember-modifier';
+
+import { deferAfterRender } from '../../../utils/hds-defer.ts';
 
 import type { HdsTabsTabSignature } from './tab.gts';
 import type { HdsTabsPanelIds, HdsTabsTabIds } from './types';
@@ -52,22 +53,23 @@ export default class HdsTabsPanel extends Component<HdsTabsPanelSignature> {
       : undefined;
   }
 
-  didInsertNode = (element: HTMLElement): void => {
-    const { didInsertNode } = this.args;
+  private _registerPanel = modifier((element: HTMLElement) => {
+    const { didInsertNode, willDestroyNode } = this.args;
 
-    if (typeof didInsertNode === 'function') {
-      this._elementId = element.id;
-      didInsertNode(element, this._elementId);
-    }
-  };
+    // deferred so the parent updates its tracked state outside of rendering
+    deferAfterRender((): void => {
+      if (typeof didInsertNode === 'function') {
+        this._elementId = element.id;
+        didInsertNode(element, this._elementId);
+      }
+    }, this);
 
-  willDestroyNode = (element: HTMLElement): void => {
-    const { willDestroyNode } = this.args;
-
-    if (typeof willDestroyNode === 'function') {
-      willDestroyNode(element);
-    }
-  };
+    return () => {
+      if (typeof willDestroyNode === 'function') {
+        willDestroyNode(element);
+      }
+    };
+  });
 
   <template>
     <section
@@ -77,8 +79,7 @@ export default class HdsTabsPanel extends Component<HdsTabsPanelSignature> {
       id={{this._panelId}}
       hidden={{not this.isVisible}}
       aria-labelledby={{this.coupledTabId}}
-      {{didInsert this.didInsertNode}}
-      {{willDestroy this.willDestroyNode}}
+      {{this._registerPanel}}
     >
       {{yield (hash isVisible=this.isVisible)}}
     </section>

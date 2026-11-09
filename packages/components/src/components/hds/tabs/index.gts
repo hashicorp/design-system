@@ -8,8 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import { assert, warn } from '@ember/debug';
 import { deferAfterRender, deferToNextTask } from '../../../utils/hds-defer.ts';
 import { hash } from '@ember/helper';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import { didInsert, didUpdate } from '@ember/render-modifiers';
+import { modifier } from 'ember-modifier';
 
 import type { WithBoundArgs } from '@glint/template';
 import type Owner from '@ember/owner';
@@ -65,8 +64,10 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
   @tracked private _panelNodes: HTMLElement[] = [];
   @tracked private _panelIds: HdsTabsPanelIds = [];
   @tracked private _selectedTabIndex;
-  @tracked private _selectedTabId?: string;
   @tracked private _isControlled: boolean;
+  private _selectedTabId?: string;
+  private _hasSetUpTabs = false;
+  private _hasSetUpIndicatorSync = false;
 
   get size(): HdsTabsSizes {
     const { size = DEFAULT_SIZE } = this.args;
@@ -114,42 +115,47 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
     return classes.join(' ');
   }
 
-  didInsert = (): void => {
-    assert(
-      'The number of Tabs must be equal to the number of Panels',
-      this._tabNodes.length === this._panelNodes.length
-    );
+  private _setUpTabs = modifier(() => {
+    // deferred so it runs after the tabs and panels, which register themselves once rendering has finished
+    deferAfterRender((): void => {
+      assert(
+        'The number of Tabs must be equal to the number of Panels',
+        this._tabNodes.length === this._panelNodes.length
+      );
 
+      this._hasSetUpTabs = true;
+      this._selectTabById();
+      this.setTabIndicator();
+    }, this);
+  });
+
+  private _updateIndicatorOnChange = modifier(
+    (
+      _element: HTMLDivElement,
+      positional: [
+        selectedTabIndex: number,
+        isParentVisible: boolean | undefined,
+      ]
+    ) => {
+      // the arguments are only read so that the modifier runs again when they change
+      positional.forEach(() => {});
+
+      // the initial indicator is set when the tabs are set up
+      if (!this._hasSetUpIndicatorSync) {
+        this._hasSetUpIndicatorSync = true;
+        return;
+      }
+
+      deferAfterRender((): void => {
+        this.setTabIndicator();
+      }, this);
+    }
+  );
+
+  private _selectTabById = (): void => {
     if (this._selectedTabId) {
       this.selectedTabIndex = this._tabIds.indexOf(this._selectedTabId);
     }
-
-    deferAfterRender((): void => {
-      this.setTabIndicator();
-    }, this);
-  };
-
-  didUpdateSelectedTabIndex = (): void => {
-    deferAfterRender((): void => {
-      this.setTabIndicator();
-    }, this);
-  };
-
-  didUpdateSelectedTabId = (): void => {
-    // if the selected tab is set dynamically (eg. in a `each` loop)
-    // the `Tab` nodes will be re-inserted/rendered, which means the `this.selectedTabId` variable changes
-    // but the parent `Tabs` component has already been rendered/inserted but doesn't re-render
-    // so the value of the `selectedTabIndex` is not updated, unless we trigger a recalculation
-    // using the `did-update` modifier that checks for changes in the `this.selectedTabId` variable
-    if (this._selectedTabId) {
-      this.selectedTabIndex = this._tabIds.indexOf(this._selectedTabId);
-    }
-  };
-
-  didUpdateParentVisibility = (): void => {
-    deferAfterRender((): void => {
-      this.setTabIndicator();
-    }, this);
   };
 
   didInsertTab = (element: HTMLButtonElement, isSelected?: boolean): void => {
@@ -157,6 +163,11 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
     this._tabIds = [...this._tabIds, element.id];
     if (isSelected) {
       this._selectedTabId = element.id;
+
+      // a selected tab rendered after the initial setup (e.g. in an `each` loop) updates the selection
+      if (this._hasSetUpTabs) {
+        this._selectTabById();
+      }
     }
   };
 
@@ -284,10 +295,8 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
     {{! template-lint-disable no-invalid-role }}
     <div
       class={{this.classNames}}
-      {{didInsert this.didInsert}}
-      {{didUpdate this.didUpdateSelectedTabIndex this.selectedTabIndex}}
-      {{didUpdate this.didUpdateSelectedTabId this._selectedTabId}}
-      {{didUpdate this.didUpdateParentVisibility @isParentVisible}}
+      {{this._setUpTabs}}
+      {{this._updateIndicatorOnChange this.selectedTabIndex @isParentVisible}}
       ...attributes
     >
       <div class="hds-tabs__tablist-wrapper">

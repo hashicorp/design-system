@@ -6,8 +6,9 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { on } from '@ember/modifier';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import { didInsert, didUpdate, willDestroy } from '@ember/render-modifiers';
+import { modifier } from 'ember-modifier';
+
+import { deferAfterRender } from '../../../utils/hds-defer.ts';
 
 import HdsIcon from '../icon/index.gts';
 import type { HdsIconSignature } from '../icon/index.gts';
@@ -57,34 +58,51 @@ export default class HdsTabsTab extends Component<HdsTabsTabSignature> {
       : undefined;
   }
 
-  didInsertNode = (
-    element: HTMLButtonElement,
-    positional: [boolean?]
-  ): void => {
-    const { didInsertNode } = this.args;
+  private _hasSetUpSelectionSync = false;
 
-    const isSelected = positional[0];
+  private _registerTab = modifier((element: HTMLButtonElement) => {
+    const { didInsertNode, willDestroyNode } = this.args;
 
-    if (typeof didInsertNode === 'function') {
-      didInsertNode(element, isSelected);
+    // deferred so the parent updates its tracked state (and `@isSelected` is read) outside of rendering
+    deferAfterRender((): void => {
+      if (typeof didInsertNode === 'function') {
+        didInsertNode(element, this.args.isSelected);
+      }
+    }, this);
+
+    return () => {
+      if (typeof willDestroyNode === 'function') {
+        willDestroyNode(element);
+      }
+    };
+  });
+
+  private _syncSelection = modifier(
+    (
+      _element: HTMLButtonElement,
+      positional: [count: string | undefined, isSelected: boolean | undefined]
+    ) => {
+      // the arguments are only read so that the modifier runs again when they change
+      positional.forEach(() => {});
+
+      // the initial selection is reported when the tab is registered
+      if (!this._hasSetUpSelectionSync) {
+        this._hasSetUpSelectionSync = true;
+        return;
+      }
+
+      deferAfterRender((): void => {
+        const { didUpdateNode } = this.args;
+
+        if (
+          typeof didUpdateNode === 'function' &&
+          this.nodeIndex !== undefined
+        ) {
+          didUpdateNode(this.nodeIndex, this.args.isSelected);
+        }
+      }, this);
     }
-  };
-
-  didUpdateNode = (): void => {
-    const { didUpdateNode } = this.args;
-
-    if (typeof didUpdateNode === 'function' && this.nodeIndex !== undefined) {
-      didUpdateNode(this.nodeIndex, this.args.isSelected);
-    }
-  };
-
-  willDestroyNode = (element: HTMLButtonElement): void => {
-    const { willDestroyNode } = this.args;
-
-    if (typeof willDestroyNode === 'function') {
-      willDestroyNode(element);
-    }
-  };
+  );
 
   onClick = (event: MouseEvent): false | undefined => {
     const { onClick } = this.args;
@@ -125,9 +143,8 @@ export default class HdsTabsTab extends Component<HdsTabsTabSignature> {
         aria-controls={{this.coupledPanelId}}
         aria-selected={{if this.isSelected "true" "false"}}
         tabindex={{unless this.isSelected "-1"}}
-        {{didInsert this.didInsertNode @isSelected}}
-        {{didUpdate this.didUpdateNode @count @isSelected}}
-        {{willDestroy this.willDestroyNode}}
+        {{this._registerTab}}
+        {{this._syncSelection @count @isSelected}}
         {{on "click" this.onClick}}
         {{on "keyup" this.onKeyUp}}
       >
