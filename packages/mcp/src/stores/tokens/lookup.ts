@@ -20,6 +20,7 @@ export type TokenSummary = {
   attributes: TokenAttributes;
   type: TokenType;
   value: JsonValue;
+  modes?: Record<string, JsonValue>;
   cssVar: string;
   category: string;
   path: string[];
@@ -84,6 +85,7 @@ export const toTokenSummary = (row: TokenCatalogRow): TokenSummary => {
     attributes: row.attributes,
     type: toTokenType(row.$type),
     value: row.$value,
+    ...(row.$modes === undefined ? {} : { modes: row.$modes }),
     cssVar: toCssVarName(row.name),
     category: row.attributes.category,
     path: row.path,

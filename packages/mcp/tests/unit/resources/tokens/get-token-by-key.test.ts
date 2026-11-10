@@ -22,6 +22,7 @@ const rows = [
     key: "{color.foreground.action}",
     $type: "color",
     $value: "#1060ff",
+    $modes: { default: "#1060ff", "cds-g0": "#0f62fe" },
     name: "token-color-foreground-action",
     path: ["color", "foreground", "action"],
   }),
@@ -70,6 +71,30 @@ describe("createGetTokenByKeyResource", () => {
       found: true,
       requestedTokenKey: "{color.foreground.action}",
     });
+  });
+
+  it("returns the token's value in each theme, and omits it for an unthemed one", async () => {
+    const read = async (tokenKey: string) => {
+      const result = await resource.readCallback(
+        new URL(`hds://tokens/${encodeURIComponent(tokenKey)}`),
+        { tokenKey: encodeURIComponent(tokenKey) },
+        buildRequestHandlerExtra(),
+      );
+      const content = result.contents[0];
+
+      if (content === undefined) {
+        throw new Error("Expected resource content");
+      }
+
+      return parseResourceJson(getTextContent(content));
+    };
+
+    expect(await read("{color.foreground.action}")).toMatchObject({
+      token: { modes: { default: "#1060ff", "cds-g0": "#0f62fe" } },
+    });
+    expect(
+      (await read("{border.radius.x-small}")).token,
+    ).not.toHaveProperty("modes");
   });
 
   it("returns a missing-variable response", async () => {
