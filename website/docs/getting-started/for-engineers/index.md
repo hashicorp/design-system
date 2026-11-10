@@ -72,7 +72,11 @@ If your application serves fonts from a path other than `/assets` (e.g. `/app/as
 
 [[code-snippets/use-plex-fonts-custom-assets-path]]
 
-If your application uses [`SuperSelect`](/components/form/super-select), make sure `ember-basic-dropdown` is installed and both the `ember-basic-dropdown` and `ember-power-select` styles are imported, in this order:
+If your application uses [`SuperSelect`](/components/form/super-select), make sure `ember-basic-dropdown` is installed and add both packages to the `includePaths` in `ember-cli-build.js`, so Sass can find their styles:
+
+[[code-snippets/ember-build-sass-config-super-select]]
+
+Then import both the `ember-basic-dropdown` and `ember-power-select` styles, in this order:
 
 [[code-snippets/use-ember-power-select]]
 

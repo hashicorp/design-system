@@ -83,9 +83,9 @@ By default, all content of selected options displays in the “trigger”. Visua
 
 To simplify the content displayed in the selected options, use `@selectedItemComponent` to specify a custom component with only the content you wish to display.
 
-The custom component receives the selected option as `@selected`. To type it, use `PowerSelectSelectedItemSignature` from `ember-power-select/types` with the same option type passed to `@options`.
+The custom component receives the selected option as `@selected`. To type it, use `PowerSelectSelectedItemSignature` from `ember-power-select/types` with the same option type passed to `@options`. For `SuperSelect::Multiple`, also set its third type parameter to `true`, for example `PowerSelectSelectedItemSignature<ClusterSizeOption, unknown, true>`.
 
-An example of a custom `@selectedItemComponent`:
+An example of a custom `@selectedItemComponent` for `SuperSelect::Single`:
 
 [[code-snippets/example-selected-item-component execute=false]]
 
