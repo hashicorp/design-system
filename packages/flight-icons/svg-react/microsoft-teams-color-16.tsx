@@ -13,6 +13,7 @@ export const IconMicrosoftTeamsColor16 = forwardRef<SVGSVGElement, IconProps>(
         return (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
                 width={16}
                 height={16}
                 fill="none"
@@ -39,20 +40,14 @@ export const IconMicrosoftTeamsColor16 = forwardRef<SVGSVGElement, IconProps>(
                     fill="#000"
                     d="M8.163 6.875v4.93a.6.6 0 0 1-.596.595H5.079a4 4 0 0 1-.172-1.15V7.499a.61.61 0 0 1 .596-.624zM8.814 5.195v1.024q-.08.005-.163.006-.08 0-.163-.006A2.115 2.115 0 0 1 6.593 4.6h1.625a.6.6 0 0 1 .596.594"
                 />
-                <path
-                    fill="#000"
-                    d="M8.488 5.52v.699a2.115 2.115 0 0 1-1.79-1.294h1.195a.6.6 0 0 1 .595.595"
-                />
-                <path
-                    fill="#000"
-                    d="M8.488 5.52v.699a2.115 2.115 0 0 1-1.79-1.294h1.195a.6.6 0 0 1 .595.595"
-                />
+                <use xlinkHref="#microsoft-teams-color-16__a" fill="#000" />
+                <use xlinkHref="#microsoft-teams-color-16__a" fill="#000" />
                 <path
                     fill="#000"
                     d="M8.163 5.52v.647a2.12 2.12 0 0 1-1.465-1.242h.87a.6.6 0 0 1 .595.595"
                 />
                 <path
-                    fill="url(#microsoft-teams-color-16__a)"
+                    fill="url(#microsoft-teams-color-16__b)"
                     d="M1.597 4.925h5.969c.33 0 .597.266.597.595v5.96a.596.596 0 0 1-.597.595h-5.97A.596.596 0 0 1 1 11.479V5.521c0-.33.267-.596.597-.596"
                 />
                 <path
@@ -69,7 +64,7 @@ export const IconMicrosoftTeamsColor16 = forwardRef<SVGSVGElement, IconProps>(
                 />
                 <defs>
                     <linearGradient
-                        id="microsoft-teams-color-16__a"
+                        id="microsoft-teams-color-16__b"
                         x1={1}
                         x2={8.163}
                         y1={8.5}
@@ -80,6 +75,10 @@ export const IconMicrosoftTeamsColor16 = forwardRef<SVGSVGElement, IconProps>(
                         <stop offset={0.5} stopColor="#4d55bd" />
                         <stop offset={1} stopColor="#3940ab" />
                     </linearGradient>
+                    <path
+                        id="microsoft-teams-color-16__a"
+                        d="M8.488 5.52v.699a2.115 2.115 0 0 1-1.79-1.294h1.195a.6.6 0 0 1 .595.595"
+                    />
                 </defs>
             </svg>
         );
