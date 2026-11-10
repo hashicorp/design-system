@@ -1,3 +1,17 @@
+## 7.1.0
+
+Fixed style bug in no matches message for Carbon themes.
+
+
+Fixed style bug in search message.
+
+
+Added translations for `@searchPlaceholder`, `@resultCountMessage`, `@noMatchesMessage`, `@loadingMessage`, and `@searchMessage` in `Single::Base` and `Multiple::Base`. Added translation for the selected count in `Multiple::Base`.
+
+
+Fixed a memory leak where every reposition added another set of positioning listeners that were never removed.
+
+
 ## 7.0.0
 
 Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.

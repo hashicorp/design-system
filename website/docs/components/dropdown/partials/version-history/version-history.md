@@ -1,3 +1,8 @@
+## 7.1.0
+
+Added `@onOpen` callback argument.
+
+
 ## 7.0.0
 
 Added new value `secondary-muted` for the `@color` argument in `ToggleButton` and `ToggleIcon`

@@ -1,3 +1,8 @@
+## 7.1.0
+
+Reverted removal of bubble opening transition on Carbon themes.
+
+
 ## 6.1.0
 
 Added `@onFocusOut` argument to manage focus for dynamic tooltip content and prevent the tooltip from closing when content changes

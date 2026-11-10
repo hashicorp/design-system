@@ -1,3 +1,7 @@
+## 7.1.0
+
+Added translations for sort announcements and `@selectionAriaLabelSuffix` in `Table` and `ThSelectable`.
+
 ## 7.0.0
 
 Removed `hds-typography-body-200` and `hds-font-weight-regular` classes from `hds-table__td` element in `TableTd`

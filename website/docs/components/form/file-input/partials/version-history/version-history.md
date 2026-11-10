@@ -1,3 +1,8 @@
+## 7.1.0
+
+Removed invalid selectors from the file selector button styles, such as `::file-selector-button.mock-hover` and `::file-selector-button:focus-visible::before`. Browsers ignored these rules, and CSS tools like Lightning CSS (used by Vite) reject them and fail the build.
+
+
 ## 6.1.1
 
 Fixed `FileInputField` signature element to be `HTMLInputElement` instead of `HTMLElement`.

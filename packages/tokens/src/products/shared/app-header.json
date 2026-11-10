@@ -156,7 +156,7 @@
               "cds-g0": "transparent",
               "cds-g10": "transparent",
               "cds-g90": "transparent",
-              "cds-g100": "carbon.themes.g100.backgroundHover"
+              "cds-g100": "transparent"
             }
           },
           "hover": {

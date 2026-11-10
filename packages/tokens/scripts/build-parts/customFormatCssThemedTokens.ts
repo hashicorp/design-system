@@ -110,8 +110,8 @@ const checkIfHasReferencesAndHasBeenTransformed = (token: TransformedToken, dict
     // This checks whether the token's value has been transformed e.g. transitive transforms.
     // see: https://styledictionary.com/reference/utils/references/#resolvereferences
     isTransformed = (
-      // this `value` could be the original one (eg. `#FF0000`, no transformations)
-      // or the transformed one (eg. `#FF0000`→`#FF0000CC` if an `alpha` attribute was applied at token level,
+      // this `value` could be the original one (eg. `#ff0000`, no transformations)
+      // or the transformed one (eg. `#ff0000`→`#ff0000Ccc` if an `alpha` attribute was applied at token level,
       // which triggered the `color/with-alpha` transformation)
       value !== transformedValue
     );
