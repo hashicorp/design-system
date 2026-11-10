@@ -50,7 +50,7 @@ export default class CodeFragmentOnboardingFlowWithBubble extends Component {
   onDone = () => {
     document.getElementById('onboarding-flow-tooltip-toggle')?.focus();
     this.tooltipState = 'close';
-  }
+  };
 
   <template>
     <HdsButton

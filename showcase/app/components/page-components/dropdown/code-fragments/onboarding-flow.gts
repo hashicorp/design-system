@@ -102,7 +102,7 @@ export default class CodeFragmentOnboardingFlow extends Component {
           </RT.Bubble>
         </HdsRichTooltip>
       </D.Generic>
-      {{!-- make sure that tabbing out of tooltip takes you to next element in dropdown --}}
+      {{! make sure that tabbing out of tooltip takes you to next element in dropdown }}
       <D.Interactive @href="#">sdfjhkjf</D.Interactive>
     </HdsDropdown>
   </template>
