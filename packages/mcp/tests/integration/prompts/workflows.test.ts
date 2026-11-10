@@ -44,6 +44,9 @@ const fixtures: PromptFixture[] = [
       "prioritized findings with severity",
       "minimal suggested correction",
       "no supported findings",
+      "search_hds_tokens",
+      "Carbon theme",
+      "--token-* names that tokens 6.0 renamed or removed",
     ],
   },
   {
@@ -66,6 +69,8 @@ const fixtures: PromptFixture[] = [
       "implementation code",
       "ember-qunit integration test examples",
       "do not claim code or tests were executed",
+      "search_hds_tokens",
+      "Carbon theme",
     ],
   },
   {

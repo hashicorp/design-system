@@ -6,7 +6,7 @@
 import { describe, expect, it } from "vitest";
 import { loadIconCatalog } from "../../../src/stores/hds-icons/index.js";
 
-describe("Flight icon catalog", () => {
+describe("HDS icon catalog", () => {
   it("loads the generated package catalog and resolves lookup aliases", () => {
     const store = loadIconCatalog();
     const icon = store.listIcons()[0];
@@ -16,7 +16,7 @@ describe("Flight icon catalog", () => {
     expect(icon).toBeDefined();
 
     if (icon === undefined) {
-      throw new Error("Expected at least one Flight icon");
+      throw new Error("Expected at least one HDS icon");
     }
 
     const detail = store.getIconByName(icon.iconName);

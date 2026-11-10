@@ -11,7 +11,7 @@ export const buildTokenCatalogRow = (
   key: "{border.radius.x-small}",
   $type: "dimension",
   $value: "3px",
-  name: "token-border-radius-x-small",
+  name: "hds-border-radius-x-small",
   attributes: { category: "border" },
   path: ["border", "radius", "x-small"],
   original: {

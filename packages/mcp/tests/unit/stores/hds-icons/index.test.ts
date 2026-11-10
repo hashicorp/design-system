@@ -41,14 +41,14 @@ describe("createIconCatalogStore", () => {
         size: "24",
         width: 24,
         height: 24,
-        mapping: "Warning",
+        mapping: "Warning--alt",
       }),
       buildIconAsset({
         id: "2:1",
         fileName: "arrow-right-16",
         iconName: "arrow-right",
         description: "arrow, direction, next",
-        category: "Navigation",
+        category: "Arrows",
       }),
     ],
   });
@@ -59,7 +59,7 @@ describe("createIconCatalogStore", () => {
     expect(store.getMeta()).toStrictEqual({
       totalIconCount: 2,
       totalAssetCount: 3,
-      categories: ["Alerts", "Navigation"],
+      categories: ["Arrows", "Status"],
       sizes: ["16", "24"],
       source: { version: null, resolvedVia: "default" },
     });
@@ -88,21 +88,21 @@ describe("createIconCatalogStore", () => {
           fileName: "arrow-right-circle-16",
           iconName: "arrow-right-circle",
           description: "arrow, circle",
-          category: "Navigation",
+          category: "Arrows",
         }),
         buildIconAsset({
           id: "2:1",
           fileName: "arrow-right-16",
           iconName: "arrow-right",
           description: "arrow, direction, next",
-          category: "Navigation",
+          category: "Arrows",
         }),
         buildIconAsset({
           id: "1:1",
           fileName: "alert-triangle-16",
           iconName: "alert-triangle",
           description: "alert, warning, caution",
-          category: "Alerts",
+          category: "Status",
         }),
       ],
     };
@@ -158,7 +158,7 @@ describe("createIconCatalogStore", () => {
       store.searchIcons({
         query: "warning",
         limit: 10,
-        category: " ALERTS ",
+        category: " STATUS ",
         hasMapping: true,
       }).hits
     ).toHaveLength(1);
@@ -179,7 +179,7 @@ describe("createIconCatalogStore", () => {
     });
     // the filtered count is the filtered total, not the catalog total
     expect(
-      store.searchIcons({ query: "", limit: 10, category: "Navigation" })
+      store.searchIcons({ query: "", limit: 10, category: "Arrows" })
     ).toStrictEqual({
       totalMatches: 1,
       hits: [expect.objectContaining({ iconName: "arrow-right" })],

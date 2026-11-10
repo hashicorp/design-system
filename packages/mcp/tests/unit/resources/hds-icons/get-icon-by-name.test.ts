@@ -23,7 +23,7 @@ const store = createIconCatalogStore({
       id: "2:1",
       iconName: "arrow-right",
       fileName: "arrow-right-24",
-      category: "Navigation",
+      category: "Arrows",
       size: "24",
       width: 24,
       height: 24,

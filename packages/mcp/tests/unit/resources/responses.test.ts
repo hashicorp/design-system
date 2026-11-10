@@ -16,7 +16,7 @@ import { buildRequestHandlerExtra } from "../../support/request-handler.js";
 
 describe("toJsonResourceResponse", () => {
   it("returns a single content entry with the correct uri, mimeType, and serialized payload", () => {
-    const uri = "hds://tokens/token-color-palette-blue-200";
+    const uri = "hds://tokens/hds-core-color-blue-200";
     const payload = { found: true, count: 42, tags: ["a", "b"] };
     const result = toJsonResourceResponse(uri, payload);
     const [entry] = result.contents;
