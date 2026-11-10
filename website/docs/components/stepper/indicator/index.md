@@ -47,10 +47,6 @@ navigation:
   @include "partials/accessibility/accessibility.md"
 </section>
 
-<section data-tab="Carbon theme">
-  @include "partials/carbon-theme/carbon-theme.md"
-</section>
-
 <section data-tab="Version history">
   @include "partials/version-history/version-history.md"
 </section>
