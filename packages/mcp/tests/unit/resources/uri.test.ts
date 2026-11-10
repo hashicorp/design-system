@@ -28,8 +28,8 @@ describe("buildDetailUri", () => {
 
 describe("decodeUriSegment", () => {
   it("decodes percent-encoded segments", () => {
-    expect(decodeUriSegment("%7Bcolor.foreground.action%7D")).toBe(
-      "{color.foreground.action}",
+    expect(decodeUriSegment("%7Bforeground.color.action%7D")).toBe(
+      "{foreground.color.action}",
     );
     expect(decodeUriSegment("Hds%3A%3AButton")).toBe("Hds::Button");
   });

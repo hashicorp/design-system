@@ -55,6 +55,11 @@ export const normalizeRoute = (value: string): string => {
   return normalizeLookupValue(value).replace(/^\/+|\/+$/g, "");
 };
 
+// a tab label, which passage ids carry as a slug: `Carbon theme` and `carbon-theme` are one tab
+export const normalizeTabValue = (value: string): string => {
+  return normalizeLookupValue(value).replace(/[^a-z0-9]+/gu, " ").trim();
+};
+
 export const toPageRecord = (page: DocsPage): DocsPageRecord => {
   return {
     route: page.route,
@@ -132,7 +137,7 @@ export const matchesFilters = (
 
   if (
     filters.tab !== undefined &&
-    (chunk.tab === undefined || normalizeLookupValue(chunk.tab) !== filters.tab)
+    (chunk.tab === undefined || normalizeTabValue(chunk.tab) !== filters.tab)
   ) {
     return false;
   }

@@ -11,27 +11,27 @@ import type { TokenSummary } from "../../../../src/stores/tokens/lookup.js";
 describe("toSerializableTokenSummary", () => {
   it("maps field values correctly", () => {
     const summary: TokenSummary = {
-      key: "token-color-palette-blue-200",
-      name: "token.color.palette.blue.200",
+      key: "{core.color.blue-200}",
+      name: "hds-core-color-blue-200",
       type: "color",
-      value: "#e8f1ff",
-      cssVar: "--token.color.palette.blue.200",
-      category: "palette",
+      value: "#1060ff",
+      cssVar: "--hds-core-color-blue-200",
+      category: "core",
       attributes: {
-        category: "color",
+        category: "core",
       },
-      path: ["token", "color", "palette", "blue", "200"],
+      path: ["core", "color", "blue-200"],
     };
     const result = toSerializableTokenSummary(summary);
 
     expect(result).toStrictEqual({
-      key: "token-color-palette-blue-200",
-      name: "token.color.palette.blue.200",
+      key: "{core.color.blue-200}",
+      name: "hds-core-color-blue-200",
       type: "color",
-      value: "#e8f1ff",
-      cssVar: "--token.color.palette.blue.200",
-      category: "palette",
-      path: ["token", "color", "palette", "blue", "200"],
+      value: "#1060ff",
+      cssVar: "--hds-core-color-blue-200",
+      category: "core",
+      path: ["core", "color", "blue-200"],
     });
   });
 });

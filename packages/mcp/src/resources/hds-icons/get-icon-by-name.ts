@@ -61,7 +61,7 @@ export const createGetIconByNameResource = (
     name: "get_hds_icon",
     uriTemplate: ICON_BY_NAME_URI_TEMPLATE,
     title: "HDS icon detail",
-    description: "Detailed Flight icon record for a specific icon name",
+    description: "Detailed HDS icon record for a specific icon name",
     variableName: "iconName",
     complete: withSafeCompletion("get_hds_icon", (value) =>
       completeIconNames(getStore().listIconAliases(), value),

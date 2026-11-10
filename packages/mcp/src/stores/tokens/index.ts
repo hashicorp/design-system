@@ -13,6 +13,11 @@ import {
   normalizeTokenLookupKey,
   toTokenRecord,
 } from "./lookup.js";
+import {
+  NO_TOKEN_MIGRATIONS,
+  getOrLoadTokenMigrations,
+  normalizeTokenName,
+} from "./migrations.js";
 import { tokenCatalogSchema } from "./schema.js";
 import { searchRanked } from "../rank.js";
 
@@ -21,6 +26,7 @@ import type { RankableEntry } from "../rank.js";
 import type { CatalogSource } from "../../catalog/loader.js";
 import type { CatalogSearchOutcome } from "../types.js";
 import type { TokenRecord, TokenSummary } from "./lookup.js";
+import type { TokenMigration, TokenMigrations } from "./migrations.js";
 import type { TokenCatalogRow, TokenType } from "./schema.js";
 
 type SearchTokensInput = {
@@ -38,6 +44,8 @@ export type TokenCatalogStore = {
   };
   listTokens: () => TokenSummary[];
   getTokenByKey: (key: string) => TokenRecord | null;
+  // what became of a name that is not a token in this catalog but was before a major release
+  findMigration: (name: string) => TokenMigration | null;
   searchTokens: (
     input: SearchTokensInput,
   ) => CatalogSearchOutcome<TokenSummary>;
@@ -86,6 +94,7 @@ export const parseTokenCatalog = (value: unknown): TokenCatalogRow[] => {
 export const createTokenCatalogStore = (
   rows: TokenCatalogRow[],
   source: CatalogSource = DEFAULT_CATALOG_SOURCE,
+  migrations: TokenMigrations = NO_TOKEN_MIGRATIONS,
 ): TokenCatalogStore => {
   const tokenRecords = rows.map((row) => toTokenRecord(row));
   const tokenLookup = new Map<string, TokenRecord>();
@@ -117,6 +126,12 @@ export const createTokenCatalogStore = (
       tokenRecords.map(({ original: _original, ...summary }) => summary),
     getTokenByKey: (key: string) => {
       return tokenLookup.get(normalizeTokenLookupKey(key)) ?? null;
+    },
+    // an app on a tokens release from before the rename still has the old name as a real token
+    findMigration: (name: string) => {
+      return tokenLookup.has(normalizeTokenName(name))
+        ? null
+        : migrations.find(name);
     },
     searchTokens: ({ query, limit, type, category }: SearchTokensInput) => {
       const normalizedCategory =
@@ -152,7 +167,11 @@ const tokenCatalogLoader = createCatalogLoader<TokenCatalogStore>({
   specifier: "@hashicorp/design-system-tokens/dist/docs/products/tokens.json",
   anchors: ["project-root", "components", "default"],
   create: (value, source) =>
-    createTokenCatalogStore(parseTokenCatalog(value), source),
+    createTokenCatalogStore(
+      parseTokenCatalog(value),
+      source,
+      getOrLoadTokenMigrations(),
+    ),
 });
 
 export const loadTokenCatalog = (): TokenCatalogStore => {

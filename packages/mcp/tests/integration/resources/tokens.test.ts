@@ -45,6 +45,7 @@ const buildStore = ({
     }),
     listTokens: () => tokens,
     getTokenByKey: () => tokenByKey,
+    findMigration: () => null,
     searchTokens: () => ({ totalMatches: 0, hits: [] }),
   };
 };
@@ -52,16 +53,16 @@ const buildStore = ({
 describe("tokens resource", () => {
   it("returns token index payload for hds://tokens", () => {
     const token: TokenSummary = {
-      key: "token-color-palette-blue-200",
-      name: "token.color.palette.blue.200",
+      key: "{core.color.blue-200}",
+      name: "hds-core-color-blue-200",
       type: "color",
-      value: "#e8f1ff",
-      cssVar: "--token.color.palette.blue.200",
-      category: "palette",
+      value: "#1060ff",
+      cssVar: "--hds-core-color-blue-200",
+      category: "core",
       attributes: {
-        category: "color",
+        category: "core",
       },
-      path: ["token", "color", "palette", "blue", "200"],
+      path: ["core", "color", "blue-200"],
     };
     const store = buildStore({ tokens: [token], tokenByKey: null });
     const response = readTokensResource(store);
@@ -89,21 +90,21 @@ describe("tokens resource", () => {
   });
 
   it("returns detailed token payload when token exists", () => {
-    const tokenKey = "token-color-palette-blue-200";
+    const tokenKey = "{core.color.blue-200}";
     const token: TokenRecord = {
       key: tokenKey,
-      name: "token.color.palette.blue.200",
+      name: "hds-core-color-blue-200",
       type: "color",
-      value: "#e8f1ff",
-      cssVar: "--token.color.palette.blue.200",
-      category: "palette",
+      value: "#1060ff",
+      cssVar: "--hds-core-color-blue-200",
+      category: "core",
       attributes: {
-        category: "color",
+        category: "core",
       },
-      path: ["token", "color", "palette", "blue", "200"],
+      path: ["core", "color", "blue-200"],
       original: {
         $type: "color",
-        $value: "#e8f1ff",
+        $value: "#1060ff",
         key: tokenKey,
       },
     };
@@ -131,7 +132,7 @@ describe("tokens resource", () => {
   });
 
   it("returns not found payload when token does not exist", () => {
-    const tokenKey = "token-not-real";
+    const tokenKey = "hds-not-real";
     const store = buildStore({ tokens: [], tokenByKey: null });
     const response = readTokenByKeyResource(store, tokenKey);
     const [{ uri, ...content }] = response.contents;
@@ -146,24 +147,50 @@ describe("tokens resource", () => {
     });
   });
 
+  it("answers an old token name with what replaced it", () => {
+    const store: TokenCatalogStore = {
+      ...buildStore({ tokens: [], tokenByKey: null }),
+      findMigration: () => ({
+        before: "--token-color-foreground-action",
+        after: "--hds-foreground-color-action",
+        version: "6.0.0",
+      }),
+    };
+    const [content] = readTokenByKeyResource(
+      store,
+      "--token-color-foreground-action",
+    ).contents;
+
+    expect(parseResourceJson(getTextContent(content))).toStrictEqual({
+      found: false,
+      requestedTokenKey: "--token-color-foreground-action",
+      message: "Token renamed to --hds-foreground-color-action in 6.0.0.",
+      migration: {
+        before: "--token-color-foreground-action",
+        after: "--hds-foreground-color-action",
+        version: "6.0.0",
+      },
+    });
+  });
+
   it("encodes token keys in token detail URI", () => {
-    const tokenKey = "token.color.palette.blue/200";
+    const tokenKey = "core.color.blue/200";
     const token: TokenRecord = {
       key: tokenKey,
-      name: "token.color.palette.blue.200",
+      name: "hds-core-color-blue-200",
       type: "color",
-      value: "#e8f1ff",
-      cssVar: "--token.color.palette.blue.200",
-      category: "palette",
+      value: "#1060ff",
+      cssVar: "--hds-core-color-blue-200",
+      category: "core",
       attributes: {
-        category: "color",
+        category: "core",
       },
-      path: ["token", "color", "palette", "blue", "200"],
+      path: ["core", "color", "blue-200"],
     };
     const store = buildStore({ tokens: [], tokenByKey: token });
     const response = readTokenByKeyResource(store, tokenKey);
     const [{ uri }] = response.contents;
 
-    expect(uri).toBe("hds://tokens/token.color.palette.blue%2F200");
+    expect(uri).toBe("hds://tokens/core.color.blue%2F200");
   });
 });

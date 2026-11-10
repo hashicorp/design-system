@@ -106,5 +106,7 @@ export const getTokenLookupKeys = (row: TokenCatalogRow): string[] => {
     normalizeTokenLookupKey(row.key),
     normalizeTokenLookupKey(dotPath),
     normalizeTokenLookupKey(row.name),
+    // the website writes token names without the prefix, e.g. `foreground-color-primary`
+    normalizeTokenLookupKey(row.name.replace(/^hds-/u, "")),
   ];
 };
