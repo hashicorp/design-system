@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
@@ -43,6 +43,12 @@ export default class CodeFragmentOnboardingFlow extends Component {
     this.tooltipState = 'close';
   };
 
+  onDone = () => {
+    // have to first manually move focus back to the tooltip toggle
+    document.getElementById('onboarding-flow-tooltip-toggle')?.focus();
+    this.tooltipState = 'close';
+  };
+
   <template>
     <HdsButton
       @text="Try it out"
@@ -76,7 +82,11 @@ export default class CodeFragmentOnboardingFlow extends Component {
           @onClose={{this.onTooltipClose}}
           as |RT|
         >
-          <RT.Toggle @text="Theme (New)" @size="medium" />
+          <RT.Toggle
+            id="onboarding-flow-tooltip-toggle"
+            @text="Theme (New)"
+            @size="medium"
+          />
           <RT.Bubble @placement="left-start">
             <HdsLayoutFlex @direction="column" @gap="8">
               <HdsTextBody @color="strong" @weight="semibold">Choose your theme</HdsTextBody>
@@ -86,12 +96,14 @@ export default class CodeFragmentOnboardingFlow extends Component {
               <HdsButton
                 @text="Done"
                 @size="small"
-                {{on "click" this.onTooltipClose}}
+                {{on "click" this.onDone}}
               />
             </HdsLayoutFlex>
           </RT.Bubble>
         </HdsRichTooltip>
       </D.Generic>
+      {{!-- make sure that tabbing out of tooltip takes you to next element in dropdown --}}
+      <D.Interactive @href="#">sdfjhkjf</D.Interactive>
     </HdsDropdown>
   </template>
 }

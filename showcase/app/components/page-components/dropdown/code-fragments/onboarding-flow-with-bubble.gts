@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
@@ -47,6 +47,11 @@ export default class CodeFragmentOnboardingFlowWithBubble extends Component {
     this.tooltipState = 'close';
   };
 
+  onDone = () => {
+    document.getElementById('onboarding-flow-tooltip-toggle')?.focus();
+    this.tooltipState = 'close';
+  }
+
   <template>
     <HdsButton
       @text="Try it out"
@@ -83,6 +88,7 @@ export default class CodeFragmentOnboardingFlowWithBubble extends Component {
           {{PP.setupPrimitiveToggle}}
           aria-describedby={{this.popoverId}}
           aria-expanded={{if PP.isOpen "true" "false"}}
+          id="onboarding-flow-tooltip-toggle"
         >
           Theme (New)
         </D.Interactive>
@@ -105,7 +111,7 @@ export default class CodeFragmentOnboardingFlowWithBubble extends Component {
               <HdsButton
                 @text="Done"
                 @size="small"
-                {{on "click" this.onTooltipClose}}
+                {{on "click" this.onDone}}
               />
             </HdsLayoutFlex>
           </HdsRichTooltipBubble>
