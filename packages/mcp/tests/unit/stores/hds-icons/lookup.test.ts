@@ -30,6 +30,7 @@ describe("toIconRecord", () => {
       category: "Alerts",
       sizes: ["16", "24"],
       hasMapping: true,
+      carbonIconName: "Warning",
       variants: [
         {
           id: "1:1",
@@ -57,6 +58,22 @@ describe("toIconRecord", () => {
     ]);
 
     expect(record.description).toBe("warning");
+  });
+
+  it("takes only a Carbon icon name as a mapping, not a free-text note", () => {
+    expect(
+      toIconRecord([buildIconAsset({ mapping: "warning--diamond-fill" })])
+        .carbonIconName,
+    ).toBe("warning--diamond-fill");
+
+    // flight-icons 5.0.0 wrote notes like these into the same field
+    for (const note of ["No Carbon equivalent.\nTBD", "Maps to: Folder--shared"]) {
+      const record = toIconRecord([buildIconAsset({ mapping: note })]);
+
+      expect(record.hasMapping).toBe(false);
+      expect(record).not.toHaveProperty("carbonIconName");
+      expect(record.variants[0]).not.toHaveProperty("mapping");
+    }
   });
 
   it("rejects an empty asset group", () => {

@@ -54,28 +54,40 @@ const toIconSummary = (icon: IconRecord): IconSummary => {
     category: icon.category,
     sizes: icon.sizes,
     hasMapping: icon.hasMapping,
+    ...(icon.carbonIconName === undefined
+      ? {}
+      : { carbonIconName: icon.carbonIconName }),
   };
 };
 
 const toSearchBlob = (icon: IconRecord): string => {
-  const mappings = icon.variants
-    .map((variant) => variant.mapping ?? "")
-    .join(" ");
   const fileNames = icon.variants.map((variant) => variant.fileName).join(" ");
 
-  return [icon.iconName, icon.description, icon.category, mappings, fileNames]
+  return [
+    icon.iconName,
+    icon.description,
+    icon.category,
+    icon.carbonIconName ?? "",
+    fileNames,
+  ]
     .join(" ")
     .toLowerCase();
 };
 
 // the `@name` value and the per-size file names; the description keywords stay in the blob so
-// `warning` still reaches `alert-triangle` without outranking an icon actually named for it
+// `warning` still reaches `alert-triangle` without outranking an icon actually named for it.
+// The whole Carbon name ranks just below them, so `Close` finds `x` but `box` still finds `box`
+// rather than `archive`, whose Carbon name is `Box`
 const toRankable = (icon: IconRecord): RankableEntry => {
   return {
     identities: [
       normalizeLookupValue(icon.iconName),
       ...icon.variants.map((variant) => normalizeLookupValue(variant.fileName)),
     ],
+    secondaryIdentities:
+      icon.carbonIconName === undefined
+        ? []
+        : [normalizeLookupValue(icon.carbonIconName)],
     blob: toSearchBlob(icon),
   };
 };

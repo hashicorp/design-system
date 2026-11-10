@@ -46,13 +46,14 @@ describe("Flight icon serialization", () => {
     });
   });
 
-  it("includes mapping in variant serialization when present", () => {
+  it("includes the Carbon icon name, and each variant's mapping, when present", () => {
     expect(toSerializableIcon(iconWithMapping)).toStrictEqual({
       iconName: "alert-triangle",
       description: "alert, warning, caution",
       category: "Alerts",
       sizes: ["16"],
       hasMapping: true,
+      carbonIconName: "Warning",
       variants: [
         {
           id: "1:1",

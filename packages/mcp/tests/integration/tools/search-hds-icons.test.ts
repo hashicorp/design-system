@@ -105,6 +105,19 @@ describe("search_hds_icons payload", () => {
     ).toStrictEqual(["alert-triangle"]);
   });
 
+  it("names the Carbon icon an icon maps to, and finds the icon by it", () => {
+    const [icon] = search({ query: "Warning" }).results;
+
+    expect(icon).toStrictEqual({
+      iconName: "alert-triangle",
+      description: "alert, warning, caution",
+      category: "Alerts",
+      sizes: ["16", "24"],
+      hasMapping: true,
+      carbonIconName: "Warning",
+    });
+  });
+
   it("answers a miss with an empty result set rather than an error", () => {
     const payload = search({ query: "spaceship" });
 
