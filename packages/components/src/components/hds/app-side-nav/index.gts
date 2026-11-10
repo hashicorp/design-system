@@ -247,12 +247,12 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
       {{focusTrap isActive=this.shouldTrapFocus}}
       {{this._setUpBodyElement}}
     >
-      <h2 class="sr-only" id="hds-app-side-nav-header">
+      <div class="sr-only" id="hds-app-side-nav-header">
         {{hdsT
           "hds.components.app-side-nav.screen-reader-label"
           default="Application local navigation"
         }}
-      </h2>
+      </div>
 
       <div class="hds-app-side-nav__wrapper">
         {{#if this.showToggleButton}}
