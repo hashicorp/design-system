@@ -1,3 +1,8 @@
+## 7.1.0
+
+Fixed a memory leak where the positioning listeners on `window`, `visualViewport`, and scrollable ancestors were never removed, keeping destroyed popovers and their owners in memory. This also affects `Dropdown`, `RichTooltip`, and `Breadcrumb` truncation.
+
+
 ## 6.1.0
 
 Added `@onFocusOut` argument to manage focus for dynamic popover content and prevent the popover from closing when content changes

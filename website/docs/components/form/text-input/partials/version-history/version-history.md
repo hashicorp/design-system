@@ -1,3 +1,8 @@
+## 7.1.0
+
+Corrected translation key for the password-hidden announcement in `TextInput::Field`.
+
+
 ## 6.6.0
 
 Fixed a few accessibility issues in `Form::TextInput::Field`, including:

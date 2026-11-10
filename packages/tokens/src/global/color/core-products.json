@@ -3,15 +3,15 @@
     "color": {
       "hashicorp-brand": {
         "$type": "color",
-        "$value": "#000000",
+        "$value": "#000",
         "group": "core",
         "private": "true",
         "$modes": {
-          "default": "#000000",
-          "cds-g0": "#000000",
-          "cds-g10": "#000000",
-          "cds-g90": "#FFFFFF",
-          "cds-g100": "#FFFFFF"
+          "default": "#000",
+          "cds-g0": "#000",
+          "cds-g10": "#000",
+          "cds-g90": "#fff",
+          "cds-g100": "#fff"
         }
       },
       "boundary-brand": {
@@ -112,15 +112,15 @@
       },
       "hcp-brand": {
         "$type": "color",
-        "$value": "#000000",
+        "$value": "#000",
         "group": "core",
         "private": "true",
         "$modes": {
-          "default": "#000000",
-          "cds-g0": "#000000",
-          "cds-g10": "#000000",
-          "cds-g90": "#FFFFFF",
-          "cds-g100": "#FFFFFF"
+          "default": "#000",
+          "cds-g0": "#000",
+          "cds-g10": "#000",
+          "cds-g90": "#fff",
+          "cds-g100": "#fff"
         }
       },
       "nomad-brand": {

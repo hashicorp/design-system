@@ -8,9 +8,19 @@ related:
   - patterns/theme-selection
 previewImage: assets/illustrations/theming/theming-service.jpg
 navigation:
-  keywords: ['theming', 'theme', 'mode', 'light', 'dark', 'carbon', 'cds', 'g0', 'g10', 'g90', 'g100', 'service']
-status:
-  added: 7.0.0
+  keywords:
+    - theming
+    - theme
+    - mode
+    - light
+    - dark
+    - carbon
+    - cds
+    - g0
+    - g10
+    - g90
+    - g100
+    - service
 ---
 
 <section data-tab="Code">

@@ -1,3 +1,11 @@
+## 7.1.0
+
+Fixed incorrect placement of `sr-only` highlight markers when `@lineNumberStart` is defined.
+
+
+Added translations for `@copyButtonText` and the screen-reader markers for the start and end of highlighted lines.
+
+
 ## 7.0.0
 
 Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.

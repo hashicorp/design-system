@@ -51,7 +51,7 @@
       },
       "rounded": {
         "$type": "dimension",
-        "$value": "1000000000",
+        "$value": "9999",
         "unit": "px"
       }
     }

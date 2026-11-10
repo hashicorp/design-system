@@ -6225,48 +6225,6 @@ button.hds-button[href]::after {
   background-color: var(--hds-button-surface-color-secondary-default);
   border-color: var(--hds-button-border-color-secondary-default);
   box-shadow: var(--hds-elevation-low-box-shadow);
-}
-.hds-form-file-input::file-selector-button:hover, .hds-form-file-input::file-selector-button.mock-hover {
-  color: var(--hds-button-foreground-color-secondary-hover);
-  background-color: var(--hds-button-surface-color-secondary-hover);
-  border-color: var(--hds-button-border-color-secondary-hover);
-  cursor: pointer;
-}
-.hds-form-file-input::file-selector-button:focus-visible, .hds-form-file-input::file-selector-button.mock-focus {
-  outline: none;
-}
-.hds-form-file-input::file-selector-button:focus-visible::before, .hds-form-file-input::file-selector-button.mock-focus::before {
-  position: absolute;
-  inset: -1px;
-  z-index: -1;
-  border: var(--hds-focus-ring-width-internal) solid var(--hds-focus-color-action-internal);
-  border-radius: inherit;
-  outline: var(--hds-focus-ring-width-external) solid var(--hds-focus-color-action-external);
-  outline-offset: 0;
-  content: "";
-  pointer-events: auto;
-}
-.hds-theme-light .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-light .hds-form-file-input::file-selector-button.mock-focus::before,
-.hds-theme-dark .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-dark .hds-form-file-input::file-selector-button.mock-focus::before,
-.hds-theme-system .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-system .hds-form-file-input::file-selector-button.mock-focus::before {
-  inset: 1px;
-  border-width: 1px;
-}
-
-.hds-form-file-input::file-selector-button:focus-visible, .hds-form-file-input::file-selector-button.mock-focus {
-  color: var(--hds-button-foreground-color-secondary-focus);
-  background-color: var(--hds-button-surface-color-secondary-focus);
-}
-.hds-form-file-input::file-selector-button:active, .hds-form-file-input::file-selector-button.mock-active {
-  color: var(--hds-button-foreground-color-secondary-active);
-  background-color: var(--hds-button-surface-color-secondary-active);
-  border-color: var(--hds-button-border-color-secondary-active);
-  box-shadow: none;
-}
-.hds-form-file-input::file-selector-button:active::before, .hds-form-file-input::file-selector-button.mock-active::before {
-  border-color: transparent;
-}
-.hds-form-file-input::file-selector-button {
   display: inline-flex;
   min-height: var(--hds-form-file-input-button-height);
   margin-right: 16px;
@@ -6286,71 +6244,6 @@ button.hds-button[href]::after {
   background-color: var(--hds-button-surface-color-primary-default);
   border-color: var(--hds-button-border-color-primary-default);
   box-shadow: var(--hds-elevation-low-box-shadow);
-}
-.hds-theme-light .hds-form-file-input::file-selector-button:hover, .hds-theme-light .hds-form-file-input::file-selector-button.mock-hover,
-.hds-theme-dark .hds-form-file-input::file-selector-button:hover,
-.hds-theme-dark .hds-form-file-input::file-selector-button.mock-hover,
-.hds-theme-system .hds-form-file-input::file-selector-button:hover,
-.hds-theme-system .hds-form-file-input::file-selector-button.mock-hover {
-  color: var(--hds-button-foreground-color-primary-hover);
-  background-color: var(--hds-button-surface-color-primary-hover);
-  border-color: var(--hds-button-border-color-primary-hover);
-  cursor: pointer;
-}
-.hds-theme-light .hds-form-file-input::file-selector-button:focus-visible, .hds-theme-light .hds-form-file-input::file-selector-button.mock-focus,
-.hds-theme-dark .hds-form-file-input::file-selector-button:focus-visible,
-.hds-theme-dark .hds-form-file-input::file-selector-button.mock-focus,
-.hds-theme-system .hds-form-file-input::file-selector-button:focus-visible,
-.hds-theme-system .hds-form-file-input::file-selector-button.mock-focus {
-  outline: none;
-}
-.hds-theme-light .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-light .hds-form-file-input::file-selector-button.mock-focus::before,
-.hds-theme-dark .hds-form-file-input::file-selector-button:focus-visible::before,
-.hds-theme-dark .hds-form-file-input::file-selector-button.mock-focus::before,
-.hds-theme-system .hds-form-file-input::file-selector-button:focus-visible::before,
-.hds-theme-system .hds-form-file-input::file-selector-button.mock-focus::before {
-  position: absolute;
-  inset: -1px;
-  z-index: -1;
-  border: var(--hds-focus-ring-width-internal) solid var(--hds-focus-color-action-internal);
-  border-radius: inherit;
-  outline: var(--hds-focus-ring-width-external) solid var(--hds-focus-color-action-external);
-  outline-offset: 2px;
-  content: "";
-  pointer-events: auto;
-}
-.hds-theme-light .hds-theme-light .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-light .hds-theme-light .hds-form-file-input::file-selector-button.mock-focus::before, .hds-theme-light .hds-theme-dark .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-light .hds-theme-dark .hds-form-file-input::file-selector-button.mock-focus::before, .hds-theme-light .hds-theme-system .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-light .hds-theme-system .hds-form-file-input::file-selector-button.mock-focus::before,
-.hds-theme-dark .hds-theme-light .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-dark .hds-theme-light .hds-form-file-input::file-selector-button.mock-focus::before, .hds-theme-dark .hds-theme-dark .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-dark .hds-theme-dark .hds-form-file-input::file-selector-button.mock-focus::before, .hds-theme-dark .hds-theme-system .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-dark .hds-theme-system .hds-form-file-input::file-selector-button.mock-focus::before,
-.hds-theme-system .hds-theme-light .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-system .hds-theme-light .hds-form-file-input::file-selector-button.mock-focus::before, .hds-theme-system .hds-theme-dark .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-system .hds-theme-dark .hds-form-file-input::file-selector-button.mock-focus::before, .hds-theme-system .hds-theme-system .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-system .hds-theme-system .hds-form-file-input::file-selector-button.mock-focus::before {
-  inset: 1px;
-  outline-offset: 0;
-  border-width: 1px;
-}
-
-.hds-theme-light .hds-form-file-input::file-selector-button:focus-visible, .hds-theme-light .hds-form-file-input::file-selector-button.mock-focus,
-.hds-theme-dark .hds-form-file-input::file-selector-button:focus-visible,
-.hds-theme-dark .hds-form-file-input::file-selector-button.mock-focus,
-.hds-theme-system .hds-form-file-input::file-selector-button:focus-visible,
-.hds-theme-system .hds-form-file-input::file-selector-button.mock-focus {
-  color: var(--hds-button-foreground-color-primary-focus);
-  background-color: var(--hds-button-surface-color-primary-focus);
-}
-.hds-theme-light .hds-form-file-input::file-selector-button:active, .hds-theme-light .hds-form-file-input::file-selector-button.mock-active,
-.hds-theme-dark .hds-form-file-input::file-selector-button:active,
-.hds-theme-dark .hds-form-file-input::file-selector-button.mock-active,
-.hds-theme-system .hds-form-file-input::file-selector-button:active,
-.hds-theme-system .hds-form-file-input::file-selector-button.mock-active {
-  color: var(--hds-button-foreground-color-primary-active);
-  background-color: var(--hds-button-surface-color-primary-active);
-  border-color: var(--hds-button-border-color-primary-active);
-  box-shadow: none;
-}
-.hds-theme-light .hds-form-file-input::file-selector-button:active::before, .hds-theme-light .hds-form-file-input::file-selector-button.mock-active::before,
-.hds-theme-dark .hds-form-file-input::file-selector-button:active::before,
-.hds-theme-dark .hds-form-file-input::file-selector-button.mock-active::before,
-.hds-theme-system .hds-form-file-input::file-selector-button:active::before,
-.hds-theme-system .hds-form-file-input::file-selector-button.mock-active::before {
-  border-color: transparent;
 }
 
 .hds-form-file-input:not(:disabled, [disabled], .mock-disabled)::file-selector-button:hover,
@@ -6406,10 +6299,6 @@ button.hds-button[href]::after {
   border-color: var(--hds-button-border-color-secondary-active);
   box-shadow: none;
 }
-.hds-form-file-input::file-selector-button:active::before,
-.hds-form-file-input.mock-active::file-selector-button::before {
-  border-color: transparent;
-}
 .hds-theme-light .hds-form-file-input::file-selector-button:active, .hds-theme-light .hds-form-file-input.mock-active::file-selector-button,
 .hds-theme-dark .hds-form-file-input::file-selector-button:active, .hds-theme-dark .hds-form-file-input.mock-active::file-selector-button,
 .hds-theme-system .hds-form-file-input::file-selector-button:active, .hds-theme-system .hds-form-file-input.mock-active::file-selector-button {
@@ -6417,11 +6306,6 @@ button.hds-button[href]::after {
   background-color: var(--hds-button-surface-color-primary-active);
   border-color: var(--hds-button-border-color-primary-active);
   box-shadow: none;
-}
-.hds-theme-light .hds-form-file-input::file-selector-button:active::before, .hds-theme-light .hds-form-file-input.mock-active::file-selector-button::before,
-.hds-theme-dark .hds-form-file-input::file-selector-button:active::before, .hds-theme-dark .hds-form-file-input.mock-active::file-selector-button::before,
-.hds-theme-system .hds-form-file-input::file-selector-button:active::before, .hds-theme-system .hds-form-file-input.mock-active::file-selector-button::before {
-  border-color: transparent;
 }
 
 .hds-form-file-input:disabled, .hds-form-file-input[disabled], .hds-form-file-input.mock-disabled, .hds-form-file-input:disabled:focus, .hds-form-file-input[disabled]:focus, .hds-form-file-input.mock-disabled:focus, .hds-form-file-input:disabled:hover, .hds-form-file-input[disabled]:hover, .hds-form-file-input:disabled.mock-hover, .hds-form-file-input[disabled].mock-hover {
@@ -9682,6 +9566,7 @@ button.hds-button[href]::after {
 .hds-theme-dark .hds-pagination-size-selector > .hds-form-select,
 .hds-theme-system .hds-pagination-size-selector > .hds-form-select {
   margin-left: 0;
+  padding-right: 24px;
   background-color: transparent;
   border: 0;
 }

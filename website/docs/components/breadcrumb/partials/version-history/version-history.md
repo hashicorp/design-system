@@ -1,3 +1,8 @@
+## 7.1.0
+
+Added translation for `@ariaLabel` in `Breadcrumb` and `Breadcrumb::Truncation`.
+
+
 ## 6.2.1
 
 Switched usage of inline styles with `ember-style-modifier`.

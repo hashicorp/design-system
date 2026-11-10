@@ -30,7 +30,7 @@ const POPOVER_ID = 'doc-version-switcher-popover';
 const POPOVER_TITLE_ID = 'doc-version-switcher-title';
 
 // Note: for now we use a static version, later we can understand if/how we can read the value directly from the `@hashicorp/design-system-components` package (dependency)
-const CURRENT_VERSION = '7.0.0';
+const CURRENT_VERSION = '7.1.0';
 
 // This format is defined in `.github/workflows/create-vercel-alias.yml`
 const ARCHIVED_HOSTNAME_REGEX = /^hds-website-\d+-\d+-\d+\.vercel\.app$/;
