@@ -46,7 +46,7 @@ We strongly recommend providing visible chevrons on most instances of ToggleIcon
 
 ### Placement
 
-Lists can be positioned to the left or right of the Toggle, and above or below the Toggle to fit more appropriately within the UI. Lists do not currently have collision detection.
+Lists can be positioned to the left or right of the Toggle, and above or below the Toggle to fit more appropriately within the UI. Collision detection can be enabled to automatically adapt the list position relative to the viewport.
 
 ![Dropdown list placement examples](/assets/components/dropdown/dropdown-placement.png)
 

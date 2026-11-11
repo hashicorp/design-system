@@ -2,7 +2,7 @@
 
 **Consumer responsibility**
 
-While HDS components support [internationalization](/getting-started/for-engineers#internationlization), the technical implementation and translations are the responsibility of consumers.
+While HDS components support [internationalization](/getting-started/for-engineers#internationalization), the technical implementation and translations are the responsibility of consumers.
 !!!
 
 ### Basic implementation
