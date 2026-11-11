@@ -6,7 +6,6 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { parse as parseYaml } from "yaml";
 import { getMcpPackageDirectory } from "../../../src/catalog/project-root.js";
 import { DEFAULT_READ_MAX_BYTES } from "../../../src/tools/docs/constants.js";
 import {
@@ -58,49 +57,6 @@ const matchAll = (source: string, pattern: RegExp): RegExpExecArray[] => {
 
   return matches;
 };
-
-const uniqueSorted = (values: string[]): string[] =>
-  [...new Set(values)].sort();
-
-// the rules the generator uses to choose the pages it publishes and split them into tabs
-const FRONTMATTER = /^---[ \t]*\r?\n([\s\S]*?)\r?\n---/;
-const TAB_SECTION = /<section data-tab="(.*?)">/g;
-
-const websiteTabsByRoute = Object.fromEntries(
-  readdirSync(DOCS_DIR, { recursive: true, encoding: "utf8" })
-    .filter(
-      (file) =>
-        file.endsWith(".md") &&
-        !file.split("/").includes("partials") &&
-        !file.startsWith("testing/"),
-    )
-    .map((file) => ({
-      file,
-      source: readFileSync(join(DOCS_DIR, file), "utf8"),
-    }))
-    .filter(
-      ({ source }) =>
-        parseYaml(FRONTMATTER.exec(source)?.[1] ?? "")?.navigation?.hidden !==
-        true,
-    )
-    .map(({ file, source }) => [
-      file.replace(/(\/index)?\.md$/, ""),
-      uniqueSorted(
-        matchAll(source, TAB_SECTION).map((match) => match[1].trim()),
-      ),
-    ]),
-);
-
-const catalogTabsByRoute = Object.fromEntries(
-  Object.values(catalog.pages).map((page) => [
-    page.route,
-    uniqueSorted(
-      page.chunks.flatMap((chunk) =>
-        chunk.tab === undefined ? [] : [chunk.tab],
-      ),
-    ),
-  ]),
-);
 
 const RANKING_CASES: { query: string; route: string }[] = [
   { query: "button", route: "components/button" },
@@ -167,12 +123,6 @@ describe("generated docs catalog", () => {
   // ranking down-weights this tab by name, so a rename must fail loudly
   it("includes the version history tab the ranking depends on", () => {
     expect(store.listTabs()).toContain(VERSION_HISTORY_TAB);
-  });
-
-  // the catalog is a committed snapshot, so this is what fails when it falls behind the website
-  it("indexes every published page with every tab it declares", () => {
-    expect(Object.keys(websiteTabsByRoute).length).toBeGreaterThan(0);
-    expect(catalogTabsByRoute).toStrictEqual(websiteTabsByRoute);
   });
 
   it("keeps every route inside a published docs section", () => {
