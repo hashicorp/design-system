@@ -18,3 +18,9 @@ export enum HdsRichTooltipToggleSizeValues {
 }
 
 export type HdsRichTooltipToggleSizes = `${HdsRichTooltipToggleSizeValues}`;
+
+export enum HdsRichTooltipForceStateValues {
+  Open = 'open',
+  Close = 'close',
+}
+export type HdsRichTooltipForceStates = `${HdsRichTooltipForceStateValues}`;

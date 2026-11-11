@@ -5,6 +5,7 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import { modifier } from 'ember-modifier';
 import style from 'ember-style-modifier';
 
 import type { ModifierLike } from '@glint/template';
@@ -16,6 +17,7 @@ import {
 
 import type { SetupPrimitivePopoverModifier } from '../popover-primitive/index.gts';
 import type { HdsAnchoredPositionOptions } from '../../../modifiers/hds-anchored-position.ts';
+import type { HdsRichTooltipForceStates } from './types.ts';
 
 export interface HdsRichTooltipBubbleSignature {
   Args: {
@@ -29,6 +31,9 @@ export interface HdsRichTooltipBubbleSignature {
     arrowId: string;
     boundary?: HdsAnchoredPositionOptions['boundary'];
     setupPrimitivePopover: ModifierLike<SetupPrimitivePopoverModifier>;
+    forceState?: HdsRichTooltipForceStates;
+    showPopover?: () => void;
+    hidePopover?: (event?: Event) => void;
   };
   Blocks: {
     default: [];
@@ -37,6 +42,9 @@ export interface HdsRichTooltipBubbleSignature {
 }
 
 export default class HdsRichTooltipBubble extends Component<HdsRichTooltipBubbleSignature> {
+  private _isInitiallyOpen = this.args.isOpen ?? false;
+  private _isControlled = false;
+
   get placement(): HdsAnchoredPositionOptions['placement'] {
     const { placement = DEFAULT_PLACEMENT } = this.args;
 
@@ -95,6 +103,36 @@ export default class HdsRichTooltipBubble extends Component<HdsRichTooltipBubble
     };
   }
 
+  private _applyForceState = modifier(
+    (
+      element: HTMLElement,
+      [forceState, showPopover, hidePopover]: [
+        HdsRichTooltipForceStates | undefined,
+        (() => void) | undefined,
+        ((event?: Event) => void) | undefined,
+      ]
+    ): void => {
+      const isControlled = this._isControlled;
+      this._isControlled = true;
+
+      if (!isControlled && this._isInitiallyOpen) {
+        return;
+      }
+      if (forceState === undefined) {
+        return;
+      }
+
+      const isShowing = element.matches(':popover-open');
+
+      if (forceState === 'open' && !isShowing) {
+        showPopover?.();
+      }
+      if (forceState === 'close' && isShowing) {
+        hidePopover?.();
+      }
+    }
+  );
+
   <template>
     <div
       class="hds-rich-tooltip__bubble"
@@ -107,6 +145,7 @@ export default class HdsRichTooltipBubble extends Component<HdsRichTooltipBubble
       {{@setupPrimitivePopover
         anchoredPositionOptions=this.anchoredPositionOptions
       }}
+      {{this._applyForceState @forceState @showPopover @hidePopover}}
     >
       <div class="hds-rich-tooltip__bubble-arrow" id={{@arrowId}} />
       {{#if @isOpen}}
