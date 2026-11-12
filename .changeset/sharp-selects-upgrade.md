@@ -6,10 +6,10 @@
 `SuperSelect` - Upgraded `ember-power-select` from 8.12.0 to 9.0.3, which requires `ember-basic-dropdown` 9.
 
 To migrate:
+- **This change fails silently:** components passed to `@selectedItemComponent` now receive the selected option as `@selected` instead of `@option`. A component that still reads `@option` renders nothing, with no error or warning. Search your app for `@option` in these components and replace it with `@selected`.
 - Install `ember-basic-dropdown` `^9.0.1` and `@glimmer/component` `^2.1.1`, which are peer dependencies.
 - Upgrade `@ember/test-helpers` to `^5.7.0`, which `ember-power-select` and `ember-basic-dropdown` 9 require as a peer dependency.
 - Import the `ember-basic-dropdown` styles before the `ember-power-select` styles, because `ember-power-select` no longer includes them. With Sass, make sure both `node_modules/ember-basic-dropdown` and `node_modules/ember-power-select` are in `sassOptions.includePaths` in `ember-cli-build.js`, then add `@use "ember-basic-dropdown";` before `@use "ember-power-select";`. With CSS, import `node_modules/ember-basic-dropdown/dist/vendor/ember-basic-dropdown.css`, and change the `ember-power-select` path to `node_modules/ember-power-select/dist/vendor/ember-power-select.css`.
-- Components passed to `@selectedItemComponent` now receive the selected option as `@selected` instead of `@option`. A component that still reads `@option` renders nothing.
 - Components can no longer be passed by name as strings to `@selectedItemComponent`, `@placeholderComponent`, `@beforeOptionsComponent`, `@afterOptionsComponent`, `@optionsComponent` or `@triggerComponent`. Pass the component itself.
 - `@options` and `@selected` no longer accept Ember `ArrayProxy`, `ObjectProxy` or `PromiseProxy` instances. Pass native arrays or promises instead.
 - When "Clear selected" is used in `SuperSelect::Multiple`, `@onChange` now receives an empty array instead of `null`.
