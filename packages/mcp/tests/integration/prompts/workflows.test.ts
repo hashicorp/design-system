@@ -21,7 +21,18 @@ interface PromptFixture {
   name: string;
   arguments: ArgumentFixture[];
   guidance: string[];
+  forbiddenGuidance?: string[];
 }
+
+// the token prefix depends on the application's tokens version, so the prompts defer to the
+// catalog's cssVar and its migration hints rather than naming a prefix themselves
+const versionAwareTokenGuidance = [
+  "search_hds_tokens",
+  "write the cssVar it returns",
+  "only when search_hds_tokens returns migration",
+  'resolvedVia is "default"',
+];
+const versionUnawareTokenGuidance = ["--hds-* CSS variables"];
 
 const code = '<Hds::Button @text="Save" {{on "click" this.save}} />';
 const context: ArgumentFixture = {
@@ -44,8 +55,12 @@ const fixtures: PromptFixture[] = [
       "prioritized findings with severity",
       "minimal suggested correction",
       "no supported findings",
-      "search_hds_tokens",
+      ...versionAwareTokenGuidance,
       "Carbon theme",
+      "token names that search_hds_tokens reports a migration for",
+    ],
+    forbiddenGuidance: [
+      ...versionUnawareTokenGuidance,
       "--token-* names that tokens 6.0 renamed or removed",
     ],
   },
@@ -69,9 +84,10 @@ const fixtures: PromptFixture[] = [
       "implementation code",
       "ember-qunit integration test examples",
       "do not claim code or tests were executed",
-      "search_hds_tokens",
+      ...versionAwareTokenGuidance,
       "Carbon theme",
     ],
+    forbiddenGuidance: versionUnawareTokenGuidance,
   },
   {
     name: "troubleshoot_hds_component",
@@ -190,6 +206,9 @@ describe("Helios workflow prompts", () => {
           ...fixture.guidance,
         ]) {
           expect(instructions.text).toContain(guidance);
+        }
+        for (const guidance of fixture.forbiddenGuidance ?? []) {
+          expect(instructions.text).not.toContain(guidance);
         }
         expect(result.messages[1]).toStrictEqual({
           role: "user",
