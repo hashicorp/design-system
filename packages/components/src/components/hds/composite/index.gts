@@ -358,6 +358,7 @@ export default class Composite extends Component<HdsCompositeSignature> {
     );
   }
 
+  // once the current item is disconnected, its last known position is kept for the fallback
   private _rememberCurrentIndex(): void {
     const currentItem = this._currentItem;
 
@@ -365,7 +366,7 @@ export default class Composite extends Component<HdsCompositeSignature> {
       return;
     }
 
-    const index = this._items
+    const index = sortByDOMPosition(this._items)
       .filter((item) => item.disabled === false && item.element.isConnected)
       .indexOf(currentItem);
 
@@ -433,6 +434,8 @@ export default class Composite extends Component<HdsCompositeSignature> {
     }
 
     this._syncCompositeElement();
+    // registry changes shift positions too, not only navigation
+    this._rememberCurrentIndex();
   }
 
   private _syncItemElement(item: HdsCompositeItem): void {
@@ -517,16 +520,28 @@ export default class Composite extends Component<HdsCompositeSignature> {
       };
 
       const onFocusOut = (event: FocusEvent): void => {
-        const target = event.target;
+        const { target, relatedTarget } = event;
+
+        // focus moved to a known element outside the composite
+        if (relatedTarget instanceof Node && !element.contains(relatedTarget)) {
+          this._hasFocusWithin = false;
+
+          return;
+        }
 
         // some browsers fire focusout when a focused element is removed from the DOM, which
         // isn't focus leaving the composite, so the check waits until the removal is done
         queueMicrotask(() => {
-          if (target instanceof Node && !target.isConnected) {
+          const activeElement = document.activeElement;
+          const hasNoFocus =
+            activeElement === null || activeElement === document.body;
+
+          // focus was only lost with the removed element, and nothing else took it
+          if (target instanceof Node && !target.isConnected && hasNoFocus) {
             return;
           }
 
-          this._hasFocusWithin = element.contains(document.activeElement);
+          this._hasFocusWithin = element.contains(activeElement);
         });
       };
 
