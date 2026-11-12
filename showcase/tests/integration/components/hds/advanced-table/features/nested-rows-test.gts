@@ -567,5 +567,40 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         );
       }
     });
+
+    test('it keeps the current cell when another row is expanded or collapsed', async function (assert) {
+      await createNestedTable({});
+
+      const rowHeaderSelector =
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr:not(.hds-advanced-table__tr--hidden) .hds-advanced-table__th[role="rowheader"]';
+      const [firstRowHeader] = findAll(rowHeaderSelector);
+
+      if (firstRowHeader === undefined) {
+        throw new Error('Expected a row header');
+      }
+
+      await focus(firstRowHeader);
+      await triggerKeyEvent(firstRowHeader, 'keydown', 'ArrowDown');
+
+      assert.dom('[data-active-item]').containsText('Policy set 2');
+
+      const [firstExpandToggle] = findAll(expandRowButtonSelector);
+
+      if (firstExpandToggle === undefined) {
+        throw new Error('Expected an expand toggle');
+      }
+
+      await click(firstExpandToggle);
+
+      assert
+        .dom('[data-active-item]')
+        .containsText('Policy set 2', 'expanding keeps the current cell');
+
+      await click(firstExpandToggle);
+
+      assert
+        .dom('[data-active-item]')
+        .containsText('Policy set 2', 'collapsing keeps the current cell');
+    });
   });
 });
