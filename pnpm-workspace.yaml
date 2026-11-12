@@ -61,8 +61,11 @@ overrides:
   ember-composable-helpers: 'npm:@nullvoxpopuli/ember-composable-helpers@^5.2.11'
   handlebars: '4.7.10'
   "minimatch@<3.0.5": '3.1.2'
+  # tooling-only: without this, can-symlink 1.0.0 (no fixed release), console-ui's inquirer 6
+  # (external-editor), broccoli 3, testem 3.15, watch-detector 1.0.2 and fixturify-project
+  # resolve vulnerable tmp 0.0.x/0.1.0. ember-cli 7 still depends on console-ui ^3.1.2, so
+  # this stays until those are replaced (HDS-6872)
   tmp: '0.2.7'
-  underscore: '1.13.8'
 
 patchedDependencies:
   broccoli-asset-rewrite: patches/broccoli-asset-rewrite.patch
