@@ -63,10 +63,25 @@ function scriptState(source, filename) {
       };
     })
   );
-  const ast = parseScript(masked, {
-    sourceType: 'module',
-    plugins: ['decorators-legacy', ...(filename.endsWith('ts') ? ['typescript'] : [])],
-  });
+  let ast;
+  try {
+    ast = parseScript(masked, {
+      sourceType: 'module',
+      plugins: [
+        'decorators-legacy',
+        'typescript',
+        'exportDefaultFrom',
+        'importMeta',
+        'decoratorAutoAccessors',
+        'explicitResourceManagement',
+        'importAttributes',
+      ],
+    });
+  } catch (error) {
+    throw new Error(`[v8/textarea] ${filename}: Failed to parse script: ${error.message}`, {
+      cause: error,
+    });
+  }
   const identifiers = new Set(source.match(/[A-Za-z_$][\w$]*/g));
   const imports = ast.program.body.filter((node) => node.type === 'ImportDeclaration');
   const additions = [];
@@ -240,7 +255,10 @@ function scriptState(source, filename) {
       register(object, property, node, report) {
         const members = owner.body || owner.properties;
         if (object === 'this.args') {
-          report(node, 'Component arguments require an owner-provided setter.');
+          report(
+            node,
+            `Component argument "this.args.${property}" is read-only. Pass an update action from the parent component instead.`
+          );
           return false;
         }
         if (
@@ -248,14 +266,20 @@ function scriptState(source, filename) {
           members.some((member) => member.key?.name === property && member.kind === 'get') &&
           !members.some((member) => member.key?.name === property && member.kind === 'set')
         ) {
-          report(node, `Getter-only property "${property}" requires an owner-provided setter.`);
+          report(
+            node,
+            `Getter-only property "${property}" cannot be updated directly. Add a setter or custom event handler.`
+          );
           return false;
         }
         if (
           object === 'this' &&
           members.some((member) => member.key?.name === property && member.readonly)
         ) {
-          report(node, `Readonly property "${property}" requires an owner-provided setter.`);
+          report(
+            node,
+            `Readonly property "${property}" cannot be updated directly. Add an explicit value-update handler.`
+          );
           return false;
         }
         used = true;
@@ -303,6 +327,7 @@ function scriptState(source, filename) {
   return {
     templates,
     edits,
+    components,
     ownerFor,
     context,
     finish() {
@@ -372,36 +397,55 @@ function migrate(files, { helpers = false } = {}) {
     if (!states.has(filename)) states.set(filename, scriptState(read(filename), filename));
     return states.get(filename);
   };
-  const migrateTemplate = (source, filename, backing, location) =>
-    transform(
-      { source, path: filename },
-      {
-        parse: recast.parse,
-        visit: (ast, plugin) => recast.transform(ast, plugin).code,
-        backing,
-        location,
-      }
-    );
+  const migrateTemplate = (source, filename, backing, location) => {
+    try {
+      return transform(
+        { source, path: filename },
+        {
+          parse: recast.parse,
+          visit: (ast, plugin) => recast.transform(ast, plugin).code,
+          backing,
+          location,
+        }
+      );
+    } catch (error) {
+      const line = (error.hash?.loc?.first_line || 1) + (location?.line || 0);
+      const col =
+        (error.hash?.loc?.first_column || 0) + 1 + (line === 1 ? location?.column || 0 : 0);
+      const msg = error.message ? error.message.split('\n')[0] : 'Parse error';
+      console.warn(
+        `[v8/textarea] ${filename}:${line}:${col}: Could not parse template (${msg}). Check for unsupported Handlebars syntax such as root subexpressions (e.g. '{{(helper)}}'); manual migration is required.`
+      );
+      return source;
+    }
+  };
   const previous = process.env.CODEMOD_CLI_ARGS;
   process.env.CODEMOD_CLI_ARGS = JSON.stringify({ helpers });
   try {
     for (const [filename, source] of Object.entries(files)) {
       if (filename.endsWith('.hbs')) {
+        if (!/(?:textarea|key-value-inputs)/i.test(source)) {
+          continue;
+        }
         const backingPath = backingFor(filename, read);
         const state = backingPath && stateFor(backingPath);
         const owner = state?.ownerFor();
-        if (!owner && !helpers && /Textarea/.test(source)) {
-          console.warn(
-            `[v8/textarea] ${filename}: Cannot identify a backing class. Using global helpers if installed; otherwise manual migration is required.`
-          );
-        }
         outputs.set(
           filename,
           migrateTemplate(source, filename, owner ? state.context(owner, false) : undefined)
         );
       } else if (/\.(gjs|gts)$/.test(filename)) {
+        if (!/(?:textarea|key-value-inputs)/i.test(source)) {
+          continue;
+        }
         const state = stateFor(filename);
         for (const template of state.templates) {
+          if (
+            state.components.size === 0 &&
+            !/(?:textarea|key-value-inputs)/i.test(template.contents)
+          ) {
+            continue;
+          }
           const owner = state.ownerFor(template);
           if (!owner) throw new Error(`Cannot identify template owner in ${filename}`);
           const prefix = source.slice(0, template.contentRange.start).split('\n');

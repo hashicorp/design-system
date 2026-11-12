@@ -92,6 +92,26 @@ module.exports = function ({ source, path: filePath }, { parse, visit, backing, 
             return;
           }
 
+          const isReadOnlyOrDisabled = node.attributes.some((attr) => {
+            if (['readonly', 'disabled'].includes(attr.name)) {
+              if (!attr.value || attr.value.type === 'TextNode') {
+                return attr.value?.chars !== 'false';
+              }
+              if (attr.value.type === 'MustacheStatement') {
+                return attr.value.path?.type !== 'BooleanLiteral' || attr.value.path.value === true;
+              }
+              return true;
+            }
+            if (['@isReadOnly', '@isDisabled'].includes(attr.name)) {
+              if (attr.value?.type === 'MustacheStatement') {
+                return attr.value.path?.type !== 'BooleanLiteral' || attr.value.path.value === true;
+              }
+              return true;
+            }
+            return false;
+          });
+          if (isReadOnlyOrDisabled) return;
+
           const isGeneratedHandler = (modifier, event) => {
             const [eventName, callback] = modifier.params;
             return (
@@ -126,6 +146,12 @@ module.exports = function ({ source, path: filePath }, { parse, visit, backing, 
             );
             return;
           }
+          const hasExplicitHandler = node.modifiers.some(
+            (modifier) =>
+              modifier.path?.original === 'on' &&
+              ['input', 'change'].includes(modifier.params[0]?.value)
+          );
+
           if (
             value.type !== 'MustacheStatement' ||
             value.path.type !== 'PathExpression' ||
@@ -135,9 +161,27 @@ module.exports = function ({ source, path: filePath }, { parse, visit, backing, 
               value.path.original
             )
           ) {
+            if (hasExplicitHandler) {
+              return;
+            }
+            let detail = '@value expression';
+            if (value.type === 'MustacheStatement' && value.path?.original) {
+              if (value.params?.length || value.hash?.pairs?.length) {
+                detail = `helper invocation "${value.path.original}"`;
+              } else if (
+                value.path.original.startsWith('@') &&
+                !value.path.original.includes('.')
+              ) {
+                detail = `standalone argument "${value.path.original}"`;
+              } else {
+                detail = `expression "${value.path.original}"`;
+              }
+            } else if (value.type === 'SubExpression') {
+              detail = `subexpression "(${value.path?.original || '...'})"`;
+            }
             report(
               node,
-              'Cannot infer a writable object/property from @value. Add an explicit value-update handler if caller state must change.'
+              `Cannot infer a writable object/property from @value (${detail}). Add an explicit value-update handler if caller state must change.`
             );
             return;
           }

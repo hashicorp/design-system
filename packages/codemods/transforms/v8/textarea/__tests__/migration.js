@@ -297,6 +297,35 @@ export default class Example extends Component {
     ).toEqual({});
   });
 
+  it('skips readonly and disabled textareas without emitting diagnostics', () => {
+    expect(
+      check({
+        [`${root}/components/example.gjs`]: `${directImport}
+export default <template>
+  <Textarea @value={{@model.computedDescription}} readonly />
+  <Textarea @value={{format-value @model.other}} disabled />
+  <Textarea @value={{@model.third}} @isReadOnly={{true}} />
+  <Textarea @value={{@model.fourth}} @isDisabled={{true}} />
+</template>;`,
+      })
+    ).toEqual({});
+    expect(warn).not.toHaveBeenCalled();
+  });
+
+  it('skips warnings when explicit event handlers are already present', () => {
+    expect(
+      check({
+        [`${root}/components/example.gjs`]: `${directImport}
+import { on } from '@ember/modifier';
+export default <template>
+  <Textarea @value={{if @model.x @model.x undefined}} {{on "change" this.handleChange}} />
+  <Textarea @value={{@standalone}} {{on "input" this.handleInput}} />
+</template>;`,
+      })
+    ).toEqual({});
+    expect(warn).not.toHaveBeenCalled();
+  });
+
   it('does not mistake JavaScript-shadowed imports for HDS components', () => {
     expect(
       check({
@@ -360,6 +389,56 @@ describe('Textarea CLI', () => {
     ).toContain('Updated 0 files');
   });
 
+  it('supports .js and .gjs files containing TypeScript syntax', () => {
+    const template = path.join(directory, 'typed.hbs');
+    const script = path.join(directory, 'typed.js');
+    fs.writeFileSync(template, '<Hds::Form::Textarea::Field @value={{this.description}} />');
+    fs.writeFileSync(
+      script,
+      `import type { Service } from '@ember/service';\n${component}\nexport default class Typed extends Component {\n  description: string = '';\n}`
+    );
+    expect(
+      execFileSync(process.execPath, [cli, 'v8/textarea', template, '--dry'], { encoding: 'utf8' })
+    ).toContain('Would update 2 files');
+  });
+
+  it('ignores unrelated templates containing unsupported recast syntax', () => {
+    const template = path.join(directory, 'example.hbs');
+    const script = path.join(directory, 'example.js');
+    const unrelated = path.join(directory, 'unrelated.hbs');
+    fs.writeFileSync(template, '<Hds::Form::Textarea::Field @value={{this.description}} />');
+    fs.writeFileSync(script, `${component}\nexport default class Example extends Component {}`);
+    fs.writeFileSync(unrelated, '<a href={{(resolved-documentation-url)}} />');
+    expect(
+      execFileSync(process.execPath, [cli, 'v8/textarea', template, unrelated, '--dry'], {
+        encoding: 'utf8',
+      })
+    ).toContain('Would update 2 files');
+  });
+
+  it('warns and leaves templates with unparseable syntax unchanged while migrating other files', () => {
+    const template = path.join(directory, 'valid.hbs');
+    const script = path.join(directory, 'valid.js');
+    const unparseable = path.join(directory, 'unparseable.hbs');
+    const unparseableScript = path.join(directory, 'unparseable.js');
+    const unparseableContent =
+      '<Hds::Form::Textarea::Field @value={{this.description}} />\n<Snippet @textToCopy={{(vcs-url)}} />';
+    fs.writeFileSync(template, '<Hds::Form::Textarea::Field @value={{this.description}} />');
+    fs.writeFileSync(script, `${component}\nexport default class Valid extends Component {}`);
+    fs.writeFileSync(unparseable, unparseableContent);
+    fs.writeFileSync(
+      unparseableScript,
+      `${component}\nexport default class Unparseable extends Component {}`
+    );
+    const result = execFileSync(
+      process.execPath,
+      [cli, 'v8/textarea', template, unparseable, '--dry'],
+      { encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'] }
+    );
+    expect(result).toContain('Would update 2 files');
+    expect(fs.readFileSync(unparseable, 'utf8')).toBe(unparseableContent);
+  });
+
   it('writes nothing when any input fails to parse', () => {
     const template = path.join(directory, 'example.hbs');
     const script = path.join(directory, 'example.js');
@@ -367,7 +446,10 @@ describe('Textarea CLI', () => {
     const original = '<Hds::Form::Textarea::Field @value={{this.description}} />';
     fs.writeFileSync(template, original);
     fs.writeFileSync(script, `${component}\nexport default class Example extends Component {}`);
-    fs.writeFileSync(invalid, 'export default class { <template>broken');
+    fs.writeFileSync(
+      invalid,
+      'export default class { <template><Hds::Form::Textarea::Field />broken'
+    );
     expect(() =>
       execFileSync(process.execPath, [cli, 'v8/textarea', template, invalid], { stdio: 'pipe' })
     ).toThrow();
