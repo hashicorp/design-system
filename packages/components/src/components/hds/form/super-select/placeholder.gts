@@ -11,6 +11,7 @@ export interface HdsFormSuperSelectPlaceholderSignature {
   Args: {
     placeholder?: string;
   };
+  Element: HTMLSpanElement;
 }
 
 const HdsFormSuperSelectPlaceholder: TemplateOnlyComponent<HdsFormSuperSelectPlaceholderSignature> =
@@ -19,6 +20,7 @@ const HdsFormSuperSelectPlaceholder: TemplateOnlyComponent<HdsFormSuperSelectPla
       @tag="span"
       @size="200"
       class="ember-power-select-placeholder"
+      ...attributes
     >{{@placeholder}}</HdsTextBody>
   </template>;
 

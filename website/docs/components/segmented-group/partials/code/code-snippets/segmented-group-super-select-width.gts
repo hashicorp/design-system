@@ -13,7 +13,7 @@ const SUPER_SELECT_OPTIONS = [
 ];
 
 export default class LocalComponent extends Component {
-  SELECTED_SERVICE = null;
+  SELECTED_SERVICE: string | undefined = undefined;
 
   <template>
     <HdsSegmentedGroup @isFullWidth={{true}} @maxWidth="500px" as |SG|>

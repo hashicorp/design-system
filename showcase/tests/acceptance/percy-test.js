@@ -241,9 +241,6 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/layouts/grid');
     await percySnapshot('Grid');
 
-    await visit('/overrides/power-select');
-    await percySnapshot('PowerSelect');
-
     await visit('/utilities/dialog-primitive');
     await percySnapshot('DialogPrimitive');
 

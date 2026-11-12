@@ -4,6 +4,7 @@
  */
 
 import { module, test } from 'qunit';
+import { hash } from '@ember/helper';
 import { eq } from 'ember-truth-helpers';
 import { render, find, settled } from '@ember/test-helpers';
 import { TrackedObject } from 'tracked-built-ins';
@@ -12,6 +13,36 @@ import { HdsFormKeyValueInputsField } from '@hashicorp/design-system-components/
 
 import { setupRenderingTest } from 'showcase/tests/helpers';
 import NOOP from 'showcase/utils/noop';
+
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import type { PowerSelectSelectedItemSignature } from 'ember-power-select/types';
+
+interface ClusterSizeOption {
+  size: string;
+  price: string;
+}
+
+interface ClusterExtra {
+  currency: string;
+}
+
+const CLUSTER_SIZE_OPTIONS: ClusterSizeOption[] = [
+  { size: 'Small', price: '$10' },
+  { size: 'Large', price: '$40' },
+];
+
+const SelectedClusterSize: TemplateOnlyComponent<
+  PowerSelectSelectedItemSignature<ClusterSizeOption, ClusterExtra>
+> = <template>{{@selected.size}} ({{@extra.currency}})</template>;
+
+const SelectedClusterSizes: TemplateOnlyComponent<
+  PowerSelectSelectedItemSignature<ClusterSizeOption, ClusterExtra, true>
+> = <template>{{@selected.size}} ({{@extra.currency}})</template>;
+
+// a selected item component that expects a different `@extra`, which must be rejected
+const SelectedClusterSizeWrongExtra: TemplateOnlyComponent<
+  PowerSelectSelectedItemSignature<ClusterSizeOption, { region: number }>
+> = <template>{{@selected.size}}</template>;
 
 const YIELDED_INPUTS = [
   { type: 'FileInput', selector: '.hds-form-file-input' },
@@ -89,6 +120,92 @@ module(
   'Integration | Component | hds/form/key-value-inputs/field',
   function (hooks) {
     setupRenderingTest(hooks);
+
+    // the yielded SuperSelect components must keep the generic types of the Base components, so `@options` types the
+    // yielded options, the callbacks, `@selected` and `@extra`: `lint:types` fails if the inference is lost
+    // (the positive cases stop type checking) or if a `@glint-expect-error` below stops being needed
+    test('the yielded SuperSelect components infer the option and `@extra` types from their arguments', async function (assert) {
+      const selectedSize = CLUSTER_SIZE_OPTIONS[0];
+      const onChangeSingle = (option: ClusterSizeOption | undefined): void => {
+        void option?.price;
+      };
+      const onChangeMultiple = (options: ClusterSizeOption[]): void => {
+        void options.map((option) => option.price);
+      };
+      const wrongSelected = { name: 'not a cluster size' };
+
+      await render(
+        <template>
+          <HdsFormKeyValueInputsField @rowIndex={{0}} as |F|>
+            <F.SuperSelectSingle
+              @options={{CLUSTER_SIZE_OPTIONS}}
+              @selected={{selectedSize}}
+              @onChange={{onChangeSingle}}
+              @extra={{hash currency="USD"}}
+              @selectedItemComponent={{SelectedClusterSize}}
+              id="test-super-select-single"
+              as |option|
+            >
+              {{option.size}}
+              {{! @glint-expect-error - not a property of the option type }}
+              {{option.name}}
+            </F.SuperSelectSingle>
+            <F.SuperSelectMultiple
+              @options={{CLUSTER_SIZE_OPTIONS}}
+              @selected={{CLUSTER_SIZE_OPTIONS}}
+              @onChange={{onChangeMultiple}}
+              @extra={{hash currency="USD"}}
+              @selectedItemComponent={{SelectedClusterSizes}}
+              id="test-super-select-multiple"
+              as |option|
+            >
+              {{option.price}}
+            </F.SuperSelectMultiple>
+          </HdsFormKeyValueInputsField>
+        </template>,
+      );
+
+      assert.dom('#test-super-select-single').hasText('Small (USD)');
+      assert.dom('#test-super-select-multiple').includesText('Small (USD)');
+      assert.dom('#test-super-select-multiple').includesText('Large (USD)');
+
+      // type-only checks, not rendered
+      if (false as boolean) {
+        await render(
+          <template>
+            <HdsFormKeyValueInputsField @rowIndex={{0}} as |F|>
+              <F.SuperSelectSingle
+                @options={{CLUSTER_SIZE_OPTIONS}}
+                {{! @glint-expect-error - not one of the options }}
+                @selected={{wrongSelected}}
+                @onChange={{onChangeSingle}}
+                as |option|
+              >
+                {{option.size}}
+              </F.SuperSelectSingle>
+              <F.SuperSelectSingle
+                @options={{CLUSTER_SIZE_OPTIONS}}
+                @onChange={{onChangeSingle}}
+                {{! @glint-expect-error - the selected item component expects a different @extra }}
+                @extra={{hash currency="USD"}}
+                @selectedItemComponent={{SelectedClusterSizeWrongExtra}}
+                as |option|
+              >
+                {{option.size}}
+              </F.SuperSelectSingle>
+              <F.SuperSelectMultiple
+                @options={{CLUSTER_SIZE_OPTIONS}}
+                {{! @glint-expect-error - Multiple passes an array of options }}
+                @onChange={{onChangeSingle}}
+                as |option|
+              >
+                {{option.size}}
+              </F.SuperSelectMultiple>
+            </HdsFormKeyValueInputsField>
+          </template>,
+        );
+      }
+    });
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(

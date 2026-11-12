@@ -15,6 +15,7 @@ export interface HdsFormSuperSelectOptionGroupSignature {
   Blocks: {
     default: [];
   };
+  Element: HTMLLIElement;
 }
 
 export default class HdsFormSuperSelectOptionGroup extends Component<HdsFormSuperSelectOptionGroupSignature> {
@@ -25,6 +26,7 @@ export default class HdsFormSuperSelectOptionGroup extends Component<HdsFormSupe
       class="hds-form-super-select__option-group"
       role="group"
       aria-labelledby={{this._groupTitleId}}
+      ...attributes
     >
       <div
         class="hds-form-super-select__option-group-title"
