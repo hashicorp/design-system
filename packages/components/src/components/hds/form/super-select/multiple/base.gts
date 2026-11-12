@@ -64,6 +64,20 @@ export default class HdsFormSuperSelectMultipleBase<
     return this._powerSelectAPI?.selected?.length.toString() ?? '0';
   }
 
+  // power-select 9 treats an empty array as a selection and skips the placeholder,
+  // so an empty selection is passed as `undefined` to keep the placeholder visible
+  // see https://github.com/ember-power-addons/ember-power-select/issues/2128
+  get powerSelectSelected(): HdsFormSuperSelectBaseArgs<
+    T,
+    true,
+    TExtra
+  >['selected'] {
+    const { selected } = this.args;
+    return Array.isArray(selected) && selected.length === 0
+      ? undefined
+      : selected;
+  }
+
   get optionsCount(): string {
     return this._powerSelectAPI?.resultsCount.toString() || '0';
   }
@@ -325,7 +339,7 @@ export default class HdsFormSuperSelectMultipleBase<
         @searchFieldPosition="before-options"
         @searchMessage={{this.searchMessage}}
         @searchPlaceholder={{this.searchPlaceholder}}
-        @selected={{@selected}}
+        @selected={{this.powerSelectSelected}}
         @selectedItemComponent={{@selectedItemComponent}}
         @tabindex={{@tabindex}}
         @triggerClass={{@triggerClass}}

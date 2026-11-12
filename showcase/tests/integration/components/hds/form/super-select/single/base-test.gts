@@ -116,6 +116,42 @@ module(
         .hasAttribute('placeholder', 'Search');
     });
 
+    // PLACEHOLDER
+
+    test('it renders the placeholder in the trigger when nothing is selected', async function (assert) {
+      await render(
+        <template>
+          <HdsFormSuperSelectSingleBase
+            @onChange={{NOOP}}
+            @options={{OPTIONS}}
+            @placeholder="Select an option"
+            as |option|
+          >{{option}}</HdsFormSuperSelectSingleBase>
+        </template>,
+      );
+      assert
+        .dom('.ember-basic-dropdown-trigger .ember-power-select-placeholder')
+        .isVisible()
+        .hasText('Select an option');
+    });
+
+    test('it does not render the placeholder when an option is selected', async function (assert) {
+      await render(
+        <template>
+          <HdsFormSuperSelectSingleBase
+            @onChange={{NOOP}}
+            @options={{OPTIONS}}
+            @selected="Option 1"
+            @placeholder="Select an option"
+            as |option|
+          >{{option}}</HdsFormSuperSelectSingleBase>
+        </template>,
+      );
+      assert
+        .dom('.ember-basic-dropdown-trigger .ember-power-select-placeholder')
+        .doesNotExist();
+    });
+
     // OPTIONS
 
     test('it should render the options passed', async function (assert) {

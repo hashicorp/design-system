@@ -136,6 +136,94 @@ module(
         .hasAttribute('placeholder', 'Search');
     });
 
+    // PLACEHOLDER
+
+    test('it renders the placeholder in the trigger when nothing is selected', async function (assert) {
+      const selected: string[] = [];
+
+      await render(
+        <template>
+          <HdsFormSuperSelectMultipleBase
+            @onChange={{NOOP}}
+            @options={{OPTIONS}}
+            @selected={{selected}}
+            @placeholder="Select options"
+            as |option|
+          >{{option}}</HdsFormSuperSelectMultipleBase>
+        </template>,
+      );
+      assert
+        .dom('.ember-basic-dropdown-trigger .ember-power-select-placeholder')
+        .isVisible()
+        .hasText('Select options');
+    });
+
+    test('it does not render the placeholder when options are selected', async function (assert) {
+      const selected = ['Option 1'];
+
+      await render(
+        <template>
+          <HdsFormSuperSelectMultipleBase
+            @onChange={{NOOP}}
+            @options={{OPTIONS}}
+            @selected={{selected}}
+            @placeholder="Select options"
+            as |option|
+          >{{option}}</HdsFormSuperSelectMultipleBase>
+        </template>,
+      );
+      assert
+        .dom('.ember-basic-dropdown-trigger .ember-power-select-placeholder')
+        .doesNotExist();
+    });
+
+    test('it calls @onChange with an array when an option is chosen from an empty selection', async function (assert) {
+      const selected: string[] = [];
+      const onChange = sinon.spy();
+
+      await render(
+        <template>
+          <HdsFormSuperSelectMultipleBase
+            @onChange={{onChange}}
+            @options={{OPTIONS}}
+            @selected={{selected}}
+            @placeholder="Select options"
+            as |option|
+          >{{option}}</HdsFormSuperSelectMultipleBase>
+        </template>,
+      );
+      await selectChoose('.hds-form-super-select', 'Option 1');
+      assert.true(onChange.calledOnce);
+      assert.deepEqual(onChange.firstCall.args[0], ['Option 1']);
+    });
+
+    test('it renders the placeholder again after the last selected option is deselected', async function (assert) {
+      const state = new TrackedObject<{ selected: string[] }>({
+        selected: ['Option 1'],
+      });
+      const onChange = (selected: string[]) => {
+        state.selected = selected;
+      };
+
+      await render(
+        <template>
+          <HdsFormSuperSelectMultipleBase
+            @onChange={{onChange}}
+            @options={{OPTIONS}}
+            @selected={{state.selected}}
+            @placeholder="Select options"
+            as |option|
+          >{{option}}</HdsFormSuperSelectMultipleBase>
+        </template>,
+      );
+      await selectChoose('.hds-form-super-select', 'Option 1');
+      assert.deepEqual(state.selected, []);
+      assert
+        .dom('.ember-basic-dropdown-trigger .ember-power-select-placeholder')
+        .isVisible()
+        .hasText('Select options');
+    });
+
     // AFTER OPTIONS
 
     test('it should render the after options block by default', async function (assert) {
