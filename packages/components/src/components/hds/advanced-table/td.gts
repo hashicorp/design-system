@@ -10,14 +10,16 @@ import { tracked } from '@glimmer/tracking';
 import { focusable, type FocusableElement } from 'tabbable';
 import style from 'ember-style-modifier';
 import hdsAdvancedTableCell from '../../../modifiers/hds-advanced-table-cell.ts';
-// @ts-expect-error: missing types https://github.com/josemarluedke/ember-focus-trap/issues/86
-import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
+import { focusTrap } from 'ember-focus-trap';
 import { hash } from '@ember/helper';
 
 import type { HdsAdvancedTableHorizontalAlignment } from './types.ts';
 import { HdsAdvancedTableHorizontalAlignmentValues } from './types.ts';
 import hdsScrollIntoViewOnFocus from '../../../modifiers/hds-scroll-into-view-on-focus.ts';
-import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
+import {
+  isInFocusableElement,
+  onFocusTrapDeactivate,
+} from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
 
 import type { HdsCompositeSignature } from '../composite/index.gts';
 
@@ -42,6 +44,8 @@ export interface HdsAdvancedTableTdSignature {
 
 export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSignature> {
   @tracked private _shouldTrapFocus = false;
+  // whether the click that deactivated the focus trap moved focus elsewhere
+  private _outsideClickTakesFocus = false;
   private _element!: HTMLDivElement;
 
   // rowspan and colspan have to return 'auto' if not defined because otherwise the style modifier sets grid-area: undefined on the cell, which breaks the grid styles
@@ -91,6 +95,25 @@ export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSign
     this._shouldTrapFocus = true;
   }
 
+  @action onClickOutside(event: MouseEvent | TouchEvent): boolean {
+    // `composedPath` reaches into shadow roots and only exists while the event
+    // is dispatched, so decide now instead of when focus-trap returns focus
+    this._outsideClickTakesFocus = isInFocusableElement(
+      event.composedPath()[0] ?? event.target
+    );
+    return true;
+  }
+
+  // focus-trap returns focus to the cell after every outside click. Leave it on
+  // what was clicked when that takes focus, so typing goes where the user expects.
+  @action getReturnFocus(
+    nodeFocusedBeforeActivation: HTMLElement | SVGElement
+  ): HTMLElement | SVGElement | false {
+    const takesFocus = this._outsideClickTakesFocus;
+    this._outsideClickTakesFocus = false;
+    return takesFocus ? false : nodeFocusedBeforeActivation;
+  }
+
   @action getInitialFocus(): FocusableElement | undefined {
     const cellFocusableElements = focusable(this._element);
     return cellFocusableElements[0];
@@ -117,7 +140,8 @@ export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSign
         focusTrapOptions=(hash
           onDeactivate=this.onFocusTrapDeactivate
           initialFocus=this.getInitialFocus
-          clickOutsideDeactivates=true
+          clickOutsideDeactivates=this.onClickOutside
+          setReturnFocus=this.getReturnFocus
         )
       }}
       {{@compositeItem disabled=@isCompositeItemDisabled}}

@@ -1,3 +1,8 @@
+## 7.1.0
+
+Fixed icons not loading in rendering tests on Ember 6.12.1 and later with `@ember/test-helpers` 5.6 and later. The icon registry now adds the sprite root when it's missing.
+
+
 ## 7.0.0
 
 Made significant changes to icon loading and available icons to support Carbon themes
