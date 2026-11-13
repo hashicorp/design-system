@@ -77,6 +77,9 @@ The `packages/tokens` library contains the style tokens used in `@hashicorp/desi
 pnpm build   # regenerates dist/ from style-dictionary
 ```
 
+#### Additional context
+Read through further context and guidance for this library at `.bob/rules/directories/tokens`
+
 ### packages/flight-icons
 
 An icon library of icons synced from a Figma library which generates SVGs which can be used in React or Ember apps.

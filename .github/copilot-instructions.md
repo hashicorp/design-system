@@ -11,6 +11,7 @@ Read `AGENTS.md`
 - Components - `.github/instructions/directories/components.instructions.md`
 - MCP - `.github/instructions/directories/mcp.instructions.md`
 - Showcase - `.github/instructions/directories/showcase.instructions.md`
+- Tokens - `.github/instructions/directories/tokens.instructions.md`
 - Website - `.github/instructions/directories/website.instructions.md`
 
 ## Skills
