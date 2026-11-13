@@ -21,7 +21,6 @@ overrides:
   handlebars: 4.7.10
   minimatch@<3.0.5: 3.1.2
   tmp: 0.2.7
-  underscore: 1.13.8
 
 patchedDependencies:
   broccoli-asset-rewrite: d54eacd85247824bbf501fce65fb2d12f8c7605fbcc551dd0f5711156cf53c35
@@ -5782,7 +5781,7 @@ packages:
       toffee: ^0.3.6
       twig: ^1.15.2
       twing: ^5.0.2
-      underscore: 1.13.8
+      underscore: ^1.11.0
       vash: ^0.13.0
       velocityjs: ^2.0.1
       walrus: ^0.10.1
