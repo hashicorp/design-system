@@ -4,14 +4,16 @@
  */
 
 import Component from '@glimmer/component';
-import { modifier } from 'ember-modifier';
+import Modifier, { modifier } from 'ember-modifier';
 import { hash } from '@ember/helper';
+import { registerDestructor } from '@ember/destroyable';
 
 import { guidFor } from '@ember/object/internals';
 
 import { handleKey, findFirstEnabled } from './navigation.ts';
 
 import type Owner from '@ember/owner';
+import type { ArgsFor, PositionalArgs } from 'ember-modifier';
 import type { ModifierLike } from '@glint/template';
 import type {
   HdsCompositeOrientations,
@@ -94,6 +96,77 @@ interface HdsCompositeGroupModifierSignature {
   Element: HTMLElement;
 }
 
+interface HdsCompositeItemRegistry {
+  registerItem: (item: HdsCompositeItem) => void;
+  updateItem: (id: string, disabled: boolean) => void;
+  unregisterItem: (id: string) => void;
+  focusItem: (id: string) => void;
+}
+
+function createItemModifier(
+  registry: HdsCompositeItemRegistry
+): ModifierLike<HdsCompositeItemModifierSignature> {
+  return class HdsCompositeItemModifier extends Modifier<HdsCompositeItemModifierSignature> {
+    private _element: HTMLElement | null = null;
+    private _id: string | null = null;
+
+    constructor(
+      owner: Owner,
+      args: ArgsFor<HdsCompositeItemModifierSignature>
+    ) {
+      super(owner, args);
+
+      registerDestructor(this, () => {
+        this._teardown();
+      });
+    }
+
+    modify(
+      element: HTMLElement,
+      _positional: PositionalArgs<HdsCompositeItemModifierSignature>,
+      named: HdsCompositeItemModifierSignature['Args']['Named']
+    ): void {
+      const disabled = named.disabled ?? false;
+
+      // arguments re-evaluate whenever the surrounding data changes (e.g. a sorted row list),
+      // so the item is updated in place rather than re-registered, which would lose the current item
+      if (this._id !== null) {
+        registry.updateItem(this._id, disabled);
+
+        return;
+      }
+
+      const id = getElementId(element, 'composite-item');
+
+      element.id = id;
+      element.addEventListener('focus', this._onFocus);
+
+      this._element = element;
+      this._id = id;
+
+      registry.registerItem({ id, element, disabled });
+    }
+
+    private _onFocus = (): void => {
+      if (this._id !== null) {
+        registry.focusItem(this._id);
+      }
+    };
+
+    private _teardown(): void {
+      if (this._element === null || this._id === null) {
+        return;
+      }
+
+      this._element.removeEventListener('focus', this._onFocus);
+      registry.unregisterItem(this._id);
+
+      this._element = null;
+      this._id = null;
+    }
+  };
+}
+
 export interface HdsCompositeSignature {
   Args: {
     orientation?: HdsCompositeOrientations;
@@ -124,6 +197,10 @@ export default class Composite extends Component<HdsCompositeSignature> {
 
   private _compositeElement: HTMLElement | null = null;
   private _preserveTabIndex = false;
+
+  // where the current item last was, so a removed current item can hand over to its neighbor
+  private _lastCurrentIndex = 0;
+  private _hasFocusWithin = false;
 
   constructor(owner: Owner, args: HdsCompositeSignature['Args']) {
     super(owner, args);
@@ -197,6 +274,7 @@ export default class Composite extends Component<HdsCompositeSignature> {
     this._groups = sortByDOMPosition(this._groups);
     this._items = sortByDOMPosition(this._items);
     this._reassociateGroups();
+    this._rememberCurrentIndex();
   }
 
   private _registerItem(newItem: HdsCompositeItem): void {
@@ -210,19 +288,91 @@ export default class Composite extends Component<HdsCompositeSignature> {
     this._syncAllElements();
   }
 
+  private _updateItem(id: string, disabled: boolean): void {
+    const existingItem = this._items.find((item) => item.id === id);
+
+    if (existingItem === undefined || existingItem.disabled === disabled) {
+      return;
+    }
+
+    this._items = this._items.map((item) =>
+      item.id === id ? { ...item, disabled } : item
+    );
+
+    this._syncAllElements();
+  }
+
   private _unregisterItem(id: string): void {
     const wasCurrent = this._resolvedCurrentId === id;
+    const removedItem = this._items.find((item) => item.id === id);
+
     this._items = this._items.filter((item) => item.id !== id);
 
-    if (wasCurrent) {
-      // reset to "auto" so newly rendered first items can become active
-      this._currentId = undefined;
+    if (!wasCurrent || removedItem === undefined) {
       this._syncAllElements();
 
       return;
     }
 
+    const fallbackItem = this._findFallbackItem();
+
+    // undefined = "auto", so items rendered later can still become active
+    this._currentId = fallbackItem?.id;
     this._syncAllElements();
+
+    if (
+      fallbackItem !== undefined &&
+      this._shouldRestoreFocus(removedItem.element)
+    ) {
+      fallbackItem.element.focus();
+    }
+  }
+
+  // the enabled item closest to where the removed current item was
+  private _findFallbackItem(): HdsCompositeItem | undefined {
+    const candidates = sortByDOMPosition(this._items).filter(
+      (item) => item.disabled === false && item.element.isConnected
+    );
+
+    if (candidates.length === 0) {
+      return undefined;
+    }
+
+    const index = Math.min(this._lastCurrentIndex, candidates.length - 1);
+
+    return candidates[index];
+  }
+
+  // only take focus back when it was inside the composite and got lost with the removed item
+  private _shouldRestoreFocus(removedElement: HTMLElement): boolean {
+    if (!this._hasFocusWithin) {
+      return false;
+    }
+
+    const activeElement = document.activeElement;
+
+    return (
+      activeElement === null ||
+      activeElement === document.body ||
+      removedElement.contains(activeElement)
+    );
+  }
+
+  // once the current item is disconnected, its last known position is kept for the fallback
+  private _rememberCurrentIndex(): void {
+    const currentItem = this._currentItem;
+
+    if (currentItem === undefined || !currentItem.element.isConnected) {
+      return;
+    }
+
+    const index = sortByDOMPosition(this._items)
+      .filter((item) => item.disabled === false && item.element.isConnected)
+      .indexOf(currentItem);
+
+    if (index !== -1) {
+      this._lastCurrentIndex = index;
+    }
   }
 
   private _registerGroup(newGroup: HdsCompositeGroup): void {
@@ -275,6 +425,7 @@ export default class Composite extends Component<HdsCompositeSignature> {
     }
 
     this._syncCompositeElement();
+    this._rememberCurrentIndex();
   }
 
   private _syncAllElements(): void {
@@ -283,6 +434,8 @@ export default class Composite extends Component<HdsCompositeSignature> {
     }
 
     this._syncCompositeElement();
+    // registry changes shift positions too, not only navigation
+    this._rememberCurrentIndex();
   }
 
   private _syncItemElement(item: HdsCompositeItem): void {
@@ -362,44 +515,72 @@ export default class Composite extends Component<HdsCompositeSignature> {
 
       element.addEventListener('keydown', onKeyDown);
 
-      return () => {
-        element.removeEventListener('keydown', onKeyDown);
-
-        if (this._compositeElement === element) {
-          this._compositeElement = null;
-        }
+      const onFocusIn = (): void => {
+        this._hasFocusWithin = true;
       };
-    }
-  );
 
-  itemModifier = modifier<HdsCompositeItemModifierSignature>(
-    (element: HTMLElement, _positional: unknown[], named) => {
-      const disabled = named.disabled ?? false;
-      const id = getElementId(element, 'composite-item');
+      const onFocusOut = (event: FocusEvent): void => {
+        const { target, relatedTarget } = event;
 
-      element.id = id;
+        // focus moved to a known element outside the composite
+        if (relatedTarget instanceof Node && !element.contains(relatedTarget)) {
+          this._hasFocusWithin = false;
 
-      this._registerItem({ id, element, disabled });
-
-      const onFocus = (): void => {
-        const item = this._items.find((registered) => registered.id === id);
-
-        if (item === undefined || item.disabled === true) {
           return;
         }
 
-        this._moveTo(id);
+        // some browsers fire focusout when a focused element is removed from the DOM, which
+        // isn't focus leaving the composite, so the check waits until the removal is done
+        queueMicrotask(() => {
+          const activeElement = document.activeElement;
+          const hasNoFocus =
+            activeElement === null || activeElement === document.body;
+
+          // focus was only lost with the removed element, and nothing else took it
+          if (target instanceof Node && !target.isConnected && hasNoFocus) {
+            return;
+          }
+
+          this._hasFocusWithin = element.contains(activeElement);
+        });
       };
 
-      element.addEventListener('focus', onFocus);
+      element.addEventListener('focusin', onFocusIn);
+      element.addEventListener('focusout', onFocusOut);
 
       return () => {
-        element.removeEventListener('focus', onFocus);
+        element.removeEventListener('keydown', onKeyDown);
+        element.removeEventListener('focusin', onFocusIn);
+        element.removeEventListener('focusout', onFocusOut);
 
-        this._unregisterItem(id);
+        if (this._compositeElement === element) {
+          this._compositeElement = null;
+          this._hasFocusWithin = false;
+        }
       };
     }
   );
+
+  itemModifier = createItemModifier({
+    registerItem: (item) => {
+      this._registerItem(item);
+    },
+    updateItem: (id, disabled) => {
+      this._updateItem(id, disabled);
+    },
+    unregisterItem: (id) => {
+      this._unregisterItem(id);
+    },
+    focusItem: (id) => {
+      const item = this._items.find((registered) => registered.id === id);
+
+      if (item === undefined || item.disabled === true) {
+        return;
+      }
+
+      this._moveTo(id);
+    },
+  });
 
   groupModifier = modifier<HdsCompositeGroupModifierSignature>(
     (element: HTMLElement) => {

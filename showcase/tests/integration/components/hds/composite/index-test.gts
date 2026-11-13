@@ -5,6 +5,7 @@
 
 import { module, test } from 'qunit';
 import { render, focus, settled, triggerKeyEvent } from '@ember/test-helpers';
+import { run } from '@ember/runloop';
 import { setupRenderingTest } from 'showcase/tests/helpers';
 import { TrackedObject } from 'tracked-built-ins';
 
@@ -707,7 +708,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
     context.showSecondRow = false;
     await settled();
     await triggerKeyEvent('#composite-grid', 'keydown', 'ArrowDown');
-    assert.dom('[data-active-item]').hasAttribute('id', 'A1');
+    // the removed B2 hands over to the item at its position, the same column in the remaining row
+    assert.dom('[data-active-item]').hasAttribute('id', 'A2');
   });
 
   test('it updates navigation when an item disabled state is toggled', async function (assert) {
@@ -866,5 +868,215 @@ module('Integration | Component | hds/composite/index', function (hooks) {
     await settled();
 
     assert.dom('[data-active-item]').hasAttribute('id', 'item-2');
+  });
+
+  test('it keeps the active item when its disabled argument re-evaluates to the same value', async function (assert) {
+    assert.expect(4);
+
+    const context = new TrackedObject<{ row: { isHidden: boolean } }>({
+      row: { isHidden: false },
+    });
+
+    await render(
+      <template>
+        <HdsComposite @orientation="horizontal" as |c|>
+          <div {{c.composite}} id="composite-root">
+            <HdsButton {{c.item}} id="item-1" @text="Item 1" />
+            <HdsButton
+              {{c.item disabled=context.row.isHidden}}
+              id="item-2"
+              @text="Item 2"
+            />
+          </div>
+        </HdsComposite>
+      </template>,
+    );
+
+    await focus('#item-2');
+
+    // a new object with the same value invalidates the argument without changing it
+    context.row = { isHidden: false };
+    await settled();
+
+    assert.dom('[data-active-item]').hasAttribute('id', 'item-2');
+    assert.dom('#item-1').hasAttribute('tabindex', '-1');
+    assert.dom('#item-2').hasAttribute('tabindex', '0').isFocused();
+  });
+
+  test('when the focused active item is removed, it focuses the item at the same position', async function (assert) {
+    assert.expect(2);
+
+    const context = new TrackedObject<{ showSecond: boolean }>({
+      showSecond: true,
+    });
+
+    await render(
+      <template>
+        <HdsComposite @orientation="horizontal" as |c|>
+          <div {{c.composite}} id="composite-root">
+            <HdsButton {{c.item}} id="item-1" @text="Item 1" />
+            {{#if context.showSecond}}
+              <HdsButton {{c.item}} id="item-2" @text="Item 2" />
+            {{/if}}
+            <HdsButton {{c.item}} id="item-3" @text="Item 3" />
+          </div>
+        </HdsComposite>
+      </template>,
+    );
+
+    await focus('#item-2');
+
+    context.showSecond = false;
+    await settled();
+
+    assert.dom('[data-active-item]').hasAttribute('id', 'item-3');
+    assert.dom('#item-3').isFocused();
+  });
+
+  test('when the active item is removed while focus is outside the composite, it does not move focus', async function (assert) {
+    assert.expect(2);
+
+    const context = new TrackedObject<{ showSecond: boolean }>({
+      showSecond: true,
+    });
+
+    await render(
+      <template>
+        <HdsButton id="outside" @text="Outside" />
+        <HdsComposite @orientation="horizontal" as |c|>
+          <div {{c.composite}} id="composite-root">
+            <HdsButton {{c.item}} id="item-1" @text="Item 1" />
+            {{#if context.showSecond}}
+              <HdsButton {{c.item}} id="item-2" @text="Item 2" />
+            {{/if}}
+            <HdsButton {{c.item}} id="item-3" @text="Item 3" />
+          </div>
+        </HdsComposite>
+      </template>,
+    );
+
+    await focus('#item-2');
+    await focus('#outside');
+
+    context.showSecond = false;
+    await settled();
+
+    assert.dom('[data-active-item]').hasAttribute('id', 'item-3');
+    assert.dom('#outside').isFocused();
+  });
+
+  test('it keeps the position of the active item up to date when other items are removed', async function (assert) {
+    assert.expect(2);
+
+    const context = new TrackedObject<{ showA: boolean; showC: boolean }>({
+      showA: true,
+      showC: true,
+    });
+
+    await render(
+      <template>
+        <HdsComposite @orientation="horizontal" as |c|>
+          <div {{c.composite}} id="composite-root">
+            {{#if context.showA}}
+              <HdsButton {{c.item}} id="item-a" @text="A" />
+            {{/if}}
+            <HdsButton {{c.item}} id="item-b" @text="B" />
+            {{#if context.showC}}
+              <HdsButton {{c.item}} id="item-c" @text="C" />
+            {{/if}}
+            <HdsButton {{c.item}} id="item-d" @text="D" />
+            <HdsButton {{c.item}} id="item-e" @text="E" />
+          </div>
+        </HdsComposite>
+      </template>,
+    );
+
+    await focus('#item-c');
+
+    context.showA = false;
+    await settled();
+
+    context.showC = false;
+    await settled();
+
+    assert.dom('[data-active-item]').hasAttribute('id', 'item-d');
+    assert.dom('#item-d').isFocused();
+  });
+
+  test('when the item matching @defaultCurrentId is removed, it falls back to the item at its position', async function (assert) {
+    assert.expect(1);
+
+    const context = new TrackedObject<{ showC: boolean }>({ showC: true });
+
+    await render(
+      <template>
+        <HdsComposite
+          @orientation="horizontal"
+          @defaultCurrentId="item-c"
+          as |c|
+        >
+          <div {{c.composite}} id="composite-root">
+            <HdsButton {{c.item}} id="item-a" @text="A" />
+            <HdsButton {{c.item}} id="item-b" @text="B" />
+            {{#if context.showC}}
+              <HdsButton {{c.item}} id="item-c" @text="C" />
+            {{/if}}
+            <HdsButton {{c.item}} id="item-d" @text="D" />
+          </div>
+        </HdsComposite>
+      </template>,
+    );
+
+    context.showC = false;
+    await settled();
+
+    assert.dom('[data-active-item]').hasAttribute('id', 'item-d');
+  });
+
+  test('it does not take focus back after focus moved outside while the active item was removed', async function (assert) {
+    assert.expect(3);
+
+    const context = new TrackedObject<{ showC: boolean; showD: boolean }>({
+      showC: true,
+      showD: true,
+    });
+
+    await render(
+      <template>
+        <HdsButton id="outside" @text="Outside" />
+        <HdsComposite @orientation="horizontal" as |c|>
+          <div {{c.composite}} id="composite-root">
+            <HdsButton {{c.item}} id="item-a" @text="A" />
+            {{#if context.showC}}
+              <HdsButton {{c.item}} id="item-c" @text="C" />
+            {{/if}}
+            {{#if context.showD}}
+              <HdsButton {{c.item}} id="item-d" @text="D" />
+            {{/if}}
+            <HdsButton {{c.item}} id="item-e" @text="E" />
+          </div>
+        </HdsComposite>
+      </template>,
+    );
+
+    await focus('#item-c');
+
+    // focus leaves and the active item is removed in the same task
+    // eslint-disable-next-line ember/no-runloop
+    run(() => {
+      document.getElementById('outside')?.focus();
+      context.showC = false;
+    });
+    await settled();
+
+    assert.dom('#outside').isFocused();
+    assert.dom('[data-active-item]').hasAttribute('id', 'item-d');
+
+    (document.activeElement as HTMLElement | null)?.blur();
+
+    context.showD = false;
+    await settled();
+
+    assert.dom('#item-e').isNotFocused();
   });
 });
