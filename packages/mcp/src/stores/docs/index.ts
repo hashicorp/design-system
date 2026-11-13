@@ -29,6 +29,7 @@ import {
   matchesDocsPath,
   matchesFilters,
   normalizeRoute,
+  normalizeTabValue,
   toChunkRecord,
   toPageRecord,
 } from "./lookup.js";
@@ -187,7 +188,7 @@ export const createDocsCatalogStore = (
     [...sections].map((section) => normalizeLookupValue(section)),
   );
   const normalizedTabs = new Set(
-    [...tabs].map((tab) => normalizeLookupValue(tab)),
+    [...tabs].map((tab) => normalizeTabValue(tab)),
   );
 
   let indexes: { page: Bm25Index; chunk: Bm25Index } | null = null;
@@ -299,7 +300,7 @@ export const createDocsCatalogStore = (
     }
 
     if (query.tab !== undefined) {
-      const tab = normalizeLookupValue(query.tab);
+      const tab = normalizeTabValue(query.tab);
 
       if (tab.length > 0) {
         filters.tab = tab;
@@ -356,7 +357,7 @@ export const createDocsCatalogStore = (
     );
 
     const isVersionHistoryScoped =
-      filters.tab === normalizeLookupValue(VERSION_HISTORY_TAB);
+      filters.tab === normalizeTabValue(VERSION_HISTORY_TAB);
 
     const candidates: SearchCandidate[] = [];
     const pageOnlyCounts = new Map<number, number>();

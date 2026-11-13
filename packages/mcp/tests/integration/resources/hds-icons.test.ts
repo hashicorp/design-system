@@ -26,7 +26,7 @@ const store = createIconCatalogStore(
   STORE_SOURCE,
 );
 
-describe("Flight icons resources", () => {
+describe("HDS icons resources", () => {
   it("returns the icon index payload", () => {
     const response = readIconsResource(store);
     const [content] = response.contents;
@@ -36,13 +36,13 @@ describe("Flight icons resources", () => {
     expect(parseResourceJson(getTextContent(content))).toStrictEqual({
       totalIconCount: 1,
       totalAssetCount: 1,
-      categories: ["Alerts"],
+      categories: ["Status"],
       source: STORE_SOURCE,
       icons: [
         {
           iconName: "alert-triangle",
           description: "alert, warning, caution",
-          category: "Alerts",
+          category: "Status",
           sizes: ["16"],
           hasMapping: false,
         },

@@ -19,36 +19,36 @@ import type { TokenCatalogRow } from "../../../../src/stores/tokens/schema.js";
 const buildRow = (
   overrides: Partial<TokenCatalogRow> = {},
 ): TokenCatalogRow => ({
-  key: "token-color-palette-blue-200",
-  $value: "#e8f1ff",
-  name: "token.color.palette.blue.200",
-  path: ["token", "color", "palette", "blue", "200"],
-  attributes: { category: "palette" },
+  key: "{core.color.blue-200}",
+  $value: "#1060ff",
+  name: "hds-core-color-blue-200",
+  path: ["core", "color", "blue-200"],
+  attributes: { category: "core" },
   ...overrides,
 });
 
 describe("normalizeTokenLookupKey", () => {
   it("lowercases and trims the key", () => {
-    expect(normalizeTokenLookupKey("  TOKEN-COLOR-BLUE  ")).toBe(
-      "token-color-blue",
+    expect(normalizeTokenLookupKey("  HDS-CORE-COLOR-BLUE-200  ")).toBe(
+      "hds-core-color-blue-200",
     );
   });
 
   it("strips leading brace", () => {
-    expect(normalizeTokenLookupKey("{token-color-blue}")).toBe(
-      "token-color-blue",
+    expect(normalizeTokenLookupKey("{core.color.blue-200}")).toBe(
+      "core.color.blue-200",
     );
   });
 
-  it("handles key that already has token- prefix after brace strip", () => {
-    expect(normalizeTokenLookupKey("{token-spacing-100}")).toBe(
-      "token-spacing-100",
+  it("handles key that already has hds- prefix after brace strip", () => {
+    expect(normalizeTokenLookupKey("{hds-border-radius-small}")).toBe(
+      "hds-border-radius-small",
     );
   });
 
   it("passes through key without braces unchanged (aside from normalization)", () => {
-    expect(normalizeTokenLookupKey("token-color-palette-blue-200")).toBe(
-      "token-color-palette-blue-200",
+    expect(normalizeTokenLookupKey("hds-core-color-blue-200")).toBe(
+      "hds-core-color-blue-200",
     );
   });
 
@@ -57,14 +57,14 @@ describe("normalizeTokenLookupKey", () => {
   });
 
   it("strips a leading -- CSS variable prefix", () => {
-    expect(normalizeTokenLookupKey("--token-color-blue")).toBe(
-      "token-color-blue",
+    expect(normalizeTokenLookupKey("--hds-core-color-blue-200")).toBe(
+      "hds-core-color-blue-200",
     );
   });
 
   it("strips -- after lowercasing and brace-trimming", () => {
-    expect(normalizeTokenLookupKey("  --Token-Spacing-100  ")).toBe(
-      "token-spacing-100",
+    expect(normalizeTokenLookupKey("  --Hds-Border-Radius-Small  ")).toBe(
+      "hds-border-radius-small",
     );
   });
 });
@@ -93,8 +93,8 @@ describe("toTokenType", () => {
 
 describe("toCssVarName", () => {
   it("prepends -- to the token name", () => {
-    expect(toCssVarName("token.color.palette.blue.200")).toBe(
-      "--token.color.palette.blue.200",
+    expect(toCssVarName("hds-core-color-blue-200")).toBe(
+      "--hds-core-color-blue-200",
     );
   });
 
@@ -105,8 +105,8 @@ describe("toCssVarName", () => {
 
 describe("toTokenAlias", () => {
   it("returns an unresolved token reference", () => {
-    expect(toTokenAlias({ $value: "{color.palette.blue-200}" })).toBe(
-      "{color.palette.blue-200}",
+    expect(toTokenAlias({ $value: "{core.color.blue-200}" })).toBe(
+      "{core.color.blue-200}",
     );
   });
 
@@ -122,16 +122,16 @@ describe("toTokenSummary", () => {
     const summary = toTokenSummary(row);
 
     expect(summary).toStrictEqual({
-      key: "token-color-palette-blue-200",
-      name: "token.color.palette.blue.200",
+      key: "{core.color.blue-200}",
+      name: "hds-core-color-blue-200",
       type: "color",
-      value: "#e8f1ff",
-      cssVar: "--token.color.palette.blue.200",
-      category: "palette",
+      value: "#1060ff",
+      cssVar: "--hds-core-color-blue-200",
+      category: "core",
       attributes: {
-        category: "palette",
+        category: "core",
       },
-      path: ["token", "color", "palette", "blue", "200"],
+      path: ["core", "color", "blue-200"],
     });
   });
 
@@ -143,10 +143,10 @@ describe("toTokenSummary", () => {
   });
 
   it("sets category from attributes.category", () => {
-    const row = buildRow({ attributes: { category: "color" } });
+    const row = buildRow({ attributes: { category: "foreground" } });
     const summary = toTokenSummary(row);
 
-    expect(summary.category).toBe("color");
+    expect(summary.category).toBe("foreground");
   });
 
   it("defaults type to 'other' when $type is absent", () => {
@@ -157,22 +157,22 @@ describe("toTokenSummary", () => {
   });
 
   it("derives cssVar from name", () => {
-    const row = buildRow({ name: "token.spacing.100" });
+    const row = buildRow({ name: "hds-border-radius-small" });
     const summary = toTokenSummary(row);
 
-    expect(summary.cssVar).toBe("--token.spacing.100");
+    expect(summary.cssVar).toBe("--hds-border-radius-small");
   });
 
   it("includes optional comments and semantic aliases", () => {
     const summary = toTokenSummary(
       buildRow({
         comment: "Use for interactive text",
-        original: { $value: "{color.palette.blue-200}" },
+        original: { $value: "{core.color.blue-200}" },
       }),
     );
 
     expect(summary.comment).toBe("Use for interactive text");
-    expect(summary.alias).toBe("{color.palette.blue-200}");
+    expect(summary.alias).toBe("{core.color.blue-200}");
   });
 });
 
@@ -180,8 +180,8 @@ describe("toTokenRecord", () => {
   it("includes original when present on the row", () => {
     const original = {
       $type: "color" as const,
-      $value: "#e8f1ff",
-      key: "token-color-palette-blue-200",
+      $value: "#1060ff",
+      key: "{core.color.blue-200}",
     };
     const row = buildRow({ $type: "color", original });
     const record = toTokenRecord(row);
@@ -205,39 +205,47 @@ describe("toTokenRecord", () => {
     expect(record.type).toBe("color");
     expect(record.value).toBe(row.$value);
     expect(record.cssVar).toBe(`--${row.name}`);
-    expect(record.category).toBe("palette");
+    expect(record.category).toBe("core");
     expect(record.path).toStrictEqual(row.path);
   });
 });
 
 describe("getTokenLookupKeys", () => {
-  it("returns exactly 3 lookup keys per row", () => {
+  it("returns exactly 4 lookup keys per row", () => {
     const row = buildRow();
     const keys = getTokenLookupKeys(row);
 
-    expect(keys).toHaveLength(3);
+    expect(keys).toHaveLength(4);
+  });
+
+  it("includes the name without its hds- prefix, as the website writes it", () => {
+    const keys = getTokenLookupKeys(
+      buildRow({ name: "hds-foreground-color-action" }),
+    );
+
+    expect(keys).toContain("foreground-color-action");
   });
 
   it("includes the normalized row key", () => {
-    const row = buildRow({ key: "TOKEN-COLOR-BLUE" });
+    const row = buildRow({ key: "{FOREGROUND.COLOR.ACTION}" });
     const keys = getTokenLookupKeys(row);
 
-    expect(keys).toContain("token-color-blue");
+    expect(keys).toContain("foreground.color.action");
   });
 
   it("includes the normalized dot-joined path", () => {
     const row = buildRow({
-      path: ["token", "color", "palette", "blue", "200"],
+      path: ["foreground", "color", "action"],
     });
     const keys = getTokenLookupKeys(row);
 
-    expect(keys).toContain("token.color.palette.blue.200");
+    expect(keys).toContain("foreground.color.action");
   });
 
   it("includes the normalized row name", () => {
-    const row = buildRow({ name: "Token.Color.Palette.Blue.200" });
+    const row = buildRow({ name: "HDS-FOREGROUND-COLOR-ACTION" });
     const keys = getTokenLookupKeys(row);
 
-    expect(keys).toContain("token.color.palette.blue.200");
+    expect(keys).toContain("hds-foreground-color-action");
   });
 });

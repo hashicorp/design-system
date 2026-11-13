@@ -35,10 +35,18 @@ export const readTokenByKeyResource = (
   const uri = buildDetailUri(TOKENS_URI, tokenKey);
 
   if (token === null) {
+    const migration = store.findMigration(tokenKey);
+
     return toJsonResourceResponse(uri, {
       found: false,
       requestedTokenKey: tokenKey,
-      message: "Token not found for provided tokenKey.",
+      message:
+        migration === null
+          ? "Token not found for provided tokenKey."
+          : "after" in migration
+            ? `Token renamed to ${migration.after} in ${migration.version}.`
+            : `Token removed in ${migration.version}.`,
+      ...(migration === null ? {} : { migration }),
     });
   }
 

@@ -6,7 +6,7 @@ The `@hashicorp/design-system-mcp` package helps your assistant:
 
 - Find Ember components and look up their arguments, accepted values, blocks, and yielded components.
 - Choose design tokens by name or value and retrieve their CSS variables.
-- Find Flight icons by name, keyword, category, or size.
+- Find HDS icons by name, keyword, category, size, or Carbon icon name.
 - Read documentation examples, accessibility guidance, and design recommendations.
 - Follow guided workflows for choosing, implementing, reviewing, and troubleshooting Helios components.
 
@@ -151,7 +151,7 @@ Prompts are reusable workflows that you start from your client, which typically 
 | ---------------------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------ |
 | `choose_hds_component`       | Recommend a component or pattern for an interaction, with rationale, alternatives, and accessibility notes.     | `requirements`                                              | `context`          |
 | `implement_hds_pattern`      | Produce a focused `.gts` implementation using verified APIs, with ember-qunit integration test examples.        | `requirements`                                              | `code`, `context`  |
-| `review_hds_usage`           | Review a code snippet for API usage, composition, and accessibility responsibilities, with prioritized fixes.   | `code`                                                      | `context`          |
+| `review_hds_usage`           | Review a code snippet for API usage, composition, accessibility, and token use, with prioritized fixes.         | `code`                                                      | `context`          |
 | `troubleshoot_hds_component` | Diagnose unexpected component behavior with evidence-ranked causes, diagnostic steps, and a minimal correction. | `component`, `code`, `expectedBehavior`, `observedBehavior` | `context`          |
 
 Arguments are plain text. `code` accepts up to 20,000 characters, `component` up to 200, and other arguments up to 4,000. Include relevant template, state, and event handler code so the assistant does not have to guess at omitted behavior.

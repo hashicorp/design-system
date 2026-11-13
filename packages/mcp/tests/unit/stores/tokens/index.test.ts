@@ -15,11 +15,11 @@ describe("parseTokenCatalog", () => {
     const rows = parseTokenCatalog([
       buildTokenCatalogRow({ $value: 1 }),
       buildTokenCatalogRow({
-        key: "{font.family.body}",
+        key: "{typography.font-stack.text}",
         $type: "font-family",
         $value: ["Inter", "sans-serif"],
-        name: "token-font-family-body",
-        path: ["font", "family", "body"],
+        name: "hds-typography-font-stack-text",
+        path: ["typography", "font-stack", "text"],
       }),
     ]);
 
@@ -27,7 +27,7 @@ describe("parseTokenCatalog", () => {
   });
 
   it("rejects an invalid catalog row", () => {
-    expect(() => parseTokenCatalog([{ name: "token-incomplete" }])).toThrow();
+    expect(() => parseTokenCatalog([{ name: "hds-incomplete" }])).toThrow();
   });
 });
 
@@ -35,12 +35,12 @@ describe("createTokenCatalogStore", () => {
   const rows = [
     buildTokenCatalogRow(),
     buildTokenCatalogRow({
-      key: "{color.foreground.action}",
+      key: "{foreground.color.action}",
       $type: "color",
       $value: "#1060ff",
-      name: "token-color-foreground-action",
-      attributes: { category: "color" },
-      path: ["color", "foreground", "action"],
+      name: "hds-foreground-color-action",
+      attributes: { category: "foreground" },
+      path: ["foreground", "color", "action"],
     }),
   ];
 
@@ -48,14 +48,14 @@ describe("createTokenCatalogStore", () => {
     const rankingRows = [
       // sorts first in the catalog, and merely contains the query
       buildTokenCatalogRow({
-        key: "{tooltip.border-radius}",
-        name: "token-tooltip-border-radius",
+        key: "{tooltip.border.radius}",
+        name: "hds-tooltip-border-radius",
         attributes: { category: "tooltip" },
-        path: ["tooltip", "border-radius"],
+        path: ["tooltip", "border", "radius"],
       }),
       buildTokenCatalogRow({
         key: "{border.radius.small}",
-        name: "token-border-radius-small",
+        name: "hds-border-radius-small",
         attributes: { category: "border" },
         path: ["border", "radius", "small"],
       }),
@@ -67,40 +67,40 @@ describe("createTokenCatalogStore", () => {
         .hits.map((token) => token.name);
 
     it("puts the token the query names above one that merely contains it", () => {
-      expect(search("border-radius")[0]).toBe("token-border-radius-small");
+      expect(search("border-radius")[0]).toBe("hds-border-radius-small");
     });
 
     it("does not care which delimiter the caller typed", () => {
       // the key uses dots, the CSS variable a caller copies uses hyphens
       for (const query of ["border-radius", "border radius", "border.radius"]) {
-        expect(search(query)[0], query).toBe("token-border-radius-small");
+        expect(search(query)[0], query).toBe("hds-border-radius-small");
       }
     });
 
     it("ranks a value-only match below a name match", () => {
       const rows = [
         buildTokenCatalogRow({
-          key: "{color.surface.faint}",
+          key: "{surface.color.faint}",
           $type: "color",
           $value: "#1060ff",
-          name: "token-color-surface-faint",
-          attributes: { category: "color" },
-          path: ["color", "surface", "faint"],
+          name: "hds-surface-color-faint",
+          attributes: { category: "surface" },
+          path: ["surface", "color", "faint"],
         }),
         buildTokenCatalogRow({
-          key: "{color.foreground.action}",
+          key: "{foreground.color.action}",
           $type: "color",
           $value: "#f0f0f0",
-          name: "token-color-foreground-action",
-          attributes: { category: "color" },
-          path: ["color", "foreground", "action"],
+          name: "hds-foreground-color-action",
+          attributes: { category: "foreground" },
+          path: ["foreground", "color", "action"],
         }),
       ];
       const hits = createTokenCatalogStore(rows)
         .searchTokens({ query: "foreground", limit: 10 })
         .hits.map((token) => token.name);
 
-      expect(hits[0]).toBe("token-color-foreground-action");
+      expect(hits[0]).toBe("hds-foreground-color-action");
     });
 
     it("keeps the best match when the window is too small to hold every match", () => {
@@ -109,21 +109,21 @@ describe("createTokenCatalogStore", () => {
           query: "border-radius",
           limit: 1,
         }).hits[0]?.name
-      ).toBe("token-border-radius-small");
+      ).toBe("hds-border-radius-small");
     });
   });
 
   it("resolves a token by key, dot path, and name", () => {
     const store = createTokenCatalogStore(rows);
 
-    expect(store.getTokenByKey("{COLOR.FOREGROUND.ACTION}")?.key).toBe(
-      "{color.foreground.action}"
+    expect(store.getTokenByKey("{FOREGROUND.COLOR.ACTION}")?.key).toBe(
+      "{foreground.color.action}"
     );
-    expect(store.getTokenByKey("color.foreground.action")?.key).toBe(
-      "{color.foreground.action}"
+    expect(store.getTokenByKey("foreground.color.action")?.key).toBe(
+      "{foreground.color.action}"
     );
-    expect(store.getTokenByKey("token-color-foreground-action")?.key).toBe(
-      "{color.foreground.action}"
+    expect(store.getTokenByKey("hds-foreground-color-action")?.key).toBe(
+      "{foreground.color.action}"
     );
     expect(store.getTokenByKey("not-a-token")).toBeNull();
   });
@@ -131,9 +131,9 @@ describe("createTokenCatalogStore", () => {
   it("resolves a token by its CSS variable name", () => {
     const store = createTokenCatalogStore(rows);
 
-    // cssVar for token-color-foreground-action is --token-color-foreground-action
-    expect(store.getTokenByKey("--token-color-foreground-action")?.key).toBe(
-      "{color.foreground.action}"
+    // cssVar for hds-foreground-color-action is --hds-foreground-color-action
+    expect(store.getTokenByKey("--hds-foreground-color-action")?.key).toBe(
+      "{foreground.color.action}"
     );
   });
 
@@ -141,7 +141,7 @@ describe("createTokenCatalogStore", () => {
     const store = createTokenCatalogStore(rows);
 
     expect(store.getMeta().totalTokenCount).toBe(2);
-    expect(store.getMeta().categories).toStrictEqual(["border", "color"]);
+    expect(store.getMeta().categories).toStrictEqual(["border", "foreground"]);
     expect(store.listTokens()).toHaveLength(2);
     expect(store.listTokens()[0]).not.toHaveProperty("original");
   });
@@ -157,10 +157,10 @@ describe("createTokenCatalogStore", () => {
         query: "action",
         limit: 10,
         type: "color",
-        category: " COLOR ",
+        category: " FOREGROUND ",
       }).hits
     ).toHaveLength(1);
-    expect(store.searchTokens({ query: "token", limit: 1 }).hits).toHaveLength(
+    expect(store.searchTokens({ query: "hds", limit: 1 }).hits).toHaveLength(
       1
     );
     expect(
@@ -175,61 +175,61 @@ describe("createTokenCatalogStore", () => {
   it("searches JSON token values, including numbers and arrays", () => {
     const store = createTokenCatalogStore([
       buildTokenCatalogRow({
-        key: "{typography.line-height.body}",
+        key: "{tag.typography.line-height}",
         $type: "number",
         $value: 1.2308,
-        name: "token-typography-line-height-body",
-        attributes: { category: "typography" },
-        path: ["typography", "line-height", "body"],
+        name: "hds-tag-typography-line-height",
+        attributes: { category: "tag" },
+        path: ["tag", "typography", "line-height"],
       }),
       buildTokenCatalogRow({
-        key: "{font.family.body}",
+        key: "{typography.font-stack.text}",
         $type: "font-family",
         $value: ["Inter", "sans-serif"],
-        name: "token-font-family-body",
+        name: "hds-typography-font-stack-text",
         attributes: { category: "typography" },
-        path: ["font", "family", "body"],
+        path: ["typography", "font-stack", "text"],
       }),
     ]);
 
     expect(
       store.searchTokens({ query: "1.2308", limit: 10 }).hits.map((token) => token.key),
-    ).toStrictEqual(["{typography.line-height.body}"]);
+    ).toStrictEqual(["{tag.typography.line-height}"]);
     expect(
       store.searchTokens({ query: "sans-serif", limit: 10 }).hits.map((token) => token.key),
-    ).toStrictEqual(["{font.family.body}"]);
+    ).toStrictEqual(["{typography.font-stack.text}"]);
   });
 
   it("searches token comments and semantic aliases", () => {
     const store = createTokenCatalogStore([
       buildTokenCatalogRow({
-        key: "{color.foreground.action}",
+        key: "{foreground.color.action}",
         comment: "Use for interactive text",
-        original: { $value: "{color.palette.blue-200}" },
+        original: { $value: "{core.color.blue-200}" },
       }),
     ]);
 
     expect(
       store.searchTokens({ query: "interactive text", limit: 10 }).hits[0]?.key,
-    ).toBe("{color.foreground.action}");
+    ).toBe("{foreground.color.action}");
     expect(
-      store.searchTokens({ query: "color.palette.blue-200", limit: 10 })
+      store.searchTokens({ query: "core.color.blue-200", limit: 10 })
         .hits[0]?.key,
-    ).toBe("{color.foreground.action}");
+    ).toBe("{foreground.color.action}");
   });
 
   it("counts every match, not just the ones the limit left room for", () => {
     const store = createTokenCatalogStore(rows);
-    // both token names start with "token-", so the count outruns the one-result window
-    const outcome = store.searchTokens({ query: "token", limit: 1 });
+    // both token names start with "hds-", so the count outruns the one-result window
+    const outcome = store.searchTokens({ query: "hds", limit: 1 });
 
     expect(outcome.totalMatches).toBe(2);
     expect(outcome.hits).toHaveLength(1);
     expect(
-      store.searchTokens({ query: "token", limit: 10, type: "color" })
+      store.searchTokens({ query: "hds", limit: 10, type: "color" })
     ).toStrictEqual({
       totalMatches: 1,
-      hits: [expect.objectContaining({ key: "{color.foreground.action}" })],
+      hits: [expect.objectContaining({ key: "{foreground.color.action}" })],
     });
   });
 });
