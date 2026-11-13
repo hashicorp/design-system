@@ -23,7 +23,7 @@ const SubSectionVariants: TemplateOnlyComponent = <template>
   <ShwFlex as |SF|>
     {{#each SIZES as |size|}}
       <SF.Item @label={{capitalize size}}>
-        <HdsBadge @icon="activity" @text="Lorem ipsum" @size={{size}} />
+        <HdsBadge @text="Lorem ipsum" @icon="activity" @size={{size}} />
       </SF.Item>
     {{/each}}
   </ShwFlex>
@@ -33,7 +33,7 @@ const SubSectionVariants: TemplateOnlyComponent = <template>
   <ShwFlex as |SF|>
     {{#each TYPES as |type|}}
       <SF.Item @label={{capitalize type}}>
-        <HdsBadge @icon="activity" @text="Lorem ipsum" @type={{type}} />
+        <HdsBadge @text="Lorem ipsum" @type={{type}} />
       </SF.Item>
     {{/each}}
   </ShwFlex>
@@ -42,32 +42,10 @@ const SubSectionVariants: TemplateOnlyComponent = <template>
 
   {{#each COLORS as |color|}}
     <ShwGrid @label={{capitalize color}} @columns={{3}} as |SG|>
-      {{#each SIZES as |size|}}
-        {{#each TYPES as |type|}}
-          <SG.Item class="shw-component-badge-sample-color--{{color}}">
-            <HdsBadge
-              @icon="activity"
-              @text="Lorem ipsum"
-              @size={{size}}
-              @type={{type}}
-              @color={{color}}
-            />
-            <HdsBadge
-              @text="Lorem ipsum"
-              @size={{size}}
-              @type={{type}}
-              @color={{color}}
-            />
-            <HdsBadge
-              @icon="activity"
-              @text="Lorem Ipsum"
-              @size={{size}}
-              @type={{type}}
-              @color={{color}}
-              @isIconOnly={{true}}
-            />
-          </SG.Item>
-        {{/each}}
+      {{#each TYPES as |type|}}
+        <SG.Item class="shw-component-badge-sample-color--{{color}}">
+          <HdsBadge @text={{capitalize type}} @type={{type}} @color={{color}} />
+        </SG.Item>
       {{/each}}
     </ShwGrid>
   {{/each}}

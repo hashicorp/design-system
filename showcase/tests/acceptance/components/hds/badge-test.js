@@ -11,7 +11,7 @@ import { a11yAudit } from 'ember-a11y-testing/test-support';
 module('Acceptance | Component | hds/badge', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('Components/badge passes a11y automated checks', async function (assert) {
+  test('Components/hds/badge page passes automated a11y checks', async function (assert) {
     await visit('/components/badge');
     await a11yAudit();
 

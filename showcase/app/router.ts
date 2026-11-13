@@ -171,14 +171,12 @@ Router.map(function () {
       this.route('focus-ring');
     });
     this.route('components', function () {
-      this.route('accordion');
       this.route('advanced-table');
       this.route('alert');
       this.route('application-state');
       this.route('app-footer');
       this.route('app-header');
       this.route('app-side-nav');
-      this.route('badge');
       this.route('badge-count');
       this.route('breadcrumb');
       this.route('button');

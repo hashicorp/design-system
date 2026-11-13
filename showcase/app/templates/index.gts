@@ -419,11 +419,6 @@ const Index: TemplateOnlyComponent = <template>
       <ShwTextH4 @tag="h3">Components</ShwTextH4>
       <ol class="shw-text-body">
         <li>
-          <LinkTo @route="page-carbonization.components.accordion">
-            Accordion
-          </LinkTo>
-        </li>
-        <li>
           <LinkTo @route="page-carbonization.components.advanced-table">
             AdvancedTable
           </LinkTo>
@@ -451,11 +446,6 @@ const Index: TemplateOnlyComponent = <template>
         <li>
           <LinkTo @route="page-carbonization.components.app-side-nav">
             AppSideNav
-          </LinkTo>
-        </li>
-        <li>
-          <LinkTo @route="page-carbonization.components.badge">
-            Badge
           </LinkTo>
         </li>
         <li>
