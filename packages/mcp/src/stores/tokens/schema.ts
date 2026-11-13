@@ -43,6 +43,8 @@ export const tokenCatalogRowSchema = z
     key: z.string().min(1),
     $type: z.string().min(1).optional(),
     $value: z.json(),
+    // the resolved value in each theme, e.g. { default, cds-g0, cds-g10, cds-g90, cds-g100 }
+    $modes: z.record(z.string(), z.json()).optional(),
     name: z.string().min(1),
     comment: z.string().min(1).optional(),
     attributes: tokenAttributesSchema,

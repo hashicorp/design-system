@@ -114,7 +114,7 @@ Try prompts such as:
 
 > Use Helios to show me how to build an alert with a title and description. Check the component API and accessibility guidance first.
 
-> Find the Helios foreground-action color token and give me its CSS variable and value.
+> Find the Helios `foreground-color-action` token and give me its CSS variable, its value, and its value in each Carbon theme.
 
 > Find a warning icon available at 16px in the Helios icon catalog.
 
@@ -134,7 +134,7 @@ Your assistant chooses and calls these tools through the MCP client. Names may a
 | ----------------------- | ------------------------------------------------------------------------------------ | --------------------------------------- | ----------------------------------------- |
 | `search_hds_components` | Find components by invocation name, class name, module path, or documentation path.  | `query`                                 | `limit`                                   |
 | `get_hds_component`     | Read an individual component's API, including argument types and yielded components. | `name`                                  | —                                         |
-| `search_hds_tokens`     | Find tokens by name or value, including CSS variables and resolved values.           | `query`                                 | `limit`, `type`, `category`               |
+| `search_hds_tokens`     | Find tokens by name or value, including CSS variables and resolved values per theme. | `query`                                 | `limit`, `type`, `category`               |
 | `search_hds_icons`      | Find icons by name or keyword, including available sizes.                            | `query`                                 | `limit`, `category`, `size`, `hasMapping` |
 | `search_hds_docs`       | Search bundled documentation for guidance and examples.                              | `query`                                 | `limit`, `section`, `tab`, `docsPath`     |
 | `read_hds_docs`         | Read a documentation passage with its Markdown and code examples.                    | `id` from a documentation search result | `includeChildren`, `maxBytes`             |
