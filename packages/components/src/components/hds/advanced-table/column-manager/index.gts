@@ -115,9 +115,18 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
 
   syncThElements = modifier<HdsAdvancedTableSyncThElementsSignature>(
     (element, [key]) => {
-      if (key !== undefined) {
-        this.thElements.set(key, element);
+      if (key === undefined) {
+        return;
       }
+
+      this.thElements.set(key, element);
+
+      return () => {
+        // a re-rendered header can register before the old one tears down
+        if (this.thElements.get(key) === element) {
+          this.thElements.delete(key);
+        }
+      };
     }
   );
 
@@ -154,7 +163,6 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
       <HdsAdvancedTableColumnManagerWidth
         @columns={{this.normalizedColumns}}
         @orderedColumns={{Order.orderedColumns}}
-        @columnOrder={{Order.columnOrder}}
         @isSelectable={{@isSelectable}}
         @getColumnByKey={{this.getColumnByKey}}
         @thElements={{this.thElements}}
