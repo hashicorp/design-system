@@ -1,0 +1,43 @@
+name: CI - Smoke-test helpers
+
+on:
+  push:
+    branches:
+      - main
+  pull_request: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-smoke-test-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  conditional-skip:
+    runs-on: ubuntu-latest
+    name: Get files changed and conditionally skip CI
+    outputs:
+      trigger-ci: ${{ steps.read-files.outputs.trigger-ci }}
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          fetch-depth: 0
+      - name: Get changed files
+        id: read-files
+        run: ./.github/scripts/filter_changed_files.sh "scripts/smoke-test/" ".bob/skills/smoke-test/" ".github/skills/smoke-test/" ".github/workflows/ci-smoke-test.yml"
+
+  test:
+    name: Test smoke-test helpers
+    runs-on: ubuntu-latest
+    needs: [conditional-skip]
+    if: needs.conditional-skip.outputs.trigger-ci == 'true'
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - name: Install Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "24.x"
+      - name: Test helpers
+        run: node --test scripts/smoke-test/*.test.mjs
