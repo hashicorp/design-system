@@ -8,6 +8,8 @@ import { pageTitle } from 'ember-page-title';
 import { eq, notEq, and } from 'ember-truth-helpers';
 import { capitalize } from '@ember/string';
 
+import '@carbon/web-components/es/components/tag/index.js';
+
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';

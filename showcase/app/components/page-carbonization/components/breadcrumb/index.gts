@@ -10,6 +10,10 @@ import { eq } from 'ember-truth-helpers';
 import Enterprise16 from '@carbon/icons/es/enterprise/16.js';
 import Folder16 from '@carbon/icons/es/folder/16.js';
 
+import '@carbon/web-components/es/components/breadcrumb/index.js';
+import '@carbon/web-components/es/components/icon/index.js';
+import '@carbon/web-components/es/components/overflow-menu/index.js';
+
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwDivider from 'showcase/components/shw/divider';

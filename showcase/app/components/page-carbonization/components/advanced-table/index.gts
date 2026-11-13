@@ -10,6 +10,8 @@ import { pageTitle } from 'ember-page-title';
 import { capitalize } from '@ember/string';
 import style from 'ember-style-modifier';
 
+import '@carbon/web-components/es/components/data-table/index.js';
+
 import type Owner from '@ember/owner';
 
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
@@ -483,7 +485,6 @@ export default class AdvancedTableCarbonizationIndex extends Component {
           <cds-table expandable size="md">
             <cds-table-head>
               <cds-table-header-row>
-                <cds-table-expand-header-cell />
                 <cds-table-header-cell>Policy</cds-table-header-cell>
                 <cds-table-header-cell>Status</cds-table-header-cell>
                 <cds-table-header-cell>Description</cds-table-header-cell>

@@ -44,6 +44,7 @@
     "@carbon/layout": "^11.51.0",
     "@carbon/themes": "^11.71.0",
     "@carbon/type": "^11.57.0",
+    "@carbon/web-components": "3.0.0-alpha.6",
     "@codemirror/lint": "^6.8.4",
     "@codemirror/state": "^6.5.0",
     "@codemirror/view": "^6.36.2",

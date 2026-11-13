@@ -9,6 +9,10 @@ import { capitalize } from '@ember/string';
 import { eq } from 'ember-truth-helpers';
 import style from 'ember-style-modifier';
 
+import '@carbon/web-components/es/components/text-input/index.js';
+import '@carbon/web-components/es/components/tag/index.js';
+import '@carbon/web-components/es/components/form-group/index.js';
+
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';

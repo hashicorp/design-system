@@ -8,6 +8,9 @@ import { pageTitle } from 'ember-page-title';
 import { array } from '@ember/helper';
 import Activity16 from '@carbon/icons/es/activity/16';
 
+import '@carbon/web-components/es/components/tag/index.js';
+import '@carbon/web-components/es/components/icon/index.js';
+
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwFlex from 'showcase/components/shw/flex';

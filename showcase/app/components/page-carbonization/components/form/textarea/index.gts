@@ -9,6 +9,8 @@ import { array } from '@ember/helper';
 import { capitalize } from '@ember/string';
 import { eq, and } from 'ember-truth-helpers';
 
+import '@carbon/web-components/es/components/textarea/index.js';
+
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';

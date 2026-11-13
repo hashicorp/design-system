@@ -8,6 +8,8 @@ import { eq } from 'ember-truth-helpers';
 import { modifier } from 'ember-modifier';
 import style from 'ember-style-modifier';
 
+import '@carbon/web-components/es/components/copy-button/index.js';
+
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwFlex from 'showcase/components/shw/flex';

@@ -10,6 +10,9 @@ import { helper } from '@ember/component/helper';
 import { eq } from 'ember-truth-helpers';
 import ArrowRight16 from '@carbon/icons/es/arrow--right/16.js';
 
+import '@carbon/web-components/es/components/link/index.js';
+import '@carbon/web-components/es/components/icon/index.js';
+
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';

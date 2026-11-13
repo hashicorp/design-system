@@ -44,83 +44,11 @@
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/showcase.css">
 
+    <!-- Carbon theme zoning stylesheet: defines CSS variables for theme zones (.cds-theme-zone-white, .cds-theme-zone-g10, .cds-theme-zone-g90, .cds-theme-zone-g100) so Carbon web components inherit proper theme tokens across light and dark modes -->
+    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/latest/themes.css">
+
     <link rel="shortcut icon" href="/assets/logos/favicon.png" />
 
-    <!-- IBM Carbon Web Components - Import via CDN -->
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/accordion.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/breadcrumb.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/button.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/code-snippet.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/copy-button.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/icon.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/icon-button.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/menu-button.min.js"></script>
-    <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/tag.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/inline-loading.min.js"></script>
-    <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/tabs.min.js"></script>
-    <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/link.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/modal.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/overflow-menu.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/pagination.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/pagination-nav.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/tile.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/data-table.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/tooltip.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/toggle-tip.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/notification.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.55.0/progress-indicator.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/stack.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/ui-shell.min.js"></script>
-    <script type="module"
-      src="https://cdn.jsdelivr.net/npm/@carbon/ibm-products-web-components@0.37.0/+esm"></script>
-
-    <!-- form related components -->
-    <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/form.min.js"></script>
-    <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/form-group.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/checkbox.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/file-uploader.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/search.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/text-input.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/textarea.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/radio-button.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/select.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/password-input.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/toggle.min.js"></script>
-    <script type="module"
-      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.50.0/multi-select.min.js"></script>
-
-    <!-- This contains global styles and CSS resets too! -->
-    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/latest/themes.css" />
     <style type="text/css">
       /* Suppress custom element until styles are loaded */
       cds-accordion:not(:defined),
@@ -174,7 +102,6 @@
       cds-table-header-cell:not(:defined),
       cds-table-head:not(:defined),
       cds-table-expanded-row:not(:defined),
-      cds-table-expand-header-cell:not(:defined),
       cds-table-cell:not(:defined),
       cds-table-body:not(:defined),
       cds-table-row:not(:defined),
@@ -185,7 +112,7 @@
       cds-inline-notification:not(:defined),
       cds-progress-indicator:not(:defined),
       cds-progress-step:not(:defined),
-      c4p-side-panel:not(:defined) {
+      cds-side-panel:not(:defined) {
         visibility: hidden;
       }
     </style>

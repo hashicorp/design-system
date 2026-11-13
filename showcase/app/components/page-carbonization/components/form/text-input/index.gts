@@ -9,6 +9,9 @@ import { array } from '@ember/helper';
 import { capitalize } from '@ember/string';
 import { eq, notEq, and, or } from 'ember-truth-helpers';
 
+import '@carbon/web-components/es/components/text-input/index.js';
+import '@carbon/web-components/es/components/search/index.js';
+
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';

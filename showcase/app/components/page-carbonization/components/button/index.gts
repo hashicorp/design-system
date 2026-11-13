@@ -9,6 +9,9 @@ import ArrowRight16 from '@carbon/icons/es/arrow--right/16.js';
 import Add16 from '@carbon/icons/es/add/16.js';
 import InProgress16 from '@carbon/icons/es/in-progress/16.js';
 
+import '@carbon/web-components/es/components/button/index.js';
+import '@carbon/web-components/es/components/icon/index.js';
+
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
