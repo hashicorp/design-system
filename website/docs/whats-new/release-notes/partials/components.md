@@ -12,6 +12,22 @@
   </a>
 </p>
 
+## 7.1.1
+
+**Patch changes**
+
+<!-- START layouts/app-frame -->
+`AppFrame` - Added a default `aria-label` ("Sidebar") to the `AppFrame::Sidebar` `<aside>` element so the landmark has an accessible name. Consumers can override it by passing their own `aria-label` or `aria-labelledby`.
+<!-- END -->
+
+<!-- START components/app-side-nav -->
+`AppSideNav` - Changed the visually hidden `<h2>` used as the accessible label to a `<div>`.
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#4297](https://github.com/hashicorp/design-system/pull/4297)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 7.1.0
 
 [7.1.0 documentation](https://hds-website-7-1-0.vercel.app/)
@@ -1844,22 +1860,6 @@ Removed support for deprecated `ember-flight-icons` `lazyEmbed` config
 **🔄 Updated dependencies:**
 
 - @hashicorp/flight-icons@3.13.0
-
-## 4.22.1
-
-**Patch changes**
-
-`AdvancedTable` - Fixed styles for right and center aligned cells.
-
-<small class="doc-whats-new-changelog-metadata">[#3093](https://github.com/hashicorp/design-system/pull/3093)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`AppFrame` - Changed media query styles for frame header and sidebar containers to use level 3 vs level 4 CSS syntax
-
-<small class="doc-whats-new-changelog-metadata">[#3110](https://github.com/hashicorp/design-system/pull/3110)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
 
 
 ---
