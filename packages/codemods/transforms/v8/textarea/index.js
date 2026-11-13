@@ -94,29 +94,30 @@ module.exports = function ({ source, path: filePath }, { parse, visit, backing, 
 
           const isReadOnlyOrDisabled = node.attributes.some((attr) => {
             if (['readonly', 'disabled'].includes(attr.name)) {
-              if (!attr.value || attr.value.type === 'TextNode') {
-                return attr.value?.chars !== 'false';
-              }
+              if (!attr.value) return true;
+              if (attr.value.type === 'TextNode') return attr.value.chars !== 'false';
               if (attr.value.type === 'MustacheStatement') {
-                return attr.value.path?.type !== 'BooleanLiteral' || attr.value.path.value === true;
+                return attr.value.path?.type === 'BooleanLiteral' && attr.value.path.value === true;
               }
-              return true;
+              return false;
             }
             if (['@isReadOnly', '@isDisabled'].includes(attr.name)) {
-              if (attr.value?.type === 'MustacheStatement') {
-                return attr.value.path?.type !== 'BooleanLiteral' || attr.value.path.value === true;
+              if (!attr.value) return true;
+              if (attr.value.type === 'TextNode') return attr.value.chars !== 'false';
+              if (attr.value.type === 'MustacheStatement') {
+                return attr.value.path?.type === 'BooleanLiteral' && attr.value.path.value === true;
               }
-              return true;
+              return false;
             }
             return false;
           });
           if (isReadOnlyOrDisabled) return;
 
-          const isGeneratedHandler = (modifier, event) => {
+          const isGeneratedHandler = (modifier) => {
             const [eventName, callback] = modifier.params;
             return (
               modifier.path.original === 'on' &&
-              eventName?.value === event &&
+              eventName?.value === 'input' &&
               callback?.type === 'SubExpression' &&
               callback.path.original === 'pick' &&
               callback.params[0]?.value === 'target.value' &&
@@ -128,29 +129,47 @@ module.exports = function ({ source, path: filePath }, { parse, visit, backing, 
             );
           };
           if (
-            node.modifiers.length === 2 &&
+            node.modifiers.length === 1 &&
             !node.attributes.some((attribute) => attribute.name === '...attributes') &&
-            node.modifiers.some((modifier) => isGeneratedHandler(modifier, 'input')) &&
-            node.modifiers.some((modifier) => isGeneratedHandler(modifier, 'change'))
+            node.modifiers.some((modifier) => isGeneratedHandler(modifier))
           ) {
             return;
           }
           if (backing && backing.isMigrated(node)) return;
-          if (
-            (!backing && node.modifiers.length) ||
-            node.attributes.some((attribute) => attribute.name === '...attributes')
-          ) {
+          if (node.attributes.some((attribute) => attribute.name === '...attributes')) {
             report(
               node,
-              'Review existing modifiers/forwarded attributes. Ensure input and change handlers explicitly update @value; no handlers were added.'
+              'Review forwarded attributes (...attributes). Ensure input handlers explicitly update @value; no handlers were added.'
             );
             return;
           }
-          const hasExplicitHandler = node.modifiers.some(
-            (modifier) =>
-              modifier.path?.original === 'on' &&
-              ['input', 'change'].includes(modifier.params[0]?.value)
+          const hasInputHandler = node.modifiers.some(
+            (modifier) => modifier.path?.original === 'on' && modifier.params[0]?.value === 'input'
           );
+          const hasChangeHandler = node.modifiers.some(
+            (modifier) => modifier.path?.original === 'on' && modifier.params[0]?.value === 'change'
+          );
+          if (hasInputHandler) {
+            report(
+              node,
+              'Existing input handler found; verify it explicitly updates state; no handlers were added.'
+            );
+            return;
+          }
+          if (hasChangeHandler) {
+            report(
+              node,
+              'Only a change handler was found; state will update on blur rather than keystroke. Add an input handler if immediate state updates are required; no handlers were added.'
+            );
+            return;
+          }
+          if (!backing && node.modifiers.length) {
+            report(
+              node,
+              'Review existing modifiers. Ensure input handlers explicitly update @value; no handlers were added.'
+            );
+            return;
+          }
 
           if (
             value.type !== 'MustacheStatement' ||
@@ -161,9 +180,6 @@ module.exports = function ({ source, path: filePath }, { parse, visit, backing, 
               value.path.original
             )
           ) {
-            if (hasExplicitHandler) {
-              return;
-            }
             let detail = '@value expression';
             if (value.type === 'MustacheStatement' && value.path?.original) {
               if (value.params?.length || value.hash?.pairs?.length) {
@@ -199,16 +215,10 @@ module.exports = function ({ source, path: filePath }, { parse, visit, backing, 
             const object = parts.join('.');
             if (!backing.register(object, property, node, report)) return;
             node.modifiers.unshift(
-              ...['input', 'change'].map((event) =>
-                b.elementModifier(backing.on, [
-                  b.string(event),
-                  b.sexpr(backing.fn, [
-                    b.path(backing.handler),
-                    b.path(object),
-                    b.string(property),
-                  ]),
-                ])
-              )
+              b.elementModifier(backing.on, [
+                b.string('input'),
+                b.sexpr(backing.fn, [b.path(backing.handler), b.path(object), b.string(property)]),
+              ])
             );
             return;
           }
@@ -229,17 +239,15 @@ module.exports = function ({ source, path: filePath }, { parse, visit, backing, 
           const parts = value.path.original.split('.');
           const property = parts.pop();
           const object = parts.join('.');
-          for (const event of ['input', 'change']) {
-            node.modifiers.push(
-              b.elementModifier('on', [
-                b.string(event),
-                b.sexpr('pick', [
-                  b.string('target.value'),
-                  b.sexpr('set', [b.path(object), b.string(property)]),
-                ]),
-              ])
-            );
-          }
+          node.modifiers.push(
+            b.elementModifier('on', [
+              b.string('input'),
+              b.sexpr('pick', [
+                b.string('target.value'),
+                b.sexpr('set', [b.path(object), b.string(property)]),
+              ]),
+            ])
+          );
         },
         exit() {
           scopes.pop();

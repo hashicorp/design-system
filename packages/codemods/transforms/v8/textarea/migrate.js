@@ -82,32 +82,69 @@ function scriptState(source, filename) {
       cause: error,
     });
   }
-  const identifiers = new Set(source.match(/[A-Za-z_$][\w$]*/g));
   const imports = ast.program.body.filter((node) => node.type === 'ImportDeclaration');
   const additions = [];
   const edits = [];
   const owners = new Map();
   const components = new Map();
+  const topLevelBindings = new Set();
   const localBindings = new Set();
-  const recordBindings = (pattern) =>
+  const recordBindings = (pattern, set) =>
     walk(pattern, (node) => {
-      if (node.type === 'Identifier') localBindings.add(node.name);
+      if (node.type === 'Identifier') set.add(node.name);
     });
-  walk(ast, (node) => {
-    if (node.type === 'VariableDeclarator') recordBindings(node.id);
-    if (node.type === 'CatchClause') recordBindings(node.param);
-    if (/Function|Method/.test(node.type)) {
-      recordBindings(node.id);
-      recordBindings(node.params);
+
+  for (const node of ast.program.body) {
+    if (node.type === 'ImportDeclaration') {
+      for (const specifier of node.specifiers) {
+        topLevelBindings.add(specifier.local.name);
+      }
+    } else if (node.type === 'VariableDeclaration') {
+      for (const decl of node.declarations) {
+        recordBindings(decl.id, topLevelBindings);
+      }
+    } else if (node.type === 'FunctionDeclaration' || node.type === 'ClassDeclaration') {
+      if (node.id) topLevelBindings.add(node.id.name);
+    } else if (node.type === 'ExportNamedDeclaration' && node.declaration) {
+      if (node.declaration.type === 'VariableDeclaration') {
+        for (const decl of node.declaration.declarations) {
+          recordBindings(decl.id, topLevelBindings);
+        }
+      } else if (node.declaration.id) {
+        topLevelBindings.add(node.declaration.id.name);
+      }
+    } else if (node.type === 'ExportDefaultDeclaration' && node.declaration) {
+      if (node.declaration.id) {
+        topLevelBindings.add(node.declaration.id.name);
+      }
     }
-    if (node.type === 'ClassDeclaration') recordBindings(node.id);
+  }
+
+  walk(ast, (node) => {
+    if (node.type === 'VariableDeclarator') recordBindings(node.id, localBindings);
+    if (node.type === 'CatchClause') recordBindings(node.param, localBindings);
+    if (/Function|Method/.test(node.type)) {
+      if (node.id) recordBindings(node.id, localBindings);
+      recordBindings(node.params, localBindings);
+    }
+    if (node.type === 'ClassDeclaration' && node.id) recordBindings(node.id, localBindings);
   });
-  const fresh = (name) => {
+
+  const freshMember = (owner, name) => {
+    const members = owner.body?.body || owner.body || owner.properties || [];
     let candidate = name;
-    for (let suffix = 2; identifiers.has(candidate); suffix++) candidate = `${name}${suffix}`;
-    identifiers.add(candidate);
+    for (
+      let suffix = 2;
+      topLevelBindings.has(candidate) ||
+      members.some((m) => m.key?.name === candidate || m.id?.name === candidate);
+      suffix++
+    ) {
+      candidate = `${name}${suffix}`;
+    }
+    topLevelBindings.add(candidate);
     return candidate;
   };
+
   const importName = (module, imported) => {
     for (const entry of imports) {
       if (entry.source.value !== module || entry.importKind === 'type') continue;
@@ -122,7 +159,13 @@ function scriptState(source, filename) {
     }
     const existing = additions.find((item) => item.module === module && item.imported === imported);
     if (existing) return existing.local;
-    const local = fresh(imported);
+    let local = imported;
+    if (topLevelBindings.has(local) || localBindings.has(local)) {
+      for (let suffix = 2; topLevelBindings.has(local) || localBindings.has(local); suffix++) {
+        local = `${imported}${suffix}`;
+      }
+    }
+    topLevelBindings.add(local);
     additions.push({ module, imported, local });
     return local;
   };
@@ -212,7 +255,7 @@ function scriptState(source, filename) {
   }
   function context(owner, strict) {
     if (owners.has(owner)) return owners.get(owner);
-    const handler = fresh('hdsTextareaValueChange');
+    const handler = freshMember(owner, 'hdsTextareaValueChange');
     let used = false;
     const on = strict ? importName('@ember/modifier', 'on') : 'on';
     const fn = strict ? importName('@ember/helper', 'fn') : 'fn';
@@ -226,31 +269,29 @@ function scriptState(source, filename) {
       isMigrated(node) {
         // Existing generated handlers are retained on subsequent runs.
         const value = node.attributes.find((attribute) => attribute.name === '@value')?.value;
-        return ['input', 'change'].every((event) =>
-          node.modifiers.some((modifier) => {
-            const [name, callback] = modifier.params;
-            if (
-              modifier.path.original !== on ||
-              name?.value !== event ||
-              callback?.type !== 'SubExpression' ||
-              callback.path.original !== fn ||
-              `${callback.params[1]?.original}.${callback.params[2]?.value}` !==
-                value.path?.original ||
-              !/^((this\.)?hdsTextareaValueChange\d*)$/.test(callback.params[0]?.original || '')
-            ) {
-              return false;
-            }
-            const handlerName = callback.params[0].original.replace(/^this\./, '');
-            const members = owner.body || owner.properties;
-            return members.some(
-              (member) =>
-                (member.key?.name === handlerName ||
-                  (member.type === 'VariableDeclaration' &&
-                    member.declarations.some((item) => item.id.name === handlerName))) &&
-                source.slice(member.start, member.end).includes('HTMLTextAreaElement')
-            );
-          })
-        );
+        return node.modifiers.some((modifier) => {
+          const [name, callback] = modifier.params;
+          if (
+            modifier.path.original !== on ||
+            name?.value !== 'input' ||
+            callback?.type !== 'SubExpression' ||
+            callback.path.original !== fn ||
+            `${callback.params[1]?.original}.${callback.params[2]?.value}` !==
+              value.path?.original ||
+            !/^((this\.)?hdsTextareaValueChange\d*)$/.test(callback.params[0]?.original || '')
+          ) {
+            return false;
+          }
+          const handlerName = callback.params[0].original.replace(/^this\./, '');
+          const members = owner.body || owner.properties;
+          return members.some(
+            (member) =>
+              (member.key?.name === handlerName ||
+                (member.type === 'VariableDeclaration' &&
+                  member.declarations.some((item) => item.id.name === handlerName))) &&
+              source.slice(member.start, member.end).includes('HTMLTextAreaElement')
+          );
+        });
       },
       register(object, property, node, report) {
         const members = owner.body || owner.properties;
@@ -341,17 +382,70 @@ function scriptState(source, filename) {
         return count > originalCount;
       });
       if (needed.length) {
-        const position = imports.at(-1)?.end || ast.program.interpreter?.end || 0;
-        edits.push({
-          start: position,
-          end: position,
-          text: `\n${needed
-            .map(
-              ({ module, imported, local }) =>
-                `import { ${imported}${local === imported ? '' : ` as ${local}`} } from '${module}';`
-            )
-            .join('\n')}\n`,
-        });
+        const byModule = new Map();
+        for (const item of needed) {
+          if (!byModule.has(item.module)) byModule.set(item.module, []);
+          byModule.get(item.module).push(item);
+        }
+
+        const newImportDeclarations = [];
+
+        for (const [module, items] of byModule.entries()) {
+          const existingImport = imports.find(
+            (entry) =>
+              entry.source.value === module &&
+              entry.importKind !== 'type' &&
+              entry.specifiers.some((s) => s.type === 'ImportSpecifier')
+          );
+          if (existingImport) {
+            const lastSpecifier = existingImport.specifiers
+              .filter((s) => s.type === 'ImportSpecifier')
+              .at(-1);
+            const formatted = items
+              .map(({ imported, local }) =>
+                local === imported ? imported : `${imported} as ${local}`
+              )
+              .join(', ');
+            const importText = source.slice(existingImport.start, existingImport.end);
+            if (importText.includes('\n')) {
+              const specifierLine = source.slice(0, lastSpecifier.start).split('\n').at(-1);
+              const indent = specifierLine.match(/^\s*/)[0];
+              const formattedMultiline = items
+                .map(
+                  ({ imported, local }) =>
+                    `\n${indent}${local === imported ? imported : `${imported} as ${local}`},`
+                )
+                .join('');
+              edits.push({
+                start: lastSpecifier.end,
+                end: lastSpecifier.end,
+                text: `${source.slice(lastSpecifier.end, existingImport.end).includes(',') ? '' : ','}${formattedMultiline}`,
+              });
+            } else {
+              edits.push({
+                start: lastSpecifier.end,
+                end: lastSpecifier.end,
+                text: `, ${formatted}`,
+              });
+            }
+          } else {
+            const specifiers = items
+              .map(({ imported, local }) =>
+                local === imported ? imported : `${imported} as ${local}`
+              )
+              .join(', ');
+            newImportDeclarations.push(`import { ${specifiers} } from '${module}';`);
+          }
+        }
+
+        if (newImportDeclarations.length) {
+          const position = imports.at(-1)?.end || ast.program.interpreter?.end || 0;
+          edits.push({
+            start: position,
+            end: position,
+            text: `\n${newImportDeclarations.join('\n')}\n`,
+          });
+        }
       }
       return applyEdits(source, edits);
     },
@@ -399,7 +493,7 @@ function migrate(files, { helpers = false } = {}) {
   };
   const migrateTemplate = (source, filename, backing, location) => {
     try {
-      return transform(
+      const output = transform(
         { source, path: filename },
         {
           parse: recast.parse,
@@ -407,6 +501,11 @@ function migrate(files, { helpers = false } = {}) {
           backing,
           location,
         }
+      );
+      if (output === source) return source;
+      return output.replace(
+        /^([ \t]+)(@\w+(?:=[^\n\r]+)?)[ \t]+({{on\b[^\n\r]+}})/gm,
+        '$1$2\n$1$3'
       );
     } catch (error) {
       const line = (error.hash?.loc?.first_line || 1) + (location?.line || 0);

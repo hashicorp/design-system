@@ -54,7 +54,7 @@ describe('paired Textarea migration', () => {
     const script = `${root}/components/example.${extension}`;
     const changes = check({
       [template]:
-        '<Hds::Form::Textarea::Field @value={{this.description}} {{on "input" this.validate}} />',
+        '<Hds::Form::Textarea::Field @value={{this.description}} {{on "blur" this.validate}} />',
       [script]: `${component}\nexport default class Example extends Component {}`,
     });
     expect(changes[template]).toContain(
@@ -63,7 +63,7 @@ describe('paired Textarea migration', () => {
     expect(changes[template].indexOf('hdsTextareaValueChange')).toBeLessThan(
       changes[template].indexOf('this.validate')
     );
-    expect(changes[template]).toContain('{{on "input" this.validate}}');
+    expect(changes[template]).toContain('{{on "blur" this.validate}}');
     expect(changes[script]).toContain("import { set } from '@ember/object'");
     expect(changes[script]).toContain(
       extension === 'ts' ? 'object: object, key: string, event: Event' : 'object, key, event'
@@ -129,7 +129,7 @@ describe('paired Textarea migration', () => {
     expect(changes[script].match(/hdsTextareaValueChange =/g)).toHaveLength(1);
     expect(changes[template]).toContain('R.rowData "value"');
     expect(changes[template]).toContain('@model "description"');
-    expect(changes[template].match(/hdsTextareaValueChange/g)).toHaveLength(6);
+    expect(changes[template].match(/hdsTextareaValueChange/g)).toHaveLength(3);
   });
 
   it('does not edit getters, readonly state, forwarded attributes or complex bindings', () => {
@@ -284,7 +284,7 @@ export default class Example extends Component {
   </template>
 }`,
     });
-    expect(changes[filename].match(/fn this.hdsTextareaValueChange/g)).toHaveLength(2);
+    expect(changes[filename].match(/fn this.hdsTextareaValueChange/g)).toHaveLength(1);
     expect(changes[filename]).toContain('<Textarea @value={{this.unrelated}} />');
     expect(changes[filename]).toContain('<F.Textarea @value={{this.unrelated}} />');
   });
@@ -297,7 +297,7 @@ export default class Example extends Component {
     ).toEqual({});
   });
 
-  it('skips readonly and disabled textareas without emitting diagnostics', () => {
+  it('skips statically readonly and disabled textareas without emitting diagnostics', () => {
     expect(
       check({
         [`${root}/components/example.gjs`]: `${directImport}
@@ -306,13 +306,29 @@ export default <template>
   <Textarea @value={{format-value @model.other}} disabled />
   <Textarea @value={{@model.third}} @isReadOnly={{true}} />
   <Textarea @value={{@model.fourth}} @isDisabled={{true}} />
+  <Textarea @value={{@model.fifth}} disabled="true" />
 </template>;`,
       })
     ).toEqual({});
     expect(warn).not.toHaveBeenCalled();
   });
 
-  it('skips warnings when explicit event handlers are already present', () => {
+  it('migrates textareas with dynamic disabled or readonly bindings when no handlers are present', () => {
+    const filename = `${root}/components/example.gjs`;
+    const changes = check({
+      [filename]: `${directImport}
+export default <template>
+  <Textarea @value={{@model.description}} disabled={{this.isBusy}} />
+  <Textarea @value={{@model.notes}} readonly={{this.isReadOnly}} />
+  <Textarea @value={{@model.third}} @isDisabled={{this.isBusy}} />
+  <Textarea @value={{@model.fourth}} @isReadOnly={{this.isReadOnly}} />
+</template>;`,
+    });
+    expect(changes[filename].match(/\{\{on "input"/g)).toHaveLength(4);
+    expect(warn).not.toHaveBeenCalled();
+  });
+
+  it('skips elements and warns when explicit event handlers are already present, including on dynamic bindings', () => {
     expect(
       check({
         [`${root}/components/example.gjs`]: `${directImport}
@@ -320,10 +336,20 @@ import { on } from '@ember/modifier';
 export default <template>
   <Textarea @value={{if @model.x @model.x undefined}} {{on "change" this.handleChange}} />
   <Textarea @value={{@standalone}} {{on "input" this.handleInput}} />
+  <Textarea @value={{this.description}} {{on "input" this.handleInput}} />
+  <Textarea @value={{this.notes}} disabled={{this.isBusy}} {{on "input" this.handleInput}} />
+  <Textarea @value={{this.sha}} readonly={{this.isReadOnly}} {{on "change" this.handleChange}} />
+  <Textarea @value={{this.custom}} @isDisabled={{this.isBusy}} {{on "change" this.handleChange}} />
 </template>;`,
       })
     ).toEqual({});
-    expect(warn).not.toHaveBeenCalled();
+    expect(warn.mock.calls.length).toBeGreaterThanOrEqual(6);
+    expect(warn.mock.calls[0][0]).toContain('Only a change handler was found');
+    expect(warn.mock.calls[1][0]).toContain('Existing input handler found');
+    expect(warn.mock.calls[2][0]).toContain('Existing input handler found');
+    expect(warn.mock.calls[3][0]).toContain('Existing input handler found');
+    expect(warn.mock.calls[4][0]).toContain('Only a change handler was found');
+    expect(warn.mock.calls[5][0]).toContain('Only a change handler was found');
   });
 
   it('does not mistake JavaScript-shadowed imports for HDS components', () => {
@@ -346,7 +372,7 @@ import { on } from '@ember/modifier';
 function unrelated(on) { return on; }
 export default <template><Textarea @value={{@model.description}} /></template>;`,
     });
-    expect(changes[filename]).toContain("import { on as on2 } from '@ember/modifier'");
+    expect(changes[filename]).toContain("import { on, on as on2 } from '@ember/modifier'");
     expect(changes[filename]).toContain('{{on2 "input"');
   });
 

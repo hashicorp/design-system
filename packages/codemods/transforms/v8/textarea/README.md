@@ -27,7 +27,6 @@ Becomes:
 <Hds::Form::Textarea::Field
   @value={{this.description}}
   {{on "input" (fn this.hdsTextareaValueChange this "description")}}
-  {{on "change" (fn this.hdsTextareaValueChange this "description")}}
   as |F|
 >
   <F.Label>Description</F.Label>

@@ -17,7 +17,8 @@ afterEach(() => {
     if (name.includes(' manual ')) {
       expect(warn).toHaveBeenCalledTimes(5);
       expect(warn.mock.calls.every(([message]) => /manual.hbs:\d+:\d+:/.test(message))).toBe(true);
-      expect(warn.mock.calls[0][0]).toContain('existing modifiers');
+      expect(warn.mock.calls[0][0]).toContain('Existing input handler found');
+      expect(warn.mock.calls[1][0]).toContain('Only a change handler was found');
       expect(warn.mock.calls[3][0]).toContain('Cannot infer a writable object/property');
     } else if (name.includes(' missing-helpers ')) {
       expect(warn).toHaveBeenCalledTimes(1);
