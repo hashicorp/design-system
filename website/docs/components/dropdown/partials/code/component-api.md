@@ -64,13 +64,13 @@ The Dropdown component is composed of different child components each with their
   <C.Property @name="listPosition" @type="string" @values={{array "bottom-left" "bottom-right" "top-left" "top-right" }} @default="bottom-right">
     _Note: If `@enableCollisionDetection` is set, the list will automatically flip position to remain visible when near the edges of the screen regardless of the starting placement._
   </C.Property>
-  <C.Property @name="isInline" @type="boolean" @default="false" @values={{array "true" "false"}}>
+  <C.Property @name="isInline" @type="boolean" @default="false">
     If an `@isInline` parameter is provided, then the element will be displayed as `inline-block` (useful to achieve specific layouts like in a container with right alignment). Otherwise, it will have a `block` layout.
   </C.Property>
-  <C.Property @name="enableCollisionDetection" @type="boolean" @default="false" @values={{array "true" "false"}}>
+  <C.Property @name="enableCollisionDetection" @type="boolean" @default="false">
     Setting it to `true` will automatically flip the list position to remain visible when near the edges of the viewport.
   </C.Property>
-  <C.Property @name="isOpen" @type="boolean" @default="false" @values={{array "true" "false"}}>
+  <C.Property @name="isOpen" @type="boolean" @default="false">
     Controls if the list should be rendered initially opened.
   </C.Property>
   <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
@@ -88,13 +88,16 @@ The Dropdown component is composed of different child components each with their
     Controls if the content is always rendered in the DOM, even when the dropdown is closed.
   </C.Property>
   <C.Property @name="onClose" @type="function">
-    Callback function invoked when the dropdown is closed (if provided).
+    Callback function invoked (if provided) when the dropdown is closed.
   </C.Property>
   <C.Property @name="onFocusOut" @type="function">
-    A callback function invoked when the dropdown menu loses focus, and focus does not move to another element (if provided).
+    Callback function invoked (if provided) when the dropdown menu loses focus, and focus does not move to another element.
     <br />
     <br />
     _Notice: Focus can be lost if content inside the dropdown is removed dynamically. This callback should be used to set focus to another element if this occurs. Without this callback the dropdown will close automatically when focus is lost._
+  </C.Property>
+  <C.Property @name="onOpen" @type="function">
+    Callback function invoked (if provided) when the dropdown is opened.
   </C.Property>
   <C.Property @name="boundary" @type="Boundary | string">
     Provides an option to specify a parent or ancestor container element to act as the boundary for collision detection vs. the browser window boundaries which is the default. The value provided must be either a `Boundary` type as specified in the [Floating UI library documentation](https://floating-ui.com/docs/detectoverflow#options) or an id string for the boundary container element.

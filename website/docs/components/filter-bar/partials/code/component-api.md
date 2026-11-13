@@ -23,6 +23,9 @@
   <C.Property @name="hasSearch" @type="boolean" @default="false">
     When `true`, a search input is shown in the Filter Bar. Search input values are reported to the `@onFilter` callback as a filter with the key `search`.
   </C.Property>
+  <C.Property @name="hasLiveSearch" @type="boolean" @default="false">
+    When `true`, a search input triggers the `@onFilter` callback on the `input` event of the search input. When `false`, the callback is triggered on the `change` event.
+  </C.Property>
   <C.Property @name="searchPlaceholder" @type="string" @default="&quot;Search&quot;">
     Placeholder text for the search input when `@hasSearch` is `true`.
   </C.Property>

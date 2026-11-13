@@ -1,3 +1,8 @@
+## 7.1.0
+
+Added translation for `ariaLabel`.
+
+
 ## 7.0.0
 
 Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.

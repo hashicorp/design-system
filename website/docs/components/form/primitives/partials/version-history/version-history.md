@@ -1,3 +1,17 @@
+## 7.1.0
+
+
+`Form::Field` - Fixed the DOM order of the `flag` layout (used by Checkbox, Radio, and Toggle) so the `<input>` appears before the `<label>`, matching the visual order for screen readers. The visual layout is unchanged.
+
+
+
+`Form::CharacterCount` - Localized translations for status messages for required, allowed, remaining, exceeded, and entered character counts.
+
+
+
+`Form::Indicator` - Corrected translation keys for optional and required labels.
+
+
 ## 7.0.0
 
 

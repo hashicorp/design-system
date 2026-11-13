@@ -109,6 +109,35 @@ module('Integration | Component | hds/app-frame/index', function (hooks) {
     assert.dom('#test-app-frame-sidebar').doesNotExist();
   });
 
+  // Sidebar aria-label
+
+  test('it should have a default aria-label of "Sidebar" on the sidebar container', async function (assert) {
+    await render(
+      <template>
+        <HdsAppFrame as |Frame|>
+          <Frame.Sidebar id="test-app-frame-sidebar" />
+        </HdsAppFrame>
+      </template>,
+    );
+    assert.dom('#test-app-frame-sidebar').hasAttribute('aria-label', 'Sidebar');
+  });
+
+  test('it should allow a custom aria-label for the sidebar container to be passed in', async function (assert) {
+    await render(
+      <template>
+        <HdsAppFrame as |Frame|>
+          <Frame.Sidebar
+            id="test-app-frame-sidebar"
+            aria-label="Custom sidebar"
+          />
+        </HdsAppFrame>
+      </template>,
+    );
+    assert
+      .dom('#test-app-frame-sidebar')
+      .hasAttribute('aria-label', 'Custom sidebar');
+  });
+
   // hasFooter
 
   test('it should hide the sidebar when @hasFooter is false', async function (assert) {

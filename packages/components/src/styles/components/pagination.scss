@@ -277,6 +277,7 @@ $pagination-nav-control-padding-horizontal: 12px;
 
     @include hds-apply-only-if-carbon() {
       margin-left: 0;
+      padding-right: 24px; // override padding in FormSelect so arrow icon is closer to text
       background-color: transparent;
       border: 0;
     }

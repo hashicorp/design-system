@@ -1,3 +1,8 @@
+## 7.1.0
+
+Added translation for `@ariaLabel` in `LegalLinks`.
+
+
 ## 7.0.0
 
 Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.
@@ -6,7 +11,7 @@ Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`
 
 ## 6.6.0
 
-Removed unused `@color` property from `[AF].Link` contextual component
+Removed unused `@color` property from `Link` contextual component
 
 
 ## 6.3.0

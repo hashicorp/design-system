@@ -1,3 +1,11 @@
+## 7.1.0
+
+Fixed a race condition where the editor setup was not tracked by Ember's test waiters, so `render()` and `settled()` could resolve before the editor existed.
+
+
+Added translations for the `@copyButtonText`, JSON lint messages, and CodeMirror diagnostic messages.
+
+
 ## 7.0.0
 
 Removed dark theme modifiers and replaced them with theme agnostic versions

@@ -10,10 +10,10 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 import SubSectionContent from 'showcase/components/page-utilities/disclosure-primitive/sub-sections/content';
 import SubSectionExternalControl from 'showcase/components/page-utilities/disclosure-primitive/sub-sections/external-control';
 
-const DisclosurePrimitveIndex: TemplateOnlyComponent = <template>
-  {{pageTitle "DisclosurePrimitve Component"}}
+const DisclosurePrimitiveIndex: TemplateOnlyComponent = <template>
+  {{pageTitle "DisclosurePrimitive Component"}}
 
-  <ShwTextH1>DisclosurePrimitve</ShwTextH1>
+  <ShwTextH1>DisclosurePrimitive</ShwTextH1>
 
   <section data-test-percy>
     <SubSectionContent />
@@ -21,4 +21,4 @@ const DisclosurePrimitveIndex: TemplateOnlyComponent = <template>
   </section>
 </template>;
 
-export default DisclosurePrimitveIndex;
+export default DisclosurePrimitiveIndex;

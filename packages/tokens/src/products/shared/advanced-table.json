@@ -220,8 +220,8 @@
             "$value": "{table.cell.surface.color.hover}",
             "$modes": {
               "default": "{table.cell.surface.color.hover}",
-              "cds-g0": "#E8E8E8",
-              "cds-g10": "#F1F1F1",
+              "cds-g0": "#e8e8e8",
+              "cds-g10": "#f1f1f1",
               "cds-g90": "#474747",
               "cds-g100": "#373737"
             },
@@ -239,8 +239,8 @@
               "$value": "{table.cell.surface.color.striped.hover}",
               "$modes": {
                 "default": "{table.cell.surface.color.striped.hover}",
-                "cds-g0": "#E8E8E8",
-                "cds-g10": "#E8E8E8",
+                "cds-g0": "#e8e8e8",
+                "cds-g10": "#e8e8e8",
                 "cds-g90": "#474747",
                 "cds-g100": "#373737"
               },
