@@ -10,6 +10,10 @@ import { eq, or } from 'ember-truth-helpers';
 import Information16 from '@carbon/icons/es/information/16.js';
 import Activity16 from '@carbon/icons/es/activity/16.js';
 
+import '@carbon/web-components/es/components/tooltip/index.js';
+import '@carbon/web-components/es/components/icon/index.js';
+import '@carbon/web-components/es/components/tag/index.js';
+
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';

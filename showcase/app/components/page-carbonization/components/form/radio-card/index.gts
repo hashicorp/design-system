@@ -11,6 +11,9 @@ import { array } from '@ember/helper';
 import { on } from '@ember/modifier';
 import HexagonSolid24 from '@carbon/icons/es/hexagon--solid/24.js';
 
+import '@carbon/web-components/es/components/icon/index.js';
+import '@carbon/web-components/es/components/tile/index.js';
+
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';

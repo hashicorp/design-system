@@ -9,6 +9,11 @@ import { capitalize } from '@ember/string';
 import { array } from '@ember/helper';
 import { eq } from 'ember-truth-helpers';
 
+import '@carbon/web-components/es/components/pagination-nav/index.js';
+import '@carbon/web-components/es/components/pagination/index.js';
+import '@carbon/web-components/es/components/select/index.js';
+import '@carbon/web-components/es/components/button/index.js';
+
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';

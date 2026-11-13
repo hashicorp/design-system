@@ -9,6 +9,8 @@ import { capitalize } from '@ember/string';
 import { eq, notEq, and } from 'ember-truth-helpers';
 import { get } from '@ember/helper';
 
+import '@carbon/web-components/es/components/notification/index.js';
+
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';

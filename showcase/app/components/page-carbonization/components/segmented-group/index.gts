@@ -4,6 +4,13 @@ import { capitalize } from '@ember/string';
 import { concat } from '@ember/helper';
 import { eq } from 'ember-truth-helpers';
 
+import '@carbon/web-components/es/components/text-input/index.js';
+import '@carbon/web-components/es/components/button/index.js';
+import '@carbon/web-components/es/components/menu-button/index.js';
+import '@carbon/web-components/es/components/menu/index.js';
+import '@carbon/web-components/es/components/select/index.js';
+import '@carbon/web-components/es/components/multi-select/index.js';
+
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';

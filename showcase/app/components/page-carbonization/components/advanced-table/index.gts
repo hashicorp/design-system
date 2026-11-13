@@ -10,6 +10,8 @@ import { pageTitle } from 'ember-page-title';
 import { capitalize } from '@ember/string';
 import style from 'ember-style-modifier';
 
+import '@carbon/web-components/es/components/data-table/index.js';
+
 import type Owner from '@ember/owner';
 
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';

@@ -2,6 +2,9 @@ import Component from '@glimmer/component';
 import { pageTitle } from 'ember-page-title';
 import { modifier } from 'ember-modifier';
 
+import '@carbon/web-components/es/components/side-panel/index.js';
+import '@carbon/web-components/es/components/button/index.js';
+
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
@@ -16,8 +19,8 @@ import {
 
 export default class FlyoutCarbonizationIndex extends Component {
   forceStaticC4PSidePanel = modifier((element: HTMLElement) => {
-    const TAG = 'c4p-side-panel';
-    const STYLE_ID = 'shw-carbonization-c4p-side-panel-force-static';
+    const TAG = 'cds-side-panel';
+    const STYLE_ID = 'shw-carbonization-cds-side-panel-force-static';
     let observer: MutationObserver | undefined;
     let isDestroyed = false;
 
@@ -34,6 +37,7 @@ export default class FlyoutCarbonizationIndex extends Component {
       }
 
       style.textContent = `
+        .cds--side-panel,
         .c4p--side-panel {
           position: static !important;
           inset: auto !important;
@@ -44,9 +48,11 @@ export default class FlyoutCarbonizationIndex extends Component {
           z-index: auto !important;
           block-size: 300px !important;
         }
+        .cds--side-panel__title,
         .c4p--side-panel__title {
           position: static !important;
         }
+        .cds--side-panel__actions-container,
         .c4p--side-panel__actions-container {
           position: static !important;
         }
@@ -110,9 +116,9 @@ export default class FlyoutCarbonizationIndex extends Component {
           </HdsFlyout>
         </:theming>
         <:reference>
-          <c4p-side-panel open size="md" title="Title" animate-title="false">
+          <cds-side-panel open size="md" title="Title" animate-title="false">
             <p>Flyout content</p>
-          </c4p-side-panel>
+          </cds-side-panel>
         </:reference>
       </ShwCarbonizationComparisonGrid>
       <ShwCarbonizationComparisonGrid
@@ -132,7 +138,7 @@ export default class FlyoutCarbonizationIndex extends Component {
           </HdsFlyout>
         </:theming>
         <:reference>
-          <c4p-side-panel
+          <cds-side-panel
             open
             size="md"
             title="Title"
@@ -140,7 +146,7 @@ export default class FlyoutCarbonizationIndex extends Component {
             animate-title="false"
           >
             <p>Flyout content</p>
-          </c4p-side-panel>
+          </cds-side-panel>
         </:reference>
       </ShwCarbonizationComparisonGrid>
       <ShwCarbonizationComparisonGrid
@@ -160,7 +166,7 @@ export default class FlyoutCarbonizationIndex extends Component {
           </HdsFlyout>
         </:theming>
         <:reference>
-          <c4p-side-panel
+          <cds-side-panel
             open
             size="md"
             title="Title"
@@ -168,7 +174,7 @@ export default class FlyoutCarbonizationIndex extends Component {
             animate-title="false"
           >
             <p>Flyout content</p>
-          </c4p-side-panel>
+          </cds-side-panel>
         </:reference>
       </ShwCarbonizationComparisonGrid>
       <ShwCarbonizationComparisonGrid
@@ -191,7 +197,7 @@ export default class FlyoutCarbonizationIndex extends Component {
           </HdsFlyout>
         </:theming>
         <:reference>
-          <c4p-side-panel
+          <cds-side-panel
             open
             size="md"
             title="Title"
@@ -200,7 +206,7 @@ export default class FlyoutCarbonizationIndex extends Component {
           >
             <div slot="subtitle">Lorem ipsum dolor</div>
             <p>Flyout content</p>
-          </c4p-side-panel>
+          </cds-side-panel>
         </:reference>
       </ShwCarbonizationComparisonGrid>
 
@@ -230,7 +236,7 @@ export default class FlyoutCarbonizationIndex extends Component {
           </HdsFlyout>
         </:theming>
         <:reference>
-          <c4p-side-panel
+          <cds-side-panel
             open
             size="md"
             title="Title"
@@ -239,7 +245,7 @@ export default class FlyoutCarbonizationIndex extends Component {
           >
             <div slot="subtitle">Lorem ipsum dolor</div>
             <p>Flyout content</p>
-          </c4p-side-panel>
+          </cds-side-panel>
         </:reference>
       </ShwCarbonizationComparisonGrid>
 
@@ -267,11 +273,11 @@ export default class FlyoutCarbonizationIndex extends Component {
           </HdsFlyout>
         </:theming>
         <:reference>
-          <c4p-side-panel open size="md" title="Title" animate-title="false">
+          <cds-side-panel open size="md" title="Title" animate-title="false">
             <div slot="subtitle">Lorem ipsum dolor</div>
             <p>Flyout content</p>
             <cds-button slot="actions" kind="primary">Primary</cds-button>
-          </c4p-side-panel>
+          </cds-side-panel>
         </:reference>
       </ShwCarbonizationComparisonGrid>
       <ShwCarbonizationComparisonGrid
@@ -297,11 +303,11 @@ export default class FlyoutCarbonizationIndex extends Component {
           </HdsFlyout>
         </:theming>
         <:reference>
-          <c4p-side-panel open size="md" title="Title" animate-title="false">
+          <cds-side-panel open size="md" title="Title" animate-title="false">
             <p>Flyout content</p>
             <cds-button slot="actions" kind="primary">Primary</cds-button>
             <cds-button slot="actions" kind="secondary">Secondary</cds-button>
-          </c4p-side-panel>
+          </cds-side-panel>
         </:reference>
       </ShwCarbonizationComparisonGrid>
       <ShwCarbonizationComparisonGrid
@@ -334,12 +340,12 @@ export default class FlyoutCarbonizationIndex extends Component {
           </HdsFlyout>
         </:theming>
         <:reference>
-          <c4p-side-panel open size="md" title="Title" animate-title="false">
+          <cds-side-panel open size="md" title="Title" animate-title="false">
             <p>Flyout content</p>
             <cds-button slot="actions" kind="primary">Primary</cds-button>
             <cds-button slot="actions" kind="secondary">Secondary</cds-button>
             <cds-button slot="actions" kind="ghost">Tertiary</cds-button>
-          </c4p-side-panel>
+          </cds-side-panel>
         </:reference>
       </ShwCarbonizationComparisonGrid>
 
