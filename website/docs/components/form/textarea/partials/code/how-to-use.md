@@ -2,8 +2,8 @@
 
 There are two ways to use the Textarea component:
 
-- `Form::Textarea::Base` - the base component: the `<Textarea>` Ember component.
-- `Form::Textarea::Field` - the field parent component: the `<Textarea>` Ember component, with label, helper text and error messaging (in a wrapping container).
+- `Form::Textarea::Base` - the base component: a native `<textarea>` element.
+- `Form::Textarea::Field` - the field parent component: a native `<textarea>` element, with label, helper text, and error messaging (in a wrapping container).
 
 We recommend using the Field component because it provides built-in accessibility functionality. Use the Base component if needing to achieve custom layouts or have special use cases not covered by the Field component.
 
@@ -24,6 +24,20 @@ The basic invocation requires a `Label`. This creates:
 Pass a `@value` argument to pre-populate the textarea.
 
 [[code-snippets/textarea-value]]
+
+Editing the textarea doesn't automatically update the value you pass in. Use an `input` handler to read `event.target.value` and update your state. This also keeps validation and `CharacterCount` in sync.
+
+See [Events handling](#events-handling) for a complete example.
+
+#### Migrating from implicit value updates
+
+In HDS 8, Textarea uses a native element instead of Ember's built-in component. This removes implicit two-way binding for Base, Field, and the `Textarea` contextual component yielded by KeyValueInputs Field.
+
+If you relied on `@value={{this.description}}` updating `this.description` as you typed, add an explicit handler as shown in [Events handling](#events-handling). Review existing handlers too: a handler that only validates, or only updates state on `change`, doesn't update your state on every keystroke. Listen to `change` as well if your application needs to handle change events without an input event.
+
+The [`v8/textarea` codemod](https://github.com/hashicorp/design-system/tree/main/packages/codemods/transforms/v8/textarea) migrates straightforward bindings in `.hbs`, `.gts`, and `.gjs` files. It updates paired backing JavaScript or TypeScript classes, adds explicit value-update handlers, and manages imports in strict-mode components. Existing event handlers are preserved. It reports complex bindings, forwarded attributes, and other cases requiring manual review.
+
+The native element also no longer adds the `ember-text-area` and `ember-view` classes. Use `hds-form-textarea` or your own class for selectors.
 
 #### Helper text
 
@@ -133,6 +147,6 @@ The Base component is intended for rare cases where the Field component can’t 
 `Form::Textarea::Base` does not come with built-in accessibility functionality. It is the responsibility of the product team to ensure the implementation is conformant.
 !!!
 
-The Base component creates a `<textarea>` control with an automatically generated `ID` attribute.
+The Base component creates a `<textarea>` control. Provide an `@id` or `id` attribute when associating it with a label.
 
 [[code-snippets/textarea-base]]
