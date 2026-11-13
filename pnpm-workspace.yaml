@@ -71,15 +71,27 @@ patchedDependencies:
 allowBuilds:
   '@carbon/charts': false
   '@carbon/colors': false
+  '@carbon/feature-flags': false
   '@carbon/grid': false
+  '@carbon/icon-helpers': false
   '@carbon/icons': false
   '@carbon/layout': false
   '@carbon/motion': false
+  '@carbon/styles': false
   '@carbon/themes': false
   '@carbon/type': false
+  '@carbon/utilities': false
   '@carbon/utils-position': false
+  '@carbon/web-components': false
+  '@ibm/plex': false
   '@ibm/plex-mono': false
   '@ibm/plex-sans': false
+  '@ibm/plex-sans-arabic': false
+  '@ibm/plex-sans-devanagari': false
+  '@ibm/plex-sans-hebrew': false
+  '@ibm/plex-sans-thai-looped': false
+  '@ibm/plex-sans-thai': false
+  '@ibm/plex-serif': false
   '@parcel/watcher': true
   '@percy/core': true
   core-js: true
