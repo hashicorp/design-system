@@ -77,6 +77,40 @@ After migrating, developers will need to start testing their application across 
 
 For more details, see [Carbonization for engineers](/carbonization/for-engineers).
 
+## New design system ecosystem
+
+Introducing the Carbon Design System visual language via the Helios v7.0.0 release shifts the existing design system ecosystem for HashiCorp products.
+
+### What design systems are available to use?
+
+- **Helios Design System**: A core design system built for HashiCorp products available in [Ember](https://github.com/hashicorp/design-system) and [Figma](https://www.figma.com/files/902667414815738345/team/1030156573400567478).
+    - Legacy HDS: Uses HashiCorp’s visual language
+    - Carbonized HDS: Uses IBM’s visual language
+- **Carbon Design System**: A design system built to be used across IBM products, marketing, etc. It includes a core design system and is extended by additional systems, such as AI, Charts, Product, Cloud, etc. Carbon is available in [React](https://github.com/carbon-design-system/carbon/tree/main/packages/react), [Web Components](https://github.com/carbon-design-system/carbon/tree/main/packages/web-components), and [Figma](https://www.figma.com/files/902667414815738345/folder/57645777).
+
+### Which system should you use?
+
+- If your product is built using **Ember** and:
+    - **Has adopted Carbonized HDS**: continue using the Helios Design System. However, build and test everything in the cds light (`cds-0`) and dark (`cds-100`) modes.
+    - **Has not adopted Carbonized HDS**: use the Helios Design System in the legacy mode (`hds`).
+- If your product is built using **React**: use the [Carbon Design System](https://www.carbondesignsystem.com/) directly.
+- If your product is net new: determine the framework first.
+
+![](/assets/carbonization/hds-decision-tree.png)
+
+### Can they be used together?
+
+It depends.  
+
+Once a team has upgraded to HDS v7.0.0+ and started to use the light and dark modes, the product will look like a part of the larger IBM portfolio and thus the Carbon Design System.
+
+There may be instances where the Carbon Design System offers a component or pattern that the Helios Design System does not, such as [Charts](https://www.carbondesignsystem.com/building-blocks/data-visualization/overview). When this happens, Designers will need to speak with their Engineering and Product teams to understand the level of effort for implementation. In Figma, use the [Carbon Design System components](https://www.figma.com/design/YAnB1jKx0yCUL29j6uSLpg/-v11--Carbon-Design-System?m=auto) directly. In code, there are two paths:
+
+- Use [Carbon Web Components](https://github.com/carbon-design-system/carbon/tree/main/packages/web-components).
+    - [Read more about using Carbon Web Components](https://ibm.sharepoint.com/:w:/r/sites/hermes/Shared%20Documents/DraftDocuments_New/DS-Results%20from%20Carbon%20Web%20Component%20explorations%20with%20Helios.docx?d=w5c2f002b75784fdfbf3f32bf1bf52c44&csf=1&web=1&e=eccWb9).
+- Collaborate with the HDS team to implement the missing component/pattern in Ember.
+    - **This does not mean that HDS will build it.** Our involvement would depend on the current roadmap. If we can’t build it, we can collaborate with the team that is and may even consider bringing the final implementation into HDS for others to use.
+
 ## FAQ
 
 **Why not adopt Carbon directly?**
