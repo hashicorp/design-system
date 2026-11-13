@@ -1,3 +1,10 @@
+## 0.2.4
+
+### Patch Changes
+
+**🔄 Updated dependencies:**
+  - @hashicorp/design-system-components@7.1.1
+
 ## 0.2.3
 
 ### Patch Changes
