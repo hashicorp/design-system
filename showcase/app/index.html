@@ -44,6 +44,9 @@
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/showcase.css">
 
+    <!-- Carbon theme zoning stylesheet: defines CSS variables for theme zones (.cds-theme-zone-white, .cds-theme-zone-g10, .cds-theme-zone-g90, .cds-theme-zone-g100) so Carbon web components inherit proper theme tokens across light and dark modes -->
+    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/latest/themes.css">
+
     <link rel="shortcut icon" href="/assets/logos/favicon.png" />
 
     <style type="text/css">
@@ -99,7 +102,6 @@
       cds-table-header-cell:not(:defined),
       cds-table-head:not(:defined),
       cds-table-expanded-row:not(:defined),
-      cds-table-expand-header-cell:not(:defined),
       cds-table-cell:not(:defined),
       cds-table-body:not(:defined),
       cds-table-row:not(:defined),
@@ -110,7 +112,7 @@
       cds-inline-notification:not(:defined),
       cds-progress-indicator:not(:defined),
       cds-progress-step:not(:defined),
-      c4p-side-panel:not(:defined) {
+      cds-side-panel:not(:defined) {
         visibility: hidden;
       }
     </style>
