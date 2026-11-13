@@ -22,6 +22,8 @@ import type { RankableEntry } from "../../../src/stores/rank.js";
 interface Row {
   id: string;
   keywords: string;
+  // a name the row goes by elsewhere
+  alias?: string;
 }
 
 const buildRows = (...ids: string[]): Row[] =>
@@ -29,6 +31,7 @@ const buildRows = (...ids: string[]): Row[] =>
 
 const toRankable = (row: Row): RankableEntry => ({
   identities: [row.id],
+  secondaryIdentities: row.alias === undefined ? [] : [row.alias],
   blob: `${row.id} ${row.keywords}`.toLowerCase(),
 });
 
@@ -164,6 +167,20 @@ describe("searchRanked", () => {
     const rows = buildRows("alpha-one", "alpha-two", "alpha-six");
 
     expect(rank(rows, "alpha")).toStrictEqual(rank(rows, "alpha"));
+  });
+
+  it("ranks a whole secondary name below an entry's own name and above another's prefix", () => {
+    const rows: Row[] = [
+      { id: "closed-caption", keywords: "" },
+      { id: "x", keywords: "", alias: "close" },
+      { id: "box", keywords: "" },
+      { id: "archive", keywords: "", alias: "box" },
+    ];
+
+    expect(rank(rows, "close")).toStrictEqual(["x", "closed-caption"]);
+    expect(rank(rows, "box")).toStrictEqual(["box", "archive"]);
+    // a fragment of a secondary name is no more telling than a keyword
+    expect(rank(rows, "clos")).toStrictEqual(["closed-caption"]);
   });
 
   it("counts every match but returns only the window", () => {

@@ -35,7 +35,7 @@ export const searchIconsInputShape = {
     .string()
     .min(1)
     .describe(
-      "Icon name or keyword, e.g. 'alert', 'triangle', 'arrow-right' or 'warning'. Matched as a case-insensitive substring against the icon name, its description keywords, its category, its Figma mapping and its variant file names.",
+      "Icon name or keyword, e.g. 'alert', 'triangle', 'arrow-right' or 'warning'. Matched as a case-insensitive substring against the icon name, its description keywords, its category, its Carbon icon name and its variant file names.",
     ),
   limit: searchLimitSchema(MAX_SEARCH_LIMIT, DEFAULT_SEARCH_LIMIT),
   category: z
@@ -58,7 +58,7 @@ export const searchIconsInputShape = {
     .boolean()
     .optional()
     .describe(
-      "Restrict to icons that do (true) or do not (false) carry a Figma component mapping. Leave unset unless you are reconciling code against the Figma library.",
+      "Restrict to icons that do (true) or do not (false) map to a Carbon icon.",
     ),
 };
 
@@ -68,7 +68,10 @@ const searchIconsResultShape = z.object({
   description: z.string(),
   category: z.string(),
   sizes: z.array(z.string()),
+  // whether the icon maps to a Carbon icon, named in carbonIconName
   hasMapping: z.boolean(),
+  // the Carbon icon this one maps to, e.g. 'Arrow--right'
+  carbonIconName: z.string().optional(),
 });
 
 export const searchIconsOutputShape = {
@@ -103,6 +106,7 @@ const DESCRIPTION = [
   "Find HDS icons — the icon set Helios ships — by name or keyword, from the catalog inside the installed @hashicorp/flight-icons package.",
   "Each icon's searchable text includes its description keywords, so 'warning' reaches alert-triangle even though the two share no characters.",
   "Use it to pick the @name value for <Hds::Icon> or <Hds::Button @icon=>, and to confirm an icon exists before writing a name that would render nothing.",
+  "An icon that maps to a Carbon icon carries its name in carbonIconName, and searching a Carbon icon name, e.g. 'Close' or 'Arrow--right', finds the HDS icons mapped to it.",
   "Use the optional size filter when you need an icon available at a particular size; otherwise pick the size at the call site.",
   "The catalog is read from disk and never fetched. Exact and prefix matches on the icon name rank first, so an icon you named by hand comes back at the top; keyword-only matches rank last. If `truncated` is true, narrow the query or filter by category.",
 ].join(" ");

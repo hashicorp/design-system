@@ -16,6 +16,9 @@ export const toSerializableIconSummary = (icon: IconSummary): JsonObject => {
     category: icon.category,
     sizes: icon.sizes,
     hasMapping: icon.hasMapping,
+    ...(icon.carbonIconName === undefined
+      ? {}
+      : { carbonIconName: icon.carbonIconName }),
   };
 };
 

@@ -135,7 +135,7 @@ Your assistant chooses and calls these tools through the MCP client. Names may a
 | `search_hds_components` | Find components by invocation name, class name, module path, or documentation path.  | `query`                                 | `limit`                                   |
 | `get_hds_component`     | Read an individual component's API, including argument types and yielded components. | `name`                                  | —                                         |
 | `search_hds_tokens`     | Find tokens by name or value, including CSS variables and resolved values.           | `query`                                 | `limit`, `type`, `category`               |
-| `search_hds_icons`      | Find icons by name or keyword, including available sizes.                            | `query`                                 | `limit`, `category`, `size`, `hasMapping` |
+| `search_hds_icons`      | Find icons by name, keyword, or Carbon icon name, including available sizes.         | `query`                                 | `limit`, `category`, `size`, `hasMapping` |
 | `search_hds_docs`       | Search bundled documentation for guidance and examples.                              | `query`                                 | `limit`, `section`, `tab`, `docsPath`     |
 | `read_hds_docs`         | Read a documentation passage with its Markdown and code examples.                    | `id` from a documentation search result | `includeChildren`, `maxBytes`             |
 
