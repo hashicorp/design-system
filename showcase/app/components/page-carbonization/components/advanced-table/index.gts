@@ -485,7 +485,6 @@ export default class AdvancedTableCarbonizationIndex extends Component {
           <cds-table expandable size="md">
             <cds-table-head>
               <cds-table-header-row>
-                <cds-table-expand-header-cell />
                 <cds-table-header-cell>Policy</cds-table-header-cell>
                 <cds-table-header-cell>Status</cds-table-header-cell>
                 <cds-table-header-cell>Description</cds-table-header-cell>

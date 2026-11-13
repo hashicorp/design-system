@@ -13,6 +13,21 @@ module.exports = function (defaults) {
       enableTypeScriptTransform: true,
     },
 
+    autoImport: {
+      webpack: {
+        module: {
+          rules: [
+            {
+              test: /\.m?js$/,
+              resolve: {
+                fullySpecified: false,
+              },
+            },
+          ],
+        },
+      },
+    },
+
     // See https://github.com/adopted-ember-addons/ember-cli-sass
     sassOptions: {
       precision: 4,
