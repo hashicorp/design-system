@@ -402,7 +402,7 @@ describe('Textarea CLI', () => {
     ).toContain('Would update 2 files');
   });
 
-  it('ignores unrelated templates containing unsupported recast syntax', () => {
+  it('ignores unrelated templates without textarea invocations', () => {
     const template = path.join(directory, 'example.hbs');
     const script = path.join(directory, 'example.js');
     const unrelated = path.join(directory, 'unrelated.hbs');
@@ -422,7 +422,7 @@ describe('Textarea CLI', () => {
     const unparseable = path.join(directory, 'unparseable.hbs');
     const unparseableScript = path.join(directory, 'unparseable.js');
     const unparseableContent =
-      '<Hds::Form::Textarea::Field @value={{this.description}} />\n<Snippet @textToCopy={{(vcs-url)}} />';
+      '<Hds::Form::Textarea::Field @value={{this.description}} />\n{{#if}}';
     fs.writeFileSync(template, '<Hds::Form::Textarea::Field @value={{this.description}} />');
     fs.writeFileSync(script, `${component}\nexport default class Valid extends Component {}`);
     fs.writeFileSync(unparseable, unparseableContent);

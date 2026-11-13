@@ -414,7 +414,7 @@ function migrate(files, { helpers = false } = {}) {
         (error.hash?.loc?.first_column || 0) + 1 + (line === 1 ? location?.column || 0 : 0);
       const msg = error.message ? error.message.split('\n')[0] : 'Parse error';
       console.warn(
-        `[v8/textarea] ${filename}:${line}:${col}: Could not parse template (${msg}). Check for unsupported Handlebars syntax such as root subexpressions (e.g. '{{(helper)}}'); manual migration is required.`
+        `[v8/textarea] ${filename}:${line}:${col}: Could not parse template (${msg}); manual migration is required.`
       );
       return source;
     }
