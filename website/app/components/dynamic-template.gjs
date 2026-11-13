@@ -9,7 +9,8 @@ import { setComponentTemplate } from '@ember/component';
 import { getOwner } from '@ember/owner';
 import { compileTemplate } from '@ember/template-compilation';
 
-let templateOwnerMap = new Map();
+// keyed by owner, so a destroyed app (a test, a prerendered page) can be collected
+let templateOwnerMap = new WeakMap();
 
 export default class DynamicTemplate extends Component {
   constructor() {
