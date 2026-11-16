@@ -31,11 +31,16 @@ export interface TokenMigrations {
   find: (name: string) => TokenMigration | null;
 }
 
+// only a complete `var(--name)` is unwrapped, so partial text stays an ordinary search
+const CSS_VAR_PATTERN = /^\s*var\(\s*(--[^\s,()]+)\s*\)\s*$/u;
+
+export const unwrapCssVar = (query: string): string => {
+  return CSS_VAR_PATTERN.exec(query)?.[1] ?? query;
+};
+
 // `var(--token-x)`, `--token-x` and `token-x` all name the same old token
 export const normalizeTokenName = (name: string): string => {
-  return normalizeTokenLookupKey(
-    name.trim().replace(/^var\(\s*/u, "").replace(/\s*\)$/u, ""),
-  );
+  return normalizeTokenLookupKey(unwrapCssVar(name).trim());
 };
 
 export const createTokenMigrations = (value: unknown): TokenMigrations => {

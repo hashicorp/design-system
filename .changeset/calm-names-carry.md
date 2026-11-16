@@ -9,6 +9,8 @@ Added support for token names from before `@hashicorp/design-system-tokens` 6.0:
 
 Added lookup of a token by its name without the `hds-` prefix, as the documentation writes it, e.g. `hds://tokens/foreground-color-action`.
 
+Added support for a `search_hds_tokens` query copied from CSS with its `var()`, e.g. `var(--hds-foreground-color-action)`.
+
 Added support for a `search_hds_docs` tab written as it appears in passage ids, e.g. `carbon-theme`.
 
 Added guidance on design tokens, icons and Carbon themes to the `review_hds_usage` and `implement_hds_pattern` prompts.
