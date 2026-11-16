@@ -204,9 +204,6 @@ describe("search_hds_tokens theme values", () => {
     "cds-g90": "#78a9ff",
     "cds-g100": "#78a9ff",
   };
-  // longer than where a data url is cut, as the real classic font stack is
-  const FONT_STACK = `-apple-system, BlinkMacSystemFont, ${"Segoe UI, ".repeat(9)}sans-serif`;
-  const DATA_URL = `url("data:image/svg+xml,%3Csvg ${"x".repeat(200)}%3E")`;
 
   const themedStore = createTokenCatalogStore([
     buildTokenCatalogRow({
@@ -217,24 +214,6 @@ describe("search_hds_tokens theme values", () => {
       name: "hds-foreground-color-action",
       attributes: { category: "foreground" },
       path: ["foreground", "color", "action"],
-    }),
-    buildTokenCatalogRow({
-      key: "{typography.font-stack.text}",
-      $type: "font-family",
-      $value: FONT_STACK,
-      $modes: { default: FONT_STACK, "cds-g0": "'IBM Plex Sans', sans-serif" },
-      name: "hds-typography-font-stack-text",
-      attributes: { category: "typography" },
-      path: ["typography", "font-stack", "text"],
-    }),
-    buildTokenCatalogRow({
-      key: "{form.select.background-image.data-url}",
-      $type: "other",
-      $value: DATA_URL,
-      $modes: { default: DATA_URL, "cds-g0": DATA_URL },
-      name: "hds-form-select-background-image-data-url",
-      attributes: { category: "form" },
-      path: ["form", "select", "background-image", "data-url"],
     }),
   ]);
 
@@ -260,17 +239,52 @@ describe("search_hds_tokens theme values", () => {
       themedSearch("#78a9ff").results.map((token) => token.name),
     ).toStrictEqual(["hds-foreground-color-action"]);
   });
+});
 
-  it("cuts a data url in every theme but keeps a font stack whole", () => {
-    const [stack] = themedSearch("font-stack").results;
-    const [image] = themedSearch("data-url").results;
+describe("search_hds_tokens long values", () => {
+  // longer than where a data url is cut, as the real classic font stack is
+  const FONT_STACK = `-apple-system, BlinkMacSystemFont, ${"Segoe UI, ".repeat(9)}sans-serif`;
+  const DATA_URL = `url("data:image/svg+xml,%3Csvg ${"x".repeat(200)}%3E")`;
+  const SHORTENED_DATA_URL = `${DATA_URL.slice(0, 120)}…`;
+
+  const longValueStore = createTokenCatalogStore([
+    buildTokenCatalogRow({
+      key: "{typography.font-stack.text}",
+      $type: "font-family",
+      $value: FONT_STACK,
+      $modes: { default: FONT_STACK, "cds-g0": "'IBM Plex Sans', sans-serif" },
+      name: "hds-typography-font-stack-text",
+      attributes: { category: "typography" },
+      path: ["typography", "font-stack", "text"],
+    }),
+    buildTokenCatalogRow({
+      key: "{form.select.background-image.data-url}",
+      $type: "other",
+      $value: DATA_URL,
+      $modes: { default: DATA_URL, "cds-g0": DATA_URL },
+      name: "hds-form-select-background-image-data-url",
+      attributes: { category: "form" },
+      path: ["form", "select", "background-image", "data-url"],
+    }),
+  ]);
+
+  const longValueSearch = (query: string): SearchTokensPayload =>
+    searchTokens(longValueStore, { query, limit: 10 });
+
+  it("keeps a font stack whole", () => {
+    const [stack] = longValueSearch("font-stack").results;
 
     expect(stack.value).toBe(FONT_STACK);
     expect(stack.modes?.default).toBe(FONT_STACK);
-    expect(image.value).toBe(`${DATA_URL.slice(0, 120)}…`);
+  });
+
+  it("shortens an inlined data url, in every theme", () => {
+    const [image] = longValueSearch("data-url").results;
+
+    expect(image.value).toBe(SHORTENED_DATA_URL);
     expect(image.modes).toStrictEqual({
-      default: `${DATA_URL.slice(0, 120)}…`,
-      "cds-g0": `${DATA_URL.slice(0, 120)}…`,
+      default: SHORTENED_DATA_URL,
+      "cds-g0": SHORTENED_DATA_URL,
     });
   });
 });
