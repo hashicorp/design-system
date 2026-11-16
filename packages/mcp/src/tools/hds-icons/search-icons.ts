@@ -35,7 +35,7 @@ export const searchIconsInputShape = {
     .string()
     .min(1)
     .describe(
-      "Icon name or keyword, e.g. 'alert', 'triangle', 'arrow-right' or 'warning'. Matched as a case-insensitive substring against the icon name, its description keywords, its category, its Carbon icon name and its variant file names.",
+      "Icon name or keyword, e.g. 'alert', 'triangle', 'arrow-right', or 'warning'. Matched as a case-insensitive substring against the icon name, its description keywords, its category, its Carbon icon name, and its variant file names.",
     ),
   limit: searchLimitSchema(MAX_SEARCH_LIMIT, DEFAULT_SEARCH_LIMIT),
   category: z
