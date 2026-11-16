@@ -19,7 +19,7 @@ describe("toIconRecord", () => {
         size: "24",
         width: 24,
         height: 24,
-        mapping: "Warning",
+        mapping: "Warning--alt",
       }),
       buildIconAsset(),
     ]);
@@ -27,10 +27,10 @@ describe("toIconRecord", () => {
     expect(record).toStrictEqual({
       iconName: "alert-triangle",
       description: "alert, warning, caution",
-      category: "Alerts",
+      category: "Status",
       sizes: ["16", "24"],
       hasMapping: true,
-      carbonIconName: "Warning",
+      carbonIconName: "Warning--alt",
       variants: [
         {
           id: "1:1",
@@ -45,7 +45,7 @@ describe("toIconRecord", () => {
           size: "24",
           width: 24,
           height: 24,
-          mapping: "Warning",
+          mapping: "Warning--alt",
         },
       ],
     });
