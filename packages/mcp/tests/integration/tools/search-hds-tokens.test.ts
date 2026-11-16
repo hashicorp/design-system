@@ -252,6 +252,53 @@ describe("search_hds_tokens old token names", () => {
   it("leaves migration off an ordinary search", () => {
     expect(migratedSearch("foreground")).not.toHaveProperty("migration");
   });
+
+  it("finds a current token copied from CSS with its var()", () => {
+    const payload = migratedSearch("var(--hds-foreground-color-action)");
+
+    expect(payload.query).toBe("var(--hds-foreground-color-action)");
+    expect(payload).not.toHaveProperty("migration");
+    expect(payload.results.map((token) => token.name)).toStrictEqual([
+      "hds-foreground-color-action",
+    ]);
+  });
+
+  it("finds an old token copied from CSS when the installed catalog still has it", () => {
+    // an app still on a tokens release from before the rename
+    const legacyStore = createTokenCatalogStore(
+      [
+        buildTokenCatalogRow({
+          key: "{color.foreground.action}",
+          $type: "color",
+          $value: "#1060ff",
+          name: "token-color-foreground-action",
+          attributes: { category: "color" },
+          path: ["color", "foreground", "action"],
+        }),
+      ],
+      undefined,
+      createTokenMigrations({
+        version: "6.0.0",
+        renamedTokens: [
+          {
+            before: "--token-color-foreground-action",
+            after: "--hds-foreground-color-action",
+          },
+        ],
+        removedTokens: [],
+      }),
+    );
+
+    const payload = searchTokens(legacyStore, {
+      query: "var(--token-color-foreground-action)",
+      limit: 10,
+    });
+
+    expect(payload).not.toHaveProperty("migration");
+    expect(payload.results.map((token) => token.name)).toStrictEqual([
+      "token-color-foreground-action",
+    ]);
+  });
 });
 
 describe("search_hds_tokens schema", () => {

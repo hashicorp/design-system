@@ -5,7 +5,10 @@
 
 import { describe, expect, it } from "vitest";
 import { createTokenCatalogStore } from "../../../../src/stores/tokens/index.js";
-import { createTokenMigrations } from "../../../../src/stores/tokens/migrations.js";
+import {
+  createTokenMigrations,
+  unwrapCssVar,
+} from "../../../../src/stores/tokens/migrations.js";
 import { buildTokenCatalogRow } from "../../../support/token-catalog.js";
 
 const migrations = createTokenMigrations({
@@ -17,6 +20,31 @@ const migrations = createTokenMigrations({
     },
   ],
   removedTokens: ["--token-tooltip-focus-offset"],
+});
+
+describe("unwrapCssVar", () => {
+  it("returns the custom property inside a complete var()", () => {
+    expect(unwrapCssVar("var(--hds-foreground-color-action)")).toBe(
+      "--hds-foreground-color-action",
+    );
+    expect(unwrapCssVar("  var( --token-color-foreground-action )  ")).toBe(
+      "--token-color-foreground-action",
+    );
+  });
+
+  it("leaves anything that is not a complete var() as it was", () => {
+    for (const query of [
+      "var(",
+      "var()",
+      "var(--token-color-foreground-action",
+      "var(--a, --b)",
+      "var(foreground)",
+      "--token-color-foreground-action",
+      "foreground action",
+    ]) {
+      expect(unwrapCssVar(query)).toBe(query);
+    }
+  });
 });
 
 describe("createTokenMigrations", () => {

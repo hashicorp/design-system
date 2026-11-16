@@ -25,7 +25,10 @@ import {
   MAX_SEARCH_LIMIT,
 } from "../constants.js";
 import { getOrLoadTokenStore } from "../../stores/tokens/index.js";
-import { TOKEN_MIGRATION_VERSION } from "../../stores/tokens/migrations.js";
+import {
+  TOKEN_MIGRATION_VERSION,
+  unwrapCssVar,
+} from "../../stores/tokens/migrations.js";
 import { TOKEN_TYPES } from "../../stores/tokens/schema.js";
 
 import type { JsonValue } from "../../types.js";
@@ -131,11 +134,15 @@ export const searchTokens = (
   const query = input.query.slice(0, MAX_QUERY_LENGTH);
   const category =
     input.category === undefined ? undefined : clampFilterValue(input.category);
-  // an old name finds nothing on its own, so a renamed one is searched as its replacement
+  // an old name finds nothing on its own, so a renamed one is searched as its replacement, and a
+  // name copied from CSS is searched without its var()
   const migration = store.findMigration(query);
 
   const { totalMatches, hits } = store.searchTokens({
-    query: migration !== null && "after" in migration ? migration.after : query,
+    query:
+      migration !== null && "after" in migration
+        ? migration.after
+        : unwrapCssVar(query),
     limit,
     ...(input.type === undefined ? {} : { type: input.type }),
     ...(category === undefined ? {} : { category }),
