@@ -1079,4 +1079,47 @@ module('Integration | Component | hds/composite/index', function (hooks) {
 
     assert.dom('#item-e').isNotFocused();
   });
+
+  test('it keeps the position of the active item up to date when items are reordered', async function (assert) {
+    assert.expect(3);
+
+    const createItems = (ids: string[]) =>
+      ids.map((id) => ({ id, isHidden: false }));
+
+    const context = new TrackedObject<{
+      items: { id: string; isHidden: boolean }[];
+    }>({
+      items: createItems(['item-a', 'item-b', 'item-c', 'item-d']),
+    });
+
+    await render(
+      <template>
+        <HdsComposite @orientation="horizontal" as |c|>
+          <div {{c.composite}} id="composite-root">
+            {{#each context.items key="id" as |item|}}
+              <HdsButton
+                {{c.item disabled=item.isHidden}}
+                id={{item.id}}
+                @text={{item.id}}
+              />
+            {{/each}}
+          </div>
+        </HdsComposite>
+      </template>,
+    );
+
+    await focus('#item-c');
+
+    // new objects with the same values move the other items without changing their disabled state
+    context.items = createItems(['item-b', 'item-c', 'item-a', 'item-d']);
+    await settled();
+
+    assert.dom('#item-c').isFocused();
+
+    context.items = createItems(['item-b', 'item-a', 'item-d']);
+    await settled();
+
+    assert.dom('[data-active-item]').hasAttribute('id', 'item-a');
+    assert.dom('#item-a').isFocused();
+  });
 });

@@ -6,7 +6,11 @@
 import Component from '@glimmer/component';
 import Modifier, { modifier } from 'ember-modifier';
 import { hash } from '@ember/helper';
-import { registerDestructor } from '@ember/destroyable';
+import {
+  isDestroyed,
+  isDestroying,
+  registerDestructor,
+} from '@ember/destroyable';
 
 import { guidFor } from '@ember/object/internals';
 
@@ -200,6 +204,7 @@ export default class Composite extends Component<HdsCompositeSignature> {
 
   // where the current item last was, so a removed current item can hand over to its neighbor
   private _lastCurrentIndex = 0;
+  private _isIndexRefreshQueued = false;
   private _hasFocusWithin = false;
 
   constructor(owner: Owner, args: HdsCompositeSignature['Args']) {
@@ -291,7 +296,14 @@ export default class Composite extends Component<HdsCompositeSignature> {
   private _updateItem(id: string, disabled: boolean): void {
     const existingItem = this._items.find((item) => item.id === id);
 
-    if (existingItem === undefined || existingItem.disabled === disabled) {
+    if (existingItem === undefined) {
+      return;
+    }
+
+    // a same-value update usually means the items were re-rendered and may have moved
+    if (existingItem.disabled === disabled) {
+      this._queueCurrentIndexRefresh();
+
       return;
     }
 
@@ -356,6 +368,25 @@ export default class Composite extends Component<HdsCompositeSignature> {
       activeElement === document.body ||
       removedElement.contains(activeElement)
     );
+  }
+
+  // every item updates during a re-render, so the DOM sort runs once afterwards instead of per item
+  private _queueCurrentIndexRefresh(): void {
+    if (this._isIndexRefreshQueued) {
+      return;
+    }
+
+    this._isIndexRefreshQueued = true;
+
+    queueMicrotask(() => {
+      this._isIndexRefreshQueued = false;
+
+      if (isDestroying(this) || isDestroyed(this)) {
+        return;
+      }
+
+      this._rememberCurrentIndex();
+    });
   }
 
   // once the current item is disconnected, its last known position is kept for the fallback
