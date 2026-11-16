@@ -5,6 +5,8 @@
 
 import { buildWaiter } from '@ember/test-waiters';
 
+export const BORDER_WIDTH = 1;
+
 const waiter = buildWaiter('raf-waiter');
 
 // a utility that wraps requestAnimationFrame and integrates with Ember's test waiters
