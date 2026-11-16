@@ -1097,7 +1097,7 @@ export default class HdsAdvancedTable<
                   @hasStickyColumn={{this.hasStickyFirstColumn}}
                   @isStickyColumnPinned={{this.isStickyColumnPinned}}
                 >
-                  {{#each CM.orderedColumns as |column|}}
+                  {{#each CM.orderedColumns key="key" as |column|}}
                     <HdsAdvancedTableTh
                       @align={{column.align}}
                       @column={{column}}
