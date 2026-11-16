@@ -56,6 +56,8 @@ import type { HdsFilterBarSignature } from '../filter-bar/index.gts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.gts';
 import type HdsIntlService from '../../../services/hds-intl.ts';
 
+export { BORDER_WIDTH } from './utils.ts';
+
 // a flattened signature for the yielded `Tr` component
 // Replaces `WithBoundArgs` to prevent TS infinite recursion crashes
 // when processing deeply nested tree-grid data models.
@@ -81,8 +83,6 @@ export const VALIGNMENTS: HdsAdvancedTableVerticalAlignment[] = Object.values(
   HdsAdvancedTableVerticalAlignmentValues
 );
 export const DEFAULT_VALIGN = HdsAdvancedTableVerticalAlignmentValues.Top;
-
-export const BORDER_WIDTH = 1;
 
 const DEFAULT_SCROLL_DIMENSIONS = {
   bottom: '0px',
