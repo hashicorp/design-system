@@ -104,7 +104,7 @@ It depends.
 
 Once a team has upgraded to HDS v7.0.0+ and started to use the light and dark modes, the product will look like a part of the larger IBM portfolio and thus the Carbon Design System.
 
-There may be instances where the Carbon Design System offers a component or pattern that the Helios Design System does not, such as [Charts](https://www.carbondesignsystem.com/building-blocks/data-visualization/overview). When this happens, Designers will need to speak with their Engineering and Product teams to understand the level of effort for implementation. In Figma, use the [Carbon Design System components](https://www.figma.com/design/YAnB1jKx0yCUL29j6uSLpg/-v11--Carbon-Design-System?m=auto) directly. In code, there are two paths:
+There may be instances where the Carbon Design System offers a component or pattern that the Helios Design System does not, such as [Charts](https://www.carbondesignsystem.com/building-blocks/data-visualization/overview) or [AI experiences](https://www.carbondesignsystem.com/building-blocks/foundations/carbon-for-ai). When this happens, Designers will need to speak with their Engineering and Product teams to understand the level of effort for implementation. In Figma, use the [Carbon Design System components](https://www.figma.com/design/YAnB1jKx0yCUL29j6uSLpg/-v11--Carbon-Design-System?m=auto) directly. In code, there are two paths:
 
 - Use [Carbon Web Components](https://github.com/carbon-design-system/carbon/tree/main/packages/web-components).
     - [Read more about using Carbon Web Components](https://ibm.sharepoint.com/:w:/r/sites/hermes/Shared%20Documents/DraftDocuments_New/DS-Results%20from%20Carbon%20Web%20Component%20explorations%20with%20Helios.docx?d=w5c2f002b75784fdfbf3f32bf1bf52c44&csf=1&web=1&e=eccWb9).
