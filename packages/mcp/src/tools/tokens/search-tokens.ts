@@ -38,7 +38,7 @@ export const searchTokensInputShape = {
     .string()
     .min(1)
     .describe(
-      "Token name fragment or value, e.g. 'foreground-action', 'border radius', 'blue-200' or '#1060ff'. Matched as a case-insensitive substring against the token key, its CSS variable name, its dotted path and its value.",
+      "Token name fragment or value, e.g. 'foreground-color-action', 'border radius', 'blue-200' or '#1060ff'. Matched as a case-insensitive substring against the token key, its CSS variable name, its dotted path and its value in every theme.",
     ),
   limit: searchLimitSchema(MAX_SEARCH_LIMIT, DEFAULT_SEARCH_LIMIT),
   type: z
@@ -53,22 +53,25 @@ export const searchTokensInputShape = {
     .max(MAX_FILTER_LENGTH)
     .optional()
     .describe(
-      "Restrict to one token category, e.g. 'color', 'border' or 'typography'. A value the catalog does not use comes back in unknownFilters alongside the categories that exist.",
+      "Restrict to one token category, e.g. 'foreground', 'border' or 'typography'. A value the catalog does not use comes back in unknownFilters alongside the categories that exist.",
     ),
 };
 
 const searchTokensResultShape = z.object({
-  // the catalog key, in braces: {color.foreground.action}
+  // the catalog key, in braces: {foreground.color.action}
   key: z.string(),
   name: z.string(),
-  // the name to use in CSS: var(--token-color-foreground-action)
+  // the name to use in CSS: var(--hds-foreground-color-action)
   cssVar: z.string(),
   type: z.enum(TOKEN_TYPES),
-  // a string for most tokens, an array for the font-family ones
+  // the value in the default theme
   value: z.json(),
+  // the value in each theme, e.g. { default, cds-g0, cds-g10, cds-g90, cds-g100 }; absent on a
+  // token the tokens package does not theme
+  modes: z.record(z.string(), z.json()).optional(),
   category: z.string(),
   comment: z.string().optional(),
-  // the unresolved semantic reference, e.g. {color.palette.blue-200}
+  // the unresolved semantic reference in the default theme, e.g. {core.color.blue-200}
   alias: z.string().optional(),
 });
 
@@ -101,8 +104,9 @@ export type SearchTokensPayload = z.infer<typeof searchTokensOutputSchema>;
 
 const DESCRIPTION = [
   "Find Helios design tokens by name or value, from the token catalog inside the installed @hashicorp/design-system-tokens package.",
-  "Every result carries the cssVar to write in a stylesheet — var(--token-color-foreground-action) — so use this to replace a hard-coded color, spacing or radius with the token that holds it.",
-  "The query matches the token value too, so searching a hex code finds which token already defines it.",
+  "Every result carries the cssVar to write in a stylesheet — var(--hds-foreground-color-action) — so use this to replace a hard-coded color, spacing or radius with the token that holds it.",
+  "A token that changes with the theme also carries `modes`, its value in each theme (default, cds-g0, cds-g10, cds-g90 and cds-g100); the cssVar resolves to the right one at runtime.",
+  "The query matches the token value in every theme too, so searching a hex code finds which token already defines it, including a value from a Carbon theme.",
   "The catalog is read from disk and never fetched. Exact and prefix matches on the token key, name or CSS variable rank first, so a token you named by hand comes back at the top; value-only matches rank last. If `truncated` is true, narrow the query or filter by type.",
 ].join(" ");
 
@@ -157,6 +161,9 @@ export const searchTokens = (
       cssVar: token.cssVar,
       type: token.type,
       value: toResultValue(token.value),
+      ...(token.modes === undefined
+        ? {}
+        : { modes: toResultModes(token.modes) }),
       category: token.category,
       ...(token.comment === undefined ? {} : { comment: token.comment }),
       ...(token.alias === undefined ? {} : { alias: token.alias }),
@@ -166,16 +173,33 @@ export const searchTokens = (
 };
 
 /**
- * Thirteen tokens carry an inlined SVG data url, up to 528 characters each, which is enough to
+ * Twenty tokens carry an inlined SVG data url, up to 528 characters each, which is enough to
  * make a full result four times the size of the same search over any other category. The head of
- * one still identifies it; nobody reconstructs an icon from a search result.
+ * one still identifies it; nobody reconstructs an icon from a search result. Only data urls are
+ * cut: a font stack is about as long as the head kept here, and is only useful whole.
  */
-const MAX_VALUE_LENGTH = 120;
+const MAX_DATA_URL_LENGTH = 120;
+
+const DATA_URL = /^url\(["']?data:/u;
 
 const toResultValue = (value: JsonValue): JsonValue => {
-  if (typeof value !== "string" || value.length <= MAX_VALUE_LENGTH) return value;
+  if (
+    typeof value !== "string" ||
+    !DATA_URL.test(value) ||
+    value.length <= MAX_DATA_URL_LENGTH
+  ) {
+    return value;
+  }
 
-  return `${value.slice(0, MAX_VALUE_LENGTH)}…`;
+  return `${value.slice(0, MAX_DATA_URL_LENGTH)}…`;
+};
+
+const toResultModes = (
+  modes: Record<string, JsonValue>,
+): Record<string, JsonValue> => {
+  return Object.fromEntries(
+    Object.entries(modes).map(([mode, value]) => [mode, toResultValue(value)]),
+  );
 };
 
 export const createSearchTokensTool = (

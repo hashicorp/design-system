@@ -22,7 +22,7 @@ export const RANK_IDENTITY = 200;
 export const RANK_BLOB = 100;
 export const RANK_NONE = 0;
 
-// `hds::form::text-input`, `token-color-foreground-action` and `arrow-right-24` all delimit
+// `hds::form::text-input`, `hds-foreground-color-action` and `arrow-right-24` all delimit
 // their parts with one of these
 const SEGMENT_DELIMITER = /[\s:./_-]+/u;
 

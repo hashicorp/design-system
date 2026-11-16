@@ -174,6 +174,15 @@ describe("toTokenSummary", () => {
     expect(summary.comment).toBe("Use for interactive text");
     expect(summary.alias).toBe("{color.palette.blue-200}");
   });
+
+  it("carries the value in each theme only when the row has one", () => {
+    const modes = { default: "#1060ff", "cds-g0": "#0f62fe" };
+
+    expect(toTokenSummary(buildRow({ $modes: modes })).modes).toStrictEqual(
+      modes,
+    );
+    expect(toTokenSummary(buildRow())).not.toHaveProperty("modes");
+  });
 });
 
 describe("toTokenRecord", () => {

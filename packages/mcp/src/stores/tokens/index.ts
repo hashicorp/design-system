@@ -19,6 +19,7 @@ import { searchRanked } from "../rank.js";
 import type { RankableEntry } from "../rank.js";
 
 import type { CatalogSource } from "../../catalog/loader.js";
+import type { JsonValue } from "../../types.js";
 import type { CatalogSearchOutcome } from "../types.js";
 import type { TokenRecord, TokenSummary } from "./lookup.js";
 import type { TokenCatalogRow, TokenType } from "./schema.js";
@@ -43,13 +44,18 @@ export type TokenCatalogStore = {
   ) => CatalogSearchOutcome<TokenSummary>;
 };
 
+const toValueText = (value: JsonValue): string => {
+  return typeof value === "string" ? value : (JSON.stringify(value) ?? "");
+};
+
 const toSearchBlob = (token: TokenSummary): string => {
   const path = token.path.join(" ");
   const category = token.category ?? "";
-  const value =
-    typeof token.value === "string"
-      ? token.value
-      : (JSON.stringify(token.value) ?? "");
+  // every theme's value, so a hex code from a Carbon theme still finds its token
+  const modeValues =
+    token.modes === undefined
+      ? []
+      : Object.values(token.modes).map(toValueText);
 
   return [
     token.key,
@@ -57,7 +63,8 @@ const toSearchBlob = (token: TokenSummary): string => {
     token.cssVar ?? "",
     path,
     category,
-    value,
+    toValueText(token.value),
+    ...modeValues,
     token.comment ?? "",
     token.alias ?? "",
   ]

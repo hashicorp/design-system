@@ -47,6 +47,7 @@ export const readTokenByKeyResource = (
     requestedTokenKey: tokenKey,
     token: {
       ...toSerializableTokenSummary(token),
+      ...(token.modes === undefined ? {} : { modes: token.modes }),
       ...(token.original === undefined ? {} : { original: token.original }),
     },
   });
