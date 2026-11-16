@@ -1033,7 +1033,7 @@ module('Integration | Component | hds/composite/index', function (hooks) {
     assert.dom('[data-active-item]').hasAttribute('id', 'item-d');
   });
 
-  test('it does not take focus back after focus moved outside while the active item was removed', async function (assert) {
+  test('it does not take focus back if focus moved outside the composite element while the active item was removed', async function (assert) {
     assert.expect(3);
 
     const context = new TrackedObject<{ showC: boolean; showD: boolean }>({
