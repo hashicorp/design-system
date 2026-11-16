@@ -365,6 +365,16 @@ describe("search", () => {
     ]);
   });
 
+  it("takes a tab as passage ids write it, the same as its label", () => {
+    const byLabel = search("2.1.0", { tab: "Version history" });
+    const bySlug = search("2.1.0", { tab: "version-history" });
+
+    expect(bySlug.unknownFilters).toStrictEqual([]);
+    expect(bySlug.hits.map((hit) => [hit.chunk.id, hit.score])).toStrictEqual(
+      byLabel.hits.map((hit) => [hit.chunk.id, hit.score]),
+    );
+  });
+
   it("names a filter that matches nothing in the catalog", () => {
     const outcome = search("button", {
       section: "nope",

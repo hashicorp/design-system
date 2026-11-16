@@ -13,6 +13,7 @@ import {
 } from "../tools/docs/constants.js";
 import {
   COMPONENT_EVIDENCE_GUIDANCE,
+  THEMING_GUIDANCE,
   createPromptResult,
   optionalPromptTextArgument,
   promptTextArgument,
@@ -51,6 +52,7 @@ const implementPatternPrompt: McpPrompt<typeof argsSchema> = {
 3. Use ${SEARCH_COMPONENTS_TOOL_NAME} for candidate names, then ${GET_COMPONENT_TOOL_NAME} to verify exact component names, arguments, yielded components, and event APIs before writing code. Use docsPath from results to focus further documentation searches.
 4. ${COMPONENT_EVIDENCE_GUIDANCE}
 5. Produce a focused Ember implementation in single-file TypeScript Glimmer (.gts) format. Use verified imports and APIs, keep state ownership and event handling explicit, and distinguish application-provided data, handlers, and services from HDS capabilities. Preserve relevant existing behavior. Address accessible names, keyboard interaction, focus handling, and validation or error states where applicable. If no suitable HDS component or pattern is supported by the evidence, explain the gap instead of inventing an API.
+6. ${THEMING_GUIDANCE}
 
 Return a brief approach, implementation code, integration assumptions and application-owned responsibilities, and documentation links. Include meaningful ember-qunit integration test examples for the interaction and applicable accessibility behavior. Clearly label placeholders and unverified assumptions; do not claim code or tests were executed. Provide the implementation in the response; do not edit files or install dependencies.`,
       { requirements, code, context },

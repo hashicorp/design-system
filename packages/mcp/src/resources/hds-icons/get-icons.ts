@@ -32,7 +32,7 @@ export const createGetIconsResource = (
     uri: ICONS_URI,
     config: {
       title: "HDS icon catalog index",
-      description: "Canonical list of Flight icons with summary metadata",
+      description: "Canonical list of HDS icons with summary metadata",
       mimeType: "application/json",
     },
     readCallback: async () => readIconsResource(getStore()),
