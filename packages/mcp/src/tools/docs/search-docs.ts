@@ -55,7 +55,7 @@ export const searchDocsInputShape = {
     .max(MAX_FILTER_LENGTH)
     .optional()
     .describe(
-      `Restrict to one page tab, e.g. 'Guidelines', 'Code', 'Accessibility' or 'Specifications'. A value the catalog does not use comes back in unknownFilters alongside the tabs that exist. Version and changelog questions must pass tab: '${VERSION_HISTORY_TAB}', which is otherwise down-ranked.`,
+      `Restrict to one page tab, e.g. 'Guidelines', 'Code', 'Accessibility', 'Specifications' or 'Carbon theme'. A value the catalog does not use comes back in unknownFilters alongside the tabs that exist. Version and changelog questions must pass tab: '${VERSION_HISTORY_TAB}', which is otherwise down-ranked.`,
     ),
   docsPath: z
     .string()

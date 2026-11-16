@@ -9,7 +9,7 @@
     "release-candidate-packages": "pnpm changeset publish --tag rc",
     "release-packages": "pnpm changeset publish",
     "version-candidate-packages": "pnpm changeset version --snapshot rc && pnpm install --lockfile-only",
-    "version-packages": "pnpm changeset version && pnpm install --lockfile-only && pnpm -F website generate-changelog-markdown-files"
+    "version-packages": "pnpm changeset version && pnpm install --lockfile-only && pnpm -F website generate-changelog-markdown-files && pnpm -F @hashicorp/design-system-mcp catalog:docs"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.27.1",
