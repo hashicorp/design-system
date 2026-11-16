@@ -1122,4 +1122,38 @@ module('Integration | Component | hds/composite/index', function (hooks) {
     assert.dom('[data-active-item]').hasAttribute('id', 'item-a');
     assert.dom('#item-a').isFocused();
   });
+
+  test('it keeps the position of the active item up to date when items without arguments are reordered', async function (assert) {
+    assert.expect(3);
+
+    const context = new TrackedObject<{ items: string[] }>({
+      items: ['item-a', 'item-b', 'item-c', 'item-d'],
+    });
+
+    await render(
+      <template>
+        <HdsComposite @orientation="horizontal" as |c|>
+          <div {{c.composite}} id="composite-root">
+            {{#each context.items key="@identity" as |id|}}
+              <HdsButton {{c.item}} id={{id}} @text={{id}} />
+            {{/each}}
+          </div>
+        </HdsComposite>
+      </template>,
+    );
+
+    await focus('#item-c');
+
+    // without arguments the item modifiers don't re-run, the elements are only moved
+    context.items = ['item-b', 'item-c', 'item-a', 'item-d'];
+    await settled();
+
+    assert.dom('#item-c').isFocused();
+
+    context.items = ['item-b', 'item-a', 'item-d'];
+    await settled();
+
+    assert.dom('[data-active-item]').hasAttribute('id', 'item-a');
+    assert.dom('#item-a').isFocused();
+  });
 });

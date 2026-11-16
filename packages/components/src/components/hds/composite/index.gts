@@ -6,11 +6,7 @@
 import Component from '@glimmer/component';
 import Modifier, { modifier } from 'ember-modifier';
 import { hash } from '@ember/helper';
-import {
-  isDestroyed,
-  isDestroying,
-  registerDestructor,
-} from '@ember/destroyable';
+import { registerDestructor } from '@ember/destroyable';
 
 import { guidFor } from '@ember/object/internals';
 
@@ -204,7 +200,6 @@ export default class Composite extends Component<HdsCompositeSignature> {
 
   // where the current item last was, so a removed current item can hand over to its neighbor
   private _lastCurrentIndex = 0;
-  private _isIndexRefreshQueued = false;
   private _hasFocusWithin = false;
 
   constructor(owner: Owner, args: HdsCompositeSignature['Args']) {
@@ -296,14 +291,7 @@ export default class Composite extends Component<HdsCompositeSignature> {
   private _updateItem(id: string, disabled: boolean): void {
     const existingItem = this._items.find((item) => item.id === id);
 
-    if (existingItem === undefined) {
-      return;
-    }
-
-    // a same-value update usually means the items were re-rendered and may have moved
-    if (existingItem.disabled === disabled) {
-      this._queueCurrentIndexRefresh();
-
+    if (existingItem === undefined || existingItem.disabled === disabled) {
       return;
     }
 
@@ -368,25 +356,6 @@ export default class Composite extends Component<HdsCompositeSignature> {
       activeElement === document.body ||
       removedElement.contains(activeElement)
     );
-  }
-
-  // every item updates during a re-render, so the DOM sort runs once afterwards instead of per item
-  private _queueCurrentIndexRefresh(): void {
-    if (this._isIndexRefreshQueued) {
-      return;
-    }
-
-    this._isIndexRefreshQueued = true;
-
-    queueMicrotask(() => {
-      this._isIndexRefreshQueued = false;
-
-      if (isDestroying(this) || isDestroyed(this)) {
-        return;
-      }
-
-      this._rememberCurrentIndex();
-    });
   }
 
   // once the current item is disconnected, its last known position is kept for the fallback
@@ -579,10 +548,27 @@ export default class Composite extends Component<HdsCompositeSignature> {
       element.addEventListener('focusin', onFocusIn);
       element.addEventListener('focusout', onFocusOut);
 
+      // keyed lists move item elements without re-running their modifiers, so moves are read from
+      // the DOM; a move is reported as an addition, and removals are already handled on unregister
+      const onChildListChange = (records: MutationRecord[]): void => {
+        const hasAddedElements = records.some((record) =>
+          Array.from(record.addedNodes).some((node) => node instanceof Element)
+        );
+
+        if (hasAddedElements) {
+          this._rememberCurrentIndex();
+        }
+      };
+
+      const childListObserver = new MutationObserver(onChildListChange);
+
+      childListObserver.observe(element, { childList: true, subtree: true });
+
       return () => {
         element.removeEventListener('keydown', onKeyDown);
         element.removeEventListener('focusin', onFocusIn);
         element.removeEventListener('focusout', onFocusOut);
+        childListObserver.disconnect();
 
         if (this._compositeElement === element) {
           this._compositeElement = null;
