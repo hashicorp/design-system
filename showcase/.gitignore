@@ -1,3 +1,5 @@
+/tmp/
+
 # compiled output
 /dist/
 /declarations/
@@ -7,6 +9,8 @@
 
 # misc
 /.env*
+!/.env.development
+*.local
 /.pnp*
 /.eslintcache
 /coverage/
