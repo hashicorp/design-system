@@ -31,7 +31,8 @@ export interface IconRecord extends IconSummary {
 }
 
 // a Carbon icon name such as `Arrow--right` or `warning--diamond-fill`; flight-icons 5.0.0 put
-// free-text notes ("No Carbon equivalent.") in the same field, which are not a mapping
+// free-text notes ("No Carbon equivalent.") in the same field, which are not a mapping:
+// only letters and digits joined by `-` or `--` match, so spaces and punctuation rule a note out
 const CARBON_ICON_NAME = /^[a-z0-9]+(?:-{1,2}[a-z0-9]+)*$/iu;
 
 export const toCarbonIconName = (
