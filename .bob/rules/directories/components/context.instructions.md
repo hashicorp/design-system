@@ -15,7 +15,9 @@ The `packages/components` library is the core reusable Ember component library f
 
 ## Common build commands
 - `pnpm build` - Builds the components library for production use
-- `pnpm start` - Starts the development server which re-runs the build on file changes
+- `pnpm build:watch` - Re-runs the build on file changes, so the showcase and website pick them up
+- `pnpm test` - Runs the integration and unit tests in `tests/` (Vite test app)
+- `pnpm start` - Starts the test app dev server, visit `/tests/index.html`
 - `pnpm lint` - Runs ESLint and Stylelint to check code quality and style
 - `pnpm lint:fix` - Runs ESLint and Stylelint with auto-fix enabled to fix any fixable issues
 - `pnpm format` - Runs Prettier to format code according to the project's code style rules
@@ -23,7 +25,7 @@ The `packages/components` library is the core reusable Ember component library f
 ## Requirements
 - All components must be implemented using single-file components with a `.gts` extension
 - All changes to components must be accompanied by appropriate changesets to ensure they are included in the next release
-- All component arguments, events, and contextual components must have associated tests in `showcase/tests`
+- All component arguments, events, and contextual components must have associated integration tests in `tests/integration`
 - All component arguments, events, and contextual components must be documented in the `website/docs`
 - All component UI text must be defined as translation strings in the `translations` directory and referenced in the component templates
 
@@ -33,6 +35,8 @@ The `packages/components` library is the core reusable Ember component library f
   Instructions for creating changesets when making changes to packages.
 - `components.instructions.md`
   Guidelines on component development including file structure, code formatting, styling.
+- `tests.instructions.md`
+  Instructions for writing the integration and unit tests in `tests/`.
 - `exports.instructions.md`
   Instructions for how to export components in `src/components.ts` and register them in `src/template-registry.ts`.
 - `translations.instructions.md`

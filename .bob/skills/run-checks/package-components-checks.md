@@ -15,7 +15,7 @@ Run all of the checks listed below and ensure all pass as expected. Capture any 
 
 If changes have been made to components, helpers, or modifiers files under `packages/components/src` run their associated integration tests
 
-**IMPORTANT:** All integration testing must be run from the root of the `showcase` directory
+**IMPORTANT:** All integration testing must be run from the root of the `packages/components` directory
 
-For each changed component, helper, modifier, or service perform the following:
-1. Under `showcase` run `ember t -f {component-name}`
+1. Under `packages/components` run `pnpm vite build --mode=development --out-dir dist-tests`
+2. For each changed component, helper, modifier, or service run `pnpm exec testem --file testem.cjs ci --port 0 -t "tests/index.html?hidepassed&filter={component-name}"`

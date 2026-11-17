@@ -131,18 +131,19 @@ const plugins = [
   // Emit .d.ts declaration files via Glint v2
   addon.declarations(
     'declarations',
-    'pnpm ember-tsc --declaration --project tsconfig.json'
+    'pnpm ember-tsc --declaration --project tsconfig.publish.json'
   ),
 
   // This babel config should *not* apply presets or compile away ES modules.
   // It exists only to provide development niceties for you, like automatic
   // template colocation.
   //
-  // By default, this will load the actual babel config from the file
-  // babel.config.json.
+  // It uses the publish babel config; babel.config.cjs is for the tests and
+  // local tooling.
   babel({
     extensions: ['.js', '.gjs', '.ts', '.gts'],
     babelHelpers: 'bundled',
+    configFile: './babel.publish.config.cjs',
   }),
 
   // Addons are allowed to contain imports of .css files, which we want rollup
