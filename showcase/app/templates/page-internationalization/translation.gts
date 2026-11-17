@@ -6,8 +6,8 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 import TranslationIndex from 'showcase/components/page-internationalization/translation';
 
-const PageInternationlizationTranslation: TemplateOnlyComponent = <template>
+const PageInternationalizationTranslation: TemplateOnlyComponent = <template>
   <TranslationIndex />
 </template>;
 
-export default PageInternationlizationTranslation;
+export default PageInternationalizationTranslation;

@@ -12,11 +12,11 @@ import style from 'ember-style-modifier';
 import { concat } from '@ember/helper';
 
 import {
+  BORDER_WIDTH,
   measureColumnWidth,
   parsePixel,
   requestAnimationFrameWaiter,
 } from './utils.ts';
-import { BORDER_WIDTH } from './index.gts';
 import { DEFAULT_MIN_WIDTH } from './column-manager/width.gts';
 import hdsT from '../../../helpers/hds-t.ts';
 

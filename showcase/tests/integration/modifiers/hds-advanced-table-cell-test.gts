@@ -65,6 +65,7 @@ const createSortableTable = async () => {
           </B.Tr>
         </:body>
       </HdsAdvancedTable>
+      <button id="after-advanced-table" type="button">After</button>
     </template>,
   );
 };

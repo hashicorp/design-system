@@ -5,6 +5,8 @@
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
+import hdsT from '../../../../helpers/hds-t.ts';
+
 export interface HdsAppFrameSidebarSignature {
   Blocks: {
     default: [];
@@ -14,7 +16,14 @@ export interface HdsAppFrameSidebarSignature {
 
 const HdsAppFrameSidebar: TemplateOnlyComponent<HdsAppFrameSidebarSignature> =
   <template>
-    <aside class="hds-app-frame__sidebar" ...attributes>
+    <aside
+      class="hds-app-frame__sidebar"
+      aria-label={{hdsT
+        "hds.components.app-frame.sidebar.aria-label"
+        default="Sidebar"
+      }}
+      ...attributes
+    >
       {{yield}}
     </aside>
   </template>;

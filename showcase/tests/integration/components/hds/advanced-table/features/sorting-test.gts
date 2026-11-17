@@ -543,7 +543,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       );
     });
 
-    test('it should navigate rows in sorted visual order after sorting', async function (assert) {
+    test('it keeps the current body cell after sorting and navigates rows in sorted visual order', async function (assert) {
       await createSortableTable({});
 
       // check initial order
@@ -572,22 +572,72 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         .hasText('Nick Drake')
         .isFocused();
 
-      // sort the table
+      // sort the table by artist: Melanie, Nick Drake, The Beatles
       await click(
         '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1) button',
       );
+
+      // the current cell moves with its row instead of resetting to the first header cell
+      assert
+        .dom('[data-active-item]')
+        .hasText('Nick Drake')
+        .hasAttribute('tabindex', '0');
+      assert
+        .dom('.hds-advanced-table__thead .hds-advanced-table__th:nth-child(1)')
+        .hasAttribute('tabindex', '-1');
 
       if (firstHeaderCell) {
         await triggerKeyEvent(firstHeaderCell, 'keydown', 'ArrowDown');
       }
 
-      // check that the first cell below header changed
+      // navigation follows the sorted visual order from the current cell
       assert
         .dom(
-          '.hds-advanced-table__tbody .hds-advanced-table__tr:nth-child(1) .hds-advanced-table__td:nth-child(1)',
+          '.hds-advanced-table__tbody .hds-advanced-table__tr:nth-child(3) .hds-advanced-table__td:nth-child(1)',
         )
         .isFocused()
-        .hasText('Melanie');
+        .hasText('The Beatles');
+    });
+
+    test('it keeps focus on the sort button when @columns is replaced with new objects', async function (assert) {
+      const context = new TrackedObject<{ columns: HdsAdvancedTableColumn[] }>({
+        columns: DEFAULT_SORTABLE_COLUMNS.map((column) => ({ ...column })),
+      });
+
+      await render(
+        <template>
+          <HdsAdvancedTable
+            @model={{DEFAULT_SORTABLE_MODEL}}
+            @columns={{context.columns}}
+            id="data-test-advanced-table"
+          >
+            <:body as |B|>
+              <B.Tr>
+                <B.Td>{{B.data.artist}}</B.Td>
+                <B.Td>{{B.data.album}}</B.Td>
+                <B.Td>{{B.data.year}}</B.Td>
+              </B.Tr>
+            </:body>
+          </HdsAdvancedTable>
+        </template>,
+      );
+
+      const sortButtonSelector =
+        '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1) button';
+      const sortButton = find(sortButtonSelector);
+
+      await focus(sortButtonSelector);
+
+      // e.g. a consumer that rebuilds its column definitions on every sort
+      context.columns = context.columns.map((column) => ({ ...column }));
+      await settled();
+
+      assert.strictEqual(
+        find(sortButtonSelector),
+        sortButton,
+        'the header cell is reused rather than recreated',
+      );
+      assert.dom(sortButtonSelector).isFocused();
     });
   });
 });

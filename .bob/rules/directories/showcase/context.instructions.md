@@ -8,7 +8,9 @@ The `showcase` app is an Ember application used to develop, test, and visually v
 
 ## Key files
 - `app/components/page-components/` - Showcase page components, one folder per HDS component
+- `app/components/page-carbonization/` - Showcase page components for comparison view of HDS foundations, and components in all available themes
 - `app/templates/page-components/` - Templates that render each showcase page component
+- `app/templates/page-carbonization/` - Templates that render each showcase page component for `page-carbonization` components
 - `app/styles/` - Global styles for the showcase app and component page specific styles
 - `app/router.ts` - Defines routes for all component showcase pages
 - `tests/acceptance/` - Acceptance tests including `a11yAudit` and Percy snapshots for components from the `packages/components` library
@@ -17,8 +19,8 @@ The `showcase` app is an Ember application used to develop, test, and visually v
 ## Common build commands
 - `pnpm build` - Builds the showcase app
 - `pnpm start` - Starts the development server for the showcase app, for testing and visual validation
-- `pnpm lint` - Runs ESLint and Stylelint to check code quality and style
-- `pnpm lint:fix` - Runs ESLint and Stylelint with auto-fix enabled to fix any fixable issues
+- `pnpm lint` - Runs linter to check code quality and style
+- `pnpm lint:fix` - Runs linter with auto-fix enabled to fix any fixable issues
 - `pnpm format` - Runs Prettier to format code according to the project's code style rules
 
 ## Requirements
@@ -26,8 +28,7 @@ The `showcase` app is an Ember application used to develop, test, and visually v
 - Changes to the showcase app do not require a changeset entry
 
 ## Related instructions
-
-- `components-pages.instructions.md`
+- `components-pages/context.instructions.md`
   Guidelines on how to build showcase pages, including file structure, code formatting, and best practices for demonstrating component features and states.
 - `tests.instructions.md`
   Instructions for how to write and organize acceptance and integration tests

@@ -10,8 +10,7 @@ import { modifier } from 'ember-modifier';
 import { on } from '@ember/modifier';
 import style from 'ember-style-modifier';
 
-import { BORDER_WIDTH } from './index.gts';
-import { requestAnimationFrameWaiter } from './utils.ts';
+import { BORDER_WIDTH, requestAnimationFrameWaiter } from './utils.ts';
 import { HdsAdvancedTableColumnReorderSideValues } from './types.ts';
 
 import type {

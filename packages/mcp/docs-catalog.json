@@ -1,5 +1,5 @@
 {
-  "bundledAt": "2026-10-28T17:39:27.080Z",
+  "bundledAt": "2026-11-10T20:01:27.453Z",
   "siteBaseUrl": "https://helios.hashicorp.design/",
   "pages": {
     "about/accessibility-statement": {
@@ -647,9 +647,6 @@
       "links": {
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/accordion",
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67221-87751&t=gWdKy44MzTP4cTRo-1"
-      },
-      "status": {
-        "updated": "7.0.0"
       },
       "url": "https://helios.hashicorp.design/components/accordion",
       "chunks": [
@@ -2288,7 +2285,7 @@
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67351-171799&t=w8xQlWxzH7bwXLe2-1"
       },
       "status": {
-        "updated": "7.0.0"
+        "updated": "7.1.0"
       },
       "url": "https://helios.hashicorp.design/components/app-footer",
       "chunks": [
@@ -2699,6 +2696,17 @@
           "text": "Applicable WCAG Success Criteria This section is for reference only. This component intends to conform to the following WCAG Success Criteria:"
         },
         {
+          "id": "components/app-footer#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/components/app-footer?tab=version%20history#710",
+          "content": "## 7.1.0\n\nAdded translation for `@ariaLabel` in `LegalLinks`.",
+          "text": "7.1.0 Added translation for @ariaLabel in LegalLinks."
+        },
+        {
           "id": "components/app-footer#version-history/7-0-0",
           "tab": "Version history",
           "headingTrail": [
@@ -2717,8 +2725,8 @@
           ],
           "level": 2,
           "url": "https://helios.hashicorp.design/components/app-footer?tab=version%20history#660",
-          "content": "## 6.6.0\n\nRemoved unused `@color` property from `[AF].Link` contextual component",
-          "text": "6.6.0 Removed unused @color property from [AF].Link contextual component"
+          "content": "## 6.6.0\n\nRemoved unused `@color` property from `Link` contextual component",
+          "text": "6.6.0 Removed unused @color property from Link contextual component"
         },
         {
           "id": "components/app-footer#version-history/6-3-0",
@@ -3378,9 +3386,6 @@
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/app-side-nav",
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=67337-21425&t=UPVdPTgYF1VjiD7R-1"
       },
-      "status": {
-        "updated": "7.0.0"
-      },
       "url": "https://helios.hashicorp.design/components/app-side-nav",
       "chunks": [
         {
@@ -4035,6 +4040,9 @@
       "links": {
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/application-state",
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67278-131631&t=w8xQlWxzH7bwXLe2-1"
+      },
+      "status": {
+        "updated": "7.1.0"
       },
       "url": "https://helios.hashicorp.design/components/application-state",
       "chunks": [
@@ -4722,6 +4730,17 @@
           "url": "https://helios.hashicorp.design/components/application-state?tab=accessibility#applicable-wcag-success-criteria",
           "content": "## Applicable WCAG Success Criteria\n\nThis section is for reference only. This component intends to conform to the following WCAG Success Criteria:\n\n<Doc::WcagList @criteriaList={{array \"1.1.1\" \"1.3.1\" \"1.3.2\" \"1.4.1\" \"1.4.3\" \"1.4.4\" \"1.4.10\" \"1.4.11\" \"1.4.12\" \"2.1.1\" \"2.1.2\" \"2.4.4\" \"2.4.6\" \"2.4.7\" \"3.2.1\" \"3.3.3\" \"4.1.2\" \"4.1.3\" }} />\n\n---\n<Doc::A11ySupport />",
           "text": "Applicable WCAG Success Criteria This section is for reference only. This component intends to conform to the following WCAG Success Criteria:"
+        },
+        {
+          "id": "components/application-state#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/components/application-state?tab=version%20history#710",
+          "content": "## 7.1.0\n\nCorrected translation key for the error code in `Header`.",
+          "text": "7.1.0 Corrected translation key for the error code in Header."
         },
         {
           "id": "components/application-state#version-history/6-1-0",
@@ -5413,6 +5432,9 @@
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/breadcrumb",
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67385-83191&t=w8xQlWxzH7bwXLe2-1"
       },
+      "status": {
+        "updated": "7.1.0"
+      },
       "url": "https://helios.hashicorp.design/components/breadcrumb",
       "chunks": [
         {
@@ -5873,6 +5895,17 @@
           "text": "Applicable WCAG Success Criteria This section is for reference only. This component intends to conform to the following WCAG Success Criteria:"
         },
         {
+          "id": "components/breadcrumb#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/components/breadcrumb?tab=version%20history#710",
+          "content": "## 7.1.0\n\nAdded translation for `@ariaLabel` in `Breadcrumb` and `Breadcrumb::Truncation`.",
+          "text": "7.1.0 Added translation for @ariaLabel in Breadcrumb and Breadcrumb::Truncation."
+        },
+        {
           "id": "components/breadcrumb#version-history/6-2-1",
           "tab": "Version history",
           "headingTrail": [
@@ -5948,9 +5981,6 @@
       "links": {
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/button",
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67397-95918&t=w8xQlWxzH7bwXLe2-1"
-      },
-      "status": {
-        "updated": "7.0.0"
       },
       "url": "https://helios.hashicorp.design/components/button",
       "chunks": [
@@ -6801,6 +6831,9 @@
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/card",
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67251-87362&t=w8xQlWxzH7bwXLe2-1"
       },
+      "status": {
+        "updated": "7.1.0"
+      },
       "url": "https://helios.hashicorp.design/components/card",
       "chunks": [
         {
@@ -7034,6 +7067,17 @@
           ]
         },
         {
+          "id": "components/card#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/components/card?tab=version%20history#710",
+          "content": "## 7.1.0\n\nRefactored styles for the `base` elevation level to fix broken CSS variables.",
+          "text": "7.1.0 Refactored styles for the base elevation level to fix broken CSS variables."
+        },
+        {
           "id": "components/card#version-history/6-1-0",
           "tab": "Version history",
           "headingTrail": [
@@ -7119,7 +7163,7 @@
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67166-37020&t=w8xQlWxzH7bwXLe2-1"
       },
       "status": {
-        "updated": "7.0.0"
+        "updated": "7.1.0"
       },
       "url": "https://helios.hashicorp.design/components/code-block",
       "chunks": [
@@ -7579,6 +7623,17 @@
           "text": "Applicable WCAG Success Criteria This section is for reference only. This component intends to conform to the following WCAG Success Criteria:"
         },
         {
+          "id": "components/code-block#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/components/code-block?tab=version%20history#710",
+          "content": "## 7.1.0\n\nFixed incorrect placement of `sr-only` highlight markers when `@lineNumberStart` is defined.\n\n\nAdded translations for `@copyButtonText` and the screen-reader markers for the start and end of highlighted lines.",
+          "text": "7.1.0 Fixed incorrect placement of sr-only highlight markers when @lineNumberStart is defined. Added translations for @copyButtonText and the screen-reader markers for the start and end of highlighted lines."
+        },
+        {
           "id": "components/code-block#version-history/7-0-0",
           "tab": "Version history",
           "headingTrail": [
@@ -7762,7 +7817,7 @@
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=69795-4433&t=WuWetCw0HQ2E5TJa-1"
       },
       "status": {
-        "updated": "7.0.0"
+        "updated": "7.1.0"
       },
       "url": "https://helios.hashicorp.design/components/code-editor",
       "chunks": [
@@ -8276,6 +8331,17 @@
           "url": "https://helios.hashicorp.design/components/code-editor?tab=accessibility#applicable-wcag-success-criteria",
           "content": "## Applicable WCAG Success Criteria\n\nThis section is for reference only. This component intends to conform to the following WCAG Success Criteria:\n\n<Doc::WcagList @criteriaList={{array \"1.3.1\" \"1.3.2\" \"1.4.1\" \"1.4.3\" \"1.4.4\" \"1.4.10\" \"1.4.11\" \"1.4.12\" \"2.1.1\" \"2.1.2\" \"2.4.3\" \"2.4.7\" \"4.1.2\" }} />\n\n---\n\n<Doc::A11ySupport />",
           "text": "Applicable WCAG Success Criteria This section is for reference only. This component intends to conform to the following WCAG Success Criteria:"
+        },
+        {
+          "id": "components/code-editor#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/components/code-editor?tab=version%20history#710",
+          "content": "## 7.1.0\n\nFixed a race condition where the editor setup was not tracked by Ember's test waiters, so `render()` and `settled()` could resolve before the editor existed.\n\n\nAdded translations for the `@copyButtonText`, JSON lint messages, and CodeMirror diagnostic messages.",
+          "text": "7.1.0 Fixed a race condition where the editor setup was not tracked by Ember's test waiters, so render() and settled() could resolve before the editor existed. Added translations for the @copyButtonText, JSON lint messages, and CodeMirror diagnostic messages."
         },
         {
           "id": "components/code-editor#version-history/7-0-0",
@@ -9126,7 +9192,7 @@
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67385-76599&t=w8xQlWxzH7bwXLe2-1"
       },
       "status": {
-        "updated": "7.0.0"
+        "updated": "7.1.0"
       },
       "url": "https://helios.hashicorp.design/components/dropdown",
       "chunks": [
@@ -9856,8 +9922,8 @@
           ],
           "level": 3,
           "url": "https://helios.hashicorp.design/components/dropdown?tab=code#dropdown",
-          "content": "### Dropdown\n\n<Doc::ComponentApi as |C|>\n  <C.Property @name=\"<[D].ToggleButton>\" @type=\"yielded component\">\n    `Dropdown::Toggle::Button` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].ToggleIcon>\" @type=\"yielded component\">\n    `Dropdown::Toggle::Icon` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].Header>\" @type=\"yielded component\">\n    `Dropdown::Header` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].Title>\" @type=\"yielded component\">\n    `Dropdown::ListItem::Title` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].Description>\" @type=\"yielded component\">\n    `Dropdown::ListItem::Description` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].Separator>\" @type=\"yielded component\">\n    `Dropdown::ListItem::Separator` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].Interactive>\" @type=\"yielded component\">\n    `Dropdown::ListItem::Interactive` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].CopyItem>\" @type=\"yielded component\">\n    `Dropdown::ListItem::CopyItem` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].Checkmark>\" @type=\"yielded component\">\n    `Dropdown::ListItem::Checkmark` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].Checkbox>\" @type=\"yielded component\">\n    `Dropdown::ListItem::Checkbox` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].Radio>\" @type=\"yielded component\">\n    `Dropdown::ListItem::Radio` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].Generic>\" @type=\"yielded component\">\n    `Dropdown::ListItem::Generic` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].Footer>\" @type=\"yielded component\">\n    `Dropdown::Footer` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"[D].close\" @type=\"function\">\n    Function to programmatically close the Dropdown yielded to the content.\n    <br/><br/>\n    If this function is invoked using an `\\{{on \"click\"}}` modifier applied to the `ListItem::Interactive` element, there is a quirky behavior of the Ember `<LinkTo>` component which requires a workaround to have the events executed in the right order (this happens only if it has a `@route` argument). Read more about the issue and a possible solution [in this GitHub comment](https://github.com/hashicorp/design-system/pull/399#issuecomment-1171186772).\n  </C.Property>\n  <C.Property @name=\"listPosition\" @type=\"string\" @values={{array \"bottom-left\" \"bottom-right\" \"top-left\" \"top-right\" }} @default=\"bottom-right\">\n    _Note: If `@enableCollisionDetection` is set, the list will automatically flip position to remain visible when near the edges of the screen regardless of the starting placement._\n  </C.Property>\n  <C.Property @name=\"isInline\" @type=\"boolean\" @default=\"false\" @values={{array \"true\" \"false\"}}>\n    If an `@isInline` parameter is provided, then the element will be displayed as `inline-block` (useful to achieve specific layouts like in a container with right alignment). Otherwise, it will have a `block` layout.\n  </C.Property>\n  <C.Property @name=\"enableCollisionDetection\" @type=\"boolean\" @default=\"false\" @values={{array \"true\" \"false\"}}>\n    Setting it to `true` will automatically flip the list position to remain visible when near the edges of the viewport.\n  </C.Property>\n  <C.Property @name=\"isOpen\" @type=\"boolean\" @default=\"false\" @values={{array \"true\" \"false\"}}>\n    Controls if the list should be rendered initially opened.\n  </C.Property>\n  <C.Property @name=\"width\" @type=\"string\" @valueNote=\"any valid CSS width (px, rem, etc)\">\n    By default, the Dropdown List has a `min-width` of `200px` and a `max-width` of `400px`, so it adapts to the content size. If a `@width` parameter is provided then the list will have a fixed width.\n    <br/><br/>We discourage the use of percentage values for this argument. The Dropdown list is [a `popover` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/popover), so relative units use `document` as a reference (not the parent element), meaning percentage values act similar to `vw`.\n    If `@matchToggleWidth` is set, `@width` is overridden.\n  </C.Property>\n  <C.Property @name=\"height\" @type=\"string\" @valueNote=\"any valid CSS height (px, rem, etc)\">\n    If a `@height` parameter is provided then the list will have a max-height.\n  </C.Property>\n  <C.Property @name=\"matchToggleWidth\" @type=\"boolean\" @default=\"false\">\n    Sets the Dropdown List’s width to match the width of the Toggle. It overrides the `@width` value if set.\n  </C.Property>\n  <C.Property @name=\"preserveContentInDom\" @type=\"boolean\" @default=\"false\">\n    Controls if the content is always rendered in the DOM, even when the dropdown is closed.\n  </C.Property>\n  <C.Property @name=\"onClose\" @type=\"function\">\n    Callback function invoked when the dropdown is closed (if provided).\n  </C.Property>\n  <C.Property @name=\"onFocusOut\" @type=\"function\">\n    A callback function invoked when the dropdown menu loses focus, and focus does not move to another element (if provided).\n    <br />\n    <br />\n    _Notice: Focus can be lost if content inside the dropdown is removed dynamically. This callback should be used to set focus to another element if this occurs. Without this callback the dropdown will close automatically when focus is lost._\n  </C.Property>\n  <C.Property @name=\"boundary\" @type=\"Boundary | string\">\n    Provides an option to specify a parent or ancestor container element to act as the boundary for collision detection vs. the browser window boundaries which is the default. The value provided must be either a `Boundary` type as specified in the [Floating UI library documentation](https://floating-ui.com/docs/detectoverflow#options) or an id string for the boundary container element.\n    <br />\n    <br />\n    Must be used in conjunction with setting `enableCollisionDetection` to `true`.\n  </C.Property>\n  <C.Property @name=\"...attributes\">\n    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).\n  </C.Property>\n</Doc::ComponentApi>",
-          "text": "Dropdown <[D].ToggleButton> yielded component Dropdown::Toggle::Button yielded as contextual component (see below). <[D].ToggleIcon> yielded component Dropdown::Toggle::Icon yielded as contextual component (see below). <[D].Header> yielded component Dropdown::Header yielded as contextual component (see below). <[D].Title> yielded component Dropdown::ListItem::Title yielded as contextual component (see below). <[D].Description> yielded component Dropdown::ListItem::Description yielded as contextual component (see below). <[D].Separator> yielded component Dropdown::ListItem::Separator yielded as contextual component (see below). <[D].Interactive> yielded component Dropdown::ListItem::Interactive yielded as contextual component (see below). <[D].CopyItem> yielded component Dropdown::ListItem::CopyItem yielded as contextual component (see below). <[D].Checkmark> yielded component Dropdown::ListItem::Checkmark yielded as contextual component (see below). <[D].Checkbox> yielded component Dropdown::ListItem::Checkbox yielded as contextual component (see below). <[D].Radio> yielded component Dropdown::ListItem::Radio yielded as contextual component (see below). <[D].Generic> yielded component Dropdown::ListItem::Generic yielded as contextual component (see below). <[D].Footer> yielded component Dropdown::Footer yielded as contextual component (see below). [D].close function Function to programmatically close the Dropdown yielded to the content. If this function is invoked using an modifier applied to the ListItem::Interactive element, there is a quirky behavior of the Ember component which requires a workaround to have the events executed in the right order (this happens only if it has a @route argument). Read more about the issue and a possible solution in this GitHub comment. listPosition string bottom-left bottom-right top-left top-right bottom-right _Note: If @enableCollisionDetection is set, the list will automatically flip position to remain visible when near the edges of the screen regardless of the starting placement._ isInline boolean false true false If an @isInline parameter is provided, then the element will be displayed as inline-block (useful to achieve specific layouts like in a container with right alignment). Otherwise, it will have a block layout. enableCollisionDetection boolean false true false Setting it to true will automatically flip the list position to remain visible when near the edges of the viewport. isOpen boolean false true false Controls if the list should be rendered initially opened. width string any valid CSS width (px, rem, etc) By default, the Dropdown List has a min-width of 200px and a max-width of 400px, so it adapts to the content size. If a @width parameter is provided then the list will have a fixed width. We discourage the use of percentage values for this argument. The Dropdown list is a popover element, so relative units use document as a reference (not the parent element), meaning percentage values act similar to vw. If @matchToggleWidth is set, @width is overridden. height string any valid CSS height (px, rem, etc) If a @height parameter is provided then the list will have a max-height. matchToggleWidth boolean false Sets the Dropdown List's width to match the width of the Toggle. It overrides the @width value if set. preserveContentInDom boolean false Controls if the content is always rendered in the DOM, even when the dropdown is closed. onClose function Callback function invoked when the dropdown is closed (if provided). onFocusOut function A callback function invoked when the dropdown menu loses focus, and focus does not move to another element (if provided). _Notice: Focus can be lost if content inside the dropdown is removed dynamically. This callback should be used to set focus to another element if this occurs. Without this callback the dropdown will close automatically when focus is lost._ boundary Boundary string Provides an option to specify a parent or ancestor container element to act as the boundary for collision detection vs. the browser window boundaries which is the default. The value provided must be either a Boundary type as specified in the Floating UI library documentation or an id string for the boundary container element. Must be used in conjunction with setting enableCollisionDetection to true. ...attributes This component supports use of ...attributes."
+          "content": "### Dropdown\n\n<Doc::ComponentApi as |C|>\n  <C.Property @name=\"<[D].ToggleButton>\" @type=\"yielded component\">\n    `Dropdown::Toggle::Button` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].ToggleIcon>\" @type=\"yielded component\">\n    `Dropdown::Toggle::Icon` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].Header>\" @type=\"yielded component\">\n    `Dropdown::Header` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].Title>\" @type=\"yielded component\">\n    `Dropdown::ListItem::Title` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].Description>\" @type=\"yielded component\">\n    `Dropdown::ListItem::Description` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].Separator>\" @type=\"yielded component\">\n    `Dropdown::ListItem::Separator` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].Interactive>\" @type=\"yielded component\">\n    `Dropdown::ListItem::Interactive` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].CopyItem>\" @type=\"yielded component\">\n    `Dropdown::ListItem::CopyItem` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].Checkmark>\" @type=\"yielded component\">\n    `Dropdown::ListItem::Checkmark` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].Checkbox>\" @type=\"yielded component\">\n    `Dropdown::ListItem::Checkbox` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].Radio>\" @type=\"yielded component\">\n    `Dropdown::ListItem::Radio` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].Generic>\" @type=\"yielded component\">\n    `Dropdown::ListItem::Generic` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[D].Footer>\" @type=\"yielded component\">\n    `Dropdown::Footer` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"[D].close\" @type=\"function\">\n    Function to programmatically close the Dropdown yielded to the content.\n    <br/><br/>\n    If this function is invoked using an `\\{{on \"click\"}}` modifier applied to the `ListItem::Interactive` element, there is a quirky behavior of the Ember `<LinkTo>` component which requires a workaround to have the events executed in the right order (this happens only if it has a `@route` argument). Read more about the issue and a possible solution [in this GitHub comment](https://github.com/hashicorp/design-system/pull/399#issuecomment-1171186772).\n  </C.Property>\n  <C.Property @name=\"listPosition\" @type=\"string\" @values={{array \"bottom-left\" \"bottom-right\" \"top-left\" \"top-right\" }} @default=\"bottom-right\">\n    _Note: If `@enableCollisionDetection` is set, the list will automatically flip position to remain visible when near the edges of the screen regardless of the starting placement._\n  </C.Property>\n  <C.Property @name=\"isInline\" @type=\"boolean\" @default=\"false\" @values={{array \"true\" \"false\"}}>\n    If an `@isInline` parameter is provided, then the element will be displayed as `inline-block` (useful to achieve specific layouts like in a container with right alignment). Otherwise, it will have a `block` layout.\n  </C.Property>\n  <C.Property @name=\"enableCollisionDetection\" @type=\"boolean\" @default=\"false\" @values={{array \"true\" \"false\"}}>\n    Setting it to `true` will automatically flip the list position to remain visible when near the edges of the viewport.\n  </C.Property>\n  <C.Property @name=\"isOpen\" @type=\"boolean\" @default=\"false\" @values={{array \"true\" \"false\"}}>\n    Controls if the list should be rendered initially opened.\n  </C.Property>\n  <C.Property @name=\"width\" @type=\"string\" @valueNote=\"any valid CSS width (px, rem, etc)\">\n    By default, the Dropdown List has a `min-width` of `200px` and a `max-width` of `400px`, so it adapts to the content size. If a `@width` parameter is provided then the list will have a fixed width.\n    <br/><br/>We discourage the use of percentage values for this argument. The Dropdown list is [a `popover` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/popover), so relative units use `document` as a reference (not the parent element), meaning percentage values act similar to `vw`.\n    If `@matchToggleWidth` is set, `@width` is overridden.\n  </C.Property>\n  <C.Property @name=\"height\" @type=\"string\" @valueNote=\"any valid CSS height (px, rem, etc)\">\n    If a `@height` parameter is provided then the list will have a max-height.\n  </C.Property>\n  <C.Property @name=\"matchToggleWidth\" @type=\"boolean\" @default=\"false\">\n    Sets the Dropdown List’s width to match the width of the Toggle. It overrides the `@width` value if set.\n  </C.Property>\n  <C.Property @name=\"preserveContentInDom\" @type=\"boolean\" @default=\"false\">\n    Controls if the content is always rendered in the DOM, even when the dropdown is closed.\n  </C.Property>\n  <C.Property @name=\"onClose\" @type=\"function\">\n    Callback function invoked (if provided) when the dropdown is closed.\n  </C.Property>\n  <C.Property @name=\"onFocusOut\" @type=\"function\">\n    Callback function invoked (if provided) when the dropdown menu loses focus, and focus does not move to another element.\r\n    <br />\n    <br />\n    _Notice: Focus can be lost if content inside the dropdown is removed dynamically. This callback should be used to set focus to another element if this occurs. Without this callback the dropdown will close automatically when focus is lost._\n  </C.Property>\n  <C.Property @name=\"onOpen\" @type=\"function\">\n    Callback function invoked (if provided) when the dropdown is opened.\n  </C.Property>\n  <C.Property @name=\"boundary\" @type=\"Boundary | string\">\n    Provides an option to specify a parent or ancestor container element to act as the boundary for collision detection vs. the browser window boundaries which is the default. The value provided must be either a `Boundary` type as specified in the [Floating UI library documentation](https://floating-ui.com/docs/detectoverflow#options) or an id string for the boundary container element.\n    <br />\n    <br />\n    Must be used in conjunction with setting `enableCollisionDetection` to `true`.\n  </C.Property>\n  <C.Property @name=\"...attributes\">\n    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).\n  </C.Property>\n</Doc::ComponentApi>",
+          "text": "Dropdown <[D].ToggleButton> yielded component Dropdown::Toggle::Button yielded as contextual component (see below). <[D].ToggleIcon> yielded component Dropdown::Toggle::Icon yielded as contextual component (see below). <[D].Header> yielded component Dropdown::Header yielded as contextual component (see below). <[D].Title> yielded component Dropdown::ListItem::Title yielded as contextual component (see below). <[D].Description> yielded component Dropdown::ListItem::Description yielded as contextual component (see below). <[D].Separator> yielded component Dropdown::ListItem::Separator yielded as contextual component (see below). <[D].Interactive> yielded component Dropdown::ListItem::Interactive yielded as contextual component (see below). <[D].CopyItem> yielded component Dropdown::ListItem::CopyItem yielded as contextual component (see below). <[D].Checkmark> yielded component Dropdown::ListItem::Checkmark yielded as contextual component (see below). <[D].Checkbox> yielded component Dropdown::ListItem::Checkbox yielded as contextual component (see below). <[D].Radio> yielded component Dropdown::ListItem::Radio yielded as contextual component (see below). <[D].Generic> yielded component Dropdown::ListItem::Generic yielded as contextual component (see below). <[D].Footer> yielded component Dropdown::Footer yielded as contextual component (see below). [D].close function Function to programmatically close the Dropdown yielded to the content. If this function is invoked using an modifier applied to the ListItem::Interactive element, there is a quirky behavior of the Ember component which requires a workaround to have the events executed in the right order (this happens only if it has a @route argument). Read more about the issue and a possible solution in this GitHub comment. listPosition string bottom-left bottom-right top-left top-right bottom-right _Note: If @enableCollisionDetection is set, the list will automatically flip position to remain visible when near the edges of the screen regardless of the starting placement._ isInline boolean false true false If an @isInline parameter is provided, then the element will be displayed as inline-block (useful to achieve specific layouts like in a container with right alignment). Otherwise, it will have a block layout. enableCollisionDetection boolean false true false Setting it to true will automatically flip the list position to remain visible when near the edges of the viewport. isOpen boolean false true false Controls if the list should be rendered initially opened. width string any valid CSS width (px, rem, etc) By default, the Dropdown List has a min-width of 200px and a max-width of 400px, so it adapts to the content size. If a @width parameter is provided then the list will have a fixed width. We discourage the use of percentage values for this argument. The Dropdown list is a popover element, so relative units use document as a reference (not the parent element), meaning percentage values act similar to vw. If @matchToggleWidth is set, @width is overridden. height string any valid CSS height (px, rem, etc) If a @height parameter is provided then the list will have a max-height. matchToggleWidth boolean false Sets the Dropdown List's width to match the width of the Toggle. It overrides the @width value if set. preserveContentInDom boolean false Controls if the content is always rendered in the DOM, even when the dropdown is closed. onClose function Callback function invoked (if provided) when the dropdown is closed. onFocusOut function Callback function invoked (if provided) when the dropdown menu loses focus, and focus does not move to another element. _Notice: Focus can be lost if content inside the dropdown is removed dynamically. This callback should be used to set focus to another element if this occurs. Without this callback the dropdown will close automatically when focus is lost._ onOpen function Callback function invoked (if provided) when the dropdown is opened. boundary Boundary string Provides an option to specify a parent or ancestor container element to act as the boundary for collision detection vs. the browser window boundaries which is the default. The value provided must be either a Boundary type as specified in the Floating UI library documentation or an id string for the boundary container element. Must be used in conjunction with setting enableCollisionDetection to true. ...attributes This component supports use of ...attributes."
         },
         {
           "id": "components/dropdown#code/component-api/contextual-components/d-togglebutton",
@@ -10234,6 +10300,17 @@
           "text": "When to use secondary-muted For pairing with another Button/Dropdown of the same color (e.g. FilterBar, Segmented Group)"
         },
         {
+          "id": "components/dropdown#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/components/dropdown?tab=version%20history#710",
+          "content": "## 7.1.0\n\nAdded `@onOpen` callback argument.",
+          "text": "7.1.0 Added @onOpen callback argument."
+        },
+        {
           "id": "components/dropdown#version-history/7-0-0",
           "tab": "Version history",
           "headingTrail": [
@@ -10423,7 +10500,7 @@
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=93090-8276&t=ipkemvfVsBE5ALhw-1"
       },
       "status": {
-        "updated": "7.0.0"
+        "updated": "7.1.0"
       },
       "url": "https://helios.hashicorp.design/components/filter-bar",
       "chunks": [
@@ -10905,11 +10982,12 @@
           ],
           "level": 3,
           "url": "https://helios.hashicorp.design/components/filter-bar?tab=code#search",
-          "content": "### Search\n\nThe Filter Bar provides a search input, which can be used for searching across multiple areas of a data set. If the `@hasSearch` argument is set to `true`, a search input will be shown next to the dropdown.\n\nWhen the search input's `input` event is triggered, a filter of type `search` will be included in the data object in the `@onFilter` callback.\n\n\n```gts title=\"Modern Ember (.gts)\"\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nimport { HdsFilterBar } from '@hashicorp/design-system-components/components';\nimport type { HdsFilterBarSignature } from '@hashicorp/design-system-components/components/hds/filter-bar/index';\n\nexport default class LocalComponent extends Component {\n  @tracked demoSearchFilters: HdsFilterBarSignature['Args']['filters'] = {\n    search: {\n      type: 'search',\n      text: 'Search',\n      data: {\n        value: 'Lorem ipsum',\n      },\n    },\n  };\n\n  demoUpdateSearchFilters = (\n    newFilters: HdsFilterBarSignature['Args']['filters'],\n  ) => {\n    this.demoSearchFilters = newFilters;\n  };\n\n  <template>\n    <HdsFilterBar\n      @filters={{this.demoSearchFilters}}\n      @onFilter={{this.demoUpdateSearchFilters}}\n      @hasSearch={{true}}\n      as |F|\n    >\n      <F.FiltersDropdown as |D|>\n        <D.FilterGroup\n          @key=\"project\"\n          @text=\"Project\"\n          @type=\"multi-select\"\n          as |F|\n        >\n          <F.Checkbox @value=\"project-1\" @label=\"Project 1\" />\n          <F.Checkbox @value=\"project-2\" @label=\"Project 2\" />\n          <F.Checkbox @value=\"project-3\" @label=\"Project 3\" />\n        </D.FilterGroup>\n        <D.FilterGroup\n          @key=\"version\"\n          @text=\"Version\"\n          @type=\"single-select\"\n          as |F|\n        >\n          <F.Radio @value=\"1.0\" @label=\"1.0\" />\n          <F.Radio @value=\"2.0\" @label=\"2.0\" />\n          <F.Radio @value=\"3.0\" @label=\"3.0\" />\n        </D.FilterGroup>\n      </F.FiltersDropdown>\n    </HdsFilterBar>\n  </template>\n}\n```\n\n```handlebars title=\"Classic Ember (.hbs)\"\n<Hds::FilterBar\n  @filters={{this.demoSearchFilters}}\n  @onFilter={{this.demoUpdateSearchFilters}}\n  @hasSearch={{true}}\n  as |F|\n>\n  <F.FiltersDropdown as |D|>\n    <D.FilterGroup @key=\"project\" @text=\"Project\" @type=\"multi-select\" as |F|>\n      <F.Checkbox @value=\"project-1\" @label=\"Project 1\" />\n      <F.Checkbox @value=\"project-2\" @label=\"Project 2\" />\n      <F.Checkbox @value=\"project-3\" @label=\"Project 3\" />\n    </D.FilterGroup>\n    <D.FilterGroup @key=\"version\" @text=\"Version\" @type=\"single-select\" as |F|>\n      <F.Radio @value=\"1.0\" @label=\"1.0\" />\n      <F.Radio @value=\"2.0\" @label=\"2.0\" />\n      <F.Radio @value=\"3.0\" @label=\"3.0\" />\n    </D.FilterGroup>\n  </F.FiltersDropdown>\n</Hds::FilterBar>\n```\n\n```javascript title=\"Classic Ember backing class (.js)\"\nimport Component from '@glimmer/component';\nimport { action } from '@ember/object';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class LocalComponent extends Component {\n  @tracked demoSearchFilters = {\n    'search': {\n      type: 'search',\n      text: 'Search',\n      data: {\n        value: 'Lorem ipsum',\n      },\n    }\n  };\n\n  @action\n  demoUpdateSearchFilters(newFilters) {\n    this.demoSearchFilters = newFilters;\n  }\n}\n```\n\n\n\n```javascript\n// example of filter data\nconst demoSearchFilters = {\n  'search': {\n    type: 'search',\n    text: 'Search',\n    data: {\n      value: 'Lorem ipsum',\n    },\n  }\n};\n```\n\n\nThe search input’s `aria-label` and `placeholder` text values are both “Search” by default, but they can be customized with the `@searchAriaLabel` and `@searchPlaceholder` arguments respectively.\n\n\n```gts title=\"Modern Ember (.gts)\"\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nimport { HdsFilterBar } from '@hashicorp/design-system-components/components';\nimport type { HdsFilterBarSignature } from '@hashicorp/design-system-components/components/hds/filter-bar/index';\n\nexport default class LocalComponent extends Component {\n  @tracked demoEmptyFilters: HdsFilterBarSignature['Args']['filters'] = {};\n\n  demoUpdateEmptyFilters = (\n    newFilters: HdsFilterBarSignature['Args']['filters'],\n  ) => {\n    this.demoEmptyFilters = newFilters;\n  };\n\n  <template>\n    <HdsFilterBar\n      @filters={{this.demoEmptyFilters}}\n      @onFilter={{this.demoUpdateEmptyFilters}}\n      @hasSearch={{true}}\n      @searchPlaceholder=\"Search projects\"\n      @searchAriaLabel=\"Search by project name\"\n      as |F|\n    >\n      <F.FiltersDropdown as |D|>\n        <D.FilterGroup\n          @key=\"project\"\n          @text=\"Project\"\n          @type=\"multi-select\"\n          as |F|\n        >\n          <F.Checkbox @value=\"project-1\" @label=\"Project 1\" />\n          <F.Checkbox @value=\"project-2\" @label=\"Project 2\" />\n          <F.Checkbox @value=\"project-3\" @label=\"Project 3\" />\n        </D.FilterGroup>\n        <D.FilterGroup\n          @key=\"version\"\n          @text=\"Version\"\n          @type=\"single-select\"\n          as |F|\n        >\n          <F.Radio @value=\"1.0\" @label=\"1.0\" />\n          <F.Radio @value=\"2.0\" @label=\"2.0\" />\n          <F.Radio @value=\"3.0\" @label=\"3.0\" />\n        </D.FilterGroup>\n      </F.FiltersDropdown>\n    </HdsFilterBar>\n  </template>\n}\n```\n\n```handlebars title=\"Classic Ember (.hbs)\"\n<Hds::FilterBar\n  @filters={{this.demoEmptyFilters}}\n  @onFilter={{this.demoUpdateEmptyFilters}}\n  @hasSearch={{true}}\n  @searchPlaceholder=\"Search projects\"\n  @searchAriaLabel=\"Search by project name\"\n  as |F|\n>\n  <F.FiltersDropdown as |D|>\n    <D.FilterGroup @key=\"project\" @text=\"Project\" @type=\"multi-select\" as |F|>\n      <F.Checkbox @value=\"project-1\" @label=\"Project 1\" />\n      <F.Checkbox @value=\"project-2\" @label=\"Project 2\" />\n      <F.Checkbox @value=\"project-3\" @label=\"Project 3\" />\n    </D.FilterGroup>\n    <D.FilterGroup @key=\"version\" @text=\"Version\" @type=\"single-select\" as |F|>\n      <F.Radio @value=\"1.0\" @label=\"1.0\" />\n      <F.Radio @value=\"2.0\" @label=\"2.0\" />\n      <F.Radio @value=\"3.0\" @label=\"3.0\" />\n    </D.FilterGroup>\n  </F.FiltersDropdown>\n</Hds::FilterBar>\n```\n\n```javascript title=\"Classic Ember backing class (.js)\"\nimport Component from '@glimmer/component';\nimport { action } from '@ember/object';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class LocalComponent extends Component {\n  @tracked demoEmptyFilters = {};\n\n  @action\n  demoUpdateEmptyFilters(newFilters) {\n    this.demoEmptyFilters = newFilters;\n  }\n}\n```",
-          "text": "Search The Filter Bar provides a search input, which can be used for searching across multiple areas of a data set. If the @hasSearch argument is set to true, a search input will be shown next to the dropdown. When the search input's input event is triggered, a filter of type search will be included in the data object in the @onFilter callback. The search input's aria-label and placeholder text values are both \"Search\" by default, but they can be customized with the @searchAriaLabel and @searchPlaceholder arguments respectively.",
+          "content": "### Search\n\nThe Filter Bar provides a search input, which can be used for searching across multiple areas of a data set. If the `@hasSearch` argument is set to `true`, a search input will be shown next to the dropdown.\n\nWhen the search input's `change` event is triggered, a filter of type `search` will be included in the data object in the `@onFilter` callback.\n\n\n```gts title=\"Modern Ember (.gts)\"\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nimport { HdsFilterBar } from '@hashicorp/design-system-components/components';\nimport type { HdsFilterBarSignature } from '@hashicorp/design-system-components/components/hds/filter-bar/index';\n\nexport default class LocalComponent extends Component {\n  @tracked demoSearchFilters: HdsFilterBarSignature['Args']['filters'] = {\n    search: {\n      type: 'search',\n      text: 'Search',\n      data: {\n        value: 'Lorem ipsum',\n      },\n    },\n  };\n\n  demoUpdateSearchFilters = (\n    newFilters: HdsFilterBarSignature['Args']['filters'],\n  ) => {\n    this.demoSearchFilters = newFilters;\n  };\n\n  <template>\n    <HdsFilterBar\n      @filters={{this.demoSearchFilters}}\n      @onFilter={{this.demoUpdateSearchFilters}}\n      @hasSearch={{true}}\n      as |F|\n    >\n      <F.FiltersDropdown as |D|>\n        <D.FilterGroup\n          @key=\"project\"\n          @text=\"Project\"\n          @type=\"multi-select\"\n          as |F|\n        >\n          <F.Checkbox @value=\"project-1\" @label=\"Project 1\" />\n          <F.Checkbox @value=\"project-2\" @label=\"Project 2\" />\n          <F.Checkbox @value=\"project-3\" @label=\"Project 3\" />\n        </D.FilterGroup>\n        <D.FilterGroup\n          @key=\"version\"\n          @text=\"Version\"\n          @type=\"single-select\"\n          as |F|\n        >\n          <F.Radio @value=\"1.0\" @label=\"1.0\" />\n          <F.Radio @value=\"2.0\" @label=\"2.0\" />\n          <F.Radio @value=\"3.0\" @label=\"3.0\" />\n        </D.FilterGroup>\n      </F.FiltersDropdown>\n    </HdsFilterBar>\n  </template>\n}\n```\n\n```handlebars title=\"Classic Ember (.hbs)\"\n<Hds::FilterBar\n  @filters={{this.demoSearchFilters}}\n  @onFilter={{this.demoUpdateSearchFilters}}\n  @hasSearch={{true}}\n  as |F|\n>\n  <F.FiltersDropdown as |D|>\n    <D.FilterGroup @key=\"project\" @text=\"Project\" @type=\"multi-select\" as |F|>\n      <F.Checkbox @value=\"project-1\" @label=\"Project 1\" />\n      <F.Checkbox @value=\"project-2\" @label=\"Project 2\" />\n      <F.Checkbox @value=\"project-3\" @label=\"Project 3\" />\n    </D.FilterGroup>\n    <D.FilterGroup @key=\"version\" @text=\"Version\" @type=\"single-select\" as |F|>\n      <F.Radio @value=\"1.0\" @label=\"1.0\" />\n      <F.Radio @value=\"2.0\" @label=\"2.0\" />\n      <F.Radio @value=\"3.0\" @label=\"3.0\" />\n    </D.FilterGroup>\n  </F.FiltersDropdown>\n</Hds::FilterBar>\n```\n\n```javascript title=\"Classic Ember backing class (.js)\"\nimport Component from '@glimmer/component';\nimport { action } from '@ember/object';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class LocalComponent extends Component {\n  @tracked demoSearchFilters = {\n    'search': {\n      type: 'search',\n      text: 'Search',\n      data: {\n        value: 'Lorem ipsum',\n      },\n    }\n  };\n\n  @action\n  demoUpdateSearchFilters(newFilters) {\n    this.demoSearchFilters = newFilters;\n  }\n}\n```\n\n\n\n```javascript\n// example of filter data\nconst demoSearchFilters = {\n  'search': {\n    type: 'search',\n    text: 'Search',\n    data: {\n      value: 'Lorem ipsum',\n    },\n  }\n};\n```\n\n\nIf the `@hasLiveSearch` argument is set to `true`, the `@onFilter` callback is triggered on the search input's `input` event instead of `change`.\n\n\n```gts title=\"Modern Ember (.gts)\"\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nimport { HdsFilterBar } from '@hashicorp/design-system-components/components';\nimport type { HdsFilterBarSignature } from '@hashicorp/design-system-components/components/hds/filter-bar/index';\n\nexport default class LocalComponent extends Component {\n  @tracked demoSearchFilters: HdsFilterBarSignature['Args']['filters'] = {\n    search: {\n      type: 'search',\n      text: 'Search',\n      data: {\n        value: 'Lorem ipsum',\n      },\n    },\n  };\n\n  demoUpdateSearchFilters = (\n    newFilters: HdsFilterBarSignature['Args']['filters'],\n  ) => {\n    this.demoSearchFilters = newFilters;\n  };\n\n  <template>\n    <HdsFilterBar\n      @filters={{this.demoSearchFilters}}\n      @onFilter={{this.demoUpdateSearchFilters}}\n      @hasSearch={{true}}\n      @hasLiveSearch={{true}}\n      as |F|\n    >\n      <F.FiltersDropdown as |D|>\n        <D.FilterGroup\n          @key=\"project\"\n          @text=\"Project\"\n          @type=\"multi-select\"\n          as |F|\n        >\n          <F.Checkbox @value=\"project-1\" @label=\"Project 1\" />\n          <F.Checkbox @value=\"project-2\" @label=\"Project 2\" />\n          <F.Checkbox @value=\"project-3\" @label=\"Project 3\" />\n        </D.FilterGroup>\n        <D.FilterGroup\n          @key=\"version\"\n          @text=\"Version\"\n          @type=\"single-select\"\n          as |F|\n        >\n          <F.Radio @value=\"1.0\" @label=\"1.0\" />\n          <F.Radio @value=\"2.0\" @label=\"2.0\" />\n          <F.Radio @value=\"3.0\" @label=\"3.0\" />\n        </D.FilterGroup>\n      </F.FiltersDropdown>\n    </HdsFilterBar>\n  </template>\n}\n```\n\n```handlebars title=\"Classic Ember (.hbs)\"\n<Hds::FilterBar\n  @filters={{this.demoSearchFilters}}\n  @onFilter={{this.demoUpdateSearchFilters}}\n  @hasSearch={{true}}\n  @hasLiveSearch={{true}}\n  as |F|\n>\n  <F.FiltersDropdown as |D|>\n    <D.FilterGroup @key=\"project\" @text=\"Project\" @type=\"multi-select\" as |F|>\n      <F.Checkbox @value=\"project-1\" @label=\"Project 1\" />\n      <F.Checkbox @value=\"project-2\" @label=\"Project 2\" />\n      <F.Checkbox @value=\"project-3\" @label=\"Project 3\" />\n    </D.FilterGroup>\n    <D.FilterGroup @key=\"version\" @text=\"Version\" @type=\"single-select\" as |F|>\n      <F.Radio @value=\"1.0\" @label=\"1.0\" />\n      <F.Radio @value=\"2.0\" @label=\"2.0\" />\n      <F.Radio @value=\"3.0\" @label=\"3.0\" />\n    </D.FilterGroup>\n  </F.FiltersDropdown>\n</Hds::FilterBar>\n```\n\n```javascript title=\"Classic Ember backing class (.js)\"\nimport Component from '@glimmer/component';\nimport { action } from '@ember/object';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class LocalComponent extends Component {\n  @tracked demoSearchFilters = {\n    'search': {\n      type: 'search',\n      text: 'Search',\n      data: {\n        value: 'Lorem ipsum',\n      },\n    }\n  };\n\n  @action\n  demoUpdateSearchFilters(newFilters) {\n    this.demoSearchFilters = newFilters;\n  }\n}\n```\n\n\nThe search input’s `aria-label` and `placeholder` text values are both “Search” by default, but they can be customized with the `@searchAriaLabel` and `@searchPlaceholder` arguments respectively.\n\n\n```gts title=\"Modern Ember (.gts)\"\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nimport { HdsFilterBar } from '@hashicorp/design-system-components/components';\nimport type { HdsFilterBarSignature } from '@hashicorp/design-system-components/components/hds/filter-bar/index';\n\nexport default class LocalComponent extends Component {\n  @tracked demoEmptyFilters: HdsFilterBarSignature['Args']['filters'] = {};\n\n  demoUpdateEmptyFilters = (\n    newFilters: HdsFilterBarSignature['Args']['filters'],\n  ) => {\n    this.demoEmptyFilters = newFilters;\n  };\n\n  <template>\n    <HdsFilterBar\n      @filters={{this.demoEmptyFilters}}\n      @onFilter={{this.demoUpdateEmptyFilters}}\n      @hasSearch={{true}}\n      @searchPlaceholder=\"Search projects\"\n      @searchAriaLabel=\"Search by project name\"\n      as |F|\n    >\n      <F.FiltersDropdown as |D|>\n        <D.FilterGroup\n          @key=\"project\"\n          @text=\"Project\"\n          @type=\"multi-select\"\n          as |F|\n        >\n          <F.Checkbox @value=\"project-1\" @label=\"Project 1\" />\n          <F.Checkbox @value=\"project-2\" @label=\"Project 2\" />\n          <F.Checkbox @value=\"project-3\" @label=\"Project 3\" />\n        </D.FilterGroup>\n        <D.FilterGroup\n          @key=\"version\"\n          @text=\"Version\"\n          @type=\"single-select\"\n          as |F|\n        >\n          <F.Radio @value=\"1.0\" @label=\"1.0\" />\n          <F.Radio @value=\"2.0\" @label=\"2.0\" />\n          <F.Radio @value=\"3.0\" @label=\"3.0\" />\n        </D.FilterGroup>\n      </F.FiltersDropdown>\n    </HdsFilterBar>\n  </template>\n}\n```\n\n```handlebars title=\"Classic Ember (.hbs)\"\n<Hds::FilterBar\n  @filters={{this.demoEmptyFilters}}\n  @onFilter={{this.demoUpdateEmptyFilters}}\n  @hasSearch={{true}}\n  @searchPlaceholder=\"Search projects\"\n  @searchAriaLabel=\"Search by project name\"\n  as |F|\n>\n  <F.FiltersDropdown as |D|>\n    <D.FilterGroup @key=\"project\" @text=\"Project\" @type=\"multi-select\" as |F|>\n      <F.Checkbox @value=\"project-1\" @label=\"Project 1\" />\n      <F.Checkbox @value=\"project-2\" @label=\"Project 2\" />\n      <F.Checkbox @value=\"project-3\" @label=\"Project 3\" />\n    </D.FilterGroup>\n    <D.FilterGroup @key=\"version\" @text=\"Version\" @type=\"single-select\" as |F|>\n      <F.Radio @value=\"1.0\" @label=\"1.0\" />\n      <F.Radio @value=\"2.0\" @label=\"2.0\" />\n      <F.Radio @value=\"3.0\" @label=\"3.0\" />\n    </D.FilterGroup>\n  </F.FiltersDropdown>\n</Hds::FilterBar>\n```\n\n```javascript title=\"Classic Ember backing class (.js)\"\nimport Component from '@glimmer/component';\nimport { action } from '@ember/object';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class LocalComponent extends Component {\n  @tracked demoEmptyFilters = {};\n\n  @action\n  demoUpdateEmptyFilters(newFilters) {\n    this.demoEmptyFilters = newFilters;\n  }\n}\n```",
+          "text": "Search The Filter Bar provides a search input, which can be used for searching across multiple areas of a data set. If the @hasSearch argument is set to true, a search input will be shown next to the dropdown. When the search input's change event is triggered, a filter of type search will be included in the data object in the @onFilter callback. If the @hasLiveSearch argument is set to true, the @onFilter callback is triggered on the search input's input event instead of change. The search input's aria-label and placeholder text values are both \"Search\" by default, but they can be customized with the @searchAriaLabel and @searchPlaceholder arguments respectively.",
           "symbols": [
             "@action",
             "@filters",
+            "@hasLiveSearch",
             "@hasSearch",
             "@key",
             "@label",
@@ -11008,8 +11086,8 @@
           ],
           "level": 3,
           "url": "https://helios.hashicorp.design/components/filter-bar?tab=code#filterbar",
-          "content": "### FilterBar\n\n<Doc::ComponentApi as |C|>\n  <C.Property @name=\"<[F].FiltersDropdown>\" @type=\"yielded component\">\n    `FilterBar::FiltersDropdown` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[F].ActionsGeneric>\" @type=\"yielded component\">\n    `FilterBar::ActionsGeneric` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[F].ActionsDropdown>\" @type=\"yielded component\">\n    `FilterBar::ActionsDropdown` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"filters\" @type=\"object\" @required={{true}}>\n    Object representing the currently applied filters. The shape is dependent upon the filter type ([see below](#filter-types-1)). It is required to set a `string` filter key for each entry. Ex: `{ 'my-filter-key': {...}}`.\n  </C.Property>\n  <C.Property @name=\"isLiveFilter\" @type=\"boolean\" @default=\"false\">\n    If `true`, the `@onFilter` callback is invoked immediately as filters are added in the dropdown (live updates). If `false`, changes in the dropdown are applied only when the user confirms via the \"Apply filters\" button, or clears with the \"Clear all filters\" button.\n    <br/><br/>\n    **Note:** The behavior of the search input is unaffected by this argument. The search filter is always applied after user submission via the `change` event.\n  </C.Property>\n  <C.Property @name=\"hasSearch\" @type=\"boolean\" @default=\"false\">\n    When `true`, a search input is shown in the Filter Bar. Search input values are reported to the `@onFilter` callback as a filter with the key `search`.\n  </C.Property>\n  <C.Property @name=\"searchPlaceholder\" @type=\"string\" @default=\"&quot;Search&quot;\">\n    Placeholder text for the search input when `@hasSearch` is `true`.\n  </C.Property>\n  <C.Property @name=\"searchAriaLabel\" @type=\"string\" @default=\"&quot;Search&quot;\">\n    The `aria-label` text for the search input.\n  </C.Property>\n  <C.Property @name=\"onFilter\" @type=\"function\">\n    Callback invoked when filters are applied, changed, or cleared. Receives a single argument: the updated `HdsFilterBarFilters` object.\n  </C.Property>\n  <C.Property @name=\"...attributes\">\n    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).\n  </C.Property>\n</Doc::ComponentApi>",
-          "text": "FilterBar <[F].FiltersDropdown> yielded component FilterBar::FiltersDropdown yielded as contextual component (see below). <[F].ActionsGeneric> yielded component FilterBar::ActionsGeneric yielded as contextual component (see below). <[F].ActionsDropdown> yielded component FilterBar::ActionsDropdown yielded as contextual component (see below). filters object Object representing the currently applied filters. The shape is dependent upon the filter type (see below). It is required to set a string filter key for each entry. Ex: { 'my-filter-key': {...}}. isLiveFilter boolean false If true, the @onFilter callback is invoked immediately as filters are added in the dropdown (live updates). If false, changes in the dropdown are applied only when the user confirms via the \"Apply filters\" button, or clears with the \"Clear all filters\" button. Note: The behavior of the search input is unaffected by this argument. The search filter is always applied after user submission via the change event. hasSearch boolean false When true, a search input is shown in the Filter Bar. Search input values are reported to the @onFilter callback as a filter with the key search. searchPlaceholder string \"Search\" Placeholder text for the search input when @hasSearch is true. searchAriaLabel string \"Search\" The aria-label text for the search input. onFilter function Callback invoked when filters are applied, changed, or cleared. Receives a single argument: the updated HdsFilterBarFilters object. ...attributes This component supports use of ...attributes."
+          "content": "### FilterBar\n\n<Doc::ComponentApi as |C|>\n  <C.Property @name=\"<[F].FiltersDropdown>\" @type=\"yielded component\">\n    `FilterBar::FiltersDropdown` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[F].ActionsGeneric>\" @type=\"yielded component\">\n    `FilterBar::ActionsGeneric` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"<[F].ActionsDropdown>\" @type=\"yielded component\">\n    `FilterBar::ActionsDropdown` yielded as contextual component (see below).\n  </C.Property>\n  <C.Property @name=\"filters\" @type=\"object\" @required={{true}}>\n    Object representing the currently applied filters. The shape is dependent upon the filter type ([see below](#filter-types-1)). It is required to set a `string` filter key for each entry. Ex: `{ 'my-filter-key': {...}}`.\n  </C.Property>\n  <C.Property @name=\"isLiveFilter\" @type=\"boolean\" @default=\"false\">\n    If `true`, the `@onFilter` callback is invoked immediately as filters are added in the dropdown (live updates). If `false`, changes in the dropdown are applied only when the user confirms via the \"Apply filters\" button, or clears with the \"Clear all filters\" button.\n    <br/><br/>\n    **Note:** The behavior of the search input is unaffected by this argument. The search filter is always applied after user submission via the `change` event.\n  </C.Property>\n  <C.Property @name=\"hasSearch\" @type=\"boolean\" @default=\"false\">\n    When `true`, a search input is shown in the Filter Bar. Search input values are reported to the `@onFilter` callback as a filter with the key `search`.\n  </C.Property>\n  <C.Property @name=\"hasLiveSearch\" @type=\"boolean\" @default=\"false\">\n    When `true`, a search input triggers the `@onFilter` callback on the `input` event of the search input. When `false`, the callback is triggered on the `change` event.\n  </C.Property>\n  <C.Property @name=\"searchPlaceholder\" @type=\"string\" @default=\"&quot;Search&quot;\">\n    Placeholder text for the search input when `@hasSearch` is `true`.\n  </C.Property>\n  <C.Property @name=\"searchAriaLabel\" @type=\"string\" @default=\"&quot;Search&quot;\">\n    The `aria-label` text for the search input.\n  </C.Property>\n  <C.Property @name=\"onFilter\" @type=\"function\">\n    Callback invoked when filters are applied, changed, or cleared. Receives a single argument: the updated `HdsFilterBarFilters` object.\n  </C.Property>\n  <C.Property @name=\"...attributes\">\n    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).\n  </C.Property>\n</Doc::ComponentApi>",
+          "text": "FilterBar <[F].FiltersDropdown> yielded component FilterBar::FiltersDropdown yielded as contextual component (see below). <[F].ActionsGeneric> yielded component FilterBar::ActionsGeneric yielded as contextual component (see below). <[F].ActionsDropdown> yielded component FilterBar::ActionsDropdown yielded as contextual component (see below). filters object Object representing the currently applied filters. The shape is dependent upon the filter type (see below). It is required to set a string filter key for each entry. Ex: { 'my-filter-key': {...}}. isLiveFilter boolean false If true, the @onFilter callback is invoked immediately as filters are added in the dropdown (live updates). If false, changes in the dropdown are applied only when the user confirms via the \"Apply filters\" button, or clears with the \"Clear all filters\" button. Note: The behavior of the search input is unaffected by this argument. The search filter is always applied after user submission via the change event. hasSearch boolean false When true, a search input is shown in the Filter Bar. Search input values are reported to the @onFilter callback as a filter with the key search. hasLiveSearch boolean false When true, a search input triggers the @onFilter callback on the input event of the search input. When false, the callback is triggered on the change event. searchPlaceholder string \"Search\" Placeholder text for the search input when @hasSearch is true. searchAriaLabel string \"Search\" The aria-label text for the search input. onFilter function Callback invoked when filters are applied, changed, or cleared. Receives a single argument: the updated HdsFilterBarFilters object. ...attributes This component supports use of ...attributes."
         },
         {
           "id": "components/filter-bar#code/component-api/filter-types",
@@ -11353,6 +11431,17 @@
           "text": "Applicable WCAG Success Criteria This section is for reference only. This component intends to conform to the following WCAG Success Criteria:"
         },
         {
+          "id": "components/filter-bar#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/components/filter-bar?tab=version%20history#710",
+          "content": "## 7.1.0\n\nAdded new `@hasLiveSearch` argument and set search input autocomplete to off.\n\n\nAdded translations to the applied search filter label and type-specific `aria-label`s for value, start, and end inputs in `Date`. Localized translations for the date and numerical filters in the applied filter list. Corrected translation keys in `AppliedFilters` and `Numerical`.",
+          "text": "7.1.0 Added new @hasLiveSearch argument and set search input autocomplete to off. Added translations to the applied search filter label and type-specific aria-labels for value, start, and end inputs in Date. Localized translations for the date and numerical filters in the applied filter list. Corrected translation keys in AppliedFilters and Numerical."
+        },
+        {
           "id": "components/filter-bar#version-history/7-0-0",
           "tab": "Version history",
           "headingTrail": [
@@ -11430,9 +11519,6 @@
       "links": {
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/flyout",
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67212-27152&t=w8xQlWxzH7bwXLe2-1"
-      },
-      "status": {
-        "updated": "7.0.0"
       },
       "url": "https://helios.hashicorp.design/components/flyout",
       "chunks": [
@@ -12031,6 +12117,9 @@
       "links": {
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form/checkbox",
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67397-102811&t=w8xQlWxzH7bwXLe2-1"
+      },
+      "status": {
+        "updated": "7.1.0"
       },
       "url": "https://helios.hashicorp.design/components/form/checkbox",
       "chunks": [
@@ -12685,6 +12774,17 @@
           "text": "Applicable WCAG Success Criteria This section is for reference only, some descriptions have been truncated for brevity. This component intends to conform to the following WCAG Success Criteria:"
         },
         {
+          "id": "components/form/checkbox#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/components/form/checkbox?tab=version%20history#710",
+          "content": "## 7.1.0\n\nFixed the DOM order so the `<input>` appears before the `<label>`, matching the visual order for screen readers.",
+          "text": "7.1.0 Fixed the DOM order so the appears before the , matching the visual order for screen readers."
+        },
+        {
           "id": "components/form/checkbox#version-history/6-1-1",
           "tab": "Version history",
           "headingTrail": [
@@ -12723,6 +12823,9 @@
       "links": {
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form/file-input",
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67397-97027&t=w8xQlWxzH7bwXLe2-1"
+      },
+      "status": {
+        "updated": "7.1.0"
       },
       "url": "https://helios.hashicorp.design/components/form/file-input",
       "chunks": [
@@ -13053,6 +13156,17 @@
           "text": "Applicable WCAG Success Criteria This section is for reference only. This component intends to conform to the following WCAG Success Criteria:"
         },
         {
+          "id": "components/form/file-input#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/components/form/file-input?tab=version%20history#710",
+          "content": "## 7.1.0\n\nRemoved invalid selectors from the file selector button styles, such as `::file-selector-button.mock-hover` and `::file-selector-button:focus-visible::before`. Browsers ignored these rules, and CSS tools like Lightning CSS (used by Vite) reject them and fail the build.",
+          "text": "7.1.0 Removed invalid selectors from the file selector button styles, such as ::file-selector-button.mock-hover and ::file-selector-button:focus-visible::before. Browsers ignored these rules, and CSS tools like Lightning CSS (used by Vite) reject them and fail the build."
+        },
+        {
           "id": "components/form/file-input#version-history/6-1-1",
           "tab": "Version history",
           "headingTrail": [
@@ -13133,7 +13247,7 @@
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=82680-53759&t=MwE1WlTzeH6NeUOf-1"
       },
       "status": {
-        "updated": "7.0.0"
+        "updated": "7.1.0"
       },
       "url": "https://helios.hashicorp.design/components/form/key-value-inputs",
       "chunks": [
@@ -13720,6 +13834,17 @@
           "text": "Applicable WCAG Success Criteria This section is for reference only. This component intends to conform to the following WCAG Success Criteria:"
         },
         {
+          "id": "components/form/key-value-inputs#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/components/form/key-value-inputs?tab=version%20history#710",
+          "content": "## 7.1.0\n\nRefactored translation code for `Field` hidden label and `DeleteRowButton` text.",
+          "text": "7.1.0 Refactored translation code for Field hidden label and DeleteRowButton text."
+        },
+        {
           "id": "components/form/key-value-inputs#version-history/7-0-0",
           "tab": "Version history",
           "headingTrail": [
@@ -13819,9 +13944,6 @@
       "links": {
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form",
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=83107-2070"
-      },
-      "status": {
-        "updated": "7.0.0"
       },
       "url": "https://helios.hashicorp.design/components/form/layout",
       "chunks": [
@@ -15303,7 +15425,7 @@
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form"
       },
       "status": {
-        "updated": "7.0.0"
+        "updated": "7.1.0"
       },
       "url": "https://helios.hashicorp.design/components/form/primitives",
       "chunks": [
@@ -15852,6 +15974,17 @@
           "text": "Applicable WCAG Success Criteria This section is for reference only, some descriptions have been truncated for brevity. This component intends to conform to the following WCAG Success Criteria:"
         },
         {
+          "id": "components/form/primitives#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/components/form/primitives?tab=version%20history#710",
+          "content": "## 7.1.0\n\n`Form::Field` - Fixed the DOM order of the `flag` layout (used by Checkbox, Radio, and Toggle) so the `<input>` appears before the `<label>`, matching the visual order for screen readers. The visual layout is unchanged.\n\n\n\n`Form::CharacterCount` - Localized translations for status messages for required, allowed, remaining, exceeded, and entered character counts.\n\n\n\n`Form::Indicator` - Corrected translation keys for optional and required labels.",
+          "text": "7.1.0 Form::Field - Fixed the DOM order of the flag layout (used by Checkbox, Radio, and Toggle) so the appears before the , matching the visual order for screen readers. The visual layout is unchanged. Form::CharacterCount - Localized translations for status messages for required, allowed, remaining, exceeded, and entered character counts. Form::Indicator - Corrected translation keys for optional and required labels."
+        },
+        {
           "id": "components/form/primitives#version-history/7-0-0",
           "tab": "Version history",
           "headingTrail": [
@@ -15960,6 +16093,9 @@
       "links": {
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form/radio",
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67406-104016&t=w8xQlWxzH7bwXLe2-1"
+      },
+      "status": {
+        "updated": "7.1.0"
       },
       "url": "https://helios.hashicorp.design/components/form/radio",
       "chunks": [
@@ -16383,6 +16519,17 @@
           "text": "Applicable WCAG Success Criteria This section is for reference only, some descriptions have been truncated for brevity. This component intends to conform to the following WCAG Success Criteria:"
         },
         {
+          "id": "components/form/radio#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/components/form/radio?tab=version%20history#710",
+          "content": "## 7.1.0\n\nFixed the DOM order so the `<input>` appears before the `<label>`, matching the visual order for screen readers.",
+          "text": "7.1.0 Fixed the DOM order so the appears before the , matching the visual order for screen readers."
+        },
+        {
           "id": "components/form/radio#version-history/6-1-1",
           "tab": "Version history",
           "headingTrail": [
@@ -16424,9 +16571,6 @@
       "links": {
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form/radio-card",
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67412-41814&t=w8xQlWxzH7bwXLe2-1"
-      },
-      "status": {
-        "updated": "7.0.0"
       },
       "url": "https://helios.hashicorp.design/components/form/radio-card",
       "chunks": [
@@ -17471,7 +17615,7 @@
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67543-48702&t=w8xQlWxzH7bwXLe2-1"
       },
       "status": {
-        "updated": "7.0.0"
+        "updated": "7.1.0"
       },
       "url": "https://helios.hashicorp.design/components/form/super-select",
       "chunks": [
@@ -18301,6 +18445,17 @@
           "text": "Applicable WCAG Success Criteria This section is for reference only. This component intends to conform to the following WCAG Success Criteria:"
         },
         {
+          "id": "components/form/super-select#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/components/form/super-select?tab=version%20history#710",
+          "content": "## 7.1.0\n\nFixed style bug in no matches message for Carbon themes.\n\n\nFixed style bug in search message.\n\n\nAdded translations for `@searchPlaceholder`, `@resultCountMessage`, `@noMatchesMessage`, `@loadingMessage`, and `@searchMessage` in `Single::Base` and `Multiple::Base`. Added translation for the selected count in `Multiple::Base`.\n\n\nFixed a memory leak where every reposition added another set of positioning listeners that were never removed.",
+          "text": "7.1.0 Fixed style bug in no matches message for Carbon themes. Fixed style bug in search message. Added translations for @searchPlaceholder, @resultCountMessage, @noMatchesMessage, @loadingMessage, and @searchMessage in Single::Base and Multiple::Base. Added translation for the selected count in Multiple::Base. Fixed a memory leak where every reposition added another set of positioning listeners that were never removed."
+        },
+        {
           "id": "components/form/super-select#version-history/7-0-0",
           "tab": "Version history",
           "headingTrail": [
@@ -18465,6 +18620,9 @@
       "links": {
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form/text-input",
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67406-107808&t=w8xQlWxzH7bwXLe2-1"
+      },
+      "status": {
+        "updated": "7.1.0"
       },
       "url": "https://helios.hashicorp.design/components/form/text-input",
       "chunks": [
@@ -19282,6 +19440,17 @@
           "text": "Applicable WCAG Success Criteria This section is for reference only, some descriptions have been truncated for brevity. This component intends to conform to the following WCAG Success Criteria:"
         },
         {
+          "id": "components/form/text-input#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/components/form/text-input?tab=version%20history#710",
+          "content": "## 7.1.0\n\nCorrected translation key for the password-hidden announcement in `TextInput::Field`.",
+          "text": "7.1.0 Corrected translation key for the password-hidden announcement in TextInput::Field."
+        },
+        {
           "id": "components/form/text-input#version-history/6-6-0",
           "tab": "Version history",
           "headingTrail": [
@@ -20000,6 +20169,9 @@
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form/toggle",
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67453-80240&t=w8xQlWxzH7bwXLe2-1"
       },
+      "status": {
+        "updated": "7.1.0"
+      },
       "url": "https://helios.hashicorp.design/components/form/toggle",
       "chunks": [
         {
@@ -20475,6 +20647,17 @@
           "text": "Applicable WCAG Success Criteria This section is for reference only, some descriptions have been truncated for brevity. This component intends to conform to the following WCAG Success Criteria:"
         },
         {
+          "id": "components/form/toggle#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/components/form/toggle?tab=version%20history#710",
+          "content": "## 7.1.0\n\nFixed the DOM order so the `<input>` appears before the `<label>`, matching the visual order for screen readers.",
+          "text": "7.1.0 Fixed the DOM order so the appears before the , matching the visual order for screen readers."
+        },
+        {
           "id": "components/form/toggle#version-history/6-3-0",
           "tab": "Version history",
           "headingTrail": [
@@ -20528,7 +20711,7 @@
         "figma": "https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=zAxxcBG32ycFg6Ew-1"
       },
       "status": {
-        "updated": "7.0.0"
+        "updated": "7.1.0"
       },
       "url": "https://helios.hashicorp.design/components/icon",
       "chunks": [
@@ -21071,6 +21254,17 @@
           "url": "https://helios.hashicorp.design/components/icon?tab=carbon%20theme#what-has-changed-in-the-public-apis",
           "content": "#### What has changed in the public APIs\n\nMost of the existing behavior in `Hds::Icon` is preserved:\n\n- The API of the component has not changed. Existing `Hds::Icon` invocations stay the same and glyph switching is automatic.\n- The icons are still declared by `@name`, using the same names as before. There is no separate name or argument for the Carbon variant.\n- The rendered markup is still an inline `<svg>` element with the same classes, sizing, coloring, and accessibility behavior.\n\nThere are, however, a few changes and implications to be aware of:\n\n- The symbol IDs are different, changing from `#flight-[name]-[size]` to `#hds-icon-flight-[name]-[size]` and `#hds-icon-carbon-[name]`. Any code or test targeting the old IDs will need to be updated.\n- Two more `data` attributes have been added (`data-has-carbon-equivalent` and `data-is-carbon`). See [Ember test selectors](/components/icon?tab=code#ember-test-selectors) for details.\n- The SVG sprite is not injected in the application’s `index.html` anymore, so the `flightIconsSpriteLazyEmbed` setting is obsolete. It is therefore safe to remove it from the `config/environment.js` file. See [Getting started for engineers](/getting-started/for-engineers).\n- The rendering is now asynchronous, so tests asserting on the content of an icon may need to wait for the loading to be completed.\n- The glyph switching is driven by the theme applied **at application level**. If you use [`ThemeContext`](/theming/theme-context) to apply a scoped theme to a portion of the page, the glyphs within it will not change.",
           "text": "What has changed in the public APIs Most of the existing behavior in Hds::Icon is preserved: The API of the component has not changed. Existing Hds::Icon invocations stay the same and glyph switching is automatic. The icons are still declared by @name, using the same names as before. There is no separate name or argument for the Carbon variant. The rendered markup is still an inline element with the same classes, sizing, coloring, and accessibility behavior. There are, however, a few changes and implications to be aware of: The symbol IDs are different, changing from #flight-[name]-[size] to #hds-icon-flight-[name]-[size] and #hds-icon-carbon-[name]. Any code or test targeting the old IDs will need to be updated. Two more data attributes have been added (data-has-carbon-equivalent and data-is-carbon). See Ember test selectors for details. The SVG sprite is not injected in the application's index.html anymore, so the flightIconsSpriteLazyEmbed setting is obsolete. It is therefore safe to remove it from the config/environment.js file. See Getting started for engineers. The rendering is now asynchronous, so tests asserting on the content of an icon may need to wait for the loading to be completed. The glyph switching is driven by the theme applied at application level. If you use ThemeContext to apply a scoped theme to a portion of the page, the glyphs within it will not change."
+        },
+        {
+          "id": "components/icon#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/components/icon?tab=version%20history#710",
+          "content": "## 7.1.0\n\nFixed icons not loading in rendering tests on Ember 6.12.1 and later with `@ember/test-helpers` 5.6 and later. The icon registry now adds the sprite root when it's missing.",
+          "text": "7.1.0 Fixed icons not loading in rendering tests on Ember 6.12.1 and later with @ember/test-helpers 5.6 and later. The icon registry now adds the sprite root when it's missing."
         },
         {
           "id": "components/icon#version-history/7-0-0",
@@ -23522,6 +23716,9 @@
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/pagination",
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67460-85524&t=w8xQlWxzH7bwXLe2-1"
       },
+      "status": {
+        "updated": "7.1.0"
+      },
       "url": "https://helios.hashicorp.design/components/pagination",
       "chunks": [
         {
@@ -24075,6 +24272,17 @@
           "text": "Applicable WCAG Success Criteria This section is for reference only. This component intends to conform to the following WCAG success criteria:"
         },
         {
+          "id": "components/pagination#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/components/pagination?tab=version%20history#710",
+          "content": "## 7.1.0\n\nAdded translation for `@label` in `SizeSelector`. Corrected translation keys for item range in `Info`.\n\n\nReduced spacing between `Select` icon and text within `Pagination` component for Carbon themes.",
+          "text": "7.1.0 Added translation for @label in SizeSelector. Corrected translation keys for item range in Info. Reduced spacing between Select icon and text within Pagination component for Carbon themes."
+        },
+        {
           "id": "components/pagination#version-history/6-3-0",
           "tab": "Version history",
           "headingTrail": [
@@ -24437,6 +24645,9 @@
       "links": {
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/rich-tooltip",
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67421-82911&t=w8xQlWxzH7bwXLe2-1"
+      },
+      "status": {
+        "updated": "7.1.0"
       },
       "url": "https://helios.hashicorp.design/components/rich-tooltip",
       "chunks": [
@@ -25130,6 +25341,17 @@
           "text": "Applicable WCAG Success Criteria This section is for reference only. This component intends to conform to the following WCAG Success Criteria:"
         },
         {
+          "id": "components/rich-tooltip#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/components/rich-tooltip?tab=version%20history#710",
+          "content": "## 7.1.0\n\nReverted removal of bubble opening transition on Carbon themes.",
+          "text": "7.1.0 Reverted removal of bubble opening transition on Carbon themes."
+        },
+        {
           "id": "components/rich-tooltip#version-history/6-1-0",
           "tab": "Version history",
           "headingTrail": [
@@ -25235,9 +25457,6 @@
       "links": {
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/segmented-group",
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67406-110590&t=w8xQlWxzH7bwXLe2-1"
-      },
-      "status": {
-        "updated": "7.0.0"
       },
       "url": "https://helios.hashicorp.design/components/segmented-group",
       "chunks": [
@@ -26526,9 +26745,6 @@
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/stepper",
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=72931-2356&t=ezD7qfSafYAlTSGy-1"
       },
-      "status": {
-        "updated": "7.0.0"
-      },
       "url": "https://helios.hashicorp.design/components/stepper/nav",
       "chunks": [
         {
@@ -27078,7 +27294,7 @@
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=77513-16596&t=emmCBTTPFMW4gPx7-4"
       },
       "status": {
-        "updated": "7.0.0"
+        "updated": "7.1.0"
       },
       "url": "https://helios.hashicorp.design/components/table/advanced-table",
       "chunks": [
@@ -28338,6 +28554,17 @@
           "text": "Applicable WCAG Success Criteria This section is for reference only. This component intends to conform to the following WCAG Success Criteria:"
         },
         {
+          "id": "components/table/advanced-table#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/components/table/advanced-table?tab=version%20history#710",
+          "content": "## 7.1.0\n\nFixed a race condition where the table's internal measurement pass was not tracked by Ember's test waiters, so `settled()` could resolve before the layout reached its steady state.\n\n\nAdded translations for sort announcements in `AdvancedTable`, `@selectionAriaLabelSuffix` in `ThSelectable`, and the sort order label in `ThButtonSort`. Corrected translation keys for labels in `ThContextMenu`.",
+          "text": "7.1.0 Fixed a race condition where the table's internal measurement pass was not tracked by Ember's test waiters, so settled() could resolve before the layout reached its steady state. Added translations for sort announcements in AdvancedTable, @selectionAriaLabelSuffix in ThSelectable, and the sort order label in ThButtonSort. Corrected translation keys for labels in ThContextMenu."
+        },
+        {
           "id": "components/table/advanced-table#version-history/7-0-0",
           "tab": "Version history",
           "headingTrail": [
@@ -28595,7 +28822,7 @@
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67216-35163&t=w8xQlWxzH7bwXLe2-1"
       },
       "status": {
-        "updated": "7.0.0"
+        "updated": "7.1.0"
       },
       "url": "https://helios.hashicorp.design/components/table/table",
       "chunks": [
@@ -29590,6 +29817,17 @@
           "text": "Applicable WCAG Success Criteria This section is for reference only. This component intends to conform to the following WCAG Success Criteria:"
         },
         {
+          "id": "components/table/table#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/components/table/table?tab=version%20history#710",
+          "content": "## 7.1.0\n\nAdded translations for sort announcements and `@selectionAriaLabelSuffix` in `Table` and `ThSelectable`.",
+          "text": "7.1.0 Added translations for sort announcements and @selectionAriaLabelSuffix in Table and ThSelectable."
+        },
+        {
           "id": "components/table/table#version-history/7-0-0",
           "tab": "Version history",
           "headingTrail": [
@@ -30198,7 +30436,7 @@
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67200-19755&t=w8xQlWxzH7bwXLe2-1"
       },
       "status": {
-        "updated": "7.0.0"
+        "updated": "7.1.0"
       },
       "url": "https://helios.hashicorp.design/components/tag",
       "chunks": [
@@ -30428,6 +30666,17 @@
           "url": "https://helios.hashicorp.design/components/tag?tab=accessibility#applicable-wcag-success-criteria",
           "content": "## Applicable WCAG Success Criteria\n\nThis section is for reference only. This component intends to conform to the following WCAG Success Criteria:\n\n<Doc::WcagList @criteriaList={{array \"1.4.1\" \"1.4.3\" \"1.4.4\" \"1.4.11\" \"1.4.12\" \"1.4.13\" \"2.1.1\" \"2.4.7\" \"3.2.1\" \"4.1.2\" }} />\n\n---\n\n<Doc::A11ySupport />",
           "text": "Applicable WCAG Success Criteria This section is for reference only. This component intends to conform to the following WCAG Success Criteria:"
+        },
+        {
+          "id": "components/tag#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/components/tag?tab=version%20history#710",
+          "content": "## 7.1.0\n\nAdded translation for `ariaLabel`.",
+          "text": "7.1.0 Added translation for ariaLabel."
         },
         {
           "id": "components/tag#version-history/7-0-0",
@@ -31570,9 +31819,6 @@
       "links": {
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/tooltip-button",
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67458-63977&t=w8xQlWxzH7bwXLe2-1"
-      },
-      "status": {
-        "updated": "7.0.0"
       },
       "url": "https://helios.hashicorp.design/components/tooltip",
       "chunks": [
@@ -34059,6 +34305,57 @@
           "url": "https://helios.hashicorp.design/foundations/typography?tab=code#design-tokens",
           "content": "### Design tokens\n\nHelios offers numerous [typographic design tokens](./tokens) should your project require more flexibility.\n\nSince these are “atomic” definitions that associate a particular typographic property (e.g., `font-size`, `line-height`, `letter-spacing`, etc.) to a single value, we don’t consider them “typographic” styles. Therefore, we advise against using them directly in your CSS and recommend using the CSS helper classes instead.",
           "text": "Design tokens Helios offers numerous typographic design tokens should your project require more flexibility. Since these are \"atomic\" definitions that associate a particular typographic property (e.g., font-size, line-height, letter-spacing, etc.) to a single value, we don't consider them \"typographic\" styles. Therefore, we advise against using them directly in your CSS and recommend using the CSS helper classes instead."
+        },
+        {
+          "id": "foundations/typography#carbon-theme",
+          "tab": "Carbon theme",
+          "url": "https://helios.hashicorp.design/foundations/typography?tab=carbon%20theme",
+          "content": "!!! Information\n\n**A note about versions**\n\nThe tokens and helper class names used here refer to `v7.0` or above of the components package, and `v6.0` or above of the tokens package. If you are using an older version, refer to the [documentation for your version](/whats-new/release-notes).\n\n!!!",
+          "text": "Information A note about versions The tokens and helper class names used here refer to v7.0 or above of the components package, and v6.0 or above of the tokens package. If you are using an older version, refer to the documentation for your version."
+        },
+        {
+          "id": "foundations/typography#carbon-theme/typography-in-carbon",
+          "tab": "Carbon theme",
+          "headingTrail": [
+            "Typography in Carbon"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/foundations/typography?tab=carbon%20theme#typography-in-carbon",
+          "content": "## Typography in Carbon\n\nWhen using a Carbon theme, typography is aligned with [Carbon's type system](https://carbondesignsystem.com/elements/typography/overview/). The main differences to HDS are:\n\n- **Font family**: display, text, and code font families are replaced by the IBM Plex typefaces.\n- **Font weight**: heavier font weights are consolidated, reducing the available weights from four to two.\n- **Font size**: HDS font sizes are roughly mapped to the closest equivalent in the Carbon type set.\n\nThe token and helper class names remain the same, so you only need to [load the IBM Plex fonts](/foundations/theming?tab=code).",
+          "text": "Typography in Carbon When using a Carbon theme, typography is aligned with Carbon's type system. The main differences to HDS are: Font family: display, text, and code font families are replaced by the IBM Plex typefaces. Font weight: heavier font weights are consolidated, reducing the available weights from four to two. Font size: HDS font sizes are roughly mapped to the closest equivalent in the Carbon type set. The token and helper class names remain the same, so you only need to load the IBM Plex fonts."
+        },
+        {
+          "id": "foundations/typography#carbon-theme/font-family",
+          "tab": "Carbon theme",
+          "headingTrail": [
+            "Font family"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/foundations/typography?tab=carbon%20theme#font-family-1",
+          "content": "## Font family\n\nIn Carbon, [IBM Plex](https://carbondesignsystem.com/elements/typography/overview/#typeface:-ibm-plex) replaces the system font stack used in HDS. IBM Plex Sans is used for both display and text styles, while IBM Plex Mono is used for code.\n\n| Font stack | HDS | Carbon |\n|---|---|---|\n| Display | System sans-serif | IBM Plex Sans |\n| Text | System sans-serif | IBM Plex Sans |\n| Code | System monospace | IBM Plex Mono |",
+          "text": "Font family In Carbon, IBM Plex replaces the system font stack used in HDS. IBM Plex Sans is used for both display and text styles, while IBM Plex Mono is used for code. Font stack HDS Carbon Display System sans-serif IBM Plex Sans Text System sans-serif IBM Plex Sans Code System monospace IBM Plex Mono"
+        },
+        {
+          "id": "foundations/typography#carbon-theme/font-weight",
+          "tab": "Carbon theme",
+          "headingTrail": [
+            "Font weight"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/foundations/typography?tab=carbon%20theme#font-weight-1",
+          "content": "## Font weight\n\nCarbon uses fewer font weights than HDS. The `medium` weight is mapped to `regular` and the `bold` weight is mapped to `semibold`.\n\n| Font weight | HDS | Carbon |\n|---|---|---|\n| Regular | 400 | 400 |\n| Medium | 500 | 400 |\n| Semibold | 600 | 600 |\n| Bold | 700 | 600 |",
+          "text": "Font weight Carbon uses fewer font weights than HDS. The medium weight is mapped to regular and the bold weight is mapped to semibold. Font weight HDS Carbon Regular 400 400 Medium 500 400 Semibold 600 600 Bold 700 600"
+        },
+        {
+          "id": "foundations/typography#carbon-theme/font-size",
+          "tab": "Carbon theme",
+          "headingTrail": [
+            "Font size"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/foundations/typography?tab=carbon%20theme#font-size",
+          "content": "## Font size\n\nEach HDS font size is mapped to the closest equivalent in the Carbon type scale. Display styles map to Carbon heading styles, body styles map to Carbon body styles, and code styles map to Carbon code styles.\n\n| Style | Carbon equivalent | HDS size / line height | Carbon size / line height |\n|---|---|---|---|\n| Display 500 | `heading-05` | 30px / 38px | 32px / 40px |\n| Display 400 | `heading-04` | 24px / 32px | 28px / 36px |\n| Display 300 | `heading-03` | 18px / 24px | 20px / 28px |\n| Display 200 | `heading-02` | 16px / 24px | 16px / 24px |\n| Display 100 | `heading-01` | 13px / 18px | 14px / 20px |\n| Body 300 | `body-02` | 16px / 24px | 16px / 24px |\n| Body 200 | `body-01` | 14px / 20px | 14px / 20px |\n| Body 100 | `body-compact-01` | 13px / 18px | 13px / 17px |\n| Code 300 | `code-02` | 16px / 20px | 14px / 20px |\n| Code 200 | `code-02` | 14px / 16px | 14px / 20px |\n| Code 100 | `code-02` / `code-01` | 13px / 16px | 14px / 19px |\n\nCarbon has fewer code styles than HDS, so the code styles are a rough mapping rather than a one-to-one match:\n\n- **Code 300** and **Code 200** both map to `code-02`, so they render identically (14px / 20px).\n- **Code 100** uses the font size of `code-02` and the line height of `code-01`, resulting in 14px / 19px. This doesn't match a specific Carbon style.",
+          "text": "Font size Each HDS font size is mapped to the closest equivalent in the Carbon type scale. Display styles map to Carbon heading styles, body styles map to Carbon body styles, and code styles map to Carbon code styles. Style Carbon equivalent HDS size / line height Carbon size / line height Display 500 heading-05 30px / 38px 32px / 40px Display 400 heading-04 24px / 32px 28px / 36px Display 300 heading-03 18px / 24px 20px / 28px Display 200 heading-02 16px / 24px 16px / 24px Display 100 heading-01 13px / 18px 14px / 20px Body 300 body-02 16px / 24px 16px / 24px Body 200 body-01 14px / 20px 14px / 20px Body 100 body-compact-01 13px / 18px 13px / 17px Code 300 code-02 16px / 20px 14px / 20px Code 200 code-02 14px / 16px 14px / 20px Code 100 code-02 / code-01 13px / 16px 14px / 19px Carbon has fewer code styles than HDS, so the code styles are a rough mapping rather than a one-to-one match: Code 300 and Code 200 both map to code-02, so they render identically (14px / 20px). Code 100 uses the font size of code-02 and the line height of code-01, resulting in 14px / 19px. This doesn't match a specific Carbon style."
         }
       ]
     },
@@ -35014,9 +35311,6 @@
       "links": {
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/layout/flex"
       },
-      "status": {
-        "updated": "7.0.0"
-      },
       "url": "https://helios.hashicorp.design/layouts/flex",
       "chunks": [
         {
@@ -35669,9 +35963,6 @@
       ],
       "links": {
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/layout/grid"
-      },
-      "status": {
-        "updated": "7.0.0"
       },
       "url": "https://helios.hashicorp.design/layouts/grid",
       "chunks": [
@@ -37017,7 +37308,7 @@
           ],
           "level": 3,
           "url": "https://helios.hashicorp.design/patterns/data-visualization?tab=code#ember-component-example",
-          "content": "### Ember component example\n\nA simple example using the [Carbon Charts Donut](https://charts.carbondesignsystem.com/donut) component.\n\n\n```gts title=\"Modern Ember (.gts)\"\nimport Component from '@glimmer/component';\nimport { didInsert } from '@ember/render-modifiers';\nimport { DonutChart } from '@carbon/charts';\nimport '@carbon/charts/styles.css';\n\nimport USER_DATA from 'website/mocks/user-data.js';\nimport options from './data-viz-chart-options.js';\n\ninterface LocalComponentSignature {\n  Args: {\n    title?: string;\n    colorMap?: string[];\n  };\n  Element: HTMLDivElement;\n}\n\nexport default class LocalComponent extends Component<LocalComponentSignature> {\n  chart: DonutChart | null = null;\n\n  setupChart = (element: HTMLDivElement) => {\n    // Merge the dynamic options into the default options\n    const chartOptions = {\n      ...options,\n      title: this.args.title || options.title,\n      color: {\n        scale: this.args.colorMap,\n      },\n    };\n\n    // Create the DonutChart instance\n    this.chart = new DonutChart(element, {\n      data: USER_DATA,\n      options: chartOptions,\n    });\n  };\n\n  <template>\n    <div {{didInsert this.setupChart}} ...attributes></div>\n  </template>\n}\n```\n\n```handlebars title=\"Classic Ember (.hbs)\"\n<div {{did-insert this.setupChart}} ...attributes></div>\n```\n\n```javascript title=\"Classic Ember backing class (.js)\"\nimport Component from '@glimmer/component';\nimport { action } from '@ember/object';\nimport { DonutChart } from '@carbon/charts';\nimport '@carbon/charts/styles.css';\n\nimport USER_DATA from 'website/mocks/user-data.js';\nimport options from './data-viz-chart-options.js';\n\nexport default class LocalComponent extends Component {\n  chart = null;\n\n  @action\n  setupChart(element) {\n    // Merge the dynamic options into the default options\n    const chartOptions = {\n      ...options,\n      title: this.args.title || options.title,\n      color: {\n        scale: this.args.colorMap,\n      },\n    };\n\n    // Create the DonutChart instance\n    this.chart = new DonutChart(element, {\n      data: USER_DATA,\n      options: chartOptions,\n    });\n  }\n}\n```",
+          "content": "### Ember component example\n\nA simple example using the [Carbon Charts Donut](https://charts.carbondesignsystem.com/donut) component.\n\n\n```gts title=\"Modern Ember (.gts)\"\nimport Component from '@glimmer/component';\nimport didInsert from '@ember/render-modifiers/modifiers/did-insert';\nimport { DonutChart } from '@carbon/charts';\nimport '@carbon/charts/styles.css';\n\nimport USER_DATA from 'website/mocks/user-data.js';\nimport options from './data-viz-chart-options.js';\n\ninterface LocalComponentSignature {\n  Args: {\n    title?: string;\n    colorMap?: string[];\n  };\n  Element: HTMLDivElement;\n}\n\nexport default class LocalComponent extends Component<LocalComponentSignature> {\n  chart: DonutChart | null = null;\n\n  setupChart = (element: HTMLDivElement) => {\n    // Merge the dynamic options into the default options\n    const chartOptions = {\n      ...options,\n      title: this.args.title || options.title,\n      color: {\n        scale: this.args.colorMap,\n      },\n    };\n\n    // Create the DonutChart instance\n    this.chart = new DonutChart(element, {\n      data: USER_DATA,\n      options: chartOptions,\n    });\n  };\n\n  <template>\n    <div {{didInsert this.setupChart}} ...attributes></div>\n  </template>\n}\n```\n\n```handlebars title=\"Classic Ember (.hbs)\"\n<div {{did-insert this.setupChart}} ...attributes></div>\n```\n\n```javascript title=\"Classic Ember backing class (.js)\"\nimport Component from '@glimmer/component';\nimport { action } from '@ember/object';\nimport { DonutChart } from '@carbon/charts';\nimport '@carbon/charts/styles.css';\n\nimport USER_DATA from 'website/mocks/user-data.js';\nimport options from './data-viz-chart-options.js';\n\nexport default class LocalComponent extends Component {\n  chart = null;\n\n  @action\n  setupChart(element) {\n    // Merge the dynamic options into the default options\n    const chartOptions = {\n      ...options,\n      title: this.args.title || options.title,\n      color: {\n        scale: this.args.colorMap,\n      },\n    };\n\n    // Create the DonutChart instance\n    this.chart = new DonutChart(element, {\n      data: USER_DATA,\n      options: chartOptions,\n    });\n  }\n}\n```",
           "text": "Ember component example A simple example using the Carbon Charts Donut component.",
           "symbols": [
             "@action",
@@ -39471,9 +39762,6 @@
         "foundations/theming",
         "patterns/theme-selection"
       ],
-      "status": {
-        "added": "7.0.0"
-      },
       "url": "https://helios.hashicorp.design/theming/hds-theming",
       "chunks": [
         {
@@ -39635,9 +39923,6 @@
         "foundations/theming",
         "patterns/theme-selection"
       ],
-      "status": {
-        "added": "7.0.0"
-      },
       "url": "https://helios.hashicorp.design/theming/theme-context",
       "chunks": [
         {
@@ -40360,6 +40645,18 @@
           "text": "Validate files with \"Check Designs\" Before passing your designs to an AI assistant or engineer, run Figma's Check Designs feature. It automatically flags missing structure and context, helping you spot: Detached variables and type styles (which it can often auto-restore) Detached components (flagged, but cannot be auto-restored) Spacing inconsistencies where system tokens can be applied HDS Ember components do not use spacing tokens, so applying spacing variables is not required for code generation. An example of Check Designs detecting detached variables in a Figma design file Info Note on Token Suggestions While Check Designs can automatically restore detached variables, double-check its suggestions. It identifies matching values, not semantic intent, so it might suggest neutral-0 when page-primary is the correct choice. Always review token suggestions against your design intent."
         },
         {
+          "id": "tooling/mcp-server#version-history/0-2-3/patch-changes",
+          "tab": "Version history",
+          "headingTrail": [
+            "0.2.3",
+            "Patch Changes"
+          ],
+          "level": 3,
+          "url": "https://helios.hashicorp.design/tooling/mcp-server?tab=version%20history#patch-changes",
+          "content": "### Patch Changes\n\nUpdated the bundled documentation catalog with the latest documentation, including the Tooling pages.\n\nChanged the `search_hds_docs` `section` and `tab` filter descriptions to give examples instead of a fixed list. The sections and tabs that exist are returned in `availableSections` and `availableTabs` when a filter doesn't match.\n\nFixed the documentation catalog build to expand code snippets that use the `theming` option or JSON files, and to include page-level banners on every tab.\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4247](https://github.com/hashicorp/design-system/pull/4247)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n**🔄 Updated dependencies:**\n\n- @hashicorp/design-system-components@7.1.0\n- @hashicorp/design-system-tokens@6.0.1",
+          "text": "Patch Changes Updated the bundled documentation catalog with the latest documentation, including the Tooling pages. Changed the search_hds_docs section and tab filter descriptions to give examples instead of a fixed list. The sections and tabs that exist are returned in availableSections and availableTabs when a filter doesn't match. Fixed the documentation catalog build to expand code snippets that use the theming option or JSON files, and to include page-level banners on every tab. 4247 🔄 Updated dependencies: @hashicorp/design-system-components@7.1.0 @hashicorp/design-system-tokens@6.0.1"
+        },
+        {
           "id": "tooling/mcp-server#version-history/0-2-2/patch-changes",
           "tab": "Version history",
           "headingTrail": [
@@ -40367,7 +40664,7 @@
             "Patch Changes"
           ],
           "level": 3,
-          "url": "https://helios.hashicorp.design/tooling/mcp-server?tab=version%20history#patch-changes",
+          "url": "https://helios.hashicorp.design/tooling/mcp-server?tab=version%20history#patch-changes-1",
           "content": "### Patch Changes\n\n**🔄 Updated dependencies:**\n\n- @hashicorp/design-system-components@7.0.0\n- @hashicorp/design-system-tokens@6.0.0\n- @hashicorp/flight-icons@5.3.0",
           "text": "Patch Changes 🔄 Updated dependencies: @hashicorp/design-system-components@7.0.0 @hashicorp/design-system-tokens@6.0.0 @hashicorp/flight-icons@5.3.0"
         },
@@ -40379,7 +40676,7 @@
             "Patch Changes"
           ],
           "level": 3,
-          "url": "https://helios.hashicorp.design/tooling/mcp-server?tab=version%20history#patch-changes-1",
+          "url": "https://helios.hashicorp.design/tooling/mcp-server?tab=version%20history#patch-changes-2",
           "content": "### Patch Changes\n\n**🔄 Updated dependencies:**\n\n- @hashicorp/design-system-components@6.6.0",
           "text": "Patch Changes 🔄 Updated dependencies: @hashicorp/design-system-components@6.6.0"
         },
@@ -40403,7 +40700,7 @@
             "Patch Changes"
           ],
           "level": 3,
-          "url": "https://helios.hashicorp.design/tooling/mcp-server?tab=version%20history#patch-changes-2",
+          "url": "https://helios.hashicorp.design/tooling/mcp-server?tab=version%20history#patch-changes-3",
           "content": "### Patch Changes\n\n**🔄 Updated dependencies:**\n\n- @hashicorp/flight-icons@5.2.0\n- @hashicorp/design-system-components@6.5.1",
           "text": "Patch Changes 🔄 Updated dependencies: @hashicorp/flight-icons@5.2.0 @hashicorp/design-system-components@6.5.1"
         },
@@ -40427,7 +40724,7 @@
             "Patch Changes"
           ],
           "level": 3,
-          "url": "https://helios.hashicorp.design/tooling/mcp-server?tab=version%20history#patch-changes-3",
+          "url": "https://helios.hashicorp.design/tooling/mcp-server?tab=version%20history#patch-changes-4",
           "content": "### Patch Changes\n\n**🔄 Updated dependencies:**\n\n- @hashicorp/design-system-components@6.5.0\n- @hashicorp/flight-icons@5.1.0",
           "text": "Patch Changes 🔄 Updated dependencies: @hashicorp/design-system-components@6.5.0 @hashicorp/flight-icons@5.1.0"
         }
@@ -40661,9 +40958,6 @@
       "links": {
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/dialog-primitive",
         "figma": "https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67199-32008&t=w8xQlWxzH7bwXLe2-1"
-      },
-      "status": {
-        "updated": "7.0.0"
       },
       "url": "https://helios.hashicorp.design/utilities/dialog-primitive",
       "chunks": [
@@ -41345,6 +41639,9 @@
       "links": {
         "github": "https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/popover-primitive"
       },
+      "status": {
+        "updated": "7.1.0"
+      },
       "url": "https://helios.hashicorp.design/utilities/popover-primitive",
       "chunks": [
         {
@@ -41472,6 +41769,17 @@
           "text": "PopoverPrimitive isOpen boolean false true false Controls if the popover should be rendered initially opened. _Notice: in this case, the popover can't be dismissed via esc or click outside until the end user has interacted with it (it's in a \"manual\" state)._ enableSoftEvents boolean false true false Assigns \"soft\" event listeners (mouseEnter/Leave + focusIn/Out) to the toggle, to control the visibility of the popover content. enableClickEvents boolean false true false Assigns a click event listener (onClick) to the toggle, to control the visibility of the popover content. onOpen function A callback function invoked when the popover is opened (if provided). onClose function Provides a callback function invoked when the popover is closed (if provided). onFocusOut function A callback function invoked when the popover container loses focus, and focus does not move to another element (if provided). _Notice: Focus can be lost if content inside the popover is removed dynamically. This callback should be used to set focus to another element if this occurs. Without this callback the popover will close automatically when focus is lost._ boundary Boundary string Provides an option to specify a parent or ancestor container element to act as the boundary for collision detection vs. the browser window boundaries which is the default. The value provided must be either a Boundary type as specified in the Floating UI library documentation or an id string for the boundary container element. Must be used in conjunction with setting enableCollisionDetection to true. [PP].setupPrimitiveContainer modifier Provides a modifier that needs to be applied to the container of the toggle and popover elements. [PP].setupPrimitiveToggle modifier Provides a modifier that needs to be applied to the toggle element. _⚠️ Important: The HTML element must be a for accessibility conformance. If not, the component will throw an error._ [PP].setupPrimitivePopover modifier Provides a modifier that needs to be applied to the popover element. It accepts an anchoredPositionOptions object as \"named\" argument, with different keys corresponding to different options (see below). These options are forwarded to the underlying hds-anchored-position modifier, and in turn are passed down to the Floating UI library. anchoredPositionOptions.placement enum top top-start top-end right right-start right-end bottom bottom-start bottom-end left left-start left-end bottom Placement for the preferred starting position of the popover relative to the toggle element. _Notice: if @enableCollision is set, the popover will automatically shift position to remain visible when near the edges of the screen regardless of the starting placement._ anchoredPositionOptions.strategy enum absolute fixed absolute Controls how the layout of the popover is applied using the CSS position property. Since the component uses the native web Popover API which promotes the popover to the top layer, there is no need to use the fixed position to avoid stacking context conflicts, but we leave the option open for edge cases in which this is needed. _Notice: if the position/strategy is set to fixed, the rendering of the popover becomes slightly broken when the page is scrolled._ anchoredPositionOptions.offsetOptions number object 0 A number that represents the distance between the popover element and the toggle element. An object can also be passed, which enables individually configuring different axes. For details see: Floating UI > Offset > Options. _Notice: These options can be used to control the relative position of the arrow in relation to the toggle._ anchoredPositionOptions.enableCollisionDetection boolean string true false flip shift auto false This property controls whether the popover should automatically adapt its position to remain visible when near the edges of the screen. It can be enabled for both axes by setting it to true, or a single axes can be chosen by passing either the flip or shift values. If set to auto, it will automatically place the popover in the position where there's more space available, but in this case, it will ignore the placement value. For an overview of how collision detection works and is controlled see: Floating UI > Tutorial, Floating UI > Flip, Floating UI > Shift, and Floating UI > autoPlacement. anchoredPositionOptions.flipOptions object { padding: 8 } The options for the flip middleware in Floating UI, that controls the automatic repositioning of the popover along its side axis. For details about how this middleware works (and its options) see: Floating UI > Flip anchoredPositionOptions.shiftOptions object { padding: 8, limiter: limitShift() } The options for the shift middleware in Floating UI, that controls the automatic repositioning of the popover along its axis of alignment. For details about how this middleware works (and its options) see: Floating UI > Shift anchoredPositionOptions.autoPlacementOptions object { padding: 8 } The options for the autoPlacement middleware in Floating UI that controls the automatic repositioning of the popover based on the most space available. For details about how this middleware works (and its options) see: Floating UI > Shift anchoredPositionOptions.middlewareExtra array An array of \"middleware\" functions to be executed by the Floating UI library. For details about how these functions work in the context of the library (and how to define custom ones) see: Floating UI > Middleware and Floating UI > Custom middleware. anchoredPositionOptions.arrowElement DOM element A reference to the DOM element that represents the \"arrow\" decoration, if it exists, that allows its position to be updated according to the popover position in relation to the toggle anchor. For details see: Floating UI > Arrow anchoredPositionOptions.arrowSelector string A DOM selector for the \"arrow\", if it's not possible to provide a direct reference to the DOM element (internally it's then converted to the arrowElement option). anchoredPositionOptions.arrowPadding number The padding between the arrow and the edges of the popover element. For details see: Floating UI > Arrow > Padding [PP].toggleElement DOM element Provides a reference to the toggle DOM element element (container). [PP].popoverElement DOM element A reference to the popover DOM element (container). [PP].showPopover function Hook into this function to programmatically show the popover. [PP].hidePopover function Hook into this function to programmatically hide (\"close\") the popover. [PP].togglePopover function Hook into this function to programmatically toggle the visibility of the popover. [PP].isOpen tracked property Hook into this tracked property to access the state of isOpen."
         },
         {
+          "id": "utilities/popover-primitive#version-history/7-1-0",
+          "tab": "Version history",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/utilities/popover-primitive?tab=version%20history#710",
+          "content": "## 7.1.0\n\nFixed a memory leak where the positioning listeners on `window`, `visualViewport`, and scrollable ancestors were never removed, keeping destroyed popovers and their owners in memory. This also affects `Dropdown`, `RichTooltip`, and `Breadcrumb` truncation.",
+          "text": "7.1.0 Fixed a memory leak where the positioning listeners on window, visualViewport, and scrollable ancestors were never removed, keeping destroyed popovers and their owners in memory. This also affects Dropdown, RichTooltip, and Breadcrumb truncation."
+        },
+        {
           "id": "utilities/popover-primitive#version-history/6-1-0",
           "tab": "Version history",
           "headingTrail": [
@@ -41553,6 +41861,17 @@
           "text": "npm package: @hashicorp/design-system-components"
         },
         {
+          "id": "whats-new/release-notes#components/7-1-0",
+          "tab": "Components",
+          "headingTrail": [
+            "7.1.0"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/whats-new/release-notes#710",
+          "content": "## 7.1.0\n\n[7.1.0 documentation](https://hds-website-7-1-0.vercel.app/)\n\n**Minor changes**\n\n\n`Dropdown` - Added `@onOpen` callback argument.\n\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4205](https://github.com/hashicorp/design-system/pull/4205)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\nUpgraded `ember-concurrency` from `4.0.4` to `5.3.0`. Version 4 imports the `ember` module, which `ember-source` 7 removed. Apps still on `ember-concurrency` 4 will bundle both versions until they upgrade.\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4241](https://github.com/hashicorp/design-system/pull/4241) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n\n`FilterBar` - Added new `@hasLiveSearch` argument and set search input autocomplete to off.\n\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4168](https://github.com/hashicorp/design-system/pull/4168)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n**Patch changes**\n\n\n`RichTooltip` - Reverted removal of bubble opening transition on Carbon themes.\n\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4257](https://github.com/hashicorp/design-system/pull/4257)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n\n`SuperSelect` - Fixed style bug in no matches message for Carbon themes.\n\n\n\n`SuperSelect` - Fixed style bug in search message.\n\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4237](https://github.com/hashicorp/design-system/pull/4237)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n\n`CodeBlock` - Fixed incorrect placement of `sr-only` highlight markers when `@lineNumberStart` is defined.\n\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4199](https://github.com/hashicorp/design-system/pull/4199)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n\n`Form::Field` - Fixed the DOM order of the `flag` layout (used by Checkbox, Radio, and Toggle) so the `<input>` appears before the `<label>`, matching the visual order for screen readers. The visual layout is unchanged.\n\n\n\n`Form::Radio::Field` - Fixed the DOM order so the `<input>` appears before the `<label>`, matching the visual order for screen readers.\n\n\n\n`Form::Checkbox::Field` - Fixed the DOM order so the `<input>` appears before the `<label>`, matching the visual order for screen readers.\n\n\n\n`Form::Toggle::Field` - Fixed the DOM order so the `<input>` appears before the `<label>`, matching the visual order for screen readers.\n\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4196](https://github.com/hashicorp/design-system/pull/4196)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n\n`Card` - Refactored styles for the `base` elevation level to fix broken CSS variables.\n\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4216](https://github.com/hashicorp/design-system/pull/4216)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n\n`AdvancedTable` - Fixed a race condition where the table's internal measurement pass was not tracked by Ember's test waiters, so `settled()` could resolve before the layout reached its steady state.\n\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4183](https://github.com/hashicorp/design-system/pull/4183)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n\n`Icon` - Fixed icons not loading in rendering tests on Ember 6.12.1 and later with `@ember/test-helpers` 5.6 and later. The icon registry now adds the sprite root when it's missing.\n\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4211](https://github.com/hashicorp/design-system/pull/4211) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\nRemoved the unused `@embroider/util` dependency.\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4243](https://github.com/hashicorp/design-system/pull/4243) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n\n`CodeEditor` - Fixed a race condition where the editor setup was not tracked by Ember's test waiters, so `render()` and `settled()` could resolve before the editor existed.\n\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4233](https://github.com/hashicorp/design-system/pull/4233) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n\n`AdvancedTable` - Added translations for sort announcements in `AdvancedTable`, `@selectionAriaLabelSuffix` in `ThSelectable`, and the sort order label in `ThButtonSort`. Corrected translation keys for labels in `ThContextMenu`.\n\n\n`AppFooter` - Added translation for `@ariaLabel` in `LegalLinks`.\n\n\n\n`ApplicationState` - Corrected translation key for the error code in `Header`.\n\n\n\n`Breadcrumb` - Added translation for `@ariaLabel` in `Breadcrumb` and `Breadcrumb::Truncation`.\n\n\n\n`CodeBlock` - Added translations for `@copyButtonText` and the screen-reader markers for the start and end of highlighted lines.\n\n\n\n`CodeEditor` - Added translations for the `@copyButtonText`, JSON lint messages, and CodeMirror diagnostic messages.\n\n\n\n`FilterBar` - Added translations to the applied search filter label and type-specific `aria-label`s for value, start, and end inputs in `Date`. Localized translations for the date and numerical filters in the applied filter list. Corrected translation keys in `AppliedFilters` and `Numerical`.\n\n\n`Form::CharacterCount` - Localized translations for status messages for required, allowed, remaining, exceeded, and entered character counts.\n\n\n\n`Form::Indicator` - Corrected translation keys for optional and required labels.\n\n\n\n`Form::KeyValueInputs` - Refactored translation code for `Field` hidden label and `DeleteRowButton` text.\n\n\n\n`Form::SuperSelect` - Added translations for `@searchPlaceholder`, `@resultCountMessage`, `@noMatchesMessage`, `@loadingMessage`, and `@searchMessage` in `Single::Base` and `Multiple::Base`. Added translation for the selected count in `Multiple::Base`.\n\n\n\n`Pagination` - Added translation for `@label` in `SizeSelector`. Corrected translation keys for item range in `Info`.\n\n\n\n`Table` - Added translations for sort announcements and `@selectionAriaLabelSuffix` in `Table` and `ThSelectable`.\n\n\n`Tag` - Added translation for `ariaLabel`.\n\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4172](https://github.com/hashicorp/design-system/pull/4172)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n\n`Form::TextInput` - Corrected translation key for the password-hidden announcement in `TextInput::Field`.\n\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4185](https://github.com/hashicorp/design-system/pull/4185)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n\n`PopoverPrimitive` - Fixed a memory leak where the positioning listeners on `window`, `visualViewport`, and scrollable ancestors were never removed, keeping destroyed popovers and their owners in memory. This also affects `Dropdown`, `RichTooltip`, and `Breadcrumb` truncation.\n\n\n\n`SuperSelect` - Fixed a memory leak where every reposition added another set of positioning listeners that were never removed.\n\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4249](https://github.com/hashicorp/design-system/pull/4249) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n\n`FileInput` - Removed invalid selectors from the file selector button styles, such as `::file-selector-button.mock-hover` and `::file-selector-button:focus-visible::before`. Browsers ignored these rules, and CSS tools like Lightning CSS (used by Vite) reject them and fail the build.\n\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4212](https://github.com/hashicorp/design-system/pull/4212) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n\n`Pagination` - Reduced spacing between `Select` icon and text within `Pagination` component for Carbon themes.\n\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4278](https://github.com/hashicorp/design-system/pull/4278)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n**🔄 Updated dependencies:**\n\n- @hashicorp/design-system-tokens@6.0.1",
+          "text": "7.1.0 7.1.0 documentation Minor changes Dropdown - Added @onOpen callback argument. 4205 Upgraded ember-concurrency from 4.0.4 to 5.3.0. Version 4 imports the ember module, which ember-source 7 removed. Apps still on ember-concurrency 4 will bundle both versions until they upgrade. 4241 - Thanks @aklkv for the contribution! 🙏 FilterBar - Added new @hasLiveSearch argument and set search input autocomplete to off. 4168 Patch changes RichTooltip - Reverted removal of bubble opening transition on Carbon themes. 4257 SuperSelect - Fixed style bug in no matches message for Carbon themes. SuperSelect - Fixed style bug in search message. 4237 CodeBlock - Fixed incorrect placement of sr-only highlight markers when @lineNumberStart is defined. 4199 Form::Field - Fixed the DOM order of the flag layout (used by Checkbox, Radio, and Toggle) so the appears before the , matching the visual order for screen readers. The visual layout is unchanged. Form::Radio::Field - Fixed the DOM order so the appears before the , matching the visual order for screen readers. Form::Checkbox::Field - Fixed the DOM order so the appears before the , matching the visual order for screen readers. Form::Toggle::Field - Fixed the DOM order so the appears before the , matching the visual order for screen readers. 4196 Card - Refactored styles for the base elevation level to fix broken CSS variables. 4216 AdvancedTable - Fixed a race condition where the table's internal measurement pass was not tracked by Ember's test waiters, so settled() could resolve before the layout reached its steady state. 4183 Icon - Fixed icons not loading in rendering tests on Ember 6.12.1 and later with @ember/test-helpers 5.6 and later. The icon registry now adds the sprite root when it's missing. 4211 - Thanks @aklkv for the contribution! 🙏 Removed the unused @embroider/util dependency. 4243 - Thanks @aklkv for the contribution! 🙏 CodeEditor - Fixed a race condition where the editor setup was not tracked by Ember's test waiters, so render() and settled() could resolve before the editor existed. 4233 - Thanks @aklkv for the contribution! 🙏 AdvancedTable - Added translations for sort announcements in AdvancedTable, @selectionAriaLabelSuffix in ThSelectable, and the sort order label in ThButtonSort. Corrected translation keys for labels in ThContextMenu. AppFooter - Added translation for @ariaLabel in LegalLinks. ApplicationState - Corrected translation key for the error code in Header. Breadcrumb - Added translation for @ariaLabel in Breadcrumb and Breadcrumb::Truncation. CodeBlock - Added translations for @copyButtonText and the screen-reader markers for the start and end of highlighted lines. CodeEditor - Added translations for the @copyButtonText, JSON lint messages, and CodeMirror diagnostic messages. FilterBar - Added translations to the applied search filter label and type-specific aria-labels for value, start, and end inputs in Date. Localized translations for the date and numerical filters in the applied filter list. Corrected translation keys in AppliedFilters and Numerical. Form::CharacterCount - Localized translations for status messages for required, allowed, remaining, exceeded, and entered character counts. Form::Indicator - Corrected translation keys for optional and required labels. Form::KeyValueInputs - Refactored translation code for Field hidden label and DeleteRowButton text. Form::SuperSelect - Added translations for @searchPlaceholder, @resultCountMessage, @noMatchesMessage, @loadingMessage, and @searchMessage in Single::Base and Multiple::Base. Added translation for the selected count in Multiple::Base. Pagination - Added translation for @label in SizeSelector. Corrected translation keys for item range in Info. Table - Added translations for sort announcements and @selectionAriaLabelSuffix in Table and ThSelectable. Tag - Added translation for ariaLabel. 4172 Form::TextInput - Corrected translation key for the password-hidden announcement in TextInput::Field. 4185 PopoverPrimitive - Fixed a memory leak where the positioning listeners on window, visualViewport, and scrollable ancestors were never removed, keeping destroyed popovers and their owners in memory. This also affects Dropdown, RichTooltip, and Breadcrumb truncation. SuperSelect - Fixed a memory leak where every reposition added another set of positioning listeners that were never removed. 4249 - Thanks @aklkv for the contribution! 🙏 FileInput - Removed invalid selectors from the file selector button styles, such as ::file-selector-button.mock-hover and ::file-selector-button:focus-visible::before. Browsers ignored these rules, and CSS tools like Lightning CSS (used by Vite) reject them and fail the build. 4212 - Thanks @aklkv for the contribution! 🙏 Pagination - Reduced spacing between Select icon and text within Pagination component for Carbon themes. 4278 🔄 Updated dependencies: @hashicorp/design-system-tokens@6.0.1"
+        },
+        {
           "id": "whats-new/release-notes#components/7-0-0",
           "tab": "Components",
           "headingTrail": [
@@ -41560,7 +41879,7 @@
           ],
           "level": 2,
           "url": "https://helios.hashicorp.design/whats-new/release-notes#700",
-          "content": "## 7.0.0\n\n[7.0.0 documentation](https://hds-website-7-0-0.vercel.app/)\n\n**Major changes**\n\n_Conducted a one-off mechanical rename in `@hashicorp/design-system-components` of internal component CSS variables. Consumers consuming or overriding HDS CSS variables will need to update `--hds-*` references to `--hds-var-*`._\n\n\n`AdvancedTable` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-advanced-table-sticky-column-offset` → `hds-var-advanced-table-sticky-column-offset`\n\n\n`Accordion` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-accordion-item-button-focus-ring-inset-hds` → `hds-var-accordion-item-button-focus-ring-inset-hds`\n- `hds-accordion-item-content-padding-bottom` → `hds-var-accordion-item-content-padding-bottom`\n- `hds-accordion-item-content-padding-left` → `hds-var-accordion-item-content-padding-left`\n- `hds-accordion-item-content-padding-right` → `hds-var-accordion-item-content-padding-right`\n- `hds-accordion-item-content-padding-top` → `hds-var-accordion-item-content-padding-top`\n- `hds-accordion-item-toggle-gap` → `hds-var-accordion-item-toggle-gap`\n- `hds-accordion-item-toggle-icon-size` → `hds-var-accordion-item-toggle-icon-size`\n- `hds-accordion-item-toggle-padding-bottom` → `hds-var-accordion-item-toggle-padding-bottom`\n- `hds-accordion-item-toggle-padding-left` → `hds-var-accordion-item-toggle-padding-left`\n- `hds-accordion-item-toggle-padding-right` → `hds-var-accordion-item-toggle-padding-right`\n- `hds-accordion-item-toggle-padding-top` → `hds-var-accordion-item-toggle-padding-top`\n\n\n`AppFooter` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-app-footer-status-icon-color` → `hds-var-app-footer-status-icon-color`\n\n\n`AppSideNav` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-app-side-nav-animation-delay` → `hds-var-app-side-nav-animation-delay`\n- `hds-app-side-nav-animation-duration` → `hds-var-app-side-nav-animation-duration`\n- `hds-app-side-nav-animation-easing` → `hds-var-app-side-nav-animation-easing`\n- `hds-app-side-nav-toggle-button-width` → `hds-var-app-side-nav-toggle-button-width`\n- `hds-app-side-nav-width-expanded` → `hds-var-app-side-nav-width-expanded`\n- `hds-app-side-nav-width-fixed` → `hds-var-app-side-nav-width-fixed`\n- `hds-app-side-nav-width-minimized` → `hds-var-app-side-nav-width-minimized`\n\n\n`CodeBlock` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-code-block-color-{property}` → `hds-var-code-block-color-{property}`\n\n\n`FilterBar` - Changed the component CSS custom property prefix from `--filter-bar` to `--hds-var-filter-bar`.\n\n- `--filter-bar-filters-dropdown-height` → `--hds-var-filter-bar-filters-dropdown-height`\n\n\n`Flyout` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-app-side-nav-width-minimized` → `hds-var-app-side-nav-width-minimized`\n\n\n`Form` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-form-section-max-width` → `hds-var-form-section-max-width`\n- `hds-form-section-multi-field-group-item-width` → `hds-var-form-section-multi-field-group-item-width`\n\n\n`KeyValueInputs` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-key-value-inputs-column-index` → `hds-var-key-value-inputs-column-index`\n- `hds-key-value-inputs-columns` → `hds-var-key-value-inputs-columns`\n\n\n`SuperSelect` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-form-super-select-dropdown-max-width` → `hds-var-form-super-select-dropdown-max-width`\n- `hds-form-super-select-selected-text` → `hds-var-form-super-select-selected-text`\n- `hds-form-super-select-selected-text-display` → `hds-var-form-super-select-selected-text-display`\n\n\n`SegmentedGroup` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-segmented-group-max-width` → `hds-var-segmented-group-max-width`\n\n\n`Stepper Nav` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-stepper-nav-progress-bar-width` → `hds-var-stepper-nav-progress-bar-width`\n\n\n`Tag` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-tag-focus-ring-inset-left-cds` → `hds-var-tag-focus-ring-inset-left-cds`\n- `hds-tag-focus-ring-inset-right-cds` → `hds-var-tag-focus-ring-inset-right-cds`\n\n\n`Tooltip` - Changed the component CSS custom property prefix from `--token-*` to `--hds-var-*`.\n\n- `token-tooltip-max-width` → `hds-tooltip-max-width`\n\n\n`Flex` - Changed the layout CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-layout-flex-column-gap` → `hds-var-layout-flex-column-gap`\n- `hds-layout-flex-row-gap` → `hds-var-layout-flex-row-gap`\n\n\n`Grid` - Changed the layout CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-layout-grid-column-fill-type` → `hds-var-layout-grid-column-fill-type`\n- `hds-layout-grid-column-gap` → `hds-var-layout-grid-column-gap`\n- `hds-layout-grid-column-min-width` → `hds-var-layout-grid-column-min-width`\n- `hds-layout-grid-column-span` → `hds-var-layout-grid-column-span`\n- `hds-layout-grid-column-span-lg` → `hds-var-layout-grid-column-span-lg`\n- `hds-layout-grid-column-span-md` → `hds-var-layout-grid-column-span-md`\n- `hds-layout-grid-column-span-sm` → `hds-var-layout-grid-column-span-sm`\n- `hds-layout-grid-column-span-xl` → `hds-var-layout-grid-column-span-xl`\n- `hds-layout-grid-column-span-xxl` → `hds-var-layout-grid-column-span-xxl`\n- `hds-layout-grid-column-width-lg` → `hds-var-layout-grid-column-width-lg`\n- `hds-layout-grid-column-width-md` → `hds-var-layout-grid-column-width-md`\n- `hds-layout-grid-column-width-sm` → `hds-var-layout-grid-column-width-sm`\n- `hds-layout-grid-column-width-xl` → `hds-var-layout-grid-column-width-xl`\n- `hds-layout-grid-column-width-xxl` → `hds-var-layout-grid-column-width-xxl`\n- `hds-layout-grid-row-gap` → `hds-var-layout-grid-row-gap`\n- `hds-layout-grid-row-span` → `hds-var-layout-grid-row-span`\n- `hds-layout-grid-row-span-lg` → `hds-var-layout-grid-row-span-lg`\n- `hds-layout-grid-row-span-md` → `hds-var-layout-grid-row-span-md`\n- `hds-layout-grid-row-span-sm` → `hds-var-layout-grid-row-span-sm`\n- `hds-layout-grid-row-span-xl` → `hds-var-layout-grid-row-span-xl`\n- `hds-layout-grid-row-span-xxl` → `hds-var-layout-grid-row-span-xxl`\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4076](https://github.com/hashicorp/design-system/pull/4076)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n\n`AdvancedTable` - Added new value `secondary-muted` for the `@color` argument in `ThContextMenu`.\n\n- `secondary-muted` is identical to `secondary` for HDS themes, but differs for Carbon themes\n\n\n`Button` - Added new value `secondary-muted` for the `@color` argument\n\n\n\n`CodeBlock` - Updated footer button `@color` from `secondary` to `secondary-muted`\n\n\n\n`Dropdown` - Added new value `secondary-muted` for the `@color` argument in `ToggleButton` and `ToggleIcon`\n\n\n\n`FilterBar` - Updated toggle `@color` from `secondary` to `secondary-muted` in `ActionsDropdown` and `FiltersDropdown` and applied filters button\n\n\n\n`SuperSelect` - Updated `AfterOptions` show and clear button `@color` from `secondary` to `secondary-muted`\n\n\n\n`CodeEditor` - Removed dark theme modifiers and replaced them with theme agnostic versions\n\n- Removed the `hdsDarkHighlightStyle` style modifier and replaced it with a theme-agnostic `hdsHighlightStyle` modifier\n- Removed the `hdsDark` style modifier and replaced it with a theme-agnostic `hdsTheme` modifier\n\n\nAdded the `hds-form-control-border` and `hds-form-control-invalid-outline` sass mixins\n\n\n\n`RadioCard` - Updated `RadioCardDescription` element from `HdsTextBody` to a `HTMLSpanElement`\n\n\n\n`RadioCard` - Updated `RadioCardLabel` element from `HdsTextDisplay` to a `HTMLSpanElement`\n\n\n\n`AdvancedTable` - Removed `hds-typography-body-200` and `hds-font-weight-semibold` classes from `hds-advanced-table__th-content-text` element in `AdvancedTableTh`\n\n\n\n`Table` - Removed `hds-typography-body-200` and `hds-font-weight-regular` classes from `hds-table__td` element in `TableTd`\n\n\n\n`Table` - Removed `hds-typography-body-200` and `hds-font-weight-semibold` classes from `hds-table__td` element in `TableTh` and `TableThSort`\n\n\n\n`Tooltip` - Replaced custom arrow with `hds-tooltip-pointer` class with native popover arrow\n\n\n\n`DialogPrimitive` - Updated internal text element from `HdsTextBody` to a `HTMLDivElement`\n\n\nRemoved the `hds-interactive-dark-theme` mixin\n\nUpdated the `hds-focus-ring-basic` sass mixin\nAdded the `hds-focus-ring-advanced` sass mixin\nRemoved the `hds-focus-ring-with-pseudo-element` and `hds-focus-ring-with-pseudo-element-focus-always-visible` sass mixins\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4076](https://github.com/hashicorp/design-system/pull/4076)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\nAdded `HdsTheming` service for theming\n\nAdded `HdsIconRegistry` service for async icons loading\n\nAdded `@ibm/plex-[mono|sans]` packages as dependencies\n\nAdded `design-system-plex-fonts.scss` to the `packages/components` styles\nIncluded subset of IBM Plex fonts to the `dist/public` folder of the addon\n\nAdded a `hds-apply-only-if-carbon` sass mixin to apply styles only for Carbon themes\n\n`ThemeContext` - Added headless component\n\n\n`Icon` - Made significant changes to icon loading and available icons to support Carbon themes\n\n- Changed the way that icons are loaded (from SVG sprite to dynamic importing and generation at runtime)\n- Added support for loading Carbon icons when the user is using a Carbon theme\n- The full SVG sprite is no longer injected into the consuming application\n- Consumers can safely remove the `flightIconsSpriteLazyEmbed` setting in their `config/environment.js` file.\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4076](https://github.com/hashicorp/design-system/pull/4076)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n**Patch changes**\n\n**🔄 Updated dependencies:**\n\n- @hashicorp/design-system-tokens@6.0.0\n- @hashicorp/flight-icons@5.3.0",
+          "content": "## 7.0.0\n\n[7.0.0 documentation](https://hds-website-7-0-0.vercel.app/)\n\n**Major changes**\n\n_Conducted a one-off mechanical rename in `@hashicorp/design-system-components` of internal component CSS variables. Consumers consuming or overriding HDS CSS variables will need to update `--hds-*` references to `--hds-var-*`._\n\n`AdvancedTable` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-advanced-table-sticky-column-offset` → `hds-var-advanced-table-sticky-column-offset`\n\n`Accordion` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-accordion-item-button-focus-ring-inset-hds` → `hds-var-accordion-item-button-focus-ring-inset-hds`\n- `hds-accordion-item-content-padding-bottom` → `hds-var-accordion-item-content-padding-bottom`\n- `hds-accordion-item-content-padding-left` → `hds-var-accordion-item-content-padding-left`\n- `hds-accordion-item-content-padding-right` → `hds-var-accordion-item-content-padding-right`\n- `hds-accordion-item-content-padding-top` → `hds-var-accordion-item-content-padding-top`\n- `hds-accordion-item-toggle-gap` → `hds-var-accordion-item-toggle-gap`\n- `hds-accordion-item-toggle-icon-size` → `hds-var-accordion-item-toggle-icon-size`\n- `hds-accordion-item-toggle-padding-bottom` → `hds-var-accordion-item-toggle-padding-bottom`\n- `hds-accordion-item-toggle-padding-left` → `hds-var-accordion-item-toggle-padding-left`\n- `hds-accordion-item-toggle-padding-right` → `hds-var-accordion-item-toggle-padding-right`\n- `hds-accordion-item-toggle-padding-top` → `hds-var-accordion-item-toggle-padding-top`\n\n`AppFooter` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-app-footer-status-icon-color` → `hds-var-app-footer-status-icon-color`\n\n`AppSideNav` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-app-side-nav-animation-delay` → `hds-var-app-side-nav-animation-delay`\n- `hds-app-side-nav-animation-duration` → `hds-var-app-side-nav-animation-duration`\n- `hds-app-side-nav-animation-easing` → `hds-var-app-side-nav-animation-easing`\n- `hds-app-side-nav-toggle-button-width` → `hds-var-app-side-nav-toggle-button-width`\n- `hds-app-side-nav-width-expanded` → `hds-var-app-side-nav-width-expanded`\n- `hds-app-side-nav-width-fixed` → `hds-var-app-side-nav-width-fixed`\n- `hds-app-side-nav-width-minimized` → `hds-var-app-side-nav-width-minimized`\n\n`CodeBlock` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-code-block-color-{property}` → `hds-var-code-block-color-{property}`\n\n`FilterBar` - Changed the component CSS custom property prefix from `--filter-bar` to `--hds-var-filter-bar`.\n\n- `--filter-bar-filters-dropdown-height` → `--hds-var-filter-bar-filters-dropdown-height`\n\n`Flyout` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-app-side-nav-width-minimized` → `hds-var-app-side-nav-width-minimized`\n\n`Form` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-form-section-max-width` → `hds-var-form-section-max-width`\n- `hds-form-section-multi-field-group-item-width` → `hds-var-form-section-multi-field-group-item-width`\n\n`KeyValueInputs` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-key-value-inputs-column-index` → `hds-var-key-value-inputs-column-index`\n- `hds-key-value-inputs-columns` → `hds-var-key-value-inputs-columns`\n\n`SuperSelect` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-form-super-select-dropdown-max-width` → `hds-var-form-super-select-dropdown-max-width`\n- `hds-form-super-select-selected-text` → `hds-var-form-super-select-selected-text`\n- `hds-form-super-select-selected-text-display` → `hds-var-form-super-select-selected-text-display`\n\n`SegmentedGroup` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-segmented-group-max-width` → `hds-var-segmented-group-max-width`\n\n`Stepper Nav` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-stepper-nav-progress-bar-width` → `hds-var-stepper-nav-progress-bar-width`\n\n`Tag` - Changed the component CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-tag-focus-ring-inset-left-cds` → `hds-var-tag-focus-ring-inset-left-cds`\n- `hds-tag-focus-ring-inset-right-cds` → `hds-var-tag-focus-ring-inset-right-cds`\n\n`Tooltip` - Changed the component CSS custom property prefix from `--token-*` to `--hds-var-*`.\n\n- `token-tooltip-max-width` → `hds-tooltip-max-width`\n\n`Flex` - Changed the layout CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-layout-flex-column-gap` → `hds-var-layout-flex-column-gap`\n- `hds-layout-flex-row-gap` → `hds-var-layout-flex-row-gap`\n\n`Grid` - Changed the layout CSS custom property prefix from `--hds-*` to `--hds-var-*`.\n\n- `hds-layout-grid-column-fill-type` → `hds-var-layout-grid-column-fill-type`\n- `hds-layout-grid-column-gap` → `hds-var-layout-grid-column-gap`\n- `hds-layout-grid-column-min-width` → `hds-var-layout-grid-column-min-width`\n- `hds-layout-grid-column-span` → `hds-var-layout-grid-column-span`\n- `hds-layout-grid-column-span-lg` → `hds-var-layout-grid-column-span-lg`\n- `hds-layout-grid-column-span-md` → `hds-var-layout-grid-column-span-md`\n- `hds-layout-grid-column-span-sm` → `hds-var-layout-grid-column-span-sm`\n- `hds-layout-grid-column-span-xl` → `hds-var-layout-grid-column-span-xl`\n- `hds-layout-grid-column-span-xxl` → `hds-var-layout-grid-column-span-xxl`\n- `hds-layout-grid-column-width-lg` → `hds-var-layout-grid-column-width-lg`\n- `hds-layout-grid-column-width-md` → `hds-var-layout-grid-column-width-md`\n- `hds-layout-grid-column-width-sm` → `hds-var-layout-grid-column-width-sm`\n- `hds-layout-grid-column-width-xl` → `hds-var-layout-grid-column-width-xl`\n- `hds-layout-grid-column-width-xxl` → `hds-var-layout-grid-column-width-xxl`\n- `hds-layout-grid-row-gap` → `hds-var-layout-grid-row-gap`\n- `hds-layout-grid-row-span` → `hds-var-layout-grid-row-span`\n- `hds-layout-grid-row-span-lg` → `hds-var-layout-grid-row-span-lg`\n- `hds-layout-grid-row-span-md` → `hds-var-layout-grid-row-span-md`\n- `hds-layout-grid-row-span-sm` → `hds-var-layout-grid-row-span-sm`\n- `hds-layout-grid-row-span-xl` → `hds-var-layout-grid-row-span-xl`\n- `hds-layout-grid-row-span-xxl` → `hds-var-layout-grid-row-span-xxl`\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4076](https://github.com/hashicorp/design-system/pull/4076)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n`AdvancedTable` - Added new value `secondary-muted` for the `@color` argument in `ThContextMenu`.\n\n- `secondary-muted` is identical to `secondary` for HDS themes, but differs for Carbon themes\n\n`Button` - Added new value `secondary-muted` for the `@color` argument\n\n`CodeBlock` - Updated footer button `@color` from `secondary` to `secondary-muted`\n\n`Dropdown` - Added new value `secondary-muted` for the `@color` argument in `ToggleButton` and `ToggleIcon`\n\n`FilterBar` - Updated toggle `@color` from `secondary` to `secondary-muted` in `ActionsDropdown` and `FiltersDropdown` and applied filters button\n\n`SuperSelect` - Updated `AfterOptions` show and clear button `@color` from `secondary` to `secondary-muted`\n\n`CodeEditor` - Removed dark theme modifiers and replaced them with theme agnostic versions\n\n- Removed the `hdsDarkHighlightStyle` style modifier and replaced it with a theme-agnostic `hdsHighlightStyle` modifier\n- Removed the `hdsDark` style modifier and replaced it with a theme-agnostic `hdsTheme` modifier\n\nAdded the `hds-form-control-border` and `hds-form-control-invalid-outline` sass mixins\n\n`RadioCard` - Updated `RadioCardDescription` element from `HdsTextBody` to a `HTMLSpanElement`\n\n`RadioCard` - Updated `RadioCardLabel` element from `HdsTextDisplay` to a `HTMLSpanElement`\n\n`AdvancedTable` - Removed `hds-typography-body-200` and `hds-font-weight-semibold` classes from `hds-advanced-table__th-content-text` element in `AdvancedTableTh`\n\n`Table` - Removed `hds-typography-body-200` and `hds-font-weight-regular` classes from `hds-table__td` element in `TableTd`\n\n`Table` - Removed `hds-typography-body-200` and `hds-font-weight-semibold` classes from `hds-table__td` element in `TableTh` and `TableThSort`\n\n`Tooltip` - Replaced custom arrow with `hds-tooltip-pointer` class with native popover arrow\n\n`DialogPrimitive` - Updated internal text element from `HdsTextBody` to a `HTMLDivElement`\n\nRemoved the `hds-interactive-dark-theme` mixin\n\nUpdated the `hds-focus-ring-basic` sass mixin\nAdded the `hds-focus-ring-advanced` sass mixin\nRemoved the `hds-focus-ring-with-pseudo-element` and `hds-focus-ring-with-pseudo-element-focus-always-visible` sass mixins\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4076](https://github.com/hashicorp/design-system/pull/4076)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\nAdded `HdsTheming` service for theming\n\nAdded `HdsIconRegistry` service for async icons loading\n\nAdded `@ibm/plex-[mono|sans]` packages as dependencies\n\nAdded `design-system-plex-fonts.scss` to the `packages/components` styles\nIncluded subset of IBM Plex fonts to the `dist/public` folder of the addon\n\nAdded a `hds-apply-only-if-carbon` sass mixin to apply styles only for Carbon themes\n\n`ThemeContext` - Added headless component\n\n`Icon` - Made significant changes to icon loading and available icons to support Carbon themes\n\n- Changed the way that icons are loaded (from SVG sprite to dynamic importing and generation at runtime)\n- Added support for loading Carbon icons when the user is using a Carbon theme\n- The full SVG sprite is no longer injected into the consuming application\n- Consumers can safely remove the `flightIconsSpriteLazyEmbed` setting in their `config/environment.js` file.\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4076](https://github.com/hashicorp/design-system/pull/4076)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n**Patch changes**\n\n**🔄 Updated dependencies:**\n\n- @hashicorp/design-system-tokens@6.0.0\n- @hashicorp/flight-icons@5.3.0",
           "text": "7.0.0 7.0.0 documentation Major changes _Conducted a one-off mechanical rename in @hashicorp/design-system-components of internal component CSS variables. Consumers consuming or overriding HDS CSS variables will need to update --hds- references to --hds-var-._ AdvancedTable - Changed the component CSS custom property prefix from --hds- to --hds-var-. hds-advanced-table-sticky-column-offset → hds-var-advanced-table-sticky-column-offset Accordion - Changed the component CSS custom property prefix from --hds- to --hds-var-. hds-accordion-item-button-focus-ring-inset-hds → hds-var-accordion-item-button-focus-ring-inset-hds hds-accordion-item-content-padding-bottom → hds-var-accordion-item-content-padding-bottom hds-accordion-item-content-padding-left → hds-var-accordion-item-content-padding-left hds-accordion-item-content-padding-right → hds-var-accordion-item-content-padding-right hds-accordion-item-content-padding-top → hds-var-accordion-item-content-padding-top hds-accordion-item-toggle-gap → hds-var-accordion-item-toggle-gap hds-accordion-item-toggle-icon-size → hds-var-accordion-item-toggle-icon-size hds-accordion-item-toggle-padding-bottom → hds-var-accordion-item-toggle-padding-bottom hds-accordion-item-toggle-padding-left → hds-var-accordion-item-toggle-padding-left hds-accordion-item-toggle-padding-right → hds-var-accordion-item-toggle-padding-right hds-accordion-item-toggle-padding-top → hds-var-accordion-item-toggle-padding-top AppFooter - Changed the component CSS custom property prefix from --hds- to --hds-var-. hds-app-footer-status-icon-color → hds-var-app-footer-status-icon-color AppSideNav - Changed the component CSS custom property prefix from --hds- to --hds-var-. hds-app-side-nav-animation-delay → hds-var-app-side-nav-animation-delay hds-app-side-nav-animation-duration → hds-var-app-side-nav-animation-duration hds-app-side-nav-animation-easing → hds-var-app-side-nav-animation-easing hds-app-side-nav-toggle-button-width → hds-var-app-side-nav-toggle-button-width hds-app-side-nav-width-expanded → hds-var-app-side-nav-width-expanded hds-app-side-nav-width-fixed → hds-var-app-side-nav-width-fixed hds-app-side-nav-width-minimized → hds-var-app-side-nav-width-minimized CodeBlock - Changed the component CSS custom property prefix from --hds- to --hds-var-. hds-code-block-color-{property} → hds-var-code-block-color-{property} FilterBar - Changed the component CSS custom property prefix from --filter-bar to --hds-var-filter-bar. --filter-bar-filters-dropdown-height → --hds-var-filter-bar-filters-dropdown-height Flyout - Changed the component CSS custom property prefix from --hds- to --hds-var-. hds-app-side-nav-width-minimized → hds-var-app-side-nav-width-minimized Form - Changed the component CSS custom property prefix from --hds- to --hds-var-. hds-form-section-max-width → hds-var-form-section-max-width hds-form-section-multi-field-group-item-width → hds-var-form-section-multi-field-group-item-width KeyValueInputs - Changed the component CSS custom property prefix from --hds- to --hds-var-. hds-key-value-inputs-column-index → hds-var-key-value-inputs-column-index hds-key-value-inputs-columns → hds-var-key-value-inputs-columns SuperSelect - Changed the component CSS custom property prefix from --hds- to --hds-var-. hds-form-super-select-dropdown-max-width → hds-var-form-super-select-dropdown-max-width hds-form-super-select-selected-text → hds-var-form-super-select-selected-text hds-form-super-select-selected-text-display → hds-var-form-super-select-selected-text-display SegmentedGroup - Changed the component CSS custom property prefix from --hds- to --hds-var-. hds-segmented-group-max-width → hds-var-segmented-group-max-width Stepper Nav - Changed the component CSS custom property prefix from --hds- to --hds-var-. hds-stepper-nav-progress-bar-width → hds-var-stepper-nav-progress-bar-width Tag - Changed the component CSS custom property prefix from --hds- to --hds-var-. hds-tag-focus-ring-inset-left-cds → hds-var-tag-focus-ring-inset-left-cds hds-tag-focus-ring-inset-right-cds → hds-var-tag-focus-ring-inset-right-cds Tooltip - Changed the component CSS custom property prefix from --token- to --hds-var-. token-tooltip-max-width → hds-tooltip-max-width Flex - Changed the layout CSS custom property prefix from --hds- to --hds-var-. hds-layout-flex-column-gap → hds-var-layout-flex-column-gap hds-layout-flex-row-gap → hds-var-layout-flex-row-gap Grid - Changed the layout CSS custom property prefix from --hds- to --hds-var-. hds-layout-grid-column-fill-type → hds-var-layout-grid-column-fill-type hds-layout-grid-column-gap → hds-var-layout-grid-column-gap hds-layout-grid-column-min-width → hds-var-layout-grid-column-min-width hds-layout-grid-column-span → hds-var-layout-grid-column-span hds-layout-grid-column-span-lg → hds-var-layout-grid-column-span-lg hds-layout-grid-column-span-md → hds-var-layout-grid-column-span-md hds-layout-grid-column-span-sm → hds-var-layout-grid-column-span-sm hds-layout-grid-column-span-xl → hds-var-layout-grid-column-span-xl hds-layout-grid-column-span-xxl → hds-var-layout-grid-column-span-xxl hds-layout-grid-column-width-lg → hds-var-layout-grid-column-width-lg hds-layout-grid-column-width-md → hds-var-layout-grid-column-width-md hds-layout-grid-column-width-sm → hds-var-layout-grid-column-width-sm hds-layout-grid-column-width-xl → hds-var-layout-grid-column-width-xl hds-layout-grid-column-width-xxl → hds-var-layout-grid-column-width-xxl hds-layout-grid-row-gap → hds-var-layout-grid-row-gap hds-layout-grid-row-span → hds-var-layout-grid-row-span hds-layout-grid-row-span-lg → hds-var-layout-grid-row-span-lg hds-layout-grid-row-span-md → hds-var-layout-grid-row-span-md hds-layout-grid-row-span-sm → hds-var-layout-grid-row-span-sm hds-layout-grid-row-span-xl → hds-var-layout-grid-row-span-xl hds-layout-grid-row-span-xxl → hds-var-layout-grid-row-span-xxl 4076 AdvancedTable - Added new value secondary-muted for the @color argument in ThContextMenu. secondary-muted is identical to secondary for HDS themes, but differs for Carbon themes Button - Added new value secondary-muted for the @color argument CodeBlock - Updated footer button @color from secondary to secondary-muted Dropdown - Added new value secondary-muted for the @color argument in ToggleButton and ToggleIcon FilterBar - Updated toggle @color from secondary to secondary-muted in ActionsDropdown and FiltersDropdown and applied filters button SuperSelect - Updated AfterOptions show and clear button @color from secondary to secondary-muted CodeEditor - Removed dark theme modifiers and replaced them with theme agnostic versions Removed the hdsDarkHighlightStyle style modifier and replaced it with a theme-agnostic hdsHighlightStyle modifier Removed the hdsDark style modifier and replaced it with a theme-agnostic hdsTheme modifier Added the hds-form-control-border and hds-form-control-invalid-outline sass mixins RadioCard - Updated RadioCardDescription element from HdsTextBody to a HTMLSpanElement RadioCard - Updated RadioCardLabel element from HdsTextDisplay to a HTMLSpanElement AdvancedTable - Removed hds-typography-body-200 and hds-font-weight-semibold classes from hds-advanced-tableth-content-text element in AdvancedTableTh Table - Removed hds-typography-body-200 and hds-font-weight-regular classes from hds-tabletd element in TableTd Table - Removed hds-typography-body-200 and hds-font-weight-semibold classes from hds-tabletd element in TableTh and TableThSort Tooltip - Replaced custom arrow with hds-tooltip-pointer class with native popover arrow DialogPrimitive - Updated internal text element from HdsTextBody to a HTMLDivElement Removed the hds-interactive-dark-theme mixin Updated the hds-focus-ring-basic sass mixin Added the hds-focus-ring-advanced sass mixin Removed the hds-focus-ring-with-pseudo-element and hds-focus-ring-with-pseudo-element-focus-always-visible sass mixins 4076 Added HdsTheming service for theming Added HdsIconRegistry service for async icons loading Added @ibm/plex-[mono sans] packages as dependencies Added design-system-plex-fonts.scss to the packages/components styles Included subset of IBM Plex fonts to the dist/public folder of the addon Added a hds-apply-only-if-carbon sass mixin to apply styles only for Carbon themes ThemeContext - Added headless component Icon - Made significant changes to icon loading and available icons to support Carbon themes Changed the way that icons are loaded (from SVG sprite to dynamic importing and generation at runtime) Added support for loading Carbon icons when the user is using a Carbon theme The full SVG sprite is no longer injected into the consuming application Consumers can safely remove the flightIconsSpriteLazyEmbed setting in their config/environment.js file. 4076 Patch changes 🔄 Updated dependencies: @hashicorp/design-system-tokens@6.0.0 @hashicorp/flight-icons@5.3.0"
         },
         {
@@ -41761,19 +42080,8 @@
           ],
           "level": 2,
           "url": "https://helios.hashicorp.design/whats-new/release-notes#4221",
-          "content": "## 4.22.1\n\n**Patch changes**\n\n`AdvancedTable` - Fixed styles for right and center aligned cells.\n\n<small class=\"doc-whats-new-changelog-metadata\">[#3093](https://github.com/hashicorp/design-system/pull/3093)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n`AppFrame` - Changed media query styles for frame header and sidebar containers to use level 3 vs level 4 CSS syntax\n\n<small class=\"doc-whats-new-changelog-metadata\">[#3110](https://github.com/hashicorp/design-system/pull/3110)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>",
-          "text": "4.22.1 Patch changes AdvancedTable - Fixed styles for right and center aligned cells. 3093 AppFrame - Changed media query styles for frame header and sidebar containers to use level 3 vs level 4 CSS syntax 3110"
-        },
-        {
-          "id": "whats-new/release-notes#components/4-22-0",
-          "tab": "Components",
-          "headingTrail": [
-            "4.22.0"
-          ],
-          "level": 2,
-          "url": "https://helios.hashicorp.design/whats-new/release-notes#4220",
-          "content": "## 4.22.0\n\n[4.22.0 documentation](https://hds-website-4-22-0.vercel.app/)\n\n**Minor changes**\n\nAdded `ember-intl` as a dependency\n\n- Added `hdsIntl` service for translations in HDS components with default fallback values\n- Added `hds-t` helper which uses the `hds-intl` service to provide translations in HSD templates\n\n`AdvancedTable` - Translated template strings. Removed extraneous screen-reader-only text.\n\n`AppFooter` - Translated template strings\n\n`AppSideNav` - Translated template strings\n\n`ApplicationState` - Translated template strings\n\n`CodeEditor` - Translated template strings\n\n`DismissButton` - Translated template strings\n\n`MaskedInput` - Translated template strings\n\n`SuperSelect` - Translated template strings\n\n`Pagination` - Translated template strings\n\n`SideNav` - Translated template strings\n\n`Table` - Translated template strings\n\n`Time` - Translated template strings\n\n<small class=\"doc-whats-new-changelog-metadata\">[#2878](https://github.com/hashicorp/design-system/pull/2878)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n`Reveal` - Added support for the `aria-describedby` attribute on the toggle.\n\n<small class=\"doc-whats-new-changelog-metadata\">[#3084](https://github.com/hashicorp/design-system/pull/3084)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n**Patch changes**\n\n`AppHeader` - Changed the default breakpoint from `lg` to `md`.\n\n<small class=\"doc-whats-new-changelog-metadata\">[#3072](https://github.com/hashicorp/design-system/pull/3072)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n`Stepper::List` - Fixed type for `status` argument in `List::Step` to be `HdsStepperStatuses` instead of enum `HdsStepperStatusesValues`\n\n<small class=\"doc-whats-new-changelog-metadata\">[#3073](https://github.com/hashicorp/design-system/pull/3073)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n`AdvancedTable::Tr` - Updated `@isSelected` argument type from `false` to `boolean`\n\n`Table::Tr` - Updated `@isSelected` argument type from `false` to `boolean`\n\n<small class=\"doc-whats-new-changelog-metadata\">[#3066](https://github.com/hashicorp/design-system/pull/3066)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n`CodeEditor` - Fixed the type of the CodeEditor signature to indicate that the `[CE].Title` and `[CE].Description` have bound arguments.\n\n<small class=\"doc-whats-new-changelog-metadata\">[#3068](https://github.com/hashicorp/design-system/pull/3068)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n\n---\n\n_[Read the full changelog](https://github.com/hashicorp/design-system/blob/main/packages/components/CHANGELOG.md)_",
-          "text": "4.22.0 4.22.0 documentation Minor changes Added ember-intl as a dependency Added hdsIntl service for translations in HDS components with default fallback values Added hds-t helper which uses the hds-intl service to provide translations in HSD templates AdvancedTable - Translated template strings. Removed extraneous screen-reader-only text. AppFooter - Translated template strings AppSideNav - Translated template strings ApplicationState - Translated template strings CodeEditor - Translated template strings DismissButton - Translated template strings MaskedInput - Translated template strings SuperSelect - Translated template strings Pagination - Translated template strings SideNav - Translated template strings Table - Translated template strings Time - Translated template strings 2878 Reveal - Added support for the aria-describedby attribute on the toggle. 3084 Patch changes AppHeader - Changed the default breakpoint from lg to md. 3072 Stepper::List - Fixed type for status argument in List::Step to be HdsStepperStatuses instead of enum HdsStepperStatusesValues 3073 AdvancedTable::Tr - Updated @isSelected argument type from false to boolean Table::Tr - Updated @isSelected argument type from false to boolean 3066 CodeEditor - Fixed the type of the CodeEditor signature to indicate that the [CE].Title and [CE].Description have bound arguments. 3068 _Read the full changelog_"
+          "content": "## 4.22.1\n\n**Patch changes**\n\n`AdvancedTable` - Fixed styles for right and center aligned cells.\n\n<small class=\"doc-whats-new-changelog-metadata\">[#3093](https://github.com/hashicorp/design-system/pull/3093)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n`AppFrame` - Changed media query styles for frame header and sidebar containers to use level 3 vs level 4 CSS syntax\n\n<small class=\"doc-whats-new-changelog-metadata\">[#3110](https://github.com/hashicorp/design-system/pull/3110)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n\n---\n\n_[Read the full changelog](https://github.com/hashicorp/design-system/blob/main/packages/components/CHANGELOG.md)_",
+          "text": "4.22.1 Patch changes AdvancedTable - Fixed styles for right and center aligned cells. 3093 AppFrame - Changed media query styles for frame header and sidebar containers to use level 3 vs level 4 CSS syntax 3110 _Read the full changelog_"
         },
         {
           "id": "whats-new/release-notes#design-tokens",
@@ -41781,6 +42089,17 @@
           "url": "https://helios.hashicorp.design/whats-new/release-notes?tab=design%20tokens",
           "content": "<p class=\"doc-whats-new-changelog-npm-info\">\n  <strong><code>npm package: @hashicorp/design-system-tokens</code></strong>\n  <a href=\"https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens\">\n    <img src=\"https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens.svg\" alt=\"npm version\" height=\"20\">\n  </a>\n</p>",
           "text": "npm package: @hashicorp/design-system-tokens"
+        },
+        {
+          "id": "whats-new/release-notes#design-tokens/6-0-1",
+          "tab": "Design tokens",
+          "headingTrail": [
+            "6.0.1"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/whats-new/release-notes?tab=design%20tokens#601",
+          "content": "## 6.0.1\n\n**Patch changes**\n\nUpdated the `--hds-border-radius-rounded` token to use a smaller value with the same visual result\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4274](https://github.com/hashicorp/design-system/pull/4274)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\nFixed a broken `cds-g100` mode value in the `app-header-button-surface-color-default` token\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4288](https://github.com/hashicorp/design-system/pull/4288)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>",
+          "text": "6.0.1 Patch changes Updated the --hds-border-radius-rounded token to use a smaller value with the same visual result 4274 Fixed a broken cds-g100 mode value in the app-header-button-surface-color-default token 4288"
         },
         {
           "id": "whats-new/release-notes#design-tokens/6-0-0",
@@ -41988,19 +42307,8 @@
           ],
           "level": 2,
           "url": "https://helios.hashicorp.design/whats-new/release-notes?tab=design%20tokens#160",
-          "content": "## 1.6.0\n\n**Minor changes**\n\nAdded design token for loading state icon on search input\n\n<small class=\"doc-whats-new-changelog-metadata\">[#1452](https://github.com/hashicorp/design-system/pull/1452)</small>",
-          "text": "1.6.0 Minor changes Added design token for loading state icon on search input 1452"
-        },
-        {
-          "id": "whats-new/release-notes#design-tokens/1-5-0",
-          "tab": "Design tokens",
-          "headingTrail": [
-            "1.5.0"
-          ],
-          "level": 2,
-          "url": "https://helios.hashicorp.design/whats-new/release-notes?tab=design%20tokens#150",
-          "content": "## 1.5.0\n\n**Minor changes**\n\n- Added new `TooltipButton` component and `hds-tooltip` modifier\n- Added design tokens for `Tooltip`\n\n<small class=\"doc-whats-new-changelog-metadata\">[#1283](https://github.com/hashicorp/design-system/pull/1283)</small>\n\n\n---\n\n_[Read the full changelog](https://github.com/hashicorp/design-system/blob/main/packages/tokens/CHANGELOG.md)_",
-          "text": "1.5.0 Minor changes Added new TooltipButton component and hds-tooltip modifier Added design tokens for Tooltip 1283 _Read the full changelog_"
+          "content": "## 1.6.0\n\n**Minor changes**\n\nAdded design token for loading state icon on search input\n\n<small class=\"doc-whats-new-changelog-metadata\">[#1452](https://github.com/hashicorp/design-system/pull/1452)</small>\n\n\n---\n\n_[Read the full changelog](https://github.com/hashicorp/design-system/blob/main/packages/tokens/CHANGELOG.md)_",
+          "text": "1.6.0 Minor changes Added design token for loading state icon on search input 1452 _Read the full changelog_"
         },
         {
           "id": "whats-new/release-notes#flight-icons",
@@ -42555,6 +42863,17 @@
           "url": "https://helios.hashicorp.design/whats-new/release-notes?tab=mcp",
           "content": "<p class=\"doc-whats-new-changelog-npm-info\">\n  <strong><code>npm package: @hashicorp/design-system-mcp</code></strong>\n  <a href=\"https://badge.fury.io/js/%40hashicorp%2Fdesign-system-mcp\">\n    <img src=\"https://badge.fury.io/js/%40hashicorp%2Fdesign-system-mcp.svg\" alt=\"npm version\" height=\"20\">\n  </a>\n</p>",
           "text": "npm package: @hashicorp/design-system-mcp"
+        },
+        {
+          "id": "whats-new/release-notes#mcp/0-2-3",
+          "tab": "MCP",
+          "headingTrail": [
+            "0.2.3"
+          ],
+          "level": 2,
+          "url": "https://helios.hashicorp.design/whats-new/release-notes?tab=mcp#023",
+          "content": "## 0.2.3\n\n**Patch changes**\n\nUpdated the bundled documentation catalog with the latest documentation, including the Tooling pages.\n\nChanged the `search_hds_docs` `section` and `tab` filter descriptions to give examples instead of a fixed list. The sections and tabs that exist are returned in `availableSections` and `availableTabs` when a filter doesn't match.\n\nFixed the documentation catalog build to expand code snippets that use the `theming` option or JSON files, and to include page-level banners on every tab.\n\n<small class=\"doc-whats-new-changelog-metadata\">[#4247](https://github.com/hashicorp/design-system/pull/4247)</small>\n\n<div class=\"doc-whats-new-changelog-separator\"></div>\n\n**🔄 Updated dependencies:**\n\n- @hashicorp/design-system-components@7.1.0\n- @hashicorp/design-system-tokens@6.0.1",
+          "text": "0.2.3 Patch changes Updated the bundled documentation catalog with the latest documentation, including the Tooling pages. Changed the search_hds_docs section and tab filter descriptions to give examples instead of a fixed list. The sections and tabs that exist are returned in availableSections and availableTabs when a filter doesn't match. Fixed the documentation catalog build to expand code snippets that use the theming option or JSON files, and to include page-level banners on every tab. 4247 🔄 Updated dependencies: @hashicorp/design-system-components@7.1.0 @hashicorp/design-system-tokens@6.0.1"
         },
         {
           "id": "whats-new/release-notes#mcp/0-2-2",

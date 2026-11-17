@@ -225,6 +225,14 @@ describe("ranking against the real corpus", () => {
     expect(payload.results[0].tab).toBe("Version history");
   });
 
+  it("scopes a search to the Carbon theme tab", () => {
+    const payload = search("secondary muted", { tab: "Carbon theme" });
+
+    expect(payload.unknownFilters).toStrictEqual([]);
+    expect(payload.results.length).toBeGreaterThan(0);
+    expect(payload.results[0].tab).toBe("Carbon theme");
+  });
+
   it("scopes to a docsPath the components catalog reports", () => {
     const payload = search("keyboard", {
       docsPath: "components/table/advanced-table",

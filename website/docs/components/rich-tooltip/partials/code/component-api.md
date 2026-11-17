@@ -9,13 +9,13 @@
   <C.Property @name="[RT].Bubble" @type="yielded component">
     The `RichTooltip::Bubble` component (see below).
   </C.Property>
-  <C.Property @name="isOpen" @type="boolean" @default="false" @values={{array "true" "false"}}>
+  <C.Property @name="isOpen" @type="boolean" @default="false">
     Controls if the tooltip should be rendered initially opened.
     <br />
     <br />
     _Notice: in this case the tooltip can't be dismissed via `esc` or "click outside" until the end user has interacted with it (it's in a "manual" state)._
   </C.Property>
-  <C.Property @name="enableClickEvents" @type="boolean" @default="false" @values={{array "true" "false"}}>
+  <C.Property @name="enableClickEvents" @type="boolean" @default="false">
     Assigns a "click" event listener (`onClick`) to the toggle to control the visibility of the tooltip.
     <br />
     <br />
@@ -74,7 +74,7 @@ It can also be used with generic content, in which case consumers will need to e
     <br />
     _⚠️ Important: The size is applied only to the `@text`, not the `yield` content._
   </C.Property>
-  <C.Property @name="isInline" @type="boolean" @default="false" @values={{array "true" "false"}}>
+  <C.Property @name="isInline" @type="boolean" @default="false">
     Sets the display for the HTML `<button>` element which is used in the "toggle". If `true`, it sets the element’s display to `inline-flex`. (Note: a `<button>` can’t have an `inline` layout.)
   </C.Property>
   <C.Property @name="yield">

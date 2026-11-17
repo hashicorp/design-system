@@ -64,13 +64,13 @@ The Dropdown component is composed of different child components each with their
   <C.Property @name="listPosition" @type="string" @values={{array "bottom-left" "bottom-right" "top-left" "top-right" }} @default="bottom-right">
     _Note: If `@enableCollisionDetection` is set, the list will automatically flip position to remain visible when near the edges of the screen regardless of the starting placement._
   </C.Property>
-  <C.Property @name="isInline" @type="boolean" @default="false" @values={{array "true" "false"}}>
+  <C.Property @name="isInline" @type="boolean" @default="false">
     If an `@isInline` parameter is provided, then the element will be displayed as `inline-block` (useful to achieve specific layouts like in a container with right alignment). Otherwise, it will have a `block` layout.
   </C.Property>
-  <C.Property @name="enableCollisionDetection" @type="boolean" @default="false" @values={{array "true" "false"}}>
+  <C.Property @name="enableCollisionDetection" @type="boolean" @default="false">
     Setting it to `true` will automatically flip the list position to remain visible when near the edges of the viewport.
   </C.Property>
-  <C.Property @name="isOpen" @type="boolean" @default="false" @values={{array "true" "false"}}>
+  <C.Property @name="isOpen" @type="boolean" @default="false">
     Controls if the list should be rendered initially opened.
   </C.Property>
   <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">

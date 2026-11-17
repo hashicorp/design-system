@@ -82,13 +82,15 @@ Tests are split into unit tests and integration tests under `tests/`. New tools,
 
 `docs-catalog.json` is generated data. Do not edit it by hand. The catalog builder reads Markdown pages from `website/docs`, joins component documentation metadata from `packages/components/component-catalog.json`, validates the result, and writes the snapshot to `packages/mcp/docs-catalog.json`.
 
-After changing the website documentation, run this command from `packages/mcp`:
+The release workflow regenerates the catalog in every "Version Packages" pull request, after the release notes are generated, so a release always ships the documentation as of that release. Documentation changes do not need to update the catalog themselves.
+
+To regenerate it by hand, for example to test the MCP server against a documentation change, run this command from `packages/mcp`:
 
 ```bash
 pnpm catalog:docs
 ```
 
-Review the generated diff to make sure the expected pages, routes, content, and metadata changed. The script preserves the existing `bundledAt` timestamp when the generated catalog content is unchanged.
+Review the generated diff to make sure the expected pages, routes, content, and metadata changed. The script preserves the existing `bundledAt` timestamp when the generated catalog content is unchanged, and fails when a page cannot be indexed, which stops the "Version Packages" pull request from being created.
 
 The component, token, and icon catalogs are also generated or synchronized by their owning packages. Update those source packages through their own documented workflows rather than editing copied catalog output in the MCP package.
 

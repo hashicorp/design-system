@@ -19,11 +19,12 @@ import { buildTokenCatalogRow } from "../../../support/token-catalog.js";
 const rows = [
   buildTokenCatalogRow(),
   buildTokenCatalogRow({
-    key: "{color.foreground.action}",
+    key: "{foreground.color.action}",
     $type: "color",
     $value: "#1060ff",
-    name: "token-color-foreground-action",
-    path: ["color", "foreground", "action"],
+    $modes: { default: "#1060ff", "cds-g0": "#0f62fe" },
+    name: "hds-foreground-color-action",
+    path: ["foreground", "color", "action"],
   }),
 ];
 
@@ -34,8 +35,8 @@ describe("completeTokenKeys", () => {
     expect(completeTokenKeys(tokens, "BORDER.RADIUS")).toStrictEqual([
       "{border.radius.x-small}",
     ]);
-    expect(completeTokenKeys(tokens, "TOKEN-COLOR")).toStrictEqual([
-      "{color.foreground.action}",
+    expect(completeTokenKeys(tokens, "HDS-FOREGROUND")).toStrictEqual([
+      "{foreground.color.action}",
     ]);
   });
 
@@ -56,8 +57,8 @@ describe("createGetTokenByKeyResource", () => {
 
   it("decodes token keys before reading the store", async () => {
     const result = await resource.readCallback(
-      new URL("hds://tokens/%7Bcolor.foreground.action%7D"),
-      { tokenKey: "%7Bcolor.foreground.action%7D" },
+      new URL("hds://tokens/%7Bforeground.color.action%7D"),
+      { tokenKey: "%7Bforeground.color.action%7D" },
       buildRequestHandlerExtra(),
     );
     const content = result.contents[0];
@@ -68,8 +69,32 @@ describe("createGetTokenByKeyResource", () => {
 
     expect(parseResourceJson(getTextContent(content))).toMatchObject({
       found: true,
-      requestedTokenKey: "{color.foreground.action}",
+      requestedTokenKey: "{foreground.color.action}",
     });
+  });
+
+  it("returns the token's value in each theme, and omits it for an unthemed one", async () => {
+    const read = async (tokenKey: string) => {
+      const result = await resource.readCallback(
+        new URL(`hds://tokens/${encodeURIComponent(tokenKey)}`),
+        { tokenKey: encodeURIComponent(tokenKey) },
+        buildRequestHandlerExtra(),
+      );
+      const content = result.contents[0];
+
+      if (content === undefined) {
+        throw new Error("Expected resource content");
+      }
+
+      return parseResourceJson(getTextContent(content));
+    };
+
+    expect(await read("{foreground.color.action}")).toMatchObject({
+      token: { modes: { default: "#1060ff", "cds-g0": "#0f62fe" } },
+    });
+    expect(
+      (await read("{border.radius.x-small}")).token,
+    ).not.toHaveProperty("modes");
   });
 
   it("returns a missing-variable response", async () => {
@@ -98,6 +123,6 @@ describe("createGetTokenByKeyResource", () => {
     expect(complete).toBeDefined();
     await expect(
       Promise.resolve(complete?.("foreground")),
-    ).resolves.toStrictEqual(["{color.foreground.action}"]);
+    ).resolves.toStrictEqual(["{foreground.color.action}"]);
   });
 });
