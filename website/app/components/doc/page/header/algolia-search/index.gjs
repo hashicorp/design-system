@@ -231,62 +231,51 @@ export default class DocAlgoliaSearchComponent extends Component {
       },
     });
 
-    // removes the listeners below when the element goes away
-    const listeners = new AbortController();
-    const { signal } = listeners;
-
     const alternativeTriggers = document.querySelectorAll(
       'button[data-doc-algolia-search-autocomplete-secondary-trigger]',
     );
-    if (alternativeTriggers) {
-      alternativeTriggers.forEach((alternativeTrigger) => {
-        alternativeTrigger.addEventListener(
-          'click',
-          () => {
-            autocompleteInstance.setIsOpen(true);
-          },
-          { signal },
-        );
-      });
-    }
+    const openModal = () => {
+      autocompleteInstance.setIsOpen(true);
+    };
+    alternativeTriggers.forEach((alternativeTrigger) => {
+      alternativeTrigger.addEventListener('click', openModal);
+    });
 
     // add event listener to open/close the modal via `command-K` hot-key
-    document.addEventListener(
-      'keydown',
-      (event) => {
-        if (event.metaKey && event.key === 'k') {
-          autocompleteInstance.setIsOpen(!this.isModalOpen);
-        }
-      },
-      { signal },
-    );
+    const onKeydown = (event) => {
+      if (event.metaKey && event.key === 'k') {
+        autocompleteInstance.setIsOpen(!this.isModalOpen);
+      }
+    };
+    document.addEventListener('keydown', onKeydown);
 
     // add event listener to prevent links (within the modal dialog) from re-loading the page
-    document.addEventListener(
-      'click',
-      (event) => {
-        const parentItemLink = event.target.closest('.aa-ItemLinkWrapper');
-        const parentSourceFooterLink = event.target.closest(
-          '.aa-SourceFooterLink',
-        );
-        if (parentItemLink) {
-          event.preventDefault();
-          const itemUrl = parentItemLink.getAttribute('href');
-          emberRouterTransitionTo(itemUrl);
-        } else if (parentSourceFooterLink) {
-          event.preventDefault();
-          const itemUrl = parentSourceFooterLink.getAttribute('href');
-          emberRouterTransitionTo(itemUrl);
-          // not sure wht I need to do this and not for the other links (maybe they already have some event attached to them?)
-          autocompleteInstance.setIsOpen(false);
-          autocompleteInstance.setQuery('');
-        }
-      },
-      { capture: true, signal },
-    );
+    const onClick = (event) => {
+      const parentItemLink = event.target.closest('.aa-ItemLinkWrapper');
+      const parentSourceFooterLink = event.target.closest(
+        '.aa-SourceFooterLink',
+      );
+      if (parentItemLink) {
+        event.preventDefault();
+        const itemUrl = parentItemLink.getAttribute('href');
+        emberRouterTransitionTo(itemUrl);
+      } else if (parentSourceFooterLink) {
+        event.preventDefault();
+        const itemUrl = parentSourceFooterLink.getAttribute('href');
+        emberRouterTransitionTo(itemUrl);
+        // not sure wht I need to do this and not for the other links (maybe they already have some event attached to them?)
+        autocompleteInstance.setIsOpen(false);
+        autocompleteInstance.setQuery('');
+      }
+    };
+    document.addEventListener('click', onClick, true);
 
     return () => {
-      listeners.abort();
+      alternativeTriggers.forEach((alternativeTrigger) => {
+        alternativeTrigger.removeEventListener('click', openModal);
+      });
+      document.removeEventListener('keydown', onKeydown);
+      document.removeEventListener('click', onClick, true);
       autocompleteInstance.destroy();
     };
   });
