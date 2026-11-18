@@ -70,7 +70,6 @@ const searchIconsResultShape = z.object({
   sizes: z.array(z.string()),
   // whether the icon maps to a Carbon icon, named in carbonIconName
   hasMapping: z.boolean(),
-  // the Carbon icon this one maps to, e.g. 'Arrow--right'
   carbonIconName: z.string().optional(),
 });
 

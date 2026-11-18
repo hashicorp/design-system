@@ -22,7 +22,6 @@ import type { RankableEntry } from "../../../src/stores/rank.js";
 interface Row {
   id: string;
   keywords: string;
-  // a name the row goes by elsewhere
   alias?: string;
 }
 

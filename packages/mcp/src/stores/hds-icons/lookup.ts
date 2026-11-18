@@ -22,7 +22,6 @@ export interface IconSummary {
   category: string;
   sizes: string[];
   hasMapping: boolean;
-  // the Carbon icon this one maps to, e.g. `Arrow--right`
   carbonIconName?: string;
 }
 

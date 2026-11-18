@@ -67,5 +67,11 @@ describe("Flight icon catalog", () => {
     expect(store.getIconByName("x")?.carbonIconName).toBe("Close");
     expect(top("Close")).toBe("x");
     expect(top("box")).toBe("box");
+
+    expect(store.getIconByName("archive")?.carbonIconName).toBe("Box");
+    // `archive` also has "box" as a keyword, so only its Carbon name puts it right after `box`
+    expect(
+      store.searchIcons({ query: "box", limit: 2 }).hits.map((icon) => icon.iconName),
+    ).toStrictEqual(["box", "archive"]);
   });
 });
