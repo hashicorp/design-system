@@ -4,4 +4,4 @@ In the Carbon Data Table component, the entire column header is interactive and 
 
 When using a Carbon theme, the interactive elements in HDS Advanced Table column headers remain buttons nested within the header cell, and the header cell itself is not interactive. Sorting buttons and tooltips are still visually distinguishable as interactive elements.
 
-![](/assets/components/table/table-interactive-functions-comparison.png)
+![](/assets/components/table/advanced-table/advanced-table-interactive-functions-comparison.png)
