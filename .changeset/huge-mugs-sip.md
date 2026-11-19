@@ -3,5 +3,5 @@
 ---
 
 <!-- START components/form/super-select -->
-`SuperSelect` - Fixed before and after options background color on Carbon dark themes
+`SuperSelect` - Fixed the background color for before and after options in Carbon dark themes.
 <!-- END -->
