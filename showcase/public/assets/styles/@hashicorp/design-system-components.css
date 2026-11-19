@@ -8202,6 +8202,7 @@ button.hds-button[href]::after {
 .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-content {
   max-width: var(--hds-var-form-super-select-dropdown-max-width, none);
   margin: 0;
+  background-color: var(--hds-form-control-surface-color-default);
   border: var(--hds-form-control-border-width) solid var(--hds-form-control-border-color-default);
   border-radius: var(--hds-form-control-border-radius);
 }
@@ -8231,7 +8232,6 @@ button.hds-button[href]::after {
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-options {
   padding: 3px 0;
-  background-color: var(--hds-form-control-surface-color-default);
   border-radius: inherit;
 }
 .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-options,

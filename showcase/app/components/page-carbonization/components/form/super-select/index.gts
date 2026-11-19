@@ -16,6 +16,7 @@ import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwDivider from 'showcase/components/shw/divider';
+import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
 
 import setCdsMultiSelectValue from 'showcase/modifiers/set-cds-multi-select-value';
@@ -622,7 +623,7 @@ const FormSuperSelectCarbonizationIndex: TemplateOnlyComponent = <template>
     </ShwCarbonizationComparisonGrid>
 
     <ShwCarbonizationComparisonGrid
-      @label="Multiple selection with search & after options"
+      @label="Multiple selection with search & HDS after options component"
       @layout="column-stacked"
     >
       <:theming>
@@ -692,6 +693,72 @@ const FormSuperSelectCarbonizationIndex: TemplateOnlyComponent = <template>
                   6 total
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </:theming>
+      <:reference>
+        <pre>TODO: static image here</pre>
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwCarbonizationComparisonGrid
+      @label="Multiple selection with generic before & after options"
+      @layout="column-stacked"
+    >
+      <:theming>
+        <div class="hds-form-super-select hds-form-super-select-multiple">
+          <div class="ember-basic-dropdown">
+            <div class="ember-power-select-search">
+              <input
+                class="ember-power-select-search-input"
+                type="search"
+                placeholder="Search"
+                aria-label="Search input"
+              />
+            </div>
+            <div
+              class="ember-basic-dropdown-content"
+              {{style position="static"}}
+            >
+              <ShwPlaceholder
+                @text="Before options placeholder w/transparent bg"
+                @background="transparent"
+                @height="40px"
+              />
+              <ul
+                class="ember-power-select-options"
+                role="listbox"
+                aria-label="Label"
+              >
+                <li class="ember-power-select-option" role="option">
+                  <div class="hds-form-super-select__option-text">Option 1</div>
+                </li>
+                <li
+                  class="ember-power-select-option"
+                  role="option"
+                  aria-selected="true"
+                >
+                  <div class="hds-form-super-select__option-text">Option 2
+                    (checked)</div>
+                </li>
+                <li
+                  class="ember-power-select-option"
+                  role="option"
+                  aria-selected="true"
+                >
+                  <div class="hds-form-super-select__option-text">Option 3
+                    (checked)</div>
+                </li>
+                <li class="ember-power-select-option" role="option">
+                  <div class="hds-form-super-select__option-text">Option 4</div>
+                </li>
+              </ul>
+              <ShwPlaceholder
+                @text="After options placeholder w/transparent bg"
+                @background="transparent"
+                @height="40px"
+              />
             </div>
           </div>
         </div>
