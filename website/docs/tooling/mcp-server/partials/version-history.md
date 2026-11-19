@@ -1,6 +1,6 @@
 ## 0.2.3
 
-### Patch Changes
+**Patch changes**
 
 Updated the bundled documentation catalog with the latest documentation, including the Tooling pages.
 
@@ -19,7 +19,7 @@ Fixed the documentation catalog build to expand code snippets that use the `them
 
 ## 0.2.2
 
-### Patch Changes
+**Patch changes**
 
 **🔄 Updated dependencies:**
 
@@ -29,7 +29,7 @@ Fixed the documentation catalog build to expand code snippets that use the `them
 
 ## 0.2.1
 
-### Patch Changes
+**Patch changes**
 
 **🔄 Updated dependencies:**
 
@@ -37,7 +37,7 @@ Fixed the documentation catalog build to expand code snippets that use the `them
 
 ## 0.2.0
 
-### Minor Changes
+**Minor changes**
 
 Added four MCP prompts for selecting, implementing, reviewing, and troubleshooting Helios components and patterns using documentation and resolved component APIs:
 
@@ -50,7 +50,7 @@ Added four MCP prompts for selecting, implementing, reviewing, and troubleshooti
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-### Patch Changes
+**Patch changes**
 
 **🔄 Updated dependencies:**
 
@@ -59,7 +59,7 @@ Added four MCP prompts for selecting, implementing, reviewing, and troubleshooti
 
 ## 0.1.0
 
-### Minor Changes
+**Minor changes**
 
 Added npm distribution for the Helios MCP server, installed as an application development dependency and launched with the `helios-design-system-mcp` command.
 
@@ -71,10 +71,9 @@ Fixed token and icon catalog fallback resolution to use the application's compon
 
 ## 0.0.1
 
-### Patch Changes
+**Patch changes**
 
 **🔄 Updated dependencies:**
 
 - @hashicorp/design-system-components@6.5.0
 - @hashicorp/flight-icons@5.1.0
-
