@@ -7,6 +7,10 @@ The Carbon theme of the Helios Pagination component draws visual aspects from bo
 - HDS Pagination Numbered: closer in visual appearance to Carbon's Pagination Nav
 - HDS Pagination Compact: closer in visual appearance to Carbon's default Pagination
 
+![](/assets/components/pagination/pagination-carbon-comparison.png)
+
 This will impact how Pagination is paired with a [Table](/components/table/table), [Advanced Table](/components/table/advanced-table), or other data set.
 
-<!-- Would like some input from the team on the rest of this content -->
+![](/assets/components/pagination/pagination-carbon-table-pairing-hds.png)
+
+![](/assets/components/pagination/pagination-carbon-table-pairing-cds.png)
