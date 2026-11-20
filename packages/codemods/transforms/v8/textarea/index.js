@@ -26,6 +26,44 @@ function hasHelpers(filePath) {
   }
 }
 
+const READONLY_OR_DISABLED_ATTRIBUTES = ['readonly', 'disabled', '@isReadOnly', '@isDisabled'];
+
+function isTruthyAttribute(attr) {
+  if (attr.value.type === 'TextNode') return attr.value.chars !== 'false';
+  if (attr.value.type === 'MustacheStatement') {
+    return attr.value.path.type === 'BooleanLiteral' && attr.value.path.value === true;
+  }
+  return false;
+}
+
+function isReadOnlyOrDisabled(node) {
+  return node.attributes.some(
+    (attr) => READONLY_OR_DISABLED_ATTRIBUTES.includes(attr.name) && isTruthyAttribute(attr)
+  );
+}
+
+function isGeneratedHandler(modifier, value) {
+  const [eventName, callback] = modifier.params;
+  return (
+    modifier.path.original === 'on' &&
+    eventName?.value === 'input' &&
+    callback?.type === 'SubExpression' &&
+    callback.path.original === 'pick' &&
+    callback.params[0]?.value === 'target.value' &&
+    callback.params[1]?.type === 'SubExpression' &&
+    callback.params[1].path.original === 'set' &&
+    callback.params[1].params.length === 2 &&
+    `${callback.params[1].params[0].original}.${callback.params[1].params[1].value}` ===
+      value.path?.original
+  );
+}
+
+function hasOnHandler(node, eventName) {
+  return node.modifiers.some(
+    (modifier) => modifier.path.original === 'on' && modifier.params[0]?.value === eventName
+  );
+}
+
 module.exports = function ({ source, path: filePath }, { parse, visit, backing, location }) {
   const ast = parse(source);
   const options = getOptions();
@@ -92,71 +130,38 @@ module.exports = function ({ source, path: filePath }, { parse, visit, backing, 
             return;
           }
 
-          const isReadOnlyOrDisabled = node.attributes.some((attr) => {
-            if (['readonly', 'disabled'].includes(attr.name)) {
-              if (!attr.value) return true;
-              if (attr.value.type === 'TextNode') return attr.value.chars !== 'false';
-              if (attr.value.type === 'MustacheStatement') {
-                return attr.value.path?.type === 'BooleanLiteral' && attr.value.path.value === true;
-              }
-              return false;
-            }
-            if (['@isReadOnly', '@isDisabled'].includes(attr.name)) {
-              if (!attr.value) return true;
-              if (attr.value.type === 'TextNode') return attr.value.chars !== 'false';
-              if (attr.value.type === 'MustacheStatement') {
-                return attr.value.path?.type === 'BooleanLiteral' && attr.value.path.value === true;
-              }
-              return false;
-            }
-            return false;
-          });
-          if (isReadOnlyOrDisabled) return;
+          // Users can't edit read-only or disabled textareas, so no value write-back is needed.
+          if (isReadOnlyOrDisabled(node)) return;
 
-          const isGeneratedHandler = (modifier) => {
-            const [eventName, callback] = modifier.params;
-            return (
-              modifier.path.original === 'on' &&
-              eventName?.value === 'input' &&
-              callback?.type === 'SubExpression' &&
-              callback.path.original === 'pick' &&
-              callback.params[0]?.value === 'target.value' &&
-              callback.params[1]?.type === 'SubExpression' &&
-              callback.params[1].path.original === 'set' &&
-              callback.params[1].params.length === 2 &&
-              `${callback.params[1].params[0].original}.${callback.params[1].params[1].value}` ===
-                value.path?.original
-            );
-          };
+          const hasForwardedAttributes = node.attributes.some(
+            (attribute) => attribute.name === '...attributes'
+          );
+          // Skip textareas that already have the single `input` handler this codemod generates.
           if (
             node.modifiers.length === 1 &&
-            !node.attributes.some((attribute) => attribute.name === '...attributes') &&
-            node.modifiers.some((modifier) => isGeneratedHandler(modifier))
+            !hasForwardedAttributes &&
+            isGeneratedHandler(node.modifiers[0], value)
           ) {
             return;
           }
           if (backing && backing.isMigrated(node)) return;
-          if (node.attributes.some((attribute) => attribute.name === '...attributes')) {
+          // Existing handlers, modifiers and forwarded attributes are never rewritten.
+          // Report them for manual review instead of risking a duplicate or conflicting handler.
+          if (hasForwardedAttributes) {
             report(
               node,
               'Review forwarded attributes (...attributes). Ensure input handlers explicitly update @value; no handlers were added.'
             );
             return;
           }
-          const hasInputHandler = node.modifiers.some(
-            (modifier) => modifier.path?.original === 'on' && modifier.params[0]?.value === 'input'
-          );
-          const hasChangeHandler = node.modifiers.some(
-            (modifier) => modifier.path?.original === 'on' && modifier.params[0]?.value === 'change'
-          );
-          if (hasInputHandler) {
+          if (hasOnHandler(node, 'input')) {
             report(
               node,
               'Existing input handler found; verify it explicitly updates state; no handlers were added.'
             );
             return;
           }
-          if (hasChangeHandler) {
+          if (hasOnHandler(node, 'change')) {
             report(
               node,
               'Only a change handler was found; state will update on blur rather than keystroke. Add an input handler if immediate state updates are required; no handlers were added.'
@@ -181,8 +186,10 @@ module.exports = function ({ source, path: filePath }, { parse, visit, backing, 
             )
           ) {
             let detail = '@value expression';
-            if (value.type === 'MustacheStatement' && value.path?.original) {
-              if (value.params?.length || value.hash?.pairs?.length) {
+            // Literals such as `{{true}}` or `{{1}}` have a non-string `original`, so only
+            // describe string paths.
+            if (value.type === 'MustacheStatement' && typeof value.path.original === 'string') {
+              if (value.params.length || value.hash.pairs.length) {
                 detail = `helper invocation "${value.path.original}"`;
               } else if (
                 value.path.original.startsWith('@') &&
@@ -193,7 +200,7 @@ module.exports = function ({ source, path: filePath }, { parse, visit, backing, 
                 detail = `expression "${value.path.original}"`;
               }
             } else if (value.type === 'SubExpression') {
-              detail = `subexpression "(${value.path?.original || '...'})"`;
+              detail = `subexpression "(${value.path.original || '...'})"`;
             }
             report(
               node,
