@@ -7,7 +7,12 @@ import Component from '@glimmer/component';
 import { modifier } from 'ember-modifier';
 import { TrackedMap } from 'tracked-built-ins';
 import { hash } from '@ember/helper';
-import { isPixelSize, measureColumnWidth, pixelToNumber } from '../utils.ts';
+import {
+  isPixelSize,
+  measureColumnWidth,
+  parsePixel,
+  pixelToNumber,
+} from '../utils.ts';
 
 import type {
   HdsAdvancedTableNormalizedColumn,
@@ -18,6 +23,14 @@ import type { ModifierLike } from '@glint/template';
 export const DEFAULT_WIDTH = '1fr'; // default to '1fr' to allow flexible width
 export const DEFAULT_MIN_WIDTH = '150px';
 export const SUBPIXEL_TOLERANCE = 0.5;
+// layout is measured in whole pixels (`offsetWidth`, `scrollWidth`)
+const MEASUREMENT_TOLERANCE = 1;
+// Chromium and WebKit lay out in 1/64px units, but serialize computed sizes
+// with fewer digits, so measured track sizes are snapped back onto that grid
+const LAYOUT_UNITS_PER_PX = 64;
+
+const snapToLayoutUnit = (px: number): number =>
+  Math.round(px * LAYOUT_UNITS_PER_PX) / LAYOUT_UNITS_PER_PX;
 
 type HdsAdvancedTableColumnWidth = HdsAdvancedTableNormalizedColumn['width'];
 
@@ -27,7 +40,6 @@ export interface HdsAdvancedTableSyncWidthValuesSignature {
 
 interface HdsAdvancedTableColumnManagerWidthSignature {
   Args: {
-    columnOrder: string[];
     columns: HdsAdvancedTableNormalizedColumn[];
     orderedColumns: HdsAdvancedTableNormalizedColumn[];
     thElements: TrackedMap<string, HTMLDivElement>;
@@ -79,6 +91,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     HdsAdvancedTablePixelString
   >();
   private _resizeStartWidths = new TrackedMap<string, number>();
+  private _resizedColumnFloors = new TrackedMap<string, number>();
 
   syncWidthValues = modifier<HdsAdvancedTableSyncWidthValuesSignature>(() => {
     const { columns } = this.args;
@@ -86,8 +99,15 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     for (const column of columns) {
       this._columnWidths.set(column.key, column.width ?? DEFAULT_WIDTH);
       this._originalColumnWidths.set(column.key, column.width ?? DEFAULT_WIDTH);
+      this._resizedColumnFloors.delete(column.key);
     }
   });
+
+  // the grid lays out its tracks in this order, which can differ from the
+  // stored column order until it syncs (or for tables that can't reorder)
+  private get _renderedColumnKeys(): string[] {
+    return this.args.orderedColumns.map((column) => column.key);
+  }
 
   get gridTemplateColumns(): string {
     const { isSelectable, orderedColumns } = this.args;
@@ -95,10 +115,25 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     let style = isSelectable ? 'min-content ' : '';
 
     for (const col of orderedColumns) {
-      style += ` ${this.getAppliedWidth(col.key)}`;
+      style += ` ${this._getGridTrack(col)}`;
     }
 
     return style;
+  }
+
+  // a plain `fr` track can't shrink below its content, so a resized column
+  // would snap back on release; resized columns get an explicit floor instead
+  private _getGridTrack(
+    column: HdsAdvancedTableNormalizedColumn
+  ): HdsAdvancedTableColumnWidth {
+    const width = this.getAppliedWidth(column.key);
+    const floor = this._resizedColumnFloors.get(column.key);
+
+    if (width === undefined || isPixelSize(width) || floor === undefined) {
+      return width;
+    }
+
+    return `minmax(${floor}px, ${width})`;
   }
 
   getAppliedWidth = (
@@ -124,19 +159,16 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
       return {};
     }
 
-    const columnIndex = this.args.columnOrder.indexOf(columnKey);
+    const keys = this._renderedColumnKeys;
+    const columnIndex = keys.indexOf(columnKey);
 
     if (columnIndex === -1) {
       return {};
     }
 
     return {
-      previous:
-        columnIndex === 0 ? undefined : this.args.columnOrder[columnIndex - 1],
-      next:
-        columnIndex === this.args.columnOrder.length - 1
-          ? undefined
-          : this.args.columnOrder[columnIndex + 1],
+      previous: columnIndex === 0 ? undefined : keys[columnIndex - 1],
+      next: columnIndex === keys.length - 1 ? undefined : keys[columnIndex + 1],
     };
   };
 
@@ -171,13 +203,55 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
   beginColumnResize = (): void => {
     this._resizeStartWidths.clear();
 
-    for (const key of this.args.columnOrder) {
-      const pixelWidth = this._getPxWidth(key);
+    const trackWidths = this._measureTrackWidths();
+
+    for (const key of this._renderedColumnKeys) {
+      const pixelWidth = trackWidths.get(key) ?? this._getPxWidth(key);
 
       this._resizeStartWidths.set(key, pixelWidth);
       this._transientColumnWidths.set(key, `${pixelWidth}px`);
     }
   };
+
+  // `offsetWidth` rounds to whole pixels, so freezing flexible tracks at it
+  // would shift every column when a resize starts and again when it ends;
+  // resolved track sizes are exact and unaffected by transforms
+  private _measureTrackWidths(): Map<string, number> {
+    const grid = this._getGridElement();
+    const columnKeys = this._renderedColumnKeys;
+
+    if (grid === undefined) {
+      return new Map();
+    }
+
+    const tracks = window
+      .getComputedStyle(grid)
+      .gridTemplateColumns.split(' ')
+      .map((track) => parsePixel(track));
+    // a selectable table has an extra leading track for the checkboxes
+    const columnTracks = tracks.slice(tracks.length - columnKeys.length);
+
+    if (columnTracks.length !== columnKeys.length) {
+      return new Map();
+    }
+
+    return new Map(
+      columnKeys.flatMap((key, index) => {
+        const width = columnTracks[index];
+
+        return width === undefined
+          ? []
+          : [[key, snapToLayoutUnit(width)] as const];
+      })
+    );
+  }
+
+  private _getGridElement(): HTMLElement | undefined {
+    const [thElement] = this.args.thElements.values();
+    const grid = thElement?.closest('.hds-advanced-table');
+
+    return grid instanceof HTMLElement ? grid : undefined;
+  }
 
   private _distributeWidthChange(keys: string[], amount: number): void {
     let remaining = amount;
@@ -222,7 +296,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     columnKey: HdsAdvancedTableNormalizedColumn['key'],
     deltaPx: number
   ): number => {
-    const order = this.args.columnOrder;
+    const order = this._renderedColumnKeys;
     const index = order.indexOf(columnKey);
 
     if (index === -1) {
@@ -269,7 +343,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
           : this._getPxWidth(column.key);
 
       return {
-        key: column.key,
+        column,
         pixelWidth,
         startPixelWidth: startPixelWidth ?? pixelWidth,
         frMultiplier: this._parseFrMultiplier(
@@ -281,29 +355,96 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
       };
     });
 
-    const pxPerFrUnit = this._resolvePxPerFrUnit(entries);
+    if (!entries.some((entry) => entry.hasMoved)) {
+      return;
+    }
 
-    for (const entry of entries) {
-      if (!entry.hasMoved) {
+    const pxPerFrUnit = this._resolvePxPerFrUnit(entries);
+    const isOverflowing = this._isTableOverflowing();
+    // when only fixed columns moved, the space left for `fr` tracks is
+    // unchanged, so the flexible columns keep their weights (and proportions)
+    const hasFlexibleColumnMoved = entries.some(
+      (entry) => entry.hasMoved && entry.frMultiplier !== undefined
+    );
+
+    for (const {
+      column,
+      pixelWidth,
+      startPixelWidth,
+      frMultiplier,
+      hasMoved,
+    } of entries) {
+      const isFlexible = frMultiplier !== undefined && pxPerFrUnit > 0;
+
+      if (isFlexible && hasFlexibleColumnMoved) {
+        this._columnWidths.set(
+          column.key,
+          this._commitFrWidth(
+            frMultiplier,
+            startPixelWidth,
+            pixelWidth,
+            pxPerFrUnit
+          )
+        );
+      }
+
+      if (!hasMoved) {
         continue;
       }
 
-      if (entry.frMultiplier !== undefined && pxPerFrUnit > 0) {
-        const weight = Math.max(
-          0,
-          entry.frMultiplier +
-            (entry.pixelWidth - entry.startPixelWidth) / pxPerFrUnit
-        );
+      if (isFlexible) {
+        const committedPx = Math.floor(pixelWidth);
 
-        this._columnWidths.set(
-          entry.key,
-          `${Math.round(weight * 1e6) / 1e6}fr`
+        // an overflowing table leaves no free space for `fr` tracks, so they
+        // render at their floor; otherwise a column that started below its
+        // minimum keeps its resized width
+        this._resizedColumnFloors.set(
+          column.key,
+          isOverflowing
+            ? committedPx
+            : Math.min(this._colMinPx(column), committedPx)
         );
       } else {
-        this._columnWidths.set(entry.key, `${Math.round(entry.pixelWidth)}px`);
+        this._columnWidths.set(column.key, `${Math.round(pixelWidth)}px`);
       }
     }
   };
+
+  // a weight that matches its rendered width is shifted by the delta, so
+  // measurement rounding can't drift untouched columns; a column pushed past
+  // its share by its content is rederived from its width, or the grid would
+  // redistribute it by weight and jump on release
+  private _commitFrWidth(
+    frMultiplier: number,
+    startPixelWidth: number,
+    pixelWidth: number,
+    pxPerFrUnit: number
+  ): HdsAdvancedTableColumnWidth {
+    const isProportional =
+      Math.abs(frMultiplier * pxPerFrUnit - startPixelWidth) <=
+      MEASUREMENT_TOLERANCE;
+    const weight = isProportional
+      ? frMultiplier + (pixelWidth - startPixelWidth) / pxPerFrUnit
+      : pixelWidth / pxPerFrUnit;
+
+    return `${Math.round(Math.max(0, weight) * 1e6) / 1e6}fr`;
+  }
+
+  // a resize moves width between columns without changing the total, so the
+  // table overflows after the commit exactly when it did before; the header
+  // spans every track, unlike `scrollWidth`, which also counts cell content
+  // spilling past the last column
+  private _isTableOverflowing(): boolean {
+    const scroller = this._getGridElement();
+    const [thElement] = this.args.thElements.values();
+    const thead = thElement?.closest('.hds-advanced-table__thead');
+
+    if (scroller === undefined || !(thead instanceof HTMLElement)) {
+      return false;
+    }
+
+    return thead.offsetWidth - scroller.clientWidth > MEASUREMENT_TOLERANCE;
+  }
 
   private _resolvePxPerFrUnit(
     entries: {
@@ -338,6 +479,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
       this._originalColumnWidths.get(columnKey) ?? DEFAULT_WIDTH;
 
     this._transientColumnWidths.delete(columnKey);
+    this._resizedColumnFloors.delete(columnKey);
     this._columnWidths.set(columnKey, originalWidth);
   };
 
