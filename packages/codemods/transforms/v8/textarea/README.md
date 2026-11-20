@@ -1,6 +1,6 @@
 # v8/textarea
 
-Migrates HDS Textarea's implicit two-way value binding to explicit `input` and `change` handlers for HDS 8.
+Migrates HDS Textarea's implicit two-way value binding to an explicit `input` handler for HDS 8.
 
 ## Usage
 
@@ -50,7 +50,7 @@ hdsTextareaValueChange = (object, key, event) => {
 
 Classic `Component.extend(...)` and `Controller.extend(...)` objects receive an `action(function (...) { ... })` property instead. Template-only strict-mode components receive a module-level handler. Existing import aliases are reused; new imports and handlers avoid name collisions.
 
-Both events preserve the old value updates, including change events dispatched without an input event. Existing event handlers are retained after the generated setters, so validation handlers can read the updated value. The codemod doesn't recreate the built-in's synthetic paste/cut handling. Normal paste and cut edits produce native input events.
+The generated handler updates the value on `input` events. Applications that dispatch `change` without `input` must also handle `change`. Existing event handlers are retained after the generated handler, so validation handlers can read the updated value. The codemod doesn't recreate the built-in's synthetic paste/cut handling. Normal paste and cut edits produce native input events.
 
 ## Supported cases
 

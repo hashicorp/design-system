@@ -64,6 +64,22 @@ function hasOnHandler(node, eventName) {
   );
 }
 
+function describeValue(value) {
+  // Literals such as `{{true}}` or `{{1}}` have a non-string `original`, so only
+  // describe string paths.
+  if (value.type !== 'MustacheStatement' || typeof value.path.original !== 'string') {
+    return '@value expression';
+  }
+  const { original } = value.path;
+  if (value.params.length || value.hash.pairs.length) {
+    return `helper invocation "${original}"`;
+  }
+  if (original.startsWith('@') && !original.includes('.')) {
+    return `standalone argument "${original}"`;
+  }
+  return `expression "${original}"`;
+}
+
 module.exports = function ({ source, path: filePath }, { parse, visit, backing, location }) {
   const ast = parse(source);
   const options = getOptions();
@@ -185,26 +201,9 @@ module.exports = function ({ source, path: filePath }, { parse, visit, backing, 
               value.path.original
             )
           ) {
-            let detail = '@value expression';
-            // Literals such as `{{true}}` or `{{1}}` have a non-string `original`, so only
-            // describe string paths.
-            if (value.type === 'MustacheStatement' && typeof value.path.original === 'string') {
-              if (value.params.length || value.hash.pairs.length) {
-                detail = `helper invocation "${value.path.original}"`;
-              } else if (
-                value.path.original.startsWith('@') &&
-                !value.path.original.includes('.')
-              ) {
-                detail = `standalone argument "${value.path.original}"`;
-              } else {
-                detail = `expression "${value.path.original}"`;
-              }
-            } else if (value.type === 'SubExpression') {
-              detail = `subexpression "(${value.path.original || '...'})"`;
-            }
             report(
               node,
-              `Cannot infer a writable object/property from @value (${detail}). Add an explicit value-update handler if caller state must change.`
+              `Cannot infer a writable object/property from @value (${describeValue(value)}). Add an explicit value-update handler if caller state must change.`
             );
             return;
           }

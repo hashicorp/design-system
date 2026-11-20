@@ -11,6 +11,10 @@ const globby = require('globby');
 const recast = require('ember-template-recast');
 const transform = require('./index');
 
+const HANDLER_NAME = 'hdsTextareaValueChange';
+const GENERATED_HANDLER_PATTERN = new RegExp(`^(this\\.)?${HANDLER_NAME}\\d*$`);
+const TEXTAREA_USAGE_PATTERN = /(?:textarea|key-value-inputs)/i;
+
 function walk(node, callback) {
   if (!node || typeof node !== 'object') return;
   if (Array.isArray(node)) {
@@ -28,6 +32,10 @@ function applyEdits(source, edits) {
     source = source.slice(0, start) + text + source.slice(end);
   }
   return source;
+}
+
+function formatSpecifier({ imported, local }) {
+  return local === imported ? imported : `${imported} as ${local}`;
 }
 
 function templatesIn(source, filename) {
@@ -255,7 +263,7 @@ function scriptState(source, filename) {
   }
   function context(owner, strict) {
     if (owners.has(owner)) return owners.get(owner);
-    const handler = freshMember(owner, 'hdsTextareaValueChange');
+    const handler = freshMember(owner, HANDLER_NAME);
     let used = false;
     const on = strict ? importName('@ember/modifier', 'on') : 'on';
     const fn = strict ? importName('@ember/helper', 'fn') : 'fn';
@@ -278,7 +286,7 @@ function scriptState(source, filename) {
             callback.path.original !== fn ||
             `${callback.params[1]?.original}.${callback.params[2]?.value}` !==
               value.path?.original ||
-            !/^((this\.)?hdsTextareaValueChange\d*)$/.test(callback.params[0]?.original || '')
+            !GENERATED_HANDLER_PATTERN.test(callback.params[0]?.original || '')
           ) {
             return false;
           }
@@ -401,39 +409,19 @@ function scriptState(source, filename) {
             const lastSpecifier = existingImport.specifiers
               .filter((s) => s.type === 'ImportSpecifier')
               .at(-1);
-            const formatted = items
-              .map(({ imported, local }) =>
-                local === imported ? imported : `${imported} as ${local}`
-              )
-              .join(', ');
-            const importText = source.slice(existingImport.start, existingImport.end);
-            if (importText.includes('\n')) {
-              const specifierLine = source.slice(0, lastSpecifier.start).split('\n').at(-1);
-              const indent = specifierLine.match(/^\s*/)[0];
-              const formattedMultiline = items
-                .map(
-                  ({ imported, local }) =>
-                    `\n${indent}${local === imported ? imported : `${imported} as ${local}`},`
-                )
-                .join('');
-              edits.push({
-                start: lastSpecifier.end,
-                end: lastSpecifier.end,
-                text: `${source.slice(lastSpecifier.end, existingImport.end).includes(',') ? '' : ','}${formattedMultiline}`,
-              });
-            } else {
-              edits.push({
-                start: lastSpecifier.end,
-                end: lastSpecifier.end,
-                text: `, ${formatted}`,
-              });
-            }
+            const isMultiline = source
+              .slice(existingImport.start, existingImport.end)
+              .includes('\n');
+            const indent = source.slice(0, lastSpecifier.start).split('\n').at(-1).match(/^\s*/)[0];
+            const separator = isMultiline ? `,\n${indent}` : ', ';
+            // Insert right after the last specifier so an existing trailing comma stays valid.
+            edits.push({
+              start: lastSpecifier.end,
+              end: lastSpecifier.end,
+              text: items.map((item) => `${separator}${formatSpecifier(item)}`).join(''),
+            });
           } else {
-            const specifiers = items
-              .map(({ imported, local }) =>
-                local === imported ? imported : `${imported} as ${local}`
-              )
-              .join(', ');
+            const specifiers = items.map(formatSpecifier).join(', ');
             newImportDeclarations.push(`import { ${specifiers} } from '${module}';`);
           }
         }
@@ -493,7 +481,7 @@ function migrate(files, { helpers = false } = {}) {
   };
   const migrateTemplate = (source, filename, backing, location) => {
     try {
-      const output = transform(
+      return transform(
         { source, path: filename },
         {
           parse: recast.parse,
@@ -501,11 +489,6 @@ function migrate(files, { helpers = false } = {}) {
           backing,
           location,
         }
-      );
-      if (output === source) return source;
-      return output.replace(
-        /^([ \t]+)(@\w+(?:=[^\n\r]+)?)[ \t]+({{on\b[^\n\r]+}})/gm,
-        '$1$2\n$1$3'
       );
     } catch (error) {
       const line = (error.hash?.loc?.first_line || 1) + (location?.line || 0);
@@ -523,7 +506,7 @@ function migrate(files, { helpers = false } = {}) {
   try {
     for (const [filename, source] of Object.entries(files)) {
       if (filename.endsWith('.hbs')) {
-        if (!/(?:textarea|key-value-inputs)/i.test(source)) {
+        if (!TEXTAREA_USAGE_PATTERN.test(source)) {
           continue;
         }
         const backingPath = backingFor(filename, read);
@@ -534,15 +517,12 @@ function migrate(files, { helpers = false } = {}) {
           migrateTemplate(source, filename, owner ? state.context(owner, false) : undefined)
         );
       } else if (/\.(gjs|gts)$/.test(filename)) {
-        if (!/(?:textarea|key-value-inputs)/i.test(source)) {
+        if (!TEXTAREA_USAGE_PATTERN.test(source)) {
           continue;
         }
         const state = stateFor(filename);
         for (const template of state.templates) {
-          if (
-            state.components.size === 0 &&
-            !/(?:textarea|key-value-inputs)/i.test(template.contents)
-          ) {
+          if (state.components.size === 0 && !TEXTAREA_USAGE_PATTERN.test(template.contents)) {
             continue;
           }
           const owner = state.ownerFor(template);
