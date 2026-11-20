@@ -1,0 +1,22 @@
+<Hds::Form::Textarea::Base @value={{this.description}} />
+<Hds::Form::Textarea::Field @value={{@model.description}} as |F|>
+  <F.Label>Description</F.Label>
+  <F.CharacterCount @maxLength={{100}} />
+</Hds::Form::Textarea::Field>
+<Hds::Form::Textarea::Field @value={{this.model.samlSettings.certificate}} />
+<Hds::Form::KeyValueInputs::Field @rowIndex={{0}} as |F|>
+  <F.Textarea @value={{this.value}} />
+  {{#each this.rows as |F|}}
+    <F.Textarea @value={{this.unrelated}} />
+  {{/each}}
+</Hds::Form::KeyValueInputs::Field>
+<OtherComponent as |F|>
+  <F.Textarea @value={{this.unrelated}} />
+</OtherComponent>
+<Hds::Form::KeyValueInputs @data={{this.rows}}>
+  <:row as |R|>
+    <R.Field as |F|>
+      <F.Textarea @value={{R.rowData.value}} />
+    </R.Field>
+  </:row>
+</Hds::Form::KeyValueInputs>

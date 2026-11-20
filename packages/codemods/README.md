@@ -35,6 +35,10 @@ node ./packages/codemods/bin/cli.js v3/dropdown path/to/some/glob/**/*.hbs
 * [v4/icon](transforms/v4/icon/README.md)
 <!--TRANSFORMS_END-->
 
+### v8
+
+* [v8/textarea](transforms/v8/textarea/README.md)
+
 ## Contributing
 
 ### Installation
