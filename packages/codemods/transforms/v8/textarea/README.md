@@ -50,7 +50,7 @@ hdsTextareaValueChange = (object, key, event) => {
 
 Classic `Component.extend(...)` and `Controller.extend(...)` objects receive an `action(function (...) { ... })` property instead. Template-only strict-mode components receive a module-level handler. Existing import aliases are reused; new imports and handlers avoid name collisions.
 
-The generated handler updates the value on `input` events. Applications that dispatch `change` without `input` must also handle `change`. Existing event handlers are retained after the generated handler, so validation handlers can read the updated value. The codemod doesn't recreate the built-in's synthetic paste/cut handling. Normal paste and cut edits produce native input events.
+The generated handler updates the value on `input` events. Applications that dispatch `change` without `input` must also handle `change`. With a backing class, other existing modifiers, such as `blur` handlers, are retained after the generated handler, so validation handlers can read the updated value. Textareas that already have an `input` or `change` handler are reported instead (see Manual review). The codemod doesn't recreate the built-in's synthetic paste/cut handling. Normal paste and cut edits produce native input events.
 
 ## Supported cases
 
@@ -61,8 +61,9 @@ The generated handler updates the value on `input` events. Applications that dis
 - Simple object/property paths such as `this.description`, `this.model.samlSettings.certificate`, and `@model.description`.
 - Contextual row objects are passed to the handler using `fn`; block-local values aren't referenced from JavaScript class scope.
 - Omitted and literal values are left unchanged because they don't require caller write-back.
+- Textareas that are statically read-only or disabled (`readonly`, `disabled`, `@isReadOnly`, or `@isDisabled` set to a truthy static value) are left unchanged because users can't edit them.
 
-The codemod is idempotent and doesn't touch native textarea elements or Ember's built-in Textarea. It plans all files before writing: a parser error aborts the run without writing template or backing-file changes. Ambiguous backing-file matches also abort instead of guessing.
+The codemod is idempotent and doesn't touch native textarea elements or Ember's built-in Textarea. It plans all files before writing: a script parse error aborts the run without writing template or backing-file changes. A template that can't be parsed is reported and left unchanged while other files continue. Ambiguous backing-file matches also abort instead of guessing.
 
 ### Template-only fallback
 
@@ -73,6 +74,7 @@ When no backing class can be identified for a `.hbs` template, the previous temp
 The codemod emits file/line diagnostics and leaves the invocation unchanged when:
 
 - Forwarded attributes could affect value updates.
+- The textarea already has an `{{on "input" ...}}` or `{{on "change" ...}}` handler. Check that it updates `@value`; a `change` handler alone updates state on blur rather than on each keystroke.
 - `@value` is a helper result, a standalone argument such as `@value`, or another expression without a statically identifiable object/property.
 - A directly bound `this` property is declared readonly or has a getter without a setter in the backing class.
 - A block parameter shadows the required helper or handler.

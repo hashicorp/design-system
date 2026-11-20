@@ -104,27 +104,14 @@ function scriptState(source, filename) {
 
   for (const node of ast.program.body) {
     if (node.type === 'ImportDeclaration') {
-      for (const specifier of node.specifiers) {
-        topLevelBindings.add(specifier.local.name);
-      }
-    } else if (node.type === 'VariableDeclaration') {
-      for (const decl of node.declarations) {
-        recordBindings(decl.id, topLevelBindings);
-      }
-    } else if (node.type === 'FunctionDeclaration' || node.type === 'ClassDeclaration') {
-      if (node.id) topLevelBindings.add(node.id.name);
-    } else if (node.type === 'ExportNamedDeclaration' && node.declaration) {
-      if (node.declaration.type === 'VariableDeclaration') {
-        for (const decl of node.declaration.declarations) {
-          recordBindings(decl.id, topLevelBindings);
-        }
-      } else if (node.declaration.id) {
-        topLevelBindings.add(node.declaration.id.name);
-      }
-    } else if (node.type === 'ExportDefaultDeclaration' && node.declaration) {
-      if (node.declaration.id) {
-        topLevelBindings.add(node.declaration.id.name);
-      }
+      node.specifiers.forEach((specifier) => topLevelBindings.add(specifier.local.name));
+      continue;
+    }
+    const declaration = node.type.startsWith('Export') ? node.declaration : node;
+    if (declaration?.type === 'VariableDeclaration') {
+      declaration.declarations.forEach((decl) => recordBindings(decl.id, topLevelBindings));
+    } else if (declaration?.id) {
+      topLevelBindings.add(declaration.id.name);
     }
   }
 
@@ -168,10 +155,8 @@ function scriptState(source, filename) {
     const existing = additions.find((item) => item.module === module && item.imported === imported);
     if (existing) return existing.local;
     let local = imported;
-    if (topLevelBindings.has(local) || localBindings.has(local)) {
-      for (let suffix = 2; topLevelBindings.has(local) || localBindings.has(local); suffix++) {
-        local = `${imported}${suffix}`;
-      }
+    for (let suffix = 2; topLevelBindings.has(local) || localBindings.has(local); suffix++) {
+      local = `${imported}${suffix}`;
     }
     topLevelBindings.add(local);
     additions.push({ module, imported, local });
@@ -491,10 +476,12 @@ function migrate(files, { helpers = false } = {}) {
         }
       );
     } catch (error) {
-      const line = (error.hash?.loc?.first_line || 1) + (location?.line || 0);
-      const col =
-        (error.hash?.loc?.first_column || 0) + 1 + (line === 1 ? location?.column || 0 : 0);
-      const msg = error.message ? error.message.split('\n')[0] : 'Parse error';
+      // Only template syntax errors carry `hash.loc`. Rethrow anything else (e.g. an unreadable
+      // package.json or a codemod bug) rather than misreporting it as a template parse error.
+      if (!error.hash?.loc) throw error;
+      const line = error.hash.loc.first_line + (location?.line || 0);
+      const col = error.hash.loc.first_column + 1 + (line === 1 ? location?.column || 0 : 0);
+      const msg = error.message.split('\n')[0];
       console.warn(
         `[v8/textarea] ${filename}:${line}:${col}: Could not parse template (${msg}); manual migration is required.`
       );

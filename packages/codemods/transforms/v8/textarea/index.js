@@ -207,6 +207,9 @@ module.exports = function ({ source, path: filePath }, { parse, visit, backing, 
             );
             return;
           }
+          const parts = value.path.original.split('.');
+          const property = parts.pop();
+          const object = parts.join('.');
           if (backing) {
             if (
               scopes.some((scope) =>
@@ -216,9 +219,6 @@ module.exports = function ({ source, path: filePath }, { parse, visit, backing, 
               report(node, 'A block parameter shadows a migration helper. No handlers were added.');
               return;
             }
-            const parts = value.path.original.split('.');
-            const property = parts.pop();
-            const object = parts.join('.');
             if (!backing.register(object, property, node, report)) return;
             node.modifiers.unshift(
               b.elementModifier(backing.on, [
@@ -242,9 +242,6 @@ module.exports = function ({ source, path: filePath }, { parse, visit, backing, 
             );
             return;
           }
-          const parts = value.path.original.split('.');
-          const property = parts.pop();
-          const object = parts.join('.');
           node.modifiers.push(
             b.elementModifier('on', [
               b.string('input'),
