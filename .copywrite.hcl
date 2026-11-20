@@ -17,6 +17,8 @@ project {
     "**/dist/**",
     # Type declarations
     "**/*.d.ts",
+    # ai docs
+    "ai-plans/**",
     # Generated files for Flight Icons
     "packages/flight-icons/svg-original/**",
     "packages/flight-icons/svg-react/**",
