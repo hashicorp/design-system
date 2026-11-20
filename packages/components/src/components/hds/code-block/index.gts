@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
-import { next, schedule } from '@ember/runloop';
+import { deferAfterRender, deferToNextTask } from '../../../utils/hds-defer.ts';
 import { htmlSafe } from '@ember/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
@@ -206,8 +206,7 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
     const grammar = language ? Prism.languages[language] : undefined;
 
     if (code) {
-      // eslint-disable-next-line ember/no-runloop
-      next((): void => {
+      deferToNextTask((): void => {
         if (language && grammar) {
           this._prismCode = htmlSafe(Prism.highlight(code, grammar, language));
         } else {
@@ -236,13 +235,12 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
           element,
         });
 
-        // eslint-disable-next-line ember/no-runloop
-        schedule('afterRender', (): void => {
+        deferAfterRender((): void => {
           this._updateCodeHeights();
           // we need to delay re-evaluating the context for prism plugins for as much as possible, and `afterRender` is the 'latest' we can use in the component lifecycle
           this._updatePrismPlugins();
-        });
-      });
+        }, this);
+      }, this);
     }
   };
 

@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { fn, hash } from '@ember/helper';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
-import { scheduleOnce } from '@ember/runloop';
+import { deferAfterRender } from '../../../../utils/hds-defer.ts';
 import { tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
 import { TrackedMap } from 'tracked-built-ins';
@@ -126,8 +126,7 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
       const setColumnOrder = () => (this.columnOrder = nextOrder);
 
       if (!isSame) {
-        // eslint-disable-next-line ember/no-runloop
-        scheduleOnce('afterRender', this, setColumnOrder);
+        deferAfterRender(setColumnOrder, this);
       }
     }
   );
