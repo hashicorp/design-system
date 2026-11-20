@@ -10,12 +10,16 @@ import ShwFlex from 'showcase/components/shw/flex';
 
 import { HdsDropdown } from '@hashicorp/design-system-components/components';
 
+import CodeFragmentWithExternalControl from 'showcase/components/page-components/dropdown/code-fragments/with-external-control';
+import CodeFragmentOnboardingFlow from 'showcase/components/page-components/dropdown/code-fragments/onboarding-flow';
+import CodeFragmentOnboardingFlowWithBubble from 'showcase/components/page-components/dropdown/code-fragments/onboarding-flow-with-bubble';
+
 const SubSectionDemo: TemplateOnlyComponent = <template>
   <ShwTextH2>Demo</ShwTextH2>
 
   <ShwFlex as |SF|>
-    <SF.Label>Using <code>preserveContentInDom</code></SF.Label>
-    <SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label>Using <code>preserveContentInDom</code></SFI.Label>
       <div class="shw-component-dropdown-fixed-height-container">
         <HdsDropdown
           @listPosition="bottom-left"
@@ -36,6 +40,25 @@ const SubSectionDemo: TemplateOnlyComponent = <template>
             whether the dropdown is open or closed
           </D.Footer>
         </HdsDropdown>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Using @forceState to externally control dropdown">
+      <div class="shw-component-dropdown-fixed-height-container">
+        <CodeFragmentWithExternalControl />
+      </div>
+    </SF.Item>
+    <SF.Item
+      @label="External button opens both dropdown and nested rich tooltip"
+    >
+      <div class="shw-component-dropdown-fixed-height-container">
+        <CodeFragmentOnboardingFlow />
+      </div>
+    </SF.Item>
+    <SF.Item
+      @label="External button opens both dropdown and nested rich tooltip bubble"
+    >
+      <div class="shw-component-dropdown-fixed-height-container">
+        <CodeFragmentOnboardingFlowWithBubble />
       </div>
     </SF.Item>
   </ShwFlex>

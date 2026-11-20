@@ -14,9 +14,12 @@ import HdsRichTooltipBubble from './bubble.gts';
 import HdsPopoverPrimitive from '../popover-primitive/index.gts';
 
 import type { HdsPopoverPrimitiveSignature } from '../popover-primitive/index.gts';
+import type { HdsRichTooltipForceStates } from './types.ts';
 
 export interface HdsRichTooltipSignature {
-  Args: Omit<HdsPopoverPrimitiveSignature['Args'], 'enableSoftEvents'>;
+  Args: Omit<HdsPopoverPrimitiveSignature['Args'], 'enableSoftEvents'> & {
+    forceState?: HdsRichTooltipForceStates;
+  };
   Blocks: {
     default: [
       {
@@ -26,7 +29,13 @@ export interface HdsRichTooltipSignature {
         >;
         Bubble?: WithBoundArgs<
           typeof HdsRichTooltipBubble,
-          'arrowId' | 'popoverId' | 'setupPrimitivePopover' | 'isOpen'
+          | 'arrowId'
+          | 'popoverId'
+          | 'setupPrimitivePopover'
+          | 'isOpen'
+          | 'forceState'
+          | 'showPopover'
+          | 'hidePopover'
         >;
         isOpen?: boolean;
         close: (event?: Event) => void;
@@ -74,6 +83,9 @@ export default class HdsRichTooltip extends Component<HdsRichTooltipSignature> {
               popoverId=this._popoverId
               setupPrimitivePopover=PP.setupPrimitivePopover
               isOpen=PP.isOpen
+              forceState=@forceState
+              showPopover=PP.showPopover
+              hidePopover=PP.hidePopover
             )
             isOpen=PP.isOpen
             close=PP.hidePopover

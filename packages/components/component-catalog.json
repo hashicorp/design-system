@@ -4782,6 +4782,12 @@
           "required": false
         },
         {
+          "name": "forceState",
+          "type": "\"open\" | \"close\"",
+          "required": false,
+          "values": ["open", "close"]
+        },
+        {
           "name": "height",
           "type": "string",
           "required": false
@@ -11559,6 +11565,12 @@
           "inheritedFrom": "hds/popover-primitive"
         },
         {
+          "name": "forceState",
+          "type": "\"open\" | \"close\"",
+          "required": false,
+          "values": ["open", "close"]
+        },
+        {
           "name": "isOpen",
           "type": "boolean",
           "required": false,
@@ -11593,7 +11605,7 @@
             },
             {
               "name": "Bubble",
-              "type": "WithBoundArgs<typeof HdsRichTooltipBubble, 'arrowId' | 'popoverId' | 'setupPrimitivePopover' | 'isOpen'>"
+              "type": "WithBoundArgs<typeof HdsRichTooltipBubble, 'arrowId' | 'popoverId' | 'setupPrimitivePopover' | 'isOpen' | 'forceState' | 'showPopover' | 'hidePopover'>"
             },
             {
               "name": "isOpen",
@@ -11629,8 +11641,19 @@
           "required": false
         },
         {
+          "name": "forceState",
+          "type": "\"open\" | \"close\"",
+          "required": false,
+          "values": ["open", "close"]
+        },
+        {
           "name": "height",
           "type": "string",
+          "required": false
+        },
+        {
+          "name": "hidePopover",
+          "type": "(event?: Event | undefined) => void",
           "required": false
         },
         {
@@ -11671,6 +11694,11 @@
           "name": "setupPrimitivePopover",
           "type": "ModifierLike<SetupPrimitivePopoverModifier>",
           "required": true
+        },
+        {
+          "name": "showPopover",
+          "type": "() => void",
+          "required": false
         },
         {
           "name": "width",
