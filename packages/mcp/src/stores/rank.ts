@@ -16,6 +16,9 @@ import type { CatalogSearchOutcome } from "./types.js";
  * returned the 20 alphabetically-first, none of which was `Hds::Form`.
  */
 export const RANK_EXACT = 500;
+// the whole of a name the entry goes by elsewhere, such as an icon's Carbon name: below the
+// entry's own name, above a prefix of anyone else's, so `Close` finds `x` before `closed-caption`
+export const RANK_SECONDARY_EXACT = 450;
 export const RANK_PREFIX = 400;
 export const RANK_SEGMENT = 300;
 export const RANK_IDENTITY = 200;
@@ -44,6 +47,9 @@ const canonicalize = (value: string): string => {
 export interface RankableEntry {
   // the names a caller would type, already normalized
   identities: string[];
+  // names the entry goes by elsewhere, already normalized; only a whole-name match ranks, since
+  // a fragment of one is no more telling than a keyword, so keep them in the blob as well
+  secondaryIdentities?: string[];
   // everything else that is searchable: description, category, value, docs route
   blob: string;
 }
@@ -121,6 +127,15 @@ export const scoreEntry = (
       identityLength = identity.length;
     } else if (identityScore === score && identity.length < identityLength) {
       identityLength = identity.length;
+    }
+  }
+
+  if (score < RANK_SECONDARY_EXACT) {
+    for (const identity of entry.secondaryIdentities ?? []) {
+      if (scoreIdentity(identity, query) === RANK_EXACT) {
+        score = RANK_SECONDARY_EXACT;
+        identityLength = identity.length;
+      }
     }
   }
 
