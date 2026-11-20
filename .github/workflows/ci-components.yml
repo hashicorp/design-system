@@ -88,7 +88,8 @@ jobs:
   try-scenarios:
     name: ${{ matrix.try-scenario }}
     runs-on: ubuntu-latest
-    needs: "test"
+    needs: [conditional-skip]
+    if: needs.conditional-skip.outputs.trigger-ci == 'true'
 
     strategy:
       fail-fast: false
