@@ -83,6 +83,7 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
   private _initialForceState = this.args.forceState;
   private _isInitialStateSet = false;
   private _isInitialSync = true;
+  private _isReturningFocus = false;
 
   constructor(owner: Owner, args: HdsPopoverPrimitiveSignature['Args']) {
     super(owner, args);
@@ -342,7 +343,13 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
           initiator &&
           this._popoverElement.contains(document.activeElement)
         ) {
-          initiator.focus();
+          this._isReturningFocus = true;
+
+          try {
+            initiator.focus();
+          } finally {
+            this._isReturningFocus = false;
+          }
         }
       }
     }
@@ -402,7 +409,7 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
 
   onFocusOut = (event: FocusEvent): void => {
     // to avoid triggering a second hide when moving focus to another element with returnFocusTo
-    if (this._isClosing) {
+    if (this._isReturningFocus) {
       return;
     }
 
