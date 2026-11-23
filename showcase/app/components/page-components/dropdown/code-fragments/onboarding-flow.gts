@@ -15,7 +15,6 @@ import {
 } from '@hashicorp/design-system-components/components';
 import type { HdsPopoverPrimitiveForceStates } from '@hashicorp/design-system-components/components/hds/popover-primitive/types';
 
-
 export default class CodeFragmentOnboardingFlow extends Component {
   @tracked dropdownState: HdsPopoverPrimitiveForceStates = 'close';
   @tracked tooltipState: HdsPopoverPrimitiveForceStates = 'close';
