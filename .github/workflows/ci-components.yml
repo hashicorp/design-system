@@ -57,8 +57,8 @@ jobs:
       - name: Check Component Catalog
         run: pnpm test:component-catalog
         working-directory: packages/components
-      - name: Test Styles
-        run: pnpm test:styles
+      - name: Test Styles Sanitization
+        run: pnpm test:styles-sanitization
         working-directory: packages/components
       - name: Lint Showcase
         run: pnpm lint

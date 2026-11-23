@@ -5,9 +5,9 @@
 
 import postcss from 'postcss';
 
-function isHeaderBlock(block) {
+function isCopyrightHeaderBlock(block) {
   return (
-    /Copyright\b/.test(block) ||
+    /Copyright IBM Corp.\b/.test(block) ||
     /SPDX-License-Identifier:/.test(block) ||
     /Do not edit directly, this file was auto-generated\./.test(block)
   );
@@ -56,12 +56,12 @@ function sanitizeRoot(root) {
 
   const firstContentNode = nodes[firstContentIndex];
   const canonicalHeaderNode =
-    firstContentNode?.type === 'comment' && isHeaderBlock(firstContentNode.text)
+    firstContentNode?.type === 'comment' && isCopyrightHeaderBlock(firstContentNode.text)
       ? firstContentNode
       : null;
 
   root.walkComments((node) => {
-    if (isHeaderBlock(node.text) && node !== canonicalHeaderNode) {
+    if (isCopyrightHeaderBlock(node.text) && node !== canonicalHeaderNode) {
       mergeSpacingIntoNextNode(node);
       node.remove();
     }
