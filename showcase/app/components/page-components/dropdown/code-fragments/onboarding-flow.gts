@@ -20,10 +20,22 @@ import type { HdsRichTooltipForceStates } from '@hashicorp/design-system-compone
 export default class CodeFragmentOnboardingFlow extends Component {
   @tracked dropdownState: HdsDropdownForceStates = 'close';
   @tracked tooltipState: HdsRichTooltipForceStates = 'close';
+  @tracked showOnboarding = true;
+
+  private _isDone = false;
 
   startOnboarding = () => {
+    this._isDone = false;
+    this.showOnboarding = true;
     this.dropdownState = 'open';
     this.tooltipState = 'open';
+  };
+
+  reset = () => {
+    this._isDone = false;
+    this.showOnboarding = true;
+    this.dropdownState = 'close';
+    this.tooltipState = 'close';
   };
 
   onDropdownOpen = () => {
@@ -41,26 +53,40 @@ export default class CodeFragmentOnboardingFlow extends Component {
 
   onTooltipClose = () => {
     this.tooltipState = 'close';
+
+    // remove onboarding tooltip here instead of onDone, so @returnFocusTo can run
+    if (this._isDone) {
+      this.showOnboarding = false;
+    }
   };
 
   onDone = () => {
-    // have to first manually move focus back to the tooltip toggle
-    document.getElementById('onboarding-flow-tooltip-toggle')?.focus();
+    this._isDone = true;
     this.tooltipState = 'close';
   };
 
   <template>
-    <HdsButton
-      @text="Try it out"
-      @color="secondary"
-      {{on "click" this.startOnboarding}}
-    />
+    <HdsLayoutFlex @gap="8">
+      <HdsButton
+        @text="Try it out"
+        @color="secondary"
+        {{on "click" this.startOnboarding}}
+      />
+      <HdsButton
+        @text="Reset"
+        @color="secondary"
+        {{on "click" this.reset}}
+      />
+    </HdsLayoutFlex>
     <p>
       Dropdown state:
       {{this.dropdownState}}
       <br />
       Tooltip state:
       {{this.tooltipState}}
+            <br />
+      Onboarding shown:
+      {{this.showOnboarding}}
     </p>
     <HdsDropdown
       @listPosition="bottom-left"
@@ -74,36 +100,40 @@ export default class CodeFragmentOnboardingFlow extends Component {
       <D.Interactive @href="#">Admin</D.Interactive>
       <D.Interactive @href="#">Sign out</D.Interactive>
       <D.Separator />
-      <D.Generic>
-        <HdsRichTooltip
-          @enableClickEvents={{true}}
-          @forceState={{this.tooltipState}}
-          @onOpen={{this.onTooltipOpen}}
-          @onClose={{this.onTooltipClose}}
-          as |RT|
-        >
-          <RT.Toggle
-            id="onboarding-flow-tooltip-toggle"
-            @text="Theme (New)"
-            @size="medium"
-          />
-          <RT.Bubble @placement="left-start">
-            <HdsLayoutFlex @direction="column" @gap="8">
-              <HdsTextBody @color="strong" @weight="semibold">Choose your theme</HdsTextBody>
-              <HdsTextBody @color="primary">Lorem ipsum dolor sit amet,
-                consectetur adipisici tempor incidunt ut labore et dolore
-              </HdsTextBody>
-              <HdsButton
-                @text="Done"
-                @size="small"
-                {{on "click" this.onDone}}
-              />
-            </HdsLayoutFlex>
-          </RT.Bubble>
-        </HdsRichTooltip>
-      </D.Generic>
-      {{! make sure that tabbing out of tooltip takes you to next element in dropdown }}
-      <D.Interactive @href="#">sdfjhkjf</D.Interactive>
+      {{#if this.showOnboarding}}
+        <D.Generic>
+          <HdsRichTooltip
+            @enableClickEvents={{true}}
+            @forceState={{this.tooltipState}}
+            @returnFocusTo="default-button"
+            @onOpen={{this.onTooltipOpen}}
+            @onClose={{this.onTooltipClose}}
+            as |RT|
+          >
+            <RT.Toggle
+              id="onboarding-flow-tooltip-toggle"
+              @text="Theme (New)"
+              @size="medium"
+            />
+            <RT.Bubble @placement="left-start">
+              <HdsLayoutFlex @direction="column" @gap="8">
+                <HdsTextBody @color="strong" @weight="semibold">Choose your theme</HdsTextBody>
+                <HdsTextBody @color="primary">Lorem ipsum dolor sit amet,
+                  consectetur adipisici tempor incidunt ut labore et dolore
+                </HdsTextBody>
+                <HdsButton
+                  @text="Done"
+                  @size="small"
+                  {{on "click" this.onDone}}
+                />
+              </HdsLayoutFlex>
+            </RT.Bubble>
+          </HdsRichTooltip>
+        </D.Generic>
+      {{/if}}
+      <D.Interactive id="default-button">Default</D.Interactive>
+      <D.Interactive>Light</D.Interactive>
+      <D.Interactive>Dark</D.Interactive>
     </HdsDropdown>
   </template>
 }

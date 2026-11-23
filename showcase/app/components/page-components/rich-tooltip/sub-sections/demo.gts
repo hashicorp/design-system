@@ -34,6 +34,7 @@ import type { HdsBadgeColors } from '@hashicorp/design-system-components/compone
 import type { HdsIconSignature } from '@hashicorp/design-system-components/components/hds/icon/index';
 
 import CodeFragmentWithExternalControl from 'showcase/components/page-components/rich-tooltip/code-fragments/with-external-control';
+import CodeFragmentWithReturnFocus from 'showcase/components/page-components/rich-tooltip/code-fragments/with-return-focus';
 
 interface DEMO_TABLE_DATA_ITEM {
   id: number;
@@ -635,6 +636,9 @@ export default class SubSectionDemo extends Component {
     <ShwFlex @gap="3rem" as |SF|>
       <SF.Item @label="Using @forceState to externally control the RichTooltip">
         <CodeFragmentWithExternalControl />
+      </SF.Item>
+      <SF.Item @label="Using @returnFocusTo to move focus to the toggle on close">
+        <CodeFragmentWithReturnFocus />
       </SF.Item>
     </ShwFlex>
 

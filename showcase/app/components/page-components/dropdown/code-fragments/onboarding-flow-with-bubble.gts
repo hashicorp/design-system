@@ -21,13 +21,25 @@ import type { HdsRichTooltipForceStates } from '@hashicorp/design-system-compone
 export default class CodeFragmentOnboardingFlowWithBubble extends Component {
   @tracked dropdownState: HdsDropdownForceStates = 'close';
   @tracked tooltipState: HdsRichTooltipForceStates = 'close';
+  @tracked showOnboarding = true;
+
+  private _isDone = false;
 
   popoverId = 'onboarding-flow-with-bubble-popover';
   arrowId = 'onboarding-flow-with-bubble-arrow';
 
   startOnboarding = () => {
+    this._isDone = false;
+    this.showOnboarding = true;
     this.dropdownState = 'open';
     this.tooltipState = 'open';
+  };
+
+  reset = () => {
+    this._isDone = false;
+    this.showOnboarding = true;
+    this.dropdownState = 'close';
+    this.tooltipState = 'close';
   };
 
   onDropdownOpen = () => {
@@ -45,25 +57,40 @@ export default class CodeFragmentOnboardingFlowWithBubble extends Component {
 
   onTooltipClose = () => {
     this.tooltipState = 'close';
+
+    // remove the tooltip only once it has closed, so focus is moved by @returnFocusTo first
+    if (this._isDone) {
+      this.showOnboarding = false;
+    }
   };
 
   onDone = () => {
-    document.getElementById('onboarding-flow-tooltip-toggle')?.focus();
+    this._isDone = true;
     this.tooltipState = 'close';
   };
 
   <template>
-    <HdsButton
-      @text="Try it out"
-      @color="secondary"
-      {{on "click" this.startOnboarding}}
-    />
+    <HdsLayoutFlex @gap="8">
+      <HdsButton
+        @text="Try it out"
+        @color="secondary"
+        {{on "click" this.startOnboarding}}
+      />
+      <HdsButton
+        @text="Reset"
+        @color="secondary"
+        {{on "click" this.reset}}
+      />
+    </HdsLayoutFlex>
     <p>
       Dropdown state:
       {{this.dropdownState}}
       <br />
       Tooltip state:
       {{this.tooltipState}}
+      <br />
+      Onboarding shown:
+      {{this.showOnboarding}}
     </p>
     <HdsDropdown
       @listPosition="bottom-left"
@@ -77,46 +104,53 @@ export default class CodeFragmentOnboardingFlowWithBubble extends Component {
       <D.Interactive @href="#">Admin</D.Interactive>
       <D.Interactive @href="#">Sign out</D.Interactive>
       <D.Separator />
-      <HdsPopoverPrimitive
-        @enableClickEvents={{true}}
-        @onOpen={{this.onTooltipOpen}}
-        @onClose={{this.onTooltipClose}}
-        as |PP|
-      >
-        <D.Interactive
-          {{! @glint-expect-error - D.Interactive element type is a union, but PopoverPrimitive's toggle modifier expects button }}
-          {{PP.setupPrimitiveToggle}}
-          aria-describedby={{this.popoverId}}
-          aria-expanded={{if PP.isOpen "true" "false"}}
-          id="onboarding-flow-tooltip-toggle"
+      {{#if this.showOnboarding}}
+        <HdsPopoverPrimitive
+          @enableClickEvents={{true}}
+          @forceState={{this.tooltipState}}
+          @returnFocusTo="onboarding-flow-default-button"
+          @onOpen={{this.onTooltipOpen}}
+          @onClose={{this.onTooltipClose}}
+          as |PP|
         >
-          Theme (New)
-        </D.Interactive>
-        <D.Generic>
-          <HdsRichTooltipBubble
-            @popoverId={{this.popoverId}}
-            @arrowId={{this.arrowId}}
-            @setupPrimitivePopover={{PP.setupPrimitivePopover}}
-            @isOpen={{PP.isOpen}}
-            @forceState={{this.tooltipState}}
-            @showPopover={{PP.showPopover}}
-            @hidePopover={{PP.hidePopover}}
-            @placement="left-start"
+          <D.Interactive
+            {{! @glint-expect-error - D.Interactive element type is a union, but PopoverPrimitive's toggle modifier expects button }}
+            {{PP.setupPrimitiveToggle}}
+            aria-describedby={{this.popoverId}}
+            aria-expanded={{if PP.isOpen "true" "false"}}
+            id="onboarding-flow-tooltip-toggle"
           >
-            <HdsLayoutFlex @direction="column" @gap="8">
-              <HdsTextBody @color="strong" @weight="semibold">Choose your theme</HdsTextBody>
-              <HdsTextBody @color="primary">Lorem ipsum dolor sit amet,
-                consectetur adipisici tempor incidunt ut labore et dolore
-              </HdsTextBody>
-              <HdsButton
-                @text="Done"
-                @size="small"
-                {{on "click" this.onDone}}
-              />
-            </HdsLayoutFlex>
-          </HdsRichTooltipBubble>
-        </D.Generic>
-      </HdsPopoverPrimitive>
+            Theme (New)
+          </D.Interactive>
+          <D.Generic {{PP.setupPrimitiveContainer}}>
+            <HdsRichTooltipBubble
+              @popoverId={{this.popoverId}}
+              @arrowId={{this.arrowId}}
+              @setupPrimitivePopover={{PP.setupPrimitivePopover}}
+              @isOpen={{PP.isOpen}}
+              {{!-- @forceState={{this.tooltipState}} --}}
+              {{!-- @showPopover={{PP.showPopover}} --}}
+              {{!-- @hidePopover={{PP.hidePopover}} --}}
+              @placement="left-start"
+            >
+              <HdsLayoutFlex @direction="column" @gap="8">
+                <HdsTextBody @color="strong" @weight="semibold">Choose your theme</HdsTextBody>
+                <HdsTextBody @color="primary">Lorem ipsum dolor sit amet,
+                  consectetur adipisici tempor incidunt ut labore et dolore
+                </HdsTextBody>
+                <HdsButton
+                  @text="Done"
+                  @size="small"
+                  {{on "click" this.onDone}}
+                />
+              </HdsLayoutFlex>
+            </HdsRichTooltipBubble>
+          </D.Generic>
+        </HdsPopoverPrimitive>
+      {{/if}}
+      <D.Interactive id="onboarding-flow-default-button">Default</D.Interactive>
+      <D.Interactive>Light</D.Interactive>
+      <D.Interactive>Dark</D.Interactive>
     </HdsDropdown>
   </template>
 }
