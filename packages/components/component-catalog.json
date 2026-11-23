@@ -11419,6 +11419,12 @@
           "required": false
         },
         {
+          "name": "forceState",
+          "type": "\"open\" | \"close\"",
+          "required": false,
+          "values": ["open", "close"]
+        },
+        {
           "name": "isOpen",
           "type": "boolean",
           "required": false
@@ -11436,6 +11442,11 @@
         {
           "name": "onOpen",
           "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "returnFocusTo",
+          "type": "string",
           "required": false
         }
       ],
@@ -11559,6 +11570,13 @@
           "inheritedFrom": "hds/popover-primitive"
         },
         {
+          "name": "forceState",
+          "type": "\"open\" | \"close\"",
+          "required": false,
+          "values": ["open", "close"],
+          "inheritedFrom": "hds/popover-primitive"
+        },
+        {
           "name": "isOpen",
           "type": "boolean",
           "required": false,
@@ -11579,6 +11597,12 @@
         {
           "name": "onOpen",
           "type": "() => void",
+          "required": false,
+          "inheritedFrom": "hds/popover-primitive"
+        },
+        {
+          "name": "returnFocusTo",
+          "type": "string",
           "required": false,
           "inheritedFrom": "hds/popover-primitive"
         }
