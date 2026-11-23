@@ -56,7 +56,8 @@ function sanitizeRoot(root) {
 
   const firstContentNode = nodes[firstContentIndex];
   const canonicalHeaderNode =
-    firstContentNode?.type === 'comment' && isCopyrightHeaderBlock(firstContentNode.text)
+    firstContentNode?.type === 'comment' &&
+    isCopyrightHeaderBlock(firstContentNode.text)
       ? firstContentNode
       : null;
 
