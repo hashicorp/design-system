@@ -54,6 +54,8 @@ export interface HdsDropdownSignature {
     onOpen?: HdsPopoverPrimitiveSignature['Args']['onOpen'];
     onClose?: HdsPopoverPrimitiveSignature['Args']['onClose'];
     onFocusOut?: HdsPopoverPrimitiveSignature['Args']['onFocusOut'];
+    forceState?: HdsPopoverPrimitiveSignature['Args']['forceState'];
+    returnFocusTo?: HdsPopoverPrimitiveSignature['Args']['returnFocusTo'];
     boundary?: HdsAnchoredPositionOptions['boundary'];
   };
   Blocks: {
@@ -175,6 +177,8 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
       @onClose={{@onClose}}
       @onFocusOut={{@onFocusOut}}
       @boundary={{@boundary}}
+      @forceState={{@forceState}}
+      @returnFocusTo={{@returnFocusTo}}
       @enableClickEvents={{true}}
       as |PP|
     >

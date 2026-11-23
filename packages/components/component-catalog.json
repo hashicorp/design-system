@@ -4782,6 +4782,12 @@
           "required": false
         },
         {
+          "name": "forceState",
+          "type": "\"open\" | \"close\"",
+          "required": false,
+          "values": ["open", "close"]
+        },
+        {
           "name": "height",
           "type": "string",
           "required": false
@@ -4825,6 +4831,11 @@
         {
           "name": "preserveContentInDom",
           "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "returnFocusTo",
+          "type": "string",
           "required": false
         },
         {

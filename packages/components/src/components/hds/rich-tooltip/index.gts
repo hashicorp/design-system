@@ -56,6 +56,8 @@ export default class HdsRichTooltip extends Component<HdsRichTooltipSignature> {
       @onOpen={{@onOpen}}
       @onClose={{@onClose}}
       @onFocusOut={{@onFocusOut}}
+      @forceState={{@forceState}}
+      @returnFocusTo={{@returnFocusTo}}
       @enableSoftEvents={{this.enableSoftEvents}}
       @enableClickEvents={{this.enableClickEvents}}
       as |PP|
