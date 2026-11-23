@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import { modifier } from 'ember-modifier';
+// import { modifier } from 'ember-modifier'; // forceState and returnFocusTo are now handled by HdsPopoverPrimitive
 import style from 'ember-style-modifier';
 
 import type { ModifierLike } from '@glint/template';
@@ -17,7 +17,7 @@ import {
 
 import type { SetupPrimitivePopoverModifier } from '../popover-primitive/index.gts';
 import type { HdsAnchoredPositionOptions } from '../../../modifiers/hds-anchored-position.ts';
-import type { HdsRichTooltipForceStates } from './types.ts';
+// import type { HdsRichTooltipForceStates } from './types.ts';
 
 export interface HdsRichTooltipBubbleSignature {
   Args: {
@@ -31,9 +31,10 @@ export interface HdsRichTooltipBubbleSignature {
     arrowId: string;
     boundary?: HdsAnchoredPositionOptions['boundary'];
     setupPrimitivePopover: ModifierLike<SetupPrimitivePopoverModifier>;
-    forceState?: HdsRichTooltipForceStates;
-    showPopover?: () => void;
-    hidePopover?: (event?: Event) => void;
+    // forceState?: HdsRichTooltipForceStates;
+    // showPopover?: () => void;
+    // hidePopover?: (event?: Event) => void;
+    // returnFocusTo?: string;
   };
   Blocks: {
     default: [];
@@ -42,8 +43,8 @@ export interface HdsRichTooltipBubbleSignature {
 }
 
 export default class HdsRichTooltipBubble extends Component<HdsRichTooltipBubbleSignature> {
-  private _isInitiallyOpen = this.args.isOpen ?? false;
-  private _isControlled = false;
+  // private _isInitiallyOpen = this.args.isOpen ?? false;
+  // private _isControlled = false;
 
   get placement(): HdsAnchoredPositionOptions['placement'] {
     const { placement = DEFAULT_PLACEMENT } = this.args;
@@ -103,6 +104,7 @@ export default class HdsRichTooltipBubble extends Component<HdsRichTooltipBubble
     };
   }
 
+  /*
   private _applyForceState = modifier(
     (
       element: HTMLElement,
@@ -133,6 +135,25 @@ export default class HdsRichTooltipBubble extends Component<HdsRichTooltipBubble
     }
   );
 
+  private _returnFocusOnClose = modifier((element: HTMLElement) => {
+  const onBeforeToggle = (event: ToggleEvent): void => {
+    if (event.newState !== 'closed' || !this.args.returnFocusTo) return;
+
+    if (!element.contains(document.activeElement)) return;
+
+    const initiator = document.getElementById(this.args.returnFocusTo);
+
+    if (initiator) {
+      initiator.focus();
+    }
+  };
+
+  element.addEventListener('beforetoggle', onBeforeToggle);
+
+  return () => element.removeEventListener('beforetoggle', onBeforeToggle);
+});
+  */
+
   <template>
     <div
       class="hds-rich-tooltip__bubble"
@@ -145,7 +166,8 @@ export default class HdsRichTooltipBubble extends Component<HdsRichTooltipBubble
       {{@setupPrimitivePopover
         anchoredPositionOptions=this.anchoredPositionOptions
       }}
-      {{this._applyForceState @forceState @showPopover @hidePopover}}
+      {{!-- {{this._applyForceState @forceState @showPopover @hidePopover}} --}}
+      {{!-- {{this._returnFocusOnClose}} --}}
     >
       <div class="hds-rich-tooltip__bubble-arrow" id={{@arrowId}} />
       {{#if @isOpen}}

@@ -14,12 +14,13 @@ import HdsRichTooltipBubble from './bubble.gts';
 import HdsPopoverPrimitive from '../popover-primitive/index.gts';
 
 import type { HdsPopoverPrimitiveSignature } from '../popover-primitive/index.gts';
-import type { HdsRichTooltipForceStates } from './types.ts';
+// import type { HdsRichTooltipForceStates } from './types.ts';
 
 export interface HdsRichTooltipSignature {
-  Args: Omit<HdsPopoverPrimitiveSignature['Args'], 'enableSoftEvents'> & {
-    forceState?: HdsRichTooltipForceStates;
-  };
+  // Args: Omit<HdsPopoverPrimitiveSignature['Args'], 'enableSoftEvents'> & {
+  //   forceState?: HdsRichTooltipForceStates;
+  // };
+  Args: Omit<HdsPopoverPrimitiveSignature['Args'], 'enableSoftEvents'>;
   Blocks: {
     default: [
       {
@@ -33,9 +34,9 @@ export interface HdsRichTooltipSignature {
           | 'popoverId'
           | 'setupPrimitivePopover'
           | 'isOpen'
-          | 'forceState'
-          | 'showPopover'
-          | 'hidePopover'
+          // | 'forceState'
+          // | 'showPopover'
+          // | 'hidePopover'
         >;
         isOpen?: boolean;
         close: (event?: Event) => void;
@@ -60,16 +61,38 @@ export default class HdsRichTooltip extends Component<HdsRichTooltipSignature> {
 
   <template>
     {{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember becomes visible in the underlined text (being an inline element) - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
+    {{!-- old Bubble args: forceState=@forceState showPopover=PP.showPopover hidePopover=PP.hidePopover (now handled by HdsPopoverPrimitive) --}}
     <HdsPopoverPrimitive
       @isOpen={{@isOpen}}
       @onOpen={{@onOpen}}
       @onClose={{@onClose}}
       @onFocusOut={{@onFocusOut}}
+      @forceState={{@forceState}}
+      @returnFocusTo={{@returnFocusTo}}
       @enableSoftEvents={{this.enableSoftEvents}}
       @enableClickEvents={{this.enableClickEvents}}
       as |PP|
     ><div class="hds-rich-tooltip" ...attributes {{PP.setupPrimitiveContainer}}>
         {{~yield
+          (hash
+            Toggle=(component
+              HdsRichTooltipToggle
+              popoverId=this._popoverId
+              setupPrimitiveToggle=PP.setupPrimitiveToggle
+              isOpen=PP.isOpen
+            )
+            Bubble=(component
+              HdsRichTooltipBubble
+              arrowId=this._arrowId
+              popoverId=this._popoverId
+              setupPrimitivePopover=PP.setupPrimitivePopover
+              isOpen=PP.isOpen
+            )
+            isOpen=PP.isOpen
+            close=PP.hidePopover
+          )
+        ~}}
+                {{!-- {{~yield
           (hash
             Toggle=(component
               HdsRichTooltipToggle
@@ -90,7 +113,7 @@ export default class HdsRichTooltip extends Component<HdsRichTooltipSignature> {
             isOpen=PP.isOpen
             close=PP.hidePopover
           )
-        ~}}
+        ~}} --}}
       </div></HdsPopoverPrimitive>
   </template>
 }

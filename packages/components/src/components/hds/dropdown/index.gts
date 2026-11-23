@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { hash } from '@ember/helper';
-import { modifier } from 'ember-modifier';
+// import { modifier } from 'ember-modifier';
 import { or } from 'ember-truth-helpers';
 import style from 'ember-style-modifier';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
@@ -57,6 +57,7 @@ export interface HdsDropdownSignature {
     onClose?: HdsPopoverPrimitiveSignature['Args']['onClose'];
     onFocusOut?: HdsPopoverPrimitiveSignature['Args']['onFocusOut'];
     forceState?: HdsDropdownForceStates;
+    returnFocusTo?: HdsPopoverPrimitiveSignature['Args']['returnFocusTo'];
     boundary?: HdsAnchoredPositionOptions['boundary'];
   };
   Blocks: {
@@ -89,8 +90,8 @@ export interface HdsDropdownSignature {
 }
 
 export default class HdsDropdown extends Component<HdsDropdownSignature> {
-  private _hasIsOpen = this.args.isOpen !== undefined;
-  private _isControlled = false;
+  // private _hasIsOpen = this.args.isOpen !== undefined;
+  // private _isControlled = false;
 
   get listPosition(): HdsDropdownPositions {
     const { listPosition = DEFAULT_POSITION } = this.args;
@@ -174,6 +175,7 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
     }
   };
 
+  /*
   private _applyForceState = modifier(
     (
       element: HTMLElement,
@@ -205,6 +207,7 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
       }
     }
   );
+  */
 
   <template>
     <HdsPopoverPrimitive
@@ -213,6 +216,8 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
       @onClose={{@onClose}}
       @onFocusOut={{@onFocusOut}}
       @boundary={{@boundary}}
+      @forceState={{@forceState}}
+      @returnFocusTo={{@returnFocusTo}}
       @enableClickEvents={{true}}
       as |PP|
     >
@@ -243,7 +248,7 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
           {{PP.setupPrimitivePopover
             anchoredPositionOptions=this.anchoredPositionOptions
           }}
-          {{this._applyForceState @forceState PP.showPopover PP.hidePopover}}
+          {{!-- {{this._applyForceState @forceState PP.showPopover PP.hidePopover}} --}}
         >
           {{#if (or PP.isOpen @preserveContentInDom)}}
             {{yield (hash Header=HdsDropdownHeader close=PP.hidePopover)}}

@@ -18,6 +18,7 @@ import registerEvent from '../../../modifiers/hds-register-event.ts';
 import anchoredPositionModifier from '../../../modifiers/hds-anchored-position.ts';
 
 import type { HdsAnchoredPositionOptions } from '../../../modifiers/hds-anchored-position.ts';
+import type { HdsPopoverPrimitiveForceStates } from './types.ts';
 
 export interface HdsPopoverPrimitiveSignature {
   Args: {
@@ -28,6 +29,8 @@ export interface HdsPopoverPrimitiveSignature {
     onOpen?: () => void;
     onClose?: () => void;
     onFocusOut?: () => void;
+    forceState?: HdsPopoverPrimitiveForceStates;
+    returnFocusTo?: string;
   };
   Blocks: {
     default: [
@@ -75,10 +78,14 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
   // this will enable "click" events for the toggle
   enableClickEvents = this.args.enableClickEvents ?? false;
   private _timer?: ReturnType<typeof setTimeout> | null;
+  // vars for supporting external control of popover
+  private _initialForceState = this.args.forceState;
+  private _isInitialStateSet = false;
+  private _isInitialSync = true;
 
   constructor(owner: Owner, args: HdsPopoverPrimitiveSignature['Args']) {
     super(owner, args);
-    this._isOpen = this.args.isOpen ?? false;
+    this._isOpen = this.args.isOpen ?? this.args.forceState === 'open';
   }
 
   setupPrimitiveContainer = modifier<SetupPrimitiveContainerModifier>(
@@ -105,8 +112,35 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
       // we always want the focusOut event
       // @ts-expect-error: known issue with type of invocation
       registerEvent(this._containerElement, ['focusout', this.onFocusOut]);
+
+      // rerun whenever @forceState changes
+      this._syncForceState();
     }
   );
+
+  private _syncForceState(): void {
+    const { forceState } = this.args;
+
+    // skip first sync so initial state can apply
+    if (this._isInitialSync) {
+      this._isInitialSync = false;
+      return;
+    }
+
+    if (forceState === undefined || this._popoverElement === undefined) {
+      return;
+    }
+
+    // use :popover-open to get popover state in browser
+    const isOpen = this._popoverElement.matches(':popover-open');
+
+    // sync browser state with user controlled arg if they differ
+    if (forceState === 'open' && !isOpen) {
+      this.showPopover();
+    } else if (forceState === 'close' && isOpen) {
+      this.hidePopover();
+    }
+  }
 
   setupPrimitiveToggle = modifier<SetupPrimitiveToggleModifier>(
     (element: HTMLButtonElement) => {
@@ -143,6 +177,9 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
         this._popoverElement.id = guidFor(this);
       }
 
+      const isInitialState = !this._isInitialStateSet;
+      this._isInitialStateSet = true;
+
       // this should be an extremely edge case, but in the case the popover needs to be initially forced to be open
       // we need to use the "manual" state to support the case of multiple "menus" opened at the same time
       // IMPORTANT! if a "popover" is set to "open" with a "manual" state, then it can't be closed via `esc` and `click outside`
@@ -151,6 +188,11 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
         this._popoverElement.showPopover();
       } else {
         this._popoverElement.popover = 'auto';
+
+        // popover can also be set initially open via forceState (isOpen takes priority if true)
+        if (isInitialState && this._initialForceState === 'open') {
+          this.showPopover();
+        }
       }
 
       // Register "onBeforeToggle" + "onToggle" callback functions to be called when a native 'toggle' event is dispatched
@@ -277,6 +319,16 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
       // because the browser automatically returns the focus to the "trigger" button
       // and this would re-open immediately the popover because of the `focusin` event
       this._isClosing = true;
+
+      // set focus to another element before popover closes, so focus isnt lost
+      const { returnFocusTo } = this.args;
+      if (returnFocusTo && this._popoverElement) {
+        const initiator = document.getElementById(returnFocusTo);
+
+        if (initiator && this._popoverElement.contains(document.activeElement)) {
+          initiator.focus();
+        }
+      }
     }
   };
 
@@ -333,6 +385,11 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
   };
 
   onFocusOut = (event: FocusEvent): void => {
+    // to avoid triggering a second hide when moving focus to another element with returnFocusTo
+    if (this._isClosing) {
+      return;
+    }
+
     if (this._containerElement) {
       let isFocusStillInside = false;
       if (
