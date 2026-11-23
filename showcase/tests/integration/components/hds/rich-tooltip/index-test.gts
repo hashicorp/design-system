@@ -11,11 +11,13 @@ import {
   focus,
   render,
   resetOnerror,
+  settled,
 } from '@ember/test-helpers';
 import { on } from '@ember/modifier';
 import { TrackedObject } from 'tracked-built-ins';
 
 import { HdsRichTooltip } from '@hashicorp/design-system-components/components';
+import type { HdsPopoverPrimitiveForceStates } from '@hashicorp/design-system-components/components/hds/popover-primitive/types';
 
 import { setupRenderingTest, wait } from 'showcase/tests/helpers';
 
@@ -31,6 +33,86 @@ module('Integration | Component | hds/rich-tooltip/index', function (hooks) {
       <template><HdsRichTooltip id="test-rich-tooltip" /></template>,
     );
     assert.dom('#test-rich-tooltip').hasClass('hds-rich-tooltip');
+  });
+
+  test('it opens and closes when `@forceState` changes', async function (assert) {
+    const context = new TrackedObject<{
+      forceState: HdsPopoverPrimitiveForceStates;
+    }>({
+      forceState: 'close',
+    });
+
+    await render(
+      <template>
+        <HdsRichTooltip
+          @enableClickEvents={{true}}
+          @forceState={{context.forceState}}
+          as |RT|
+        >
+          <RT.Toggle @text="Tooltip" />
+          <RT.Bubble><span
+              id="test-forced-tooltip-content"
+            >Content</span></RT.Bubble>
+        </HdsRichTooltip>
+      </template>,
+    );
+
+    assert.dom('.hds-rich-tooltip__bubble').isNotVisible();
+    context.forceState = 'open';
+    await settled();
+    assert.dom('.hds-rich-tooltip__bubble').isVisible();
+    assert.dom('#test-forced-tooltip-content').exists();
+    context.forceState = 'close';
+    await settled();
+    assert.dom('.hds-rich-tooltip__bubble').isNotVisible();
+    assert.dom('#test-forced-tooltip-content').doesNotExist();
+  });
+
+  test('it renders its content when `@forceState` is initially open', async function (assert) {
+    await render(
+      <template>
+        <HdsRichTooltip @enableClickEvents={{true}} @forceState="open" as |RT|>
+          <RT.Toggle @text="Tooltip" />
+          <RT.Bubble><span
+              id="test-initial-tooltip-content"
+            >Content</span></RT.Bubble>
+        </HdsRichTooltip>
+      </template>,
+    );
+
+    assert
+      .dom('.hds-rich-tooltip__bubble')
+      .isVisible()
+      .hasAttribute('popover', 'auto');
+    assert.dom('#test-initial-tooltip-content').exists();
+  });
+
+  test('it returns focus to `@returnFocusTo` when closed from inside', async function (assert) {
+    await render(
+      <template>
+        <button id="test-tooltip-focus-target" type="button">Target</button>
+        <HdsRichTooltip
+          @enableClickEvents={{true}}
+          @returnFocusTo="test-tooltip-focus-target"
+          as |RT|
+        >
+          <RT.Toggle id="test-tooltip-focus-toggle" @text="Tooltip" />
+          <RT.Bubble>
+            <button
+              id="test-tooltip-focus-close"
+              type="button"
+              {{on "click" RT.close}}
+            >Close</button>
+          </RT.Bubble>
+        </HdsRichTooltip>
+      </template>,
+    );
+
+    await click('#test-tooltip-focus-toggle');
+    await focus('#test-tooltip-focus-close');
+    await click('#test-tooltip-focus-close');
+    assert.dom('.hds-rich-tooltip__bubble').isNotVisible();
+    assert.dom('#test-tooltip-focus-target').isFocused();
   });
 
   // CONTENT + VISIBILITY + IS-OPEN

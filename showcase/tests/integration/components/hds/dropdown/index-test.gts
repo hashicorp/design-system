@@ -5,11 +5,12 @@
 
 import { module, test } from 'qunit';
 import { on } from '@ember/modifier';
-import { render, click, find } from '@ember/test-helpers';
+import { render, click, find, focus, settled } from '@ember/test-helpers';
 import style from 'ember-style-modifier';
 import { TrackedObject } from 'tracked-built-ins';
 
 import { HdsDropdown } from '@hashicorp/design-system-components/components';
+import type { HdsPopoverPrimitiveForceStates } from '@hashicorp/design-system-components/components/hds/popover-primitive/types';
 
 import { setupRenderingTest, wait } from 'showcase/tests/helpers';
 
@@ -25,6 +26,71 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
       </template>,
     );
     assert.dom('#test-dropdown').hasClass('hds-dropdown');
+  });
+
+  test('it opens and closes when `@forceState` changes', async function (assert) {
+    const context = new TrackedObject<{
+      forceState: HdsPopoverPrimitiveForceStates;
+    }>({
+      forceState: 'close',
+    });
+
+    await render(
+      <template>
+        <HdsDropdown @forceState={{context.forceState}} as |D|>
+          <D.ToggleButton @text="Menu" />
+          <D.Interactive>Item</D.Interactive>
+        </HdsDropdown>
+      </template>,
+    );
+
+    assert.dom('.hds-dropdown__content').isNotVisible();
+    context.forceState = 'open';
+    await settled();
+    assert.dom('.hds-dropdown__content').isVisible();
+    assert.dom('.hds-dropdown__list').exists();
+    context.forceState = 'close';
+    await settled();
+    assert.dom('.hds-dropdown__content').isNotVisible();
+    assert.dom('.hds-dropdown__list').doesNotExist();
+  });
+
+  test('it renders its content when `@forceState` is initially open', async function (assert) {
+    await render(
+      <template>
+        <HdsDropdown @forceState="open" as |D|>
+          <D.ToggleButton @text="Menu" />
+          <D.Interactive>Item</D.Interactive>
+        </HdsDropdown>
+      </template>,
+    );
+
+    assert
+      .dom('.hds-dropdown__content')
+      .isVisible()
+      .hasAttribute('popover', 'auto');
+    assert.dom('.hds-dropdown__list').exists();
+  });
+
+  test('it returns focus to `@returnFocusTo` when closed from inside', async function (assert) {
+    await render(
+      <template>
+        <button id="test-dropdown-focus-target" type="button">Target</button>
+        <HdsDropdown @returnFocusTo="test-dropdown-focus-target" as |D|>
+          <D.ToggleButton id="test-dropdown-focus-toggle" @text="Menu" />
+          <D.Interactive
+            id="test-dropdown-focus-close"
+            {{on "click" D.close}}
+          >Close</D.Interactive>
+        </HdsDropdown>
+      </template>,
+    );
+
+    await click('#test-dropdown-focus-toggle');
+    await focus('#test-dropdown-focus-close');
+    await click('#test-dropdown-focus-close');
+    assert.dom('.hds-dropdown__content').isNotVisible();
+    assert.dom('#test-dropdown-focus-target').isFocused();
   });
 
   // NAMED YIELDS
