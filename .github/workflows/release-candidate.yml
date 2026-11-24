@@ -21,6 +21,7 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      id-token: write
     runs-on: ubuntu-latest
     if: contains(github.event.pull_request.labels.*.name, 'release-candidate')
     steps:
