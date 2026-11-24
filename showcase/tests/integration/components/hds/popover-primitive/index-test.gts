@@ -395,6 +395,165 @@ module(
 
     // POPOVER API (HTML ATTRIBUTES)
 
+    test('the toggle does not have a `popovertarget` attribute by default', async function (assert) {
+      await render(
+        <template>
+          <HdsPopoverPrimitive as |PP|>
+            <div {{PP.setupPrimitiveContainer}}>
+              <button
+                {{PP.setupPrimitiveToggle}}
+                id="test-popover-primitive-toggle"
+                type="button"
+              />
+              <div {{PP.setupPrimitivePopover}} />
+            </div>
+          </HdsPopoverPrimitive>
+        </template>,
+      );
+      assert
+        .dom('#test-popover-primitive-toggle')
+        .doesNotHaveAttribute('popovertarget');
+    });
+
+    test('the toggle has a `popovertarget` attribute if `@enableClickEvents` is `true`', async function (assert) {
+      await render(
+        <template>
+          <HdsPopoverPrimitive @enableClickEvents={{true}} as |PP|>
+            <div {{PP.setupPrimitiveContainer}}>
+              <button
+                {{PP.setupPrimitiveToggle}}
+                id="test-popover-primitive-toggle"
+                type="button"
+              />
+              <div
+                {{PP.setupPrimitivePopover}}
+                id="test-popover-primitive-popover"
+              />
+            </div>
+          </HdsPopoverPrimitive>
+        </template>,
+      );
+      assert
+        .dom('#test-popover-primitive-toggle')
+        .hasAttribute('popovertarget', 'test-popover-primitive-popover');
+    });
+
+    test('the popover has a `popover` attribute by default', async function (assert) {
+      await render(
+        <template>
+          <HdsPopoverPrimitive as |PP|>
+            <div {{PP.setupPrimitiveContainer}}>
+              <button
+                {{PP.setupPrimitiveToggle}}
+                id="test-popover-primitive-toggle"
+                type="button"
+              />
+              <div
+                {{PP.setupPrimitivePopover}}
+                id="test-popover-primitive-content"
+              />
+            </div>
+          </HdsPopoverPrimitive>
+        </template>,
+      );
+      assert
+        .dom('#test-popover-primitive-content')
+        .hasAttribute('popover', 'auto');
+    });
+
+    test('the popover has a `popover` attribute set to `manual` if `@isOpen` is `true` and it reverts to `auto` after "soft" interacting with it', async function (assert) {
+      await render(
+        <template>
+          <HdsPopoverPrimitive
+            @enableClickEvents={{true}}
+            @isOpen={{true}}
+            as |PP|
+          >
+            <div {{PP.setupPrimitiveContainer}}>
+              <button
+                {{PP.setupPrimitiveToggle}}
+                id="test-popover-primitive-toggle"
+                type="button"
+              />
+              <div
+                {{PP.setupPrimitivePopover}}
+                id="test-popover-primitive-content"
+              />
+            </div>
+          </HdsPopoverPrimitive>
+        </template>,
+      );
+      assert
+        .dom('#test-popover-primitive-content')
+        .isVisible()
+        .hasAttribute('popover', 'manual');
+      // focus the toggle to show the popover
+      await focus('#test-popover-primitive-toggle');
+      // unfocus the toggle to hide the popover
+      await blur('#test-popover-primitive-toggle');
+      assert
+        .dom('#test-popover-primitive-content')
+        .isNotVisible()
+        .hasAttribute('popover', 'auto');
+    });
+
+    test('the popover has a `popover` attribute set to `manual` if `@isOpen` is `true` and it reverts to `auto` after "click" interacting with it', async function (assert) {
+      await render(
+        <template>
+          <HdsPopoverPrimitive
+            @enableClickEvents={{true}}
+            @isOpen={{true}}
+            as |PP|
+          >
+            <div {{PP.setupPrimitiveContainer}}>
+              <button
+                {{PP.setupPrimitiveToggle}}
+                id="test-popover-primitive-toggle"
+                type="button"
+              />
+              <div
+                {{PP.setupPrimitivePopover}}
+                id="test-popover-primitive-content"
+              />
+            </div>
+          </HdsPopoverPrimitive>
+        </template>,
+      );
+      assert
+        .dom('#test-popover-primitive-content')
+        .hasAttribute('popover', 'manual');
+      // this will change back the `popover` attribute to `auto`
+      await click('#test-popover-primitive-toggle');
+      assert
+        .dom('#test-popover-primitive-content')
+        .hasAttribute('popover', 'auto');
+    });
+
+    test('the popover is open when `isOpen` is true', async function (assert) {
+      await render(
+        <template>
+          <HdsPopoverPrimitive
+            @enableClickEvents={{true}}
+            @isOpen={{true}}
+            as |PP|
+          >
+            <div {{PP.setupPrimitiveContainer}}>
+              <button
+                {{PP.setupPrimitiveToggle}}
+                id="test-popover-primitive-toggle"
+                type="button"
+              />
+              <div
+                {{PP.setupPrimitivePopover}}
+                id="test-popover-primitive-content"
+              />
+            </div>
+          </HdsPopoverPrimitive>
+        </template>,
+      );
+      assert.dom('#test-popover-primitive-content').isVisible();
+    });
+
     test('it displays the correct state based on `@forceState`', async function (assert) {
       const context = new TrackedObject<{
         forceState: HdsPopoverPrimitiveForceStates | undefined;
@@ -508,7 +667,7 @@ module(
         .hasAttribute('popover', 'auto');
     });
 
-    test('it prioritizes an initially true `@isOpen` over `@forceState`', async function (assert) {
+    test('it prioritizes an initially true `@isOpen` over `@forceState`, but reflects later `@forceState changes', async function (assert) {
       const context = new TrackedObject<{
         forceState: HdsPopoverPrimitiveForceStates;
       }>({ forceState: 'close' });
@@ -545,11 +704,7 @@ module(
     test('it opens an auto popover when `@isOpen` is false and `@forceState` is initially open', async function (assert) {
       await render(
         <template>
-          <HdsPopoverPrimitive
-            @isOpen={{false}}
-            @forceState="open"
-            as |PP|
-          >
+          <HdsPopoverPrimitive @isOpen={{false}} @forceState="open" as |PP|>
             <div {{PP.setupPrimitiveContainer}}>
               <button type="button" {{PP.setupPrimitiveToggle}}>Toggle</button>
               <div
@@ -567,13 +722,16 @@ module(
         .hasAttribute('popover', 'auto');
     });
 
-    test('it returns focus to element specified by `@returnFocusTo`', async function (assert) {
+    test('it returns focus to the element specified by `@returnFocusTo` when closed from inside', async function (assert) {
       await render(
         <template>
-          <button id="test-popover-primitive-external-button" type="button">Return focus here</button>
+          <button
+            id="test-popover-primitive-return-focus-button"
+            type="button"
+          >Return focus here</button>
           <HdsPopoverPrimitive
             @enableClickEvents={{true}}
-            @returnFocusTo="test-popover-primitive-external-button"
+            @returnFocusTo="test-popover-primitive-return-focus-button"
             as |PP|
           >
             <div {{PP.setupPrimitiveContainer}}>
@@ -582,7 +740,10 @@ module(
                 type="button"
                 {{PP.setupPrimitiveToggle}}
               >Toggle</button>
-              <div id="test-popover-primitive-content" {{PP.setupPrimitivePopover}}>
+              <div
+                id="test-popover-primitive-content"
+                {{PP.setupPrimitivePopover}}
+              >
                 <button
                   id="test-popover-primitive-close-button"
                   type="button"
@@ -598,7 +759,7 @@ module(
       await focus('#test-popover-primitive-close-button');
       await click('#test-popover-primitive-close-button');
       assert.dom('#test-popover-primitive-content').isNotVisible();
-      assert.dom('#test-popover-primitive-external-button').isFocused();
+      assert.dom('#test-popover-primitive-return-focus-button').isFocused();
     });
 
     test('it closes even when the provided `@returnFocusTo` id is invalid', async function (assert) {
@@ -615,7 +776,10 @@ module(
                 type="button"
                 {{PP.setupPrimitiveToggle}}
               >Toggle</button>
-              <div id="test-popover-primitive-content" {{PP.setupPrimitivePopover}}>
+              <div
+                id="test-popover-primitive-content"
+                {{PP.setupPrimitivePopover}}
+              >
                 <button
                   id="test-popover-primitive-close-button"
                   type="button"
@@ -631,160 +795,6 @@ module(
       await focus('#test-popover-primitive-close-button');
       await click('#test-popover-primitive-close-button');
       assert.dom('#test-popover-primitive-content').isNotVisible();
-    });
-
-    test('the toggle does not have a `popovertarget` attribute by default', async function (assert) {
-      await render(
-        <template>
-          <HdsPopoverPrimitive as |PP|>
-            <div {{PP.setupPrimitiveContainer}}>
-              <button
-                {{PP.setupPrimitiveToggle}}
-                id="test-popover-primitive-toggle"
-                type="button"
-              />
-              <div {{PP.setupPrimitivePopover}} />
-            </div>
-          </HdsPopoverPrimitive>
-        </template>,
-      );
-      assert
-        .dom('#test-popover-primitive-toggle')
-        .doesNotHaveAttribute('popovertarget');
-    });
-    test('the toggle has a `popovertarget` attribute if `@enableClickEvents` is `true`', async function (assert) {
-      await render(
-        <template>
-          <HdsPopoverPrimitive @enableClickEvents={{true}} as |PP|>
-            <div {{PP.setupPrimitiveContainer}}>
-              <button
-                {{PP.setupPrimitiveToggle}}
-                id="test-popover-primitive-toggle"
-                type="button"
-              />
-              <div
-                {{PP.setupPrimitivePopover}}
-                id="test-popover-primitive-popover"
-              />
-            </div>
-          </HdsPopoverPrimitive>
-        </template>,
-      );
-      assert
-        .dom('#test-popover-primitive-toggle')
-        .hasAttribute('popovertarget', 'test-popover-primitive-popover');
-    });
-    test('the popover has a `popover` attribute by default', async function (assert) {
-      await render(
-        <template>
-          <HdsPopoverPrimitive as |PP|>
-            <div {{PP.setupPrimitiveContainer}}>
-              <button
-                {{PP.setupPrimitiveToggle}}
-                id="test-popover-primitive-toggle"
-                type="button"
-              />
-              <div
-                {{PP.setupPrimitivePopover}}
-                id="test-popover-primitive-content"
-              />
-            </div>
-          </HdsPopoverPrimitive>
-        </template>,
-      );
-      assert
-        .dom('#test-popover-primitive-content')
-        .hasAttribute('popover', 'auto');
-    });
-    test('the popover has a `popover` attribute set to `manual` if `@isOpen` is `true` and it reverts to `auto` after "soft" interacting with it', async function (assert) {
-      await render(
-        <template>
-          <HdsPopoverPrimitive
-            @enableClickEvents={{true}}
-            @isOpen={{true}}
-            as |PP|
-          >
-            <div {{PP.setupPrimitiveContainer}}>
-              <button
-                {{PP.setupPrimitiveToggle}}
-                id="test-popover-primitive-toggle"
-                type="button"
-              />
-              <div
-                {{PP.setupPrimitivePopover}}
-                id="test-popover-primitive-content"
-              />
-            </div>
-          </HdsPopoverPrimitive>
-        </template>,
-      );
-      assert
-        .dom('#test-popover-primitive-content')
-        .isVisible()
-        .hasAttribute('popover', 'manual');
-      // focus the toggle to show the popover
-      await focus('#test-popover-primitive-toggle');
-      // unfocus the toggle to hide the popover
-      await blur('#test-popover-primitive-toggle');
-      assert
-        .dom('#test-popover-primitive-content')
-        .isNotVisible()
-        .hasAttribute('popover', 'auto');
-    });
-    test('the popover has a `popover` attribute set to `manual` if `@isOpen` is `true` and it reverts to `auto` after "click" interacting with it', async function (assert) {
-      await render(
-        <template>
-          <HdsPopoverPrimitive
-            @enableClickEvents={{true}}
-            @isOpen={{true}}
-            as |PP|
-          >
-            <div {{PP.setupPrimitiveContainer}}>
-              <button
-                {{PP.setupPrimitiveToggle}}
-                id="test-popover-primitive-toggle"
-                type="button"
-              />
-              <div
-                {{PP.setupPrimitivePopover}}
-                id="test-popover-primitive-content"
-              />
-            </div>
-          </HdsPopoverPrimitive>
-        </template>,
-      );
-      assert
-        .dom('#test-popover-primitive-content')
-        .hasAttribute('popover', 'manual');
-      // this will change back the `popover` attribute to `auto`
-      await click('#test-popover-primitive-toggle');
-      assert
-        .dom('#test-popover-primitive-content')
-        .hasAttribute('popover', 'auto');
-    });
-    test('the popover is open when `isOpen` is true', async function (assert) {
-      await render(
-        <template>
-          <HdsPopoverPrimitive
-            @enableClickEvents={{true}}
-            @isOpen={{true}}
-            as |PP|
-          >
-            <div {{PP.setupPrimitiveContainer}}>
-              <button
-                {{PP.setupPrimitiveToggle}}
-                id="test-popover-primitive-toggle"
-                type="button"
-              />
-              <div
-                {{PP.setupPrimitivePopover}}
-                id="test-popover-primitive-content"
-              />
-            </div>
-          </HdsPopoverPrimitive>
-        </template>,
-      );
-      assert.dom('#test-popover-primitive-content').isVisible();
     });
 
     // TEARDOWN
