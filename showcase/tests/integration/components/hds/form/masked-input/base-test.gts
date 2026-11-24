@@ -104,7 +104,7 @@ module(
       );
       assert
         .dom('.hds-form-visibility-toggle')
-        .hasAttribute('aria-label', 'Toggle masked content');
+        .hasAttribute('aria-label', 'Toggle content visibility');
     });
 
     test('it should support a custom aria-label', async function (assert) {

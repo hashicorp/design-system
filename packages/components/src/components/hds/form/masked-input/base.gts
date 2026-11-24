@@ -81,19 +81,6 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
     return getElementId(this);
   }
 
-  get visibilityToggleAriaLabel(): string {
-    if (this.args.visibilityToggleAriaLabel) {
-      return this.args.visibilityToggleAriaLabel;
-    } else {
-      return this.hdsIntl.t(
-        'hds.components.form.masked-input.base.toggle-masked-content',
-        {
-          default: 'Toggle masked content',
-        }
-      );
-    }
-  }
-
   get visibilityToggleAriaMessageText(): string {
     if (this.args.visibilityToggleAriaMessageText) {
       return this.args.visibilityToggleAriaMessageText;
@@ -169,7 +156,7 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
       {{/if}}
       <HdsFormVisibilityToggle
         @isMasked={{this.isContentMasked}}
-        @ariaLabel={{this.visibilityToggleAriaLabel}}
+        @ariaLabel={{@visibilityToggleAriaLabel}}
         @ariaMessageText={{this.visibilityToggleAriaMessageText}}
         @ariaMessageTextWhenVisible={{this.visibilityToggleAriaMessageTextWhenVisible}}
         aria-controls={{this.id}}
