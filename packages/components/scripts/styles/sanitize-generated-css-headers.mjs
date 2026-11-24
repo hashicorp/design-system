@@ -76,7 +76,7 @@ export function sanitizeGeneratedCssHeadersWithSourceMap(
   sourceMap,
   options = {}
 ) {
-  const fromPath = options.from ?? sourceMap?.file ?? undefined;
+  const fromPath = options.from ?? sourceMap?.file;
   const toPath = options.to ?? fromPath;
   const processor = postcss([
     {
