@@ -4,7 +4,7 @@ import style from 'ember-style-modifier';
 import { HdsPopoverPrimitive } from '@hashicorp/design-system-components/components';
 
 <template>
-  <button type="button" id="return-focus-target-button">
+  <button type="button" id="return-focus-button">
     Return focus here
   </button>
   <HdsPopoverPrimitive
