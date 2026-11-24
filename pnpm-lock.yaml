@@ -8286,8 +8286,8 @@ packages:
     engines: {node: '>=16.x'}
     hasBin: true
 
-  immutable@5.1.5:
-    resolution: {integrity: sha512-t7xcm2siw+hlUM68I+UEOK+z84RzmN59as9DZ7P1l0994DKUWV7UXBMQZVxaoMSRQ+PBZbHCOoBt7a2wxOMt+A==}
+  immutable@5.2.1:
+    resolution: {integrity: sha512-CgXNM1BhKqpMjFHTyqQSk09OWqzHNJ/U4BdeBgXoBdR2DdgBdOSv131cO1/YMgzopqnka3B/i949UaMLEKUxOA==}
 
   import-cwd@3.0.0:
     resolution: {integrity: sha512-4pnzH16plW+hgvRECbDWpQl3cqtvSofHWh44met7ESfZ8UZOWWddm8hEyDTqREJ9RbYHY8gi8DqmaelApoOGMg==}
@@ -22795,7 +22795,7 @@ snapshots:
     dependencies:
       queue: 6.0.2
 
-  immutable@5.1.5: {}
+  immutable@5.2.1: {}
 
   import-cwd@3.0.0:
     dependencies:
@@ -26077,7 +26077,7 @@ snapshots:
   sass@1.98.0:
     dependencies:
       chokidar: 4.0.3
-      immutable: 5.1.5
+      immutable: 5.2.1
       source-map-js: 1.2.2
     optionalDependencies:
       '@parcel/watcher': 2.5.0
