@@ -155,20 +155,8 @@ The layout of the content inside the "control" container is the responsibility o
 It’s unlikely that you’ll need to use this component directly, but if you do, [contact the Design Systems Team](/about/support) so we can provide support.
 !!!
 
-The default invocation renders an icon-only button used to show or mask content. Pass an `@isVisible` argument to control the displayed icon based on the state of the associated content.
-
-Pass an `@ariaLabel` argument to describe the button action. When the visibility state is toggled, use the `@ariaMessageText` argument to announce that the associated content is masked and the `@ariaMessageTextWhenVisible` argument to announce that it is visible ("unmasked").
+The default invocation renders an icon-only button used to toggle between masked and visible content. Pass an `@isMasked` argument to control the displayed icon.
 
 Because this component only renders the toggle button, it is the responsibility of the product team to manage the visibility state of the associated form control, provide the click behavior, and associate the button to the control using the `aria-controls` attribute.
 
-#### Masked content
-
-When the associated content is masked, set `@isVisible` to `true` to display the eye icon.
-
-[[code-snippets/form-primitives-visibility-toggle-masked]]
-
-#### Visible content
-
-When the associated content is visible ("unmasked"), set `@isVisible` to `false` to display the eye-off icon.
-
-[[code-snippets/form-primitives-visibility-toggle-visible]]
+[[code-snippets/form-primitives-visibility-toggle]]

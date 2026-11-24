@@ -4,9 +4,12 @@ import { HdsFormVisibilityToggle } from '@hashicorp/design-system-components/com
 
 const LocalComponent: TemplateOnlyComponent = <template>
   <HdsFormVisibilityToggle
-    @isVisible={{true}}
-    @ariaLabel="Toggle content visibility"
+    @isMasked={{true}}
     @ariaMessageText="Content is hidden"
+  />
+  <HdsFormVisibilityToggle
+    @isMasked={{false}}
+    @ariaMessageTextWhenVisible="Content is visible"
   />
 </template>;
 
