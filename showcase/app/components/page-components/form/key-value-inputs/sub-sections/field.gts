@@ -62,10 +62,7 @@ const SUPERSELECT_OPTIONS = ['Option 1', 'Option 2', 'Option 3'];
 
 export default class SubSectionField extends Component {
   @tracked superSelectSelectedOption = SUPERSELECT_OPTIONS[0];
-  @tracked superSelectSelectedOptions = [
-    SUPERSELECT_OPTIONS[0],
-    SUPERSELECT_OPTIONS[1],
-  ];
+  @tracked superSelectSelectedOptions = SUPERSELECT_OPTIONS.slice(0, 2);
 
   <template>
     <ShwTextH3>Field</ShwTextH3>

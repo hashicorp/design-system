@@ -5,7 +5,8 @@
 
 // POWER-SELECT
 
-// this needs to be manually imported to apply the standard
-// "ember-power-select" styling to the element
-// (the file is inside the `node_modules`)
+// these need to be manually imported to apply the standard
+// "ember-basic-dropdown" and "ember-power-select" styling to the element
+// (the files are inside the `node_modules`)
+@use "ember-basic-dropdown";
 @use "ember-power-select";

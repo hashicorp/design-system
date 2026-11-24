@@ -8229,6 +8229,9 @@ button.hds-button[href]::after {
   bottom: 100%;
   margin-bottom: 4px;
 }
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-options-wrapper {
+  border-radius: inherit;
+}
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-options {
   padding: 3px 0;
   background-color: var(--hds-form-control-surface-color-default);

@@ -12,7 +12,7 @@ export default class LocalComponent extends Component {
     'Frankfurt (eu-central-1)',
   ];
 
-  SELECTED_OPTIONS = null;
+  SELECTED_OPTIONS: string[] = [];
 
   <template>
     <HdsFormSuperSelectMultipleField
@@ -23,7 +23,6 @@ export default class LocalComponent extends Component {
       as |F|
     >
       <F.Label>This is the label</F.Label>
-      {{! @glint-expect-error }}
       <F.Options>{{F.options}}</F.Options>
     </HdsFormSuperSelectMultipleField>
   </template>

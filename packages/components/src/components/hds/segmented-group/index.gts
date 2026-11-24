@@ -27,8 +27,9 @@ export interface HdsSegmentedGroupSignature {
         Dropdown?: typeof HdsDropdown;
         Select?: typeof HdsFormSelectBase;
         TextInput?: typeof HdsFormTextInputBase;
-        SuperSelectSingle?: typeof HdsFormSuperSelectSingleBase;
-        SuperSelectMultiple?: typeof HdsFormSuperSelectMultipleBase;
+        // required, so Glint infers the generic types of the Base components from `@options`, which type the yielded options
+        SuperSelectSingle: typeof HdsFormSuperSelectSingleBase;
+        SuperSelectMultiple: typeof HdsFormSuperSelectMultipleBase;
         Generic?: typeof HdsYield;
       },
     ];

@@ -92,7 +92,7 @@ export interface CodeFragmentWithSingleFieldElementSignature {
 }
 
 export default class CodeFragmentWithSingleFieldElement extends Component<CodeFragmentWithSingleFieldElementSignature> {
-  @tracked selectedOption;
+  @tracked selectedOption: unknown;
 
   constructor(
     owner: Owner,
@@ -109,7 +109,7 @@ export default class CodeFragmentWithSingleFieldElement extends Component<CodeFr
     }
   }
 
-  get options() {
+  get options(): unknown[] {
     const { options } = this.args;
 
     if (options === 'cluster-size') {
@@ -126,6 +126,7 @@ export default class CodeFragmentWithSingleFieldElement extends Component<CodeFr
       @onChange={{fn (mut this.selectedOption)}}
       @options={{this.options}}
       @selected={{this.selectedOption}}
+      {{! @glint-expect-error - the options mix shapes in this demo, so their type can't match the selected item component's }}
       @selectedItemComponent={{if
         @hasSelectedItemComponent
         CodeFragmentWithSelectedComponent

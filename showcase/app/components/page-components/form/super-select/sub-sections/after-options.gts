@@ -153,35 +153,37 @@ const SubSectionAfterOptions: TemplateOnlyComponent = <template>
             class="ember-basic-dropdown-content ember-power-select-dropdown"
             {{style position="static"}}
           >
-            <ul
-              class="ember-power-select-options"
-              role="listbox"
-              aria-label="Label"
-              {{style max-height="none"}}
-            >
-              <HdsFormSuperSelectOptionGroup
-                @group={{hash groupName="Lorem ipsum dolor"}}
+            <div class="ember-power-select-options-wrapper">
+              <ul
+                class="ember-power-select-options"
+                role="listbox"
+                aria-label="Label"
+                {{style max-height="none"}}
               >
-                {{! template-lint-disable require-context-role }}
-                <li
-                  class="ember-power-select-option"
-                  role="option"
-                  aria-selected="true"
+                <HdsFormSuperSelectOptionGroup
+                  @group={{hash groupName="Lorem ipsum dolor"}}
                 >
-                  <div class="hds-form-super-select__option-text">Option 1</div>
-                </li>
-                <li class="ember-power-select-option" role="option">
-                  <div class="hds-form-super-select__option-text">Option 2</div>
-                </li>
-              </HdsFormSuperSelectOptionGroup>
-            </ul>
-            <HdsFormSuperSelectAfterOptions
-              @showAll={{NOOP}}
-              @showSelected={{NOOP}}
-              @clearSelected={{NOOP}}
-              @selectedCount="123"
-              @resultCountMessage="1 selected of 2 total"
-            />
+                  {{! template-lint-disable require-context-role }}
+                  <li
+                    class="ember-power-select-option"
+                    role="option"
+                    aria-selected="true"
+                  >
+                    <div class="hds-form-super-select__option-text">Option 1</div>
+                  </li>
+                  <li class="ember-power-select-option" role="option">
+                    <div class="hds-form-super-select__option-text">Option 2</div>
+                  </li>
+                </HdsFormSuperSelectOptionGroup>
+              </ul>
+              <HdsFormSuperSelectAfterOptions
+                @showAll={{NOOP}}
+                @showSelected={{NOOP}}
+                @clearSelected={{NOOP}}
+                @selectedCount="123"
+                @resultCountMessage="1 selected of 2 total"
+              />
+            </div>
           </div>
         </div>
       </div>

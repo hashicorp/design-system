@@ -100,10 +100,10 @@ export default class CodeFragmentWithDynamicInputs extends Component<CodeFragmen
     }
   };
 
-  onPowerSelectChangeUpdateModel: PowerSelectSignature['Args']['onChange'] = (
-    selection: string,
-    select,
-  ) => {
+  onPowerSelectChangeUpdateModel: PowerSelectSignature<
+    string,
+    true
+  >['Args']['onChange'] = (selection, select) => {
     // Unfortunately PowerSelect doesn't provide access to the "input" element via its APIs
     // so we have to use a bit of DOM querying and rely on data attributes to get the name of the field
     const triggerElement = document.querySelector(
@@ -305,6 +305,7 @@ export default class CodeFragmentWithDynamicInputs extends Component<CodeFragmen
                   <F.SuperSelectMultiple
                     data-name="value-{{R.rowIndex}}"
                     @options={{SUPERSELECT_OPTIONS}}
+                    {{! @glint-expect-error }}
                     @selected={{R.rowData.value}}
                     @onChange={{this.onPowerSelectChangeUpdateModel}}
                     @ariaLabel="Label"

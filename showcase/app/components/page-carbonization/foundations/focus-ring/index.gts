@@ -8,7 +8,6 @@ import style from 'ember-style-modifier';
 import { capitalize } from '@ember/string';
 import { eq } from 'ember-truth-helpers';
 import { array, hash } from '@ember/helper';
-import PowerSelect from 'ember-power-select/components/power-select';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -125,10 +124,6 @@ func main() {
   res = 'Lorem ipsum dolor sit amet'
   fmt.Println(res)
 }`;
-
-const POWERSELECT_OPTIONS: string[] = ['foo', 'bar', 'baz', 'abc', 'xyz'];
-const POWERSELECT_SINGLE_SELECTED: string[] = ['foo'];
-const POWERSELECT_MULTIPLE_SELECTED: string[] = ['foo', 'baz', 'xyz'];
 
 const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
   {{pageTitle "Focus ring - Carbonization"}}
@@ -1077,43 +1072,6 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
           </SF.Item>
           <SF.Item>
             <HdsFormToggleBase checked="checked" aria-label="Checked toggle" />
-          </SF.Item>
-        </ShwFlex>
-      </:theming>
-    </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="PowerSelect overrides">
-      <:theming>
-        <ShwFlex as |SF|>
-          <SF.Item>
-            <div class="hds-power-select">
-              <PowerSelect
-                @options={{POWERSELECT_OPTIONS}}
-                @selected={{POWERSELECT_SINGLE_SELECTED}}
-                @onChange={{NOOP}}
-                @renderInPlace={{true}}
-                {{! special case, we apply directly the mock classname }}
-                class="mock-focus"
-                as |option|
-              >
-                {{option}}
-              </PowerSelect>
-            </div>
-          </SF.Item>
-          <SF.Item>
-            <div class="hds-power-select">
-              <PowerSelect
-                @multiple={{true}}
-                @options={{POWERSELECT_OPTIONS}}
-                @selected={{POWERSELECT_MULTIPLE_SELECTED}}
-                @onChange={{NOOP}}
-                @renderInPlace={{true}}
-                {{! special case, we apply directly the mock classname }}
-                class="mock-focus"
-                as |option|
-              >
-                {{option}}
-              </PowerSelect>
-            </div>
           </SF.Item>
         </ShwFlex>
       </:theming>

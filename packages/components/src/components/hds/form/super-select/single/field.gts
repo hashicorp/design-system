@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { hash, concat } from '@ember/helper';
 
-import type { Select } from 'ember-power-select/components/power-select';
+import type { Option, Select } from 'ember-power-select/types';
 
 import { ID_PREFIX } from '../../label/index.gts';
 import HdsFormSuperSelectSingleBase from './base.gts';
@@ -16,8 +16,11 @@ import HdsYield from '../../../yield/index.gts';
 import type { HdsFormFieldSignature } from '../../field/index.gts';
 import type { HdsFormSuperSelectSingleBaseSignature } from './base.gts';
 
-export interface HdsFormSuperSelectSingleFieldSignature {
-  Args: HdsFormSuperSelectSingleBaseSignature['Args'] &
+export interface HdsFormSuperSelectSingleFieldSignature<
+  T = unknown,
+  TExtra = unknown,
+> {
+  Args: HdsFormSuperSelectSingleBaseSignature<T, TExtra>['Args'] &
     HdsFormFieldSignature['Args'];
   Blocks: {
     default: [
@@ -26,15 +29,18 @@ export interface HdsFormSuperSelectSingleFieldSignature {
         HelperText?: HdsFormFieldSignature['Blocks']['default'][0]['HelperText'];
         Error?: HdsFormFieldSignature['Blocks']['default'][0]['Error'];
         Options?: typeof HdsYield;
-        options?: unknown;
-        select?: Select;
+        options?: Option<T>;
+        select?: Select<T>;
       },
     ];
   };
-  Element: HdsFormSuperSelectSingleBaseSignature['Element'];
+  Element: HdsFormSuperSelectSingleBaseSignature<T, TExtra>['Element'];
 }
 
-export default class HdsFormSuperSelectSingleField extends Component<HdsFormSuperSelectSingleFieldSignature> {
+export default class HdsFormSuperSelectSingleField<
+  T = unknown,
+  TExtra = unknown,
+> extends Component<HdsFormSuperSelectSingleFieldSignature<T, TExtra>> {
   get idPrefix(): string {
     return ID_PREFIX;
   }

@@ -181,6 +181,12 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     }
   }
 
+  // OPTIONS WRAPPER (wraps the options list and the "after options" content)
+
+  .ember-power-select-options-wrapper {
+    border-radius: inherit; // passes the dropdown radius on to the options list and "after options" content
+  }
+
   // OPTIONS LIST (in dropdown)
 
   .ember-power-select-options {

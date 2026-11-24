@@ -12,7 +12,11 @@ export default class LocalComponent extends Component {
     'Frankfurt (eu-central-1)',
   ];
 
-  SELECTED_OPTIONS = [this.OPTIONS[0], this.OPTIONS[1], this.OPTIONS[2]];
+  SELECTED_OPTIONS = [
+    'Oregon (us-west-2)',
+    'N. Virginia (us-east-1)',
+    'Ireland (eu-west-1)',
+  ];
 
   <template>
     <HdsFormSuperSelectMultipleBase

@@ -75,31 +75,33 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
       <div class="hds-form-super-select hds-form-super-select-single">
         <div class="ember-basic-dropdown">
           <div class="ember-basic-dropdown-content" {{style position="static"}}>
-            <ul
-              class="ember-power-select-options"
-              role="listbox"
-              aria-label="Label"
-            >
-              {{! there is no focused state for the select-option }}
-              {{#each OPTIONS_STATES as |state|}}
+            <div class="ember-power-select-options-wrapper">
+              <ul
+                class="ember-power-select-options"
+                role="listbox"
+                aria-label="Label"
+              >
+                {{! there is no focused state for the select-option }}
+                {{#each OPTIONS_STATES as |state|}}
+                  <li
+                    class="ember-power-select-option"
+                    role="option"
+                    mock-state-value={{state}}
+                  >
+                    <div
+                      class="hds-form-super-select__option-text"
+                    >{{state}}</div>
+                  </li>
+                {{/each}}
                 <li
                   class="ember-power-select-option"
                   role="option"
-                  mock-state-value={{state}}
+                  aria-disabled="true"
                 >
-                  <div
-                    class="hds-form-super-select__option-text"
-                  >{{state}}</div>
+                  <div class="hds-form-super-select__option-text">disabled</div>
                 </li>
-              {{/each}}
-              <li
-                class="ember-power-select-option"
-                role="option"
-                aria-disabled="true"
-              >
-                <div class="hds-form-super-select__option-text">disabled</div>
-              </li>
-            </ul>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -108,33 +110,35 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
       <div class="hds-form-super-select hds-form-super-select-single">
         <div class="ember-basic-dropdown">
           <div class="ember-basic-dropdown-content" {{style position="static"}}>
-            <ul
-              class="ember-power-select-options"
-              role="listbox"
-              aria-label="Label"
-            >
-              {{! there is no focused state for the select-option }}
-              {{#each OPTIONS_STATES as |state|}}
+            <div class="ember-power-select-options-wrapper">
+              <ul
+                class="ember-power-select-options"
+                role="listbox"
+                aria-label="Label"
+              >
+                {{! there is no focused state for the select-option }}
+                {{#each OPTIONS_STATES as |state|}}
+                  <li
+                    class="ember-power-select-option"
+                    aria-selected="true"
+                    role="option"
+                    mock-state-value={{state}}
+                  >
+                    <div
+                      class="hds-form-super-select__option-text"
+                    >{{state}}</div>
+                  </li>
+                {{/each}}
                 <li
                   class="ember-power-select-option"
-                  aria-selected="true"
                   role="option"
-                  mock-state-value={{state}}
+                  aria-selected="true"
+                  aria-disabled="true"
                 >
-                  <div
-                    class="hds-form-super-select__option-text"
-                  >{{state}}</div>
+                  <div class="hds-form-super-select__option-text">disabled</div>
                 </li>
-              {{/each}}
-              <li
-                class="ember-power-select-option"
-                role="option"
-                aria-selected="true"
-                aria-disabled="true"
-              >
-                <div class="hds-form-super-select__option-text">disabled</div>
-              </li>
-            </ul>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -143,27 +147,29 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
       <div class="hds-form-super-select hds-form-super-select-single">
         <div class="ember-basic-dropdown">
           <div class="ember-basic-dropdown-content" {{style position="static"}}>
-            <ul
-              class="ember-power-select-options"
-              role="listbox"
-              aria-label="Label"
-              {{style max-height="none"}}
-            >
-              {{! there is no focused state for the select-option }}
-              {{#each OPTIONS_STATES as |state|}}
-                <li
-                  class="ember-power-select-option"
-                  aria-selected="true"
-                  role="option"
-                  mock-state-value={{state}}
-                >
-                  <div class="hds-form-super-select__option-text">
-                    {{state}}
-                    - this is a long text that should wrap on multiple lines
-                  </div>
-                </li>
-              {{/each}}
-            </ul>
+            <div class="ember-power-select-options-wrapper">
+              <ul
+                class="ember-power-select-options"
+                role="listbox"
+                aria-label="Label"
+                {{style max-height="none"}}
+              >
+                {{! there is no focused state for the select-option }}
+                {{#each OPTIONS_STATES as |state|}}
+                  <li
+                    class="ember-power-select-option"
+                    aria-selected="true"
+                    role="option"
+                    mock-state-value={{state}}
+                  >
+                    <div class="hds-form-super-select__option-text">
+                      {{state}}
+                      - this is a long text that should wrap on multiple lines
+                    </div>
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -177,31 +183,33 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
       <div class="hds-form-super-select hds-form-super-select-multiple">
         <div class="ember-basic-dropdown">
           <div class="ember-basic-dropdown-content" {{style position="static"}}>
-            <ul
-              class="ember-power-select-options"
-              role="listbox"
-              aria-label="Label"
-            >
-              {{! there is no focused state for the select-option }}
-              {{#each OPTIONS_STATES as |state|}}
+            <div class="ember-power-select-options-wrapper">
+              <ul
+                class="ember-power-select-options"
+                role="listbox"
+                aria-label="Label"
+              >
+                {{! there is no focused state for the select-option }}
+                {{#each OPTIONS_STATES as |state|}}
+                  <li
+                    class="ember-power-select-option"
+                    role="option"
+                    mock-state-value={{state}}
+                  >
+                    <div
+                      class="hds-form-super-select__option-text"
+                    >{{state}}</div>
+                  </li>
+                {{/each}}
                 <li
                   class="ember-power-select-option"
                   role="option"
-                  mock-state-value={{state}}
+                  aria-disabled="true"
                 >
-                  <div
-                    class="hds-form-super-select__option-text"
-                  >{{state}}</div>
+                  <div class="hds-form-super-select__option-text">disabled</div>
                 </li>
-              {{/each}}
-              <li
-                class="ember-power-select-option"
-                role="option"
-                aria-disabled="true"
-              >
-                <div class="hds-form-super-select__option-text">disabled</div>
-              </li>
-            </ul>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -210,33 +218,35 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
       <div class="hds-form-super-select hds-form-super-select-multiple">
         <div class="ember-basic-dropdown">
           <div class="ember-basic-dropdown-content" {{style position="static"}}>
-            <ul
-              class="ember-power-select-options"
-              role="listbox"
-              aria-label="Label"
-            >
-              {{! there is no focused state for the select-option }}
-              {{#each OPTIONS_STATES as |state|}}
+            <div class="ember-power-select-options-wrapper">
+              <ul
+                class="ember-power-select-options"
+                role="listbox"
+                aria-label="Label"
+              >
+                {{! there is no focused state for the select-option }}
+                {{#each OPTIONS_STATES as |state|}}
+                  <li
+                    class="ember-power-select-option"
+                    role="option"
+                    aria-selected="true"
+                    mock-state-value={{state}}
+                  >
+                    <div
+                      class="hds-form-super-select__option-text"
+                    >{{state}}</div>
+                  </li>
+                {{/each}}
                 <li
                   class="ember-power-select-option"
                   role="option"
                   aria-selected="true"
-                  mock-state-value={{state}}
+                  aria-disabled="true"
                 >
-                  <div
-                    class="hds-form-super-select__option-text"
-                  >{{state}}</div>
+                  <div class="hds-form-super-select__option-text">disabled</div>
                 </li>
-              {{/each}}
-              <li
-                class="ember-power-select-option"
-                role="option"
-                aria-selected="true"
-                aria-disabled="true"
-              >
-                <div class="hds-form-super-select__option-text">disabled</div>
-              </li>
-            </ul>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -245,27 +255,29 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
       <div class="hds-form-super-select hds-form-super-select-multiple">
         <div class="ember-basic-dropdown">
           <div class="ember-basic-dropdown-content" {{style position="static"}}>
-            <ul
-              class="ember-power-select-options"
-              role="listbox"
-              aria-label="Label"
-              {{style max-height="none"}}
-            >
-              {{! there is no focused state for the select-option }}
-              {{#each OPTIONS_STATES as |state|}}
-                <li
-                  class="ember-power-select-option"
-                  aria-selected="true"
-                  role="option"
-                  mock-state-value={{state}}
-                >
-                  <div class="hds-form-super-select__option-text">
-                    {{state}}
-                    - this is a long text that should wrap on multiple lines
-                  </div>
-                </li>
-              {{/each}}
-            </ul>
+            <div class="ember-power-select-options-wrapper">
+              <ul
+                class="ember-power-select-options"
+                role="listbox"
+                aria-label="Label"
+                {{style max-height="none"}}
+              >
+                {{! there is no focused state for the select-option }}
+                {{#each OPTIONS_STATES as |state|}}
+                  <li
+                    class="ember-power-select-option"
+                    aria-selected="true"
+                    role="option"
+                    mock-state-value={{state}}
+                  >
+                    <div class="hds-form-super-select__option-text">
+                      {{state}}
+                      - this is a long text that should wrap on multiple lines
+                    </div>
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

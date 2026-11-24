@@ -9,5 +9,5 @@ export default class LocalComponent extends Component {
     'Frankfurt (eu-central-1)',
   ];
 
-  SELECTED_OPTIONS = null;
+  SELECTED_OPTIONS = [];
 }

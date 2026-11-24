@@ -23,6 +23,7 @@ module.exports = function (defaults) {
       includePaths: [
         'node_modules/@hashicorp/design-system-tokens/dist/products/css',
         'node_modules/@hashicorp/design-system-components/dist/styles',
+        'node_modules/ember-basic-dropdown',
         'node_modules/ember-power-select',
         'node_modules/ember-a11y-refocus/dist/styles',
       ],

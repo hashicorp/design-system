@@ -154,9 +154,6 @@ Router.map(function () {
     this.route('interactive');
     this.route('popover-primitive');
   });
-  this.route('page-overrides', { path: 'overrides' }, function () {
-    this.route('power-select');
-  });
   this.route(
     'page-internationalization',
     { path: 'internationalization' },

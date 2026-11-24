@@ -349,15 +349,6 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
       </ol>
-      <ShwTextH2>Overrides</ShwTextH2>
-      <ol class="shw-text-body">
-        <li>
-          <LinkTo @route="page-overrides.power-select">
-            PowerSelect
-          </LinkTo>
-        </li>
-      </ol>
-
       <ShwTextH2>Utilities</ShwTextH2>
       <ol class="shw-text-body">
         <li>

@@ -28,45 +28,47 @@ const SubSectionOptionGroup: TemplateOnlyComponent = <template>
               class="ember-basic-dropdown-content"
               {{style position="static"}}
             >
-              <ul
-                class="ember-power-select-options"
-                role="listbox"
-                aria-label="Label"
-                {{style max-height="none"}}
-              >
-                <HdsFormSuperSelectOptionGroup
-                  @group={{hash
-                    groupName="Title for first group (with no content)"
-                  }}
-                />
-                <HdsFormSuperSelectOptionGroup
-                  @group={{hash
-                    groupName="Title for second group (with generic content)"
-                  }}
+              <div class="ember-power-select-options-wrapper">
+                <ul
+                  class="ember-power-select-options"
+                  role="listbox"
+                  aria-label="Label"
+                  {{style max-height="none"}}
                 >
-                  <ShwPlaceholder
-                    @text="Second group - Generic content"
-                    @height="40px"
+                  <HdsFormSuperSelectOptionGroup
+                    @group={{hash
+                      groupName="Title for first group (with no content)"
+                    }}
                   />
-                </HdsFormSuperSelectOptionGroup>
-                <HdsFormSuperSelectOptionGroup
-                  @group={{hash
-                    groupName="Title for third group (with options)"
-                  }}
-                >
-                  {{! template-lint-disable require-context-role }}
-                  <li
-                    class="ember-power-select-option"
-                    role="option"
-                    mock-state-value="hover"
+                  <HdsFormSuperSelectOptionGroup
+                    @group={{hash
+                      groupName="Title for second group (with generic content)"
+                    }}
                   >
-                    <div class="hds-form-super-select__option-text">Option 1</div>
-                  </li>
-                  <li class="ember-power-select-option" role="option">
-                    <div class="hds-form-super-select__option-text">Option 2</div>
-                  </li>
-                </HdsFormSuperSelectOptionGroup>
-              </ul>
+                    <ShwPlaceholder
+                      @text="Second group - Generic content"
+                      @height="40px"
+                    />
+                  </HdsFormSuperSelectOptionGroup>
+                  <HdsFormSuperSelectOptionGroup
+                    @group={{hash
+                      groupName="Title for third group (with options)"
+                    }}
+                  >
+                    {{! template-lint-disable require-context-role }}
+                    <li
+                      class="ember-power-select-option"
+                      role="option"
+                      mock-state-value="hover"
+                    >
+                      <div class="hds-form-super-select__option-text">Option 1</div>
+                    </li>
+                    <li class="ember-power-select-option" role="option">
+                      <div class="hds-form-super-select__option-text">Option 2</div>
+                    </li>
+                  </HdsFormSuperSelectOptionGroup>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -78,26 +80,15 @@ const SubSectionOptionGroup: TemplateOnlyComponent = <template>
               class="ember-basic-dropdown-content"
               {{style position="static"}}
             >
-              <ul
-                class="ember-power-select-options"
-                role="listbox"
-                aria-label="Label"
-                {{style max-height="none"}}
-              >
-                <HdsFormSuperSelectOptionGroup
-                  @group={{hash groupName="Title for first level"}}
+              <div class="ember-power-select-options-wrapper">
+                <ul
+                  class="ember-power-select-options"
+                  role="listbox"
+                  aria-label="Label"
+                  {{style max-height="none"}}
                 >
-                  {{! template-lint-disable require-context-role }}
-                  <li
-                    class="ember-power-select-option"
-                    role="option"
-                    mock-state-value="hover"
-                  >
-                    <div class="hds-form-super-select__option-text">Level 1 -
-                      Option 1A</div>
-                  </li>
                   <HdsFormSuperSelectOptionGroup
-                    @group={{hash groupName="Title for second level"}}
+                    @group={{hash groupName="Title for first level"}}
                   >
                     {{! template-lint-disable require-context-role }}
                     <li
@@ -105,15 +96,11 @@ const SubSectionOptionGroup: TemplateOnlyComponent = <template>
                       role="option"
                       mock-state-value="hover"
                     >
-                      <div class="hds-form-super-select__option-text">Level 2 -
-                        Option 2A</div>
-                    </li>
-                    <li class="ember-power-select-option" role="option">
-                      <div class="hds-form-super-select__option-text">Level 2 -
-                        Option 2B</div>
+                      <div class="hds-form-super-select__option-text">Level 1 -
+                        Option 1A</div>
                     </li>
                     <HdsFormSuperSelectOptionGroup
-                      @group={{hash groupName="Title for third level"}}
+                      @group={{hash groupName="Title for second level"}}
                     >
                       {{! template-lint-disable require-context-role }}
                       <li
@@ -121,31 +108,48 @@ const SubSectionOptionGroup: TemplateOnlyComponent = <template>
                         role="option"
                         mock-state-value="hover"
                       >
-                        <div class="hds-form-super-select__option-text">Level 3
-                          - Option 3A</div>
+                        <div class="hds-form-super-select__option-text">Level 2
+                          - Option 2A</div>
                       </li>
                       <li class="ember-power-select-option" role="option">
-                        <div class="hds-form-super-select__option-text">Level 3
-                          - Option 3B</div>
+                        <div class="hds-form-super-select__option-text">Level 2
+                          - Option 2B</div>
                       </li>
+                      <HdsFormSuperSelectOptionGroup
+                        @group={{hash groupName="Title for third level"}}
+                      >
+                        {{! template-lint-disable require-context-role }}
+                        <li
+                          class="ember-power-select-option"
+                          role="option"
+                          mock-state-value="hover"
+                        >
+                          <div class="hds-form-super-select__option-text">Level
+                            3 - Option 3A</div>
+                        </li>
+                        <li class="ember-power-select-option" role="option">
+                          <div class="hds-form-super-select__option-text">Level
+                            3 - Option 3B</div>
+                        </li>
+                      </HdsFormSuperSelectOptionGroup>
                     </HdsFormSuperSelectOptionGroup>
+                    <HdsFormSuperSelectOptionGroup
+                      @group={{hash
+                        groupName="Title for second level (with generic content)"
+                      }}
+                    >
+                      <ShwPlaceholder
+                        @text="Second group - Generic content"
+                        @height="40px"
+                      />
+                    </HdsFormSuperSelectOptionGroup>
+                    <li class="ember-power-select-option" role="option">
+                      <div class="hds-form-super-select__option-text">Level 1 -
+                        Option 1B</div>
+                    </li>
                   </HdsFormSuperSelectOptionGroup>
-                  <HdsFormSuperSelectOptionGroup
-                    @group={{hash
-                      groupName="Title for second level (with generic content)"
-                    }}
-                  >
-                    <ShwPlaceholder
-                      @text="Second group - Generic content"
-                      @height="40px"
-                    />
-                  </HdsFormSuperSelectOptionGroup>
-                  <li class="ember-power-select-option" role="option">
-                    <div class="hds-form-super-select__option-text">Level 1 -
-                      Option 1B</div>
-                  </li>
-                </HdsFormSuperSelectOptionGroup>
-              </ul>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

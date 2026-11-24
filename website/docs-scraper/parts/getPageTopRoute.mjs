@@ -7,13 +7,7 @@
 // import { getTocSectionsBundle } from '../app/components/doc/page/sidebar.js';
 const ABOUT = ['about', 'whats-new', 'getting-started', 'carbonization'];
 const FOUNDATIONS = ['foundations', 'icons'];
-const COMPONENTS = [
-  'components',
-  'layouts',
-  'theming',
-  'overrides',
-  'utilities',
-];
+const COMPONENTS = ['components', 'layouts', 'theming', 'utilities'];
 const PATTERNS = ['patterns'];
 const TESTING = ['testing'];
 

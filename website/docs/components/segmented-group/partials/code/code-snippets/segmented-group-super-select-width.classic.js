@@ -10,5 +10,5 @@ export default class LocalComponent extends Component {
     'Waypoint',
   ];
 
-  SELECTED_SERVICE = null;
+  SELECTED_SERVICE = undefined;
 }

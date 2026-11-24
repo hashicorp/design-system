@@ -7,13 +7,20 @@ import style from 'ember-style-modifier';
 
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 
-const CodeFragmentWithOptionsGenericContent: TemplateOnlyComponent = <template>
-  <ShwPlaceholder
-    @text="placeholder"
-    {{style textShadow="0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff"}}
-    @background="hsla(0, 100%, 92%, 1)"
-    @height="40px"
-  />
-</template>;
+// matches the signatures ember-power-select expects from `beforeOptionsComponent` and `afterOptionsComponent`
+interface CodeFragmentWithOptionsGenericContentSignature {
+  Blocks: { default: [] };
+  Element: HTMLDivElement;
+}
+
+const CodeFragmentWithOptionsGenericContent: TemplateOnlyComponent<CodeFragmentWithOptionsGenericContentSignature> =
+  <template>
+    <ShwPlaceholder
+      @text="placeholder"
+      {{style textShadow="0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff"}}
+      @background="hsla(0, 100%, 92%, 1)"
+      @height="40px"
+    />
+  </template>;
 
 export default CodeFragmentWithOptionsGenericContent;

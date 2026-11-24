@@ -15,7 +15,7 @@ export default class LocalComponent extends Component {
     'Frankfurt (eu-central-1)',
   ];
 
-  SELECTED_OPTION = null;
+  SELECTED_OPTION: string | undefined = undefined;
 
   <template>
     <HdsForm as |FORM|>
@@ -29,7 +29,6 @@ export default class LocalComponent extends Component {
           as |F|
         >
           <F.Label>This is the label</F.Label>
-          {{! @glint-expect-error }}
           <F.Options>{{F.options}}</F.Options>
         </HdsFormSuperSelectSingleField>
 
@@ -42,7 +41,6 @@ export default class LocalComponent extends Component {
           as |F|
         >
           <F.Label>This is the label</F.Label>
-          {{! @glint-expect-error }}
           <F.Options>{{F.options}}</F.Options>
         </HdsFormSuperSelectSingleField>
       </FORM.Section>

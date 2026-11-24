@@ -25,7 +25,9 @@ export default class LocalComponent extends Component {
     },
   ];
 
-  SELECTED_OPTIONS = [this.OPTIONS[1], this.OPTIONS[2]];
+  SELECTED_OPTIONS = this.OPTIONS.filter((option) =>
+    ['Small', 'Medium'].includes(option.size),
+  );
 
   <template>
     <HdsFormSuperSelectMultipleField
@@ -40,12 +42,9 @@ export default class LocalComponent extends Component {
         {{#let F.options as |option|}}
           <HdsTextBody @size="200">
             <div class="doc-super-select-option-rich-header">
-              {{! @glint-expect-error }}
               <strong>{{option.size}}</strong>
-              {{! @glint-expect-error }}
               <strong>{{option.price}}</strong>
             </div>
-            {{! @glint-expect-error }}
             <div>{{option.description}}</div>
           </HdsTextBody>
         {{/let}}
