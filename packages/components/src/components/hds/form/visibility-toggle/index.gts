@@ -32,6 +32,30 @@ export default class HdsFormVisibilityToggle extends Component<HdsFormVisibility
     );
   }
 
+  get ariaMessageText(): string {
+    return (
+      this.args.ariaMessageText ??
+      this.hdsIntl.t(
+        'hds.components.form.visibility-toggle.aria-message-text',
+        {
+          default: 'Content is hidden',
+        }
+      )
+    );
+  }
+
+  get ariaMessageTextWhenVisible(): string {
+    return (
+      this.args.ariaMessageTextWhenVisible ??
+      this.hdsIntl.t(
+        'hds.components.form.visibility-toggle.aria-message-text-when-visible',
+        {
+          default: 'Content is visible',
+        }
+      )
+    );
+  }
+
   <template>
     <button
       class="hds-form-visibility-toggle"
@@ -42,8 +66,8 @@ export default class HdsFormVisibilityToggle extends Component<HdsFormVisibility
       <HdsIcon @name={{if @isMasked "eye" "eye-off"}} @size="16" />
       <span class="sr-only" aria-live="polite">{{if
           @isMasked
-          @ariaMessageText
-          @ariaMessageTextWhenVisible
+          this.ariaMessageText
+          this.ariaMessageTextWhenVisible
         }}</span>
     </button>
   </template>

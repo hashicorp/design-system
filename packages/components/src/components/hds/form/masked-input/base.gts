@@ -81,32 +81,6 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
     return getElementId(this);
   }
 
-  get visibilityToggleAriaMessageText(): string {
-    if (this.args.visibilityToggleAriaMessageText) {
-      return this.args.visibilityToggleAriaMessageText;
-    } else {
-      return this.hdsIntl.t(
-        'hds.components.form.masked-input.base.input-content-is-hidden',
-        {
-          default: 'Input content is hidden',
-        }
-      );
-    }
-  }
-
-  get visibilityToggleAriaMessageTextWhenVisible(): string {
-    if (this.args.visibilityToggleAriaMessageTextWhenVisible) {
-      return this.args.visibilityToggleAriaMessageTextWhenVisible;
-    } else {
-      return this.hdsIntl.t(
-        'hds.components.form.masked-input.base.input-content-is-visible',
-        {
-          default: 'Input content is visible',
-        }
-      );
-    }
-  }
-
   get copyButtonText(): string {
     if (this.args.copyButtonText) {
       return this.args.copyButtonText;
@@ -157,8 +131,8 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
       <HdsFormVisibilityToggle
         @isMasked={{this.isContentMasked}}
         @ariaLabel={{@visibilityToggleAriaLabel}}
-        @ariaMessageText={{this.visibilityToggleAriaMessageText}}
-        @ariaMessageTextWhenVisible={{this.visibilityToggleAriaMessageTextWhenVisible}}
+        @ariaMessageText={{@visibilityToggleAriaMessageText}}
+        @ariaMessageTextWhenVisible={{@visibilityToggleAriaMessageTextWhenVisible}}
         aria-controls={{this.id}}
         aria-pressed={{if this.isContentMasked "false" "true"}}
         class="hds-form-masked-input__toggle-button"

@@ -270,13 +270,9 @@ module(
         </template>,
       );
       await click('.hds-form-visibility-toggle');
-      assert
-        .dom('.hds-form-visibility-toggle')
-        .hasText('Input content is visible');
+      assert.dom('.hds-form-visibility-toggle').hasText('Content is visible');
       await click('.hds-form-visibility-toggle');
-      assert
-        .dom('.hds-form-visibility-toggle')
-        .hasText('Input content is hidden');
+      assert.dom('.hds-form-visibility-toggle').hasText('Content is hidden');
     });
 
     test('it renders custom messages for both states on toggle', async function (assert) {

@@ -158,13 +158,9 @@ module(
         </template>,
       );
       await click('.hds-form-visibility-toggle');
-      assert
-        .dom('.hds-form-visibility-toggle')
-        .hasText('Input content is visible');
+      assert.dom('.hds-form-visibility-toggle').hasText('Content is visible');
       await click('.hds-form-visibility-toggle');
-      assert
-        .dom('.hds-form-visibility-toggle')
-        .hasText('Input content is hidden');
+      assert.dom('.hds-form-visibility-toggle').hasText('Content is hidden');
     });
 
     test('it renders a custom message for the hidden state when only @visibilityToggleAriaMessageText is provided', async function (assert) {
@@ -180,9 +176,7 @@ module(
         .dom('.hds-form-visibility-toggle')
         .hasText('My input content is hidden');
       await click('.hds-form-visibility-toggle');
-      assert
-        .dom('.hds-form-visibility-toggle')
-        .hasText('Input content is visible');
+      assert.dom('.hds-form-visibility-toggle').hasText('Content is visible');
     });
 
     test('it renders a custom message for the visible state when only @visibilityToggleAriaMessageTextWhenVisible is provided', async function (assert) {
@@ -199,9 +193,7 @@ module(
         .dom('.hds-form-visibility-toggle')
         .hasText('My input content is visible');
       await click('.hds-form-visibility-toggle');
-      assert
-        .dom('.hds-form-visibility-toggle')
-        .hasText('Input content is hidden');
+      assert.dom('.hds-form-visibility-toggle').hasText('Content is hidden');
     });
 
     // MULTILINE
