@@ -79,7 +79,7 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
   enableClickEvents = this.args.enableClickEvents ?? false;
   private _timer?: ReturnType<typeof setTimeout> | null;
   private _cleanupAnchoredPosition?: () => void;
-  // vars for supporting external control of popover
+  // store initial value so setupPrimitivePopover doesn't track forceState
   private _initialForceState = this.args.forceState;
   private _isInitialStateSet = false;
   private _isInitialSync = true;
@@ -184,6 +184,8 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
         this._popoverElement.id = guidFor(this);
       }
 
+      // @isOpen is tracked, so if a consumer chooses to change it and the modifier reruns,
+      // this ensures initialForceState is not applied again
       const isInitialState = !this._isInitialStateSet;
       this._isInitialStateSet = true;
 
@@ -196,7 +198,7 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
       } else {
         this._popoverElement.popover = 'auto';
 
-        // popover can also be set initially open via forceState (isOpen takes priority if true)
+        // popover can also be set initially open via forceState
         if (isInitialState && this._initialForceState === 'open') {
           this.showPopover();
         }
