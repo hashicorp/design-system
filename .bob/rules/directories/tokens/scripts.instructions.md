@@ -80,6 +80,6 @@ Run extraction only when intentionally refreshing those inputs. Never manually e
 
 ## Validation
 
-Run `pnpm build`, `pnpm lint`, and `pnpm typecheck` after changing token processing. Check both product and cloud-email outputs, all affected modes, documentation JSON, and copied showcase styles. Ensure public names, units, references, private-token filtering, and themed declarations remain correct.
+Run `pnpm lint`, `pnpm typecheck`, and finally `pnpm build` after changing token processing. Check both product and cloud-email outputs, all affected modes, documentation JSON, and copied showcase styles. Ensure public names, units, references, private-token filtering, and themed declarations remain correct.
 
 See [source format](tokens/format.instructions.md) before changing metadata handling and [package context](context.instructions.md) for related guidance.

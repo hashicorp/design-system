@@ -7,7 +7,7 @@ description: "Context for the HDS design tokens package"
 
 `@hashicorp/design-system-tokens` provides Helios design tokens and CSS helper classes for product interfaces and cloud email. Style Dictionary transforms JSON source tokens into CSS custom properties, Sass variables, helper classes, themed stylesheets, and documentation JSON.
 
-The package contains foundational values, semantic tokens, and component tokens. Prefer references to existing tokens over duplicating values, and preserve public token names when making changes.
+The package contains foundational values, semantic tokens, and component tokens. Prefer references to existing tokens (via aliasing) over duplicating values, and preserve public token names when making changes.
 
 ## Key files
 
@@ -18,7 +18,7 @@ Paths are relative to `packages/tokens`.
 - `src/carbon-extracted/` - Generated Carbon inputs. Never edit these files manually
 - `scripts/build.ts` and `scripts/build-parts/` - Build orchestration and custom Style Dictionary behavior
 - `scripts/extract-carbon-tokens.ts` and `scripts/extract-carbon-parts/` - Regenerates Carbon inputs
-- `dist/` - Generated package outputs. Change sources or build scripts, not generated files
+- `dist/` - Generated package outputs.  Never edit these files manually
 
 ## Common build commands
 
@@ -33,6 +33,7 @@ Run from `packages/tokens`:
 
 - Follow existing token conventions for naming, structure, and metadata.
 - Never manually edit `src/carbon-extracted/` or use it as precedent for Helios token format or naming. Carbon references in hand-authored tokens are valid build inputs.
+- Never manually edit `dist`.
 - Do not rename or remove published tokens as incidental cleanup.
 
 ## Related instructions

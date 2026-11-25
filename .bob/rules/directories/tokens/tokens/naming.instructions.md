@@ -55,8 +55,6 @@ Place modifiers after the property and sub-property. Keep variants and state com
 
 Omit `default` only when there are no alternative interaction-state tokens for the same role. For example, a pagination bar with only a default surface can use `pagination-bar-surface-color`. If navigation controls have default and interactive foreground states, retain `-default` alongside `-hover`, `-focus`, or `-active`, as applicable.
 
-This naming rule does not remove the need for a `$modes.default` entry on a token with mode-specific values.
-
 ## Form-control tokens
 
 Use shared families rather than creating duplicate component-specific names:

@@ -15,7 +15,8 @@ Hand-authored tokens are JSON files in `packages/tokens/src/global/` and `packag
 | `src/global/color/semantic-*.json` | Semantic colors for border, focus, foreground, page, and surface roles. |
 | `src/global/border/radius.json` | Border-radius values. |
 | `src/global/elevation` | Box-shadow elevation values. |
-| `src/global/css.json` and `focus-ring.json` | Shared CSS values and focus-ring definitions. |
+| `src/global/focus-ring.json` | Focus-ring definitions. |
+| `src/global/css.json` | Special CSS properties. |
 | `src/products/shared/color/` | Company and product semantic colors. |
 | `src/products/shared/typography.json` | Shared typography tokens. |
 | `src/products/shared/*.json` | Component tokens such as accordion, button, modal, and table. |
