@@ -13,6 +13,6 @@ Added support for a `search_hds_tokens` query copied from CSS with its `var()`, 
 
 Added support for a `search_hds_docs` tab written as it appears in passage ids, e.g. `carbon-theme`.
 
-Added guidance on design tokens, icons and Carbon themes to the `review_hds_usage` and `implement_hds_pattern` prompts.
+Added guidance on helper classes, design tokens, icons and Carbon themes to the `review_hds_usage` and `implement_hds_pattern` prompts, including how to verify the application's theme support.
 
 Updated the icon resource descriptions to call the icon set HDS icons.

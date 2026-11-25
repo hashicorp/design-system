@@ -134,12 +134,14 @@ Your assistant chooses and calls these tools through the MCP client. Names may a
 | ----------------------- | ------------------------------------------------------------------------------------ | --------------------------------------- | ----------------------------------------- |
 | `search_hds_components` | Find components by invocation name, class name, module path, or documentation path.  | `query`                                 | `limit`                                   |
 | `get_hds_component`     | Read an individual component's API, including argument types and yielded components. | `name`                                  | —                                         |
-| `search_hds_tokens`     | Find tokens by name or value, including CSS variables and resolved values per theme. | `query`                                 | `limit`, `type`, `category`               |
+| `search_hds_tokens`     | Find tokens by name or value, including CSS variables and catalog values per theme. | `query`                                 | `limit`, `type`, `category`               |
 | `search_hds_icons`      | Find icons by name or keyword, including available sizes.                            | `query`                                 | `limit`, `category`, `size`, `hasMapping` |
 | `search_hds_docs`       | Search bundled documentation for guidance and examples.                              | `query`                                 | `limit`, `section`, `tab`, `docsPath`     |
 | `read_hds_docs`         | Read a documentation passage with its Markdown and code examples.                    | `id` from a documentation search result | `includeChildren`, `maxBytes`             |
 
 Use `get_hds_component` for precise API questions; it accepts names such as `Hds::Button`, `HdsButton`, `button`, or `hds/button`. Look up yielded components separately to see their own arguments.
+
+Token catalog modes and values do not establish which themes or runtime values an application supports. Check its token bundle and theme configuration.
 
 For documentation, scope searches with the component's `docsPath` when available. Use `tab: "Version history"` for version and changelog questions. Search results are relevance-ranked: read the passages and check `pageAnchored` and `unmatchedTerms` before treating a result as evidence of a supported feature.
 
