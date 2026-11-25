@@ -165,6 +165,37 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     });
   }
 
+  // `scrollIntoView` also scrolls vertically (the handle spans the table height),
+  // which toggles the scrollbars and makes the layout jump
+  private _scrollHandleIntoViewHorizontally(): void {
+    const scroller = this._handleElement.closest('.hds-advanced-table');
+
+    if (!(scroller instanceof HTMLElement)) {
+      return;
+    }
+
+    const handleStyle = window.getComputedStyle(this._handleElement);
+    const marginLeft = parsePixel(handleStyle.scrollMarginLeft) ?? 0;
+    const marginRight = parsePixel(handleStyle.scrollMarginRight) ?? 0;
+    const handleRect = this._handleElement.getBoundingClientRect();
+    const scrollerRect = scroller.getBoundingClientRect();
+    // rects are in transformed (e.g. scaled) pixels, `scrollBy` takes CSS pixels
+    const scale =
+      scroller.offsetWidth > 0 ? scrollerRect.width / scroller.offsetWidth : 1;
+    const handleLeft =
+      (handleRect.left - scrollerRect.left) / scale - scroller.clientLeft;
+    const handleRight =
+      (handleRect.right - scrollerRect.left) / scale - scroller.clientLeft;
+    const overflowRight = handleRight + marginRight - scroller.clientWidth;
+    const overflowLeft = handleLeft - marginLeft;
+
+    if (overflowRight > 0) {
+      scroller.scrollBy({ left: overflowRight });
+    } else if (overflowLeft < 0) {
+      scroller.scrollBy({ left: overflowLeft });
+    }
+  }
+
   @action
   handleKeydown(event: KeyboardEvent): void {
     const validKeys = ['ArrowLeft', 'ArrowRight'];
@@ -201,15 +232,15 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
     this._transientDelta = onResizeColumnByDelta(column.key, deltaX);
 
-    // ensure the resize handle remains visible during keyboard navigation.
-    this._handleElement.scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'nearest',
-    });
-
     // use a microtask to commit the final state after the render pass.
-    queueMicrotask(() => this._finishColumnResize(column.key));
+    queueMicrotask(() => {
+      this._finishColumnResize(column.key);
+
+      // measure once the new widths have rendered, so the handle stays visible
+      requestAnimationFrameWaiter(() =>
+        this._scrollHandleIntoViewHorizontally()
+      );
+    });
   }
 
   @action
@@ -258,9 +289,17 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       const { column, onResizeColumnByDelta } = this.args;
 
       if (column !== undefined && onResizeColumnByDelta !== undefined) {
-        const deltaX = event.clientX - this.resizing.startX;
+        // pointer coordinates can be fractional; a whole-pixel delta keeps the
+        // columns' widths summing exactly, so the columns past them stay still
+        const deltaX = Math.round(event.clientX - this.resizing.startX);
 
         this._transientDelta = onResizeColumnByDelta(column.key, deltaX);
+
+        // re-anchor when clamped so reversing direction responds immediately;
+        // only then, or the rounding remainder would drift the anchor each move
+        if (this._transientDelta !== deltaX) {
+          this.resizing = { startX: event.clientX - this._transientDelta };
+        }
       }
 
       this._isUpdateQueued = false;

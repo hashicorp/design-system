@@ -1446,11 +1446,6 @@
       "docsPath": "components/table/advanced-table",
       "args": [
         {
-          "name": "columnOrder",
-          "type": "string[]",
-          "required": true
-        },
-        {
           "name": "columns",
           "type": "HdsAdvancedTableNormalizedColumn[]",
           "required": true
