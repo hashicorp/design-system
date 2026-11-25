@@ -87,10 +87,10 @@ The Masked Input component has two different variants with their own APIs:
   <C.Property @name="visibilityToggleAriaLabel" @type="string" @default="Toggle content visibility">
     Override this value to provide a meaningful `aria-label` for the visibility toggle button. The current pressed state of the toggle button is communicated through the `aria-pressed` attribute.
   </C.Property>
-  <C.Property @name="visibilityToggleAriaMessageText" @type="string" @default="Input content is hidden">
+  <C.Property @name="visibilityToggleAriaMessageText" @type="string" @default="Content is hidden">
     Override this value to provide a meaningful `aria-live` message when the input content is hidden.
   </C.Property>
-  <C.Property @name="visibilityToggleAriaMessageTextWhenVisible" @type="string" @default="Input content is visible">
+  <C.Property @name="visibilityToggleAriaMessageTextWhenVisible" @type="string" @default="Content is visible">
     Override this value to provide a meaningful `aria-live` message when the input content is visible.
   </C.Property>
   <C.Property @name="hasCopyButton" @type="boolean" @default="false">
