@@ -14,3 +14,7 @@ navigation:
 <section data-tab="Helios to Carbon">
   @include "partials/helios-to-carbon.md"
 </section>
+
+<section data-tab="Theming readiness audit">
+  @include "partials/theming-readiness-audit.md"
+</section>
