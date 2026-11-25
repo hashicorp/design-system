@@ -6,6 +6,8 @@
     "format": "pnpm -r --if-present format",
     "lint": "pnpm -r --if-present lint",
     "lint:fix": "pnpm -r --if-present lint:fix",
+    "test:smoke-test": "node --test scripts/smoke-test/*.test.mjs",
+    "smoke-test": "node scripts/smoke-test/index.mjs",
     "release-candidate-packages": "pnpm changeset publish --tag rc",
     "release-packages": "pnpm changeset publish",
     "version-candidate-packages": "pnpm changeset version --snapshot rc && pnpm install --lockfile-only",
