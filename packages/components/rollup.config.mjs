@@ -10,6 +10,7 @@ import copy from 'rollup-plugin-copy';
 import process from 'process';
 import path from 'node:path';
 import * as sass from 'sass';
+import { sanitizeGeneratedCssHeadersWithSourceMap } from './scripts/styles/sanitize-generated-css-headers.mjs';
 
 const addon = new Addon({
   srcDir: 'src',
@@ -37,19 +38,28 @@ function addScssCompilationPlugins(options) {
           }
         }
 
+        const sanitizedOutput = sanitizeGeneratedCssHeadersWithSourceMap(
+          result.css,
+          result.sourceMap,
+          {
+            from: inputFileFullPath,
+            to: outputFileFullPath,
+          }
+        );
+
         // Emit the compiled CSS
         this.emitFile({
           type: 'asset',
           fileName: outputFileFullPath,
-          source: result.css,
+          source: sanitizedOutput.css,
         });
 
         // Emit the source map
-        if (result.sourceMap) {
+        if (sanitizedOutput.sourceMap) {
           this.emitFile({
             type: 'asset',
             fileName: `${outputFileFullPath}.map`,
-            source: JSON.stringify(result.sourceMap),
+            source: JSON.stringify(sanitizedOutput.sourceMap),
           });
         }
       } catch (error) {
