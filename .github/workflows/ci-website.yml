@@ -79,5 +79,5 @@ jobs:
         run: pnpm test:component-catalog
         working-directory: packages/components
       - name: Run Tests
-        run: pnpm test:ember
+        run: pnpm exec ember test
         working-directory: website
