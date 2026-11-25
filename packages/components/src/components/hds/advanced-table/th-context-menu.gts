@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-import { scheduleOnce } from '@ember/runloop';
+import { deferAfterRenderOnce } from '../../../utils/hds-defer.ts';
 import { modifier } from 'ember-modifier';
 import { concat, fn } from '@ember/helper';
 import { gt, eq } from 'ember-truth-helpers';
@@ -253,8 +253,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
     const { onFocusReorderHandle } = this.args;
 
     if (typeof onFocusReorderHandle === 'function') {
-      // eslint-disable-next-line ember/no-runloop
-      scheduleOnce('afterRender', this, onFocusReorderHandle);
+      deferAfterRenderOnce(onFocusReorderHandle, this);
     }
   }
 

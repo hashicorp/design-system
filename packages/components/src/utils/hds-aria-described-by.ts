@@ -4,7 +4,7 @@
  */
 
 import { tracked } from '@glimmer/tracking';
-import { scheduleOnce } from '@ember/runloop';
+import { deferAfterRenderOnce } from './hds-defer.ts';
 import type Component from '@glimmer/component';
 import type { HdsFormFieldSignature } from '../components/hds/form/field/index.gts';
 import type { HdsFormFieldsetSignature } from '../components/hds/form/fieldset/index.gts';
@@ -87,13 +87,32 @@ function synchronizeDescriptors(component: AriaDescribedByComponent): void {
   );
 }
 
+// the callback needs a stable identity per component for the "once" de-duplication to work
+const synchronizers = new WeakMap<AriaDescribedByComponent, () => void>();
+
+function getSynchronizer(component: AriaDescribedByComponent): () => void {
+  const existing = synchronizers.get(component);
+
+  if (existing !== undefined) {
+    return existing;
+  }
+
+  const synchronize = (): void => synchronizeDescriptors(component);
+  synchronizers.set(component, synchronize);
+
+  return synchronize;
+}
+
+function scheduleSynchronization(component: AriaDescribedByComponent): void {
+  deferAfterRenderOnce(getSynchronizer(component), component);
+}
+
 export function registerAriaDescriptionElement(
   component: AriaDescribedByComponent,
   element: HTMLElement
 ): void {
   ariaDescriptorMap.register(component, element);
-  // eslint-disable-next-line ember/no-runloop
-  scheduleOnce('afterRender', component, synchronizeDescriptors, component);
+  scheduleSynchronization(component);
 }
 
 export function unregisterAriaDescriptionElement(
@@ -101,6 +120,5 @@ export function unregisterAriaDescriptionElement(
   element: HTMLElement
 ): void {
   ariaDescriptorMap.unregister(component, element);
-  // eslint-disable-next-line ember/no-runloop
-  scheduleOnce('afterRender', component, synchronizeDescriptors, component);
+  scheduleSynchronization(component);
 }
