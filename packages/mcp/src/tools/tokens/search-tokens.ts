@@ -4,13 +4,10 @@
  */
 
 import { z } from "zod";
-import { SEARCH_TOKENS_TOOL_NAME } from './constants.js';
+import { SEARCH_TOKENS_TOOL_NAME } from "./constants.js";
 import { CATALOG_TOOL_ANNOTATIONS, defineTool } from "../define-tool.js";
 import catalogSourceOutputSchema from "../output-schema.js";
-import {
-  toJsonToolResponse,
-  withSafeToolHandler,
-} from "../responses.js";
+import { toJsonToolResponse, withSafeToolHandler } from "../responses.js";
 import {
   MAX_FILTER_LENGTH,
   clampFilterValue,
@@ -25,6 +22,10 @@ import {
   MAX_SEARCH_LIMIT,
 } from "../constants.js";
 import { getOrLoadTokenStore } from "../../stores/tokens/index.js";
+import {
+  TOKEN_MIGRATION_VERSION,
+  unwrapCssVar,
+} from "../../stores/tokens/migrations.js";
 import { TOKEN_TYPES } from "../../stores/tokens/schema.js";
 
 import type { JsonValue } from "../../types.js";
@@ -84,6 +85,18 @@ export const searchTokensOutputShape = {
     category: z.string().optional(),
   }),
   unknownFilters: z.array(z.string()),
+  // set when the query is a token name from before a major release: what replaced it, or that
+  // it was removed
+  migration: z
+    .union([
+      z.object({ before: z.string(), after: z.string(), version: z.string() }),
+      z.object({
+        before: z.string(),
+        removed: z.literal(true),
+        version: z.string(),
+      }),
+    ])
+    .optional(),
   availableCategories: z.array(z.string()).optional(),
   results: z.array(searchTokensResultShape),
   source: catalogSourceOutputSchema,
@@ -105,9 +118,10 @@ export type SearchTokensPayload = z.infer<typeof searchTokensOutputSchema>;
 const DESCRIPTION = [
   "Find Helios design tokens by name or value, from the token catalog inside the installed @hashicorp/design-system-tokens package.",
   "Every result carries the cssVar to write in a stylesheet — var(--hds-foreground-color-action) — so use this to replace a hard-coded color, spacing or radius with the token that holds it.",
-  "A token that changes with the theme also carries `modes`, its value in each theme (default, cds-g0, cds-g10, cds-g90 and cds-g100); the cssVar resolves to the right one at runtime.",
+  "A token that changes with the theme also carries `modes`, its catalog value in each theme (default, cds-g0, cds-g10, cds-g90 and cds-g100). These values do not establish which modes or runtime values the application supports; check its token bundle and theme configuration.",
   "The query matches the token value in every theme too, so searching a hex code finds which token already defines it, including a value from a Carbon theme.",
   "The catalog is read from disk and never fetched. Exact and prefix matches on the token key, name or CSS variable rank first, so a token you named by hand comes back at the top; value-only matches rank last. If `truncated` is true, narrow the query or filter by type.",
+  `When a token name such as --token-color-foreground-action is absent from the catalog and was renamed in ${TOKEN_MIGRATION_VERSION}, \`migration\` identifies its replacement and the search returns the replacement's results. For a removed token, \`migration\` reports that it was removed.`,
 ].join(" ");
 
 export const searchTokens = (
@@ -121,9 +135,15 @@ export const searchTokens = (
   const query = input.query.slice(0, MAX_QUERY_LENGTH);
   const category =
     input.category === undefined ? undefined : clampFilterValue(input.category);
+  // an old name finds nothing on its own, so a renamed one is searched as its replacement, and a
+  // name copied from CSS is searched without its var()
+  const migration = store.findMigration(query);
 
   const { totalMatches, hits } = store.searchTokens({
-    query,
+    query:
+      migration !== null && "after" in migration
+        ? migration.after
+        : unwrapCssVar(query),
     limit,
     ...(input.type === undefined ? {} : { type: input.type }),
     ...(category === undefined ? {} : { category }),
@@ -145,6 +165,7 @@ export const searchTokens = (
       ...(category === undefined ? {} : { category }),
     },
     unknownFilters,
+    ...(migration === null ? {} : { migration }),
     // only worth spending tokens on the valid values when the filter did not land
     ...(unknownFilters.length === 0
       ? {}

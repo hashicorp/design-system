@@ -11,17 +11,17 @@ import {
 import { toIconRecord } from "../../../../src/stores/hds-icons/lookup.js";
 import { buildIconAsset } from "../../../support/hds-icon-catalog.js";
 
-describe("Flight icon serialization", () => {
+describe("HDS icon serialization", () => {
   const icon = toIconRecord([buildIconAsset()]);
   const iconWithMapping = toIconRecord([
-    buildIconAsset({ mapping: "Warning" }),
+    buildIconAsset({ mapping: "Warning--alt" }),
   ]);
 
   it("serializes an explicit summary field set", () => {
     expect(toSerializableIconSummary(icon)).toStrictEqual({
       iconName: "alert-triangle",
       description: "alert, warning, caution",
-      category: "Alerts",
+      category: "Status",
       sizes: ["16"],
       hasMapping: false,
     });
@@ -31,7 +31,7 @@ describe("Flight icon serialization", () => {
     expect(toSerializableIcon(icon)).toStrictEqual({
       iconName: "alert-triangle",
       description: "alert, warning, caution",
-      category: "Alerts",
+      category: "Status",
       sizes: ["16"],
       hasMapping: false,
       variants: [
@@ -50,7 +50,7 @@ describe("Flight icon serialization", () => {
     expect(toSerializableIcon(iconWithMapping)).toStrictEqual({
       iconName: "alert-triangle",
       description: "alert, warning, caution",
-      category: "Alerts",
+      category: "Status",
       sizes: ["16"],
       hasMapping: true,
       variants: [
@@ -60,7 +60,7 @@ describe("Flight icon serialization", () => {
           size: "16",
           width: 16,
           height: 16,
-          mapping: "Warning",
+          mapping: "Warning--alt",
         },
       ],
     });

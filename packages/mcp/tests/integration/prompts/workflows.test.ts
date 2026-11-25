@@ -21,7 +21,28 @@ interface PromptFixture {
   name: string;
   arguments: ArgumentFixture[];
   guidance: string[];
+  forbiddenGuidance?: string[];
 }
+
+// the token prefix depends on the application's tokens version, so the prompts defer to the
+// catalog's cssVar and its migration hints rather than naming a prefix themselves
+const versionAwareTokenGuidance = [
+  "search_hds_tokens",
+  "write the cssVar it returns",
+  "only when search_hds_tokens returns migration",
+  'resolvedVia is "default"',
+];
+const versionUnawareTokenGuidance = ["--hds-* CSS variables"];
+const stylingAndThemingGuidance = [
+  "Prefer documented HDS CSS helper classes",
+  "Prefer semantic tokens over core tokens",
+  "avoid component-level tokens",
+  "search_hds_icons",
+  "Core color tokens do not respond to light and dark Carbon themes",
+  "Catalog modes and values describe available token data",
+  "Check the application's token bundle and theme configuration",
+  'the "Carbon theme" tab',
+];
 
 const code = '<Hds::Button @text="Save" {{on "click" this.save}} />';
 const context: ArgumentFixture = {
@@ -44,6 +65,13 @@ const fixtures: PromptFixture[] = [
       "prioritized findings with severity",
       "minimal suggested correction",
       "no supported findings",
+      ...versionAwareTokenGuidance,
+      ...stylingAndThemingGuidance,
+      "token names that search_hds_tokens reports a migration for",
+    ],
+    forbiddenGuidance: [
+      ...versionUnawareTokenGuidance,
+      "--token-* names that tokens 6.0 renamed or removed",
     ],
   },
   {
@@ -66,7 +94,10 @@ const fixtures: PromptFixture[] = [
       "implementation code",
       "ember-qunit integration test examples",
       "do not claim code or tests were executed",
+      ...versionAwareTokenGuidance,
+      ...stylingAndThemingGuidance,
     ],
+    forbiddenGuidance: versionUnawareTokenGuidance,
   },
   {
     name: "troubleshoot_hds_component",
@@ -130,6 +161,27 @@ describe("Helios workflow prompts", () => {
     ]);
   });
 
+  it("reviews styling, icons and theming before final checks", async () => {
+    const result = await client.getPrompt({
+      name: "review_hds_usage",
+      arguments: { code },
+    });
+    const content = result.messages[0].content;
+    if (content.type !== "text") {
+      throw new Error("Expected text instructions");
+    }
+    const steps = [
+      "4. Review styling and token usage.",
+      "5. Review icon usage.",
+      "6. Consider theming.",
+      "7. Check unsupported arguments",
+    ];
+    const positions = steps.map((step) => content.text.indexOf(step));
+
+    expect(positions.every((position) => position >= 0)).toBe(true);
+    expect(positions).toStrictEqual([...positions].sort((a, b) => a - b));
+  });
+
   describe.each(fixtures)("$name", (fixture) => {
     const requiredArgs = Object.fromEntries(
       fixture.arguments
@@ -185,6 +237,9 @@ describe("Helios workflow prompts", () => {
           ...fixture.guidance,
         ]) {
           expect(instructions.text).toContain(guidance);
+        }
+        for (const guidance of fixture.forbiddenGuidance ?? []) {
+          expect(instructions.text).not.toContain(guidance);
         }
         expect(result.messages[1]).toStrictEqual({
           role: "user",

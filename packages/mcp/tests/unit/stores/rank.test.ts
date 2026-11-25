@@ -50,10 +50,10 @@ describe("scoreIdentity", () => {
     // `::` in an invocation, `/` in a module path, `-` in a token or icon name, `.` in a key
     expect(scoreIdentity("hds::advanced-table::th", "th")).toBe(RANK_SEGMENT);
     expect(scoreIdentity("hds/advanced-table/th", "th")).toBe(RANK_SEGMENT);
-    expect(scoreIdentity("token-color-foreground-action", "foreground")).toBe(
+    expect(scoreIdentity("hds-foreground-color-action", "foreground")).toBe(
       RANK_SEGMENT,
     );
-    expect(scoreIdentity("color.foreground.action", "foreground")).toBe(
+    expect(scoreIdentity("foreground.color.action", "color")).toBe(
       RANK_SEGMENT,
     );
   });
@@ -208,7 +208,7 @@ describe("searchRanked", () => {
   });
 
   it("does not treat a delimiter-only query as a match", () => {
-    const rows = buildRows("button", "arrow-right", "token.color");
+    const rows = buildRows("button", "arrow-right", "core.color");
 
     for (const query of ["-", ".", "/", ":"]) {
       expect(rank(rows, query), query).toStrictEqual([]);

@@ -92,9 +92,9 @@ describe("createGetTokenByKeyResource", () => {
     expect(await read("{foreground.color.action}")).toMatchObject({
       token: { modes: { default: "#1060ff", "cds-g0": "#0f62fe" } },
     });
-    expect(
-      (await read("{border.radius.x-small}")).token,
-    ).not.toHaveProperty("modes");
+    expect((await read("{border.radius.x-small}")).token).not.toHaveProperty(
+      "modes",
+    );
   });
 
   it("returns a missing-variable response", async () => {

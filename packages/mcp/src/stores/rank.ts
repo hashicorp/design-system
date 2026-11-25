@@ -89,8 +89,8 @@ export const scoreIdentity = (identity: string, query: string): number => {
     return RANK_PREFIX;
   }
 
-  // a whole run of segments, so `foreground` matches `color.foreground.action` but `oregon`
-  // does not, and a two-word query stays a phrase rather than two loose terms
+  // a whole run of segments, so `color` matches `foreground.color.action` but `olor` does
+  // not, and a two-word query stays a phrase rather than two loose terms
   if (` ${canonicalIdentity} `.includes(` ${canonicalQuery} `)) {
     return RANK_SEGMENT;
   }

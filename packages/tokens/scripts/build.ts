@@ -19,6 +19,7 @@ import { preprocessorResolveCommentsForMode } from './build-parts/preprocessorRe
 import { customFormatCssThemedTokensFunctionForTarget } from './build-parts/customFormatCssThemedTokens.ts';
 import { customFormatDocsJsonFunction } from './build-parts/customFormatDocsJson.ts';
 import { generateCssHelpers } from './build-parts/generateCssHelpers.ts';
+import { generateMigrationGuides } from './build-parts/generateMigrationGuides.ts';
 import { validateThemingCssFiles } from './build-parts/validateThemingCssFiles.ts';
 import { generateThemingCssFiles } from './build-parts/generateThemingCssFiles.ts';
 
@@ -307,6 +308,10 @@ for (const target of targets) {
   await StyleDictionaryInstance.buildAllPlatforms()
   console.log('\nEnd processing');
 }
+
+// generate the migration guides from their JSON source
+console.log(`\n---\n\nGenerating migration guides...`);
+await generateMigrationGuides(path.resolve(__dirname, '..'));
 
 
 console.log('\n==============================================');

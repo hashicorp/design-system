@@ -12,7 +12,7 @@ export const buildIconAsset = (
   fileName: "alert-triangle-16",
   iconName: "alert-triangle",
   description: "alert, warning, caution",
-  category: "Alerts",
+  category: "Status",
   size: "16",
   width: 16,
   height: 16,

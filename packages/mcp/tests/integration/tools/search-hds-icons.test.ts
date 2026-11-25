@@ -43,21 +43,21 @@ const store = createIconCatalogStore(
         size: "24",
         width: 24,
         height: 24,
-        mapping: "Warning",
+        mapping: "Warning--alt",
       }),
       buildIconAsset({
         id: "2:1",
         fileName: "arrow-right-16",
         iconName: "arrow-right",
         description: "arrow, direction, next",
-        category: "Navigation",
+        category: "Arrows",
       }),
       buildIconAsset({
         id: "3:1",
         fileName: "arrow-left-16",
         iconName: "arrow-left",
         description: "arrow, direction, back",
-        category: "Navigation",
+        category: "Arrows",
       }),
     ],
   }),
@@ -89,7 +89,7 @@ describe("search_hds_icons payload", () => {
         {
           iconName: "arrow-left",
           description: "arrow, direction, back",
-          category: "Navigation",
+          category: "Arrows",
           sizes: ["16"],
           hasMapping: false,
         },
@@ -115,9 +115,9 @@ describe("search_hds_icons payload", () => {
   });
 
   it("narrows by category and mapping, echoing what it applied", () => {
-    const payload = search({ query: "arrow", category: " NAVIGATION " });
+    const payload = search({ query: "arrow", category: " ARROWS " });
 
-    expect(payload.filters).toStrictEqual({ category: " NAVIGATION " });
+    expect(payload.filters).toStrictEqual({ category: " ARROWS " });
     expect(payload.unknownFilters).toStrictEqual([]);
     // both are prefix matches on "arrow", so the shorter name breaks the tie
     expect(payload.results.map((icon) => icon.iconName)).toStrictEqual([
@@ -145,13 +145,13 @@ describe("search_hds_icons payload", () => {
     const payload = search({ query: "arrow", category: "Spaceships" });
 
     expect(payload.unknownFilters).toStrictEqual(["category: Spaceships"]);
-    expect(payload.availableCategories).toStrictEqual(["Alerts", "Navigation"]);
+    expect(payload.availableCategories).toStrictEqual(["Arrows", "Status"]);
     expect(payload.results).toStrictEqual([]);
   });
 
   it("leaves the valid-value list out when the filter landed", () => {
     expect(
-      search({ query: "arrow", category: "Navigation" }),
+      search({ query: "arrow", category: "Arrows" }),
     ).not.toHaveProperty("availableCategories");
     expect(search({ query: "alert", size: "24" })).not.toHaveProperty(
       "availableSizes",

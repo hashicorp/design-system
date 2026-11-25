@@ -11,8 +11,12 @@ import {
   READ_DOCS_TOOL_NAME,
   SEARCH_DOCS_TOOL_NAME,
 } from "../tools/docs/constants.js";
+import { SEARCH_TOKENS_TOOL_NAME } from "../tools/tokens/constants.js";
 import {
   COMPONENT_EVIDENCE_GUIDANCE,
+  ICON_GUIDANCE,
+  STYLING_GUIDANCE,
+  THEMING_GUIDANCE,
   createPromptResult,
   optionalPromptTextArgument,
   promptTextArgument,
@@ -46,7 +50,10 @@ const reviewUsagePrompt: McpPrompt<typeof argsSchema> = {
 1. Identify the components and intended interaction. Ask a focused clarification only if missing context would materially change the review. Do not assume omitted application code is absent.
 2. Use ${SEARCH_COMPONENTS_TOOL_NAME} to resolve component names, then ${GET_COMPONENT_TOOL_NAME} to verify their arguments, yielded components, composition, and relevant APIs. Use ${SEARCH_DOCS_TOOL_NAME}, focused by docsPath from component results, then ${READ_DOCS_TOOL_NAME} with returned IDs to read usage and accessibility guidance. Do not decide from search snippets alone.
 3. ${COMPONENT_EVIDENCE_GUIDANCE}
-4. Check unsupported arguments, incorrect composition, state and event handling, and documented application-owned accessibility responsibilities such as accessible names, keyboard interaction, and focus handling. Identify custom markup or styling that duplicates a verified HDS capability only when replacement would preserve the intended behavior. Separate confirmed issues from questions requiring runtime checks; static review does not establish accessibility conformance.
+4. Review styling and token usage. ${STYLING_GUIDANCE} Flag hard-coded values that a token covers, and token names that ${SEARCH_TOKENS_TOOL_NAME} reports a migration for.
+5. Review icon usage. ${ICON_GUIDANCE}
+6. Consider theming. ${THEMING_GUIDANCE}
+7. Check unsupported arguments, incorrect composition, state and event handling, and documented application-owned accessibility responsibilities such as accessible names, keyboard interaction, and focus handling. Identify custom markup or styling that duplicates a verified HDS capability only when replacement would preserve the intended behavior. Separate confirmed issues from questions requiring runtime checks; static review does not establish accessibility conformance.
 
 Return prioritized findings with severity, the relevant code location or excerpt, documented evidence and links, impact, and a minimal suggested correction. Include targeted verification steps for behavior and accessibility. If there are no supported findings, say so and identify any unresolved checks. Keep the response focused on review rather than rewriting the entire snippet; do not edit files or install dependencies.`,
       { code, context },

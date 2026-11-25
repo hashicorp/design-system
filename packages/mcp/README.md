@@ -6,7 +6,7 @@ The `@hashicorp/design-system-mcp` package helps your assistant:
 
 - Find Ember components and look up their arguments, accepted values, blocks, and yielded components.
 - Choose design tokens by name or value and retrieve their CSS variables.
-- Find Flight icons by name, keyword, category, or size.
+- Find HDS icons by name, keyword, category, size, or Carbon icon name.
 - Read documentation examples, accessibility guidance, and design recommendations.
 - Follow guided workflows for choosing, implementing, reviewing, and troubleshooting Helios components.
 
@@ -134,12 +134,14 @@ Your assistant chooses and calls these tools through the MCP client. Names may a
 | ----------------------- | ------------------------------------------------------------------------------------ | --------------------------------------- | ----------------------------------------- |
 | `search_hds_components` | Find components by invocation name, class name, module path, or documentation path.  | `query`                                 | `limit`                                   |
 | `get_hds_component`     | Read an individual component's API, including argument types and yielded components. | `name`                                  | —                                         |
-| `search_hds_tokens`     | Find tokens by name or value, including CSS variables and resolved values per theme. | `query`                                 | `limit`, `type`, `category`               |
+| `search_hds_tokens`     | Find tokens by name or value, including CSS variables and catalog values per theme. | `query`                                 | `limit`, `type`, `category`               |
 | `search_hds_icons`      | Find icons by name or keyword, including available sizes.                            | `query`                                 | `limit`, `category`, `size`, `hasMapping` |
 | `search_hds_docs`       | Search bundled documentation for guidance and examples.                              | `query`                                 | `limit`, `section`, `tab`, `docsPath`     |
 | `read_hds_docs`         | Read a documentation passage with its Markdown and code examples.                    | `id` from a documentation search result | `includeChildren`, `maxBytes`             |
 
 Use `get_hds_component` for precise API questions; it accepts names such as `Hds::Button`, `HdsButton`, `button`, or `hds/button`. Look up yielded components separately to see their own arguments.
+
+Token catalog modes and values do not establish which themes or runtime values an application supports. Check its token bundle and theme configuration.
 
 For documentation, scope searches with the component's `docsPath` when available. Use `tab: "Version history"` for version and changelog questions. Search results are relevance-ranked: read the passages and check `pageAnchored` and `unmatchedTerms` before treating a result as evidence of a supported feature.
 
@@ -151,7 +153,7 @@ Prompts are reusable workflows that you start from your client, which typically 
 | ---------------------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------ |
 | `choose_hds_component`       | Recommend a component or pattern for an interaction, with rationale, alternatives, and accessibility notes.     | `requirements`                                              | `context`          |
 | `implement_hds_pattern`      | Produce a focused `.gts` implementation using verified APIs, with ember-qunit integration test examples.        | `requirements`                                              | `code`, `context`  |
-| `review_hds_usage`           | Review a code snippet for API usage, composition, and accessibility responsibilities, with prioritized fixes.   | `code`                                                      | `context`          |
+| `review_hds_usage`           | Review a code snippet for API usage, composition, accessibility, and token use, with prioritized fixes.         | `code`                                                      | `context`          |
 | `troubleshoot_hds_component` | Diagnose unexpected component behavior with evidence-ranked causes, diagnostic steps, and a minimal correction. | `component`, `code`, `expectedBehavior`, `observedBehavior` | `context`          |
 
 Arguments are plain text. `code` accepts up to 20,000 characters, `component` up to 200, and other arguments up to 4,000. Include relevant template, state, and event handler code so the assistant does not have to guess at omitted behavior.
