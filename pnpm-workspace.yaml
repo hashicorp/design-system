@@ -84,3 +84,5 @@ allowBuilds:
   core-js: true
   esbuild: true
   protobufjs: false
+minimumReleaseAgeExclude:
+  - figma-api@2.4.0
