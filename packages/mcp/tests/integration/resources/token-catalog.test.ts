@@ -41,6 +41,20 @@ describe("token migrations", () => {
     });
     expect(payload.results[0]?.name).toBe("hds-foreground-color-action");
   });
+
+  it("reports a removed token through the installed package", () => {
+    const payload = searchTokens(loadTokenCatalog(), {
+      query: "--token-tooltip-focus-offset",
+      limit: 1,
+    });
+
+    expect(payload.migration).toStrictEqual({
+      before: "--token-tooltip-focus-offset",
+      removed: true,
+      version: TOKEN_MIGRATION_VERSION,
+    });
+    expect(payload.results).toStrictEqual([]);
+  });
 });
 
 describe("generated token catalog", () => {

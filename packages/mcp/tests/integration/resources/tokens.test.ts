@@ -38,7 +38,7 @@ const buildStore = ({
         ...new Set(
           tokens
             .map((token) => token.category)
-            .filter((category): category is string => category !== undefined)
+            .filter((category): category is string => category !== undefined),
         ),
       ].sort(),
       source: STORE_SOURCE,
@@ -168,6 +168,32 @@ describe("tokens resource", () => {
       migration: {
         before: "--token-color-foreground-action",
         after: "--hds-foreground-color-action",
+        version: "6.0.0",
+      },
+    });
+  });
+
+  it("reports a removed token's migration information", () => {
+    const store: TokenCatalogStore = {
+      ...buildStore({ tokens: [], tokenByKey: null }),
+      findMigration: () => ({
+        before: "--token-tooltip-focus-offset",
+        removed: true,
+        version: "6.0.0",
+      }),
+    };
+    const [content] = readTokenByKeyResource(
+      store,
+      "--token-tooltip-focus-offset",
+    ).contents;
+
+    expect(parseResourceJson(getTextContent(content))).toStrictEqual({
+      found: false,
+      requestedTokenKey: "--token-tooltip-focus-offset",
+      message: "Token removed in 6.0.0.",
+      migration: {
+        before: "--token-tooltip-focus-offset",
+        removed: true,
         version: "6.0.0",
       },
     });
