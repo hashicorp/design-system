@@ -1,6 +1,6 @@
 ---
 name: theming-readiness-audit
-description: "Audit existing components and style to determine which will not respond to the implementation of theming"
+description: "Audit existing components and style to determine which will not respond to the implementation of non-default themes or theme switching"
 ---
 
 ## Context
@@ -25,21 +25,27 @@ All of the following items will not respond to theming:
 
 - Inline styles using the `ember-style-modifier` when they contain hard-coded values or non-`--hds` variables
 - Hard-coded CSS values
-- CSS variables without the `--hds` prefix
+- CSS variables without the `--hds` prefix tied to one of the CSS properties listed below
 - CSS variables with the `--hds-core-color` prefix
   - These are internal tokens to the design system library and should not be used by consumers
 - Sass variables not resolving to a `--hds` CSS variable
 
 ### CSS properties to watch
 
-Only the following styles need to be reviewed according to the rules listed above.
+Only the following properties need to be reviewed according to the rules listed above.
 
 - Color
   - `background`
   - `background-color`
+  - `background-image`
   - `color`
   - `border`
   - `border-color`
+  - `box-shadow`
+  - `outline`
+  - `outline-color`
+  - `fill`
+  - `stroke`
 - Typography
   - `font`
   - `font-family`
