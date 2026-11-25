@@ -18,6 +18,7 @@ import { TrackedObject } from 'tracked-built-ins';
 import sinon from 'sinon';
 
 import { HdsPopoverPrimitive } from '@hashicorp/design-system-components/components';
+import type { HdsPopoverPrimitiveForceStates } from '@hashicorp/design-system-components/components/hds/popover-primitive/types';
 
 import { setupRenderingTest } from 'showcase/tests/helpers';
 
@@ -413,6 +414,7 @@ module(
         .dom('#test-popover-primitive-toggle')
         .doesNotHaveAttribute('popovertarget');
     });
+
     test('the toggle has a `popovertarget` attribute if `@enableClickEvents` is `true`', async function (assert) {
       await render(
         <template>
@@ -435,6 +437,7 @@ module(
         .dom('#test-popover-primitive-toggle')
         .hasAttribute('popovertarget', 'test-popover-primitive-popover');
     });
+
     test('the popover has a `popover` attribute by default', async function (assert) {
       await render(
         <template>
@@ -457,6 +460,7 @@ module(
         .dom('#test-popover-primitive-content')
         .hasAttribute('popover', 'auto');
     });
+
     test('the popover has a `popover` attribute set to `manual` if `@isOpen` is `true` and it reverts to `auto` after "soft" interacting with it', async function (assert) {
       await render(
         <template>
@@ -492,6 +496,7 @@ module(
         .isNotVisible()
         .hasAttribute('popover', 'auto');
     });
+
     test('the popover has a `popover` attribute set to `manual` if `@isOpen` is `true` and it reverts to `auto` after "click" interacting with it', async function (assert) {
       await render(
         <template>
@@ -523,6 +528,7 @@ module(
         .dom('#test-popover-primitive-content')
         .hasAttribute('popover', 'auto');
     });
+
     test('the popover is open when `isOpen` is true', async function (assert) {
       await render(
         <template>
@@ -546,6 +552,249 @@ module(
         </template>,
       );
       assert.dom('#test-popover-primitive-content').isVisible();
+    });
+
+    test('it displays the correct state based on `@forceState`', async function (assert) {
+      const context = new TrackedObject<{
+        forceState: HdsPopoverPrimitiveForceStates | undefined;
+      }>({ forceState: undefined });
+
+      await render(
+        <template>
+          <HdsPopoverPrimitive
+            @enableClickEvents={{true}}
+            @forceState={{context.forceState}}
+            as |PP|
+          >
+            <div {{PP.setupPrimitiveContainer}}>
+              <button
+                id="test-popover-primitive-toggle"
+                type="button"
+                {{PP.setupPrimitiveToggle}}
+              >Toggle</button>
+              <div
+                id="test-popover-primitive-content"
+                {{PP.setupPrimitivePopover}}
+              >Content</div>
+            </div>
+          </HdsPopoverPrimitive>
+        </template>,
+      );
+
+      assert.dom('#test-popover-primitive-content').isNotVisible();
+      context.forceState = 'open';
+      await settled();
+      assert
+        .dom('#test-popover-primitive-content')
+        .isVisible()
+        .hasAttribute('popover', 'auto');
+      context.forceState = 'close';
+      await settled();
+      assert.dom('#test-popover-primitive-content').isNotVisible();
+      // popover state and forceState fall out of sync without using onClose/onOpen
+      await click('#test-popover-primitive-toggle');
+      assert.dom('#test-popover-primitive-content').isVisible();
+      assert.strictEqual(context.forceState, 'close');
+    });
+
+    test('it keeps `@forceState` in sync using `@onOpen` and `@onClose`', async function (assert) {
+      const context = new TrackedObject<{
+        forceState: HdsPopoverPrimitiveForceStates;
+      }>({ forceState: 'close' });
+
+      const onOpen = () => {
+        context.forceState = 'open';
+      };
+      const onClose = () => {
+        context.forceState = 'close';
+      };
+
+      await render(
+        <template>
+          <HdsPopoverPrimitive
+            @enableClickEvents={{true}}
+            @forceState={{context.forceState}}
+            @onOpen={{onOpen}}
+            @onClose={{onClose}}
+            as |PP|
+          >
+            <div {{PP.setupPrimitiveContainer}}>
+              <button
+                id="test-popover-primitive-toggle"
+                type="button"
+                {{PP.setupPrimitiveToggle}}
+              >Toggle</button>
+              <div
+                id="test-popover-primitive-content"
+                {{PP.setupPrimitivePopover}}
+              >Content</div>
+            </div>
+          </HdsPopoverPrimitive>
+        </template>,
+      );
+
+      assert.strictEqual(context.forceState, 'close');
+      assert.dom('#test-popover-primitive-content').isNotVisible();
+      await click('#test-popover-primitive-toggle');
+      assert.strictEqual(context.forceState, 'open');
+      assert.dom('#test-popover-primitive-content').isVisible();
+      await click('#test-popover-primitive-toggle');
+      assert.strictEqual(context.forceState, 'close');
+      assert.dom('#test-popover-primitive-content').isNotVisible();
+      context.forceState = 'open';
+      await settled();
+      assert.dom('#test-popover-primitive-content').isVisible();
+    });
+
+    test('it opens an auto popover when `@forceState` is initially open', async function (assert) {
+      await render(
+        <template>
+          <HdsPopoverPrimitive @forceState="open" as |PP|>
+            <div {{PP.setupPrimitiveContainer}}>
+              <button type="button" {{PP.setupPrimitiveToggle}}>Toggle</button>
+              <div
+                id="test-popover-primitive-content"
+                {{PP.setupPrimitivePopover}}
+              >Content</div>
+            </div>
+          </HdsPopoverPrimitive>
+        </template>,
+      );
+
+      assert
+        .dom('#test-popover-primitive-content')
+        .isVisible()
+        .hasAttribute('popover', 'auto');
+    });
+
+    test('it prioritizes an initially true `@isOpen` over `@forceState`, but reflects later `@forceState changes', async function (assert) {
+      const context = new TrackedObject<{
+        forceState: HdsPopoverPrimitiveForceStates;
+      }>({ forceState: 'close' });
+
+      await render(
+        <template>
+          <HdsPopoverPrimitive
+            @isOpen={{true}}
+            @forceState={{context.forceState}}
+            as |PP|
+          >
+            <div {{PP.setupPrimitiveContainer}}>
+              <button type="button" {{PP.setupPrimitiveToggle}}>Toggle</button>
+              <div
+                id="test-popover-primitive-content"
+                {{PP.setupPrimitivePopover}}
+              >Content</div>
+            </div>
+          </HdsPopoverPrimitive>
+        </template>,
+      );
+
+      assert
+        .dom('#test-popover-primitive-content')
+        .isVisible()
+        .hasAttribute('popover', 'manual');
+      context.forceState = 'open';
+      await settled();
+      context.forceState = 'close';
+      await settled();
+      assert.dom('#test-popover-primitive-content').isNotVisible();
+    });
+
+    test('it opens an auto popover when `@isOpen` is false and `@forceState` is initially open', async function (assert) {
+      await render(
+        <template>
+          <HdsPopoverPrimitive @isOpen={{false}} @forceState="open" as |PP|>
+            <div {{PP.setupPrimitiveContainer}}>
+              <button type="button" {{PP.setupPrimitiveToggle}}>Toggle</button>
+              <div
+                id="test-popover-primitive-content"
+                {{PP.setupPrimitivePopover}}
+              >Content</div>
+            </div>
+          </HdsPopoverPrimitive>
+        </template>,
+      );
+
+      assert
+        .dom('#test-popover-primitive-content')
+        .isVisible()
+        .hasAttribute('popover', 'auto');
+    });
+
+    test('it returns focus to the element specified by `@returnFocusTo` when closed from inside', async function (assert) {
+      await render(
+        <template>
+          <button
+            id="test-popover-primitive-return-focus-button"
+            type="button"
+          >Return focus here</button>
+          <HdsPopoverPrimitive
+            @enableClickEvents={{true}}
+            @returnFocusTo="test-popover-primitive-return-focus-button"
+            as |PP|
+          >
+            <div {{PP.setupPrimitiveContainer}}>
+              <button
+                id="test-popover-primitive-toggle"
+                type="button"
+                {{PP.setupPrimitiveToggle}}
+              >Toggle</button>
+              <div
+                id="test-popover-primitive-content"
+                {{PP.setupPrimitivePopover}}
+              >
+                <button
+                  id="test-popover-primitive-close-button"
+                  type="button"
+                  {{on "click" PP.hidePopover}}
+                >Close</button>
+              </div>
+            </div>
+          </HdsPopoverPrimitive>
+        </template>,
+      );
+
+      await click('#test-popover-primitive-toggle');
+      await focus('#test-popover-primitive-close-button');
+      await click('#test-popover-primitive-close-button');
+      assert.dom('#test-popover-primitive-content').isNotVisible();
+      assert.dom('#test-popover-primitive-return-focus-button').isFocused();
+    });
+
+    test('it closes even when the provided `@returnFocusTo` id is invalid', async function (assert) {
+      await render(
+        <template>
+          <HdsPopoverPrimitive
+            @enableClickEvents={{true}}
+            @returnFocusTo="invalid-id"
+            as |PP|
+          >
+            <div {{PP.setupPrimitiveContainer}}>
+              <button
+                id="test-popover-primitive-toggle"
+                type="button"
+                {{PP.setupPrimitiveToggle}}
+              >Toggle</button>
+              <div
+                id="test-popover-primitive-content"
+                {{PP.setupPrimitivePopover}}
+              >
+                <button
+                  id="test-popover-primitive-close-button"
+                  type="button"
+                  {{on "click" PP.hidePopover}}
+                >Close</button>
+              </div>
+            </div>
+          </HdsPopoverPrimitive>
+        </template>,
+      );
+
+      await click('#test-popover-primitive-toggle');
+      await focus('#test-popover-primitive-close-button');
+      await click('#test-popover-primitive-close-button');
+      assert.dom('#test-popover-primitive-content').isNotVisible();
     });
 
     // TEARDOWN

@@ -399,3 +399,4 @@ export { default as HdsInteractive } from './components/hds/interactive/index.gt
 
 // PopoverPrimitive
 export { default as HdsPopoverPrimitive } from './components/hds/popover-primitive/index.gts';
+export * from './components/hds/popover-primitive/types.ts';

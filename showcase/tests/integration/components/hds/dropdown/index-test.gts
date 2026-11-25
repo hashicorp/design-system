@@ -5,11 +5,12 @@
 
 import { module, test } from 'qunit';
 import { on } from '@ember/modifier';
-import { render, click, find } from '@ember/test-helpers';
+import { render, click, find, focus, settled } from '@ember/test-helpers';
 import style from 'ember-style-modifier';
 import { TrackedObject } from 'tracked-built-ins';
 
 import { HdsDropdown } from '@hashicorp/design-system-components/components';
+import type { HdsPopoverPrimitiveForceStates } from '@hashicorp/design-system-components/components/hds/popover-primitive/types';
 
 import { setupRenderingTest, wait } from 'showcase/tests/helpers';
 
@@ -280,6 +281,86 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     assert.dom('#test-dropdown #test-list-item-interactive').exists();
     await click('#test-list-item-interactive');
     assert.dom('#test-dropdown #test-list-item-interactive').doesNotExist();
+  });
+
+  // EXTERNAL CONTROL AND RETURNING FOCUS
+
+  test('it displays the correct state based on `@forceState`', async function (assert) {
+    const context = new TrackedObject<{
+      forceState: HdsPopoverPrimitiveForceStates;
+    }>({
+      forceState: 'close',
+    });
+
+    await render(
+      <template>
+        <HdsDropdown
+          id="test-dropdown"
+          @forceState={{context.forceState}}
+          as |D|
+        >
+          <D.ToggleButton @text="toggle button" id="test-toggle-button" />
+          <D.Interactive
+            id="test-list-item-interactive"
+          >interactive</D.Interactive>
+        </HdsDropdown>
+      </template>,
+    );
+
+    assert.dom('#test-dropdown .hds-dropdown__content').isNotVisible();
+    context.forceState = 'open';
+    await settled();
+    assert.dom('#test-dropdown .hds-dropdown__content').isVisible();
+    assert.dom('#test-dropdown #test-list-item-interactive').exists();
+    context.forceState = 'close';
+    await settled();
+    assert.dom('#test-dropdown .hds-dropdown__content').isNotVisible();
+    assert.dom('#test-dropdown #test-list-item-interactive').doesNotExist();
+  });
+
+  test('it renders its content when `@forceState` is initially open', async function (assert) {
+    await render(
+      <template>
+        <HdsDropdown id="test-dropdown" @forceState="open" as |D|>
+          <D.ToggleButton @text="toggle button" id="test-toggle-button" />
+          <D.Interactive
+            id="test-list-item-interactive"
+          >interactive</D.Interactive>
+        </HdsDropdown>
+      </template>,
+    );
+
+    assert
+      .dom('#test-dropdown .hds-dropdown__content')
+      .isVisible()
+      .hasAttribute('popover', 'auto');
+    assert.dom('#test-dropdown #test-list-item-interactive').exists();
+  });
+
+  test('it returns focus to the element specified by `@returnFocusTo` when closed from inside', async function (assert) {
+    await render(
+      <template>
+        <button id="test-dropdown-return-focus-button" type="button">Return
+          focus here</button>
+        <HdsDropdown
+          id="test-dropdown"
+          @returnFocusTo="test-dropdown-return-focus-button"
+          as |D|
+        >
+          <D.ToggleButton @text="toggle button" id="test-toggle-button" />
+          <D.Interactive
+            id="test-list-item-interactive"
+            {{on "click" D.close}}
+          >Close</D.Interactive>
+        </HdsDropdown>
+      </template>,
+    );
+
+    await click('button#test-toggle-button');
+    await focus('#test-list-item-interactive');
+    await click('#test-list-item-interactive');
+    assert.dom('#test-dropdown .hds-dropdown__content').isNotVisible();
+    assert.dom('#test-dropdown-return-focus-button').isFocused();
   });
 
   // ACCESSIBILITY

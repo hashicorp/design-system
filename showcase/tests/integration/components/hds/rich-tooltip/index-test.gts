@@ -11,11 +11,13 @@ import {
   focus,
   render,
   resetOnerror,
+  settled,
 } from '@ember/test-helpers';
 import { on } from '@ember/modifier';
 import { TrackedObject } from 'tracked-built-ins';
 
 import { HdsRichTooltip } from '@hashicorp/design-system-components/components';
+import type { HdsPopoverPrimitiveForceStates } from '@hashicorp/design-system-components/components/hds/popover-primitive/types';
 
 import { setupRenderingTest, wait } from 'showcase/tests/helpers';
 
@@ -33,7 +35,7 @@ module('Integration | Component | hds/rich-tooltip/index', function (hooks) {
     assert.dom('#test-rich-tooltip').hasClass('hds-rich-tooltip');
   });
 
-  // CONTENT + VISIBILITY + IS-OPEN
+  // CONTENT + VISIBILITY
 
   test('it should render the toggle (visible) and bubble (not visible) but not the yielded content by default', async function (assert) {
     await render(
@@ -200,6 +202,96 @@ module('Integration | Component | hds/rich-tooltip/index', function (hooks) {
 
   // ANCHORED POSITION OPTIONS
   // unfortunately there is no easy/reliable way to test them here
+
+  // EXTERNAL CONTROL AND RETURNING FOCUS
+
+  test('it displays the correct state based on `@forceState`', async function (assert) {
+    const context = new TrackedObject<{
+      forceState: HdsPopoverPrimitiveForceStates;
+    }>({
+      forceState: 'close',
+    });
+
+    await render(
+      <template>
+        <HdsRichTooltip
+          id="test-rich-tooltip"
+          @enableClickEvents={{true}}
+          @forceState={{context.forceState}}
+          as |RT|
+        >
+          <RT.Toggle>Toggle</RT.Toggle>
+          <RT.Bubble><span
+              id="test-rich-tooltip-content"
+            >Content</span></RT.Bubble>
+        </HdsRichTooltip>
+      </template>,
+    );
+
+    assert.dom('#test-rich-tooltip .hds-rich-tooltip__bubble').isNotVisible();
+    context.forceState = 'open';
+    await settled();
+    assert.dom('#test-rich-tooltip .hds-rich-tooltip__bubble').isVisible();
+    assert.dom('#test-rich-tooltip #test-rich-tooltip-content').exists();
+    context.forceState = 'close';
+    await settled();
+    assert.dom('#test-rich-tooltip .hds-rich-tooltip__bubble').isNotVisible();
+    assert.dom('#test-rich-tooltip #test-rich-tooltip-content').doesNotExist();
+  });
+
+  test('it renders its content when `@forceState` is initially open', async function (assert) {
+    await render(
+      <template>
+        <HdsRichTooltip
+          id="test-rich-tooltip"
+          @enableClickEvents={{true}}
+          @forceState="open"
+          as |RT|
+        >
+          <RT.Toggle>Toggle</RT.Toggle>
+          <RT.Bubble><span
+              id="test-rich-tooltip-content"
+            >Content</span></RT.Bubble>
+        </HdsRichTooltip>
+      </template>,
+    );
+
+    assert
+      .dom('#test-rich-tooltip .hds-rich-tooltip__bubble')
+      .isVisible()
+      .hasAttribute('popover', 'auto');
+    assert.dom('#test-rich-tooltip #test-rich-tooltip-content').exists();
+  });
+
+  test('it returns focus to the element specified by `@returnFocusTo` when closed from inside', async function (assert) {
+    await render(
+      <template>
+        <button id="test-rich-tooltip-return-focus-button" type="button">Return
+          focus here</button>
+        <HdsRichTooltip
+          id="test-rich-tooltip"
+          @enableClickEvents={{true}}
+          @returnFocusTo="test-rich-tooltip-return-focus-button"
+          as |RT|
+        >
+          <RT.Toggle>Toggle</RT.Toggle>
+          <RT.Bubble>
+            <button
+              id="test-rich-tooltip-close-button"
+              type="button"
+              {{on "click" RT.close}}
+            >Close</button>
+          </RT.Bubble>
+        </HdsRichTooltip>
+      </template>,
+    );
+
+    await click('button.hds-rich-tooltip__toggle');
+    await focus('#test-rich-tooltip-close-button');
+    await click('#test-rich-tooltip-close-button');
+    assert.dom('#test-rich-tooltip .hds-rich-tooltip__bubble').isNotVisible();
+    assert.dom('#test-rich-tooltip-return-focus-button').isFocused();
+  });
 
   // A11Y
 
