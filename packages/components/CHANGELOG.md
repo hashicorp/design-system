@@ -1,5 +1,57 @@
 # @hashicorp/design-system-components
 
+## 7.1.1
+
+### Patch Changes
+
+<!-- START components/table/advanced-table -->
+`Advanced Table` - Fixed circular dependencies between advanced table components.
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#4315](https://github.com/hashicorp/design-system/pull/4315)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/form/super-select -->
+`SuperSelect` - Fixed the background color for before and after options in Carbon dark themes.
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#4319](https://github.com/hashicorp/design-system/pull/4319)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Added `sideEffects` to `package.json`, so bundlers can leave out components an app doesn't use, such as `CodeEditor` which imports CodeMirror.
+
+CSS and Sass files are still marked as having side effects, so importing them keeps working.
+
+<small class="doc-whats-new-changelog-metadata">[#4223](https://github.com/hashicorp/design-system/pull/4223) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START layouts/app-frame -->
+`AppFrame` - Added a default `aria-label` ("Sidebar") to the `AppFrame::Sidebar` `<aside>` element so the landmark has an accessible name. Consumers can override it by passing their own `aria-label` or `aria-labelledby`.
+<!-- END -->
+
+<!-- START components/app-side-nav -->
+`AppSideNav` - Changed the visually hidden `<h2>` used as the accessible label to a `<div>`.
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#4297](https://github.com/hashicorp/design-system/pull/4297)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/table/advanced-table -->
+`AdvancedTable` - Fixed issue where keyboard focus was lost in cases where the table re-renders. The current cell now stays focused after sorting, expanding or collapsing rows, and when `@columns` is replaced with new objects that have the same `key`s, instead of jumping back to the first header cell.
+<!-- END -->
+
+<!-- START utilities/composite -->
+`Composite` - Changed items to update in place when their `disabled` argument re-evaluates, instead of registering again, so the current item is retained. When the current item is removed, the item at the same position becomes the current item (instead of the first item), and receives focus, if focus was inside the composite.
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#4307](https://github.com/hashicorp/design-system/pull/4307)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 7.1.0
 
 [7.1.0 documentation](https://hds-website-7-1-0.vercel.app/)
