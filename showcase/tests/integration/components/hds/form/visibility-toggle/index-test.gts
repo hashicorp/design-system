@@ -37,11 +37,11 @@ module(
         .hasClass('hds-icon-eye-off');
     });
 
-    test('it should render correct icon when `@isVisible` is `true`', async function (assert) {
+    test('it should render correct icon when `@isMasked` is `true`', async function (assert) {
       await render(
         <template>
           <HdsFormVisibilityToggle
-            @isVisible={{true}}
+            @isMasked={{true}}
             id="test-visibility-toggle"
           />
         </template>,
@@ -49,47 +49,89 @@ module(
       assert.dom('#test-visibility-toggle .hds-icon').hasClass('hds-icon-eye');
     });
 
-    test('it should render a `aria-label`', async function (assert) {
+    // A11Y
+
+    test('it should render a custom `aria-label` when `@ariaLabel` is provided', async function (assert) {
       await render(
         <template>
           <HdsFormVisibilityToggle
-            @ariaLabel="Hide masked content"
+            @ariaLabel="Toggle custom content"
             id="test-visibility-toggle"
           />
         </template>,
       );
       assert
         .dom('#test-visibility-toggle')
-        .hasAttribute('aria-label', 'Hide masked content');
+        .hasAttribute('aria-label', 'Toggle custom content');
     });
 
-    test('it should render the default `sr-only` value when `@isVisible` is not provided', async function (assert) {
+    test('it should have a fallback `aria-label` when `@ariaLabel` is not provided', async function (assert) {
+      await render(
+        <template>
+          <HdsFormVisibilityToggle id="test-visibility-toggle" />
+        </template>,
+      );
+      assert
+        .dom('#test-visibility-toggle')
+        .hasAttribute('aria-label', 'Toggle content visibility');
+    });
+
+    test('it should render a custom value when `@isMasked` is `true` and `@ariaMessageText` is provided', async function (assert) {
       await render(
         <template>
           <HdsFormVisibilityToggle
-            @ariaMessageTextWhenVisible="Input content is visible"
+            @isMasked={{true}}
+            @ariaMessageText="My content is hidden"
             id="test-visibility-toggle"
           />
         </template>,
       );
       assert
         .dom('#test-visibility-toggle .sr-only')
-        .hasText('Input content is visible');
+        .hasText('My content is hidden');
     });
 
-    test('it should render the correct `sr-only` value when `@isVisible` is `true`', async function (assert) {
+    test('it should render the default `sr-only` value when `@isMasked` is not provided', async function (assert) {
       await render(
         <template>
           <HdsFormVisibilityToggle
-            @isVisible={{true}}
-            @ariaMessageText="Input content is hidden"
+            @isMasked={{true}}
             id="test-visibility-toggle"
           />
         </template>,
       );
       assert
         .dom('#test-visibility-toggle .sr-only')
-        .hasText('Input content is hidden');
+        .hasText('Content is hidden');
+    });
+
+    test('it should render a custom value when `@isMasked` is `false` and `@ariaMessageTextWhenVisible` is provided', async function (assert) {
+      await render(
+        <template>
+          <HdsFormVisibilityToggle
+            @isMasked={{false}}
+            @ariaMessageTextWhenVisible="My content is visible"
+            id="test-visibility-toggle"
+          />
+        </template>,
+      );
+      assert
+        .dom('#test-visibility-toggle .sr-only')
+        .hasText('My content is visible');
+    });
+
+    test('it should render the default `sr-only` value when `@isMasked` is `false`', async function (assert) {
+      await render(
+        <template>
+          <HdsFormVisibilityToggle
+            @isMasked={{false}}
+            id="test-visibility-toggle"
+          />
+        </template>,
+      );
+      assert
+        .dom('#test-visibility-toggle .sr-only')
+        .hasText('Content is visible');
     });
   },
 );
