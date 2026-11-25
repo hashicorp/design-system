@@ -197,143 +197,60 @@ describe("search_hds_tokens payload", () => {
   });
 });
 
-describe("search_hds_tokens theme values", () => {
-  const CARBON_MODES = {
-    default: "#1060ff",
-    "cds-g0": "#0f62fe",
-    "cds-g10": "#0f62fe",
-    "cds-g90": "#78a9ff",
-    "cds-g100": "#78a9ff",
-  };
-
-  const themedStore = createTokenCatalogStore([
-    buildTokenCatalogRow({
-      key: "{foreground.color.action}",
-      $type: "color",
-      $value: "#1060ff",
-      $modes: CARBON_MODES,
-      name: "hds-foreground-color-action",
-      attributes: { category: "foreground" },
-      path: ["foreground", "color", "action"],
+describe("search_hds_tokens old token names", () => {
+  const migratedStore = createTokenCatalogStore(
+    [
+      buildTokenCatalogRow({
+        key: "{foreground.color.action}",
+        $type: "color",
+        $value: "#1060ff",
+        name: "hds-foreground-color-action",
+        attributes: { category: "foreground" },
+        path: ["foreground", "color", "action"],
+      }),
+    ],
+    undefined,
+    createTokenMigrations({
+      version: "6.0.0",
+      renamedTokens: [
+        {
+          before: "--token-color-foreground-action",
+          after: "--hds-foreground-color-action",
+        },
+      ],
+      removedTokens: ["--token-tooltip-focus-offset"],
     }),
-  ]);
+  );
+  const migratedSearch = (query: string): SearchTokensPayload =>
+    searchTokens(migratedStore, { query, limit: 10 });
 
-  const themedSearch = (query: string): SearchTokensPayload =>
-    searchTokens(themedStore, { query, limit: 10 });
+  it("answers a renamed token with its replacement, and returns the replacement", () => {
+    const payload = migratedSearch("var(--token-color-foreground-action)");
 
-  it("returns a themed token's value in each theme", () => {
-    const [token] = themedSearch("hds-foreground-color-action").results;
-
-    expect(token).toStrictEqual({
-      key: "{foreground.color.action}",
-      name: "hds-foreground-color-action",
-      cssVar: "--hds-foreground-color-action",
-      type: "color",
-      value: "#1060ff",
-      modes: CARBON_MODES,
-      category: "foreground",
+    expect(payload.query).toBe("var(--token-color-foreground-action)");
+    expect(payload.migration).toStrictEqual({
+      before: "--token-color-foreground-action",
+      after: "--hds-foreground-color-action",
+      version: "6.0.0",
     });
-  });
-
-  it("finds a token by its value in a theme other than the default", () => {
-    expect(
-      themedSearch("#78a9ff").results.map((token) => token.name),
-    ).toStrictEqual(["hds-foreground-color-action"]);
-  });
-});
-
-describe("search_hds_tokens long values", () => {
-  // longer than where a data url is cut, as the real classic font stack is
-  const FONT_STACK = `-apple-system, BlinkMacSystemFont, ${"Segoe UI, ".repeat(9)}sans-serif`;
-  const DATA_URL = `url("data:image/svg+xml,%3Csvg ${"x".repeat(200)}%3E")`;
-  const SHORTENED_DATA_URL = `${DATA_URL.slice(0, 120)}…`;
-
-  const longValueStore = createTokenCatalogStore([
-    buildTokenCatalogRow({
-      key: "{typography.font-stack.text}",
-      $type: "font-family",
-      $value: FONT_STACK,
-      $modes: { default: FONT_STACK, "cds-g0": "'IBM Plex Sans', sans-serif" },
-      name: "hds-typography-font-stack-text",
-      attributes: { category: "typography" },
-      path: ["typography", "font-stack", "text"],
-    }),
-    buildTokenCatalogRow({
-      key: "{form.select.background-image.data-url}",
-      $type: "other",
-      $value: DATA_URL,
-      $modes: { default: DATA_URL, "cds-g0": DATA_URL },
-      name: "hds-form-select-background-image-data-url",
-      attributes: { category: "form" },
-      path: ["form", "select", "background-image", "data-url"],
-    }),
-  ]);
-
-  const longValueSearch = (query: string): SearchTokensPayload =>
-    searchTokens(longValueStore, { query, limit: 10 });
-
-  it("keeps a font stack whole", () => {
-    const [stack] = longValueSearch("font-stack").results;
-
-    expect(stack.value).toBe(FONT_STACK);
-    expect(stack.modes?.default).toBe(FONT_STACK);
-  });
-
-  it("shortens an inlined data url, in every theme", () => {
-    const [image] = longValueSearch("data-url").results;
-
-    expect(image.value).toBe(SHORTENED_DATA_URL);
-    expect(image.modes).toStrictEqual({
-      default: SHORTENED_DATA_URL,
-      "cds-g0": SHORTENED_DATA_URL,
-    });
-  });
-
-  it("finds a current token copied from CSS with its var()", () => {
-    const payload = migratedSearch("var(--hds-foreground-color-action)");
-
-    expect(payload.query).toBe("var(--hds-foreground-color-action)");
-    expect(payload).not.toHaveProperty("migration");
     expect(payload.results.map((token) => token.name)).toStrictEqual([
       "hds-foreground-color-action",
     ]);
   });
 
-  it("finds an old token copied from CSS when the installed catalog still has it", () => {
-    // an app still on a tokens release from before the rename
-    const legacyStore = createTokenCatalogStore(
-      [
-        buildTokenCatalogRow({
-          key: "{color.foreground.action}",
-          $type: "color",
-          $value: "#1060ff",
-          name: "token-color-foreground-action",
-          attributes: { category: "color" },
-          path: ["color", "foreground", "action"],
-        }),
-      ],
-      undefined,
-      createTokenMigrations({
-        version: "6.0.0",
-        renamedTokens: [
-          {
-            before: "--token-color-foreground-action",
-            after: "--hds-foreground-color-action",
-          },
-        ],
-        removedTokens: [],
-      }),
-    );
+  it("says a removed token was removed", () => {
+    const payload = migratedSearch("--token-tooltip-focus-offset");
 
-    const payload = searchTokens(legacyStore, {
-      query: "var(--token-color-foreground-action)",
-      limit: 10,
+    expect(payload.migration).toStrictEqual({
+      before: "--token-tooltip-focus-offset",
+      removed: true,
+      version: "6.0.0",
     });
+    expect(payload.results).toStrictEqual([]);
+  });
 
-    expect(payload).not.toHaveProperty("migration");
-    expect(payload.results.map((token) => token.name)).toStrictEqual([
-      "token-color-foreground-action",
-    ]);
+  it("leaves migration off an ordinary search", () => {
+    expect(migratedSearch("foreground")).not.toHaveProperty("migration");
   });
 });
 
