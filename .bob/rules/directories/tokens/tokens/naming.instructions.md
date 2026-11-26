@@ -24,6 +24,8 @@ Component: [prefix]-[component]-[semantic?]-[property]-[sub-property?]-[modifier
 
 Use lowercase with hyphens between blocks, including within multiword blocks: `advanced-table`, not `advancedTable` or `advanced_table`. Do not add a component block to an unrelated global token or use a semantic role outside its intended context.
 
+Exception: preserve the platform spelling `macOS` in private font-stack keys and their aliases, for example `{typography.font-stack.sans.display.macOS}`.
+
 Component and modifier blocks can be stacked. Preserve their meaningful order, for example `app-header-home-link-application-title`, `form-control-boolean`, `checked-focus`, and `unchecked-disabled`.
 
 ## Source keys and generated names
