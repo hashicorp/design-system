@@ -804,9 +804,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-control-placeholder-foreground-color-default: var(
     --hds-foreground-color-faint
   );
-  --hds-form-control-placeholder-foreground-color-disabled: var(
-    --hds-foreground-color-disabled
-  );
   --hds-form-control-surface-color-disabled: var(
     --hds-surface-color-interactive-disabled
   );
@@ -1116,9 +1113,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-stepper-nav-step-description-foreground-color-complete: var(
     --hds-foreground-color-primary
   );
-  --hds-stepper-nav-step-description-foreground-color-incomplete: var(
-    --hds-foreground-color-faint
-  );
   --hds-stepper-nav-step-description-margin-top: 4px;
   --hds-stepper-nav-step-description-typography-font-size: var(
     --hds-typography-body-100-font-size
@@ -1129,14 +1123,8 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-stepper-nav-step-surface-color-complete-interactive-hover: var(
     --hds-surface-color-interactive-hover
   );
-  --hds-stepper-nav-step-title-foreground-color-active-default: var(
-    --hds-foreground-color-strong
-  );
   --hds-stepper-nav-step-title-foreground-color-active-interactive: var(
     --hds-foreground-color-action
-  );
-  --hds-stepper-nav-step-title-foreground-color-complete-default: var(
-    --hds-foreground-color-strong
   );
   --hds-stepper-nav-step-title-foreground-color-complete-interactive: var(
     --hds-foreground-color-action
@@ -1957,12 +1945,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
       22,
       0.4
     );
-    --hds-form-control-placeholder-foreground-color-disabled: rgba(
-      22,
-      22,
-      22,
-      0.25
-    );
     --hds-form-control-surface-color-disabled: #f4f4f4;
     --hds-form-control-surface-color-readonly: rgba(0, 0, 0, 0);
     --hds-form-error-foreground-color: #da1e28;
@@ -2153,7 +2135,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-stepper-nav-progress-bar-top: 0px;
     --hds-stepper-nav-step-description-foreground-color-active: #525252;
     --hds-stepper-nav-step-description-foreground-color-complete: #525252;
-    --hds-stepper-nav-step-description-foreground-color-incomplete: #525252;
     --hds-stepper-nav-step-description-margin-top: 0px;
     --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
     --hds-stepper-nav-step-surface-color-complete-interactive-active: rgba(
@@ -2168,9 +2149,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
       0,
       0
     );
-    --hds-stepper-nav-step-title-foreground-color-active-default: #161616;
     --hds-stepper-nav-step-title-foreground-color-active-interactive: #161616;
-    --hds-stepper-nav-step-title-foreground-color-complete-default: #161616;
     --hds-stepper-nav-step-title-foreground-color-complete-interactive: #161616;
     --hds-stepper-nav-step-title-foreground-color-incomplete: #161616;
     --hds-stepper-nav-step-title-typography-font-weight: 400;
@@ -2898,12 +2877,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
       244,
       0.4
     );
-    --hds-form-control-placeholder-foreground-color-disabled: rgba(
-      244,
-      244,
-      244,
-      0.25
-    );
     --hds-form-control-surface-color-disabled: #262626;
     --hds-form-control-surface-color-readonly: rgba(0, 0, 0, 0);
     --hds-form-error-foreground-color: #ff8389;
@@ -3101,7 +3074,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-stepper-nav-progress-bar-top: 0px;
     --hds-stepper-nav-step-description-foreground-color-active: #c6c6c6;
     --hds-stepper-nav-step-description-foreground-color-complete: #c6c6c6;
-    --hds-stepper-nav-step-description-foreground-color-incomplete: #c6c6c6;
     --hds-stepper-nav-step-description-margin-top: 0px;
     --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
     --hds-stepper-nav-step-surface-color-complete-interactive-active: rgba(
@@ -3116,9 +3088,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
       0,
       0
     );
-    --hds-stepper-nav-step-title-foreground-color-active-default: #f4f4f4;
     --hds-stepper-nav-step-title-foreground-color-active-interactive: #f4f4f4;
-    --hds-stepper-nav-step-title-foreground-color-complete-default: #f4f4f4;
     --hds-stepper-nav-step-title-foreground-color-complete-interactive: #f4f4f4;
     --hds-stepper-nav-step-title-foreground-color-incomplete: #f4f4f4;
     --hds-stepper-nav-step-title-typography-font-weight: 400;
@@ -3814,12 +3784,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     22,
     0.4
   );
-  --hds-form-control-placeholder-foreground-color-disabled: rgba(
-    22,
-    22,
-    22,
-    0.25
-  );
   --hds-form-control-surface-color-disabled: #f4f4f4;
   --hds-form-control-surface-color-readonly: rgba(0, 0, 0, 0);
   --hds-form-error-foreground-color: #da1e28;
@@ -4000,7 +3964,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-stepper-nav-progress-bar-top: 0px;
   --hds-stepper-nav-step-description-foreground-color-active: #525252;
   --hds-stepper-nav-step-description-foreground-color-complete: #525252;
-  --hds-stepper-nav-step-description-foreground-color-incomplete: #525252;
   --hds-stepper-nav-step-description-margin-top: 0px;
   --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
   --hds-stepper-nav-step-surface-color-complete-interactive-active: rgba(
@@ -4015,9 +3978,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     0,
     0
   );
-  --hds-stepper-nav-step-title-foreground-color-active-default: #161616;
   --hds-stepper-nav-step-title-foreground-color-active-interactive: #161616;
-  --hds-stepper-nav-step-title-foreground-color-complete-default: #161616;
   --hds-stepper-nav-step-title-foreground-color-complete-interactive: #161616;
   --hds-stepper-nav-step-title-foreground-color-incomplete: #161616;
   --hds-stepper-nav-step-title-typography-font-weight: 400;
@@ -4732,12 +4693,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     244,
     0.4
   );
-  --hds-form-control-placeholder-foreground-color-disabled: rgba(
-    244,
-    244,
-    244,
-    0.25
-  );
   --hds-form-control-surface-color-disabled: #262626;
   --hds-form-control-surface-color-readonly: rgba(0, 0, 0, 0);
   --hds-form-error-foreground-color: #ff8389;
@@ -4920,7 +4875,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-stepper-nav-progress-bar-top: 0px;
   --hds-stepper-nav-step-description-foreground-color-active: #c6c6c6;
   --hds-stepper-nav-step-description-foreground-color-complete: #c6c6c6;
-  --hds-stepper-nav-step-description-foreground-color-incomplete: #c6c6c6;
   --hds-stepper-nav-step-description-margin-top: 0px;
   --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
   --hds-stepper-nav-step-surface-color-complete-interactive-active: rgba(
@@ -4935,9 +4889,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     0,
     0
   );
-  --hds-stepper-nav-step-title-foreground-color-active-default: #f4f4f4;
   --hds-stepper-nav-step-title-foreground-color-active-interactive: #f4f4f4;
-  --hds-stepper-nav-step-title-foreground-color-complete-default: #f4f4f4;
   --hds-stepper-nav-step-title-foreground-color-complete-interactive: #f4f4f4;
   --hds-stepper-nav-step-title-foreground-color-incomplete: #f4f4f4;
   --hds-stepper-nav-step-title-typography-font-weight: 400;
@@ -5343,6 +5295,9 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-form-control-foreground-color-readonly: var(
     --hds-foreground-color-primary
   );
+  --hds-form-control-placeholder-foreground-color-disabled: var(
+    --hds-foreground-color-disabled
+  );
   --hds-form-control-surface-color-default: var(
     --hds-surface-color-interactive
   );
@@ -5487,6 +5442,15 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   );
   --hds-rich-tooltip-toggle-foreground-color-hover: var(
     --hds-foreground-color-primary
+  );
+  --hds-stepper-nav-step-description-foreground-color-incomplete: var(
+    --hds-foreground-color-faint
+  );
+  --hds-stepper-nav-step-title-foreground-color-active-default: var(
+    --hds-foreground-color-strong
+  );
+  --hds-stepper-nav-step-title-foreground-color-complete-default: var(
+    --hds-foreground-color-strong
   );
   --hds-stepper-task-indicator-icon-size: 12px;
   --hds-stepper-task-indicator-size: 16px;

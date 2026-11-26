@@ -21,14 +21,7 @@
               "complete": {
                 "default": {
                   "$type": "color",
-                  "$value": "{foreground.color.strong}",
-                  "$modes": {
-                    "default": "{foreground.color.strong}",
-                    "cds-g0": "{carbon.themes.white.textPrimary}",
-                    "cds-g10": "{carbon.themes.g10.textPrimary}",
-                    "cds-g90": "{carbon.themes.g90.textPrimary}",
-                    "cds-g100": "{carbon.themes.g100.textPrimary}"
-                  }
+                  "$value": "{foreground.color.strong}"
                 },
                 "interactive": {
                   "$type": "color",
@@ -45,14 +38,7 @@
               "active": {
                 "default": {
                   "$type": "color",
-                  "$value": "{foreground.color.strong}",
-                  "$modes": {
-                    "default": "{foreground.color.strong}",
-                    "cds-g0": "{carbon.themes.white.textPrimary}",
-                    "cds-g10": "{carbon.themes.g10.textPrimary}",
-                    "cds-g90": "{carbon.themes.g90.textPrimary}",
-                    "cds-g100": "{carbon.themes.g100.textPrimary}"
-                  }
+                  "$value": "{foreground.color.strong}"
                 },
                 "interactive": {
                   "$type": "color",
@@ -146,14 +132,7 @@
               },
               "incomplete": {
                 "$type": "color",
-                "$value": "{foreground.color.faint}",
-                "$modes": {
-                  "default": "{foreground.color.faint}",
-                  "cds-g0": "{carbon.themes.white.textSecondary}",
-                  "cds-g10": "{carbon.themes.g10.textSecondary}",
-                  "cds-g90": "{carbon.themes.g90.textSecondary}",
-                  "cds-g100": "{carbon.themes.g100.textSecondary}"
-                }
+                "$value": "{foreground.color.faint}"
               }
             }
           }
