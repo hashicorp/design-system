@@ -11,7 +11,7 @@ import { saveCarbonDtcgTokensAsJsonFile } from './saveCarbonDtcgTokensAsJsonFile
 type CarbonStyle = {
   fontFamily?: string;
   fontSize: string;
-  fontWeight: number;
+  fontWeight?: number;
   lineHeight: number;
   letterSpacing: string | number;
   breakpoints?: Record<string, unknown>;
