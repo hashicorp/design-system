@@ -9,14 +9,14 @@
               "-apple-system",
               "BlinkMacSystemFont"
             ],
-            "private": "true"
+            "private": true
           },
           "windows": {
             "$type": "font-family",
             "$value": [
               "Segoe UI"
             ],
-            "private": "true"
+            "private": true
           },
           "sans": {
             "$type": "font-family",
@@ -25,7 +25,7 @@
               "Arial",
               "sans-serif"
             ],
-            "private": "true"
+            "private": true
           },
           "emoji": {
             "$type": "font-family",
@@ -34,7 +34,7 @@
               "Segoe UI Emoji",
               "Segoe UI Symbol"
             ],
-            "private": "true"
+            "private": true
           },
           "combined": {
             "$type": "font-family",
@@ -44,7 +44,7 @@
               "{typography.font-stack.sans.display.sans}",
               "{typography.font-stack.sans.display.emoji}"
             ],
-            "private": "true"
+            "private": true
           }
         },
         "text": {
@@ -54,14 +54,14 @@
               "-apple-system",
               "BlinkMacSystemFont"
             ],
-            "private": "true"
+            "private": true
           },
           "windows": {
             "$type": "font-family",
             "$value": [
               "Segoe UI"
             ],
-            "private": "true"
+            "private": true
           },
           "sans": {
             "$type": "font-family",
@@ -70,7 +70,7 @@
               "Arial",
               "sans-serif"
             ],
-            "private": "true"
+            "private": true
           },
           "emoji": {
             "$type": "font-family",
@@ -79,7 +79,7 @@
               "Segoe UI Emoji",
               "Segoe UI Symbol"
             ],
-            "private": "true"
+            "private": true
           },
           "combined": {
             "$type": "font-family",
@@ -89,7 +89,7 @@
               "{typography.font-stack.sans.text.sans}",
               "{typography.font-stack.sans.text.emoji}"
             ],
-            "private": "true"
+            "private": true
           }
         }
       },
@@ -101,14 +101,14 @@
               "ui-monospace",
               "Menlo"
             ],
-            "private": "true"
+            "private": true
           },
           "windows": {
             "$type": "font-family",
             "$value": [
               "Consolas"
             ],
-            "private": "true"
+            "private": true
           },
           "combined": {
             "$type": "font-family",
@@ -117,7 +117,7 @@
               "{typography.font-stack.monospace.code.windows}",
               "monospace"
             ],
-            "private": "true"
+            "private": true
           }
         }
       },

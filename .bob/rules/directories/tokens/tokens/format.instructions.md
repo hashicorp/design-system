@@ -58,7 +58,7 @@ These are all properties currently present on hand-authored token objects. Prope
 | `comments` | Description map using `hds` and/or `cds` keys, not individual mode names. Non-default builds select `cds` only when the token has `$modes`; otherwise they select `hds`. Missing entries leave `comment` unchanged. |
 | `$deprecated` | Standard DTCG deprecation property. Helios uses `true` and keeps replacement guidance in `comment`. Deprecated tokens are still published. |
 | `group` | Optional classification string such as `core`, `semantic`, `branding`, or `components`. This leaf-token metadata does not contribute to the public name and has no custom product-build filtering behavior. |
-| `private` | Marks implementation-only tokens. The output filter excludes any truthy value; existing files include boolean `true` and legacy string `"true"`. Use a boolean for new flags; string `"false"` would also be truthy and exclude the token. |
+| `private` | Optional boolean. Set to `true` to exclude an implementation-only token from published outputs. Omit it for public tokens. |
 
 Distinguish metadata on a token from ordinary grouping keys: `form.group.control-field.margin.top`, for example, contains a nested group named `group`, not the classification metadata above. Put `comments` on token objects; the preprocessor warns about and ignores `comments` on parent groups.
 
