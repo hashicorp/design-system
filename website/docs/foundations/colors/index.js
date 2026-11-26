@@ -29,7 +29,7 @@ export default class Colors extends Component {
     };
 
     TOKENS_RAW.forEach((token) => {
-      if (token.$type === 'color' && COLOR_TOKEN_CATEGORIES.includes(token.attributes.category) && !token.deprecated) {
+      if (token.$type === 'color' && COLOR_TOKEN_CATEGORIES.includes(token.attributes.category) && !token.$deprecated) {
         if (token.group) {
           if (token.group === 'core') {
             // notice: we expect the color name to always follow a specific naming pattern (eg. 'blue-200')
