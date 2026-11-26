@@ -41,7 +41,6 @@
         "font-size": {
           "$type": "font-size",
           "$value": "{typography.body-100.font-size}",
-          "unit": "px",
           "$modes": {
             "default": "{typography.body-100.font-size}",
             "cds-g0": "{carbon.typography.helperText01.font-size}",
@@ -101,7 +100,6 @@
         "font-size": {
           "$type": "font-size",
           "$value": "{typography.body-200.font-size}",
-          "unit": "px",
           "$modes": {
             "default": "{typography.body-200.font-size}",
             "cds-g0": "{carbon.typography.label01.font-size}",
@@ -138,7 +136,6 @@
           "font-size": {
             "$type": "font-size",
             "$value": "{typography.body-200.font-size}",
-            "unit": "px",
             "$modes": {
               "default": "{typography.body-200.font-size}",
               "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
@@ -180,7 +177,6 @@
         "font-size": {
           "$type": "font-size",
           "$value": "{typography.body-200.font-size}",
-          "unit": "px",
           "$modes": {
             "default": "{typography.body-200.font-size}",
             "cds-g0": "{carbon.typography.label01.font-size}",
@@ -232,7 +228,6 @@
         "font-size": {
           "$type": "font-size",
           "$value": "{typography.body-100.font-size}",
-          "unit": "px",
           "$modes": {
             "default": "{typography.body-100.font-size}",
             "cds-g0": "{carbon.typography.helperText01.font-size}",
@@ -259,7 +254,6 @@
         "font-size": {
           "$type": "font-size",
           "$value": "{typography.body-100.font-size}",
-          "unit": "px",
           "$modes": {
             "default": "{typography.body-100.font-size}",
             "cds-g0": "{carbon.typography.label01.font-size}",
@@ -330,7 +324,6 @@
         "font-size": {
           "$type": "font-size",
           "$value": "{typography.body-100.font-size}",
-          "unit": "px",
           "$modes": {
             "default": "{typography.body-100.font-size}",
             "cds-g0": "{carbon.typography.helperText01.font-size}",

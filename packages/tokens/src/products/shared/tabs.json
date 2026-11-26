@@ -28,8 +28,7 @@
         },
         "radius": {
           "$type": "dimension",
-          "$value": "{border.radius.small}",
-          "unit": "px"
+          "$value": "{border.radius.small}"
         }
       },
       "height": {

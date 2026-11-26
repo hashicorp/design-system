@@ -190,7 +190,6 @@
           "font-size": {
             "$type": "font-size",
             "$value": "{typography.body-100.font-size}",
-            "unit": "px",
             "$modes": {
               "default": "{typography.body-100.font-size}",
               "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
