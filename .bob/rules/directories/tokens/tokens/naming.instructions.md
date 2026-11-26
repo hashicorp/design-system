@@ -13,6 +13,8 @@ Semantic:  [prefix]-[semantic]-[property]-[sub-property?]-[modifier?]
 Component: [prefix]-[component]-[semantic?]-[property]-[sub-property?]-[modifier?]
 ```
 
+For core palette colors, `core-color` is a single property block. For example, `core.color.blue-500` generates `--hds-core-color-blue-500`, where `hds` is the prefix, `core-color` is the property, and `blue-500` is the modifier.
+
 | Block | Purpose | Examples |
 | --- | --- | --- |
 | Prefix | Avoid collisions with other systems. Always `hds`. | `hds` |
