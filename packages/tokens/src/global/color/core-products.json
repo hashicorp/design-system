@@ -365,97 +365,97 @@
       },
       "vault-secrets-brand": {
         "$type": "color",
-        "$value": "#ffcf25",
+        "$value": "{core.color.vault-brand}",
         "group": "core",
         "private": true
       },
       "vault-secrets-600": {
         "$type": "color",
-        "$value": "#8b6400",
+        "$value": "{core.color.vault-600}",
         "group": "core",
         "private": true
       },
       "vault-secrets-500": {
         "$type": "color",
-        "$value": "#9a6f00",
+        "$value": "{core.color.vault-500}",
         "group": "core",
         "private": true
       },
       "vault-secrets-400": {
         "$type": "color",
-        "$value": "#bb8e1a",
+        "$value": "{core.color.vault-400}",
         "group": "core",
         "private": true
       },
       "vault-secrets-300": {
         "$type": "color",
-        "$value": "#f5d712",
+        "$value": "{core.color.vault-300}",
         "group": "core",
         "private": true
       },
       "vault-secrets-200": {
         "$type": "color",
-        "$value": "#ffe543",
+        "$value": "{core.color.vault-200}",
         "group": "core",
         "private": true
       },
       "vault-secrets-100": {
         "$type": "color",
-        "$value": "#feec7b",
+        "$value": "{core.color.vault-100}",
         "group": "core",
         "private": true
       },
       "vault-secrets-50": {
         "$type": "color",
-        "$value": "#fff9cf",
+        "$value": "{core.color.vault-50}",
         "group": "core",
         "private": true
       },
       "vault-radar-brand": {
         "$type": "color",
-        "$value": "#ffcf25",
+        "$value": "{core.color.vault-brand}",
         "group": "core",
         "private": true
       },
       "vault-radar-600": {
         "$type": "color",
-        "$value": "#8b6400",
+        "$value": "{core.color.vault-600}",
         "group": "core",
         "private": true
       },
       "vault-radar-500": {
         "$type": "color",
-        "$value": "#9a6f00",
+        "$value": "{core.color.vault-500}",
         "group": "core",
         "private": true
       },
       "vault-radar-400": {
         "$type": "color",
-        "$value": "#bb8e1a",
+        "$value": "{core.color.vault-400}",
         "group": "core",
         "private": true
       },
       "vault-radar-300": {
         "$type": "color",
-        "$value": "#f5d712",
+        "$value": "{core.color.vault-300}",
         "group": "core",
         "private": true
       },
       "vault-radar-200": {
         "$type": "color",
-        "$value": "#ffe543",
+        "$value": "{core.color.vault-200}",
         "group": "core",
         "private": true
       },
       "vault-radar-100": {
         "$type": "color",
-        "$value": "#feec7b",
+        "$value": "{core.color.vault-100}",
         "group": "core",
         "private": true
       },
       "vault-radar-50": {
         "$type": "color",
-        "$value": "#fff9cf",
+        "$value": "{core.color.vault-50}",
         "group": "core",
         "private": true
       },
