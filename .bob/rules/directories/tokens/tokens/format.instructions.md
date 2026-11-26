@@ -112,6 +112,7 @@ Aliases can inherit theme-dependent values through reference chains without decl
 
 - Hex codes should be lowercase.
 - Literal numeric font-size and letter-spacing values should use a "px" unit; pure aliases do not require a local unit.
+  - Some `cds-*` values use `rem` instead of `px` to match the exact value in the Carbon component's styles. This is a decision taken case by case (depends on the component and the context).
 - Literal numeric duration values should use a "s" unit; pure aliases do not require a local unit.
 - Durations should include a leading zero for values less than one.
 - `transparent` should be used instead of hex codes or rgba values for fully transparent colors.
