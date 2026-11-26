@@ -547,7 +547,6 @@
       "radius": {
         "$type": "dimension",
         "$value": "{border.radius.small}",
-        "unit": "px",
         "$modes": {
           "default": "{border.radius.small}",
           "cds-g0": "{border.radius.rounded}",

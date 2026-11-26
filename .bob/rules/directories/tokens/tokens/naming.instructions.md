@@ -13,6 +13,8 @@ Semantic:  [prefix]-[semantic]-[property]-[sub-property?]-[modifier?]
 Component: [prefix]-[component]-[semantic?]-[property]-[sub-property?]-[modifier?]
 ```
 
+For core palette colors, `core-color` is a single property block. For example, `core.color.blue-500` generates `--hds-core-color-blue-500`, where `hds` is the prefix, `core-color` is the property, and `blue-500` is the modifier.
+
 | Block | Purpose | Examples |
 | --- | --- | --- |
 | Prefix | Avoid collisions with other systems. Always `hds`. | `hds` |
@@ -23,6 +25,8 @@ Component: [prefix]-[component]-[semantic?]-[property]-[sub-property?]-[modifier
 | Modifier | Attribute of the object such as variant, state, scale, or mode. | `neutral`, `critical`, `hover`, `small`, `checked-disabled` |
 
 Use lowercase with hyphens between blocks, including within multiword blocks: `advanced-table`, not `advancedTable` or `advanced_table`. Do not add a component block to an unrelated global token or use a semantic role outside its intended context.
+
+Exception: preserve the platform spelling `macOS` in private font-stack keys and their aliases, for example `{typography.font-stack.sans.display.macOS}`.
 
 Component and modifier blocks can be stacked. Preserve their meaningful order, for example `app-header-home-link-application-title`, `form-control-boolean`, `checked-focus`, and `unchecked-disabled`.
 

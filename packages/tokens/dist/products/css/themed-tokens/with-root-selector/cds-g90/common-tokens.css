@@ -106,6 +106,7 @@
   --hds-form-control-foreground-color-default: var(--hds-foreground-color-strong);
   --hds-form-control-foreground-color-disabled: var(--hds-foreground-color-disabled);
   --hds-form-control-foreground-color-readonly: var(--hds-foreground-color-primary);
+  --hds-form-control-placeholder-foreground-color-disabled: var(--hds-foreground-color-disabled);
   --hds-form-control-surface-color-default: var(--hds-surface-color-interactive);
   --hds-form-error-color: var(--hds-core-color-red-300); /** deprecated: use `hds-form-error-foreground-color` instead */
   --hds-form-error-icon-size: 14px;
@@ -114,6 +115,7 @@
   --hds-form-label-color: var(--hds-foreground-color-strong); /** deprecated: use `hds-form-label-foreground-color` instead */
   --hds-form-legend-color: var(--hds-form-label-color); /** deprecated: use `hds-form-legend-foreground-color` instead */
   --hds-form-radio-background-image-size: var(--hds-form-radio-size);
+  --hds-form-radio-border-color-checked-disabled: var(--hds-form-control-boolean-border-color-checked-disabled);
   --hds-form-radio-border-width: 1px;
   --hds-form-radio-card-border-width: 1px;
   --hds-form-radio-card-control-size: 16px; /** This is the actual radio button control */
@@ -224,6 +226,9 @@
   --hds-product-waypoint-surface-color: #e0fcff;
   --hds-rich-tooltip-toggle-foreground-color-active: var(--hds-foreground-color-faint);
   --hds-rich-tooltip-toggle-foreground-color-hover: var(--hds-foreground-color-primary);
+  --hds-stepper-nav-step-description-foreground-color-incomplete: var(--hds-foreground-color-faint);
+  --hds-stepper-nav-step-title-foreground-color-active-default: var(--hds-foreground-color-strong);
+  --hds-stepper-nav-step-title-foreground-color-complete-default: var(--hds-foreground-color-strong);
   --hds-stepper-task-indicator-icon-size: 12px;
   --hds-stepper-task-indicator-size: 16px;
   --hds-table-cell-foreground-color-hover: var(--hds-foreground-color-primary);

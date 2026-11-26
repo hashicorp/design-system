@@ -50,7 +50,7 @@ export interface DocTokensListItemSignature {
         $modes?: Record<string, string | number | Record<string, unknown>>;
         comments?: Record<string, string>;
       };
-      deprecated?: boolean;
+      $deprecated?: boolean;
       comment?: string;
     };
   };
@@ -66,7 +66,7 @@ export default class DocTokensListItem extends Component<DocTokensListItemSignat
       name: token.name,
       type: token.$type,
       value: token.$value.toString(),
-      deprecated: token.deprecated,
+      deprecated: token.$deprecated,
     };
     // standard alias
     if (

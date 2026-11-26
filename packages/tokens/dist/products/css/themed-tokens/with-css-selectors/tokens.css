@@ -560,12 +560,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     22,
     0.4
   );
-  --hds-form-control-placeholder-foreground-color-disabled: rgba(
-    22,
-    22,
-    22,
-    0.25
-  );
   --hds-form-control-surface-color-disabled: #f4f4f4;
   --hds-form-control-surface-color-readonly: rgba(0, 0, 0, 0);
   --hds-form-error-foreground-color: #da1e28;
@@ -599,7 +593,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-legend-typography-line-height: 1.33333;
   --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%23C5C5C5' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
   --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23161616' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
-  --hds-form-radio-border-color-checked-disabled: rgba(22, 22, 22, 0.25);
   --hds-form-radio-card-border-color-checked-default: #161616;
   --hds-form-radio-card-border-color-checked-hover: #161616;
   --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
@@ -746,7 +739,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-stepper-nav-progress-bar-top: 0px;
   --hds-stepper-nav-step-description-foreground-color-active: #525252;
   --hds-stepper-nav-step-description-foreground-color-complete: #525252;
-  --hds-stepper-nav-step-description-foreground-color-incomplete: #525252;
   --hds-stepper-nav-step-description-margin-top: 0px;
   --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
   --hds-stepper-nav-step-surface-color-complete-interactive-active: rgba(
@@ -761,9 +753,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     0,
     0
   );
-  --hds-stepper-nav-step-title-foreground-color-active-default: #161616;
   --hds-stepper-nav-step-title-foreground-color-active-interactive: #161616;
-  --hds-stepper-nav-step-title-foreground-color-complete-default: #161616;
   --hds-stepper-nav-step-title-foreground-color-complete-interactive: #161616;
   --hds-stepper-nav-step-title-foreground-color-incomplete: #161616;
   --hds-stepper-nav-step-title-typography-font-weight: 400;
@@ -1470,12 +1460,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
       22,
       0.4
     );
-    --hds-form-control-placeholder-foreground-color-disabled: rgba(
-      22,
-      22,
-      22,
-      0.25
-    );
     --hds-form-control-surface-color-disabled: #f4f4f4;
     --hds-form-control-surface-color-readonly: rgba(0, 0, 0, 0);
     --hds-form-error-foreground-color: #da1e28;
@@ -1509,7 +1493,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-legend-typography-line-height: 1.33333;
     --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%23C5C5C5' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
     --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23161616' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
-    --hds-form-radio-border-color-checked-disabled: rgba(22, 22, 22, 0.25);
     --hds-form-radio-card-border-color-checked-default: #161616;
     --hds-form-radio-card-border-color-checked-hover: #161616;
     --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
@@ -1666,7 +1649,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-stepper-nav-progress-bar-top: 0px;
     --hds-stepper-nav-step-description-foreground-color-active: #525252;
     --hds-stepper-nav-step-description-foreground-color-complete: #525252;
-    --hds-stepper-nav-step-description-foreground-color-incomplete: #525252;
     --hds-stepper-nav-step-description-margin-top: 0px;
     --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
     --hds-stepper-nav-step-surface-color-complete-interactive-active: rgba(
@@ -1681,9 +1663,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
       0,
       0
     );
-    --hds-stepper-nav-step-title-foreground-color-active-default: #161616;
     --hds-stepper-nav-step-title-foreground-color-active-interactive: #161616;
-    --hds-stepper-nav-step-title-foreground-color-complete-default: #161616;
     --hds-stepper-nav-step-title-foreground-color-complete-interactive: #161616;
     --hds-stepper-nav-step-title-foreground-color-incomplete: #161616;
     --hds-stepper-nav-step-title-typography-font-weight: 400;
@@ -2411,12 +2391,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
       244,
       0.4
     );
-    --hds-form-control-placeholder-foreground-color-disabled: rgba(
-      244,
-      244,
-      244,
-      0.25
-    );
     --hds-form-control-surface-color-disabled: #262626;
     --hds-form-control-surface-color-readonly: rgba(0, 0, 0, 0);
     --hds-form-error-foreground-color: #ff8389;
@@ -2450,7 +2424,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-legend-typography-line-height: 1.33333;
     --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%234d4d4d' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
     --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23ffffff' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
-    --hds-form-radio-border-color-checked-disabled: rgba(244, 244, 244, 0.25);
     --hds-form-radio-card-border-color-checked-default: #f4f4f4;
     --hds-form-radio-card-border-color-checked-hover: #f4f4f4;
     --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
@@ -2614,7 +2587,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-stepper-nav-progress-bar-top: 0px;
     --hds-stepper-nav-step-description-foreground-color-active: #c6c6c6;
     --hds-stepper-nav-step-description-foreground-color-complete: #c6c6c6;
-    --hds-stepper-nav-step-description-foreground-color-incomplete: #c6c6c6;
     --hds-stepper-nav-step-description-margin-top: 0px;
     --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
     --hds-stepper-nav-step-surface-color-complete-interactive-active: rgba(
@@ -2629,9 +2601,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
       0,
       0
     );
-    --hds-stepper-nav-step-title-foreground-color-active-default: #f4f4f4;
     --hds-stepper-nav-step-title-foreground-color-active-interactive: #f4f4f4;
-    --hds-stepper-nav-step-title-foreground-color-complete-default: #f4f4f4;
     --hds-stepper-nav-step-title-foreground-color-complete-interactive: #f4f4f4;
     --hds-stepper-nav-step-title-foreground-color-incomplete: #f4f4f4;
     --hds-stepper-nav-step-title-typography-font-weight: 400;
@@ -3327,12 +3297,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     22,
     0.4
   );
-  --hds-form-control-placeholder-foreground-color-disabled: rgba(
-    22,
-    22,
-    22,
-    0.25
-  );
   --hds-form-control-surface-color-disabled: #f4f4f4;
   --hds-form-control-surface-color-readonly: rgba(0, 0, 0, 0);
   --hds-form-error-foreground-color: #da1e28;
@@ -3366,7 +3330,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-legend-typography-line-height: 1.33333;
   --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%23C5C5C5' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
   --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23161616' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
-  --hds-form-radio-border-color-checked-disabled: rgba(22, 22, 22, 0.25);
   --hds-form-radio-card-border-color-checked-default: #161616;
   --hds-form-radio-card-border-color-checked-hover: #161616;
   --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
@@ -3513,7 +3476,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-stepper-nav-progress-bar-top: 0px;
   --hds-stepper-nav-step-description-foreground-color-active: #525252;
   --hds-stepper-nav-step-description-foreground-color-complete: #525252;
-  --hds-stepper-nav-step-description-foreground-color-incomplete: #525252;
   --hds-stepper-nav-step-description-margin-top: 0px;
   --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
   --hds-stepper-nav-step-surface-color-complete-interactive-active: rgba(
@@ -3528,9 +3490,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     0,
     0
   );
-  --hds-stepper-nav-step-title-foreground-color-active-default: #161616;
   --hds-stepper-nav-step-title-foreground-color-active-interactive: #161616;
-  --hds-stepper-nav-step-title-foreground-color-complete-default: #161616;
   --hds-stepper-nav-step-title-foreground-color-complete-interactive: #161616;
   --hds-stepper-nav-step-title-foreground-color-incomplete: #161616;
   --hds-stepper-nav-step-title-typography-font-weight: 400;
@@ -4245,12 +4205,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     244,
     0.4
   );
-  --hds-form-control-placeholder-foreground-color-disabled: rgba(
-    244,
-    244,
-    244,
-    0.25
-  );
   --hds-form-control-surface-color-disabled: #262626;
   --hds-form-control-surface-color-readonly: rgba(0, 0, 0, 0);
   --hds-form-error-foreground-color: #ff8389;
@@ -4284,7 +4238,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-legend-typography-line-height: 1.33333;
   --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%234d4d4d' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
   --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23ffffff' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
-  --hds-form-radio-border-color-checked-disabled: rgba(244, 244, 244, 0.25);
   --hds-form-radio-card-border-color-checked-default: #f4f4f4;
   --hds-form-radio-card-border-color-checked-hover: #f4f4f4;
   --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
@@ -4433,7 +4386,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-stepper-nav-progress-bar-top: 0px;
   --hds-stepper-nav-step-description-foreground-color-active: #c6c6c6;
   --hds-stepper-nav-step-description-foreground-color-complete: #c6c6c6;
-  --hds-stepper-nav-step-description-foreground-color-incomplete: #c6c6c6;
   --hds-stepper-nav-step-description-margin-top: 0px;
   --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
   --hds-stepper-nav-step-surface-color-complete-interactive-active: rgba(
@@ -4448,9 +4400,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     0,
     0
   );
-  --hds-stepper-nav-step-title-foreground-color-active-default: #f4f4f4;
   --hds-stepper-nav-step-title-foreground-color-active-interactive: #f4f4f4;
-  --hds-stepper-nav-step-title-foreground-color-complete-default: #f4f4f4;
   --hds-stepper-nav-step-title-foreground-color-complete-interactive: #f4f4f4;
   --hds-stepper-nav-step-title-foreground-color-incomplete: #f4f4f4;
   --hds-stepper-nav-step-title-typography-font-weight: 400;
@@ -4855,6 +4805,9 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-form-control-foreground-color-readonly: var(
     --hds-foreground-color-primary
   );
+  --hds-form-control-placeholder-foreground-color-disabled: var(
+    --hds-foreground-color-disabled
+  );
   --hds-form-control-surface-color-default: var(
     --hds-surface-color-interactive
   );
@@ -4875,6 +4828,9 @@ we redeclare each "computed" variable in every theme scope where its "source" va
     --hds-form-label-color
   ); /** deprecated: use `hds-form-legend-foreground-color` instead */
   --hds-form-radio-background-image-size: var(--hds-form-radio-size);
+  --hds-form-radio-border-color-checked-disabled: var(
+    --hds-form-control-boolean-border-color-checked-disabled
+  );
   --hds-form-radio-border-width: 1px;
   --hds-form-radio-card-border-width: 1px;
   --hds-form-radio-card-control-size: 16px; /** This is the actual radio button control */
@@ -4999,6 +4955,15 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   );
   --hds-rich-tooltip-toggle-foreground-color-hover: var(
     --hds-foreground-color-primary
+  );
+  --hds-stepper-nav-step-description-foreground-color-incomplete: var(
+    --hds-foreground-color-faint
+  );
+  --hds-stepper-nav-step-title-foreground-color-active-default: var(
+    --hds-foreground-color-strong
+  );
+  --hds-stepper-nav-step-title-foreground-color-complete-default: var(
+    --hds-foreground-color-strong
   );
   --hds-stepper-task-indicator-icon-size: 12px;
   --hds-stepper-task-indicator-size: 16px;
