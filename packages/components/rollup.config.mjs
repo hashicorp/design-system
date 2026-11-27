@@ -73,11 +73,16 @@ const plugins = [
     [
       'components/**/!(*types).js',
       'helpers/**/*.js',
-      'modifiers/**/*.js',
+      'modifiers/*.js',
       'services/**/!(*types).js',
       'instance-initializers/**/*.js',
     ],
     {
+      // helper modules that live next to components, not components
+      exclude: [
+        'components/hds/advanced-table/utils.js',
+        'components/hds/composite/navigation.js',
+      ],
       mapFilename: (filename) => {
         if (filename.endsWith('/index.js')) {
           return path.dirname(filename) + '.js';
